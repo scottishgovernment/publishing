@@ -13,26 +13,38 @@
   <description>Digital Publishing Site Webapp</description>
 
   <dependencies>
+
     <dependency>
       <groupId>scot.mygov.publishing</groupId>
       <artifactId>publishing-repository-data-site</artifactId>
       <version>${project.version}</version>
     </dependency>
+
     <dependency>
       <groupId>scot.mygov.publishing</groupId>
       <artifactId>publishing-repository-data-webfiles</artifactId>
       <version>${project.version}</version>
     </dependency>
+
     <dependency>
       <groupId>scot.mygov.publishing</groupId>
       <artifactId>publishing-components</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
+
     <dependency>
       <groupId>org.onehippo.cms7.hst.toolkit-resources.addon</groupId>
       <artifactId>hst-addon-hcm-site</artifactId>
       <version>${hippo.hst.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
   <build>

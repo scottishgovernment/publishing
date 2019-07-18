@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>scot.mygov.publishing</groupId>
+    <artifactId>publishing</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>publishing-platform</artifactId>
+  <packaging>war</packaging>
+
+  <name>Digital Publishing Platform Web Application</name>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-package-platform-dependencies</artifactId>
+      <type>pom</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.jackrabbit</groupId>
+      <artifactId>jackrabbit-aws-ext</artifactId>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+
+    <finalName>platform</finalName>
+
+    <resources>
+       <resource>
+         <directory>src/main/webapp</directory>
+         <filtering>false</filtering>
+         <includes>
+            <include>WEB-INF/web.xml</include>
+         </includes>
+       </resource>
+     </resources>
+  </build>
+
+</project>

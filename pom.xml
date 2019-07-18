@@ -15,48 +15,49 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <!-- 
-    The below project elements are emptied/overridden as otherwise their metadata would be
-    inherited or merged from the parent hippo-cms7-release pom (or its hippo-cms7-project pom).
+  <url>http://www.mygov.scot</url>
 
-    DO NOT remove these tags but instead fill them in appropriately as needed, 
-    UNLESS the inherited values are valid for your project.
-  -->
-  <url/>
-  <inceptionYear/>
-  <organization/>
+  <prerequisites>
+    <maven>3.2.1</maven>
+  </prerequisites>
+
+  <organization>
+    <name>mygov.scot</name>
+    <url>https://mygov.scot/</url>
+  </organization>
+
   <licenses>
-    <license/>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
+      <comments>Crown Copyright</comments>
+    </license>
   </licenses>
-  <mailingLists>
-    <mailingList/>
-  </mailingLists>
-  <developers>
-    <developer/>
-  </developers>
-  <contributors>
-    <contributor/>
-  </contributors>
+
+  <mailingLists/>
+  <developers/>
+  <contributors/>
   <issueManagement/>
-  <!--
-  <scm>
-    <connection/>
-    <developerConnection/>
-    <url/>
-  </scm>
-  -->
   <ciManagement/>
+
+  <scm>
+    <connection>scm:git:ssh://git@stash.digital.gov.uk:7999/mgv/publishing.git</connection>
+    <url>http://stash.digital.gov.uk/projects/MGV/repos/publishing/</url>
+  </scm>
+
   <distributionManagement>
     <repository>
-      <id>-</id>
-      <url>-</url>
+      <id>release</id>
+      <name>Internal Releases</name>
+      <url>http://nexus/repository/releases/</url>
     </repository>
     <snapshotRepository>
-      <id>-</id>
-      <url>-</url>
+      <id>snapshots</id>
+      <name>Internal Snapshots</name>
+      <url>http://nexus/repository/snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
-  <!-- End of emptied/overridden metadata from parent hippo-cms7-release pom. -->
 
   <properties>
 
@@ -69,25 +70,38 @@
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
 
-    <hippo.cms.locales>nl,de,fr,es,zh</hippo.cms.locales>
+    <hippo.cms.locales/>
     <buildNumber>${maven.build.timestamp}</buildNumber>
+
+    <index.configuration>cms/src/main/resources/org/hippoecm/repository/query/lucene/indexing_configuration.xml</index.configuration>
   </properties>
 
-  <repositories>
-    <repository>
-      <id>hippo</id>
-      <name>Hippo maven 2 repository.</name>
-      <url>https://maven.onehippo.com/maven2/</url>
-    </repository>
-  </repositories>
-
   <dependencyManagement>
+
     <dependencies>
       <dependency>
         <groupId>javax.servlet.jsp</groupId>
         <artifactId>jsp-api</artifactId>
         <version>${jsp-api.version}</version>
         <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.jackrabbit</groupId>
+        <artifactId>jackrabbit-aws-ext</artifactId>
+        <version>2.17.1</version>
+        <exclusions>
+          <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-s3</artifactId>
+        <version>1.11.376</version>
       </dependency>
 
       <!-- other predefined runtime scope versioned dependencies -->
@@ -117,8 +131,17 @@
 
   <build>
     <defaultGoal>package</defaultGoal>
+
     <pluginManagement>
       <plugins>
+
+        <plugin>
+          <groupId>org.vafer</groupId>
+          <artifactId>jdeb</artifactId>
+          <version>1.7</version>
+          <extensions>true</extensions>
+        </plugin>
+
         <!--
           This plugin configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.
         -->
@@ -148,7 +171,9 @@
         </plugin>
       </plugins>
     </pluginManagement>
+
     <plugins>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -163,13 +188,23 @@
           </archive>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <inherited>true</inherited>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 
   <profiles>
 
     <profile>
-      <id>default</id>
+      <id>release</id>
       <activation>
         <activeByDefault>true</activeByDefault>
         <property>
@@ -182,6 +217,11 @@
         <module>cms</module>
         <module>site</module>
         <module>essentials</module>
+        <module>platform</module>
+        <module>cms-deb</module>
+        <module>site-deb</module>
+        <module>publishing-libs</module>
+        <module>platform-deb</module>
       </modules>
     </profile>
 
@@ -383,6 +423,7 @@
                   <descriptors>
                     <descriptor>${project.basedir}/src/main/assembly/distribution.xml</descriptor>
                   </descriptors>
+                  <tarLongFileMode>posix</tarLongFileMode>
                 </configuration>
               </execution>
             </executions>

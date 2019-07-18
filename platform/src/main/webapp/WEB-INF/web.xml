@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0"
+         id="cms">
+
+  <display-name>Publishing Platform</display-name>
+  <description>Delivery tier dependencies</description>
+
+  <listener>
+    <listener-class>org.hippoecm.hst.platform.container.HstPlatformContextLoaderListener</listener-class>
+  </listener>
+
+  <context-param>
+    <description>The address of the repository</description>
+    <param-name>repository-address</param-name>
+    <param-value>vm://</param-value>
+  </context-param>
+  <context-param>
+    <description>The (relative) location where to store files</description>
+    <param-name>repository-directory</param-name>
+    <param-value>WEB-INF/storage</param-value>
+  </context-param>
+  <context-param>
+    <description>The location of the repository configuration file. Unless the location
+      starts with file://, the location is retrieved from within the application package as
+      resource.
+    </description>
+    <param-name>repository-config</param-name>
+    <param-value>repository.xml</param-value>
+  </context-param>
+
+  <filter>
+    <filter-name>HstFilter</filter-name>
+    <filter-class>org.hippoecm.hst.container.HstFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>HstFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <servlet>
+    <servlet-name>LoggingServlet</servlet-name>
+    <servlet-class>org.hippoecm.repository.LoggingServlet</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>Repository</servlet-name>
+    <servlet-class>org.hippoecm.repository.RepositoryServlet</servlet-class>
+    <load-on-startup>4</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>PingServlet</servlet-name>
+    <servlet-class>org.hippoecm.repository.PingServlet</servlet-class>
+    <init-param>
+      <param-name>repository-address</param-name>
+      <param-value>vm://</param-value>
+    </init-param>
+    <load-on-startup>5</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>LoggingServlet</servlet-name>
+    <url-pattern>/logging/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Repository</servlet-name>
+    <url-pattern>/repository/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>PingServlet</servlet-name>
+    <url-pattern>/ping/</url-pattern>
+  </servlet-mapping>
+
+  <env-entry>
+    <env-entry-name>logging/contextName</env-entry-name>
+    <env-entry-type>java.lang.String</env-entry-type>
+    <env-entry-value>platform</env-entry-value>
+  </env-entry>
+
+</web-app>

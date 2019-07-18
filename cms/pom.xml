@@ -11,18 +11,31 @@
   <packaging>war</packaging>
   <name>Digital Publishing CMS</name>
   <description>Digital Publishing CMS</description>
+
   <dependencies>
+
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>publishing-cms-dependencies</artifactId>
       <version>${project.version}</version>
       <type>pom</type>
     </dependency>
+
+    <dependency>
+      <groupId>org.apache.jackrabbit</groupId>
+      <artifactId>jackrabbit-aws-ext</artifactId>
+    </dependency>
+
   </dependencies>
+
   <build>
+
     <finalName>cms</finalName>
+
     <plugins>
+
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
           <archive>
@@ -34,6 +47,7 @@
           </archive>
         </configuration>
       </plugin>
+
       <plugin>
         <groupId>org.codehaus.cargo</groupId>
         <artifactId>cargo-maven2-plugin</artifactId>
@@ -50,6 +64,9 @@
         <groupId>org.onehippo.cms.l10n</groupId>
         <artifactId>hippo-cms-l10n-maven-plugin</artifactId>
       </plugin>
+
     </plugins>
+
   </build>
+
 </project>
