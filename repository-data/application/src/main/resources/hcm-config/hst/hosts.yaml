@@ -1,0 +1,191 @@
+definitions:
+  config:
+    /hst:platform/hst:hosts:
+      jcr:primaryType: hst:virtualhosts
+      /lcl:
+        jcr:primaryType: hst:virtualhostgroup
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            /publishing:
+              jcr:primaryType: hst:virtualhost
+              /lcl:
+                jcr:primaryType: hst:virtualhost
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  hst:ismapped: false
+                  hst:namedpipeline: WebApplicationInvokingPipeline
+      /lcl:
+        jcr:primaryType: hst:virtualhostgroup
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            /publishing:
+              jcr:primaryType: hst:virtualhost
+              /lcl:
+                jcr:primaryType: hst:virtualhost
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  hst:ismapped: false
+                  hst:namedpipeline: WebApplicationInvokingPipeline
+      /dev:
+        jcr:primaryType: hst:virtualhostgroup
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            /publishing:
+              jcr:primaryType: hst:virtualhost
+              /dev:
+                jcr:primaryType: hst:virtualhost
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  hst:ismapped: false
+                  hst:namedpipeline: WebApplicationInvokingPipeline
+      /int:
+        jcr:primaryType: hst:virtualhostgroup
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            /publishing:
+              jcr:primaryType: hst:virtualhost
+              /int:
+                jcr:primaryType: hst:virtualhost
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  hst:ismapped: false
+                  hst:namedpipeline: WebApplicationInvokingPipeline
+      /exp:
+        jcr:primaryType: hst:virtualhostgroup
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            /publishing:
+              jcr:primaryType: hst:virtualhost
+              /exp:
+                jcr:primaryType: hst:virtualhost
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  hst:ismapped: false
+                  hst:namedpipeline: WebApplicationInvokingPipeline
+      /uat:
+        jcr:primaryType: hst:virtualhostgroup
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            /publishing:
+              jcr:primaryType: hst:virtualhost
+              /uat:
+                jcr:primaryType: hst:virtualhost
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  hst:ismapped: false
+                  hst:namedpipeline: WebApplicationInvokingPipeline
+      /per:
+        jcr:primaryType: hst:virtualhostgroup
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            /publishing:
+              jcr:primaryType: hst:virtualhost
+              /per:
+                jcr:primaryType: hst:virtualhost
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  hst:ismapped: false
+                  hst:namedpipeline: WebApplicationInvokingPipeline
+      /tst:
+        jcr:primaryType: hst:virtualhostgroup
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            /publishing:
+              jcr:primaryType: hst:virtualhost
+              /tst:
+                jcr:primaryType: hst:virtualhost
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  hst:ismapped: false
+                  hst:namedpipeline: WebApplicationInvokingPipeline
+      /blu:
+        jcr:primaryType: hst:virtualhostgroup
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            /publishing:
+              jcr:primaryType: hst:virtualhost
+              /blue:
+                jcr:primaryType: hst:virtualhost
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  hst:ismapped: false
+                  hst:namedpipeline: WebApplicationInvokingPipeline
+      /grn:
+        jcr:primaryType: hst:virtualhostgroup
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            /publishing:
+              jcr:primaryType: hst:virtualhost
+              /green:
+                jcr:primaryType: hst:virtualhost
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  hst:ismapped: false
+                  hst:namedpipeline: WebApplicationInvokingPipeline
+      /live:
+        jcr:primaryType: hst:virtualhostgroup
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            /publishing:
+              jcr:primaryType: hst:virtualhost
+              /digital:
+                jcr:primaryType: hst:virtualhost
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  hst:ismapped: false
+                  hst:namedpipeline: WebApplicationInvokingPipeline
