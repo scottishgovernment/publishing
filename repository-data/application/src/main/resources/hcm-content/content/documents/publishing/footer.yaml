@@ -1,0 +1,240 @@
+/content/documents/publishing/footer:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+  jcr:uuid: 021deb8b-ec2d-4903-8ef9-9921439c5d99
+  hippostd:foldertype: [new-translated-folder, new-document]
+  hippotranslation:id: 97522a1f-41af-409c-999c-0d752e6921bc
+  hippotranslation:locale: en
+  /two:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippotranslation:translated', 'mix:versionable']
+    jcr:uuid: e3cadefb-5bc2-4acb-befa-a090cee9de8e
+    hippostd:foldertype: [new-translated-folder, new-document]
+    hippotranslation:id: fda7bc85-f33e-4906-bd3c-dd64f8fe1e3a
+    hippotranslation:locale: en
+    /cookies:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 7469537e-6e9d-4210-8467-b28bcb81a41d
+      hippo:name: Cookies
+      hippo:versionHistory: 1f7bfc1c-ce4e-4bad-96d8-1284187e597c
+      /cookies[1]:
+        jcr:primaryType: publishing:PublishingDocument
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 79b62055-9399-4d68-8968-b76052ed1e64
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-08-26T11:49:57.841+01:00
+        hippostdpubwf:lastModificationDate: 2019-08-26T11:49:57.841+01:00
+        hippostdpubwf:lastModifiedBy: system
+        hippotranslation:id: 5191da22-4a1c-4672-9e9a-971da50053df
+        hippotranslation:locale: en
+        publishing:summary: ''
+        publishing:title: Cookies
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |
+            <h2>Why we use cookies</h2>
+            <p>We use tradingnation.mygov.scot cookie tracking data to make informed decisions on whether the site is meeting your needs, which leads to us making improvements. For example, we monitor how much traffic each part of the site gets and work to improve areas which are not being found when they should be.</p>
+            <p>{:.info-note .note}
+            The cookies that we set on tradingnation.mygov.scot cannot be used to identify you personally. <a href="https://ico.org.uk/your-data-matters/online/cookies/">Find out more about how to manage cookies for all websites</a></p>
+            <h2>Cookies that we set</h2>
+            <p>We store information about:</p>
+            <ul>
+            <li>the pages you visit and how long you spend on each page</li>
+            <li>how you got to mygov.scot</li>
+            <li>what you click on while you're visiting mygov.scot</li>
+            </ul>
+            <p>We do not:</p>
+            <ul>
+            <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+            <li>make any attempt to find out the identities of people visiting mygov.scot</li>
+            <li>allow the tools that we use to do this either</li>
+            <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+            </ul>
+            <p>All information we get through cookies and analytics will be treated in confidence.</p>
+            <h3>Google Analytics</h3>
+            <p>We anonymise the last 3 digits of all tradingnation.mygov.scot user IP addresses for Google Analytics, so that we can ensure that you are protected (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>). We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+            <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and privacy in Google Analytics.</a></p>
+            <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google analytics</a> cookies.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Information</th>
+                        <th>Expiry</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>_ga</td>
+                        <td>This is used to understand and differentiate between different users.</td>
+                        <td>38 Months</td>
+                    </tr>
+                    <tr>
+                        <td>_gid</td>
+                        <td>_gid has a different ID for each page set on, and a timestamp.  This assists with plotting user journeys.</td>
+                        <td>24 Hours</td>
+                    </tr>
+                    <tr>
+                        <td>_gat</td>
+                        <td>We use Google Tag Manager to tailor our tracking in case we have different elements that are being tested. For example, setting a tag to track how far a user is having to scroll down a long page. The _gat tag pushes the request rate through quicker.</td>
+                        <td>1 Minute</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>YouTube</h3>
+            <p>Pages on mygov.scot which contain YouTube videos will not set third-party cookies (we use YouTube-nocookie.com — <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+            <h2>Further information</h2>
+            <p>You can email the performance team for further information.</p>
+            <p>Email: <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
+            <p>{:.info-note .note}
+            This is a live document and will continue to be updated on a bi-monthly basis ensuring it complies with industry standards.</p>
+      /cookies[2]:
+        jcr:primaryType: publishing:PublishingDocument
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 410cc140-5259-45aa-8f1b-4dcae2c41ca7
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-08-26T11:49:57.841+01:00
+        hippostdpubwf:lastModificationDate: 2019-08-26T11:49:58.729+01:00
+        hippostdpubwf:lastModifiedBy: system
+        hippotranslation:id: 5191da22-4a1c-4672-9e9a-971da50053df
+        hippotranslation:locale: en
+        publishing:summary: ''
+        publishing:title: Cookies
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |
+            <h2>Why we use cookies</h2>
+            <p>We use tradingnation.mygov.scot cookie tracking data to make informed decisions on whether the site is meeting your needs, which leads to us making improvements. For example, we monitor how much traffic each part of the site gets and work to improve areas which are not being found when they should be.</p>
+            <p>{:.info-note .note}
+            The cookies that we set on tradingnation.mygov.scot cannot be used to identify you personally. <a href="https://ico.org.uk/your-data-matters/online/cookies/">Find out more about how to manage cookies for all websites</a></p>
+            <h2>Cookies that we set</h2>
+            <p>We store information about:</p>
+            <ul>
+            <li>the pages you visit and how long you spend on each page</li>
+            <li>how you got to mygov.scot</li>
+            <li>what you click on while you're visiting mygov.scot</li>
+            </ul>
+            <p>We do not:</p>
+            <ul>
+            <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+            <li>make any attempt to find out the identities of people visiting mygov.scot</li>
+            <li>allow the tools that we use to do this either</li>
+            <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+            </ul>
+            <p>All information we get through cookies and analytics will be treated in confidence.</p>
+            <h3>Google Analytics</h3>
+            <p>We anonymise the last 3 digits of all tradingnation.mygov.scot user IP addresses for Google Analytics, so that we can ensure that you are protected (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>). We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+            <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and privacy in Google Analytics.</a></p>
+            <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google analytics</a> cookies.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Information</th>
+                        <th>Expiry</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>_ga</td>
+                        <td>This is used to understand and differentiate between different users.</td>
+                        <td>38 Months</td>
+                    </tr>
+                    <tr>
+                        <td>_gid</td>
+                        <td>_gid has a different ID for each page set on, and a timestamp.  This assists with plotting user journeys.</td>
+                        <td>24 Hours</td>
+                    </tr>
+                    <tr>
+                        <td>_gat</td>
+                        <td>We use Google Tag Manager to tailor our tracking in case we have different elements that are being tested. For example, setting a tag to track how far a user is having to scroll down a long page. The _gat tag pushes the request rate through quicker.</td>
+                        <td>1 Minute</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>YouTube</h3>
+            <p>Pages on mygov.scot which contain YouTube videos will not set third-party cookies (we use YouTube-nocookie.com — <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+            <h2>Further information</h2>
+            <p>You can email the performance team for further information.</p>
+            <p>Email: <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
+            <p>{:.info-note .note}
+            This is a live document and will continue to be updated on a bi-monthly basis ensuring it complies with industry standards.</p>
+      /cookies[3]:
+        jcr:primaryType: publishing:PublishingDocument
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 0243e040-4128-40cc-8026-7a4595f5050a
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-08-26T11:49:57.841+01:00
+        hippostdpubwf:lastModificationDate: 2019-08-26T11:49:58.729+01:00
+        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:publicationDate: 2019-08-26T11:49:58.975+01:00
+        hippotranslation:id: 5191da22-4a1c-4672-9e9a-971da50053df
+        hippotranslation:locale: en
+        publishing:summary: ''
+        publishing:title: Cookies
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |
+            <h2>Why we use cookies</h2>
+            <p>We use tradingnation.mygov.scot cookie tracking data to make informed decisions on whether the site is meeting your needs, which leads to us making improvements. For example, we monitor how much traffic each part of the site gets and work to improve areas which are not being found when they should be.</p>
+            <p>{:.info-note .note}
+            The cookies that we set on tradingnation.mygov.scot cannot be used to identify you personally. <a href="https://ico.org.uk/your-data-matters/online/cookies/">Find out more about how to manage cookies for all websites</a></p>
+            <h2>Cookies that we set</h2>
+            <p>We store information about:</p>
+            <ul>
+            <li>the pages you visit and how long you spend on each page</li>
+            <li>how you got to mygov.scot</li>
+            <li>what you click on while you're visiting mygov.scot</li>
+            </ul>
+            <p>We do not:</p>
+            <ul>
+            <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+            <li>make any attempt to find out the identities of people visiting mygov.scot</li>
+            <li>allow the tools that we use to do this either</li>
+            <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+            </ul>
+            <p>All information we get through cookies and analytics will be treated in confidence.</p>
+            <h3>Google Analytics</h3>
+            <p>We anonymise the last 3 digits of all tradingnation.mygov.scot user IP addresses for Google Analytics, so that we can ensure that you are protected (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>). We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+            <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and privacy in Google Analytics.</a></p>
+            <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google analytics</a> cookies.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Information</th>
+                        <th>Expiry</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>_ga</td>
+                        <td>This is used to understand and differentiate between different users.</td>
+                        <td>38 Months</td>
+                    </tr>
+                    <tr>
+                        <td>_gid</td>
+                        <td>_gid has a different ID for each page set on, and a timestamp.  This assists with plotting user journeys.</td>
+                        <td>24 Hours</td>
+                    </tr>
+                    <tr>
+                        <td>_gat</td>
+                        <td>We use Google Tag Manager to tailor our tracking in case we have different elements that are being tested. For example, setting a tag to track how far a user is having to scroll down a long page. The _gat tag pushes the request rate through quicker.</td>
+                        <td>1 Minute</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>YouTube</h3>
+            <p>Pages on mygov.scot which contain YouTube videos will not set third-party cookies (we use YouTube-nocookie.com — <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+            <h2>Further information</h2>
+            <p>You can email the performance team for further information.</p>
+            <p>Email: <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
+            <p>{:.info-note .note}
+            This is a live document and will continue to be updated on a bi-monthly basis ensuring it complies with industry standards.</p>
