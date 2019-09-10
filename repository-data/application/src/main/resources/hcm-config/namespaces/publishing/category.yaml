@@ -11,10 +11,52 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: e9047925-3753-430e-b05f-d68d27b54da5
+          jcr:uuid: 2fa5e21c-021e-4153-a82f-96bb4a1f23cf
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /heroimage:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:heroimage
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
+          /dynamicdropdown:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:navigationType
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            hipposysedit:validators: [required]
+          /sequenceable:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:sequenceable
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            hipposysedit:validators: [required]
+          /prologue:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:prologue
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+          /epilogue:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:epilogue
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -28,10 +70,27 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: a4b69756-1c67-4bb1-bfa2-ef4b2f9571f3
+          jcr:uuid: 8a4f0fa0-1f17-4347-9055-afddf44a5c0f
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:59.186+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:59.186+01:00
+          publishing:seoTitle: ''
+          publishing:authorNotes: ''
+          publishing:metaDescription: ''
+          publishing:navigationType: ''
+          publishing:sequenceable: false
           /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:heroimage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /publishing:prologue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:epilogue:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
       /editor:templates:
@@ -54,6 +113,36 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /heroimage:
+            jcr:primaryType: frontend:plugin
+            caption: Hero image
+            field: heroimage
+            hint: Choose an optional hero image for this page
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /navigationType:
+            jcr:primaryType: frontend:plugin
+            caption: Navigation type
+            field: dynamicdropdown
+            hint: Select the type of navigation to use for this page.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/publishing/valuelists/navigationtypes
+          /sequenceable:
+            jcr:primaryType: frontend:plugin
+            caption: Sequencable?
+            field: sequenceable
+            hint: "Should the children of this category been shown as part of a sequence?\
+              \  \r\n\r\nThis controls if previous / next buttons will be shown on\
+              \ children of this category page."
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /summary:
             jcr:primaryType: frontend:plugin
             caption: Summary
@@ -63,12 +152,59 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /content:
+          /prologue:
             jcr:primaryType: frontend:plugin
-            caption: Content
-            field: content
-            hint: The main html content for this item.
+            caption: Prologue
+            field: prologue
+            hint: Enter any content that should appear at the top of the category
+              page.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /epilogue:
+            jcr:primaryType: frontend:plugin
+            caption: Epilogue
+            field: epilogue
+            hint: Enter any content that should appear at the end of the category
+              page.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /seoTitle:
+            jcr:primaryType: frontend:plugin
+            caption: SEO title
+            field: seoTitle
+            hint: Enter the title used by google whilst indexing the content.  
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /metaDescription:
+            jcr:primaryType: frontend:plugin
+            caption: Meta description
+            field: metaDescription
+            hint: Enter the title used by google whilst indexing the content. 
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '255'
+          /tags:
+            jcr:primaryType: frontend:plugin
+            caption: Tags
+            field: tags
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            type: hippostd:taggable
+            wicket.id: ${cluster.id}.field
+          /authorNotes:
+            jcr:primaryType: frontend:plugin
+            caption: Author notes
+            field: authorNotes
+            hint: Enter notes relevant to this content item.This will not appear on
+              the page.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
