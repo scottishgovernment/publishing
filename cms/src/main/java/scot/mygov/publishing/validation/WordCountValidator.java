@@ -44,7 +44,7 @@ public class WordCountValidator implements Validator<String> {
             strValue = config.getProperty(property).getString();
             return Integer.valueOf(strValue);
         } catch (RepositoryException e) {
-            throw new ValidationContextException(String.format("Could not read value of property %s", property));
+            throw new ValidationContextException(String.format("Could not read value of property %s", property), e);
         } catch (NumberFormatException e) {
             throw new ValidationContextException(String.format("Invalid value of property %s (%s)", property, strValue), e);
         }
