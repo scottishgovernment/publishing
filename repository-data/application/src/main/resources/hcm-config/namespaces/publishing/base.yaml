@@ -24,7 +24,7 @@ definitions:
             hipposysedit:path: publishing:summary
             hipposysedit:primary: false
             hipposysedit:type: Text
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required,summary-words-validator]
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -33,7 +33,7 @@ definitions:
             hipposysedit:path: publishing:title
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required,title-words-validator]
           /metaDescription:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -42,7 +42,7 @@ definitions:
             hipposysedit:path: publishing:metaDescription
             hipposysedit:primary: false
             hipposysedit:type: Text
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required,summary-words-validator]
           /seoTitle:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -51,7 +51,7 @@ definitions:
             hipposysedit:path: publishing:seoTitle
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required,title-words-validator]
           /authorNotes:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false

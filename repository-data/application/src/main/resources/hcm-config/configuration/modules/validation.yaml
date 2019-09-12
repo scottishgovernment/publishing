@@ -1,0 +1,13 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/validation/hippo:moduleconfig:
+      /title-words-validator:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.WordCountValidator
+        wordcount.max: '15'
+        wordcount.min: '1'
+      /summary-words-validator:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.WordCountValidator
+        wordcount.max: '50'
+        wordcount.min: '1'
