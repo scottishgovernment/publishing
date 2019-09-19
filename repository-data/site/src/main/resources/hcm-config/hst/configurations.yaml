@@ -5,6 +5,18 @@ definitions:
         jcr:primaryType: hst:configuration
         /hst:sitemap:
           jcr:primaryType: hst:sitemap
+          /_any_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/article
+            hst:relativecontentpath: ${1}
+            /_index_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/category
+              hst:relativecontentpath: ${parent}/index
+          /root:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/home
+            hst:relativecontentpath: index
         /hst:abstractpages:
           jcr:primaryType: hst:pages
         /hst:pages:
@@ -13,6 +25,30 @@ definitions:
           jcr:primaryType: hst:components
         /hst:templates:
           jcr:primaryType: hst:templates
+          /base-layout:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/base-layout.ftl
+          /base-footer:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/base-footer.ftl
+          /base-notifications:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/base-notifications.ftl
+          /base-siteheader:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/base-siteheader.ftl
+          /article-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/article-main.ftl
+          /breadcrumbs:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/breadcrumbs.ftl
+          /category-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/category-main.ftl
+          /home-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/home-main.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

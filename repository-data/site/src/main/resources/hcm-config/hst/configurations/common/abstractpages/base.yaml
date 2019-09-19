@@ -1,0 +1,18 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:abstractpages/base:
+      jcr:primaryType: hst:component
+      hst:template: base-layout
+      hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsContentComponent
+      /notifications:
+        jcr:primaryType: hst:component
+        hst:template: base-notifications
+      /siteheader:
+        jcr:primaryType: hst:component
+        hst:template: base-siteheader
+      /footer:
+        jcr:primaryType: hst:component
+        hst:template: base-footer
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsListComponent
+        hst:parameternames: [path]
+        hst:parametervalues: [footer]

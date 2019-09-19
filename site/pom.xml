@@ -17,4 +17,29 @@
     <module>webapp</module>
   </modules>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.onehippo.forge</groupId>
+      <artifactId>breadcrumb</artifactId>
+      <version>${forge.breadcrumb.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+              <goal>prepare-agent-integration</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>
