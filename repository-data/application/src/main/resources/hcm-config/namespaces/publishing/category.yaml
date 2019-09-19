@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 2fa5e21c-021e-4153-a82f-96bb4a1f23cf
+          jcr:uuid: 2dee4378-bce6-48d9-80bd-146794938562
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -70,7 +70,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 8a4f0fa0-1f17-4347-9055-afddf44a5c0f
+          jcr:uuid: 33ebc0ab-d85b-4d25-8e28-2f66b832f651
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:59.186+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:59.186+01:00
           publishing:seoTitle: ''
@@ -78,6 +78,7 @@ definitions:
           publishing:metaDescription: ''
           publishing:navigationType: ''
           publishing:sequenceable: false
+          publishing:reportingtags: []
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -108,7 +109,10 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Title
             field: title
-            hint: Enter a title for this content item
+            hint: "Enter a title for this page.  This will appear at the top of the\
+              \ page on the live site and will also be used in any links to this page.\
+              \ A title is required for all pages. \r\n\r\nIt must be between 3 and\
+              \ 255 characters."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -117,7 +121,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Hero image
             field: heroimage
-            hint: Choose an optional hero image for this page
+            hint: Add an optional hero image which will appear within the page.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -126,7 +130,10 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Navigation type
             field: dynamicdropdown
-            hint: Select the type of navigation to use for this page.
+            hint: "The type of navigation to use for this page. \r\n\r\nA grid navigation\
+              \ shows all articles in this section in a horizontal grid layout, whilst\
+              \ the list navigation shows all articles in a vertical list format.\
+              \ \r\n\r\nYou must select a navigation type."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -156,8 +163,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Prologue
             field: prologue
-            hint: Enter any content that should appear at the top of the category
-              page.
+            hint: Enter content that will appear at the top of this page, above the
+              main article content. This is optional.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -166,8 +173,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Epilogue
             field: epilogue
-            hint: Enter any content that should appear at the end of the category
-              page.
+            hint: Enter content that will appear at the end of this page, after the
+              main article content. This is optional.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -176,16 +183,20 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: SEO title
             field: seoTitle
-            hint: Enter the title used by google whilst indexing the content.  
+            hint: "This title will be used by search engines when indexing the content\
+              \ to add it to search results. \r\n\r\nIt must be between 3 and 60 characters.\
+              \ You can test yours at: https://moz.com/learn/seo/title-tag"
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: '60'
           /metaDescription:
             jcr:primaryType: frontend:plugin
             caption: Meta description
             field: metaDescription
-            hint: Enter the title used by google whilst indexing the content. 
+            hint: Enter content that will appear at the top of this page, above the
+              main article content. This is optional.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -198,12 +209,26 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             type: hippostd:taggable
             wicket.id: ${cluster.id}.field
+          /reportingtags:
+            jcr:primaryType: frontend:plugin
+            caption: Reporting tags
+            field: reportingtags
+            multiselect.type: palette
+            palette.alloworder: true
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/publishing/valuelists/reportingtags
           /authorNotes:
             jcr:primaryType: frontend:plugin
             caption: Author notes
             field: authorNotes
-            hint: Enter notes relevant to this content item.This will not appear on
-              the page.
+            hint: Enter any notes relevant to this content item.  This will not appear
+              on the page itself.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

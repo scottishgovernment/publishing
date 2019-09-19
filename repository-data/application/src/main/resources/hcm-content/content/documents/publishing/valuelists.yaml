@@ -1,36 +1,37 @@
 /content/documents/publishing/valuelists:
-  .meta:order-before: qqqq
   jcr:primaryType: hippostd:folder
-  jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:referenceable', 'mix:versionable']
-  jcr:uuid: fd33ed57-e43b-4fad-ab15-9c69f61fe8e3
-  hippo:name: valuelists
-  hippostd:foldertype: [new-valuelist]
-  /reportingTags:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
-    jcr:uuid: 9d6080f3-f575-4e75-b124-8801495a7818
-    hippo:name: reportingTags
-    /reportingTags:
-      jcr:primaryType: selection:valuelist
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: dff08868-3eed-4561-b70e-c655b3caa7b4
+  jcr:mixinTypes: ['mix:versionable']
+  jcr:uuid: a7782b12-6563-43e5-b34d-e06c2b8461a6
+  hippostd:foldertype: [new-document, new-folder]
   /navigationtypes:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: ec2333a0-0f18-46a7-9c10-60f4177476db
+    jcr:uuid: d6255b49-edd5-4cdb-a306-47110a0badd8
     hippo:name: navigationTypes
     /navigationtypes:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 039a92a1-8d30-43e7-9ee6-ad14f8471a73
+      jcr:uuid: 46c22dd1-9a5d-4ebf-aadb-56c7a9018adb
       hippo:availability: [live, preview]
-      hippotranslation:id: dbf6c462-a231-4bb4-a79a-ab58e0d5a4e7
+      hippotranslation:id: 4df417d4-1af7-4c66-a102-5e9f80c413ae
       hippotranslation:locale: inherited - from query
       /selection:listitem[1]:
         jcr:primaryType: selection:listitem
         selection:key: grid
-        selection:label: Grid navigation
+        selection:label: Grid
       /selection:listitem[2]:
         jcr:primaryType: selection:listitem
         selection:key: list
-        selection:label: List navigation
+        selection:label: List
+  /reportingtags:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 66416c3e-6854-4557-a3b9-a5a5bb07c530
+    hippo:name: reportingTags
+    /reportingtags:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: a7dcddeb-77b4-4509-a567-b09d56981788
+      hippo:availability: [live, preview]
+      hippotranslation:id: df522156-a372-4762-9b73-d425b07fd2bf
+      hippotranslation:locale: inherited - from query

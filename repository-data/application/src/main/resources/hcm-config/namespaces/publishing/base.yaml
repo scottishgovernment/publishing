@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c09e8bda-431b-44ea-a9bf-7990b9b7b2e1
+          jcr:uuid: 30132022-82dd-4a1b-847a-c1f1ea487b17
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated', 'hippostd:taggable']
@@ -24,7 +24,7 @@ definitions:
             hipposysedit:path: publishing:summary
             hipposysedit:primary: false
             hipposysedit:type: Text
-            hipposysedit:validators: [required,summary-words-validator]
+            hipposysedit:validators: [required, summary-words-validator]
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -33,7 +33,7 @@ definitions:
             hipposysedit:path: publishing:title
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required,title-words-validator]
+            hipposysedit:validators: [required, title-words-validator]
           /metaDescription:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -42,7 +42,7 @@ definitions:
             hipposysedit:path: publishing:metaDescription
             hipposysedit:primary: false
             hipposysedit:type: Text
-            hipposysedit:validators: [required,summary-words-validator]
+            hipposysedit:validators: [required, summary-words-validator]
           /seoTitle:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -51,7 +51,7 @@ definitions:
             hipposysedit:path: publishing:seoTitle
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required,title-words-validator]
+            hipposysedit:validators: [required, title-words-validator]
           /authorNotes:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -60,6 +60,14 @@ definitions:
             hipposysedit:path: publishing:authorNotes
             hipposysedit:primary: false
             hipposysedit:type: Html
+          /reportingtags:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:reportingtags
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -73,12 +81,13 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
           publishing:summary: ''
           publishing:title: ''
-          jcr:uuid: 9e285e2f-e007-4eae-8c25-f635a2208147
+          jcr:uuid: 9191e0f0-c20a-4fa7-9598-ca7bb21b7210
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:07.551+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:07.552+01:00
           publishing:seoTitle: ''
           publishing:authorNotes: ''
           publishing:metaDescription: ''
+          publishing:reportingtags: []
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -94,8 +103,10 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Title
             field: title
-            hint: "Enter a title for this page.\_ \r\n\r\nThis will appear at the\
-              \ top of the page and will also be used in any links to this page.\_"
+            hint: "Enter a title for this page.  \r\n\r\nThis will appear at the top\
+              \ of the page on the live site and will also be used in any links to\
+              \ this page. A title is required for all pages. \r\n\r\nIt must be between\
+              \ 3 and 255 characters."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -108,9 +119,10 @@ definitions:
             field: summary
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: "Enter a summary of this page.\_ This summary will be used in listings\
-              \ for example on a category page. \r\n\r\nIt will also be used in a\
-              \ google listings for this page (is this true?)"
+            hint: "Enter a summary of this page.  \r\n\r\nThis summary will be used\
+              \ in places where this page is listed on the live website, such as a\
+              \ category page and in search results. \r\n\r\nIt must be between 3\
+              \ and 255 characters."
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
@@ -118,16 +130,21 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: SEO title
             field: seoTitle
-            hint: Enter the title used by google whilst indexing the content.  
+            hint: "This title will be used by search engines when indexing the content\
+              \ to add it to search results. \r\n\r\nIt must be between 3 and 60 characters.\
+              \ You can test yours at: https://moz.com/learn/seo/title-tag"
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: '60'
           /metaDescription:
             jcr:primaryType: frontend:plugin
             caption: Meta description
             field: metaDescription
-            hint: Enter the title used by google whilst indexing the content. 
+            hint: "Describe what content this page covers. Search engines will use\
+              \ this content when displaying links to the site in the search listings.\
+              \ \r\n\r\nThe description must be between 3 and 255 characters."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -140,12 +157,26 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /reportingtags:
+            jcr:primaryType: frontend:plugin
+            caption: Reporting tags
+            field: reportingtags
+            multiselect.type: palette
+            palette.alloworder: true
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/publishing/valuelists/reportingtags
           /authorNotes:
             jcr:primaryType: frontend:plugin
             caption: Author notes
             field: authorNotes
-            hint: Enter notes relevant to this content item.This will not appear on
-              the page.
+            hint: Enter any notes relevant to this content item.  This will not appear
+              on the page itself.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: d8aff709-4e81-4638-85f9-2010bddf2e72
+          jcr:uuid: 45d96475-6d19-4d44-91b4-0d3cf71b9c13
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -37,12 +37,13 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: c2001d2b-dbfd-4fee-820e-a5321ee90be1
+          jcr:uuid: 52acdfd8-21ca-4c88-aafe-3e63efa170c6
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
           publishing:authorNotes: ''
           publishing:metaDescription: ''
+          publishing:reportingtags: []
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -73,7 +74,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Summary
             field: summary
-            hint: Enter a summary of this content item
+            hint: "Enter a summary of this page.  This summary will be used in places\
+              \ where this page is listed on the live website, such as a category\
+              \ page and in search results. \r\n\r\nIt must be between 3 and 255 characters."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -82,7 +85,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Content
             field: content
-            hint: Enter the main content for this article
+            hint: Enter the main content of this article. You can use any HTML formatting
+              to style your content.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -91,16 +95,21 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: SEO title
             field: seoTitle
-            hint: Enter the title used by google whilst indexing the content.  
+            hint: "This title will be used by search engines when indexing the content\
+              \ to add it to search results. \r\n\r\nIt must be between 3 and 60 characters.\
+              \ \r\n\r\nYou can test yours at: https://moz.com/learn/seo/title-tag"
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              maxlength: '60'
           /metaDescription:
             jcr:primaryType: frontend:plugin
             caption: Meta description
             field: metaDescription
-            hint: Enter the title used by google whilst indexing the content. 
+            hint: "Describe what content this page covers. Search engines will use\
+              \ this content when displaying links to the site in the search listings.\
+              \ \r\n\r\nThe description must be between 3 and 255 characters."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -113,12 +122,26 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             type: hippostd:taggable
             wicket.id: ${cluster.id}.field
+          /reportingtags:
+            jcr:primaryType: frontend:plugin
+            caption: Reporting tags
+            field: reportingtags
+            multiselect.type: palette
+            palette.alloworder: true
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/publishing/valuelists/reportingtags
           /authorNotes:
             jcr:primaryType: frontend:plugin
             caption: Author notes
             field: authorNotes
-            hint: Enter notes relevant to this content item.This will not appear on
-              the page.
+            hint: Enter any notes relevant to this content item.  This will not appear
+              on the page itself.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
