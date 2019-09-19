@@ -36,7 +36,7 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
 
     static HippoBean startBean(HippoBean contentBean) {
         // determine the bean to start with - different for category index files than for articles etc.
-        return contentBean.getName().equals("index")
+        return "index".equals(contentBean.getName())
                 ? contentBean.getParentBean().getParentBean()
                 : contentBean.getParentBean();
     }
