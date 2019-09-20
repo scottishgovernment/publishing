@@ -15,7 +15,7 @@ import java.util.List;
 import static scot.mygov.publishing.components.CategoryComponent.indexBean;
 
 /**
- * Construct a list of BreadcrumItem objects for the page being requested.
+ * Construct a list of BreadcrumbItem objects for the page being requested.
  */
 public class BreadcrumbComponent extends EssentialsContentComponent {
 
@@ -45,7 +45,11 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
         List<BreadcrumbItem> breadcrumbs = isBaseBean(bean, baseBean)
                 ? new ArrayList<>()
                 : breadcrumbs(bean.getParentBean(), baseBean, context);
-        breadcrumbs.add(breadcrumbItem(bean, context));
+        HippoBean linkBean = indexBean(bean);
+        // we do this to handle structural folders (for example the footers folder)
+        if (linkBean != null) {
+            breadcrumbs.add(breadcrumbItem(linkBean, context));
+        }
         return breadcrumbs;
     }
 
@@ -55,9 +59,8 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
 
     static BreadcrumbItem breadcrumbItem(HippoBean bean, HstRequestContext context) {
         HstLinkCreator linkCreator = context.getHstLinkCreator();
-        HippoBean linkBean = indexBean(bean);
-        HstLink link = linkCreator.create(linkBean, context);
-        return new BreadcrumbItem(link, linkBean.getSingleProperty("publishing:title"));
+        HstLink link = linkCreator.create(bean, context);
+        return new BreadcrumbItem(link, bean.getSingleProperty("publishing:title"));
     }
 
 }
