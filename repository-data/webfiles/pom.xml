@@ -37,7 +37,29 @@
           <includeEmptyDirs>true</includeEmptyDirs>
         </configuration>
       </plugin>
+
+      <plugin>
+         <groupId>com.github.warmuuh</groupId>
+         <artifactId>libsass-maven-plugin</artifactId>
+         <version>0.2.10-libsass_3.5.3</version>
+         <executions>
+            <execution>
+               <phase>generate-resources</phase>
+               <goals>
+                  <goal>compile</goal>
+               </goals>
+            </execution>
+         </executions>
+         <configuration>
+            <inputPath>src/scss</inputPath>
+            <outputPath>src/main/resources/site/assets/css</outputPath>
+            <outputStyle>compressed</outputStyle>
+            <generateSourceMap>false</generateSourceMap>
+            <cacheLocation>target/.sass-cache</cacheLocation>
+         </configuration>
+      </plugin>
     </plugins>
   </build>
+
 
 </project>
