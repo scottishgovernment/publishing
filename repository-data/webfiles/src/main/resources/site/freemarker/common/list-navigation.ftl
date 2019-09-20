@@ -1,5 +1,7 @@
 <#include "include/imports.ftl">
 
+<div class="ds_wrapper">
+
 <ul>
     <#list children as child>
         <li>
@@ -8,3 +10,5 @@
         </li>
     </#list>
 </ul>
+
+</div>

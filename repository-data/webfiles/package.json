@@ -1,0 +1,19 @@
+{
+  "name": "publishing",
+  "description": "Build environment for publishing platform web sites",
+  "version": "0.0.0",
+  "author": {
+    "name": "mygov.scot team",
+    "email": "dleepdigmsgb@scotland.gsi.gov.uk",
+    "url": "http://www.gov.scot/"
+  },
+  "scripts": {
+    "postshrinkwrap": "node_modules/.bin/sealant @scottish-government/mygov-assets",
+    "sass": "node_modules/.bin/node-sass ./src/scss/main.scss ./src/main/resources/site/assets/css/main.css --style compressed --cache-location target/.sass-cache"
+  },
+  "devDependencies": {
+    "@scottish-government/pattern-library": "0.0.3",
+    "node-sass": "^4.12.0",
+    "sealant": "0.0.3"
+  }
+}

@@ -2,11 +2,22 @@
 
 <#-- @ftlvariable name="breadcrumb" type="org.onehippo.forge.breadcrumb.om.Breadcrumb" -->
 <#if breadcrumbs??>
-    <#list breadcrumbs as item>
-        <@hst.link var="link" link=item.link/>
-        <a href="${link}">${item.title?html}</a> > &nbsp;
-    </#list>
-    ${document.title?html}
-</#if>
+<div class="ds_wrapper">
+    <nav aria-label="Breadcrumb">
+        <ol class="ds_breadcrumbs">
+            <#list breadcrumbs as item>
+                <li class="ds_breadcrumbs__item">
+                    <@hst.link var="link" link=item.link/>
+                    <a data-navigation="breadcrumb-${item?index + 1}" class="ds_breadcrumbs__link" href="${link}">
+                        ${item.title?html}
+                    </a>
+                </li>
+            </#list>
 
-<hr>
+            <li class="ds_breadcrumbs__item" aria-current="page">
+                ${document.title?html}
+            </li>
+        </ol>
+    </nav>
+</div>
+</#if>
