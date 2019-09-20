@@ -51,6 +51,32 @@ public class BreadcrumbComponentTest {
         verify(linkCreator).create(same(categoryIndex), any());
     }
 
+    @Test
+    public void constructExpectedBreadcrumbForFooterSiteItem() {
+        // ARRANGE
+        HstRequest request = mock(HstRequest.class);
+        HstRequestContext context = mock(HstRequestContext.class);
+        HstLinkCreator linkCreator = mock(HstLinkCreator.class);
+        HippoBean article = article("article");
+        HippoBean footerfolder = folderbean("footer");
+        HippoBean homeIndex = indexbean("homeIndex");
+        HippoBean home = folderbean("home", homeIndex);
+
+        when(article.getParentBean()).thenReturn(footerfolder);
+        when(footerfolder.getParentBean()).thenReturn(home);
+        when(request.getRequestContext()).thenReturn(context);
+        when(context.getContentBean()).thenReturn(article);
+        when(context.getSiteContentBaseBean()).thenReturn(home);
+        when(context.getHstLinkCreator()).thenReturn(linkCreator);
+
+        // ACT
+        List<BreadcrumbItem> actual = BreadcrumbComponent.constructBreadcrumb(request);
+
+        // ASSERT
+        Assert.assertEquals(1, actual.size());
+        Assert.assertEquals(actual.get(0).getTitle(), "homeIndex-title");
+        verify(linkCreator).create(same(homeIndex), any());
+    }
 
     @Test
     public void constructExpectedBreadcrumbForCategory() {
@@ -104,12 +130,17 @@ public class BreadcrumbComponentTest {
         when(bean.getSingleProperty("publishing:title")).thenReturn(title(id));
     }
 
-    HippoBean folderbean(String identifier, HippoBean indexBean) {
+    HippoBean folderbean(String identifier) {
         HippoBean bean = mock(HippoBean.class);
         when(bean.isHippoFolderBean()).thenReturn(true);
         when(bean.getIdentifier()).thenReturn(identifier);
         when(bean.getName()).thenReturn(identifier);
         withTitle(bean, identifier);
+        return bean;
+    }
+
+    HippoBean folderbean(String identifier, HippoBean indexBean) {
+        HippoBean bean = folderbean(identifier);
         when(bean.getBean("index")).thenReturn(indexBean);
         when(indexBean.getParentBean()).thenReturn(bean);
         return bean;

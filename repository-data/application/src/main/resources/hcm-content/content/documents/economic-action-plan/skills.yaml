@@ -1,0 +1,951 @@
+/content/documents/economic-action-plan/skills:
+  .meta:order-before: place
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['mix:versionable']
+  jcr:uuid: cd60104b-6e59-46a9-a9cd-c6797d864b86
+  hippostd:foldertype: [new-document, new-folder]
+  /index:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 7ceb9699-06de-4315-9ca3-408aa54e30d9
+    hippo:name: index
+    hippo:versionHistory: 53ef193a-8a36-4b4b-b84e-7b1a42bb7fde
+    /index[1]:
+      jcr:primaryType: publishing:category
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: fe556afe-376a-4e9c-8ede-6e21da638079
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:09.934+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:09.934+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 13d4ed6c-2902-48db-b1ad-387d2b7fb166
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Providing a highly skilled workforce through education,
+        training and re-skilling.
+      publishing:navigationType: grid
+      publishing:permalink: /skills/
+      publishing:seoTitle: Skills
+      publishing:sequenceable: true
+      publishing:summary: Providing a highly skilled workforce through education,
+        training and re-skilling.
+      publishing:title: Skills
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+    /index[2]:
+      jcr:primaryType: publishing:category
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 70a1dd96-69ce-4828-9c94-4bf51ba29c46
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:09.934+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:10.079+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 13d4ed6c-2902-48db-b1ad-387d2b7fb166
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Providing a highly skilled workforce through education,
+        training and re-skilling.
+      publishing:navigationType: grid
+      publishing:permalink: /skills/
+      publishing:seoTitle: Skills
+      publishing:sequenceable: true
+      publishing:summary: Providing a highly skilled workforce through education,
+        training and re-skilling.
+      publishing:title: Skills
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+    /index[3]:
+      jcr:primaryType: publishing:category
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 2675bdbf-ec6f-43d1-934b-c1e954ef65c6
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:09.934+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:10.079+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2019-09-20T10:46:10.155+01:00
+      hippotranslation:id: 13d4ed6c-2902-48db-b1ad-387d2b7fb166
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Providing a highly skilled workforce through education,
+        training and re-skilling.
+      publishing:navigationType: grid
+      publishing:permalink: /skills/
+      publishing:seoTitle: Skills
+      publishing:sequenceable: true
+      publishing:summary: Providing a highly skilled workforce through education,
+        training and re-skilling.
+      publishing:title: Skills
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+  /introduction:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: aa13d891-05dd-46ee-be8f-eb5ed89746d6
+    hippo:name: introduction
+    hippo:versionHistory: e803e181-73b2-4139-be90-9efb7a56ff22
+    /introduction[1]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 377c0bad-8b1b-4366-a7b3-56f6482522d6
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:41.943+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:41.943+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 855548a0-b58d-4361-b947-5e6b0685166a
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Providing a highly skilled workforce through education,
+        training and re-skilling.
+      publishing:permalink: /skills/introduction/
+      publishing:seoTitle: Introduction
+      publishing:summary: Providing a highly skilled workforce through education,
+        training and re-skilling.
+      publishing:title: Introduction
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: "<html>\n <head></head>\n <body>\n  <p><img src=\"skills.jpg/{_document}/hippogallery:original\"\
+          \ alt=\"A woman with Edinburgh Castle in the background\"> <em>Image courtesy\
+          \ of Scotland is Now</em></p> \n  <hr> \n  <p>An unprecedented rate of technological\
+          \ change is driving change in the workplace, and an urgent need for more\
+          \ flexible ways to up-skill and retrain people. We will play our part in\
+          \ delivering this change, and will ask our partners, in further and higher\
+          \ education and in business and employer organisations to work with us to\
+          \ deliver the change we need on the ground.</p> \n  <ul> \n   <li><a href=\"\
+          employment-support\">Employment Support</a></li> \n   <li><a href=\"further-higher-education\"\
+          >Further Education and Higher Education</a></li> \n   <li><a href=\"training\"\
+          >Training</a></li> \n   <li><a href=\"upskilling-and-reskilling\">Up-skilling\
+          \ and Re-skilling</a></li> \n  </ul> \n </body>\n</html>"
+        /skills.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 123a5556-dbd3-4b5b-a369-d0bb2eb94e33
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /employment-support:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: aa14d500-fcab-4957-aa9f-e5a7932c960c
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /further-higher-education:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 25f32f05-29e9-45b6-9348-ece83699cc87
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /training:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: dc9a080d-5bf4-49aa-8780-d9075c10e7f6
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /upskilling-and-reskilling:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 638701ae-0b1a-4bf5-a927-bce21813d88f
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /introduction[2]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: ec5a6672-2b5c-4c9a-ab52-f84e07326e4a
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:41.943+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:42.007+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 855548a0-b58d-4361-b947-5e6b0685166a
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Providing a highly skilled workforce through education,
+        training and re-skilling.
+      publishing:permalink: /skills/introduction/
+      publishing:seoTitle: Introduction
+      publishing:summary: Providing a highly skilled workforce through education,
+        training and re-skilling.
+      publishing:title: Introduction
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: "<html>\n <head></head>\n <body>\n  <p><img src=\"skills.jpg/{_document}/hippogallery:original\"\
+          \ alt=\"A woman with Edinburgh Castle in the background\"> <em>Image courtesy\
+          \ of Scotland is Now</em></p> \n  <hr> \n  <p>An unprecedented rate of technological\
+          \ change is driving change in the workplace, and an urgent need for more\
+          \ flexible ways to up-skill and retrain people. We will play our part in\
+          \ delivering this change, and will ask our partners, in further and higher\
+          \ education and in business and employer organisations to work with us to\
+          \ deliver the change we need on the ground.</p> \n  <ul> \n   <li><a href=\"\
+          employment-support\">Employment Support</a></li> \n   <li><a href=\"further-higher-education\"\
+          >Further Education and Higher Education</a></li> \n   <li><a href=\"training\"\
+          >Training</a></li> \n   <li><a href=\"upskilling-and-reskilling\">Up-skilling\
+          \ and Re-skilling</a></li> \n  </ul> \n </body>\n</html>"
+        /skills.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 123a5556-dbd3-4b5b-a369-d0bb2eb94e33
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /employment-support:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: aa14d500-fcab-4957-aa9f-e5a7932c960c
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /further-higher-education:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 25f32f05-29e9-45b6-9348-ece83699cc87
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /training:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: dc9a080d-5bf4-49aa-8780-d9075c10e7f6
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /upskilling-and-reskilling:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 638701ae-0b1a-4bf5-a927-bce21813d88f
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /introduction[3]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 333842fe-5979-4024-b852-2beba9c8f77b
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:41.943+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:42.007+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2019-09-20T10:46:42.073+01:00
+      hippotranslation:id: 855548a0-b58d-4361-b947-5e6b0685166a
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Providing a highly skilled workforce through education,
+        training and re-skilling.
+      publishing:permalink: /skills/introduction/
+      publishing:seoTitle: Introduction
+      publishing:summary: Providing a highly skilled workforce through education,
+        training and re-skilling.
+      publishing:title: Introduction
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: "<html>\n <head></head>\n <body>\n  <p><img src=\"skills.jpg/{_document}/hippogallery:original\"\
+          \ alt=\"A woman with Edinburgh Castle in the background\"> <em>Image courtesy\
+          \ of Scotland is Now</em></p> \n  <hr> \n  <p>An unprecedented rate of technological\
+          \ change is driving change in the workplace, and an urgent need for more\
+          \ flexible ways to up-skill and retrain people. We will play our part in\
+          \ delivering this change, and will ask our partners, in further and higher\
+          \ education and in business and employer organisations to work with us to\
+          \ deliver the change we need on the ground.</p> \n  <ul> \n   <li><a href=\"\
+          employment-support\">Employment Support</a></li> \n   <li><a href=\"further-higher-education\"\
+          >Further Education and Higher Education</a></li> \n   <li><a href=\"training\"\
+          >Training</a></li> \n   <li><a href=\"upskilling-and-reskilling\">Up-skilling\
+          \ and Re-skilling</a></li> \n  </ul> \n </body>\n</html>"
+        /skills.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 123a5556-dbd3-4b5b-a369-d0bb2eb94e33
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /employment-support:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: aa14d500-fcab-4957-aa9f-e5a7932c960c
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /further-higher-education:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 25f32f05-29e9-45b6-9348-ece83699cc87
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /training:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: dc9a080d-5bf4-49aa-8780-d9075c10e7f6
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /upskilling-and-reskilling:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 638701ae-0b1a-4bf5-a927-bce21813d88f
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+  /employment-support:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: aa14d500-fcab-4957-aa9f-e5a7932c960c
+    hippo:name: employment-support
+    hippo:versionHistory: e619fe8e-ca2f-4659-8c76-ceb823f246dc
+    /employment-support[1]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 6e5c2dea-73f1-42f6-9d38-ce8c15831742
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:42.163+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:42.163+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 11abd018-e08f-4cee-ad80-08dbf34c29ca
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Ensuring that as many people as possible benefit
+        from work.
+      publishing:permalink: /skills/employment-support/
+      publishing:seoTitle: Employment Support
+      publishing:summary: Ensuring that as many people as possible benefit from work.
+      publishing:title: Employment Support
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p><img src="skills1.jpg/{_document}/hippogallery:original" alt="Five people waiting in line in chairs" />
+          <br></p>
+          <hr>
+          * **Our employment support service – Fair Start Scotland – is designed to give individualised support to 38,000 individuals furthest removed from the labour market**
+          * **Supporting those affected by redundancy through the Partnership Action for Continuing Employment (PACE)**
+          <hr>
+          <h2>Fair Start Scotland</h2>
+          <p>We have developed an employment support service – Fair Start Scotland – to help those facing the greatest barriers to work to find and stay in jobs, based on our over-arching principles of fairness and respect.</p>
+          <p>We are also setting out how we will deliver more effective and joined up employability support across Scotland with the publication of No One Left Behind – Next Steps for the Integration and Alignment of Employability Support in Scotland.</p>
+          <p>We are developing links between employment support and other services through the £2.5 million Employability Innovation and Integration Fund.</p>
+          <h2>Individual Training Accounts</h2>
+          <p>We have launched Individual Training Accounts (ITAs) to support employability by focusing funds on those actively seeking employment and those who are currently in low paid work and looking to progress.</p>
+          <h2>Partnership Action for Continuing Employment</h2>
+          <p>We will continue to support those affected by redundancy through the Partnership Action for Continuing Employment (PACE), while providing careers and skills advice to people of all ages through the <a href="https://www.skillsdevelopmentscotland.co.uk/">Skills Development Scotland</a> agency.</p>
+          <h2>Key resources:</h2>
+          <p><strong><a href="https://beta.gov.scot/policies/employment-support/">Scottish Government: Employment support policy</a></strong></p>
+          <p><strong><a href="https://www.skillsdevelopmentscotland.co.uk/">Skills Development Scotland</a></strong></p>
+          <p><strong><a href="http://www.sfc.ac.uk/skills/skills.aspx">Scottish Funding Council: Skills and employability</a></strong></p>
+          <p><strong><a href="http://www.employabilityinscotland.com/">Employability in Scotland</a></strong></p>
+          <p><strong><a href="https://scottishlivingwage.org/">Living Wage Scotland</a></strong></p>
+          <p><strong><a href="https://www.myworldofwork.co.uk/">My World of Work</a></strong></p>
+          <p><strong><a href="https://www.skillsdevelopmentscotland.co.uk/what-we-do/employability-skills/partnership-action-for-continuing-employment-pace/">Redundancy support for people and businesses in Scotland</a></strong>
+           </p>
+        /skills1.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: c3444cf2-708d-49ca-9c6c-fb9224cabfd1
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /employment-support[2]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 9dfcdedd-0810-4fa3-814e-ca71de601c49
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:42.163+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:42.231+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 11abd018-e08f-4cee-ad80-08dbf34c29ca
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Ensuring that as many people as possible benefit
+        from work.
+      publishing:permalink: /skills/employment-support/
+      publishing:seoTitle: Employment Support
+      publishing:summary: Ensuring that as many people as possible benefit from work.
+      publishing:title: Employment Support
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p><img src="skills1.jpg/{_document}/hippogallery:original" alt="Five people waiting in line in chairs" />
+          <br></p>
+          <hr>
+          * **Our employment support service – Fair Start Scotland – is designed to give individualised support to 38,000 individuals furthest removed from the labour market**
+          * **Supporting those affected by redundancy through the Partnership Action for Continuing Employment (PACE)**
+          <hr>
+          <h2>Fair Start Scotland</h2>
+          <p>We have developed an employment support service – Fair Start Scotland – to help those facing the greatest barriers to work to find and stay in jobs, based on our over-arching principles of fairness and respect.</p>
+          <p>We are also setting out how we will deliver more effective and joined up employability support across Scotland with the publication of No One Left Behind – Next Steps for the Integration and Alignment of Employability Support in Scotland.</p>
+          <p>We are developing links between employment support and other services through the £2.5 million Employability Innovation and Integration Fund.</p>
+          <h2>Individual Training Accounts</h2>
+          <p>We have launched Individual Training Accounts (ITAs) to support employability by focusing funds on those actively seeking employment and those who are currently in low paid work and looking to progress.</p>
+          <h2>Partnership Action for Continuing Employment</h2>
+          <p>We will continue to support those affected by redundancy through the Partnership Action for Continuing Employment (PACE), while providing careers and skills advice to people of all ages through the <a href="https://www.skillsdevelopmentscotland.co.uk/">Skills Development Scotland</a> agency.</p>
+          <h2>Key resources:</h2>
+          <p><strong><a href="https://beta.gov.scot/policies/employment-support/">Scottish Government: Employment support policy</a></strong></p>
+          <p><strong><a href="https://www.skillsdevelopmentscotland.co.uk/">Skills Development Scotland</a></strong></p>
+          <p><strong><a href="http://www.sfc.ac.uk/skills/skills.aspx">Scottish Funding Council: Skills and employability</a></strong></p>
+          <p><strong><a href="http://www.employabilityinscotland.com/">Employability in Scotland</a></strong></p>
+          <p><strong><a href="https://scottishlivingwage.org/">Living Wage Scotland</a></strong></p>
+          <p><strong><a href="https://www.myworldofwork.co.uk/">My World of Work</a></strong></p>
+          <p><strong><a href="https://www.skillsdevelopmentscotland.co.uk/what-we-do/employability-skills/partnership-action-for-continuing-employment-pace/">Redundancy support for people and businesses in Scotland</a></strong>
+           </p>
+        /skills1.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: c3444cf2-708d-49ca-9c6c-fb9224cabfd1
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /employment-support[3]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 07d6b8df-13dd-4e22-bbcf-85b6295f4af9
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:42.163+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:42.231+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2019-09-20T10:46:42.279+01:00
+      hippotranslation:id: 11abd018-e08f-4cee-ad80-08dbf34c29ca
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Ensuring that as many people as possible benefit
+        from work.
+      publishing:permalink: /skills/employment-support/
+      publishing:seoTitle: Employment Support
+      publishing:summary: Ensuring that as many people as possible benefit from work.
+      publishing:title: Employment Support
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p><img src="skills1.jpg/{_document}/hippogallery:original" alt="Five people waiting in line in chairs" />
+          <br></p>
+          <hr>
+          * **Our employment support service – Fair Start Scotland – is designed to give individualised support to 38,000 individuals furthest removed from the labour market**
+          * **Supporting those affected by redundancy through the Partnership Action for Continuing Employment (PACE)**
+          <hr>
+          <h2>Fair Start Scotland</h2>
+          <p>We have developed an employment support service – Fair Start Scotland – to help those facing the greatest barriers to work to find and stay in jobs, based on our over-arching principles of fairness and respect.</p>
+          <p>We are also setting out how we will deliver more effective and joined up employability support across Scotland with the publication of No One Left Behind – Next Steps for the Integration and Alignment of Employability Support in Scotland.</p>
+          <p>We are developing links between employment support and other services through the £2.5 million Employability Innovation and Integration Fund.</p>
+          <h2>Individual Training Accounts</h2>
+          <p>We have launched Individual Training Accounts (ITAs) to support employability by focusing funds on those actively seeking employment and those who are currently in low paid work and looking to progress.</p>
+          <h2>Partnership Action for Continuing Employment</h2>
+          <p>We will continue to support those affected by redundancy through the Partnership Action for Continuing Employment (PACE), while providing careers and skills advice to people of all ages through the <a href="https://www.skillsdevelopmentscotland.co.uk/">Skills Development Scotland</a> agency.</p>
+          <h2>Key resources:</h2>
+          <p><strong><a href="https://beta.gov.scot/policies/employment-support/">Scottish Government: Employment support policy</a></strong></p>
+          <p><strong><a href="https://www.skillsdevelopmentscotland.co.uk/">Skills Development Scotland</a></strong></p>
+          <p><strong><a href="http://www.sfc.ac.uk/skills/skills.aspx">Scottish Funding Council: Skills and employability</a></strong></p>
+          <p><strong><a href="http://www.employabilityinscotland.com/">Employability in Scotland</a></strong></p>
+          <p><strong><a href="https://scottishlivingwage.org/">Living Wage Scotland</a></strong></p>
+          <p><strong><a href="https://www.myworldofwork.co.uk/">My World of Work</a></strong></p>
+          <p><strong><a href="https://www.skillsdevelopmentscotland.co.uk/what-we-do/employability-skills/partnership-action-for-continuing-employment-pace/">Redundancy support for people and businesses in Scotland</a></strong>
+           </p>
+        /skills1.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: c3444cf2-708d-49ca-9c6c-fb9224cabfd1
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+  /further-higher-education:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 25f32f05-29e9-45b6-9348-ece83699cc87
+    hippo:name: further-higher-education
+    hippo:versionHistory: 57837c8e-e742-4285-8d17-41ec079572b0
+    /further-higher-education[1]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 512a937a-65eb-4023-b77e-6a788cdf9323
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:42.406+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:42.406+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: bba62ac2-575d-4e63-beb6-4628a2fe1728
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Investing in a world-class education system.
+      publishing:permalink: /skills/further-higher-education/
+      publishing:seoTitle: Further Education and Higher Education
+      publishing:summary: Investing in a world-class education system.
+      publishing:title: Further Education and Higher Education
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p><img src="skills2.jpg/{_document}/hippogallery:original" alt="Students leaning in to read a book together" />
+          <br></p>
+          <hr>
+          * **Investing over £1 billion in 2018-19 in Scotland’s universities**
+          * **Funding of over £590m in 2018-19 to deliver over 116,000 full-time equivalent college places**
+          * **Implementing the recommendations of the [Learner Journey review](https://beta.gov.scot/publications/15-24-learner-journey-review-9781788518741/) and better aligning the education and skills system**
+          <hr>
+          <h2>Investment in Universities and Colleges</h2>
+          <p>We have invested over £1 billion every year since 2012-13 in our universities. This has enabled us to maintain free tuition fees for eligible students, while maintaining the high quality of education and ensuring that core outcomes are met and protected. In 2018-19 we are providing for over 128,000 funded places in our universities.</p>
+          <p>We are providing funding of over £590m in 2018-19 to colleges to enable tens of thousands of young and adult learners to obtain recognised vocational qualifications each year, increasing routes to work and higher level study.</p>
+          <h2>Student Support</h2>
+          <p>Following the <a href="https://beta.gov.scot/publications/independent-review-student-financial-support-scotland/">independent review of further and higher education student support</a>, we have committed additional funding of £21 million per year by the end of this parliamentary term for improvements to student support. We also provide <a href="https://www.mygov.scot/ema/">Education Maintenance Allowances</a> (EMAs) to young people from low income families to help them stay on in post-16 education either at school or college.</p>
+          <h2>STEM</h2>
+          <p>We published our <a href="https://beta.gov.scot/publications/science-technology-engineering-mathematics-education-training-strategy-scotland/">STEM Education and Training Strategy</a> in October 2017, including making the achievement of a wider range of STEM skills in our young people a priority.  We will prioritise STEM subjects in our colleges and universities and higher level apprenticeships.</p>
+          <h2>Learner Journey review</h2>
+          <p>We will accelerate the pace of implementation of the recommendations of the <a href="https://beta.gov.scot/publications/15-24-learner-journey-review-9781788518741/">Learner Journey review</a> to ensure the swifter alignment of the education and skills system, to better deliver on improved learner choice and greater system efficiency.</p>
+          <p>A pilot phase of the NMIS Skills Academy is delivering a programme of Industry Doctorate projects and CPD activity for training professionals. This activity is engaging Scotland’s wider university and college base with the first tranche of the 30 doctorate projects which will start over the next year and which is part-funded by industry now approved.</p>
+          <h2>Key resources:</h2>
+          <p><strong><a href="https://beta.gov.scot/publications/15-24-learner-journey-review-9781788518741/">Learner Journey Review Report</a></strong></p>
+          <p><strong><a href="https://beta.gov.scot/publications/science-technology-engineering-mathematics-education-training-strategy-scotland/">STEM Strategy</a></strong></p>
+          <p><strong><a href="https://beta.gov.scot/publications/independent-review-student-financial-support-scotland/">Student Support Review</a></strong></p>
+          <p><strong><a href="https://beta.gov.scot/policies/universities/">Scottish Government: Universities policy</a></strong></p>
+          <p><strong><a href="https://collegesscotland.ac.uk/">Colleges Scotland</a></strong></p>
+          <p><strong><a href="https://www.saas.gov.uk/">Student Awards Agency Scotland</a></strong></p>
+          <p><strong><a href="http://connectedscotland.org/">Connected Scotland</a></strong></p>
+          <p><strong><a href="http://www.sfc.ac.uk/">Scottish Funding Council</a></strong></p>
+          <p><strong><a href="https://www.mygov.scot/ema/">Education Maintenance Allowance (EMA)</a></strong></p>
+        /skills2.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: bcf0ce0a-e899-4291-b37b-ade26d39cba3
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /further-higher-education[2]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: f5828373-7cf3-4f87-ae7f-b20240f83c45
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:42.406+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:42.476+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: bba62ac2-575d-4e63-beb6-4628a2fe1728
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Investing in a world-class education system.
+      publishing:permalink: /skills/further-higher-education/
+      publishing:seoTitle: Further Education and Higher Education
+      publishing:summary: Investing in a world-class education system.
+      publishing:title: Further Education and Higher Education
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p><img src="skills2.jpg/{_document}/hippogallery:original" alt="Students leaning in to read a book together" />
+          <br></p>
+          <hr>
+          * **Investing over £1 billion in 2018-19 in Scotland’s universities**
+          * **Funding of over £590m in 2018-19 to deliver over 116,000 full-time equivalent college places**
+          * **Implementing the recommendations of the [Learner Journey review](https://beta.gov.scot/publications/15-24-learner-journey-review-9781788518741/) and better aligning the education and skills system**
+          <hr>
+          <h2>Investment in Universities and Colleges</h2>
+          <p>We have invested over £1 billion every year since 2012-13 in our universities. This has enabled us to maintain free tuition fees for eligible students, while maintaining the high quality of education and ensuring that core outcomes are met and protected. In 2018-19 we are providing for over 128,000 funded places in our universities.</p>
+          <p>We are providing funding of over £590m in 2018-19 to colleges to enable tens of thousands of young and adult learners to obtain recognised vocational qualifications each year, increasing routes to work and higher level study.</p>
+          <h2>Student Support</h2>
+          <p>Following the <a href="https://beta.gov.scot/publications/independent-review-student-financial-support-scotland/">independent review of further and higher education student support</a>, we have committed additional funding of £21 million per year by the end of this parliamentary term for improvements to student support. We also provide <a href="https://www.mygov.scot/ema/">Education Maintenance Allowances</a> (EMAs) to young people from low income families to help them stay on in post-16 education either at school or college.</p>
+          <h2>STEM</h2>
+          <p>We published our <a href="https://beta.gov.scot/publications/science-technology-engineering-mathematics-education-training-strategy-scotland/">STEM Education and Training Strategy</a> in October 2017, including making the achievement of a wider range of STEM skills in our young people a priority.  We will prioritise STEM subjects in our colleges and universities and higher level apprenticeships.</p>
+          <h2>Learner Journey review</h2>
+          <p>We will accelerate the pace of implementation of the recommendations of the <a href="https://beta.gov.scot/publications/15-24-learner-journey-review-9781788518741/">Learner Journey review</a> to ensure the swifter alignment of the education and skills system, to better deliver on improved learner choice and greater system efficiency.</p>
+          <p>A pilot phase of the NMIS Skills Academy is delivering a programme of Industry Doctorate projects and CPD activity for training professionals. This activity is engaging Scotland’s wider university and college base with the first tranche of the 30 doctorate projects which will start over the next year and which is part-funded by industry now approved.</p>
+          <h2>Key resources:</h2>
+          <p><strong><a href="https://beta.gov.scot/publications/15-24-learner-journey-review-9781788518741/">Learner Journey Review Report</a></strong></p>
+          <p><strong><a href="https://beta.gov.scot/publications/science-technology-engineering-mathematics-education-training-strategy-scotland/">STEM Strategy</a></strong></p>
+          <p><strong><a href="https://beta.gov.scot/publications/independent-review-student-financial-support-scotland/">Student Support Review</a></strong></p>
+          <p><strong><a href="https://beta.gov.scot/policies/universities/">Scottish Government: Universities policy</a></strong></p>
+          <p><strong><a href="https://collegesscotland.ac.uk/">Colleges Scotland</a></strong></p>
+          <p><strong><a href="https://www.saas.gov.uk/">Student Awards Agency Scotland</a></strong></p>
+          <p><strong><a href="http://connectedscotland.org/">Connected Scotland</a></strong></p>
+          <p><strong><a href="http://www.sfc.ac.uk/">Scottish Funding Council</a></strong></p>
+          <p><strong><a href="https://www.mygov.scot/ema/">Education Maintenance Allowance (EMA)</a></strong></p>
+        /skills2.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: bcf0ce0a-e899-4291-b37b-ade26d39cba3
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /further-higher-education[3]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: ecfa09e8-063a-43c4-9123-d86c98b5d4e6
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:42.406+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:42.476+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2019-09-20T10:46:42.525+01:00
+      hippotranslation:id: bba62ac2-575d-4e63-beb6-4628a2fe1728
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Investing in a world-class education system.
+      publishing:permalink: /skills/further-higher-education/
+      publishing:seoTitle: Further Education and Higher Education
+      publishing:summary: Investing in a world-class education system.
+      publishing:title: Further Education and Higher Education
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p><img src="skills2.jpg/{_document}/hippogallery:original" alt="Students leaning in to read a book together" />
+          <br></p>
+          <hr>
+          * **Investing over £1 billion in 2018-19 in Scotland’s universities**
+          * **Funding of over £590m in 2018-19 to deliver over 116,000 full-time equivalent college places**
+          * **Implementing the recommendations of the [Learner Journey review](https://beta.gov.scot/publications/15-24-learner-journey-review-9781788518741/) and better aligning the education and skills system**
+          <hr>
+          <h2>Investment in Universities and Colleges</h2>
+          <p>We have invested over £1 billion every year since 2012-13 in our universities. This has enabled us to maintain free tuition fees for eligible students, while maintaining the high quality of education and ensuring that core outcomes are met and protected. In 2018-19 we are providing for over 128,000 funded places in our universities.</p>
+          <p>We are providing funding of over £590m in 2018-19 to colleges to enable tens of thousands of young and adult learners to obtain recognised vocational qualifications each year, increasing routes to work and higher level study.</p>
+          <h2>Student Support</h2>
+          <p>Following the <a href="https://beta.gov.scot/publications/independent-review-student-financial-support-scotland/">independent review of further and higher education student support</a>, we have committed additional funding of £21 million per year by the end of this parliamentary term for improvements to student support. We also provide <a href="https://www.mygov.scot/ema/">Education Maintenance Allowances</a> (EMAs) to young people from low income families to help them stay on in post-16 education either at school or college.</p>
+          <h2>STEM</h2>
+          <p>We published our <a href="https://beta.gov.scot/publications/science-technology-engineering-mathematics-education-training-strategy-scotland/">STEM Education and Training Strategy</a> in October 2017, including making the achievement of a wider range of STEM skills in our young people a priority.  We will prioritise STEM subjects in our colleges and universities and higher level apprenticeships.</p>
+          <h2>Learner Journey review</h2>
+          <p>We will accelerate the pace of implementation of the recommendations of the <a href="https://beta.gov.scot/publications/15-24-learner-journey-review-9781788518741/">Learner Journey review</a> to ensure the swifter alignment of the education and skills system, to better deliver on improved learner choice and greater system efficiency.</p>
+          <p>A pilot phase of the NMIS Skills Academy is delivering a programme of Industry Doctorate projects and CPD activity for training professionals. This activity is engaging Scotland’s wider university and college base with the first tranche of the 30 doctorate projects which will start over the next year and which is part-funded by industry now approved.</p>
+          <h2>Key resources:</h2>
+          <p><strong><a href="https://beta.gov.scot/publications/15-24-learner-journey-review-9781788518741/">Learner Journey Review Report</a></strong></p>
+          <p><strong><a href="https://beta.gov.scot/publications/science-technology-engineering-mathematics-education-training-strategy-scotland/">STEM Strategy</a></strong></p>
+          <p><strong><a href="https://beta.gov.scot/publications/independent-review-student-financial-support-scotland/">Student Support Review</a></strong></p>
+          <p><strong><a href="https://beta.gov.scot/policies/universities/">Scottish Government: Universities policy</a></strong></p>
+          <p><strong><a href="https://collegesscotland.ac.uk/">Colleges Scotland</a></strong></p>
+          <p><strong><a href="https://www.saas.gov.uk/">Student Awards Agency Scotland</a></strong></p>
+          <p><strong><a href="http://connectedscotland.org/">Connected Scotland</a></strong></p>
+          <p><strong><a href="http://www.sfc.ac.uk/">Scottish Funding Council</a></strong></p>
+          <p><strong><a href="https://www.mygov.scot/ema/">Education Maintenance Allowance (EMA)</a></strong></p>
+        /skills2.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: bcf0ce0a-e899-4291-b37b-ade26d39cba3
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+  /training:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: dc9a080d-5bf4-49aa-8780-d9075c10e7f6
+    hippo:name: training
+    hippo:versionHistory: 5d98fb15-6432-420d-9569-0951f1d10231
+    /training[1]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 3cc944ac-b511-40f8-a40f-26a1be199178
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:42.632+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:42.632+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 9c6c5b26-d7b8-4aa6-99fb-839e82b56bb4
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Providing the skills that allow individuals to fulfil
+        their potential in the Labour Market.
+      publishing:permalink: /skills/training/
+      publishing:seoTitle: Training
+      publishing:summary: Providing the skills that allow individuals to fulfil their
+        potential in the Labour Market.
+      publishing:title: Training
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p><img src="skills3.jpg/{_document}/hippogallery:original" alt="A man explaining something to two young people" />
+          <br></p>
+          <hr>
+          * **Investing £193 million in [Skills Development Scotland](https://www.skillsdevelopmentscotland.co.uk/)**
+          * **30,000 [Apprenticeships](https://www.apprenticeships.scot/) by 2020, developing the Apprenticeship pathway through Foundation, Modern, and Graduate Apprenticeships**
+          <hr>
+          <h2>Skills Development Scotland</h2>
+          <p>We are investing £193 million in <a href="https://www.skillsdevelopmentscotland.co.uk/">Skills Development Scotland</a> in 2018/19 to deliver interventions including Modern Apprenticeships, Foundation Apprenticeships, Graduate Apprenticeships, pre-employment training and careers services, and to play a central role in the implementation of <a href="https://beta.gov.scot/publications/developing-young-workforce-scotlands-youth-employment-strategy/">Developing the Young Workforce</a> (DYW).</p>
+          <h2>Apprenticeships</h2>
+          <p>As part of this investment, to ensure Scotland’s labour market is equipped with the skills required we will continue to improve opportunities for apprenticeships, delivering 30,000 Apprenticeships by 2020. This will include developing the Apprenticeship pathway through Foundation, Modern, and Graduate Apprenticeships.</p>
+          <p>We will expand the number of Foundation Apprenticeships, helping to equip more young people at school with industry recognised qualifications, skills, and the practical experience that industry demands, both now and in the future.  We will also continue to develop our Graduate Apprenticeship programmes, offering the opportunity to blend academic learning with practical experience, supporting the in-work development of graduates with the skills that employers require.</p>
+          <h2>Key resources:</h2>
+          <p><strong><a href="https://www.skillsdevelopmentscotland.co.uk/">Skills Development Scotland</a></strong></p>
+          <p><strong><a href="https://beta.gov.scot/publications/developing-young-workforce-scotlands-youth-employment-strategy/">Developing the young workforce: Scotland's youth employment strategy</a></strong></p>
+          <p><strong><a href="https://www.apprenticeships.scot/">Apprenticeships.scot</a></strong></p>
+        /skills3.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: d9ccd642-f2ef-40c6-808a-24d73ff3b6fd
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /training[2]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 8c077cee-9323-4e26-aeaf-3c64dcff018a
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:42.632+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:42.711+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 9c6c5b26-d7b8-4aa6-99fb-839e82b56bb4
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Providing the skills that allow individuals to fulfil
+        their potential in the Labour Market.
+      publishing:permalink: /skills/training/
+      publishing:seoTitle: Training
+      publishing:summary: Providing the skills that allow individuals to fulfil their
+        potential in the Labour Market.
+      publishing:title: Training
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p><img src="skills3.jpg/{_document}/hippogallery:original" alt="A man explaining something to two young people" />
+          <br></p>
+          <hr>
+          * **Investing £193 million in [Skills Development Scotland](https://www.skillsdevelopmentscotland.co.uk/)**
+          * **30,000 [Apprenticeships](https://www.apprenticeships.scot/) by 2020, developing the Apprenticeship pathway through Foundation, Modern, and Graduate Apprenticeships**
+          <hr>
+          <h2>Skills Development Scotland</h2>
+          <p>We are investing £193 million in <a href="https://www.skillsdevelopmentscotland.co.uk/">Skills Development Scotland</a> in 2018/19 to deliver interventions including Modern Apprenticeships, Foundation Apprenticeships, Graduate Apprenticeships, pre-employment training and careers services, and to play a central role in the implementation of <a href="https://beta.gov.scot/publications/developing-young-workforce-scotlands-youth-employment-strategy/">Developing the Young Workforce</a> (DYW).</p>
+          <h2>Apprenticeships</h2>
+          <p>As part of this investment, to ensure Scotland’s labour market is equipped with the skills required we will continue to improve opportunities for apprenticeships, delivering 30,000 Apprenticeships by 2020. This will include developing the Apprenticeship pathway through Foundation, Modern, and Graduate Apprenticeships.</p>
+          <p>We will expand the number of Foundation Apprenticeships, helping to equip more young people at school with industry recognised qualifications, skills, and the practical experience that industry demands, both now and in the future.  We will also continue to develop our Graduate Apprenticeship programmes, offering the opportunity to blend academic learning with practical experience, supporting the in-work development of graduates with the skills that employers require.</p>
+          <h2>Key resources:</h2>
+          <p><strong><a href="https://www.skillsdevelopmentscotland.co.uk/">Skills Development Scotland</a></strong></p>
+          <p><strong><a href="https://beta.gov.scot/publications/developing-young-workforce-scotlands-youth-employment-strategy/">Developing the young workforce: Scotland's youth employment strategy</a></strong></p>
+          <p><strong><a href="https://www.apprenticeships.scot/">Apprenticeships.scot</a></strong></p>
+        /skills3.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: d9ccd642-f2ef-40c6-808a-24d73ff3b6fd
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /training[3]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 8dc2c467-1b83-436b-a359-c6cb3f1d06b0
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:42.632+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:42.711+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2019-09-20T10:46:42.758+01:00
+      hippotranslation:id: 9c6c5b26-d7b8-4aa6-99fb-839e82b56bb4
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Providing the skills that allow individuals to fulfil
+        their potential in the Labour Market.
+      publishing:permalink: /skills/training/
+      publishing:seoTitle: Training
+      publishing:summary: Providing the skills that allow individuals to fulfil their
+        potential in the Labour Market.
+      publishing:title: Training
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p><img src="skills3.jpg/{_document}/hippogallery:original" alt="A man explaining something to two young people" />
+          <br></p>
+          <hr>
+          * **Investing £193 million in [Skills Development Scotland](https://www.skillsdevelopmentscotland.co.uk/)**
+          * **30,000 [Apprenticeships](https://www.apprenticeships.scot/) by 2020, developing the Apprenticeship pathway through Foundation, Modern, and Graduate Apprenticeships**
+          <hr>
+          <h2>Skills Development Scotland</h2>
+          <p>We are investing £193 million in <a href="https://www.skillsdevelopmentscotland.co.uk/">Skills Development Scotland</a> in 2018/19 to deliver interventions including Modern Apprenticeships, Foundation Apprenticeships, Graduate Apprenticeships, pre-employment training and careers services, and to play a central role in the implementation of <a href="https://beta.gov.scot/publications/developing-young-workforce-scotlands-youth-employment-strategy/">Developing the Young Workforce</a> (DYW).</p>
+          <h2>Apprenticeships</h2>
+          <p>As part of this investment, to ensure Scotland’s labour market is equipped with the skills required we will continue to improve opportunities for apprenticeships, delivering 30,000 Apprenticeships by 2020. This will include developing the Apprenticeship pathway through Foundation, Modern, and Graduate Apprenticeships.</p>
+          <p>We will expand the number of Foundation Apprenticeships, helping to equip more young people at school with industry recognised qualifications, skills, and the practical experience that industry demands, both now and in the future.  We will also continue to develop our Graduate Apprenticeship programmes, offering the opportunity to blend academic learning with practical experience, supporting the in-work development of graduates with the skills that employers require.</p>
+          <h2>Key resources:</h2>
+          <p><strong><a href="https://www.skillsdevelopmentscotland.co.uk/">Skills Development Scotland</a></strong></p>
+          <p><strong><a href="https://beta.gov.scot/publications/developing-young-workforce-scotlands-youth-employment-strategy/">Developing the young workforce: Scotland's youth employment strategy</a></strong></p>
+          <p><strong><a href="https://www.apprenticeships.scot/">Apprenticeships.scot</a></strong></p>
+        /skills3.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: d9ccd642-f2ef-40c6-808a-24d73ff3b6fd
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+  /upskilling-and-reskilling:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 638701ae-0b1a-4bf5-a927-bce21813d88f
+    hippo:name: upskilling-and-reskilling
+    hippo:versionHistory: 6cc17f7c-fabe-4890-983a-409766e071e4
+    /upskilling-and-reskilling[1]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 427ce43f-e82a-4750-bfaf-f98c66a9d131
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:42.894+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:42.894+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: ef0a8417-1d99-46f4-93c1-c2f9dfecffff
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Recognising the need for lifelong learning.
+      publishing:permalink: /skills/upskilling-and-reskilling/
+      publishing:seoTitle: Up-skilling and Re-skilling
+      publishing:summary: Recognising the need for lifelong learning.
+      publishing:title: Up-skilling and Re-skilling
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: "<p><img src=\"skills4.jpg/{_document}/hippogallery:original\"\
+          \ alt=\"A woman with a hard hat and ear protectors\" />\n<br></p>\n<hr>\n\
+          * **A Future Skills Action Plan to be published in early 2019**\n* **Establishing\
+          \ a National Retraining Partnership**\n* **A second year of the Flexible\
+          \ Workforce Development**\n<hr> \n<h2>Skills for the Future</h2>\n<p>We\
+          \ will publish a Future Skills Action Plan in early 2019, which will build\
+          \ on the output of the Enterprise and Skills Strategic Board, helping to\
+          \ ensure we have the right skills in place to support individuals, employers\
+          \ and our economy. This will recognise the increasing importance of up-skilling\
+          \ and re-skilling our existing workforce, in line with the opportunities\
+          \ for future economic growth that technological advance and economic change\
+          \ will present. The Plan will also include a more responsive and resilient\
+          \ funding model for work-based learning and the up-skilling/retraining agenda,\
+          \ developed in partnership with the SFC and SDS.</p>\n<p>Recognising the\
+          \ need to support the population of rural areas, we will also publish and\
+          \ implement a rural skills action plan that will seek to ensure that national\
+          \ frameworks are available across rural Scotland.</p>\n<h2>National Retraining\
+          \ Partnership</h2>\n<p>We will also establish a National Retraining Partnership\
+          \ with employers, unions, colleges and universities, and training bodies\
+          \ to identify the best collaborative way forward to help workers and businesses\
+          \ prepare for future changes by enabling the workforce to up-skill and/or\
+          \ retrain where necessary. This is an example of how we will use partnership\
+          \ to create space for employers, unions and other stakeholders to come together\
+          \ to respond collectively to economic challenges.</p>\n<h2>Flexible Workforce\
+          \ Development Fund</h2>\n<p>In addition we will continue to provide opportunities\
+          \ for the existing workforce through a range of programmes including the\
+          \ <a href=\"https://beta.gov.scot/publications/evaluation-first-year-flexible-workforce-development-fund/\"\
+          >Flexible Workforce Development Fund</a> (increasing the cap from £10,000\
+          \ to £15,000), Individual Training Accounts and the Scottish Union Learning\
+          \ Fund.  Through the £12m <a href=\"https://transitiontrainingfund.co.uk/\"\
+          >Transition Training Fund</a>, we are also helping individuals to retrain,\
+          \ up-skill or get accreditation or certification that would help in securing\
+          \ a new job in oil and gas, the wider energy sector, or engineering and\
+          \ manufacturing.</p>\n<h2>Key resources:</h2>\n<p><strong><a href=\"https://beta.gov.scot/publications/evaluation-first-year-flexible-workforce-development-fund/\"\
+          >Flexible workforce development fund: first year evaluation</a></strong></p>\n\
+          <p><strong><a href=\"https://transitiontrainingfund.co.uk/\">Transition\
+          \ Training Fund</a></strong></p>\n"
+        /skills4.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 1ce9ba58-9fa3-419c-9bc9-a9ba1aa5a214
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /upskilling-and-reskilling[2]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 09d59176-f25d-49a7-aed6-ad42d6181c69
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:42.894+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:43.013+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: ef0a8417-1d99-46f4-93c1-c2f9dfecffff
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Recognising the need for lifelong learning.
+      publishing:permalink: /skills/upskilling-and-reskilling/
+      publishing:seoTitle: Up-skilling and Re-skilling
+      publishing:summary: Recognising the need for lifelong learning.
+      publishing:title: Up-skilling and Re-skilling
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: "<p><img src=\"skills4.jpg/{_document}/hippogallery:original\"\
+          \ alt=\"A woman with a hard hat and ear protectors\" />\n<br></p>\n<hr>\n\
+          * **A Future Skills Action Plan to be published in early 2019**\n* **Establishing\
+          \ a National Retraining Partnership**\n* **A second year of the Flexible\
+          \ Workforce Development**\n<hr> \n<h2>Skills for the Future</h2>\n<p>We\
+          \ will publish a Future Skills Action Plan in early 2019, which will build\
+          \ on the output of the Enterprise and Skills Strategic Board, helping to\
+          \ ensure we have the right skills in place to support individuals, employers\
+          \ and our economy. This will recognise the increasing importance of up-skilling\
+          \ and re-skilling our existing workforce, in line with the opportunities\
+          \ for future economic growth that technological advance and economic change\
+          \ will present. The Plan will also include a more responsive and resilient\
+          \ funding model for work-based learning and the up-skilling/retraining agenda,\
+          \ developed in partnership with the SFC and SDS.</p>\n<p>Recognising the\
+          \ need to support the population of rural areas, we will also publish and\
+          \ implement a rural skills action plan that will seek to ensure that national\
+          \ frameworks are available across rural Scotland.</p>\n<h2>National Retraining\
+          \ Partnership</h2>\n<p>We will also establish a National Retraining Partnership\
+          \ with employers, unions, colleges and universities, and training bodies\
+          \ to identify the best collaborative way forward to help workers and businesses\
+          \ prepare for future changes by enabling the workforce to up-skill and/or\
+          \ retrain where necessary. This is an example of how we will use partnership\
+          \ to create space for employers, unions and other stakeholders to come together\
+          \ to respond collectively to economic challenges.</p>\n<h2>Flexible Workforce\
+          \ Development Fund</h2>\n<p>In addition we will continue to provide opportunities\
+          \ for the existing workforce through a range of programmes including the\
+          \ <a href=\"https://beta.gov.scot/publications/evaluation-first-year-flexible-workforce-development-fund/\"\
+          >Flexible Workforce Development Fund</a> (increasing the cap from £10,000\
+          \ to £15,000), Individual Training Accounts and the Scottish Union Learning\
+          \ Fund.  Through the £12m <a href=\"https://transitiontrainingfund.co.uk/\"\
+          >Transition Training Fund</a>, we are also helping individuals to retrain,\
+          \ up-skill or get accreditation or certification that would help in securing\
+          \ a new job in oil and gas, the wider energy sector, or engineering and\
+          \ manufacturing.</p>\n<h2>Key resources:</h2>\n<p><strong><a href=\"https://beta.gov.scot/publications/evaluation-first-year-flexible-workforce-development-fund/\"\
+          >Flexible workforce development fund: first year evaluation</a></strong></p>\n\
+          <p><strong><a href=\"https://transitiontrainingfund.co.uk/\">Transition\
+          \ Training Fund</a></strong></p>\n"
+        /skills4.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 1ce9ba58-9fa3-419c-9bc9-a9ba1aa5a214
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /upskilling-and-reskilling[3]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: bf84020a-f60c-4c7d-bdef-f7c4d7162cb5
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-09-20T10:46:42.894+01:00
+      hippostdpubwf:lastModificationDate: 2019-09-20T10:46:43.013+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2019-09-20T10:46:43.121+01:00
+      hippotranslation:id: ef0a8417-1d99-46f4-93c1-c2f9dfecffff
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: Recognising the need for lifelong learning.
+      publishing:permalink: /skills/upskilling-and-reskilling/
+      publishing:seoTitle: Up-skilling and Re-skilling
+      publishing:summary: Recognising the need for lifelong learning.
+      publishing:title: Up-skilling and Re-skilling
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: "<p><img src=\"skills4.jpg/{_document}/hippogallery:original\"\
+          \ alt=\"A woman with a hard hat and ear protectors\" />\n<br></p>\n<hr>\n\
+          * **A Future Skills Action Plan to be published in early 2019**\n* **Establishing\
+          \ a National Retraining Partnership**\n* **A second year of the Flexible\
+          \ Workforce Development**\n<hr> \n<h2>Skills for the Future</h2>\n<p>We\
+          \ will publish a Future Skills Action Plan in early 2019, which will build\
+          \ on the output of the Enterprise and Skills Strategic Board, helping to\
+          \ ensure we have the right skills in place to support individuals, employers\
+          \ and our economy. This will recognise the increasing importance of up-skilling\
+          \ and re-skilling our existing workforce, in line with the opportunities\
+          \ for future economic growth that technological advance and economic change\
+          \ will present. The Plan will also include a more responsive and resilient\
+          \ funding model for work-based learning and the up-skilling/retraining agenda,\
+          \ developed in partnership with the SFC and SDS.</p>\n<p>Recognising the\
+          \ need to support the population of rural areas, we will also publish and\
+          \ implement a rural skills action plan that will seek to ensure that national\
+          \ frameworks are available across rural Scotland.</p>\n<h2>National Retraining\
+          \ Partnership</h2>\n<p>We will also establish a National Retraining Partnership\
+          \ with employers, unions, colleges and universities, and training bodies\
+          \ to identify the best collaborative way forward to help workers and businesses\
+          \ prepare for future changes by enabling the workforce to up-skill and/or\
+          \ retrain where necessary. This is an example of how we will use partnership\
+          \ to create space for employers, unions and other stakeholders to come together\
+          \ to respond collectively to economic challenges.</p>\n<h2>Flexible Workforce\
+          \ Development Fund</h2>\n<p>In addition we will continue to provide opportunities\
+          \ for the existing workforce through a range of programmes including the\
+          \ <a href=\"https://beta.gov.scot/publications/evaluation-first-year-flexible-workforce-development-fund/\"\
+          >Flexible Workforce Development Fund</a> (increasing the cap from £10,000\
+          \ to £15,000), Individual Training Accounts and the Scottish Union Learning\
+          \ Fund.  Through the £12m <a href=\"https://transitiontrainingfund.co.uk/\"\
+          >Transition Training Fund</a>, we are also helping individuals to retrain,\
+          \ up-skill or get accreditation or certification that would help in securing\
+          \ a new job in oil and gas, the wider energy sector, or engineering and\
+          \ manufacturing.</p>\n<h2>Key resources:</h2>\n<p><strong><a href=\"https://beta.gov.scot/publications/evaluation-first-year-flexible-workforce-development-fund/\"\
+          >Flexible workforce development fund: first year evaluation</a></strong></p>\n\
+          <p><strong><a href=\"https://transitiontrainingfund.co.uk/\">Transition\
+          \ Training Fund</a></strong></p>\n"
+        /skills4.jpg:
+          jcr:primaryType: hippo:facetselect
+          hippo:docbase: 1ce9ba58-9fa3-419c-9bc9-a9ba1aa5a214
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
