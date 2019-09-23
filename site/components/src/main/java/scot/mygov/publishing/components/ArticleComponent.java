@@ -6,6 +6,8 @@ import org.hippoecm.hst.core.component.HstResponse;
 
 import java.util.List;
 
+import static java.lang.Boolean.*;
+
 /**
  * Component used to back article pages.
  *
@@ -27,6 +29,19 @@ public class ArticleComponent extends CategoryComponent {
         HippoBean next = next(children, index);
         request.setAttribute("prev", prev);
         request.setAttribute("next", next);
+        setSequenceable(request, document);
+    }
+
+    /**
+     * Set "sequenceable" flag on the request that is determined by the property of the parent category page.
+     */
+    static void setSequenceable(HstRequest request, HippoBean document) {
+        HippoBean index = indexBean(document.getParentBean());
+        Boolean sequenceable =
+                index != null
+                ? index.getSingleProperty("publishing:sequenceable")
+                : FALSE;
+        request.setAttribute("sequenceable", sequenceable);
     }
 
     /**
