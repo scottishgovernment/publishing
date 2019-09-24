@@ -9,13 +9,13 @@
                 <li class="ds_breadcrumbs__item">
                     <@hst.link var="link" link=item.link/>
                     <a data-navigation="breadcrumb-${item?index + 1}" class="ds_breadcrumbs__link" href="${link}">
-                        ${item.title?html}
+                    ${item.title?html}
                     </a>
                 </li>
             </#list>
 
             <li class="ds_breadcrumbs__item" aria-current="page">
-                ${document.title?html}
+            ${document.title?html}
             </li>
         </ol>
     </nav>

@@ -17,6 +17,9 @@ definitions:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/home
             hst:relativecontentpath: index
+          /sitemap.xml:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:components/sitemap
         /hst:abstractpages:
           jcr:primaryType: hst:pages
         /hst:pages:
@@ -49,6 +52,9 @@ definitions:
           /home-main:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/home-main.ftl
+          /sitemap.ftl:
+            jcr:primaryType: hst:template
+            hst:script: '<#ftl attributes={"content_type": "application/xml"} />${sitemap}'
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
