@@ -1,0 +1,29 @@
+.layout {
+    &--tn-article {
+        .layout {
+            &__header {
+                clear: left;
+                float: left;
+                @include colwidth(10);
+            }
+
+            &__content {
+                clear: left;
+                float: left;
+                @include colwidth(8);
+            }
+        }
+    }
+}
+
+@supports(display: grid) {
+    @include media-query(medium) {
+        .layout {
+            &--tn-article {
+                grid-template-areas:
+                    'h h h h h h h h h h . .'
+                    'c c c c c c c c . . . .';
+            }
+        }
+    }
+}

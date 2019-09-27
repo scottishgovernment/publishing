@@ -1,4 +1,16 @@
 /**
+ * PATTERN LIBRARY VALUES
+ */
+$color__brand--primary: #A51765;
+$color__brand--secondary: #F0A75A;
+$brand-gradient-direction: left;
+$category-header__border-color: $color__brand--secondary;
+$category-header__title-color: $color__brand--primary;
+
+
+
+
+/**
  * BASE STYLES FROM PATTERN LIBRARY
  */
 @import "../../node_modules/@scottish-government/pattern-library/src/scss/base/all-base";
@@ -10,3 +22,11 @@
  * COMPONENTS FROM PATTERN LIBRARY
  */
 @import "../../node_modules/@scottish-government/pattern-library/src/scss/components/all-components";
+
+
+
+
+/**
+ * COMPONENTS FROM TRADING NATION
+ */
+@import "_tn-layouts.scss";

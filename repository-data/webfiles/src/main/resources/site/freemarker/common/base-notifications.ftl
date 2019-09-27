@@ -1,3 +1,1 @@
-<div>Notifications</div>
-
-<hr>
+<div id="notifications"></div>
