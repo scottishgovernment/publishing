@@ -1,18 +1,246 @@
 definitions:
   config:
-    /hst:hst/hst:hosts/dev-localhost:
-      .meta:residual-child-node-category: content
-      jcr:primaryType: hst:virtualhostgroup
-      hst:defaultport: 8080
-      /localhost:
+    /hst:hst/hst:hosts:
+      /dev-localhost:
         .meta:residual-child-node-category: content
-        jcr:primaryType: hst:virtualhost
-        /hst:root:
+        jcr:primaryType: hst:virtualhostgroup
+        hst:defaultport: 8080
+        /localhost:
           .meta:residual-child-node-category: content
-          jcr:primaryType: hst:mount
-          hst:homepage: root
-          hst:mountpoint: /hst:publishing/hst:sites/publishing
-          /trading-nation:
+          jcr:primaryType: hst:virtualhost
+          /hst:root:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:mount
-            hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+            hst:homepage: root
+            hst:mountpoint: /hst:publishing/hst:sites/publishing
+            /trading-nation:
+              .meta:residual-child-node-category: content
+              jcr:primaryType: hst:mount
+              hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+      /lcl:
+        jcr:primaryType: hst:virtualhostgroup
+        jcr:uuid: 9beca2aa-cd40-4157-bdb8-84ec04a040b2
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          jcr:uuid: db71c21a-ca22-41af-a738-e52d7e2dbca7
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            jcr:uuid: 5364e198-8c02-4f40-92ee-c6f173775365
+            /tradingnation:
+              jcr:primaryType: hst:virtualhost
+              jcr:uuid: ba5d3b44-f830-4115-9880-8fc0d5e512e1
+              /lcl:
+                jcr:primaryType: hst:virtualhost
+                jcr:uuid: 7e390c61-1a1a-4680-bda9-dba913a7228a
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  jcr:uuid: b778ade8-2503-4e45-852a-9cd4a8b5e332
+                  hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+                  hst:schemeagnostic: true
+      /dev:
+        jcr:primaryType: hst:virtualhostgroup
+        jcr:uuid: b254b057-47be-46a9-8077-775ccc5fbc69
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          jcr:uuid: dd54ae5e-3df7-4fcf-9c92-bcbd12ee1f30
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            jcr:uuid: 9dfb2f1b-32fb-442c-aab7-d62fb627d99f
+            /tradingnation:
+              jcr:primaryType: hst:virtualhost
+              jcr:uuid: 3035c4f3-eac6-4d20-8764-18ae6f85d687
+              /dev:
+                jcr:primaryType: hst:virtualhost
+                jcr:uuid: fcfe6680-e420-4602-90ec-05bffac79f3e
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  jcr:uuid: e1eac255-cb66-492c-b85f-cd04ce962f13
+                  hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+                  hst:schemeagnostic: true
+      /int:
+        jcr:primaryType: hst:virtualhostgroup
+        jcr:uuid: ab83cd13-2b87-4b6e-bef1-84b534a94b76
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          jcr:uuid: 8393a935-bfa5-4614-947c-c966370fe470
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            jcr:uuid: 4bf83224-988a-45ff-afb3-84d6d44be3cc
+            /tradingnation:
+              jcr:primaryType: hst:virtualhost
+              jcr:uuid: 72fab7c1-286e-4143-8975-03281aba5652
+              /int:
+                jcr:primaryType: hst:virtualhost
+                jcr:uuid: 35740bee-c777-4636-8289-bf4953d143a3
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  jcr:uuid: 00ebcf26-06f1-4e21-afe5-eadeac02b215
+                  hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+                  hst:schemeagnostic: true
+      /exp:
+        jcr:primaryType: hst:virtualhostgroup
+        jcr:uuid: 6f5c5774-f4e7-41be-914c-37c2b071095c
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          jcr:uuid: 66a3ddfb-3acf-4a80-9a24-815589e34539
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            jcr:uuid: e4d7bee7-9d14-4209-b598-b3685d3703d4
+            /tradingnation:
+              jcr:primaryType: hst:virtualhost
+              jcr:uuid: 9e02a2a3-865c-468b-882b-d233169f9deb
+              /exp:
+                jcr:primaryType: hst:virtualhost
+                jcr:uuid: a26a4b92-5880-4ab3-9abd-4c1a90ac7efe
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  jcr:uuid: 9462d672-e1eb-4454-a16d-74eee3dcc0a3
+                  hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+                  hst:schemeagnostic: true
+      /uat:
+        jcr:primaryType: hst:virtualhostgroup
+        jcr:uuid: 9fa8ea5b-1431-4528-9574-ba84deb11034
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          jcr:uuid: 81fae880-cd74-4b83-a378-c935db9c5496
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            jcr:uuid: 82ab7f4c-e6f6-4dc6-8615-1778dbc6d2ba
+            /tradingnation:
+              jcr:primaryType: hst:virtualhost
+              jcr:uuid: 41c03d58-27ec-4646-bc7d-223a6c975229
+              /uat:
+                jcr:primaryType: hst:virtualhost
+                jcr:uuid: f275493f-09f2-4945-bc44-0dd8dd1ef96b
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  jcr:uuid: c817b2db-9026-4a91-b863-f20aad3d3a3c
+                  hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+                  hst:schemeagnostic: true
+      /per:
+        jcr:primaryType: hst:virtualhostgroup
+        jcr:uuid: 4a49fd79-390d-4f58-9b83-13b0c477afec
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          jcr:uuid: 82bda523-8723-4a1e-8101-b9dc7bda5f42
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            jcr:uuid: 625e7d23-1e09-466f-99e0-0bcc62bf22f3
+            /tradingnation:
+              jcr:primaryType: hst:virtualhost
+              jcr:uuid: 1ed23886-8dfe-4997-bf1d-05fc40d73d4a
+              /per:
+                jcr:primaryType: hst:virtualhost
+                jcr:uuid: 92d0d6eb-7988-4066-ab4b-ea30eeab78d4
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  jcr:uuid: c3bb6967-7d47-4f5e-857a-653ea341a732
+                  hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+                  hst:schemeagnostic: true
+      /tst:
+        jcr:primaryType: hst:virtualhostgroup
+        jcr:uuid: c2fed9c1-f678-4c22-8913-6a161e5c904f
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          jcr:uuid: ec5df1dc-7f6f-4039-ab94-99d6fc69d243
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            jcr:uuid: 45e0a835-dd19-4648-a83d-ad5d94aef896
+            /tradingnation:
+              jcr:primaryType: hst:virtualhost
+              jcr:uuid: 082b5597-fa02-4261-9ab6-2e8693b001fa
+              /tst:
+                jcr:primaryType: hst:virtualhost
+                jcr:uuid: d31d273f-504b-4fda-a6a7-13e7c66bcdf2
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  jcr:uuid: 56d46763-aa43-4cdf-b637-cae45437ace8
+                  hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+                  hst:schemeagnostic: true
+      /blu:
+        jcr:primaryType: hst:virtualhostgroup
+        jcr:uuid: a8cecf32-b8a3-4fb9-bf01-05c13ca6f731
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          jcr:uuid: e76e62f6-0347-4cb4-95d7-1f955a683ad4
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            jcr:uuid: 185942b1-9eb1-4d66-b6dd-0aba1bef8c39
+            /tradingnation:
+              jcr:primaryType: hst:virtualhost
+              jcr:uuid: edd9f7ea-430b-4136-a894-bb170b46dcc5
+              /blue:
+                jcr:primaryType: hst:virtualhost
+                jcr:uuid: 3f8abeed-cc51-4123-b6d0-9edc046cf8cd
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  jcr:uuid: 7ed44377-7dc0-44b6-b053-f576ecba76cf
+                  hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+                  hst:schemeagnostic: true
+      /grn:
+        jcr:primaryType: hst:virtualhostgroup
+        jcr:uuid: 936a015e-f36f-486d-8252-6511e3d55e8f
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          jcr:uuid: 477c5985-52cd-4437-af65-920f816e14f8
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            jcr:uuid: d123c24c-3270-43a1-9d77-a3eb817ca890
+            /tradingnation:
+              jcr:primaryType: hst:virtualhost
+              jcr:uuid: cb92b4a8-46ee-4673-86d0-3a5e3b2c7de7
+              /green:
+                jcr:primaryType: hst:virtualhost
+                jcr:uuid: a27061d1-09b5-4584-a163-be98729e34c8
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  jcr:uuid: f070f3a2-a530-4688-b317-598b2686271f
+                  hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+                  hst:schemeagnostic: true
+      /live:
+        jcr:primaryType: hst:virtualhostgroup
+        jcr:uuid: 9dc14a68-8780-4ba0-bd78-b47c21d14422
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          jcr:uuid: 3338d5e7-7295-433f-9a57-b4bf2cb9007e
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            jcr:uuid: 3b0e2458-596c-4fe9-aed7-072dba982f77
+            /tradingnation:
+              jcr:primaryType: hst:virtualhost
+              jcr:uuid: beb72ea4-31c2-4430-aee7-91e4e27202de
+              /hst:root:
+                jcr:primaryType: hst:mount
+                jcr:uuid: d5812a97-63dd-40c1-b462-dd84de2e10af
+                hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+                hst:schemeagnostic: true
