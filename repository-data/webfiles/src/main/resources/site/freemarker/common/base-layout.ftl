@@ -24,51 +24,5 @@
             <@hst.include ref="footer"/>
         </div>
 
-
-        <style type="text/css">
-            html {
-                min-height: 100%;
-                position: relative;
-            }
-
-            body {
-                min-height: 100vh;
-                margin-bottom: 350px;
-            }
-
-            .ds_site-footer {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-            }
-
-            @supports (display: grid) {
-                body {
-                    display: grid;
-                    margin-bottom: 0;
-                    min-height: 100vh;
-                    grid-template-rows: auto 1fr auto;
-                }
-
-                .ds_site-footer {
-                    position: static;
-                }
-            }
-        </style>
-
-        <style>
-            .ds_page__main {
-                display: grid;
-                grid-template-rows: auto 1fr;
-                position: relative;
-            }
-
-            .category-lower {
-                padding-bottom: 70px;
-                background: #fafafa;
-                border-top: 1px solid #ebebeb;
-            }
-        </style>
     </body>
 </html>
