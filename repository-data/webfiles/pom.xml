@@ -37,6 +37,56 @@
           <includeEmptyDirs>true</includeEmptyDirs>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>1.6</version>
+        <executions>
+          <execution>
+            <id>install node and npm</id>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>npm install</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>install</arguments>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <installDirectory>${install.node.dir}</installDirectory>
+          <nodeVersion>${version.node}</nodeVersion>
+          <npmVersion>${version.npm}</npmVersion>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>com.github.warmuuh</groupId>
+        <artifactId>libsass-maven-plugin</artifactId>
+        <version>0.2.10-libsass_3.5.3</version>
+        <executions>
+          <execution>
+              <phase>generate-resources</phase>
+              <goals>
+                <goal>compile</goal>
+              </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <inputPath>src/scss</inputPath>
+          <outputPath>src/main/resources/site/assets/css</outputPath>
+          <outputStyle>compressed</outputStyle>
+          <generateSourceMap>false</generateSourceMap>
+          <cacheLocation>target/.sass-cache</cacheLocation>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 

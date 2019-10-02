@@ -75,6 +75,11 @@
 
     <index.configuration>cms/src/main/resources/org/hippoecm/repository/query/lucene/indexing_configuration.xml</index.configuration>
     <forge.breadcrumb.version>2.0.0</forge.breadcrumb.version>
+
+    <!-- Front end build -->
+    <version.node>v6.12.3</version.node>
+    <version.npm>3.10.8</version.npm>
+    <install.node.dir>${settings.localRepository}/.node/${version.node}</install.node.dir>
   </properties>
 
   <dependencyManagement>
