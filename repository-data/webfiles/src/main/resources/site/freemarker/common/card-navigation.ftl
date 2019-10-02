@@ -2,7 +2,7 @@
 
 <div class="ds_wrapper">
 
-    <ol class="ds_category-list  ds_category-list--grid  ds_category-list--grid--narrow">
+    <ol class="ds_category-list  ds_category-list--grid  ds_category-list--narrow">
         <#list children as child>
             <@hst.link var="link" hippobean=child/>
             <li class="ds_category-item  ds_category-item--card  ds_category-item--card--gradient">

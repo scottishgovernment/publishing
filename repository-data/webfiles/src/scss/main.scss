@@ -6,6 +6,7 @@ $color__brand--secondary: #F0A75A;
 $brand-gradient-direction: left;
 $category-header__border-color: $color__brand--secondary;
 $category-header__title-color: $color__brand--primary;
+$site-logo__height--medium: 35px;
 
 
 
@@ -29,4 +30,12 @@ $category-header__title-color: $color__brand--primary;
 /**
  * COMPONENTS FROM TRADING NATION
  */
-@import "_tn-layouts.scss";
+@import "tn-layouts.scss";
+
+
+
+
+/*
+ * CMS STYLES
+ */
+ @import "cms-editable.scss";

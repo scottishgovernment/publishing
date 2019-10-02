@@ -1,6 +1,10 @@
-.layout {
+/*------------------------------------*\
+    TRADING NATION LAYOUTS
+\*------------------------------------*/
+
+.#{$pl-prefix}layout {
     &--tn-article {
-        .layout {
+        > .#{$pl-prefix}layout {
             &__header {
                 clear: left;
                 float: left;
@@ -18,7 +22,7 @@
 
 @supports(display: grid) {
     @include media-query(medium) {
-        .layout {
+        .#{$pl-prefix}layout {
             &--tn-article {
                 grid-template-areas:
                     'h h h h h h h h h h . .'

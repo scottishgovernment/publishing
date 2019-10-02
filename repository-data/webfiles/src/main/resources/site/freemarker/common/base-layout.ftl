@@ -13,46 +13,62 @@
     </head>
 
     <body>
+        <div class="ds_page__top">
+            <@hst.include ref="notifications"/>
+            <@hst.include ref="siteheader"/>
+        </div>
+        <div class="ds_page__main">
+            <@hst.include ref="main"/>
+        </div>
+        <div class="ds_page__footer">
+            <@hst.include ref="footer"/>
+        </div>
+
 
         <style type="text/css">
-            body,
             html {
-                height: 100%;
-                margin-bottom: 0 !important;
+                min-height: 100%;
+                position: relative;
             }
 
             body {
-                display: grid;
-                min-height: 100%;
-                grid-template-rows: auto 1fr auto;
+                min-height: 100vh;
+                margin-bottom: 350px;
+            }
+
+            .ds_site-footer {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+
+            @supports (display: grid) {
+                body {
+                    display: grid;
+                    margin-bottom: 0;
+                    min-height: 100vh;
+                    grid-template-rows: auto 1fr auto;
+                }
+
+                .ds_site-footer {
+                    position: static;
+                }
             }
         </style>
 
         <style>
-            .layout-main {
+            .ds_page__main {
                 display: grid;
                 grid-template-rows: auto 1fr;
+                position: relative;
             }
 
             .category-lower {
-                padding-top: 28px;
                 padding-bottom: 70px;
                 background: #fafafa;
                 border-top: 1px solid #ebebeb;
             }
         </style>
-
-
-
-        <div class="layout-top">
-            <@hst.include ref="notifications"/>
-            <@hst.include ref="siteheader"/>
-        </div>
-        <div class="layout-main">
-            <@hst.include ref="main"/>
-        </div>
-        <div class="layout-footer">
-            <@hst.include ref="footer"/>
-        </div>
     </body>
 </html>
