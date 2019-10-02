@@ -7,7 +7,7 @@
             <@hst.link var="link" hippobean=child/>
             <li class="ds_category-item">
                 <h2 class="ds_category-item__title">
-                    <a data-navigation="category-item-1" href="${link}" class="ds_category-item__link">${child.title}</a>
+                    <a data-navigation="category-item-${child?index + 1}" href="${link}" class="ds_category-item__link">${child.title}</a>
                 </h2>
 
                 <p class="ds_category-item__summary">
