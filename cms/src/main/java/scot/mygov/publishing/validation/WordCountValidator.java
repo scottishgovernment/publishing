@@ -6,7 +6,6 @@ import org.onehippo.cms.services.validation.api.Validator;
 import org.onehippo.cms.services.validation.api.Violation;
 
 import javax.jcr.Node;
-import javax.jcr.RepositoryException;
 import java.util.*;
 
 /**
@@ -23,30 +22,14 @@ public class WordCountValidator implements Validator<String> {
     private int maxWordCount = -1;
 
     public WordCountValidator(Node config) {
-        minWordCount = getWordCountFromConfig(config, WORK_COUNT_MIN_KEY);
-        maxWordCount = getWordCountFromConfig(config, WORK_COUNT_MAX_KEY);
+        minWordCount = ValidatorUtil.getIntegerPropertyFromConfig(config, WORK_COUNT_MIN_KEY);
+        maxWordCount = ValidatorUtil.getIntegerPropertyFromConfig(config, WORK_COUNT_MAX_KEY);
         if (minWordCount < 0) {
             throw new ValidationContextException(WORK_COUNT_MIN_KEY + " must be >= 0");
         }
 
         if (maxWordCount < minWordCount) {
             throw new ValidationContextException(WORK_COUNT_MAX_KEY + " must be > " + WORK_COUNT_MIN_KEY);
-        }
-    }
-
-    private int getWordCountFromConfig(Node config, String property) {
-
-        String strValue = "";
-        try {
-            if (!config.hasProperty(property)) {
-                throw new ValidationContextException(String.format("Config has no %s property", property));
-            }
-            strValue = config.getProperty(property).getString();
-            return Integer.valueOf(strValue);
-        } catch (RepositoryException e) {
-            throw new ValidationContextException(String.format("Could not read value of property %s", property), e);
-        } catch (NumberFormatException e) {
-            throw new ValidationContextException(String.format("Invalid value of property %s (%s)", property, strValue), e);
         }
     }
 

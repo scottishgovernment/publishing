@@ -11,3 +11,11 @@ definitions:
         hipposys:className: scot.mygov.publishing.validation.WordCountValidator
         wordcount.max: '50'
         wordcount.min: '1'
+      /title-minlength-validator:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.MinimumLengthValidator
+        minlength.min: '3'
+      /summary-minlength-validator:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.MinimumLengthValidator
+        minlength.min: '3'

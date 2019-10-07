@@ -3,3 +3,5 @@ definitions:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
       title-words-validator: Must have between ${wordcount.min} and ${wordcount.max} words
       summary-words-validator: Must have between ${wordcount.min} and ${wordcount.max} words
+      title-minlength-validator: Must be at least ${minlength.min} characters
+      summary-minlength-validator: Must be at least ${minlength.min} characters
