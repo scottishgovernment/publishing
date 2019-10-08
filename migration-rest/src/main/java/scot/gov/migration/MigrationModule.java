@@ -27,7 +27,7 @@ public class MigrationModule extends AbstractReconfigurableDaemonModule {
     // this is across the whole site and so I have decied to make it the documents directory
     private static final String AUTH_PATH = "/content/documents";
 
-    private static final String PATH = "/migration";
+    private static final String PATH = "/publishing/migration";
 
     @Override
     protected void doConfigure(Node module) throws RepositoryException {
