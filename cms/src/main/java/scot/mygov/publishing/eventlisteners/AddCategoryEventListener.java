@@ -36,15 +36,20 @@ public class AddCategoryEventListener {
         try {
             doHandleEvent(event);
         } catch (RepositoryException e) {
+            e.printStackTrace();
             LOG.error(
-                    "error trying to set folder actions for event action={}, event={}, result={}",
+                    "error trying to set folder actions for event msg={}, action={}, event={}, result={}", e.getMessage(),
                     event.action(), event.category(), event.result(), e);
         }
     }
 
     void doHandleEvent(HippoEvent event) throws RepositoryException {
+        if (!isAddEvent(event)) {
+            return;
+        }
+
         Node node = session.getNode(event.result());
-        if (isFolderAddEvent(event, node)) {
+        if (isFolder(node)) {
             setActionsDependingOnDepth(node);
             setNavigationStyle(node);
             session.save();
@@ -73,10 +78,6 @@ public class AddCategoryEventListener {
             Node index = it.nextNode();
             index.setProperty("publishing:navigationType", navigationType);
         }
-    }
-
-    boolean isFolderAddEvent(HippoEvent event, Node node) throws RepositoryException {
-        return isAddEvent(event) && isFolder(node);
     }
 
     boolean isAddEvent(HippoEvent event) {

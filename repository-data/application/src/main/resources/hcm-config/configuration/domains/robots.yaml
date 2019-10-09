@@ -1,0 +1,17 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/robots:
+      jcr:primaryType: hipposys:domain
+      /editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups: [cmsadmin]
+        hipposys:role: editor
+      /robots-document-type:
+        jcr:primaryType: hipposys:domainrule
+        /nodetype-hippo-document:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: nodetype
+          hipposys:filter: false
+          hipposys:type: Name
+          hipposys:value: robotstxt:robotstxt

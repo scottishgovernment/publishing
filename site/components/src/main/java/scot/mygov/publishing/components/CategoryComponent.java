@@ -6,7 +6,10 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static java.util.stream.Collectors.*;
 
@@ -16,25 +19,36 @@ import static java.util.stream.Collectors.*;
  * This component makes a list of its navigable children available as the "children" attribute. This list contains the
  * bean for any children, with the index bean being added in the place of any sub-categories.  This includes subcategories
  * and any articles etc.
+ *
+ * The footer and administration folders are excluded.
  */
 public class CategoryComponent extends EssentialsContentComponent {
+
+    static final Set<String> EXCLUDED = new HashSet<>();
+
+    static {
+        // node names that should not be included on the home page
+        Collections.addAll(EXCLUDED, "administration", "footer");
+    }
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
 
         HippoBean bean = request.getRequestContext().getContentBean();
+        HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
         HippoFolderBean folder = (HippoFolderBean) bean.getParentBean();
-        List<HippoBean> children = getChildren(folder);
+        List<HippoBean> children = getChildren(folder, baseBean);
         request.setAttribute("children", children);
     }
 
-    static List<HippoBean> getChildren(HippoFolderBean folder) {
+    static List<HippoBean> getChildren(HippoFolderBean folder, HippoBean baseBean) {
+
         return folder
                 .getChildBeans(HippoBean.class)
                 .stream()
                 .filter(CategoryComponent::notIndexFile)
-                .filter(CategoryComponent::notFooter)
+                .filter(node -> !excluded(node, folder, baseBean))
                 .map(CategoryComponent::mapBean)
                 .collect(toList());
     }
@@ -43,8 +57,9 @@ public class CategoryComponent extends EssentialsContentComponent {
         return !"index".equals(bean.getName());
     }
 
-    static boolean notFooter(HippoBean bean) {
-        return !"footer".equals(bean.getName());
+    // do not list certain folders at the root (e.g. footer, adminstration)
+    static boolean excluded(HippoBean bean, HippoFolderBean folder, HippoBean baseBean) {
+        return folder.equals(baseBean) &&  EXCLUDED.contains(bean.getName());
     }
 
     /**
