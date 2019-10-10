@@ -121,27 +121,4 @@ public class FooterLinkProcessorTest {
         return link;
     }
 
-//    protected HstLink doPreProcess(HstLink link) {
-//
-//        if (link.getPathElements().length != 1) {
-//            return link;
-//        }
-//
-//        try {
-//            String slug = link.getPathElements()[0];
-//            Session session = sessionSource.getSession(link);
-//
-//            String contentPath = String.format("%s/%s/%s", link.getMount().getContentPath(), "footer", Text.escapeIllegalJcr10Chars(slug));
-//            if (!session.nodeExists(contentPath)) {
-//                return link;
-//            }
-//
-//            Node handle = session.getNode(contentPath);
-//            link.setPath("footer/" + handle.getName());
-//            return link;
-//        } catch (RepositoryException e) {
-//            LOG.warn("Exception trying to process link: \"{}\"", link.getPath(), e);
-//            return link;
-//        }
-//    }
 }
