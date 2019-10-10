@@ -15,9 +15,23 @@
                         <p>${document.summary}</p>
                     </div>
                 </header>
-                <div class="ds_category-header__media-container">
-                    <img class="ds_category-header__media" src="https://tradingnation.mygov.scot/assets/images/hero/CountryNavImage-x2.png" alt="" />
-                </div>
+                      <div class="ds_category-header__media-container">
+                        <#if document.heroimage??>
+                            <img class="ds_category-header__media" alt="" 
+                                src="<@hst.link document.heroimage.original/>" />
+                            Image lowercase i            
+                            <#else>
+                            No image lowercase i 
+                        </#if> 
+
+                        <#if document.heroImage??>
+                            <img class="ds_category-header__media" alt="" 
+                                src="<@hst.link document.heroImage.original/>" />
+                            Image uppercase I            
+                            <#else>
+                            No image uppercase I 
+                        </#if>  
+                    </div>
             </div>
         </div>
     </div>
