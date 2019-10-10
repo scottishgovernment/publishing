@@ -38,7 +38,7 @@ public class AddCategoryEventListener {
         } catch (RepositoryException e) {
             LOG.error(
                     "error trying to set folder actions for event action={}, event={}, result={}",
-                    event.action(), event.category(), event.result());
+                    event.action(), event.category(), event.result(), e);
         }
     }
 
