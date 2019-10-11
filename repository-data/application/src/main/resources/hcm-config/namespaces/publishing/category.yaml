@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 2dee4378-bce6-48d9-80bd-146794938562
+          jcr:uuid: 2f396aee-6b30-415c-aa7b-ee50a389d9d2
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -20,7 +20,7 @@ definitions:
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:heroimage
+            hipposysedit:path: publishing:heroImage
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
           /dynamicdropdown:
@@ -70,7 +70,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 33ebc0ab-d85b-4d25-8e28-2f66b832f651
+          jcr:uuid: a095fb5c-7f16-4049-afe0-393193f6d5ad
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:59.186+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:59.186+01:00
           publishing:seoTitle: ''
@@ -82,18 +82,18 @@ definitions:
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
-          /publishing:heroimage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
           /publishing:prologue:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
           /publishing:epilogue:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
+          /publishing:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -117,7 +117,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /heroimage:
+          /heroImage:
             jcr:primaryType: frontend:plugin
             caption: Hero image
             field: heroimage
