@@ -36,7 +36,6 @@ public class AddCategoryEventListener {
         try {
             doHandleEvent(event);
         } catch (RepositoryException e) {
-            e.printStackTrace();
             LOG.error(
                     "error trying to set folder actions for event msg={}, action={}, event={}, result={}", e.getMessage(),
                     event.action(), event.category(), event.result(), e);
