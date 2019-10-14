@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 2f396aee-6b30-415c-aa7b-ee50a389d9d2
+          jcr:uuid: cdd7c4d0-96c2-4bdf-9155-7cd03b3ed9ee
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -70,7 +70,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: a095fb5c-7f16-4049-afe0-393193f6d5ad
+          jcr:uuid: 608e17d2-6d11-4f92-b215-73eade3c6926
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:59.186+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:59.186+01:00
           publishing:seoTitle: ''
@@ -154,7 +154,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Summary
             field: summary
-            hint: Enter a summary of this content item
+            hint: Enter a summary of this page.  This summary will be used in places
+              where this page is listed on the live website, such as a category page
+              and in search results. It must be between 3 and 255 characters.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -195,8 +197,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Meta description
             field: metaDescription
-            hint: Enter content that will appear at the top of this page, above the
-              main article content. This is optional.
+            hint: "Describe what content this page covers. Search engines will use\
+              \ this content when displaying links to the site in the search listings.\
+              \ \r\n\r\nThe description must be between 3 and 255 characters."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
