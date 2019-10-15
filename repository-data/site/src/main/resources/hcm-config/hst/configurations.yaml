@@ -79,6 +79,9 @@ definitions:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
           jcr:primaryType: hst:sitemapitemhandlers
+          /trailing-slash:
+            jcr:primaryType: hst:sitemapitemhandler
+            hst:sitemapitemhandlerclassname: scot.mygov.publishing.sitemap.TrailingSlashRedirect
         /hst:catalog:
           jcr:primaryType: hst:catalog
       /publishing:
