@@ -36,12 +36,24 @@ public class CategoryComponent extends EssentialsContentComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+        setCategoryAttributes(request);
+    }
+
+    static void setCategoryAttributes(HstRequest request) {
+
+        if (!hasContentBean(request)) {
+            return;
+        }
 
         HippoBean bean = request.getRequestContext().getContentBean();
         HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
         HippoFolderBean folder = (HippoFolderBean) bean.getParentBean();
         List<HippoBean> children = getChildren(folder, baseBean);
         request.setAttribute("children", children);
+    }
+
+    static boolean hasContentBean(HstRequest request) {
+        return request.getRequestContext().getContentBean() != null;
     }
 
     static List<HippoBean> getChildren(HippoFolderBean folder, HippoBean baseBean) {

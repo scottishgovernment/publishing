@@ -12,9 +12,7 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.same;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by z418868 on 19/09/2019.
@@ -107,6 +105,21 @@ public class BreadcrumbComponentTest {
         Assert.assertEquals(actual.get(1).getTitle(), "categoryIndex-title");
         verify(linkCreator).create(same(homeIndex), any());
         verify(linkCreator).create(same(categoryIndex), any());
+    }
+
+    @Test
+    public void notAttributesSetIfNoContentBean() {
+        // ARRANGE
+        HstRequest request = mock(HstRequest.class);
+        HstRequestContext context = mock(HstRequestContext.class);
+        when(request.getRequestContext()).thenReturn(context);
+        when(context.getContentBean()).thenReturn(null);
+
+        // ACT
+        BreadcrumbComponent.constructBreadcrumb(request);
+
+        // ASSERT
+        verify(request, never()).setAttribute(any(), any());
     }
 
     HippoBean article(String identifier) {

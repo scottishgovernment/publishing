@@ -18,12 +18,19 @@ public class ArticleComponent extends CategoryComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+        setArticleAttributes(request);
+    }
 
-        HippoBean document = request.getRequestContext().getContentBean();
+    static void setArticleAttributes(HstRequest request) {
+
+        if (!hasContentBean(request)) {
+            return;
+        }
 
         // CategoryComponent has set an attribute "children" that will list all of the navigable children of the
-        // paren page.
+        // parent page.
         List<HippoBean> children = (List<HippoBean>) request.getAttribute("children");
+        HippoBean document = request.getRequestContext().getContentBean();
         int index = children.indexOf(document);
         HippoBean prev = prev(children, index);
         HippoBean next = next(children, index);

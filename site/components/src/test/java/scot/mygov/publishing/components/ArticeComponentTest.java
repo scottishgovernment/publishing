@@ -2,17 +2,14 @@ package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.request.HstRequestContext;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by z418868 on 19/09/2019.
@@ -20,48 +17,52 @@ import static org.mockito.Mockito.when;
 public class ArticeComponentTest {
 
     @Test
-    public void prevReturnsNullIfFirstChild() {
+    public void prevNullIfFirstChild() {
         // ARRANGE
         List<HippoBean> children = new ArrayList<>();
         HippoBean self = mock(HippoBean.class);
         HippoBean another = mock(HippoBean.class);
         Collections.addAll(children, self, another);
+        HstRequest request = request(children, self);
 
         // ACT
-        HippoBean actual = ArticleComponent.prev(children, 0);
+        ArticleComponent.setArticleAttributes(request);
 
         // ASSERT
-        assertNull(actual);
+        verify(request).setAttribute("prev", null);
     }
 
     @Test
-    public void prevReturnsPreviousSiblingIfNotFirst() {
+    public void prevIsPreviousSiblingIfNotFirst() {
         // ARRANGE
         List<HippoBean> children = new ArrayList<>();
         HippoBean self = mock(HippoBean.class);
         HippoBean another = mock(HippoBean.class);
         Collections.addAll(children, another, self);
+        HstRequest request = request(children, self);
 
         // ACT
-        HippoBean actual = ArticleComponent.prev(children, 1);
+        ArticleComponent.setArticleAttributes(request);
 
         // ASSERT
-        assertSame(actual, another);
+        verify(request).setAttribute("prev", another);
     }
 
     @Test
     public void nextReturnsNullIfLastChild() {
+
         // ARRANGE
         List<HippoBean> children = new ArrayList<>();
         HippoBean self = mock(HippoBean.class);
         HippoBean another = mock(HippoBean.class);
         Collections.addAll(children, self, another);
+        HstRequest request = request(children, self);
 
         // ACT
-        HippoBean actual = ArticleComponent.next(children, 1);
+        ArticleComponent.setArticleAttributes(request);
 
         // ASSERT
-        assertNull(actual);
+        verify(request).setAttribute("prev", null);
     }
 
     @Test
@@ -71,12 +72,27 @@ public class ArticeComponentTest {
         HippoBean self = mock(HippoBean.class);
         HippoBean another = mock(HippoBean.class);
         Collections.addAll(children, self, another);
+        HstRequest request = request(children, self);
 
         // ACT
-        HippoBean actual = ArticleComponent.next(children, 0);
+        ArticleComponent.setArticleAttributes(request);
 
         // ASSERT
-        assertSame(actual, another);
+        verify(request).setAttribute("next", another);
+
+    }
+
+    HstRequest request(List<HippoBean> children, HippoBean bean) {
+        HippoBean folder = mock(HippoBean.class);
+        HippoBean index = mock(HippoBean.class);
+        HstRequest request = mock(HstRequest.class);
+        HstRequestContext context = mock(HstRequestContext.class);
+        when(request.getAttribute("children")).thenReturn(children);
+        when(request.getRequestContext()).thenReturn(context);
+        when(context.getContentBean()).thenReturn(bean);
+        when(folder.getBean("index")).thenReturn(index);
+        when(bean.getParentBean()).thenReturn(folder);
+        return request;
     }
 
     @Test
@@ -95,7 +111,7 @@ public class ArticeComponentTest {
     }
 
     @Test
-    public void sequenceableFlagSetToMathcIndexFile() {
+    public void sequenceableFlagSetToMatchIndexFile() {
 
         // ARRANGE
         HstRequest request = mock(HstRequest.class);
@@ -112,4 +128,20 @@ public class ArticeComponentTest {
         // ASSERT
         verify(request).setAttribute("sequenceable", true);
     }
+
+    @Test
+    public void notAttributesSetIfNoContentBean() {
+        // ARRANGE
+        HstRequest request = mock(HstRequest.class);
+        HstRequestContext context = mock(HstRequestContext.class);
+        when(request.getRequestContext()).thenReturn(context);
+        when(context.getContentBean()).thenReturn(null);
+
+        // ACT
+        ArticleComponent.setArticleAttributes(request);
+
+        // ASSERT
+        verify(request, never()).setAttribute(any(), any());
+    }
+
 }

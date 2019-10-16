@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static scot.mygov.publishing.components.CategoryComponent.INDEX;
+import static java.util.Collections.emptyList;
 import static scot.mygov.publishing.components.CategoryComponent.indexBean;
 
 /**
@@ -23,12 +24,15 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-
         List<BreadcrumbItem> breadcrumbs = constructBreadcrumb(request);
         request.setAttribute("breadcrumbs", breadcrumbs);
     }
 
     static List<BreadcrumbItem> constructBreadcrumb(HstRequest request) {
+        if (request.getRequestContext().getContentBean() == null) {
+            return emptyList();
+        }
+
         HstRequestContext context = request.getRequestContext();
         HippoBean baseBean = context.getSiteContentBaseBean();
         HippoBean contentBean = context.getContentBean();
@@ -47,7 +51,8 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
                 ? new ArrayList<>()
                 : breadcrumbs(bean.getParentBean(), baseBean, context);
         HippoBean linkBean = indexBean(bean);
-        // we do this to handle structural folders (for example the footers folder)
+        // we do this to handle structural folders (for example the footer folder)
+        // these folders do not contain an index file.
         if (linkBean != null) {
             breadcrumbs.add(breadcrumbItem(linkBean, context));
         }
