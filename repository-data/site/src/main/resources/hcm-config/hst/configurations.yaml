@@ -5,14 +5,6 @@ definitions:
         jcr:primaryType: hst:configuration
         /hst:sitemap:
           jcr:primaryType: hst:sitemap
-          /_any_:
-            jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/article
-            hst:relativecontentpath: ${1}
-            /_index_:
-              jcr:primaryType: hst:sitemapitem
-              hst:componentconfigurationid: hst:pages/category
-              hst:relativecontentpath: ${parent}/index
           /root:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/home
@@ -26,6 +18,116 @@ definitions:
             hst:componentconfigurationid: hst:pages/robotstxt
             hst:hiddeninchannelmanager: true
             hst:relativecontentpath: administration/robots
+          /_default_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/article
+            hst:relativecontentpath: ${1}
+            hst:sitemapitemhandlerids: [trailing-slash]
+            /_default_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/article
+              hst:relativecontentpath: ${parent}/${2}
+              hst:sitemapitemhandlerids: [trailing-slash]
+              /_default_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/article
+                hst:relativecontentpath: ${parent}/${3}
+                hst:sitemapitemhandlerids: [trailing-slash]
+                /_default_:
+                  jcr:primaryType: hst:sitemapitem
+                  hst:componentconfigurationid: hst:pages/article
+                  hst:relativecontentpath: ${parent}/${4}
+                  hst:sitemapitemhandlerids: [trailing-slash]
+                  /_default_:
+                    jcr:primaryType: hst:sitemapitem
+                    hst:componentconfigurationid: hst:pages/article
+                    hst:relativecontentpath: ${parent}/${5}
+                    hst:sitemapitemhandlerids: [trailing-slash]
+                    /_default_:
+                      jcr:primaryType: hst:sitemapitem
+                      hst:componentconfigurationid: hst:pages/article
+                      hst:relativecontentpath: ${parent}/${6}
+                      hst:sitemapitemhandlerids: [trailing-slash]
+                      /_default_:
+                        jcr:primaryType: hst:sitemapitem
+                        hst:componentconfigurationid: hst:pages/article
+                        hst:relativecontentpath: ${parent}/${7}
+                        hst:sitemapitemhandlerids: [trailing-slash]
+                        /_default_:
+                          jcr:primaryType: hst:sitemapitem
+                          hst:componentconfigurationid: hst:pages/article
+                          hst:relativecontentpath: ${parent}/${8}
+                          hst:sitemapitemhandlerids: [trailing-slash]
+                          /_default_:
+                            jcr:primaryType: hst:sitemapitem
+                            hst:componentconfigurationid: hst:pages/article
+                            hst:relativecontentpath: ${parent}/${9}
+                            hst:sitemapitemhandlerids: [trailing-slash]
+                            /_default_:
+                              jcr:primaryType: hst:sitemapitem
+                              hst:componentconfigurationid: hst:pages/article
+                              hst:relativecontentpath: ${parent}/${10}
+                              hst:sitemapitemhandlerids: [trailing-slash]
+                              /_default_:
+                                jcr:primaryType: hst:sitemapitem
+                                hst:componentconfigurationid: hst:pages/article
+                                hst:relativecontentpath: ${parent}/${11}
+                                hst:sitemapitemhandlerids: [trailing-slash]
+                                /_index_:
+                                  jcr:primaryType: hst:sitemapitem
+                                  hst:componentconfigurationid: hst:pages/category
+                                  hst:relativecontentpath: ${parent}/index
+                                  hst:sitemapitemhandlerids: [trailing-slash]
+                              /_index_:
+                                jcr:primaryType: hst:sitemapitem
+                                hst:componentconfigurationid: hst:pages/category
+                                hst:relativecontentpath: ${parent}/index
+                                hst:sitemapitemhandlerids: [trailing-slash]
+                            /_index_:
+                              jcr:primaryType: hst:sitemapitem
+                              hst:componentconfigurationid: hst:pages/category
+                              hst:relativecontentpath: ${parent}/index
+                              hst:sitemapitemhandlerids: [trailing-slash]
+                          /_index_:
+                            jcr:primaryType: hst:sitemapitem
+                            hst:componentconfigurationid: hst:pages/category
+                            hst:relativecontentpath: ${parent}/index
+                            hst:sitemapitemhandlerids: [trailing-slash]
+                        /_index_:
+                          jcr:primaryType: hst:sitemapitem
+                          hst:componentconfigurationid: hst:pages/category
+                          hst:relativecontentpath: ${parent}/index
+                          hst:sitemapitemhandlerids: [trailing-slash]
+                      /_index_:
+                        jcr:primaryType: hst:sitemapitem
+                        hst:componentconfigurationid: hst:pages/category
+                        hst:relativecontentpath: ${parent}/index
+                        hst:sitemapitemhandlerids: [trailing-slash]
+                    /_index_:
+                      jcr:primaryType: hst:sitemapitem
+                      hst:componentconfigurationid: hst:pages/category
+                      hst:relativecontentpath: ${parent}/index
+                      hst:sitemapitemhandlerids: [trailing-slash]
+                  /_index_:
+                    jcr:primaryType: hst:sitemapitem
+                    hst:componentconfigurationid: hst:pages/category
+                    hst:relativecontentpath: ${parent}/index
+                    hst:sitemapitemhandlerids: [trailing-slash]
+                /_index_:
+                  jcr:primaryType: hst:sitemapitem
+                  hst:componentconfigurationid: hst:pages/category
+                  hst:relativecontentpath: ${parent}/index
+                  hst:sitemapitemhandlerids: [trailing-slash]
+              /_index_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/category
+                hst:relativecontentpath: ${parent}/index
+                hst:sitemapitemhandlerids: [trailing-slash]
+            /_index_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/category
+              hst:relativecontentpath: ${parent}/index
+              hst:sitemapitemhandlerids: [trailing-slash]
         /hst:abstractpages:
           jcr:primaryType: hst:pages
         /hst:pages:
