@@ -1,0 +1,31 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/administrationdocuments:
+      jcr:primaryType: hipposys:domain
+      /hippo-document:
+        jcr:primaryType: hipposys:domainrule
+        /hide-prototypes:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: nodename
+          hipposys:filter: false
+          hipposys:type: Name
+          hipposys:value: hipposysedit:prototype
+        /nodetype-hippo-document:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: nodetype
+          hipposys:filter: false
+          hipposys:type: Name
+          hipposys:value: hippo:document
+        /include-trading-nation-administration-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/trading-nation/administration
+      /admin:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups: [admin, cmsadmin]
+        hipposys:role: admin

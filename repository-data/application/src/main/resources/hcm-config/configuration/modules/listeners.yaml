@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/listeners:
+      jcr:primaryType: hipposys:module
+      hipposys:className: scot.mygov.publishing.eventlisteners.ListenersModule
+      hipposys:cmsonly: true

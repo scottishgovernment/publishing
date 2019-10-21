@@ -1,0 +1,56 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-publishing-category:
+      jcr:primaryType: hippostd:templatequery
+      jcr:mixinTypes: ['hipposys:implementation']
+      hippostd:icon: addfolder_ico
+      hippostd:modify: [./_name, $name, './hippotranslation:id', $uuid, './hippotranslation:locale',
+        $inherited, './index/index/publishing:title', $localName, './index/hippo:name',
+        $localName, './index/index/hippo:name', $localName, './index/index/hippostdpubwf:createdBy',
+        $holder, './index/index/hippostdpubwf:lastModifiedBy', $holder, './index/index/hippostdpubwf:creationDate',
+        $now, './index/index/hippostdpubwf:lastModificationDate', $now, './index/index/publishing:seoTitle',
+        $localName]
+      hipposys:classname: org.hippoecm.repository.impl.query.DirectPath
+      jcr:language: xpath
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-publishing-category/hippostd:templates/node()
+      /hippostd:templates:
+        jcr:primaryType: hippostd:templates
+        /hippostd:folder:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 34c35f9e-2ed3-4a4d-9b29-0f0b5d98275f
+          hippostd:foldertype: [new-publishing-article, new-publishing-category]
+          /index:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: debacc54-81d5-401f-aa59-e40f0187c896
+            hippo:name: index
+            /index[1]:
+              jcr:primaryType: publishing:category
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: 9b74a104-199d-4155-af9e-07b188619786
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: system
+              hippostdpubwf:creationDate: 2019-10-02T09:27:13.455+01:00
+              hippostdpubwf:lastModificationDate: 2019-10-02T09:27:13.657+01:00
+              hippostdpubwf:lastModifiedBy: system
+              hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:metaDescription: ''
+              publishing:navigationType: grid
+              publishing:reportingtags: []
+              publishing:seoTitle: ''
+              publishing:sequenceable: true
+              publishing:summary: ''
+              publishing:title: ''
+              /publishing:heroImage:
+                jcr:primaryType: hippogallerypicker:imagelink
+                hippo:docbase: 672485e1-5670-4a2c-97d3-b8f23bf51d8d
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
