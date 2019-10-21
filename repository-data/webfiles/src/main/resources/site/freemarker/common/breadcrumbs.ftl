@@ -24,4 +24,41 @@
         </ol>
     </nav>
 </div>
+
+
 </#if>
+
+<@hst.headContribution category="schema">
+<#if breadcrumbs??>
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            <#list breadcrumbs as item>
+            <@hst.link var="link" link=item.link/>
+            {
+                "@type": "ListItem",
+                "position": ${item?index + 1},
+                "item": {
+                    "@id": "${link}",
+                    "name": "${item.title?html}"
+                }
+            }
+            <#if item?index > 0>,</#if>
+            <#assign lastItemIndex = item?index />
+            </#list>
+
+            {
+                "@type": "ListItem",
+                "position": ${lastItemIndex + 2},
+                "item": {
+                    "@id": "${document.getProperty("publishing:permalink")?html}".
+                    "name": "${document.title?html}"
+                }
+            }
+        ]
+    }
+</script>
+</#if>
+</@hst.headContribution>
