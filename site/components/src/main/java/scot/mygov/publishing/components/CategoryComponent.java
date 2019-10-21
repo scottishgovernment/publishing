@@ -24,6 +24,8 @@ import static java.util.stream.Collectors.*;
  */
 public class CategoryComponent extends EssentialsContentComponent {
 
+    static final String INDEX = "index";
+
     static final Set<String> EXCLUDED = new HashSet<>();
 
     static {
@@ -54,7 +56,7 @@ public class CategoryComponent extends EssentialsContentComponent {
     }
 
     static boolean notIndexFile(HippoBean bean) {
-        return !"index".equals(bean.getName());
+        return !INDEX.equals(bean.getName());
     }
 
     // do not list certain folders at the root (e.g. footer, adminstration)
@@ -72,6 +74,6 @@ public class CategoryComponent extends EssentialsContentComponent {
     }
 
     static HippoBean indexBean(HippoBean bean) {
-        return bean.getBean("index");
+        return bean.getBean(INDEX);
     }
 }
