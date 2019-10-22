@@ -1,0 +1,6 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:frontend/cms/cms-editor/editorPlugin:
+      plugin.class: scot.mygov.publishing.plugins.ExtendedEditorPlugin
+    /hippo:configuration/hippo:frontend/cms/cms-static/root:
+      wicket.skin: skin/cms-design-tweaks.css
