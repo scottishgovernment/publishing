@@ -14,9 +14,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.same;
 import static org.mockito.Mockito.*;
 
-/**
- * Created by z418868 on 19/09/2019.
- */
 public class BreadcrumbComponentTest {
 
     @Test
@@ -43,8 +40,8 @@ public class BreadcrumbComponentTest {
 
         // ASSERT
         Assert.assertEquals(2, actual.size());
-        Assert.assertEquals(actual.get(0).getTitle(), "homeIndex-title");
-        Assert.assertEquals(actual.get(1).getTitle(), "categoryIndex-title");
+        Assert.assertEquals("homeIndex-title", actual.get(0).getTitle());
+        Assert.assertEquals("categoryIndex-title", actual.get(1).getTitle());
         verify(linkCreator).create(same(homeIndex), any());
         verify(linkCreator).create(same(categoryIndex), any());
     }
@@ -72,7 +69,7 @@ public class BreadcrumbComponentTest {
 
         // ASSERT
         Assert.assertEquals(1, actual.size());
-        Assert.assertEquals(actual.get(0).getTitle(), "homeIndex-title");
+        Assert.assertEquals("homeIndex-title", actual.get(0).getTitle());
         verify(linkCreator).create(same(homeIndex), any());
     }
 
@@ -101,8 +98,8 @@ public class BreadcrumbComponentTest {
 
         // ASSERT
         Assert.assertEquals(2, actual.size());
-        Assert.assertEquals(actual.get(0).getTitle(), "homeIndex-title");
-        Assert.assertEquals(actual.get(1).getTitle(), "categoryIndex-title");
+        Assert.assertEquals("homeIndex-title", actual.get(0).getTitle());
+        Assert.assertEquals("categoryIndex-title", actual.get(1).getTitle());
         verify(linkCreator).create(same(homeIndex), any());
         verify(linkCreator).create(same(categoryIndex), any());
     }
