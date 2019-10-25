@@ -79,8 +79,8 @@
           </execution>
         </executions>
         <configuration>
-          <inputPath>src/scss</inputPath>
-          <outputPath>src/main/resources/site/assets/css</outputPath>
+          <inputPath>src/main/site.tradingnation/scss</inputPath>
+          <outputPath>src/main/resources/site/assets/tradingnation/css/</outputPath>
           <outputStyle>compressed</outputStyle>
           <generateSourceMap>false</generateSourceMap>
           <cacheLocation>target/.sass-cache</cacheLocation>
