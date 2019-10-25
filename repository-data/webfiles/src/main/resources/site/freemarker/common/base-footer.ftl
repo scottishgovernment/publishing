@@ -1,6 +1,6 @@
 <#include "include/imports.ftl">
 
-<footer class="ds_site-footer">
+<footer class="ds_site-footer  ds_reversed">
     <div class="ds_wrapper">
         <div class="ds_site-footer__content">
             <ul class="ds_site-footer__site-items">

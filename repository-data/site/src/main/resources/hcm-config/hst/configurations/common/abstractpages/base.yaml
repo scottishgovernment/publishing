@@ -16,3 +16,7 @@ definitions:
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsListComponent
         hst:parameternames: [path]
         hst:parametervalues: [footer]
+      /googletagmanager:
+        jcr:primaryType: hst:component
+        hst:template: base-googletagmanager
+        hst:componentclassname: scot.mygov.publishing.components.GoogleTagManagerComponent
