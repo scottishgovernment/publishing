@@ -4,7 +4,6 @@ import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 
 public class GoogleTagManagerComponent extends BaseHstComponent {
@@ -13,22 +12,27 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
 
-        final HstRequestContext requestContext = request.getRequestContext();
-
-        ResolvedSiteMapItem resolvedSiteMapItem = requestContext.getResolvedSiteMapItem();
-
+        ResolvedSiteMapItem resolvedSiteMapItem = request.getRequestContext().getResolvedSiteMapItem();
         HstComponentConfiguration hstComponentConfiguration = resolvedSiteMapItem.getHstComponentConfiguration();
 
+        // set gtmName based on the page componenet from the resolved sitemap item
         String gtmName = hstComponentConfiguration.getName();
-        String gtmId = resolvedSiteMapItem.getPathInfo();
-
         request.setAttribute("gtmName", gtmName);
+
+        // set gtmId on the path from the resiolved sitemap item
+        String gtmId = resolvedSiteMapItem.getPathInfo();
         request.setAttribute("gtmId", gtmId);
 
-        String hostGroupName = requestContext.getResolvedMount().getMount().getVirtualHost().getHostGroupName();
-
-        if ("www".equals(hostGroupName) || "beta".equals(hostGroupName)) {
-            request.setAttribute("useLiveAnalytics", true);
-        }
+        // set useLiveAnalytics flag depending on if the host group is www
+        request.setAttribute("useLiveAnalytics", isLiveHost(request));
     }
+
+    boolean isLiveHost(HstRequest request) {
+        String hostGroupName
+                = request.getRequestContext().getResolvedMount().getMount().getVirtualHost().getHostGroupName();
+        return "www".equals(hostGroupName);
+    }
+
+
+
 }
