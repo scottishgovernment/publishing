@@ -27,7 +27,7 @@ initGTM = function () {
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&amp;gtm_auth=${gtmAuth}&amp;gtm_preview=env-${gtmEnv}&amp;gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PZ62X92');
+    })(window,document,'script','dataLayer','GTM-PW52KXS');
 }
 </script>
 <!-- End Google Tag Manager -->

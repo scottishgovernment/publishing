@@ -44,14 +44,11 @@
                     "@id": "${link}",
                     "name": "${item.title?html}"
                 }
-            }
-            <#if item?index > 0>,</#if>
-            <#assign lastItemIndex = item?index />
+            },
             </#list>
-
             {
                 "@type": "ListItem",
-                "position": ${lastItemIndex + 2},
+                "position": ${breadcrumbs?size + 1},
                 "item": {
                     "@id": "${document.getProperty("publishing:permalink")?html}".
                     "name": "${document.title?html}"

@@ -75,6 +75,9 @@ definitions:
               \n        </#if>\r\n      </#if>\r\n    </#list>\r\n  </#if>\r\n  <#if\
               \ document.sitemaps??>\r\n    <#list document.sitemaps as sitemap>\r\
               \nSitemap: ${sitemap}\r\n    </#list>\r\n  </#if>\r\n</#if>"
+          /base-googletagmanager:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/googletagmanager.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

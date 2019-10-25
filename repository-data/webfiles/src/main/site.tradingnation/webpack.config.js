@@ -17,7 +17,7 @@ module.exports = [{
   },
 
   output: {
-    path: path.resolve(__dirname, 'assets/scripts/dist'),
+    path: path.resolve(__dirname, '../resources/site/assets/tradingnation/scripts/'),
     filename: '[name].js'
   }
 }, {
@@ -37,7 +37,7 @@ module.exports = [{
   },
 
   output: {
-    path: path.resolve(__dirname, 'assets/scripts/dist'),
+    path: path.resolve(__dirname, '../resources/site/assets/tradingnation/scripts/'),
     filename: '[name].es5.js'
   },
 
