@@ -23,6 +23,11 @@ definitions:
             hst:componentconfigurationid: hst:pages/article
             hst:relativecontentpath: ${1}
             hst:sitemapitemhandlerids: [trailing-slash]
+            /_index_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/category
+              hst:relativecontentpath: ${parent}/index
+              hst:sitemapitemhandlerids: [trailing-slash]
             /_default_:
               jcr:primaryType: hst:sitemapitem
               hst:componentconfigurationid: hst:pages/article
@@ -123,10 +128,18 @@ definitions:
                 hst:componentconfigurationid: hst:pages/category
                 hst:relativecontentpath: ${parent}/index
                 hst:sitemapitemhandlerids: [trailing-slash]
-            /_index_:
+          /footer:
+            jcr:primaryType: hst:sitemapitem
+            /cookies:
               jcr:primaryType: hst:sitemapitem
-              hst:componentconfigurationid: hst:pages/category
-              hst:relativecontentpath: ${parent}/index
+              hst:componentconfigurationid: hst:pages/cookiepreferences
+              hst:refId: cookies
+              hst:relativecontentpath: footer/cookies
+              hst:sitemapitemhandlerids: [trailing-slash]
+            /_default_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/article
+              hst:relativecontentpath: footer/${1}
               hst:sitemapitemhandlerids: [trailing-slash]
         /hst:abstractpages:
           jcr:primaryType: hst:pages
@@ -180,6 +193,9 @@ definitions:
           /base-googletagmanager:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/googletagmanager.ftl
+          /cookiepreferences-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/cookie-preferences-main.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
