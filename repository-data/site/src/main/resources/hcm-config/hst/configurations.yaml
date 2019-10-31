@@ -5,14 +5,6 @@ definitions:
         jcr:primaryType: hst:configuration
         /hst:sitemap:
           jcr:primaryType: hst:sitemap
-          /_any_:
-            jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/article
-            hst:relativecontentpath: ${1}
-            /_index_:
-              jcr:primaryType: hst:sitemapitem
-              hst:componentconfigurationid: hst:pages/category
-              hst:relativecontentpath: ${parent}/index
           /root:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/home
@@ -26,6 +18,129 @@ definitions:
             hst:componentconfigurationid: hst:pages/robotstxt
             hst:hiddeninchannelmanager: true
             hst:relativecontentpath: administration/robots
+          /_default_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/article
+            hst:relativecontentpath: ${1}
+            hst:sitemapitemhandlerids: [trailing-slash]
+            /_index_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/category
+              hst:relativecontentpath: ${parent}/index
+              hst:sitemapitemhandlerids: [trailing-slash]
+            /_default_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/article
+              hst:relativecontentpath: ${parent}/${2}
+              hst:sitemapitemhandlerids: [trailing-slash]
+              /_default_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/article
+                hst:relativecontentpath: ${parent}/${3}
+                hst:sitemapitemhandlerids: [trailing-slash]
+                /_default_:
+                  jcr:primaryType: hst:sitemapitem
+                  hst:componentconfigurationid: hst:pages/article
+                  hst:relativecontentpath: ${parent}/${4}
+                  hst:sitemapitemhandlerids: [trailing-slash]
+                  /_default_:
+                    jcr:primaryType: hst:sitemapitem
+                    hst:componentconfigurationid: hst:pages/article
+                    hst:relativecontentpath: ${parent}/${5}
+                    hst:sitemapitemhandlerids: [trailing-slash]
+                    /_default_:
+                      jcr:primaryType: hst:sitemapitem
+                      hst:componentconfigurationid: hst:pages/article
+                      hst:relativecontentpath: ${parent}/${6}
+                      hst:sitemapitemhandlerids: [trailing-slash]
+                      /_default_:
+                        jcr:primaryType: hst:sitemapitem
+                        hst:componentconfigurationid: hst:pages/article
+                        hst:relativecontentpath: ${parent}/${7}
+                        hst:sitemapitemhandlerids: [trailing-slash]
+                        /_default_:
+                          jcr:primaryType: hst:sitemapitem
+                          hst:componentconfigurationid: hst:pages/article
+                          hst:relativecontentpath: ${parent}/${8}
+                          hst:sitemapitemhandlerids: [trailing-slash]
+                          /_default_:
+                            jcr:primaryType: hst:sitemapitem
+                            hst:componentconfigurationid: hst:pages/article
+                            hst:relativecontentpath: ${parent}/${9}
+                            hst:sitemapitemhandlerids: [trailing-slash]
+                            /_default_:
+                              jcr:primaryType: hst:sitemapitem
+                              hst:componentconfigurationid: hst:pages/article
+                              hst:relativecontentpath: ${parent}/${10}
+                              hst:sitemapitemhandlerids: [trailing-slash]
+                              /_default_:
+                                jcr:primaryType: hst:sitemapitem
+                                hst:componentconfigurationid: hst:pages/article
+                                hst:relativecontentpath: ${parent}/${11}
+                                hst:sitemapitemhandlerids: [trailing-slash]
+                                /_index_:
+                                  jcr:primaryType: hst:sitemapitem
+                                  hst:componentconfigurationid: hst:pages/category
+                                  hst:relativecontentpath: ${parent}/index
+                                  hst:sitemapitemhandlerids: [trailing-slash]
+                              /_index_:
+                                jcr:primaryType: hst:sitemapitem
+                                hst:componentconfigurationid: hst:pages/category
+                                hst:relativecontentpath: ${parent}/index
+                                hst:sitemapitemhandlerids: [trailing-slash]
+                            /_index_:
+                              jcr:primaryType: hst:sitemapitem
+                              hst:componentconfigurationid: hst:pages/category
+                              hst:relativecontentpath: ${parent}/index
+                              hst:sitemapitemhandlerids: [trailing-slash]
+                          /_index_:
+                            jcr:primaryType: hst:sitemapitem
+                            hst:componentconfigurationid: hst:pages/category
+                            hst:relativecontentpath: ${parent}/index
+                            hst:sitemapitemhandlerids: [trailing-slash]
+                        /_index_:
+                          jcr:primaryType: hst:sitemapitem
+                          hst:componentconfigurationid: hst:pages/category
+                          hst:relativecontentpath: ${parent}/index
+                          hst:sitemapitemhandlerids: [trailing-slash]
+                      /_index_:
+                        jcr:primaryType: hst:sitemapitem
+                        hst:componentconfigurationid: hst:pages/category
+                        hst:relativecontentpath: ${parent}/index
+                        hst:sitemapitemhandlerids: [trailing-slash]
+                    /_index_:
+                      jcr:primaryType: hst:sitemapitem
+                      hst:componentconfigurationid: hst:pages/category
+                      hst:relativecontentpath: ${parent}/index
+                      hst:sitemapitemhandlerids: [trailing-slash]
+                  /_index_:
+                    jcr:primaryType: hst:sitemapitem
+                    hst:componentconfigurationid: hst:pages/category
+                    hst:relativecontentpath: ${parent}/index
+                    hst:sitemapitemhandlerids: [trailing-slash]
+                /_index_:
+                  jcr:primaryType: hst:sitemapitem
+                  hst:componentconfigurationid: hst:pages/category
+                  hst:relativecontentpath: ${parent}/index
+                  hst:sitemapitemhandlerids: [trailing-slash]
+              /_index_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/category
+                hst:relativecontentpath: ${parent}/index
+                hst:sitemapitemhandlerids: [trailing-slash]
+          /footer:
+            jcr:primaryType: hst:sitemapitem
+            /cookies:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/cookiepreferences
+              hst:refId: cookies
+              hst:relativecontentpath: footer/cookies
+              hst:sitemapitemhandlerids: [trailing-slash]
+            /_default_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/article
+              hst:relativecontentpath: footer/${1}
+              hst:sitemapitemhandlerids: [trailing-slash]
         /hst:abstractpages:
           jcr:primaryType: hst:pages
         /hst:pages:
@@ -75,10 +190,19 @@ definitions:
               \n        </#if>\r\n      </#if>\r\n    </#list>\r\n  </#if>\r\n  <#if\
               \ document.sitemaps??>\r\n    <#list document.sitemaps as sitemap>\r\
               \nSitemap: ${sitemap}\r\n    </#list>\r\n  </#if>\r\n</#if>"
+          /base-googletagmanager:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/googletagmanager.ftl
+          /cookiepreferences-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/cookie-preferences-main.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
           jcr:primaryType: hst:sitemapitemhandlers
+          /trailing-slash:
+            jcr:primaryType: hst:sitemapitemhandler
+            hst:sitemapitemhandlerclassname: scot.mygov.publishing.sitemap.TrailingSlashRedirect
         /hst:catalog:
           jcr:primaryType: hst:catalog
       /publishing:

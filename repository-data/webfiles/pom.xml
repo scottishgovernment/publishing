@@ -58,6 +58,15 @@
               <arguments>install</arguments>
             </configuration>
           </execution>
+          <execution>
+            <id>npm webpack build</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>run webpack</arguments>
+            </configuration>
+          </execution>
         </executions>
         <configuration>
           <installDirectory>${install.node.dir}</installDirectory>
@@ -79,8 +88,8 @@
           </execution>
         </executions>
         <configuration>
-          <inputPath>src/scss</inputPath>
-          <outputPath>src/main/resources/site/assets/css</outputPath>
+          <inputPath>src/main/site.tradingnation/scss</inputPath>
+          <outputPath>src/main/resources/site/assets/tradingnation/css/</outputPath>
           <outputStyle>compressed</outputStyle>
           <generateSourceMap>false</generateSourceMap>
           <cacheLocation>target/.sass-cache</cacheLocation>

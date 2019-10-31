@@ -14,7 +14,7 @@ $site-logo__height--medium: 35px;
 /**
  * BASE STYLES FROM PATTERN LIBRARY
  */
-@import "../../node_modules/@scottish-government/pattern-library/src/scss/base/all-base";
+@import "../../../../node_modules/@scottish-government/pattern-library/src/scss/base/all-base";
 
 
 
@@ -22,7 +22,7 @@ $site-logo__height--medium: 35px;
 /**
  * COMPONENTS FROM PATTERN LIBRARY
  */
-@import "../../node_modules/@scottish-government/pattern-library/src/scss/components/all-components";
+@import "../../../../node_modules/@scottish-government/pattern-library/src/scss/components/all-components";
 
 
 
@@ -30,8 +30,10 @@ $site-logo__height--medium: 35px;
 /**
  * COMPONENTS FROM TRADING NATION
  */
-@import "page.scss";
-@import "tn-layouts.scss";
+@import "./page.scss";
+@import "./tn-layouts.scss";
+
+@import "./temp-cookie-form.scss";
 
 
 
@@ -39,4 +41,4 @@ $site-logo__height--medium: 35px;
 /*
  * CMS STYLES
  */
- @import "cms-editable.scss";
+ @import "../../shared-assets/scss/cms-editable.scss";

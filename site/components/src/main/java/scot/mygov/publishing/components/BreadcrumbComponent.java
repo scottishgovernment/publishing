@@ -12,6 +12,7 @@ import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
 import java.util.ArrayList;
 import java.util.List;
 
+import static scot.mygov.publishing.components.CategoryComponent.INDEX;
 import static scot.mygov.publishing.components.CategoryComponent.indexBean;
 
 /**
@@ -36,7 +37,7 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
 
     static HippoBean startBean(HippoBean contentBean) {
         // determine the bean to start with - different for category index files than for articles etc.
-        return "index".equals(contentBean.getName())
+        return INDEX.equals(contentBean.getName())
                 ? contentBean.getParentBean().getParentBean()
                 : contentBean.getParentBean();
     }

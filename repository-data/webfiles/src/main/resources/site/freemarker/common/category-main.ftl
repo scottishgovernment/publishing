@@ -16,21 +16,10 @@
                     </div>
                 </header>
                       <div class="ds_category-header__media-container">
-                        <#if document.heroimage??>
-                            <img class="ds_category-header__media" alt="" 
-                                src="<@hst.link document.heroimage.original/>" />
-                            Image lowercase i            
-                            <#else>
-                            No image lowercase i 
-                        </#if> 
-
                         <#if document.heroImage??>
-                            <img class="ds_category-header__media" alt="" 
-                                src="<@hst.link document.heroImage.original/>" />
-                            Image uppercase I            
-                            <#else>
-                            No image uppercase I 
-                        </#if>  
+                            <img class="ds_category-header__media" alt=""
+                                src="<@hst.link hippobean=document.heroImage/>" />
+                        </#if>
                     </div>
             </div>
         </div>
