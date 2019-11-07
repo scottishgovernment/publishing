@@ -1,6 +1,6 @@
 <#include "./include/imports.ftl">
 
-<#if useLiveAnalytics??>
+<#if useLiveAnalytics>
     <#assign gtmAuth = "DxwtOU_tpyLiqCMda2mJCg" />
     <#assign gtmEnv = "2" />
 <#else>
