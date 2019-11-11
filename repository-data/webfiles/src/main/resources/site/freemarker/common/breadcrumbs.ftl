@@ -50,7 +50,7 @@
                 "@type": "ListItem",
                 "position": ${breadcrumbs?size + 1},
                 "item": {
-                    "@id": "${document.getProperty("publishing:permalink")?html}".
+                    "@id": "${document.getProperty("publishing:permalink")?html}",
                     "name": "${document.title?html}"
                 }
             }
