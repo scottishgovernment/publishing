@@ -58,3 +58,9 @@
         <title>${document.title} - A Trading Nation</title>
     </#if>
 </@hst.headContribution>
+
+<@hst.headContribution>
+    <#if document??>
+        <meta name="description" content="${document.metaDescription?html}"/>
+    </#if>
+</@hst.headContribution>

@@ -2,12 +2,23 @@
 <!doctype html>
 <html>
     <head>
+        <meta name="google-site-verification" content="vSrfYRrCbfMqGoggpdhADL9rvDQm70LtAHalmFmZ4wE"/>
+
         <@hst.headContributions categoryIncludes="dataLayer"/>
         <!-- dataLayer code MUST be higher than google tag manager code -->
+
+        <!-- Google Search Console-->
         <@hst.headContributions categoryIncludes="googleTagManager"/>
         <@hst.headContributions categoryIncludes="resourcehints"/>
         <@hst.headContributions categoryIncludes="title"/>
         <@hst.headContributions categoryIncludes="schema"/>
+
+        <!-- Older browsers load these files -->
+        <!-- (and module-supporting browsers know *not* to load these files) -->
+        <script nomodule="" src="<@hst.webfile path='/assets/tradingnation/scripts/usertype.es5.js'/>"></script>
+
+        <!-- Browsers with ES module support load these files -->
+        <script type="module" src="<@hst.webfile path='/assets/tradingnation/scripts/usertype.js'/>"></script>
 
         <meta charset="UTF-8">
 
@@ -37,13 +48,13 @@
 
         <#include "breakpoint-tests.ftl">
 
-        <!-- Browsers with ES module support load these files -->
-        <script type="module" src="<@hst.webfile path='/assets/tradingnation/scripts/site.js'/>"></script>
-        <script type="module" src="<@hst.webfile path='/assets/tradingnation/scripts/pattern-library.js'/>"></script>
-
         <!-- Older browsers load these files -->
         <!-- (and module-supporting browsers know *not* to load these files) -->
         <script nomodule src="<@hst.webfile path='/assets/tradingnation/scripts/site.es5.js'/>"></script>
         <script nomodule src="<@hst.webfile path='/assets/tradingnation/scripts/pattern-library.es5.js'/>"></script>
+
+        <!-- Browsers with ES module support load these files -->
+        <script type="module" src="<@hst.webfile path='/assets/tradingnation/scripts/site.js'/>"></script>
+        <script type="module" src="<@hst.webfile path='/assets/tradingnation/scripts/pattern-library.js'/>"></script>
     </body>
 </html>

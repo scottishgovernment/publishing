@@ -13,12 +13,12 @@
                         <p>${document.summary}</p>
                     </div>
                 </header>
-                     <div class="ds_category-header__media-container">
-                        <#if document.heroImage??>
-                            <img class="ds_category-header__media" alt=""
-                                src="<@hst.link hippobean=document.heroImage />" />
-                        </#if>
-                    </div>
+                <div class="ds_category-header__media-container">
+                    <#if document.heroImage??>
+                        <img class="ds_category-header__media" alt=""
+                            src="<@hst.link hippobean=document.heroImage />" />
+                    </#if>
+                </div>
             </div>
         </div>
     </div>
@@ -46,5 +46,11 @@
 <@hst.headContribution category="title">
     <#if document??>
         <title>${document.title}</title>
+    </#if>
+</@hst.headContribution>
+
+<@hst.headContribution>
+    <#if document??>
+        <meta name="description" content="${document.metaDescription?html}"/>
     </#if>
 </@hst.headContribution>

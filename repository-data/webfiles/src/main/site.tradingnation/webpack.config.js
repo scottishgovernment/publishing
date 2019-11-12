@@ -7,6 +7,9 @@ module.exports = [{
     'site': [
       path.resolve(__dirname, './scripts/cookies.js')
     ],
+    'usertype': [
+      path.resolve(__dirname, './scripts/usertype.js')
+    ],
     'pattern-library': [
       path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/accordion.js'),
       path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/notification-banner.js'),
@@ -26,6 +29,9 @@ module.exports = [{
   entry: {
     'site': [
       path.resolve(__dirname, './scripts/cookies.js')
+    ],
+    'usertype': [
+      path.resolve(__dirname, './scripts/usertype.js')
     ],
     'pattern-library': [
       path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/accordion.js'),

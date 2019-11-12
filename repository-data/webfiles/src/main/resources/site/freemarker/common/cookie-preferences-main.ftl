@@ -51,10 +51,6 @@
                                 </div>
                             </div>
 
-                            <div id="cookie-success-message" class="form-message  form-message--success  fully-hidden">
-                                <b>Your cookie preferences have been saved.</b>
-                            </div>
-
                             <button class="button  button--primary  no-bottom-margin" type="submit">Save cookie preferences</button>
                         </fieldset>
                     </form>
@@ -68,5 +64,11 @@
 <@hst.headContribution category="title">
     <#if document??>
         <title>${document.title} - A Trading Nation</title>
+    </#if>
+</@hst.headContribution>
+
+<@hst.headContribution>
+    <#if document??>
+        <meta name="description" content="${document.metaDescription?html}"/>
     </#if>
 </@hst.headContribution>
