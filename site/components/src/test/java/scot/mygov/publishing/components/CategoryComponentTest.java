@@ -33,13 +33,13 @@ public class CategoryComponentTest {
         HippoBean index = indexBean();
         HippoBean subfolderIndexBean = indexBean();
         HippoBean subfolder = subfolderBean("subfolder", subfolderIndexBean);
-        HippoBean footerfolder = subfolderBean("footer");
+        HippoBean siteFurnitureFolder = subfolderBean("site-furniture");
         HippoBean adminfolder = subfolderBean("administration");
         HippoBean article = mock(HippoBean.class);
         when(article.getName()).thenReturn("article");
 
         List<HippoBean> children = new ArrayList<>();
-        Collections.addAll(children, index, footerfolder, adminfolder, subfolder, article);
+        Collections.addAll(children, index, siteFurnitureFolder, adminfolder, subfolder, article);
         when(folder.getChildBeans(any(Class.class))).thenReturn(children);
 
         HstRequest request = mock(HstRequest.class);

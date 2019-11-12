@@ -1,6 +1,5 @@
 package scot.mygov.publishing.components;
 
-import org.apache.commons.lang.NotImplementedException;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
@@ -9,9 +8,7 @@ import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedMount;
-import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mockito;
 import org.onehippo.forge.sitemap.components.model.Urlset;
 
 import javax.jcr.*;
@@ -25,6 +22,7 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static scot.mygov.publishing.TestUtil.iterator;
 
 /**
  * Created by z418868 on 24/09/2019.
@@ -109,35 +107,4 @@ public class SitemapComponentTest {
         return node;
     }
 
-    public static NodeIterator iterator(Collection<Node> nodes) {
-
-        Iterator<Node> it = nodes.iterator();
-
-        return new NodeIterator() {
-
-            public boolean hasNext() {
-                return  it.hasNext();
-            }
-
-            public Node nextNode() {
-                return (Node) it.next();
-            }
-
-            public void skip(long skipNum) {
-                throw new NotImplementedException();
-            }
-
-            public long getSize() {
-                return nodes.size();
-            }
-
-            public long getPosition() {
-                throw new NotImplementedException();
-            }
-
-            public NodeIterator next() {
-                throw new NotImplementedException();
-            }
-        };
-    };
 }

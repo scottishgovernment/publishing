@@ -128,23 +128,25 @@ definitions:
                 hst:componentconfigurationid: hst:pages/category
                 hst:relativecontentpath: ${parent}/index
                 hst:sitemapitemhandlerids: [trailing-slash]
-          /footer:
-            jcr:primaryType: hst:sitemapitem
-            /cookies:
-              jcr:primaryType: hst:sitemapitem
-              hst:componentconfigurationid: hst:pages/cookiepreferences
-              hst:refId: cookies
-              hst:relativecontentpath: footer/cookies
-              hst:sitemapitemhandlerids: [trailing-slash]
-            /_default_:
-              jcr:primaryType: hst:sitemapitem
-              hst:componentconfigurationid: hst:pages/article
-              hst:relativecontentpath: footer/${1}
-              hst:sitemapitemhandlerids: [trailing-slash]
           /pagenotfound:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/pagenotfound
             hst:refId: pagenotfound
+          /site-furniture:
+            jcr:primaryType: hst:sitemapitem
+            /footer:
+              jcr:primaryType: hst:sitemapitem
+              /cookies:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/cookiepreferences
+                hst:refId: cookies
+                hst:relativecontentpath: site-furniture/footer/cookies
+                hst:sitemapitemhandlerids: [trailing-slash]
+              /_default_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/article
+                hst:relativecontentpath: site-furniture/footer/${1}
+                hst:sitemapitemhandlerids: [trailing-slash]
         /hst:abstractpages:
           jcr:primaryType: hst:pages
         /hst:pages:
