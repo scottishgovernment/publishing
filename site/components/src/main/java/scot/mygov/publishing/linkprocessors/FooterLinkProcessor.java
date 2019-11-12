@@ -20,14 +20,20 @@ public class FooterLinkProcessor extends HstLinkProcessorTemplate {
 
     SessionSource sessionSource = link -> RequestContextProvider.get().getSession();
 
+    /**
+     * turn the full inlk into a url e.g. site-furniture/footer/cookies -> cookies
+     */
     @Override
     protected HstLink doPostProcess(HstLink link) {
-        if ("footer".equals(link.getPathElements()[0])) {
-            link.setPath(link.getPathElements()[1]);
+        if ("site-furniture".equals(link.getPathElements()[0])) {
+            link.setPath(link.getPathElements()[link.getPathElements().length - 1]);
         }
         return link;
     }
 
+    /**
+     * Find the node for this url
+     */
     @Override
     protected HstLink doPreProcess(HstLink link) {
 
@@ -39,7 +45,7 @@ public class FooterLinkProcessor extends HstLinkProcessorTemplate {
             String slug = link.getPathElements()[0];
             Session session = sessionSource.getSession(link);
 
-            String contentPath = String.format("%s/%s/%s", link.getMount().getContentPath(), "footer", Text.escapeIllegalJcr10Chars(slug));
+            String contentPath = String.format("%s/%s/%s", link.getMount().getContentPath(), "site-furniture/footer", Text.escapeIllegalJcr10Chars(slug));
             if (!session.nodeExists(contentPath)) {
                 return link;
             }

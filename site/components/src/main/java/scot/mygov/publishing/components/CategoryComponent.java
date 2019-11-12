@@ -30,7 +30,7 @@ public class CategoryComponent extends EssentialsContentComponent {
 
     static {
         // node names that should not be included on the home page
-        Collections.addAll(EXCLUDED, "administration", "footer");
+        Collections.addAll(EXCLUDED, "administration", "site-furniture");
     }
 
     @Override
