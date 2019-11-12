@@ -17,7 +17,7 @@
     <main class="ds_layout  ds_layout--tn-article">
       <div class="ds_layout__header">
         <header class="ds_page-header">
-          <h1 class="ds_page-header__title">404 - Not Found</h1>
+          <h1 class="ds_page-header__title">Page not found (404)</h1>
         </header>
       </div>
 
