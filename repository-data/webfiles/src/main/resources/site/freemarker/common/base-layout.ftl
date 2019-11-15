@@ -6,12 +6,11 @@
 
         <@hst.headContributions categoryIncludes="dataLayer"/>
         <!-- dataLayer code MUST be higher than google tag manager code -->
-
-        <!-- Google Search Console-->
         <@hst.headContributions categoryIncludes="googleTagManager"/>
         <@hst.headContributions categoryIncludes="resourcehints"/>
         <@hst.headContributions categoryIncludes="title"/>
         <@hst.headContributions categoryIncludes="schema"/>
+        <@hst.headContributions categoryIncludes="meta"/>
 
         <!-- Older browsers load these files -->
         <!-- (and module-supporting browsers know *not* to load these files) -->
