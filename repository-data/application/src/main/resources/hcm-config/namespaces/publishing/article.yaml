@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 45d96475-6d19-4d44-91b4-0d3cf71b9c13
+          jcr:uuid: ea78e6ae-0d13-49d7-a9b9-ddf35b2a484c
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -37,7 +37,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 52acdfd8-21ca-4c88-aafe-3e63efa170c6
+          jcr:uuid: 94987110-40f2-4be2-8498-d650a7a961ea
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -91,6 +91,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.overlayed.json: '{extraPlugins: ''warning-text,inset-text''}'
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
