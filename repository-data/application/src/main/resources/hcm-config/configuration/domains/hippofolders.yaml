@@ -7,3 +7,5 @@ definitions:
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/trading-nation/administration
+    /hippo:configuration/hippo:domains/hippofolders/readwrite:
+      hipposys:groups: [author, cmsadmin, editor]

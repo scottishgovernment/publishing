@@ -1,8 +1,16 @@
 definitions:
   config:
-    /hippo:configuration/hippo:domains/administrationdocuments:
+    /hippo:configuration/hippo:domains/valuelists:
       jcr:primaryType: hipposys:domain
-      /hippo-document:
+      /editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups: [cmsadmin]
+        hipposys:role: editor
+      /readonly:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups: [everybody]
+        hipposys:role: readonly
+      /valuelists-documents:
         jcr:primaryType: hipposys:domainrule
         /hide-prototypes:
           jcr:primaryType: hipposys:facetrule
@@ -18,14 +26,11 @@ definitions:
           hipposys:filter: false
           hipposys:type: Name
           hipposys:value: hippo:document
-        /include-trading-nation-administration-folder:
+        /include-valuelists-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/trading-nation/administration
-      /editor:
-          jcr:primaryType: hipposys:authrole
-          hipposys:groups: [cmsadmin]
-          hipposys:role: editor
+          hipposys:value: /content/documents/publishing/valuelists
+
