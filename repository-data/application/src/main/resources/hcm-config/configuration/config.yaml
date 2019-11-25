@@ -2,8 +2,6 @@ definitions:
   config:
     /hippo:configuration/hippo:modules/webfiles/hippo:moduleconfig:
       watchedModules: [repository-data/webfiles]
-    /hippo:configuration/hippo:domains/hippofolders/readonly:
-      hipposys:groups: [sitewriters, useradmin]
     /hippo:configuration/hippo:domains/preview-documents/readonly:
       hipposys:groups:
         operation: add

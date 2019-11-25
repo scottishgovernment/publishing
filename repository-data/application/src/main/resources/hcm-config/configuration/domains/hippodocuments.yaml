@@ -9,6 +9,8 @@ definitions:
       hipposys:value: /content/documents/trading-nation/administration
     /hippo:configuration/hippo:domains/hippodocuments/editor:
       hipposys:groups: [admin, cmsadmin, editor]
+    /hippo:configuration/hippo:domains/hippodocuments/author:
+      hipposys:groups: [useradmin]
     /hippo:configuration/hippo:domains/hippodocuments/readonly:
       jcr:primaryType: hipposys:authrole
       hipposys:groups: [cmsadmin, useradmin]
