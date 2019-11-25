@@ -6,7 +6,9 @@
     <div class="ds_wrapper">
         <div class="ds_notification__content">
             <div class="ds_notification__text">
-                <p>We use cookies to make the site simpler.</p>
+                <p>Mygov.scot uses cookies which are essential for the site to work. We also use
+                non-essential cookies to help us improve our websites. Any data collected is anonymised.
+                By continuing to use this site, you agree to our use of cookies.</p>
             </div>
 
             <div class="ds_notification__actions">
