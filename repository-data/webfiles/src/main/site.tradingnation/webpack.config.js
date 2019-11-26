@@ -11,11 +11,11 @@ module.exports = [{
       path.resolve(__dirname, './scripts/usertype.js')
     ],
     'pattern-library': [
-      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/accordion.js'),
-      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/notification-banner.js'),
-      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/side-navigation.js'),
-      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/site-navigation.js'),
-      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/site-search.js')
+      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/components/accordion/accordion.js'),
+      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/components/notification-banner/notification-banner.js'),
+      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/components/side-navigation/side-navigation.js'),
+      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/components/site-navigation/site-navigation.js'),
+      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/components/site-search/site-search.js')
     ]
   },
 
@@ -34,11 +34,11 @@ module.exports = [{
       path.resolve(__dirname, './scripts/usertype.js')
     ],
     'pattern-library': [
-      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/accordion.js'),
-      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/notification-banner.js'),
-      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/side-navigation.js'),
-      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/site-navigation.js'),
-      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/scripts/site-search.js')
+      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/components/accordion/accordion.js'),
+      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/components/notification-banner/notification-banner.js'),
+      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/components/side-navigation/side-navigation.js'),
+      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/components/site-navigation/site-navigation.js'),
+      path.resolve(__dirname, '../../../node_modules/@scottish-government/pattern-library/src/components/site-search/site-search.js')
     ]
   },
 
