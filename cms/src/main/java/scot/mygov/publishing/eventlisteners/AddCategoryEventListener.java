@@ -48,7 +48,7 @@ public class AddCategoryEventListener {
         }
 
         Node node = session.getNode(event.result());
-        if (isFolder(node)) {
+        if (isFolder(node) && isUnder(node, "/content/documents/")) {
             setActionsDependingOnDepth(node);
             setNavigationStyle(node);
             session.save();
@@ -87,12 +87,16 @@ public class AddCategoryEventListener {
         return node.isNodeType("hippostd:folder");
     }
 
+    boolean isUnder(Node node, String path) throws RepositoryException {
+        return node.getPath().startsWith(path);
+    }
+
     boolean canCreateChildCategories(Node folder) throws RepositoryException {
         return categoryDepth(folder) < MAX_LEVELS;
     }
 
     String navigationStyleForDepth(Node folder) throws RepositoryException {
-        // we default the first level to be grid navigation alnd all other levels to be lists
+        // we default the first level to be grid navigation and all other levels to be lists
         return categoryDepth(folder) == 1 ? "grid" : "list";
     }
 

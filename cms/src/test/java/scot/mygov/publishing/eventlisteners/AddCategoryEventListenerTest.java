@@ -18,6 +18,8 @@ import static org.mockito.Mockito.when;
 
 public class AddCategoryEventListenerTest {
 
+    private static final String PATH = "/content/documents";
+
     @Test
     public void repoExceptionSwallowed() throws Exception {
         // ARRANGE
@@ -82,7 +84,7 @@ public class AddCategoryEventListenerTest {
     }
 
     @Test
-    public void setsActionsForCategor9Deep() throws RepositoryException {
+    public void setsActionsForCategory9Deep() throws RepositoryException {
         // ARRANGE
         Session session = mock(Session.class);
         Node folder = folderNode();
@@ -99,7 +101,7 @@ public class AddCategoryEventListenerTest {
     }
 
     @Test
-    public void setsActionsForCategor10Deep() throws RepositoryException {
+    public void setsActionsForCategory10Deep() throws RepositoryException {
         // ARRANGE
         Session session = mock(Session.class);
         Node folder = folderNode();
@@ -116,7 +118,7 @@ public class AddCategoryEventListenerTest {
     }
 
     @Test
-    public void setsActionsForCategoryMorethan10Deep() throws RepositoryException {
+    public void setsActionsForCategoryMoreThan10Deep() throws RepositoryException {
         // ARRANGE
         Session session = mock(Session.class);
         Node folder = folderNode();
@@ -189,6 +191,7 @@ public class AddCategoryEventListenerTest {
         Node folder = Mockito.mock(Node.class);
         Node indexHandle = mock(Node.class);
         when(folder.isNodeType("hippostd:folder")).thenReturn(true);
+        when(folder.getPath()).thenReturn("/content/documents/test");
         when(indexHandle.getNodes()).thenReturn(TestUtil.iterator(singletonList(index)));
         when(folder.getNode("index")).thenReturn(indexHandle);
         return folder;
