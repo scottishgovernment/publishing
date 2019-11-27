@@ -18,8 +18,6 @@ import static org.mockito.Mockito.when;
 
 public class AddCategoryEventListenerTest {
 
-    private static final String PATH = "/content/documents";
-
     @Test
     public void repoExceptionSwallowed() throws Exception {
         // ARRANGE
