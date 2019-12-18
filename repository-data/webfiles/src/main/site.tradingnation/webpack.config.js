@@ -5,9 +5,7 @@ module.exports = [{
 
   entry: {
     'site': [
-      path.resolve(__dirname, './scripts/cookies.js')
-    ],
-    'usertype': [
+      path.resolve(__dirname, './scripts/cookies.js'),
       path.resolve(__dirname, './scripts/usertype.js')
     ],
     'pattern-library': [
@@ -28,9 +26,7 @@ module.exports = [{
 
   entry: {
     'site': [
-      path.resolve(__dirname, './scripts/cookies.js')
-    ],
-    'usertype': [
+      path.resolve(__dirname, './scripts/cookies.js'),
       path.resolve(__dirname, './scripts/usertype.js')
     ],
     'pattern-library': [

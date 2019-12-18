@@ -12,13 +12,6 @@
         <@hst.headContributions categoryIncludes="schema"/>
         <@hst.headContributions categoryIncludes="meta"/>
 
-        <!-- Older browsers load these files -->
-        <!-- (and module-supporting browsers know *not* to load these files) -->
-        <script nomodule="" src="<@hst.webfile path='/assets/tradingnation/scripts/usertype.es5.js'/>"></script>
-
-        <!-- Browsers with ES module support load these files -->
-        <script type="module" src="<@hst.webfile path='/assets/tradingnation/scripts/usertype.js'/>"></script>
-
         <meta charset="UTF-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,5 +48,6 @@
         <!-- Browsers with ES module support load these files -->
         <script type="module" src="<@hst.webfile path='/assets/tradingnation/scripts/site.js'/>"></script>
         <script type="module" src="<@hst.webfile path='/assets/tradingnation/scripts/pattern-library.js'/>"></script>
+
     </body>
 </html>

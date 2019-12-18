@@ -33,7 +33,7 @@ const cookieModule = {
             storage.setCookie(
                 storage.categories.necessary,
                 'cookiePermissions',
-                JSON.stringify(cookiePermissions),
+                JSON.stringify(cookiePermissions).replace(/\"/g,'\"'),
                 365
             );
 
@@ -63,7 +63,7 @@ const cookieModule = {
 
             storage.setCookie(storage.categories.necessary,
                 'cookiePermissions',
-                JSON.stringify(permissions)
+                JSON.stringify(permissions).replace(/\"/g,'\"')
             );
         }
     },
@@ -122,7 +122,7 @@ const cookieModule = {
                 storage.set({
                     type: 'cookie',
                     category: 'necessary',
-                    value: JSON.stringify(cookiePermissions),
+                    value: JSON.stringify(cookiePermissions).replace(/\"/g,'\"'),
                     name: 'cookiePermissions',
                     expiry: 365
                 });
