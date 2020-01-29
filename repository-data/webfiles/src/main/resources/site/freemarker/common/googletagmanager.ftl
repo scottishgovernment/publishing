@@ -4,8 +4,8 @@
     <#assign gtmAuth = "DxwtOU_tpyLiqCMda2mJCg" />
     <#assign gtmEnv = "2" />
 <#else>
-    <#assign gtmAuth = "QSeXb9g32a8PRRDfiJ3vAw" />
-    <#assign gtmEnv = "5" />
+    <#assign gtmAuth = "cHXwvKyUg23niqKjyEaXVA" />
+    <#assign gtmEnv = "49" />
 </#if>
 
 <@hst.headContribution category="googleTagManager">
