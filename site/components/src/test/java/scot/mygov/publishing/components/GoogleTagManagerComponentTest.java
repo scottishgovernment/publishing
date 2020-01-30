@@ -22,7 +22,7 @@ public class GoogleTagManagerComponentTest {
 
         // ARRANGE
         GoogleTagManagerComponent sut = new GoogleTagManagerComponent();
-        HstRequest request = request("expectedGtmName", "expectedGtmId", "www");
+        HstRequest request = request("expectedGtmName", "expectedGtmId", "live");
         HstResponse response = mock(HstResponse.class);
 
         // ACT
