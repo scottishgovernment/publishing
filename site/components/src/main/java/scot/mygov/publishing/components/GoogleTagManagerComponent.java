@@ -30,7 +30,7 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
     boolean isLiveHost(HstRequest request) {
         String hostGroupName
                 = request.getRequestContext().getResolvedMount().getMount().getVirtualHost().getHostGroupName();
-        return "live".equals(hostGroupName);
+        return "production".equals(hostGroupName);
     }
 
 
