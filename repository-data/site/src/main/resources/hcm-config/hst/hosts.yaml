@@ -188,6 +188,23 @@ definitions:
                   jcr:primaryType: hst:mount
                   hst:mountpoint: /hst:publishing/hst:sites/trading-nation
                   hst:schemeagnostic: true
+      /origin:
+        jcr:primaryType: hst:virtualhostgroup
+        /scot:
+          jcr:primaryType: hst:virtualhost
+          hst:scheme: https
+          hst:showcontextpath: false
+          hst:showport: false
+          /mygov:
+            jcr:primaryType: hst:virtualhost
+            /tradingnation:
+              jcr:primaryType: hst:virtualhost
+              /origin:
+                jcr:primaryType: hst:virtualhost
+                /hst:root:
+                  jcr:primaryType: hst:mount
+                  hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+                  hst:schemeagnostic: true
       /production:
         jcr:primaryType: hst:virtualhostgroup
         /scot:
