@@ -18,6 +18,15 @@
         <link rel="stylesheet" type="text/css" href="<@hst.webfile path="/assets/tradingnation/css/main.css"/>"/>
         <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900,400italic' rel='stylesheet' type='text/css'>
 
+
+    <link rel="shortcut icon" href='<@hst.link path="favicon.ico" />' type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href='<@hst.link path="apple-touch-icon.png" />'>
+    <link rel="icon" type="image/png" sizes="32x32" href='<@hst.link path="favicon-32x32.png" />'>
+    <link rel="icon" type="image/png" sizes="16x16" href='<@hst.link path="favicon-16x16.png" />'>
+    <link rel="mask-icon" href='<@hst.link path="safari-pinned-tab.svg" />' color="#0065bd">
+    <meta name="msapplication-TileColor" content="#0065bd">
+    <meta name="theme-color" content="#ffffff">
+
     </head>
 
     <body>
