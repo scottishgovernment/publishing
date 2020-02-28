@@ -69,4 +69,22 @@ public class TrailingSlashRedirectTest {
         verify(response, never()).setHeader("Location", "http://www.site.com/path/");
     }
 
+    @Test
+    public void processDoesNotRedirectRequestsWithExtension() {
+        // ARRANGE
+        TrailingSlashRedirect sut = new TrailingSlashRedirect();
+        HttpServletRequest request = mock(HttpServletRequest.class);
+        HttpServletResponse response = mock(HttpServletResponse.class);
+        ResolvedSiteMapItem siteMapItem = mock(ResolvedSiteMapItem.class);
+        when(request.getPathTranslated()).thenReturn("path/file.pdf");
+
+        // ACT
+        ResolvedSiteMapItem actual = sut.process(siteMapItem, request, response);
+
+        // ASSERT
+        assertSame(actual, siteMapItem);
+        verify(response, never()).setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
+        verify(response, never()).setHeader("Location", "http://www.site.com/path/file.pdf");
+    }
+
 }

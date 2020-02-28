@@ -1,5 +1,6 @@
 package scot.mygov.publishing.sitemap;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.hst.core.request.SiteMapItemHandlerConfiguration;
 import org.hippoecm.hst.core.sitemapitemhandler.HstSiteMapItemHandler;
@@ -29,6 +30,12 @@ public class TrailingSlashRedirect implements HstSiteMapItemHandler {
             return resolvedSiteMapItem;
         }
 
+        // do not redirect request if they have an extension.
+        if (hasExtension(request.getPathTranslated())) {
+            return resolvedSiteMapItem;
+        }
+
+
         String redirect = redirectTarget(request);
         LOG.debug("Sending trailing slash redirect to {}", redirect);
         response.setStatus(HttpServletResponse.SC_MOVED_PERMANENTLY);
@@ -36,6 +43,11 @@ public class TrailingSlashRedirect implements HstSiteMapItemHandler {
 
         // Stop further processing on this request
         return null;
+    }
+
+    boolean hasExtension(String url) {
+        String lastSegment = StringUtils.substringAfterLast(url, "/");
+        return StringUtils.contains(lastSegment, ".");
     }
 
     private String redirectTarget(HttpServletRequest request) {
