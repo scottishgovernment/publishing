@@ -28,7 +28,7 @@ input.fancy-radio {
 
 input + label.fancy-radio:before, label.fancy-radio:before {
   background-color: #fff;
-  border: 3px solid $color__grey--base;
+  border: 3px solid $colour__grey--base;
   border-radius: 50%;
   content: "";
   float: left;
@@ -44,14 +44,14 @@ input + label.fancy-radio:before, label.fancy-radio:before {
 
 /* CHECKED STATE */
 input:checked + label.fancy-radio:before {
-  border-color: $color__brand--primary;
-  color: $color__brand--primary;
+  border-color: $colour__brand--primary;
+  color: $colour__brand--primary;
   background-color: #fff;
 }
 
 input:checked + label.fancy-radio:after {
-  background: $color__brand--primary;
-  border: 5px solid $color__brand--primary;
+  background: $colour__brand--primary;
+  border: 5px solid $colour__brand--primary;
   border-radius: 50%;
   content: "";
   height: 0;
@@ -63,22 +63,22 @@ input:checked + label.fancy-radio:after {
 
 /* FOCUS STATE */
 input:focus + label.fancy-radio:before {
-  border-color: $color__black;
-  color: $color__black;
-  background-color: $color__gold--base;
+  border-color: $colour__black;
+  color: $colour__black;
+  background-color: $colour__gold--base;
   border-width: 4px;
   line-height: 20px;
 }
 
 input:focus + label.fancy-radio:after {
-    background: $color__black;
-    border-color: $color__black;
+    background: $colour__black;
+    border-color: $colour__black;
 }
 
 /* ERROR STATE */
 .input-error + label.fancy-radio:before {
-  border-color: $color__red--base;
-  color: $color__red--base;
+  border-color: $colour__red--base;
+  color: $colour__red--base;
 }
 
 
