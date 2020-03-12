@@ -1,6 +1,6 @@
 <#assign hst=JspTaglibs["http://www.hippoecm.org/jsp/hst/core"] >
 <!doctype html>
-<html>
+<html lang="en">
     <head>
         <meta name="google-site-verification" content="vSrfYRrCbfMqGoggpdhADL9rvDQm70LtAHalmFmZ4wE"/>
 
