@@ -2,7 +2,7 @@
 
 <@hst.link var="cookieprefslink" siteMapItemRefId="cookies"/>
 
-<div id="cookie-notice" class="ds_notification  js-initial-cookie-content  fully-hidden">
+<div id="cookie-notice" class="ds_notification  ds_reversed  js-initial-cookie-content  fully-hidden">
     <div class="ds_wrapper">
         <div class="ds_notification__content">
             <div class="ds_notification__text">
