@@ -91,7 +91,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{extraPlugins: ''warning-text,inset-text''}'
+              ckeditor.config.overlayed.json: '{extraPlugins: ''warning-text,inset-text,accordion''}'
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
