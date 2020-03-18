@@ -1,0 +1,86 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/mirror:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 682afa4a-2982-4971-b586-68370af2fa87
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 1b09bcf2-9363-4916-a085-dd7b390e1a48
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: 76287f95-993e-49bb-b576-f6885fed2df3
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /mirror:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:document
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators: [required]
+          /pinned:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:pinned
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:mirror
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b17b5cec-d558-4719-a820-579afc471365
+          hippostdpubwf:lastModificationDate: 2020-03-09T16:53:05.915Z
+          hippostdpubwf:creationDate: 2020-03-09T16:53:05.915Z
+          publishing:pinned: false
+          /publishing:document:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /document:
+            jcr:primaryType: frontend:plugin
+            caption: Document
+            field: mirror
+            hint: "Choose a document that will be \"mirrored\" into this folder. \
+              \ \r\n\r\nThis allows content to appear in more than one category on\
+              \ the site."
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              nodetypes: ['publishing:article', 'publishing:category']
+          /pinned:
+            jcr:primaryType: frontend:plugin
+            caption: Pinned?
+            field: pinned
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: Should the mirrored item be 'pinned' in its category, causing it
+              to be shown at the top and with an element of prominence
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

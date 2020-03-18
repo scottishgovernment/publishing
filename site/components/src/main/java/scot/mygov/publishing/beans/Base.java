@@ -40,4 +40,9 @@ public class Base extends BaseDocument {
     public String[] getTags() {
         return getMultipleProperty("hippostd:tags");
     }
+
+    @HippoEssentialsGenerated(internalName = "publishing:pinned")
+    public Boolean getPinned() {
+        return getSingleProperty("publishing:pinned");
+    }
 }

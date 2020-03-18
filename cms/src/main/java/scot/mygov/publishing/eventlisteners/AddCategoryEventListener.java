@@ -23,7 +23,10 @@ public class AddCategoryEventListener {
     protected static final int MAX_LEVELS = 10;
 
     private static final String NEW_ARTICLE = "new-publishing-article";
+
     private static final String NEW_CATEGORY = "new-publishing-category";
+
+    private static final String NEW_MIRROR = "new-publishing-mirror";
 
     Session session;
 
@@ -63,11 +66,11 @@ public class AddCategoryEventListener {
     }
 
     String [] allActions() {
-        return new String[] { NEW_ARTICLE, NEW_CATEGORY };
+        return new String[] { NEW_ARTICLE, NEW_CATEGORY, NEW_MIRROR };
     }
 
     String [] actionsWithoutNewCategory() {
-        return new String[] { NEW_ARTICLE };
+        return new String[] { NEW_ARTICLE, NEW_MIRROR };
     }
 
     void setNavigationStyle(Node folder) throws RepositoryException {

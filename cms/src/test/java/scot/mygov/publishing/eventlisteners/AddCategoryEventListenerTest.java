@@ -172,11 +172,11 @@ public class AddCategoryEventListenerTest {
     }
 
     String [] allActions() {
-        return new String [] {"new-publishing-article", "new-publishing-category"};
+        return new String [] {"new-publishing-article", "new-publishing-category", "new-publishing-mirror"};
     }
 
     String [] actionsWithoutAddCategory() {
-        return new String [] {"new-publishing-article"};
+        return new String [] {"new-publishing-article", "new-publishing-mirror"};
     }
 
     HippoEvent eventWithAction(String action) {

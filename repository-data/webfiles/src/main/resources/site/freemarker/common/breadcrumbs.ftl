@@ -50,7 +50,8 @@
                 "@type": "ListItem",
                 "position": ${breadcrumbs?size + 1},
                 "item": {
-                    "@id": "${document.getProperty("publishing:permalink")?html}",
+                    <hst:link var="link" hippobean="${document}"/>
+                    "@id": "${link}",
                     "name": "${document.title?html}"
                 }
             }

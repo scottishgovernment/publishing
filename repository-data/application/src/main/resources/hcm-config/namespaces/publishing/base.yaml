@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 30132022-82dd-4a1b-847a-c1f1ea487b17
+          jcr:uuid: 338498a5-8c4c-4b24-8623-3320939d73bb
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated', 'hippostd:taggable']
@@ -68,6 +68,22 @@ definitions:
             hipposysedit:path: publishing:reportingtags
             hipposysedit:primary: false
             hipposysedit:type: String
+          /pinned:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:pinned
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /relateditems:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:relateditems
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:relateditems
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -81,13 +97,20 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
           publishing:summary: ''
           publishing:title: ''
-          jcr:uuid: 9191e0f0-c20a-4fa7-9598-ca7bb21b7210
+          jcr:uuid: 9970d7cb-9463-43e1-90ec-1e391bd7cc92
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:07.551+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:07.552+01:00
           publishing:seoTitle: ''
           publishing:authorNotes: ''
           publishing:metaDescription: ''
           publishing:reportingtags: []
+          publishing:pinned: false
+          /publishing:relateditems:
+            jcr:primaryType: publishing:relateditems
+            publishing:title: ''
+            /publishing:relatedItem:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -126,6 +149,16 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
+          /pinned:
+            jcr:primaryType: frontend:plugin
+            caption: Pinned?
+            field: pinned
+            hint: Should this item be 'pinned' in its category, causing it to be shown
+              at the top and with an element of prominence
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
@@ -150,6 +183,15 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
+          /relateditems:
+            jcr:primaryType: frontend:plugin
+            caption: Related items
+            field: relateditems
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /taggable:
             jcr:primaryType: frontend:plugin
             mixin: hippostd:taggable

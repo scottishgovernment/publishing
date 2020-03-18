@@ -6,6 +6,7 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.junit.Test;
 import org.mockito.Mockito;
+import scot.mygov.publishing.beans.Mirror;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,10 +37,15 @@ public class CategoryComponentTest {
         HippoBean siteFurnitureFolder = subfolderBean("site-furniture");
         HippoBean adminfolder = subfolderBean("administration");
         HippoBean article = mock(HippoBean.class);
+
+
+        HippoBean mirroredArticle = mock(HippoBean.class);
+        Mirror mirror = mock(Mirror.class);
+        when(mirror.getDocument()).thenReturn(mirroredArticle);
         when(article.getName()).thenReturn("article");
 
         List<HippoBean> children = new ArrayList<>();
-        Collections.addAll(children, index, siteFurnitureFolder, adminfolder, subfolder, article);
+        Collections.addAll(children, index, siteFurnitureFolder, adminfolder, subfolder, article, mirror);
         when(folder.getChildBeans(any(Class.class))).thenReturn(children);
 
         HstRequest request = mock(HstRequest.class);
@@ -56,7 +62,7 @@ public class CategoryComponentTest {
 
         // ARRANGE
         List<HippoBean> expected = new ArrayList<>();
-        Collections.addAll(expected, subfolderIndexBean, article);
+        Collections.addAll(expected, subfolderIndexBean, article, mirroredArticle);
         verify(request).setAttribute("children", expected);
     }
 
