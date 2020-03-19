@@ -1,0 +1,114 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/analytics:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 0d91ef66-6755-460b-ae71-7cac785e6b4d
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 10d588cc-62a9-4bda-9a62-6073882a7b89
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: 871ba84d-c3e3-4b15-bba4-f369ad4e4bd6
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /notes:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:notes
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+          /env:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:env
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /auth:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:auth
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /containerid:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:containerid
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:analytics
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes: ['mix:referenceable']
+          publishing:notes: ''
+          publishing:auth: ''
+          publishing:env: ''
+          jcr:uuid: b9ae8e1d-bfc7-4968-8692-4a639ffea3b4
+          hippostdpubwf:lastModificationDate: 2020-03-17T11:06:03.420Z
+          hippostdpubwf:creationDate: 2020-03-17T11:06:03.420Z
+          publishing:containerid: ''
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /containerid:
+            jcr:primaryType: frontend:plugin
+            caption: Container ID
+            field: containerid
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /env:
+            jcr:primaryType: frontend:plugin
+            caption: Env
+            field: env
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /auth:
+            jcr:primaryType: frontend:plugin
+            caption: Auth
+            field: auth
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /notes:
+            jcr:primaryType: frontend:plugin
+            caption: Notes
+            field: notes
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

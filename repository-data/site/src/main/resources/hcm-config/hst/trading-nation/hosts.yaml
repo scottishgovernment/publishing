@@ -14,6 +14,7 @@ definitions:
             jcr:primaryType: hst:mount
             hst:mountpoint: /hst:publishing/hst:sites/trading-nation
             hst:schemeagnostic: true
+            publishing:gtm: /content/documents/trading-nation/administration/analytics/dev
     /hst:hst/hst:hosts/dev/scot/mygov:
       /tradingnation:
         jcr:primaryType: hst:virtualhost
@@ -23,6 +24,7 @@ definitions:
             jcr:primaryType: hst:mount
             hst:mountpoint: /hst:publishing/hst:sites/trading-nation
             hst:schemeagnostic: true
+            publishing:gtm: /content/documents/trading-nation/administration/analytics/dev
     /hst:hst/hst:hosts/int/scot/mygov:
       /tradingnation:
         jcr:primaryType: hst:virtualhost
@@ -32,6 +34,7 @@ definitions:
             jcr:primaryType: hst:mount
             hst:mountpoint: /hst:publishing/hst:sites/trading-nation
             hst:schemeagnostic: true
+            publishing:gtm: /content/documents/trading-nation/administration/analytics/dev
     /hst:hst/hst:hosts/exp/scot/mygov:
       /tradingnation:
         jcr:primaryType: hst:virtualhost
@@ -41,6 +44,7 @@ definitions:
             jcr:primaryType: hst:mount
             hst:mountpoint: /hst:publishing/hst:sites/trading-nation
             hst:schemeagnostic: true
+            publishing:gtm: /content/documents/trading-nation/administration/analytics/dev
     /hst:hst/hst:hosts/uat/scot/mygov:
       /tradingnation:
         jcr:primaryType: hst:virtualhost
@@ -50,6 +54,7 @@ definitions:
             jcr:primaryType: hst:mount
             hst:mountpoint: /hst:publishing/hst:sites/trading-nation
             hst:schemeagnostic: true
+            publishing:gtm: /content/documents/trading-nation/administration/analytics/dev
     /hst:hst/hst:hosts/per/scot/mygov:
       /tradingnation:
         jcr:primaryType: hst:virtualhost
@@ -59,6 +64,7 @@ definitions:
             jcr:primaryType: hst:mount
             hst:mountpoint: /hst:publishing/hst:sites/trading-nation
             hst:schemeagnostic: true
+            publishing:gtm: /content/documents/trading-nation/administration/analytics/dev
     /hst:hst/hst:hosts/tst/scot/mygov:
       /tradingnation:
         jcr:primaryType: hst:virtualhost
@@ -68,6 +74,7 @@ definitions:
             jcr:primaryType: hst:mount
             hst:mountpoint: /hst:publishing/hst:sites/trading-nation
             hst:schemeagnostic: true
+            publishing:gtm: /content/documents/trading-nation/administration/analytics/dev
     /hst:hst/hst:hosts/blu/scot/mygov:
       /tradingnation:
         jcr:primaryType: hst:virtualhost
@@ -77,6 +84,7 @@ definitions:
             jcr:primaryType: hst:mount
             hst:mountpoint: /hst:publishing/hst:sites/trading-nation
             hst:schemeagnostic: true
+            publishing:gtm: /content/documents/trading-nation/administration/analytics/live
     /hst:hst/hst:hosts/grn/scot/mygov:
       /tradingnation:
         jcr:primaryType: hst:virtualhost
@@ -86,6 +94,7 @@ definitions:
             jcr:primaryType: hst:mount
             hst:mountpoint: /hst:publishing/hst:sites/trading-nation
             hst:schemeagnostic: true
+            publishing:gtm: /content/documents/trading-nation/administration/analytics/live
     /hst:hst/hst:hosts/live/scot/mygov:
       /tradingnation:
         jcr:primaryType: hst:virtualhost
@@ -95,6 +104,7 @@ definitions:
             jcr:primaryType: hst:mount
             hst:mountpoint: /hst:publishing/hst:sites/trading-nation
             hst:schemeagnostic: true
+            publishing:gtm: /content/documents/trading-nation/administration/analytics/live
     /hst:hst/hst:hosts/origin/scot/mygov:
       /tradingnation:
         jcr:primaryType: hst:virtualhost
@@ -104,6 +114,7 @@ definitions:
             jcr:primaryType: hst:mount
             hst:mountpoint: /hst:publishing/hst:sites/trading-nation
             hst:schemeagnostic: true
+            publishing:gtm: /content/documents/trading-nation/administration/analytics/live
     /hst:hst/hst:hosts/production/scot/mygov:
       /tradingnation:
         jcr:primaryType: hst:virtualhost
@@ -111,3 +122,4 @@ definitions:
           jcr:primaryType: hst:mount
           hst:mountpoint: /hst:publishing/hst:sites/trading-nation
           hst:schemeagnostic: true
+          publishing:gtm: /content/documents/trading-nation/administration/analytics/live
