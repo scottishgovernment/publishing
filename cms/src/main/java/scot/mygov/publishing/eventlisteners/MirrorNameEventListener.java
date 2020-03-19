@@ -19,7 +19,7 @@ public class MirrorNameEventListener {
 
     private static final Logger LOG = LoggerFactory.getLogger(MirrorNameEventListener.class);
 
-    private static final String PUBLICATION_INTERACTION = "default:handle:publish";
+    static final String PUBLICATION_INTERACTION = "default:handle:publish";
 
     Session session;
 
@@ -39,7 +39,7 @@ public class MirrorNameEventListener {
     }
 
     void doHandleEvent(HippoWorkflowEvent event) throws RepositoryException {
-        if (!isSucessfulPublish(event)) {
+        if (!isSuccessfulPublish(event)) {
             return;
         }
 
@@ -50,7 +50,7 @@ public class MirrorNameEventListener {
         }
     }
 
-    boolean isSucessfulPublish(HippoWorkflowEvent event) {
+    boolean isSuccessfulPublish(HippoWorkflowEvent event) {
         return event.success() && PUBLICATION_INTERACTION.equals(event.interaction());
     }
 
