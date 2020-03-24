@@ -3,7 +3,6 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import scot.mygov.publishing.beans.Mirror;
 
 import java.util.List;
 
