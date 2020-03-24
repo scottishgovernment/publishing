@@ -24,18 +24,20 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-        List<BreadcrumbItem> breadcrumbs = constructBreadcrumb(request);
+
+        HippoBean contentBean = CategoryComponent.getDocumentBean(request);
+        List<BreadcrumbItem> breadcrumbs = constructBreadcrumb(request, contentBean);
         request.setAttribute("breadcrumbs", breadcrumbs);
+        request.setAttribute("document", contentBean);
     }
 
-    static List<BreadcrumbItem> constructBreadcrumb(HstRequest request) {
+    static List<BreadcrumbItem> constructBreadcrumb(HstRequest request, HippoBean contentBean) {
         if (request.getRequestContext().getContentBean() == null) {
             return emptyList();
         }
 
         HstRequestContext context = request.getRequestContext();
         HippoBean baseBean = context.getSiteContentBaseBean();
-        HippoBean contentBean = context.getContentBean();
         return breadcrumbs(startBean(contentBean), baseBean, context);
     }
 

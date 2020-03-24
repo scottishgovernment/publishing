@@ -3,6 +3,7 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import scot.mygov.publishing.beans.Mirror;
 
 import java.util.List;
 
@@ -37,6 +38,7 @@ public class ArticleComponent extends CategoryComponent {
         request.setAttribute("prev", prev);
         request.setAttribute("next", next);
         setSequenceable(request, document);
+        request.setAttribute("document", getDocumentBean(request));
     }
 
     /**

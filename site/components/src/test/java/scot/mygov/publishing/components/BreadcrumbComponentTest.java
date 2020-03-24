@@ -36,7 +36,7 @@ public class BreadcrumbComponentTest {
         when(context.getHstLinkCreator()).thenReturn(linkCreator);
 
         // ACT
-        List<BreadcrumbItem> actual = BreadcrumbComponent.constructBreadcrumb(request);
+        List<BreadcrumbItem> actual = BreadcrumbComponent.constructBreadcrumb(request, article);
 
         // ASSERT
         Assert.assertEquals(2, actual.size());
@@ -65,7 +65,7 @@ public class BreadcrumbComponentTest {
         when(context.getHstLinkCreator()).thenReturn(linkCreator);
 
         // ACT
-        List<BreadcrumbItem> actual = BreadcrumbComponent.constructBreadcrumb(request);
+        List<BreadcrumbItem> actual = BreadcrumbComponent.constructBreadcrumb(request, article);
 
         // ASSERT
         Assert.assertEquals(1, actual.size());
@@ -94,7 +94,7 @@ public class BreadcrumbComponentTest {
         when(context.getHstLinkCreator()).thenReturn(linkCreator);
 
         // ACT
-        List<BreadcrumbItem> actual = BreadcrumbComponent.constructBreadcrumb(request);
+        List<BreadcrumbItem> actual = BreadcrumbComponent.constructBreadcrumb(request, subcategoryIndex);
 
         // ASSERT
         Assert.assertEquals(2, actual.size());
@@ -113,7 +113,7 @@ public class BreadcrumbComponentTest {
         when(context.getContentBean()).thenReturn(null);
 
         // ACT
-        BreadcrumbComponent.constructBreadcrumb(request);
+        BreadcrumbComponent.constructBreadcrumb(request, null);
 
         // ASSERT
         verify(request, never()).setAttribute(any(), any());

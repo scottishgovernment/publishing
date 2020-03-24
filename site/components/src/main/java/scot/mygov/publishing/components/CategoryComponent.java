@@ -48,12 +48,22 @@ public class CategoryComponent extends EssentialsContentComponent {
             return;
         }
 
-        HippoBean bean = request.getRequestContext().getContentBean();
+        HippoBean bean = getDocumentBean(request);
         HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
         HippoFolderBean folder = (HippoFolderBean) bean.getParentBean();
         setAttributeWithPredicate(request, "children", folder, baseBean, b -> true);
         setAttributeWithPredicate(request, "pinned", folder, baseBean, CategoryComponent::isPinned);
         setAttributeWithPredicate(request, "unpinned", folder, baseBean, CategoryComponent::notPinned);
+    }
+
+    static HippoBean getDocumentBean(HstRequest request) {
+        HippoBean document = request.getRequestContext().getContentBean();
+        return document instanceof Mirror ? mirroredDocument(document) : document;
+    }
+
+    static HippoBean mirroredDocument(HippoBean document) {
+        Mirror mirror = (Mirror) document;
+        return mirror.getDocument();
     }
 
     static void setAttributeWithPredicate(
