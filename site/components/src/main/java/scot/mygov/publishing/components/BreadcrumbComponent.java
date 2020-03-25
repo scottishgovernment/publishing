@@ -8,6 +8,8 @@ import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,8 @@ import static scot.mygov.publishing.components.CategoryComponent.indexBean;
  */
 public class BreadcrumbComponent extends EssentialsContentComponent {
 
+    private static final Logger LOG = LoggerFactory.getLogger(BreadcrumbComponent.class);
+
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
@@ -28,6 +32,7 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
         HippoBean contentBean = CategoryComponent.getDocumentBean(request);
         List<BreadcrumbItem> breadcrumbs = constructBreadcrumb(request, contentBean);
         request.setAttribute("breadcrumbs", breadcrumbs);
+        request.setAttribute("documentBreadcrumbItem", breadcrumbItem(contentBean, request.getRequestContext()));
         request.setAttribute("document", contentBean);
     }
 
@@ -53,6 +58,7 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
                 ? new ArrayList<>()
                 : breadcrumbs(bean.getParentBean(), baseBean, context);
         HippoBean linkBean = indexBean(bean);
+
         // we do this to handle structural folders (for example the footer folder)
         // these folders do not contain an index file.
         if (linkBean != null) {
@@ -68,6 +74,7 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
     static BreadcrumbItem breadcrumbItem(HippoBean bean, HstRequestContext context) {
         HstLinkCreator linkCreator = context.getHstLinkCreator();
         HstLink link = linkCreator.create(bean, context);
+        LOG.info("breadcrumItem {}", bean.getPath());
         return new BreadcrumbItem(link, bean.getSingleProperty("publishing:title"));
     }
 

@@ -10,6 +10,7 @@ import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.same;
 import static org.mockito.Mockito.*;
@@ -39,9 +40,9 @@ public class BreadcrumbComponentTest {
         List<BreadcrumbItem> actual = BreadcrumbComponent.constructBreadcrumb(request, article);
 
         // ASSERT
-        Assert.assertEquals(2, actual.size());
-        Assert.assertEquals("homeIndex-title", actual.get(0).getTitle());
-        Assert.assertEquals("categoryIndex-title", actual.get(1).getTitle());
+        assertEquals(2, actual.size());
+        assertEquals("homeIndex-title", actual.get(0).getTitle());
+        assertEquals("categoryIndex-title", actual.get(1).getTitle());
         verify(linkCreator).create(same(homeIndex), any());
         verify(linkCreator).create(same(categoryIndex), any());
     }
@@ -68,8 +69,8 @@ public class BreadcrumbComponentTest {
         List<BreadcrumbItem> actual = BreadcrumbComponent.constructBreadcrumb(request, article);
 
         // ASSERT
-        Assert.assertEquals(1, actual.size());
-        Assert.assertEquals("homeIndex-title", actual.get(0).getTitle());
+        assertEquals(1, actual.size());
+        assertEquals("homeIndex-title", actual.get(0).getTitle());
         verify(linkCreator).create(same(homeIndex), any());
     }
 
@@ -97,9 +98,9 @@ public class BreadcrumbComponentTest {
         List<BreadcrumbItem> actual = BreadcrumbComponent.constructBreadcrumb(request, subcategoryIndex);
 
         // ASSERT
-        Assert.assertEquals(2, actual.size());
-        Assert.assertEquals("homeIndex-title", actual.get(0).getTitle());
-        Assert.assertEquals("categoryIndex-title", actual.get(1).getTitle());
+        assertEquals(2, actual.size());
+        assertEquals("homeIndex-title", actual.get(0).getTitle());
+        assertEquals("categoryIndex-title", actual.get(1).getTitle());
         verify(linkCreator).create(same(homeIndex), any());
         verify(linkCreator).create(same(categoryIndex), any());
     }

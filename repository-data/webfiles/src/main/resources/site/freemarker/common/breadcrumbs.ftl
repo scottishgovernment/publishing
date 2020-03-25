@@ -50,9 +50,9 @@
                 "@type": "ListItem",
                 "position": ${breadcrumbs?size + 1},
                 "item": {
-                    <hst:link var="link" hippobean="${document}"/>
+                    <@hst.link var="link" link=documentBreadcrumbItem.link/>
                     "@id": "${link}",
-                    "name": "${document.title?html}"
+                    "name": "${documentBreadcrumbItem.title?html}"
                 }
             }
         ]
