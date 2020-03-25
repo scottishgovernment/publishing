@@ -8,8 +8,6 @@ import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +20,6 @@ import static scot.mygov.publishing.components.CategoryComponent.indexBean;
  * Construct a list of BreadcrumbItem objects for the page being requested.
  */
 public class BreadcrumbComponent extends EssentialsContentComponent {
-
-    private static final Logger LOG = LoggerFactory.getLogger(BreadcrumbComponent.class);
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -74,7 +70,6 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
     static BreadcrumbItem breadcrumbItem(HippoBean bean, HstRequestContext context) {
         HstLinkCreator linkCreator = context.getHstLinkCreator();
         HstLink link = linkCreator.create(bean, context);
-        LOG.info("breadcrumItem {}", bean.getPath());
         return new BreadcrumbItem(link, bean.getSingleProperty("publishing:title"));
     }
 
