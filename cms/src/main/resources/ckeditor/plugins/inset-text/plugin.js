@@ -25,16 +25,5 @@ CKEDITOR.plugins.add('inset-text', {
                 return element.name == 'div' && element.hasClass( 'ds_inset-text' );
             }
         });
-    },
-
-    onLoad: function () {
-        if (document.getElementById('insetTextStyles') === null) {
-            let link = document.createElement('link');
-            link.id = 'insetTextStyles';
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = this.path + 'inset-text.css';
-            document.body.appendChild(link);
-        }
     }
 });

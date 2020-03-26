@@ -27,16 +27,5 @@ CKEDITOR.plugins.add('warning-text', {
                 return element.name == 'div' && element.hasClass( 'ds_warning-text' );
             }
         });
-    },
-
-    onLoad: function () {
-        if (document.getElementById('warningTextStyles') === null) {
-            let link = document.createElement('link');
-            link.id = 'warningTextStyles';
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = this.path + 'warning-text.css';
-            document.body.appendChild(link);
-        }
     }
 });
