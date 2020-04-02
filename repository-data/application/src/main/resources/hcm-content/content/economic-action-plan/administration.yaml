@@ -1,0 +1,166 @@
+/content/documents/economic-action-plan/administration:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['mix:referenceable']
+  jcr:uuid: efe7d4d2-748d-4586-b579-2279346fa348
+  hippostd:foldertype: [new-resource-bundle, new-untranslated-folder]
+  /robots:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: b10d4823-936e-4aa2-8685-283bcf7e7837
+    hippo:versionHistory: da8e1eac-b0b3-4e41-83e1-beca7f83edb9
+    /robots[1]:
+      jcr:primaryType: robotstxt:robotstxt
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: c92a9a4d-6dc0-4bf3-966c-9a0e9396f135
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
+      hippostdpubwf:lastModificationDate: 2019-10-11T09:40:22.420+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2019-10-11T09:46:41.149+01:00
+      robotstxt:sitemap: ['https://economicactionplan.mygov.scot/sitemap.xml']
+      /robotstxt:section:
+        jcr:primaryType: robotstxt:section
+        robotstxt:disallow: []
+        robotstxt:useragent: '*'
+    /robots[2]:
+      jcr:primaryType: robotstxt:robotstxt
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 6c278e9e-2a6a-4fce-aecc-e500336ce335
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
+      hippostdpubwf:lastModificationDate: 2019-10-11T09:40:22.420+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      robotstxt:sitemap: ['https://economicactionplan.mygov.scot/sitemap.xml']
+      /robotstxt:section:
+        jcr:primaryType: robotstxt:section
+        robotstxt:disallow: []
+        robotstxt:useragent: '*'
+    /robots[3]:
+      jcr:primaryType: robotstxt:robotstxt
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 4c884eea-ed6d-467c-9904-4b92aad9ccd1
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
+      hippostdpubwf:lastModificationDate: 2019-10-11T09:46:59.046+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      robotstxt:sitemap: ['https://economicactionplan.mygov.scot/sitemap.xml']
+      /robotstxt:section:
+        jcr:primaryType: robotstxt:section
+        robotstxt:disallow: []
+        robotstxt:useragent: '*'
+  /analytics:
+    jcr:primaryType: hippostd:folder
+    /dev:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 4943c9d0-770b-44be-b42e-0e07992c2c16
+      hippo:versionHistory: cf3567e2-4823-4011-b341-cb3cdce711a2
+      /dev[1]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 9b10188d-4402-4d07-8f05-4d24c12d4cca
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2020-04-02T16:05:42.318+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+        hippotranslation:locale: document-type-locale
+        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+        publishing:containerid: ''
+        publishing:env: '2'
+        publishing:notes: ''
+      /dev[2]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 37f4623e-3081-42ac-a60e-2976de64553b
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+        hippotranslation:locale: document-type-locale
+        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+        publishing:containerid: ''
+        publishing:env: '2'
+        publishing:notes: ''
+      /dev[3]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 7680c819-39cb-4a93-8f23-1d3fb38d4c13
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-04-02T16:05:40.816+01:00
+        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+        hippotranslation:locale: document-type-locale
+        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+        publishing:containerid: ''
+        publishing:env: '2'
+        publishing:notes: ''
+    /live:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: ac6070a1-7dd0-4778-8a0f-a71ca0f94f66
+      hippo:versionHistory: a48db8c8-ebf6-458a-b7f2-399dabe17913
+      /live[1]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: e43cfdb6-48d0-409e-baf5-49a45599047c
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
+        hippostdpubwf:lastModificationDate: 2020-03-18T10:26:40.070Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+        hippotranslation:locale: document-type-locale
+        publishing:auth: ''
+        publishing:containerid: ''
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
+      /live[2]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 3153fcc1-f78b-48da-9f2d-4fcea3d1fd2f
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
+        hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+        hippotranslation:locale: document-type-locale
+        publishing:auth: ''
+        publishing:containerid: ''
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
+      /live[3]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: d64e2996-2ca7-4797-9190-58ad1252128a
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
+        hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-03-18T10:27:34.378Z
+        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+        hippotranslation:locale: document-type-locale
+        publishing:auth: ''
+        publishing:containerid: ''
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
