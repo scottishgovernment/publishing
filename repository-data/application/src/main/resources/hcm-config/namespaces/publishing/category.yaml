@@ -150,6 +150,15 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /cardimage:
+            jcr:primaryType: frontend:plugin
+            caption: Card image
+            field: cardimage
+            hint: Image used for displaying this item within a Card layout
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /sequenceable:
             jcr:primaryType: frontend:plugin
             caption: Sequencable?

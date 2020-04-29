@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-publishing-ImageCard-folder:
+      jcr:primaryType: hippostd:templatequery
+      hippostd:modify: [./_name, $name]
+      jcr:language: xpath
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-publishing-ImageCard-folder/hippostd:templates/node()
+      /hippostd:templates:
+        jcr:primaryType: hippostd:templates
+        /image gallery:
+          jcr:primaryType: hippogallery:stdImageGallery
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 950210b0-3087-44c6-8b2a-895e598fbb0a
+          hippostd:foldertype: [new-publishing-ImageCard-folder]
+          hippostd:gallerytype: ['publishing:ImageCard']

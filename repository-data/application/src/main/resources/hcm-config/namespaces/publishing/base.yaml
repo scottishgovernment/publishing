@@ -11,7 +11,6 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 338498a5-8c4c-4b24-8623-3320939d73bb
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated', 'hippostd:taggable']
@@ -84,6 +83,15 @@ definitions:
             hipposysedit:path: publishing:relateditems
             hipposysedit:primary: false
             hipposysedit:type: publishing:relateditems
+          /cardimage:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:cardImage
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -111,6 +119,12 @@ definitions:
             /publishing:relatedItem:
               jcr:primaryType: hippo:mirror
               hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:cardimage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -190,6 +204,13 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             hint: ''
+          /cardimage:
+            jcr:primaryType: frontend:plugin
+            caption: Card image
+            field: cardimage
+            hint: Image used for displaying this item within a Card layout
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /taggable:

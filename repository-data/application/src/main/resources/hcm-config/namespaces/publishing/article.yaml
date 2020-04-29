@@ -92,6 +92,15 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /cardImage:
+            jcr:primaryType: frontend:plugin
+            caption: Card image
+            field: cardimage
+            hint: Image used for displaying this item within a Card layout
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /content:
             jcr:primaryType: frontend:plugin
             caption: Content

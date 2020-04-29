@@ -34,6 +34,14 @@
     </#if>
 
     <div class="ds_category-list-container">
+        <#if document.navigationType == "image-card">
+            <#include 'card-navigation--image.ftl'/>
+        </#if>
+
+        <#if document.navigationType == "card">
+            <#include 'card-navigation.ftl'/>
+        </#if>
+
         <#if document.navigationType == "grid">
             <#include 'grid-navigation.ftl'/>
         </#if>

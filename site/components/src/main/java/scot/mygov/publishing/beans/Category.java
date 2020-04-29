@@ -18,11 +18,6 @@ public class Category extends Base {
         return getSingleProperty("publishing:sequenceable");
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:heroImage")
-    public HippoGalleryImageSet getHeroImage() {
-        return getLinkedBean("publishing:heroImage", HippoGalleryImageSet.class);
-    }
-
     @HippoEssentialsGenerated(internalName = "publishing:prologue")
     public HippoHtml getPrologue() {
         return getHippoHtml("publishing:prologue");
@@ -31,5 +26,15 @@ public class Category extends Base {
     @HippoEssentialsGenerated(internalName = "publishing:epilogue")
     public HippoHtml getEpilogue() {
         return getHippoHtml("publishing:epilogue");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:heroImage")
+    public HippoGalleryImageSet getHeroImage() {
+        return getLinkedBean("publishing:heroImage", HippoGalleryImageSet.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:cardImage")
+    public ImageCard getCardImage() {
+        return getLinkedBean("publishing:cardImage", ImageCard.class);
     }
 }

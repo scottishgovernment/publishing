@@ -23,6 +23,15 @@ definitions:
             hipposysedit:path: publishing:heroImage
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
+          /dynamicdropdown:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:navigationType
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            hipposysedit:validators: [required]
           /prologue:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -107,6 +116,19 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /navigationType:
+            jcr:primaryType: frontend:plugin
+            caption: Navigation type
+            field: dynamicdropdown
+            hint: "The type of navigation to use for this page. \r\n\r\nA grid navigation\
+              \ shows all articles in this section in a horizontal grid layout, whilst\
+              \ the list navigation shows all articles in a vertical list format.\
+              \ \r\n\r\nYou must select a navigation type."
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/publishing/valuelists/navigationtypes
           /summary:
             jcr:primaryType: frontend:plugin
             caption: Summary

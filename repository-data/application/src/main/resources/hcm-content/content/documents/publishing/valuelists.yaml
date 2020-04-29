@@ -23,6 +23,14 @@
         jcr:primaryType: selection:listitem
         selection:key: list
         selection:label: List
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: card
+        selection:label: Card
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: image-card
+        selection:label: Image card
   /reportingtags:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']

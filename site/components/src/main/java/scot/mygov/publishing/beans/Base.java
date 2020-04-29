@@ -41,8 +41,14 @@ public class Base extends BaseDocument {
         return getMultipleProperty("hippostd:tags");
     }
 
+
     @HippoEssentialsGenerated(internalName = "publishing:pinned")
     public Boolean getPinned() {
         return getSingleProperty("publishing:pinned");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:cardImage")
+    public ImageCard getCardImage() {
+        return getLinkedBean("publishing:cardImage", ImageCard.class);
     }
 }

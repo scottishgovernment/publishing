@@ -11,4 +11,10 @@ public class Article extends Base {
     public HippoHtml getContent() {
         return getHippoHtml("publishing:content");
     }
+
+
+    @HippoEssentialsGenerated(internalName = "publishing:cardImage")
+    public ImageCard getCardImage() {
+        return getLinkedBean("publishing:cardImage", ImageCard.class);
+    }
 }
