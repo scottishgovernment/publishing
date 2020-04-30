@@ -12,6 +12,8 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
+
 /**
  * When a Mirror is published we want to update its name to make it clear what the mirror points to.
  */
@@ -32,6 +34,7 @@ public class MirrorNameEventListener {
         try {
             doHandleEvent(event);
         } catch (RepositoryException e) {
+            ensureRefreshFalse(session);
             LOG.error(
                     "error trying to update mirror name for event msg={}, action={}, event={}, result={}",
                     e.getMessage(), event.action(), event.category(), event.result(), e);

@@ -1,7 +1,36 @@
 definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:cms/validators/en:
-      title-words-validator: Must have between ${wordcount.min} and ${wordcount.max} words
-      summary-words-validator: Must have between ${wordcount.min} and ${wordcount.max} words
+      title-words-validator: Must have between ${wordcount.min} and ${wordcount.max}
+        words
+      summary-words-validator: Must have between ${wordcount.min} and ${wordcount.max}
+        words
       title-minlength-validator: Must be at least ${minlength.min} characters
       summary-minlength-validator: Must be at least ${minlength.min} characters
+      slug-lowercase: Slug should be lower case
+      slug-invalid-chars: Slug should only contain lower case letters, numbers and
+        hyphens
+      slug-uniqueness: Slug should be unique within this site
+      slug-validator#slug-invalid-chars: Slug should only contain lower case letters,
+        numbers or hyphens
+      slug-validator#slug-uniqueness: Slug should be unique within this site
+      slug-validator#slug-lowercase: Slug should be lowercase
+      urlalias-validator#alias-empty: URL alias cannot be empty
+      urlalias-validator#alias-leading-slash: URL alias '${alias}' should start with
+        a slash
+      alias-invalid-chars: URL alias '${alias}' contains invalid characters.  A valid
+        url alias cann only contains lowercase letter, numbers, hyphens and slashes
+      urlalias-validator#alias-lowercase: URL alias should not contain upper case
+        letters
+      urlalias-validator#alias-slug-clash: URL alias '${alias}' clashes with '${clash}'
+      urlalias-validator#alias-clash: The URL alias '${alias}' clashes with another
+        URL alias in '${clash}'
+      urlalias-validator#alias-category-clash: The URL alias '${alias}' clashes with
+        '${clash}'
+      urlalias-validator#alias-trailing-slash: URL alias '${alias}' should not have
+        a trailing slash
+      urlalias-validator#alias-invalid-chars: URL alias '${alias}' contains invalid
+        characters.  Only lowercase letters, numbers, hyphens and slashes are allowed
+      slug-validator#slug-alias-clash: Slug clashes with URL alias in '${clash}'
+      slug-validator#slug-category-clash: Slug clashes with '${clash}'
+      slug-validator#slug-clash: Slug clashes with slug of '${clash}'

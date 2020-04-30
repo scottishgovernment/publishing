@@ -1,0 +1,49 @@
+/content/urlrewriter/trading-nation/sectors:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 114a8621-ac1c-4cb9-b07c-02e8288ca013
+  hippo:versionHistory: d5f3dfdf-a32d-416a-b8b7-4f36d808fa6d
+  /sectors[1]:
+    jcr:primaryType: urlrewriter:rule
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 0e1fc6db-f176-4ebe-a714-10c121316463
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-22T16:23:32.616+01:00
+    hippostdpubwf:lastModificationDate: 2020-04-22T16:23:32.616+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2008-03-26T12:03:00+01:00
+    urlrewriter:ruledescription: sectors
+    urlrewriter:rulefrom: /sectors/**
+    urlrewriter:ruleto: https://tradingnation.mygov.scot/$1
+    urlrewriter:ruletype: permanent-redirect
+  /sectors[2]:
+    jcr:primaryType: urlrewriter:rule
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 91c407aa-78bd-4830-85b9-0e804f231ded
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-22T16:23:32.616+01:00
+    hippostdpubwf:lastModificationDate: 2020-04-22T16:24:18.306+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    urlrewriter:ruledescription: sectors
+    urlrewriter:rulefrom: /sectors/**
+    urlrewriter:ruleto: https://tradingnation.mygov.scot/$1
+    urlrewriter:ruletype: permanent-redirect
+  /sectors[3]:
+    jcr:primaryType: urlrewriter:rule
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: f7ce99a1-af3e-41a7-847b-a80dbab9b6eb
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-22T16:23:32.616+01:00
+    hippostdpubwf:lastModificationDate: 2020-04-22T16:24:18.306+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-04-22T16:37:30.819+01:00
+    urlrewriter:ruledescription: sectors
+    urlrewriter:rulefrom: /sectors/**
+    urlrewriter:ruleto: https://tradingnation.mygov.scot/$1
+    urlrewriter:ruletype: permanent-redirect

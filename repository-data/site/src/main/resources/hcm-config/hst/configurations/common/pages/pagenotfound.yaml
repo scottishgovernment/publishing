@@ -3,7 +3,8 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/pagenotfound:
       jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/base
+      hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsPageNotFoundComponent
       /main:
         jcr:primaryType: hst:component
-        hst:componentclassname: scot.mygov.publishing.components.Set404Component
+        hst:componentclassname: scot.mygov.publishing.components.URLAliasComponent
         hst:template: pagenotfound-main

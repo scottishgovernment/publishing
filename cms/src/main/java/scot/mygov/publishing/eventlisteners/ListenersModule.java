@@ -11,21 +11,26 @@ import javax.jcr.Session;
  */
 public class ListenersModule implements DaemonModule {
 
-    AddCategoryEventListener folderTypesEventListener;
+    SlugMaintenanceListener slugMaintainenceListener;
+
+    AddEventListener folderTypesEventListener;
 
     MirrorNameEventListener updateMirrorNameEventListener;
 
     @Override
     public void initialize(Session session) throws RepositoryException {
-        folderTypesEventListener = new AddCategoryEventListener(session);
+        slugMaintainenceListener = new SlugMaintenanceListener(session);
+        folderTypesEventListener = new AddEventListener(session);
         updateMirrorNameEventListener = new MirrorNameEventListener(session);
 
+        HippoEventListenerRegistry.get().register(slugMaintainenceListener);
         HippoEventListenerRegistry.get().register(folderTypesEventListener);
         HippoEventListenerRegistry.get().register(updateMirrorNameEventListener);
     }
 
     @Override
     public void shutdown() {
+        HippoEventListenerRegistry.get().unregister(slugMaintainenceListener);
         HippoEventListenerRegistry.get().unregister(folderTypesEventListener);
         HippoEventListenerRegistry.get().unregister(updateMirrorNameEventListener);
     }

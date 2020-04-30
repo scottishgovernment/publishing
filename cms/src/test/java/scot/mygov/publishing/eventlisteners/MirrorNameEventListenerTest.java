@@ -4,8 +4,7 @@ import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.api.HippoNode;
 import org.junit.Test;
 import org.onehippo.repository.events.HippoWorkflowEvent;
-import scot.mygov.publishing.HippoUtils;
-import scot.mygov.publishing.TestUtil;
+import scot.mygov.publishing.test.TestUtil;
 
 import javax.jcr.Node;
 import javax.jcr.Property;

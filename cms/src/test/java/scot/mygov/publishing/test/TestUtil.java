@@ -1,4 +1,4 @@
-package scot.mygov.publishing;
+package scot.mygov.publishing.test;
 
 import org.apache.commons.lang.NotImplementedException;
 

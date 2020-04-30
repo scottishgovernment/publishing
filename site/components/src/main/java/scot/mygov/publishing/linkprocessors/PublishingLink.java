@@ -1,5 +1,6 @@
 package scot.mygov.publishing.linkprocessors;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.configuration.sitemap.HstSiteMapItem;
 import org.hippoecm.hst.core.linking.HstLink;
@@ -19,7 +20,7 @@ class PublishingLink implements HstLink {
     @Override
     public String getPath() {
         String path = link.getPath();
-        return path.endsWith("/") ? path : path + "/";
+        return path.endsWith("/") ? StringUtils.removeEnd(path, "/") : path;
     }
 
     @Override
@@ -53,7 +54,7 @@ class PublishingLink implements HstLink {
         if (linkStr == null) {
             return null;
         }
-        return linkStr.endsWith("/") ? linkStr : linkStr + "/";
+        return linkStr.endsWith("/") ? StringUtils.removeEnd(linkStr, "/") : linkStr;
     }
 
     @Override

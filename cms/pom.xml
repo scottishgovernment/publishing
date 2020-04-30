@@ -12,6 +12,13 @@
   <name>Digital Publishing CMS</name>
   <description>Digital Publishing CMS</description>
 
+  <properties>
+    <sonar.exclusions>target/**</sonar.exclusions>
+    <sonar.coverage.exclusions>
+      **/SlugLookups.java
+    </sonar.coverage.exclusions>
+  </properties>
+
   <dependencies>
 
     <dependency>
@@ -30,6 +37,13 @@
       <groupId>scot.mygov.publishing</groupId>
       <artifactId>migration-rest</artifactId>
       <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <!-- github slugify -->
+    <dependency>
+      <groupId>com.github.slugify</groupId>
+      <artifactId>slugify</artifactId>
+      <version>2.2</version>
     </dependency>
 
     <!-- Test dependencies -->

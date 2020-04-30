@@ -8,6 +8,7 @@ import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
+import scot.mygov.publishing.beans.Home;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,6 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
         List<BreadcrumbItem> breadcrumbs = constructBreadcrumb(request, contentBean);
         request.setAttribute("breadcrumbs", breadcrumbs);
         request.setAttribute("documentBreadcrumbItem", breadcrumbItem(contentBean, request.getRequestContext()));
-        request.setAttribute("document", contentBean);
     }
 
     static List<BreadcrumbItem> constructBreadcrumb(HstRequest request, HippoBean contentBean) {
@@ -37,12 +37,21 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
             return emptyList();
         }
 
+        if (request.getRequestContext().getContentBean() instanceof Home) {
+            return emptyList();
+        }
+
         HstRequestContext context = request.getRequestContext();
         HippoBean baseBean = context.getSiteContentBaseBean();
-        return breadcrumbs(startBean(contentBean), baseBean, context);
+        HippoBean startBean = startBean(contentBean);
+        return breadcrumbs(startBean, baseBean, context);
     }
 
     static HippoBean startBean(HippoBean contentBean) {
+        if (contentBean.isHippoFolderBean()) {
+            contentBean = contentBean.getBean("index");
+        }
+
         // determine the bean to start with - different for category index files than for articles etc.
         return INDEX.equals(contentBean.getName())
                 ? contentBean.getParentBean().getParentBean()

@@ -1,9 +1,8 @@
 package scot.mygov.publishing.eventlisteners;
 
 import org.junit.Test;
-import org.mockito.Mockito;
 import org.onehippo.cms7.event.HippoEvent;
-import scot.mygov.publishing.TestUtil;
+import scot.mygov.publishing.test.TestUtil;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
@@ -12,18 +11,16 @@ import javax.jcr.Session;
 import static java.util.Collections.singletonList;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
-public class AddCategoryEventListenerTest {
+public class AddEventListenerTest {
 
     @Test
     public void repoExceptionSwallowed() throws Exception {
         // ARRANGE
         Session session = mock(Session.class);
         when(session.getNode(any())).thenThrow(new RepositoryException());
-        AddCategoryEventListener sut = new AddCategoryEventListener(session);
+        AddEventListener sut = new AddEventListener(session);
         HippoEvent event = new HippoEvent("app");
 
         // ACT
@@ -38,14 +35,32 @@ public class AddCategoryEventListenerTest {
         Session session = mock(Session.class);
         Node folder = folderNode();
         when(session.getNode("path")).thenReturn(folder);
-        AddCategoryEventListener sut = new AddCategoryEventListener(session);
+        AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("subtract").result("path");
 
         // ACT
         sut.handleEvent(event);
 
         // ASSERT
-        Mockito.verify(folder, never()).setProperty(eq("hippostd:foldertype"), any(String[].class));
+        verify(folder, never()).setProperty(eq("hippostd:foldertype"), any(String[].class));
+    }
+
+    @Test
+    public void addsSlugForNewArticles() throws RepositoryException {
+        // ARRANGE
+        Session session = mock(Session.class);
+        Node article = articleNode();
+        when(article.getName()).thenReturn("name");
+        when(session.getNode("path")).thenReturn(article);
+        AddEventListener sut = new AddEventListener(session);
+        HippoEvent event = eventWithAction("add").result("path");
+
+        // ACT
+        sut.handleEvent(event);
+
+        // ASSERT
+        verify(article, never()).setProperty(eq("hippostd:foldertype"), any(String[].class));
+        verify(article).setProperty(eq("publishing:slug"), eq("name"));
     }
 
     @Test
@@ -54,14 +69,14 @@ public class AddCategoryEventListenerTest {
         Session session = mock(Session.class);
         Node folder = nonFolderNode();
         when(session.getNode("path")).thenReturn(folder);
-        AddCategoryEventListener sut = new AddCategoryEventListener(session);
+        AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
 
         // ACT
         sut.handleEvent(event);
 
         // ASSERT
-        Mockito.verify(folder, never()).setProperty(eq("hippostd:foldertype"), any(String[].class));
+        verify(folder, never()).setProperty(eq("hippostd:foldertype"), any(String[].class));
     }
 
     @Test
@@ -71,14 +86,14 @@ public class AddCategoryEventListenerTest {
         Node folder = folderNode();
         when(folder.getDepth()).thenReturn(5);
         when(session.getNode("path")).thenReturn(folder);
-        AddCategoryEventListener sut = new AddCategoryEventListener(session);
+        AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
 
         // ACT
         sut.handleEvent(event);
 
         // ASSERT
-        Mockito.verify(folder).setProperty("hippostd:foldertype", allActions());
+        verify(folder).setProperty("hippostd:foldertype", allActions());
     }
 
     @Test
@@ -88,14 +103,14 @@ public class AddCategoryEventListenerTest {
         Node folder = folderNode();
         when(folder.getDepth()).thenReturn(12); // the + 3 for the part of the path before the site.
         when(session.getNode("path")).thenReturn(folder);
-        AddCategoryEventListener sut = new AddCategoryEventListener(session);
+        AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
 
         // ACT
         sut.handleEvent(event);
 
         // ASSERT
-        Mockito.verify(folder).setProperty("hippostd:foldertype", allActions());
+        verify(folder).setProperty("hippostd:foldertype", allActions());
     }
 
     @Test
@@ -105,14 +120,14 @@ public class AddCategoryEventListenerTest {
         Node folder = folderNode();
         when(folder.getDepth()).thenReturn(13); // the + 3 for the part of the path before the site.
         when(session.getNode("path")).thenReturn(folder);
-        AddCategoryEventListener sut = new AddCategoryEventListener(session);
+        AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
 
         // ACT
         sut.handleEvent(event);
 
         // ASSERT
-        Mockito.verify(folder).setProperty("hippostd:foldertype", actionsWithoutAddCategory());
+        verify(folder).setProperty("hippostd:foldertype", actionsWithoutAddCategory());
     }
 
     @Test
@@ -123,14 +138,14 @@ public class AddCategoryEventListenerTest {
         when(folder.getDepth()).thenReturn(14); // the + 3 for the part of the path before the site.
         when(session.getNode("path")).thenReturn(folder);
 
-        AddCategoryEventListener sut = new AddCategoryEventListener(session);
+        AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
 
         // ACT
         sut.handleEvent(event);
 
         // ASSERT
-        Mockito.verify(folder).setProperty("hippostd:foldertype", actionsWithoutAddCategory());
+        verify(folder).setProperty("hippostd:foldertype", actionsWithoutAddCategory());
     }
 
     @Test
@@ -142,14 +157,14 @@ public class AddCategoryEventListenerTest {
         when(folder.getDepth()).thenReturn(10); // the + 3 for the part of the path before the site.
         when(session.getNode("path")).thenReturn(folder);
 
-        AddCategoryEventListener sut = new AddCategoryEventListener(session);
+        AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
 
         // ACT
         sut.handleEvent(event);
 
         // ASSERT
-        Mockito.verify(index).setProperty("publishing:navigationType", "list");
+        verify(index).setProperty("publishing:navigationType", "list");
     }
 
     @Test
@@ -161,14 +176,14 @@ public class AddCategoryEventListenerTest {
         when(folder.getDepth()).thenReturn(4); // the + 3 for the part of the path before the site.
         when(session.getNode("path")).thenReturn(folder);
 
-        AddCategoryEventListener sut = new AddCategoryEventListener(session);
+        AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
 
         // ACT
         sut.handleEvent(event);
 
         // ASSERT
-        Mockito.verify(index).setProperty("publishing:navigationType", "grid");
+        verify(index).setProperty("publishing:navigationType", "grid");
     }
 
     String [] allActions() {
@@ -186,9 +201,10 @@ public class AddCategoryEventListenerTest {
     }
 
     Node folderNode(Node index) throws RepositoryException {
-        Node folder = Mockito.mock(Node.class);
+        Node folder = mock(Node.class);
         Node indexHandle = mock(Node.class);
         when(folder.isNodeType("hippostd:folder")).thenReturn(true);
+        when(folder.isNodeType("publishing:base")).thenReturn(false);
         when(folder.getPath()).thenReturn("/content/documents/test");
         when(indexHandle.getNodes()).thenReturn(TestUtil.iterator(singletonList(index)));
         when(folder.getNode("index")).thenReturn(indexHandle);
@@ -201,9 +217,17 @@ public class AddCategoryEventListenerTest {
     }
 
     Node nonFolderNode() throws RepositoryException {
-        Node folder = Mockito.mock(Node.class);
+        Node folder = mock(Node.class);
         when(folder.isNodeType("hippostd:folder")).thenReturn(false);
+        when(folder.isNodeType("publishing:base")).thenReturn(false);
         return folder;
+    }
+
+    Node articleNode() throws RepositoryException {
+        Node article = mock(Node.class);
+        when(article.isNodeType("publishing:base")).thenReturn(true);
+        when(article.isNodeType("publishing:article")).thenReturn(true);
+        return article;
     }
 
 }

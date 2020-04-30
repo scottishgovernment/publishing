@@ -14,7 +14,7 @@ public class TrailingSlashLinkProcessor extends HstLinkProcessorTemplate {
         }
 
         // if the path ends in a slash then leave it alone
-        if (link.getPath().endsWith("/")) {
+        if (!link.getPath().endsWith("/")) {
             return link;
         }
 

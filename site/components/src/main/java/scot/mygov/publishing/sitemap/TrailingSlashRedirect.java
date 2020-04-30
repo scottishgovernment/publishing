@@ -26,7 +26,7 @@ public class TrailingSlashRedirect implements HstSiteMapItemHandler {
             HttpServletRequest request,
             HttpServletResponse response) {
 
-        if (request.getPathTranslated().endsWith("/")) {
+        if (!request.getPathTranslated().endsWith("/")) {
             return resolvedSiteMapItem;
         }
 
@@ -51,8 +51,8 @@ public class TrailingSlashRedirect implements HstSiteMapItemHandler {
     }
 
     private String redirectTarget(HttpServletRequest request) {
-        StringBuilder url = new StringBuilder(request.getRequestURL());
-        url.append('/');
+        String urlWithoutSlash = StringUtils.removeEnd(request.getRequestURL().toString(), "/");
+        StringBuilder url = new StringBuilder(urlWithoutSlash);
         if (request.getQueryString() != null) {
             url.append('?').append(request.getQueryString());
         }

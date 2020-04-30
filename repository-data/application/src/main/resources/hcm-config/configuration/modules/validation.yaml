@@ -19,3 +19,9 @@ definitions:
         jcr:primaryType: hipposys:moduleconfig
         hipposys:className: scot.mygov.publishing.validation.MinimumLengthValidator
         minlength.min: '3'
+      /slug-validator:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.SlugValidator
+      /urlalias-validator:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.UrlAliasValidator

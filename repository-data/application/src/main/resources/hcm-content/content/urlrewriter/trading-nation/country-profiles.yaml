@@ -1,0 +1,49 @@
+/content/urlrewriter/trading-nation/country-profiles:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 25080058-a113-4677-a7bb-d414bc6bffeb
+  hippo:versionHistory: 1506f8fc-dd24-454a-861b-7ebbdb8941fb
+  /country-profiles[1]:
+    jcr:primaryType: urlrewriter:rule
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 5f9f47a4-3579-4cee-b212-ebfa7b3b1240
+    hippo:availability: []
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-22T16:25:26.590+01:00
+    hippostdpubwf:lastModificationDate: 2020-04-22T16:25:26.590+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2008-03-26T12:03:00+01:00
+    urlrewriter:ruledescription: Country profiles
+    urlrewriter:rulefrom: /country-profiles/**
+    urlrewriter:ruleto: https://tradingnation.mygov.scot/$1
+    urlrewriter:ruletype: permanent-redirect
+  /country-profiles[2]:
+    jcr:primaryType: urlrewriter:rule
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 548225a9-4db7-4607-882c-5742459512b9
+    hippo:availability: [preview]
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-22T16:25:26.590+01:00
+    hippostdpubwf:lastModificationDate: 2020-04-22T16:26:05.604+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    urlrewriter:ruledescription: Country profiles
+    urlrewriter:rulefrom: /country-profiles/**
+    urlrewriter:ruleto: https://tradingnation.mygov.scot/$1
+    urlrewriter:ruletype: permanent-redirect
+  /country-profiles[3]:
+    jcr:primaryType: urlrewriter:rule
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: f687120a-e7f2-418e-b036-d5e90c1e66d8
+    hippo:availability: [live]
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-04-22T16:25:26.590+01:00
+    hippostdpubwf:lastModificationDate: 2020-04-22T16:26:05.604+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2020-04-22T16:37:24.212+01:00
+    urlrewriter:ruledescription: Country profiles
+    urlrewriter:rulefrom: /country-profiles/**
+    urlrewriter:ruleto: https://tradingnation.mygov.scot/$1
+    urlrewriter:ruletype: permanent-redirect

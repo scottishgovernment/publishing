@@ -10,17 +10,22 @@ import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
+
 /**
- * Listen for new category pages / folders being created in order to:
+ * Listen for new pages / folders being created in order to:
+ *  - copy the jcr:name into the slug field
  *  - limit the depth of the nested categories to MAX_LEVELS
  *  - set the default value for the navigation style according to the depth
  */
-public class AddCategoryEventListener {
+public class AddEventListener {
 
-    private static final Logger LOG = LoggerFactory.getLogger(AddCategoryEventListener.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AddEventListener.class);
 
     // the maximum nesting for categories
     protected static final int MAX_LEVELS = 10;
+
+    private static final String INDEX = "index";
 
     private static final String NEW_ARTICLE = "new-publishing-article";
 
@@ -30,7 +35,7 @@ public class AddCategoryEventListener {
 
     Session session;
 
-    AddCategoryEventListener(Session session) {
+    AddEventListener(Session session) {
         this.session = session;
     }
 
@@ -39,6 +44,7 @@ public class AddCategoryEventListener {
         try {
             doHandleEvent(event);
         } catch (RepositoryException e) {
+            ensureRefreshFalse(session);
             LOG.error(
                     "error trying to set folder actions for event msg={}, action={}, event={}, result={}", e.getMessage(),
                     event.action(), event.category(), event.result(), e);
@@ -51,6 +57,14 @@ public class AddCategoryEventListener {
         }
 
         Node node = session.getNode(event.result());
+
+        if (isContent(node)) {
+            // allocate a slug
+            node.setProperty("publishing:slug", node.getName());
+            session.save();
+            return;
+        }
+
         if (isFolder(node) && isUnder(node, "/content/documents/")) {
             setActionsDependingOnDepth(node);
             setNavigationStyle(node);
@@ -75,7 +89,7 @@ public class AddCategoryEventListener {
 
     void setNavigationStyle(Node folder) throws RepositoryException {
         String navigationType  = navigationStyleForDepth(folder);
-        NodeIterator it = folder.getNode("index").getNodes();
+        NodeIterator it = folder.getNode(INDEX).getNodes();
         while (it.hasNext()) {
             Node index = it.nextNode();
             index.setProperty("publishing:navigationType", navigationType);
@@ -88,6 +102,10 @@ public class AddCategoryEventListener {
 
     boolean isFolder(Node node) throws RepositoryException {
         return node.isNodeType("hippostd:folder");
+    }
+
+    boolean isContent(Node node) throws RepositoryException {
+        return node.isNodeType("publishing:base");
     }
 
     boolean isUnder(Node node, String path) throws RepositoryException {

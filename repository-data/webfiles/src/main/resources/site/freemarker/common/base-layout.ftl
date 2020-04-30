@@ -27,6 +27,10 @@
     <meta name="msapplication-TileColor" content="#0065bd">
     <meta name="theme-color" content="#ffffff">
 
+    <#if document??>
+        <@hst.link var="canonicalLink" hippobean=document canonical=true fullyQualified=true/>
+        <link rel="canonical" href="${canonicalLink}" />
+    </#if>
     </head>
 
     <body>

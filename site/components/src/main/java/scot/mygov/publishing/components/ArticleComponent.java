@@ -38,6 +38,7 @@ public class ArticleComponent extends CategoryComponent {
         request.setAttribute("next", next);
         setSequenceable(request, document);
         request.setAttribute("document", getDocumentBean(request));
+        request.setAttribute("thedocument", getDocumentBean(request));
     }
 
     /**

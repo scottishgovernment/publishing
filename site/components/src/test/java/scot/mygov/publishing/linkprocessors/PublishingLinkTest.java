@@ -15,13 +15,13 @@ import static org.mockito.Mockito.when;
 public class PublishingLinkTest {
 
     @Test
-    public void getPathReturnsTrainingSlashIfMissing() {
+    public void getPathUnchangedIfNoTrailingSlash() {
 
         // ARRANGE
         HstLink wrapped = mock(HstLink.class);
         when(wrapped.getPath()).thenReturn("path");
         PublishingLink sut = new PublishingLink(wrapped);
-        String expected = "path/";
+        String expected = "path";
 
         // ACT
         String actual = sut.getPath();
@@ -31,13 +31,13 @@ public class PublishingLinkTest {
     }
 
     @Test
-    public void getPathReturnsTrainingSlashIfAlreadyPresent() {
+    public void getPathRemovesTrailingSlash() {
 
         // ARRANGE
         HstLink wrapped = mock(HstLink.class);
         when(wrapped.getPath()).thenReturn("path/");
         PublishingLink sut = new PublishingLink(wrapped);
-        String expected = "path/";
+        String expected = "path";
 
         // ACT
         String actual = sut.getPath();
@@ -47,30 +47,13 @@ public class PublishingLinkTest {
     }
 
     @Test
-    public void toUrlFormAddsSlashIfMissing() {
-        // ARRANGE
-        HstLink wrapped = mock(HstLink.class);
-        HstRequestContext context = mock(HstRequestContext.class);
-        when(wrapped.toUrlForm(context, true)).thenReturn("path");
-        PublishingLink sut = new PublishingLink(wrapped);
-        String expected = "path/";
-
-        // ACT
-        String actual = sut.toUrlForm(context, true);
-
-        // ASSERT
-        assertEquals(expected, actual);
-
-    }
-
-    @Test
-    public void toUrlFormAddsSlashIfAreadyPresent() {
+    public void toUrlFormRemovesTrailingSlash() {
         // ARRANGE
         HstLink wrapped = mock(HstLink.class);
         HstRequestContext context = mock(HstRequestContext.class);
         when(wrapped.toUrlForm(context, true)).thenReturn("path/");
         PublishingLink sut = new PublishingLink(wrapped);
-        String expected = "path/";
+        String expected = "path";
 
         // ACT
         String actual = sut.toUrlForm(context, true);

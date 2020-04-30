@@ -9,7 +9,7 @@ import static org.mockito.Mockito.*;
 public class TrailingSlashLinkProcessorTest {
 
     @Test
-    public void postProcessAddsTrailingSlashIfMissing() {
+    public void postProcessForNotrailingSlash() {
         // ARRANGE
         TrailingSlashLinkProcessor sut = new TrailingSlashLinkProcessor();
         HstLink input = link("sectors/energy");
@@ -18,12 +18,12 @@ public class TrailingSlashLinkProcessorTest {
         String actual = sut.doPostProcess(input).getPath();
 
         // ASSERT
-        String expected = input.getPath() + "/";
+        String expected = input.getPath();
         assertEquals(expected, actual);
     }
 
     @Test
-    public void postProcessIgnoresPathsWithTrailingSlashes() {
+    public void postProcessRemovesTrailingSlashe() {
         // ARRANGE
         TrailingSlashLinkProcessor sut = new TrailingSlashLinkProcessor();
         HstLink input = link("country-profiles/germany/");
@@ -32,7 +32,7 @@ public class TrailingSlashLinkProcessorTest {
         String actual = sut.doPostProcess(input).getPath();
 
         // ASSERT
-        assertEquals(input.getPath(), actual);
+        assertEquals("country-profiles/germany", actual);
     }
 
     @Test

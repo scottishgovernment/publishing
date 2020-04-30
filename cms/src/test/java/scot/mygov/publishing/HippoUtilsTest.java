@@ -1,10 +1,9 @@
 package scot.mygov.publishing;
 
 import org.hippoecm.repository.HippoStdNodeType;
-import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import scot.mygov.publishing.test.TestUtil;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;

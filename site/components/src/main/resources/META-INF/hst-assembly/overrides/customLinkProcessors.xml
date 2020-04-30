@@ -6,8 +6,9 @@
     <bean id="org.hippoecm.hst.core.linking.HstLinkProcessor" class="org.hippoecm.hst.core.linking.HstLinkProcessorChain">
         <property name="processorsInChain">
             <list>
-                <bean class="scot.mygov.publishing.linkprocessors.SiteFurnitureLinkProcessor" />
+                <!--<bean class="scot.mygov.publishing.linkprocessors.SiteFurnitureLinkProcessor" />-->
                 <bean class="scot.mygov.publishing.linkprocessors.TrailingSlashLinkProcessor" />
+                <bean class="scot.mygov.publishing.linkprocessors.PublishingPlatformLinkProcessor" />
             </list>
         </property>
     </bean>

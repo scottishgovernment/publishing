@@ -1,6 +1,7 @@
 definitions:
   config:
     /hst:platform/hst:hosts:
+      hst:cacheable: true
       /lcl:
         jcr:primaryType: hst:virtualhostgroup
         /scot:
