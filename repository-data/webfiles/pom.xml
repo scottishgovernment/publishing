@@ -67,6 +67,15 @@
               <arguments>run webpack</arguments>
             </configuration>
           </execution>
+          <execution>
+            <id>npm compile sprites</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>run svgsprite</arguments>
+            </configuration>
+          </execution>
         </executions>
         <configuration>
           <installDirectory>${install.node.dir}</installDirectory>
