@@ -2,12 +2,10 @@ package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.hosting.Mount;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.linking.HstLinkCreator;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.util.HstResponseUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,23 +24,28 @@ public class URLAliasComponent extends BaseHstComponent {
 
     private static final Logger LOG = LoggerFactory.getLogger(URLAliasComponent.class);
 
+    Redirector redirector = (req, resp, node) -> {
+        HstLinkCreator linkCreator = req.getRequestContext().getHstLinkCreator();
+        HstLink redirectTolink = linkCreator.create(node, req.getRequestContext());
+        String url = redirectTolink.getPath();
+        LOG.info("Redirecting to url alias {} -> {}", req.getPathInfo(), url);
+        HstResponseUtils.sendPermanentRedirect(req, resp, url);
+    };
+
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
 
         // check if this url is a known url alias
-        String url = findUrlByAlias(request);
+        Node node = findUrlByAlias(request);
 
-        if (url != null) {
-            LOG.info("Redirecting to url alias {} -> {}", request.getPathInfo(), url);
-            HstResponseUtils.sendPermanentRedirect(request, response, url);
-            return;
+        if (node != null) {
+            redirector.redirect(request, response, node);
         }
     }
 
-    private String findUrlByAlias(HstRequest request)  {
+    private Node findUrlByAlias(HstRequest request)  {
         try {
-            Node redirectToNode = findRedirectNode(request);
-            return redirectToNode == null ? null : linkTo(request, redirectToNode);
+            return findRedirectNode(request);
         } catch (RepositoryException e) {
             LOG.error("Failed to find url alias {}", request.getPathInfo(), e);
             return null;
@@ -55,10 +58,6 @@ public class URLAliasComponent extends BaseHstComponent {
 
         if (result.getNodes().getSize() == 0) {
             return null;
-        }
-
-        if (result.getNodes().getSize() > 1) {
-            LOG.warn("got more than one alias for {}", request.getPathInfo());
         }
 
         return result.getNodes().nextNode();
@@ -86,14 +85,17 @@ public class URLAliasComponent extends BaseHstComponent {
 
     String targetState(Mount mount) {
         // if this is the live mount then look for published documents, otherwise look for draft items
-        return mount.getType().equals("live")
+        return "live".equals(mount.getType())
                 ? "published"
                 : "draft";
     }
 
-    String linkTo(HstRequest request, Node redirectToNode) {
-        HstLinkCreator linkCreator = request.getRequestContext().getHstLinkCreator();
-        HstLink redirectTolink = linkCreator.create(redirectToNode, request.getRequestContext());
-        return redirectTolink.getPath();
+    /**
+     * Added to aid unit testing
+     */
+    public interface Redirector {
+        void redirect(HstRequest request, HstResponse response, Node node);
     }
+
+
 }

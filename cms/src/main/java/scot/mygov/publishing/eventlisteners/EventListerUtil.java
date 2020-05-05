@@ -10,6 +10,10 @@ public class EventListerUtil {
 
     private static final Logger LOG = LoggerFactory.getLogger(EventListerUtil.class);
 
+    private EventListerUtil() {
+        // private constructor
+    }
+
     static void ensureRefreshFalse(Session session) {
 
         try {
