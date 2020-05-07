@@ -9,7 +9,7 @@ import scot.mygov.publishing.beans.Base;
 import scot.mygov.publishing.beans.Mirror;
 
 import java.util.*;
-import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.*;
 
@@ -51,9 +51,7 @@ public class CategoryComponent extends EssentialsContentComponent {
         HippoBean bean = getDocumentBean(request);
         HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
         HippoFolderBean folder = (HippoFolderBean) bean.getParentBean();
-        setAttributeWithPredicate(request, "children", folder, baseBean, b -> true);
-        setAttributeWithPredicate(request, "pinned", folder, baseBean, CategoryComponent::isPinned);
-        setAttributeWithPredicate(request, "unpinned", folder, baseBean, CategoryComponent::notPinned);
+        request.setAttribute("children", getChildren(folder, baseBean));
     }
 
     static HippoBean getDocumentBean(HstRequest request) {
@@ -66,35 +64,23 @@ public class CategoryComponent extends EssentialsContentComponent {
         return mirror.getDocument();
     }
 
-    static void setAttributeWithPredicate(
-            HstRequest request,
-            String attrib,
-            HippoFolderBean folder,
-            HippoBean baseBean,
-            Predicate<HippoBean> include) {
-
-        request.setAttribute(
-                attrib,
-                getChildren(folder, baseBean, include)
-        );
-    }
-
     static boolean hasContentBean(HstRequest request) {
         return request.getRequestContext().getContentBean() != null;
     }
 
-    static List<HippoBean> getChildren(HippoFolderBean folder, HippoBean baseBean, Predicate<HippoBean> include) {
-
-        return folder
+    static List<Wrapper> getChildren(HippoFolderBean folder, HippoBean baseBean) {
+        Map<Boolean, List<Wrapper>> byWrapped = folder
                 .getChildBeans(HippoBean.class)
                 .stream()
                 .filter(CategoryComponent::notIndexFile)
                 .filter(node -> !isExcluded(node, folder, baseBean))
                 .map(CategoryComponent::mapFolder)
-                .filter(include)
-                .map(CategoryComponent::mapMirror)
-                .filter(Objects::nonNull)
-                .collect(toList());
+                .map(CategoryComponent::wrap)
+                .collect(Collectors.partitioningBy(Wrapper::getPinned));
+        List<Wrapper> all = new ArrayList<>();
+        all.addAll(byWrapped.get(true));
+        all.addAll(byWrapped.get(false));
+        return all;
     }
 
     static boolean notIndexFile(HippoBean bean) {
@@ -104,6 +90,10 @@ public class CategoryComponent extends EssentialsContentComponent {
     // do not list certain folders at the root (e.g. footer, administration)
     static boolean isExcluded(HippoBean bean, HippoFolderBean folder, HippoBean baseBean) {
         return folder.equals(baseBean) &&  EXCLUDED_FOLDERS.contains(bean.getName());
+    }
+
+    static Wrapper wrap(HippoBean bean) {
+        return new Wrapper(mapMirror(bean), isPinned(bean));
     }
 
     static boolean isPinned(HippoBean bean) {
@@ -116,10 +106,6 @@ public class CategoryComponent extends EssentialsContentComponent {
         }
 
         return false;
-    }
-
-    static boolean notPinned(HippoBean bean) {
-        return !isPinned(bean);
     }
 
     /**
@@ -149,4 +135,22 @@ public class CategoryComponent extends EssentialsContentComponent {
         return mirror.getDocument();
     }
 
+    public static class Wrapper {
+        private HippoBean bean;
+
+        private boolean pinned;
+
+        Wrapper(HippoBean bean, boolean pinned) {
+            this.bean = bean;
+            this.pinned = pinned;
+        }
+
+        public HippoBean getBean() {
+            return bean;
+        }
+
+        public boolean getPinned() {
+            return pinned;
+        }
+    }
 }
