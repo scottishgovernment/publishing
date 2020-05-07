@@ -7,7 +7,7 @@
             <@hst.link var="link" hippobean=child.bean/>
             <li class="ds_card  ds_card--no-padding">
                 <div class="ds_card__media">
-                    <#if child.cardImage??>
+                    <#if child.bean.cardImage??>
                         <img alt="${document.title}" class="ds_card__image"
                             src="<@hst.link hippobean=child.bean.cardImage.cardTwoThreeFiveS/>"
                             srcset="<@hst.link hippobean=child.bean.cardImage.cardTwoThreeFiveS/> 290w,

@@ -10,7 +10,7 @@
                 <div class="ds_category-item  ds_category-item--card <#if child.pinned>ds_category-item--pinned</#if>">
                     <h2 class="ds_category-item__title">
                         <a data-navigation="category-item-${child?index + 1}" href="${link}" class="ds_category-item__link">
-                            ${child.title}
+                            ${child.bean.title}
                             <#if child.pinned>
                                 <svg class="ds_icon  ds_category-item__pinned-icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#star"></use></svg>
                             </#if>
@@ -18,7 +18,7 @@
                     </h2>
 
                     <p class="ds_category-item__summary">
-                        ${child.summary}
+                        ${child.bean.summary}
                     </p>
                 </div>
             </li>
