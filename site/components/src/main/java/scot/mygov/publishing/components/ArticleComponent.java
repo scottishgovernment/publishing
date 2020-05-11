@@ -3,6 +3,9 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.linking.HstLink;
+import org.hippoecm.hst.core.linking.HstLinkCreator;
+import org.hippoecm.hst.util.HstResponseUtils;
 
 import java.util.List;
 
@@ -15,30 +18,59 @@ import static java.lang.Boolean.*;
  */
 public class ArticleComponent extends CategoryComponent {
 
+    static Redirector redirector = HstResponseUtils::sendPermanentRedirect;
+
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-        setArticleAttributes(request);
+        setArticleAttributes(request, response);
     }
 
-    static void setArticleAttributes(HstRequest request) {
-
+    static void setArticleAttributes(HstRequest request, HstResponse response) {
         if (!hasContentBean(request)) {
+            return;
+        }
+
+        // if this is not the canonical url then redirect to that url
+        String canonicalUrl = canonicalUrl(request);
+        if (!canonicalUrl.equals(request.getPathInfo())) {
+            redirector.sendPermanentRedirect(request, response, canonicalUrl);
             return;
         }
 
         // CategoryComponent has set an attribute "children" that will list all of the navigable children of the
         // parent page.
-        List<HippoBean> children = (List<HippoBean>) request.getAttribute("children");
+        doSetArticleAttributes(request);
+    }
+
+    static void doSetArticleAttributes(HstRequest request) {
+        List<Wrapper> children = (List<Wrapper>) request.getAttribute("children");
         HippoBean document = request.getRequestContext().getContentBean();
-        int index = children.indexOf(document);
+        int index = indexOf(children, document);
         HippoBean prev = prev(children, index);
         HippoBean next = next(children, index);
         request.setAttribute("prev", prev);
         request.setAttribute("next", next);
         setSequenceable(request, document);
         request.setAttribute("document", getDocumentBean(request));
-        request.setAttribute("thedocument", getDocumentBean(request));
+    }
+
+    static int indexOf(List<Wrapper> list, HippoBean bean) {
+        int index = 0;
+        for (Wrapper wrapper : list) {
+            if (bean == wrapper.getBean()) {
+                return index;
+            }
+            index++;
+        }
+        return index;
+    }
+
+    static String canonicalUrl(HstRequest request ) {
+        HippoBean document = request.getRequestContext().getContentBean();
+        HstLinkCreator linkCreator = request.getRequestContext().getHstLinkCreator();
+        HstLink redirectTolink = linkCreator.create(document, request.getRequestContext());
+        return "/" + redirectTolink.getPath();
     }
 
     /**
@@ -57,9 +89,9 @@ public class ArticleComponent extends CategoryComponent {
      * Determine the bean to use for the Previous link on this page.  If this is the last child in its parent then
      * this will return null.
      */
-    static HippoBean prev(List<HippoBean> children, int index) {
+    static HippoBean prev(List<Wrapper> children, int index) {
         return index > 0
-                ? children.get(index - 1)
+                ? children.get(index - 1).getBean()
                 : null;
     }
 
@@ -67,9 +99,14 @@ public class ArticleComponent extends CategoryComponent {
      * Determine the bean to use for the Next link on this page.  If this is the first child in its parent then
      * this will return null.
      */
-    static HippoBean next(List<HippoBean> children, int index) {
+    static HippoBean next(List<Wrapper> children, int index) {
         return index < children.size() - 1
-                ? children.get(index + 1)
+                ? children.get(index + 1).getBean()
                 : null;
     }
+
+    interface Redirector {
+        void sendPermanentRedirect(HstRequest request, HstResponse response, String url);
+    }
+
 }

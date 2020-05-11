@@ -125,6 +125,7 @@ public class PublishingPlatformLinkProcessorTest {
         Session session = Mockito.mock(Session.class);
         Node folder = Mockito.mock(Node.class);
         when(folder.isNodeType("hippostd:folder")).thenReturn(true);
+        when(session.nodeExists(any())).thenReturn(true);
         when(session.getNode(any())).thenReturn(folder);
         return session;
     }
@@ -134,16 +135,19 @@ public class PublishingPlatformLinkProcessorTest {
         Node handle = Mockito.mock(Node.class);
         Node article = Mockito.mock(Node.class);
         when(handle.isNodeType("hippostd:folder")).thenReturn(false);
+        when(session.nodeExists(any())).thenReturn(true);
         when(session.getNode(any())).thenReturn(handle);
         when(handle.getNode(any())).thenReturn(article);
         Property slug = mock(Property.class);
         when(slug.getString()).thenReturn("slug");
         when(article.getProperty("publishing:slug")).thenReturn(slug);
+        when(article.hasProperty("publishing:slug")).thenReturn(true);
         return session;
     }
 
     Session exceptionThrowingSession() throws RepositoryException {
         Session session = Mockito.mock(Session.class);
+        when(session.nodeExists(any())).thenThrow(new RepositoryException("arg"));
         when(session.getNode(any())).thenThrow(new RepositoryException("arg"));
         return session;
     }

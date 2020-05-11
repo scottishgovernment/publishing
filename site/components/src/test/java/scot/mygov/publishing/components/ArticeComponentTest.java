@@ -2,6 +2,9 @@ package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.linking.HstLink;
+import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.junit.Test;
 
@@ -19,14 +22,15 @@ public class ArticeComponentTest {
     @Test
     public void prevNullIfFirstChild() {
         // ARRANGE
-        List<HippoBean> children = new ArrayList<>();
+        List<CategoryComponent.Wrapper> children = new ArrayList<>();
         HippoBean self = mock(HippoBean.class);
         HippoBean another = mock(HippoBean.class);
-        Collections.addAll(children, self, another);
+        Collections.addAll(children, wrap(self), wrap(another));
         HstRequest request = request(children, self);
+        HstResponse response = mock(HstResponse.class);
 
         // ACT
-        ArticleComponent.setArticleAttributes(request);
+        ArticleComponent.setArticleAttributes(request, response);
 
         // ASSERT
         verify(request).setAttribute("prev", null);
@@ -35,14 +39,15 @@ public class ArticeComponentTest {
     @Test
     public void prevIsPreviousSiblingIfNotFirst() {
         // ARRANGE
-        List<HippoBean> children = new ArrayList<>();
+        List<CategoryComponent.Wrapper> children = new ArrayList<>();
         HippoBean self = mock(HippoBean.class);
         HippoBean another = mock(HippoBean.class);
-        Collections.addAll(children, another, self);
+        Collections.addAll(children, wrap(another), wrap(self));
         HstRequest request = request(children, self);
+        HstResponse response = mock(HstResponse.class);
 
         // ACT
-        ArticleComponent.setArticleAttributes(request);
+        ArticleComponent.setArticleAttributes(request, response);
 
         // ASSERT
         verify(request).setAttribute("prev", another);
@@ -52,14 +57,15 @@ public class ArticeComponentTest {
     public void nextReturnsNullIfLastChild() {
 
         // ARRANGE
-        List<HippoBean> children = new ArrayList<>();
+        List<CategoryComponent.Wrapper> children = new ArrayList<>();
         HippoBean self = mock(HippoBean.class);
         HippoBean another = mock(HippoBean.class);
-        Collections.addAll(children, self, another);
+        Collections.addAll(children, wrap(self), wrap(another));
         HstRequest request = request(children, self);
+        HstResponse response = mock(HstResponse.class);
 
         // ACT
-        ArticleComponent.setArticleAttributes(request);
+        ArticleComponent.setArticleAttributes(request, response);
 
         // ASSERT
         verify(request).setAttribute("prev", null);
@@ -68,30 +74,42 @@ public class ArticeComponentTest {
     @Test
     public void nextReturnsNextSiblingIfNotLast() {
         // ARRANGE
-        List<HippoBean> children = new ArrayList<>();
+        List<CategoryComponent.Wrapper> children = new ArrayList<>();
         HippoBean self = mock(HippoBean.class);
         HippoBean another = mock(HippoBean.class);
-        Collections.addAll(children, self, another);
+        Collections.addAll(children, wrap(self), wrap(another));
+        Collections.addAll(children, wrap(self), wrap(another));
         HstRequest request = request(children, self);
+        HstResponse response = mock(HstResponse.class);
 
         // ACT
-        ArticleComponent.setArticleAttributes(request);
+        ArticleComponent.setArticleAttributes(request, response);
 
         // ASSERT
         verify(request).setAttribute("next", another);
 
     }
 
-    HstRequest request(List<HippoBean> children, HippoBean bean) {
+    CategoryComponent.Wrapper wrap(HippoBean bean) {
+        return new CategoryComponent.Wrapper(bean, false);
+    }
+
+    HstRequest request(List<CategoryComponent.Wrapper> children, HippoBean bean) {
         HippoBean folder = mock(HippoBean.class);
         HippoBean index = mock(HippoBean.class);
         HstRequest request = mock(HstRequest.class);
         HstRequestContext context = mock(HstRequestContext.class);
+        HstLinkCreator linkCreator = mock(HstLinkCreator.class);
+        HstLink link = mock(HstLink.class);
+        when(link.getPath()).thenReturn("link");
+        when(request.getPathInfo()).thenReturn("/link");
+        when(linkCreator.create(any(HippoBean.class), any(HstRequestContext.class))).thenReturn(link);
         when(request.getAttribute("children")).thenReturn(children);
         when(request.getRequestContext()).thenReturn(context);
         when(context.getContentBean()).thenReturn(bean);
         when(folder.getBean("index")).thenReturn(index);
         when(bean.getParentBean()).thenReturn(folder);
+        when(context.getHstLinkCreator()).thenReturn(linkCreator);
         return request;
     }
 
@@ -136,9 +154,10 @@ public class ArticeComponentTest {
         HstRequestContext context = mock(HstRequestContext.class);
         when(request.getRequestContext()).thenReturn(context);
         when(context.getContentBean()).thenReturn(null);
+        HstResponse response = mock(HstResponse.class);
 
         // ACT
-        ArticleComponent.setArticleAttributes(request);
+        ArticleComponent.setArticleAttributes(request, response);
 
         // ASSERT
         verify(request, never()).setAttribute(any(), any());

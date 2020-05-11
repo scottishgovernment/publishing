@@ -42,15 +42,23 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
 
         Session session = sessionSource.getSession();
         String contentPath = pathForNode(link);
+
+        if (!session.nodeExists(contentPath)) {
+            return link;
+        }
+
         Node node = session.getNode(contentPath);
         if (node.isNodeType("hippostd:folder")) {
             return link;
         }
 
         Node variant = node.getNode(node.getName());
-        link.setPath(variant.getProperty("publishing:slug").getString());
+        if (variant.hasProperty("publishing:slug")) {
+            link.setPath(variant.getProperty("publishing:slug").getString());
+        }
         return link;
     }
+
 
     String pathForNode(HstLink link) {
         String contentPath = link.getMount().getContentPath();
