@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: e6b0fb2f-52ea-42fe-b79d-196a603f5f88
+          jcr:uuid: 667c1610-f6c5-49ab-8750-eb6d23482452
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -57,15 +57,6 @@ definitions:
             hipposysedit:path: publishing:epilogue
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-          /slug:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:slug
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: []
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -79,7 +70,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: b3740bfd-3f2e-4a17-a66b-bad7e87d3d92
+          jcr:uuid: 4783a96f-7ab8-4e48-9151-47e3dbcf757b
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:59.186+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:59.186+01:00
           publishing:seoTitle: ''
@@ -262,14 +253,6 @@ definitions:
             field: authorNotes
             hint: Enter any notes relevant to this content item.  This will not appear
               on the page itself.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /slug:
-            jcr:primaryType: frontend:plugin
-            caption: Slug
-            field: slug
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
