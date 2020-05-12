@@ -17,7 +17,7 @@ import static org.mockito.Mockito.*;
 /**
  * Created by z418868 on 19/09/2019.
  */
-public class ArticeComponentTest {
+public class ArticleComponentTest {
 
     @Test
     public void prevNullIfFirstChild() {
@@ -25,6 +25,8 @@ public class ArticeComponentTest {
         List<CategoryComponent.Wrapper> children = new ArrayList<>();
         HippoBean self = mock(HippoBean.class);
         HippoBean another = mock(HippoBean.class);
+        when(self.isSelf(same(self))).thenReturn(true);
+        when(self.isSelf(same(another))).thenReturn(false);
         Collections.addAll(children, wrap(self), wrap(another));
         HstRequest request = request(children, self);
         HstResponse response = mock(HstResponse.class);
@@ -42,6 +44,8 @@ public class ArticeComponentTest {
         List<CategoryComponent.Wrapper> children = new ArrayList<>();
         HippoBean self = mock(HippoBean.class);
         HippoBean another = mock(HippoBean.class);
+        when(self.isSelf(same(self))).thenReturn(true);
+        when(self.isSelf(same(another))).thenReturn(false);
         Collections.addAll(children, wrap(another), wrap(self));
         HstRequest request = request(children, self);
         HstResponse response = mock(HstResponse.class);
@@ -60,6 +64,8 @@ public class ArticeComponentTest {
         List<CategoryComponent.Wrapper> children = new ArrayList<>();
         HippoBean self = mock(HippoBean.class);
         HippoBean another = mock(HippoBean.class);
+        when(self.isSelf(same(self))).thenReturn(true);
+        when(self.isSelf(same(another))).thenReturn(false);
         Collections.addAll(children, wrap(self), wrap(another));
         HstRequest request = request(children, self);
         HstResponse response = mock(HstResponse.class);
@@ -77,6 +83,8 @@ public class ArticeComponentTest {
         List<CategoryComponent.Wrapper> children = new ArrayList<>();
         HippoBean self = mock(HippoBean.class);
         HippoBean another = mock(HippoBean.class);
+        when(self.isSelf(same(self))).thenReturn(true);
+        when(self.isSelf(same(another))).thenReturn(false);
         Collections.addAll(children, wrap(self), wrap(another));
         Collections.addAll(children, wrap(self), wrap(another));
         HstRequest request = request(children, self);

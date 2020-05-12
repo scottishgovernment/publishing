@@ -58,7 +58,7 @@ public class ArticleComponent extends CategoryComponent {
     static int indexOf(List<Wrapper> list, HippoBean bean) {
         int index = 0;
         for (Wrapper wrapper : list) {
-            if (bean == wrapper.getBean()) {
+            if (bean.isSelf(wrapper.getBean())) {
                 return index;
             }
             index++;
