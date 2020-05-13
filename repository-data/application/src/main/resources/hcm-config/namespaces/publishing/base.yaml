@@ -101,7 +101,7 @@ definitions:
             hipposysedit:path: publishing:slug
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required, slug-validator]
+            hipposysedit:validators: [slug-validator]
           /urlAliases:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
