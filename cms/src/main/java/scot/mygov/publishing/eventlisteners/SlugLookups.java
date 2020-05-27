@@ -3,10 +3,8 @@ package scot.mygov.publishing.eventlisteners;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
+
+import javax.jcr.*;
 import javax.jcr.query.Query;
 
 import static org.apache.commons.lang.StringUtils.substringAfter;
@@ -27,16 +25,17 @@ public class SlugLookups {
     }
 
     public void updateLookup(Node subject, String mountType) throws RepositoryException {
+
+        // we want to treat the guide and the first guide page as the same node ...
         String site = sitename(subject);
         String slug = slug(subject);
         String path = substringAfter(subject.getPath(), site);
-
         // check if there is an existing lookup for this path
         Node existingLookup = findLookupForPath(site, mountType, path);
         if (existingLookup != null) {
 
             // check if there is an existing lookup that is the same as the one we would expect
-            // if soo then no action is required.
+            // if so then no action is required.
             if (isExpectedPath(existingLookup.getPath(), site, mountType, path)) {
                 return;
             }
@@ -83,12 +82,24 @@ public class SlugLookups {
     }
 
     private String slug(Node subject) throws RepositoryException {
-        return subject.getNode(subject.getName()).getProperty("publishing:slug").getString();
+        Node variant = subject.getNode(subject.getName());
+        return variant.isNodeType("publishing:guidepage")
+                ? guidePageSlug(subject, variant)
+                : variant.getProperty("publishing:slug").getString();
+    }
+
+    String guidePageSlug(Node subject, Node variant) throws RepositoryException {
+        String slug = variant.getName();
+        Node guideFolder = subject.getParent();
+        Node guide = guideFolder.getNode("index").getNode("index");
+        String guideSlug = guide.getProperty("publishing:slug").getString();
+        return guideSlug + "/" + slug;
     }
 
     private boolean isExpectedPath(String existingPath, String site, String mountType, String slug) {
         String slugLookupPath = slugLookupPath(site, mountType, slug);
         return slugLookupPath.equals(existingPath);
+
     }
 
     private String slugLookupPath(String site, String mountType, String slug) {
@@ -113,17 +124,33 @@ public class SlugLookups {
 
     private StringBuilder appendLettersPath(StringBuilder b, String slug) {
         for(char c : slug.toCharArray()) {
-            b.append(c);
+            b.append(escapeSlash(c));
             b.append('/');
         }
         return b;
     }
 
+    private Character escapeSlash(char c) {
+        return c == '/' ? '\\' : c;
+    }
+
     private Node ensureLookupPath(String site, String mountType, String slug, String path) throws RepositoryException {
-        Node parent = session.getNode("/content/urls").getNode(site).getNode(mountType);
+        Node parent = ensureLookupRoot(site, mountType);
         Node lookup = ensureLookupPath(parent, 0, slug);
         lookup.setProperty(PATH, path);
         return lookup;
+    }
+
+    Node ensureLookupRoot(String site, String mountType) throws RepositoryException {
+        Node root = ensureFolder(session.getNode("/content"), "urls");
+        Node siteRoot = ensureFolder(root, site);
+        return ensureFolder(siteRoot, mountType);
+    }
+
+    Node ensureFolder(Node parent, String name) throws RepositoryException {
+        return parent.hasNode(name)
+                ? parent.getNode(name)
+                : parent.addNode("urls", "hippostd:folder");
     }
 
     private Node ensureLookupPath(Node parent, int pos, String path) throws RepositoryException {
@@ -132,7 +159,7 @@ public class SlugLookups {
             return parent;
         }
 
-        String element = Character.toString(path.charAt(pos));
+        String element = Character.toString(escapeSlash(path.charAt(pos)));
         Node next = parent.hasNode(element)
                 ? parent.getNode(element)
                 : redirectNode(parent, element);

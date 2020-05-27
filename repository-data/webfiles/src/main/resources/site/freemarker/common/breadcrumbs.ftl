@@ -19,7 +19,7 @@
             </#list>
 
             <li class="ds_breadcrumbs__item" aria-current="page">
-                ${document.title?html}
+                ${documentBreadcrumbItem.title?html}
             </li>
         </ol>
     </nav>

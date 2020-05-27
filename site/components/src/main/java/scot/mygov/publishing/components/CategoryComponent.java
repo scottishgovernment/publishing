@@ -113,9 +113,13 @@ public class CategoryComponent extends EssentialsContentComponent {
      * Map the bean to use for this lint.  If it is a fodler then return the index file, otherwise just use this bean.
      */
     static HippoBean mapFolder(HippoBean bean) {
-        return bean.isHippoFolderBean()
+        HippoBean mapped = bean.isHippoFolderBean()
                 ? indexBean(bean)
                 : bean;
+        if (mapped == null) {
+            System.out.println("nully!");
+        }
+        return mapped;
     }
 
     static HippoBean indexBean(HippoBean bean) {

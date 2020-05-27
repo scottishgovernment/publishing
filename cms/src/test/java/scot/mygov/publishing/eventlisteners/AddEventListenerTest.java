@@ -1,12 +1,11 @@
 package scot.mygov.publishing.eventlisteners;
 
+import org.apache.jackrabbit.value.StringValue;
 import org.junit.Test;
 import org.onehippo.cms7.event.HippoEvent;
 import scot.mygov.publishing.test.TestUtil;
 
-import javax.jcr.Node;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
+import javax.jcr.*;
 
 import static java.util.Collections.singletonList;
 import static org.mockito.ArgumentMatchers.any;
@@ -85,6 +84,9 @@ public class AddEventListenerTest {
         Session session = mock(Session.class);
         Node folder = folderNode();
         when(folder.getDepth()).thenReturn(5);
+        Value [] values = new Value[] { new StringValue("new-publishing-category")};
+        Property folderTypeProperty = folderTypeProperty(values);
+        when(folder.getProperty("hippostd:foldertype")).thenReturn(folderTypeProperty);
         when(session.getNode("path")).thenReturn(folder);
         AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
@@ -102,6 +104,9 @@ public class AddEventListenerTest {
         Session session = mock(Session.class);
         Node folder = folderNode();
         when(folder.getDepth()).thenReturn(12); // the + 3 for the part of the path before the site.
+        Value [] values = new Value[] { new StringValue("new-publishing-category")};
+        Property folderTypeProperty = folderTypeProperty(values);
+        when(folder.getProperty("hippostd:foldertype")).thenReturn(folderTypeProperty);
         when(session.getNode("path")).thenReturn(folder);
         AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
@@ -113,6 +118,12 @@ public class AddEventListenerTest {
         verify(folder).setProperty("hippostd:foldertype", allActions());
     }
 
+    Property folderTypeProperty(Value[] values) throws RepositoryException {
+        Property property = mock(Property.class);
+        when(property.getValues()).thenReturn(values);
+        return property;
+    }
+
     @Test
     public void setsActionsForCategory10Deep() throws RepositoryException {
         // ARRANGE
@@ -120,6 +131,9 @@ public class AddEventListenerTest {
         Node folder = folderNode();
         when(folder.getDepth()).thenReturn(13); // the + 3 for the part of the path before the site.
         when(session.getNode("path")).thenReturn(folder);
+        Value [] values = new Value[] { new StringValue("new-publishing-category")};
+        Property folderTypeProperty = folderTypeProperty(values);
+        when(folder.getProperty("hippostd:foldertype")).thenReturn(folderTypeProperty);
         AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
 
@@ -137,7 +151,9 @@ public class AddEventListenerTest {
         Node folder = folderNode();
         when(folder.getDepth()).thenReturn(14); // the + 3 for the part of the path before the site.
         when(session.getNode("path")).thenReturn(folder);
-
+        Value [] values = new Value[] { new StringValue("new-publishing-category")};
+        Property folderTypeProperty = folderTypeProperty(values);
+        when(folder.getProperty("hippostd:foldertype")).thenReturn(folderTypeProperty);
         AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
 
@@ -156,6 +172,9 @@ public class AddEventListenerTest {
         Node folder = folderNode(index);
         when(folder.getDepth()).thenReturn(10); // the + 3 for the part of the path before the site.
         when(session.getNode("path")).thenReturn(folder);
+        Value [] values = new Value[] { new StringValue("new-publishing-category")};
+        Property folderTypeProperty = folderTypeProperty(values);
+        when(folder.getProperty("hippostd:foldertype")).thenReturn(folderTypeProperty);
 
         AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
@@ -175,7 +194,9 @@ public class AddEventListenerTest {
         Node folder = folderNode(index);
         when(folder.getDepth()).thenReturn(4); // the + 3 for the part of the path before the site.
         when(session.getNode("path")).thenReturn(folder);
-
+        Value [] values = new Value[] { new StringValue("new-publishing-category")};
+        Property folderTypeProperty = folderTypeProperty(values);
+        when(folder.getProperty("hippostd:foldertype")).thenReturn(folderTypeProperty);
         AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
 
@@ -187,11 +208,11 @@ public class AddEventListenerTest {
     }
 
     String [] allActions() {
-        return new String [] {"new-publishing-article", "new-publishing-category", "new-publishing-mirror"};
+        return new String [] {"new-publishing-article", "new-publishing-category", "new-publishing-guide", "new-publishing-mirror"};
     }
 
     String [] actionsWithoutAddCategory() {
-        return new String [] {"new-publishing-article", "new-publishing-mirror"};
+        return new String [] {"new-publishing-article", "new-publishing-guide", "new-publishing-mirror"};
     }
 
     HippoEvent eventWithAction(String action) {

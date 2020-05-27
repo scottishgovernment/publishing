@@ -7,14 +7,10 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 @HippoEssentialsGenerated(internalName = "publishing:article")
 @Node(jcrType = "publishing:article")
 public class Article extends Base {
+
     @HippoEssentialsGenerated(internalName = "publishing:content")
     public HippoHtml getContent() {
         return getHippoHtml("publishing:content");
     }
 
-
-    @HippoEssentialsGenerated(internalName = "publishing:cardImage")
-    public ImageCard getCardImage() {
-        return getLinkedBean("publishing:cardImage", ImageCard.class);
-    }
 }

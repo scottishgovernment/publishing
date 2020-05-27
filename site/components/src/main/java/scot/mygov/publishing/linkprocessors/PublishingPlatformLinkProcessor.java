@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
@@ -19,6 +20,10 @@ import javax.jcr.Session;
 public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
 
     private static final Logger LOG = LoggerFactory.getLogger(PublishingPlatformLinkProcessor.class);
+
+    private static final String SLUG = "publishing:slug";
+
+    private static final String INDEX = "index";
 
     SessionSource sessionSource = () -> RequestContextProvider.get().getSession();
 
@@ -40,6 +45,9 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
 
     HstLink doPostProcess(HstLink link) throws RepositoryException {
 
+        // we need to consider guides. Do we need special case for guide folder?
+        // in the case where is uses the slug, for guide pages we need to use guideslug/slug
+
         Session session = sessionSource.getSession();
         String contentPath = pathForNode(link);
 
@@ -48,17 +56,76 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
         }
 
         Node node = session.getNode(contentPath);
+        if (isGuideFolder(node)) {
+            Node guide = node.getNode(INDEX).getNode(INDEX);
+            setPath(link, guide);
+            return link;
+        }
+
         if (node.isNodeType("hippostd:folder")) {
             return link;
         }
 
         Node variant = node.getNode(node.getName());
-        if (variant.hasProperty("publishing:slug")) {
-            link.setPath(variant.getProperty("publishing:slug").getString());
+        if (variant.isNodeType("publishing:guidepage")) {
+            setPathForGuidePage(link, variant);
+            return link;
         }
+
+        if (variant.hasProperty(SLUG)) {
+            setPath(link, variant);
+            return link;
+        }
+
         return link;
     }
 
+    boolean isGuideFolder(Node node) throws RepositoryException {
+        if (!node.isNodeType("hippostd:folder")) {
+            return false;
+        }
+
+        if (!node.hasNode(INDEX)) {
+            return false;
+        }
+        Node index = node.getNode(INDEX).getNode(INDEX);
+        return index.isNodeType("publishing:guide");
+    }
+
+    void setPathForGuidePage(HstLink link, Node guidepage) throws RepositoryException {
+        Node handle = guidepage.getParent();
+        Node guideFolder = handle.getParent();
+        Node guide = guideFolder.getNode(INDEX).getNode(INDEX);
+
+        String guideSlug = guide.getProperty(SLUG).getString();
+        if (isFirstGuidePage(guideFolder, handle)) {
+            link.setPath(new StringBuffer("/").append(guideSlug).toString());
+        } else {
+            link.setPath(new StringBuffer("/").append(guideSlug).append("/").append(guidepage.getName()).toString());
+        }
+    }
+
+    boolean isFirstGuidePage(Node folder, Node handle) throws RepositoryException {
+        Node firstGuidePageHandle = firstGuidePageHandle(folder);
+        return handle.isSame(firstGuidePageHandle);
+    }
+
+    Node firstGuidePageHandle(Node folder) throws RepositoryException {
+        NodeIterator it = folder.getNodes();
+        while (it.hasNext()) {
+            Node child = it.nextNode();
+            Node variant = child.getNodes().nextNode();
+            if (variant.isNodeType("publishing:guidepage")) {
+                return child;
+            }
+        }
+        return null;
+    }
+
+    void setPath(HstLink link, Node page) throws RepositoryException {
+        String slug = page.getProperty(SLUG).getString();
+        link.setPath(new StringBuffer("/").append(slug).toString());
+    }
 
     String pathForNode(HstLink link) {
         String contentPath = link.getMount().getContentPath();
@@ -74,10 +141,6 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
 
         // do not alter links with extensions
         if (hasExtension(link)) {
-            return link;
-        }
-
-        if (link.getPathElements().length > 1) {
             return link;
         }
 
@@ -114,17 +177,20 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
                 .append('/')
                 .append(link.getMount().getType())
                 .append('/');
-        String slug = link.getPathElements()[0];
-        appendSlugAsLetterslugLetterPath(b, slug);
+        appendSlugAsLetterslugLetterPath(b, link.getPath());
         return b.toString();
     }
 
     StringBuilder appendSlugAsLetterslugLetterPath(StringBuilder b, String slug) {
         for(char c : slug.toCharArray()) {
-            b.append(c);
+            b.append(escapeSlash(c));
             b.append('/');
         }
         return b;
+    }
+
+    private Character escapeSlash(char c) {
+        return c == '/' ? '\\' : c;
     }
 
     String siteName(HstLink link) {

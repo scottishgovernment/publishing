@@ -5,7 +5,6 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.linking.HstLinkCreator;
-import org.hippoecm.hst.util.HstResponseUtils;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ import static java.lang.Boolean.*;
  */
 public class ArticleComponent extends CategoryComponent {
 
-    static Redirector redirector = HstResponseUtils::sendPermanentRedirect;
+    static Redirector redirector = new Redirector();
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -44,15 +43,19 @@ public class ArticleComponent extends CategoryComponent {
     }
 
     static void doSetArticleAttributes(HstRequest request) {
+        HippoBean document = getDocumentBean(request);
+        doSetArticleAttributes(request, document);
+    }
+
+    static void doSetArticleAttributes(HstRequest request, HippoBean document) {
         List<Wrapper> children = (List<Wrapper>) request.getAttribute("children");
-        HippoBean document = request.getRequestContext().getContentBean();
         int index = indexOf(children, document);
         HippoBean prev = prev(children, index);
         HippoBean next = next(children, index);
         request.setAttribute("prev", prev);
         request.setAttribute("next", next);
         setSequenceable(request, document);
-        request.setAttribute("document", getDocumentBean(request));
+        request.setAttribute("document", document);
     }
 
     static int indexOf(List<Wrapper> list, HippoBean bean) {
@@ -66,8 +69,13 @@ public class ArticleComponent extends CategoryComponent {
         return index;
     }
 
+    // TODO: move these?  used here and in guide page but seem more like utility code.
     static String canonicalUrl(HstRequest request ) {
         HippoBean document = request.getRequestContext().getContentBean();
+        return canonicalUrl(request, document);
+    }
+
+    static String canonicalUrl(HstRequest request, HippoBean document) {
         HstLinkCreator linkCreator = request.getRequestContext().getHstLinkCreator();
         HstLink redirectTolink = linkCreator.create(document, request.getRequestContext());
         return "/" + redirectTolink.getPath();
@@ -103,10 +111,6 @@ public class ArticleComponent extends CategoryComponent {
         return index < children.size() - 1
                 ? children.get(index + 1).getBean()
                 : null;
-    }
-
-    interface Redirector {
-        void sendPermanentRedirect(HstRequest request, HstResponse response, String url);
     }
 
 }

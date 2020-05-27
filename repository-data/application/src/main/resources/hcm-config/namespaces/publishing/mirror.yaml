@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 76287f95-993e-49bb-b576-f6885fed2df3
+          jcr:uuid: eec55a5a-5f18-422a-ae62-f265f2305418
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -44,7 +44,7 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: b17b5cec-d558-4719-a820-579afc471365
+          jcr:uuid: 4921a417-37e8-43e2-9b6a-24141c9a428f
           hippostdpubwf:lastModificationDate: 2020-03-09T16:53:05.915Z
           hippostdpubwf:creationDate: 2020-03-09T16:53:05.915Z
           publishing:pinned: false
@@ -73,7 +73,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              nodetypes: ['publishing:article', 'publishing:category']
+              nodetypes: ['publishing:article', 'publishing:category', 'publishing:guide']
           /pinned:
             jcr:primaryType: frontend:plugin
             caption: Pinned?

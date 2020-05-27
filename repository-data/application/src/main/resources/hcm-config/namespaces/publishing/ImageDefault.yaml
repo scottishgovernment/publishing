@@ -3,11 +3,11 @@ definitions:
     /hippo:namespaces/publishing/ImageDefault:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 35bbd299-309f-452f-b69c-88e01c225a56
+      jcr:uuid: 2d5958b8-21bd-4664-aa8e-0c9f5a5fbf23
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 4ebc45ca-0026-4341-acba-5ab67ed16b17
+        jcr:uuid: 653de5ad-f1f7-47f4-ab48-75649e6c40b3
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel']
@@ -38,7 +38,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:ImageCard
           jcr:mixinTypes: ['mix:versionable']
-          jcr:uuid: 8c055af0-1f18-4ffb-abc2-f9f46585fcab
+          jcr:uuid: 5c01ae09-551a-4f31-9163-36be54578bb2
           /hippogallery:thumbnail:
             jcr:primaryType: hippogallery:image
             jcr:data:

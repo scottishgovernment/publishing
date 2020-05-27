@@ -5,11 +5,16 @@ import org.hippoecm.hst.core.linking.HstLink;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
+import scot.mygov.publishing.TestUtil;
 
 import javax.jcr.Node;
 import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.Assert.assertSame;
 import static org.mockito.ArgumentMatchers.any;
@@ -50,19 +55,21 @@ public class PublishingPlatformLinkProcessorTest {
         sut.sessionSource = () -> session;
         HstLink link = link("link");
         HstLink actual = sut.postProcess(link);
-        verify(link).setPath("slug");
+        verify(link).setPath("/slug");
+    }
+
+    @Test
+    public void postProcessReturnsLinkForGuidePage() throws RepositoryException {
+        Session session = sessionWithGuide();
+        sut.sessionSource = () -> session;
+        HstLink link = link("link");
+        sut.postProcess(link);
+        verify(link).setPath("/guideslug/pagename");
     }
 
     @Test
     public void preProcessIgnoresUrlsWithExtensions() {
         HstLink link = link("/path/with-extension.jpeg");
-        HstLink actual = sut.preProcess(link);
-        assertSame(link, actual);
-    }
-
-    @Test
-    public void preProcessIgnoresMultiElementPathsUrlsWithExtensions() {
-        HstLink link = link("/path/with/folders");
         HstLink actual = sut.preProcess(link);
         assertSame(link, actual);
     }
@@ -122,8 +129,8 @@ public class PublishingPlatformLinkProcessorTest {
     }
 
     Session sessionWithFolder() throws RepositoryException {
-        Session session = Mockito.mock(Session.class);
-        Node folder = Mockito.mock(Node.class);
+        Session session = mock(Session.class);
+        Node folder = mock(Node.class);
         when(folder.isNodeType("hippostd:folder")).thenReturn(true);
         when(session.nodeExists(any())).thenReturn(true);
         when(session.getNode(any())).thenReturn(folder);
@@ -131,9 +138,9 @@ public class PublishingPlatformLinkProcessorTest {
     }
 
     Session sessionWithArticle() throws RepositoryException {
-        Session session = Mockito.mock(Session.class);
-        Node handle = Mockito.mock(Node.class);
-        Node article = Mockito.mock(Node.class);
+        Session session = mock(Session.class);
+        Node handle = mock(Node.class);
+        Node article = mock(Node.class);
         when(handle.isNodeType("hippostd:folder")).thenReturn(false);
         when(session.nodeExists(any())).thenReturn(true);
         when(session.getNode(any())).thenReturn(handle);
@@ -145,15 +152,61 @@ public class PublishingPlatformLinkProcessorTest {
         return session;
     }
 
+
+    Session sessionWithGuide() throws RepositoryException {
+        Session session = mock(Session.class);
+        Node guidepagehandle = mock(Node.class);
+        Node guidepage = mock(Node.class);
+
+        Node guidepagehandle2 = mock(Node.class);
+        Node guidepage2 = mock(Node.class);
+
+        Node guidehandle = mock(Node.class);
+        Node guide = mock(Node.class);
+
+        Node guidefolder = mock(Node.class);
+        when(guidepage.getName()).thenReturn("pagename");
+        when(guidepage.getParent()).thenReturn(guidehandle);
+
+        when(guidepage2.getName()).thenReturn("pagename2");
+        when(guidepage2.getParent()).thenReturn(guidepagehandle2);
+
+        when(guidehandle.getParent()).thenReturn(guidefolder);
+
+        when(guidefolder.getNode("index")).thenReturn(guidehandle);
+        when(guidehandle.getNode("index")).thenReturn(guide);
+
+        when(guidepagehandle.isNodeType("hippostd:folder")).thenReturn(false);
+        when(guidepage.isNodeType("publishing:guidepage")).thenReturn(true);
+        when(guidepagehandle.getNodes()).thenReturn(TestUtil.iterator(Collections.singletonList(guidepage)));
+
+        when(guidepagehandle2.isNodeType("hippostd:folder")).thenReturn(false);
+        when(guidepage2.isNodeType("publishing:guidepage")).thenReturn(true);
+        when(guidepagehandle2.getNodes()).thenReturn(TestUtil.iterator(Collections.singletonList(guidepage2)));
+
+        List<Node> folderChilter = new ArrayList<>();
+        Collections.addAll(folderChilter, guidepagehandle, guidepagehandle2);
+        when(guidefolder.getNodes()).thenReturn(TestUtil.iterator(folderChilter));
+        when(session.nodeExists(any())).thenReturn(true);
+        when(session.getNode(any())).thenReturn(guidepagehandle);
+        when(guidepagehandle.getNode(any())).thenReturn(guidepage);
+        Property slug = mock(Property.class);
+        when(slug.getString()).thenReturn("guideslug");
+        when(guide.getProperty("publishing:slug")).thenReturn(slug);
+        when(guide.hasProperty("publishing:slug")).thenReturn(true);
+        return session;
+        // verify(link).setPath("/guideslug/pagename");
+    }
+
     Session exceptionThrowingSession() throws RepositoryException {
-        Session session = Mockito.mock(Session.class);
+        Session session = mock(Session.class);
         when(session.nodeExists(any())).thenThrow(new RepositoryException("arg"));
         when(session.getNode(any())).thenThrow(new RepositoryException("arg"));
         return session;
     }
 
     Session sessionWithLookupButNoPath() throws RepositoryException {
-        Session session = Mockito.mock(Session.class);
+        Session session = mock(Session.class);
         Node node = mock(Node.class);
         when(session.nodeExists(any())).thenReturn(true);
         when(session.getNode(any())).thenReturn(node);
@@ -162,7 +215,7 @@ public class PublishingPlatformLinkProcessorTest {
     }
 
     Session sessionWithLookup() throws RepositoryException {
-        Session session = Mockito.mock(Session.class);
+        Session session = mock(Session.class);
         Node node = mock(Node.class);
         when(session.nodeExists(any())).thenReturn(true);
         when(session.getNode(any())).thenReturn(node);
@@ -174,7 +227,7 @@ public class PublishingPlatformLinkProcessorTest {
     }
 
     Session sessionWithNoAvailableLookup() throws RepositoryException {
-        Session session = Mockito.mock(Session.class);
+        Session session = mock(Session.class);
         when(session.nodeExists(any())).thenReturn(false);
         return session;
     }

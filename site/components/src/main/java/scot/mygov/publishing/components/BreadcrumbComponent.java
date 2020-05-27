@@ -8,6 +8,7 @@ import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
+import scot.mygov.publishing.beans.GuidePage;
 import scot.mygov.publishing.beans.Home;
 
 import java.util.ArrayList;
@@ -27,6 +28,12 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
         super.doBeforeRender(request, response);
 
         HippoBean contentBean = CategoryComponent.getDocumentBean(request);
+
+        // special case for guide pages: we do not want the page to be a part of the breadcrumb
+        if (contentBean instanceof GuidePage) {
+            contentBean = contentBean.getParentBean().getBean("index");
+        }
+
         List<BreadcrumbItem> breadcrumbs = constructBreadcrumb(request, contentBean);
         request.setAttribute("breadcrumbs", breadcrumbs);
         request.setAttribute("documentBreadcrumbItem", breadcrumbItem(contentBean, request.getRequestContext()));

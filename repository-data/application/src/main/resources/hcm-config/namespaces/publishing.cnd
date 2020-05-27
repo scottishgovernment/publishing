@@ -25,6 +25,12 @@
 [publishing:category] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
+[publishing:guide] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
+[publishing:guidepage] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
 [publishing:home] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
@@ -33,3 +39,4 @@
 
 [publishing:relateditems] > hippo:compound, hippostd:relaxed
   orderable
+

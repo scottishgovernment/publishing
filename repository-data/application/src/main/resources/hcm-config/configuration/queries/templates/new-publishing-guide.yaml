@@ -1,0 +1,46 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-publishing-guide:
+      jcr:primaryType: hippostd:templatequery
+      jcr:mixinTypes: ['hipposys:implementation']
+      hippostd:icon: addfolder_ico
+      hippostd:modify: [./_name, $name, './hippotranslation:id', $uuid, './hippotranslation:locale',
+        $inherited, './index/index/publishing:title', $localName, './index/hippo:name',
+        $localName, './index/index/hippo:name', $localName, './index/index/hippostdpubwf:createdBy',
+        $holder, './index/index/hippostdpubwf:lastModifiedBy', $holder, './index/index/hippostdpubwf:creationDate',
+        $now, './index/index/hippostdpubwf:lastModificationDate', $now, './index/index/publishing:seoTitle',
+        $localName]
+      hipposys:classname: org.hippoecm.repository.impl.query.DirectPath
+      jcr:language: xpath
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-publishing-guide/hippostd:templates/node()
+      /hippostd:templates:
+        jcr:primaryType: hippostd:templates
+        /hippostd:folder:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 5b2a2d91-8c6e-46d4-ad66-4132f41d2ed3
+          hippostd:foldertype: [new-publishing-guide-page]
+          /index:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: a8230273-e449-464a-ba9b-677d0c1e2c37
+            hippo:name: index
+            /index:
+              jcr:primaryType: publishing:guide
+              jcr:mixinTypes: ['mix:versionable']
+              jcr:uuid: 359b1878-e793-49f8-9c4e-a8eb9cedb24a
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: system
+              hippostdpubwf:creationDate: 2019-10-02T09:27:13.455+01:00
+              hippostdpubwf:lastModificationDate: 2019-10-02T09:27:13.657+01:00
+              hippostdpubwf:lastModifiedBy: system
+              hippotranslation:id: 2004f627-d7f7-471d-b445-8dc36c5c9c33
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:metaDescription: ''
+              publishing:reportingtags: []
+              publishing:seoTitle: ''
+              publishing:summary: ''
+              publishing:title: ''
+              publishing:pinned: false

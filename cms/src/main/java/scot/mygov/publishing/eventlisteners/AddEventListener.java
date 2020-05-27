@@ -5,10 +5,7 @@ import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
+import javax.jcr.*;
 
 import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
 
@@ -30,6 +27,8 @@ public class AddEventListener {
     private static final String NEW_ARTICLE = "new-publishing-article";
 
     private static final String NEW_CATEGORY = "new-publishing-category";
+
+    private static final String NEW_GUIDE = "new-publishing-guide";
 
     private static final String NEW_MIRROR = "new-publishing-mirror";
 
@@ -59,17 +58,45 @@ public class AddEventListener {
         Node node = session.getNode(event.result());
 
         if (isContent(node)) {
-            // allocate a slug
             node.setProperty("publishing:slug", node.getName());
             session.save();
             return;
         }
 
-        if (isFolder(node) && isUnder(node, "/content/documents/")) {
+        if (isGuide(node)) {
+            Node index = node.getNode("index").getNode("index");
+            index.setProperty("publishing:slug", node.getName());
+            session.save();
+            return;
+        }
+
+        if (isCategory(node)) {
             setActionsDependingOnDepth(node);
             setNavigationStyle(node);
             session.save();
         }
+    }
+
+    boolean isGuide(Node node) throws RepositoryException {
+        return isFolder(node)
+                && isUnder(node, "/content/documents/")
+                && hasFolderAction(node, "new-publishing-guide-page");
+    }
+
+    boolean isCategory(Node node) throws RepositoryException {
+        return isFolder(node)
+                && isUnder(node, "/content/documents/")
+                && hasFolderAction(node, "new-publishing-category");
+    }
+
+    boolean hasFolderAction(Node node, String action) throws RepositoryException {
+        Value[] values = node.getProperty("hippostd:foldertype").getValues();
+        for (Value value : values) {
+            if (value.getString().equals(action)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     void setActionsDependingOnDepth(Node folder) throws RepositoryException {
@@ -80,11 +107,11 @@ public class AddEventListener {
     }
 
     String [] allActions() {
-        return new String[] { NEW_ARTICLE, NEW_CATEGORY, NEW_MIRROR };
+        return new String[] { NEW_ARTICLE, NEW_CATEGORY, NEW_GUIDE, NEW_MIRROR };
     }
 
     String [] actionsWithoutNewCategory() {
-        return new String[] { NEW_ARTICLE, NEW_MIRROR };
+        return new String[] { NEW_ARTICLE, NEW_GUIDE, NEW_MIRROR };
     }
 
     void setNavigationStyle(Node folder) throws RepositoryException {
