@@ -38,13 +38,15 @@ public class MigrationResource {
             ContentNode contentNode,
             @PathParam("site") String site,
             @QueryParam("path") String path,
+            @QueryParam("publish") @DefaultValue("true") boolean publish,
+
             @HeaderParam("Authorization") String authHeader) {
         LOG.info("newPublishingDocument {}, {}, {}", contentNode.getName(), site, path);
 
         Session session = null;
         try {
             session = session(authHeader);
-            String location = documentUpdater.update(session, site, path, contentNode);
+            String location = documentUpdater.update(session, site, path, publish, contentNode);
             return new Result(location);
         } catch (ContentMigrationException e) {
             LOG.error("Failed to create items", e);
