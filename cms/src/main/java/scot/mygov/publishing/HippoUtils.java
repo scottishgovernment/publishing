@@ -15,6 +15,10 @@ public class HippoUtils {
         return getVariantWithState(handle, HippoStdNodeType.PUBLISHED);
     }
 
+    public static Node getDraftVariant(Node handle) throws RepositoryException {
+        return getVariantWithState(handle, HippoStdNodeType.DRAFT);
+    }
+
     public static Node getVariantWithState(Node handle, String state) throws RepositoryException {
         String name = handle.getName();
         NodeIterator iterator = handle.getNodes(name);

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f5ee9c3e-fd52-413c-b3bf-7864faba6ea3
+          jcr:uuid: b2bcb130-e0a3-44e8-a893-a68b776ac86f
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated', 'hippostd:taggable']
@@ -124,7 +124,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
           publishing:summary: ''
           publishing:title: ''
-          jcr:uuid: 7eaea45e-7235-4278-9c74-e78be3d2d508
+          jcr:uuid: ebc0607f-441e-4c67-9e8b-3dbc68a5168b
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:07.551+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:07.552+01:00
           publishing:seoTitle: ''
@@ -206,6 +206,13 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '60'
+          /taggable:
+            jcr:primaryType: frontend:plugin
+            mixin: hippostd:taggable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /metaDescription:
             jcr:primaryType: frontend:plugin
             caption: Meta description
@@ -231,13 +238,6 @@ definitions:
             field: cardimage
             hint: Image used for displaying this item within a Card layout
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /taggable:
-            jcr:primaryType: frontend:plugin
-            mixin: hippostd:taggable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

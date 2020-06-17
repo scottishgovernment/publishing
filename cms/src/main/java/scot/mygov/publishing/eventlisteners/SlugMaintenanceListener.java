@@ -45,9 +45,6 @@ public class SlugMaintenanceListener {
         Node subject = session.getNode(event.subjectPath());
 
         // categories do not use the slug lookups.
-        /// TODO: what about mirrors?
-        /// and other future types?
-        // would be good if we did not have to maintain a list of types here...
         if (isCategory(subject)) {
             return;
         }
@@ -72,6 +69,7 @@ public class SlugMaintenanceListener {
             default:
         }
     }
+
 
     boolean isCategory(Node subject) throws RepositoryException {
         return

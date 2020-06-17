@@ -11,9 +11,10 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c03e77a3-fa0c-444c-9d30-d8e540d4d6f3
+          jcr:uuid: eba3a26b-ad57-402f-964e-596303e88612
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
+          hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
+            'hippotaxonomy:classifiable', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
@@ -27,8 +28,8 @@ definitions:
           hippotranslation:locale: document-type-locale
           publishing:summary: ''
           publishing:title: ''
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 38c1f4a1-a036-43f9-b280-fb32cc2fabb3
+          jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable', 'hippotaxonomy:classifiable']
+          jcr:uuid: 54a90952-999b-4a90-8e05-24aa98663fea
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -137,13 +138,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
-          /tags:
-            jcr:primaryType: frontend:plugin
-            caption: Tags
-            field: tags
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            type: hippostd:taggable
-            wicket.id: ${cluster.id}.field
           /reportingtags:
             jcr:primaryType: frontend:plugin
             caption: Reporting tags
@@ -178,3 +172,19 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /taggable:
+            jcr:primaryType: frontend:plugin
+            mixin: hippostd:taggable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /classifiable:
+            jcr:primaryType: frontend:plugin
+            essentials-taxonomy-name: user needs
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: user needs

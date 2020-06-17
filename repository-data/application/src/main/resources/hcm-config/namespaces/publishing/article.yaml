@@ -11,9 +11,10 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 25e49dc9-b160-42a5-baf1-e1268d4a0662
+          jcr:uuid: 3b05d170-71a4-4516-91f9-1e95595b5792
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
+          hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
+            'hippotaxonomy:classifiable', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           /content:
             jcr:primaryType: hipposysedit:field
@@ -45,8 +46,8 @@ definitions:
           hippotranslation:locale: document-type-locale
           publishing:summary: ''
           publishing:title: ''
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 2f9b94d3-19ae-48a9-b759-614981c5bb77
+          jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable', 'hippotaxonomy:classifiable']
+          jcr:uuid: d179db3c-adaf-4296-9c36-b68db2d90a88
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -103,6 +104,13 @@ definitions:
               \ where this page is listed on the live website, such as a category\
               \ page and in search results. \r\n\r\nIt must be between 3 and 255 characters."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /taggable:
+            jcr:primaryType: frontend:plugin
+            mixin: hippostd:taggable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -169,13 +177,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
-          /tags:
-            jcr:primaryType: frontend:plugin
-            caption: Tags
-            field: tags
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            type: hippostd:taggable
-            wicket.id: ${cluster.id}.field
           /reportingtags:
             jcr:primaryType: frontend:plugin
             caption: Reporting tags
@@ -210,3 +211,12 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /classifiable:
+            jcr:primaryType: frontend:plugin
+            essentials-taxonomy-name: user needs
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: user needs
