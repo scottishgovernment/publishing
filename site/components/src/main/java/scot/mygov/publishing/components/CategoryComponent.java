@@ -75,6 +75,7 @@ public class CategoryComponent extends EssentialsContentComponent {
                 .filter(CategoryComponent::notIndexFile)
                 .filter(node -> !isExcluded(node, folder, baseBean))
                 .map(CategoryComponent::mapFolder)
+                .filter(Objects::nonNull)
                 .map(CategoryComponent::wrap)
                 .collect(Collectors.partitioningBy(Wrapper::getPinned));
         List<Wrapper> all = new ArrayList<>();
