@@ -15,9 +15,11 @@
                     </a>
                 </h2>
 
-                <p class="ds_category-item__summary">
-                    ${child.bean.summary}
-                </p>
+                <#if document.showSummaries>
+                    <p class="ds_category-item__summary">
+                        ${child.bean.summary}
+                    </p>
+                </#if>
             </li>
         </#list>
     </ol>

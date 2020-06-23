@@ -3,18 +3,11 @@ package scot.mygov.publishing.validation;
 import org.junit.Test;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Violation;
-import scot.mygov.publishing.test.TestUtil;
 
 import javax.jcr.*;
-import javax.jcr.query.Query;
-import javax.jcr.query.QueryManager;
-import javax.jcr.query.QueryResult;
-import java.util.List;
-import java.util.Map;
+import javax.jcr.nodetype.NodeType;
 import java.util.Optional;
 
-import static java.util.Collections.emptyList;
-import static java.util.Collections.singletonList;
 import static java.util.Collections.singletonMap;
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
@@ -67,6 +60,21 @@ public class SlugValidatorTest {
         // ASSERT
         assertTrue(violation.isPresent());
         assertEquals(((ViolationImpl) violation.get()).getSubkey(), "slug-invalid-chars");
+    }
+
+    @Test
+    public void ignoresCategorySlugs() throws RepositoryException {
+        // ARRANGE
+        SlugValidator sut = new SlugValidator();
+        ValidationContext context = validationContext("publishing:category");
+        sut.urlValidationUtils = validationUtils();
+        when(sut.urlValidationUtils.containsInvalidCharacters(any())).thenReturn(true);
+
+        // ACT
+        Optional<Violation> violation = sut.validate(context, "slug");
+
+        // ASSERT
+        assertFalse(violation.isPresent());
     }
 
     @Test
@@ -139,7 +147,28 @@ public class SlugValidatorTest {
     }
 
     ValidationContext validationContext() throws RepositoryException {
-        return new ValidationContextImpl();
+        return validationContext("publishing:article");
     }
 
+    ValidationContext validationContext(String type) throws RepositoryException {
+        Node documentNode = mock(Node.class);
+        NodeType nodetype = mock(NodeType.class);
+        when(nodetype.getName()).thenReturn(type);
+        when(documentNode.getPrimaryNodeType()).thenReturn(nodetype);
+        return new TestContext(documentNode);
+    }
+
+    class TestContext extends ValidationContextImpl {
+
+        Node documentNode;
+
+        TestContext(Node documentNode) {
+            this.documentNode = documentNode;
+        }
+
+        @Override
+        public Node getDocumentNode() {
+            return documentNode;
+        }
+    }
 }

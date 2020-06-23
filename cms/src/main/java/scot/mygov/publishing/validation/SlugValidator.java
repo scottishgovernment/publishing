@@ -8,7 +8,9 @@ import org.slf4j.LoggerFactory;
 
 import javax.jcr.*;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * Validate that a slug:
@@ -21,6 +23,12 @@ public class SlugValidator implements Validator<String> {
     private static final Logger LOG = LoggerFactory.getLogger(SlugValidator.class);
 
     UrlValidationUtils urlValidationUtils = new UrlValidationUtils();
+
+    private static final Set<String> excludedTypes = new HashSet<>();
+
+    public SlugValidator() {
+        Collections.addAll(excludedTypes, "publishing:category", "publishing:home");
+    }
 
     public Optional<Violation> validate(ValidationContext context, String slug) {
 
@@ -37,6 +45,13 @@ public class SlugValidator implements Validator<String> {
     }
 
     Violation doValidate(ValidationContext context, String slug) throws RepositoryException {
+
+        Node document = context.getDocumentNode();
+        String type = document.getPrimaryNodeType().getName();
+        if (excludedTypes.contains(type)) {
+            return null;
+        }
+
         if (urlValidationUtils.containsInvalidCharacters(slug)) {
             return context.createViolation("slug-invalid-chars");
         }
