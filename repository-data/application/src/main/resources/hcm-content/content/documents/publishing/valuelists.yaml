@@ -1,0 +1,65 @@
+/content/documents/publishing/valuelists:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['mix:versionable']
+  jcr:uuid: a7782b12-6563-43e5-b34d-e06c2b8461a6
+  hippostd:foldertype: [new-document, new-folder]
+  /navigationtypes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: d6255b49-edd5-4cdb-a306-47110a0badd8
+    hippo:name: navigationTypes
+    /navigationtypes:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 46c22dd1-9a5d-4ebf-aadb-56c7a9018adb
+      hippo:availability: [live, preview]
+      hippotranslation:id: 4df417d4-1af7-4c66-a102-5e9f80c413ae
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: grid
+        selection:label: Grid
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: list
+        selection:label: List
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: card
+        selection:label: Card
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: image-card
+        selection:label: Image card
+  /reportingtags:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 66416c3e-6854-4557-a3b9-a5a5bb07c530
+    hippo:name: reportingTags
+    /reportingtags:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: a7dcddeb-77b4-4509-a567-b09d56981788
+      hippo:availability: [live, preview]
+      hippotranslation:id: df522156-a372-4762-9b73-d425b07fd2bf
+      hippotranslation:locale: inherited - from query
+  /bannertypes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: eee456b8-18cd-475b-960d-ea9c84a4c1fa
+    hippo:name: bannerTypes
+    /bannertypes:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 7523f1be-75cf-4ea8-abea-f555964ab864
+      hippo:availability: [live, preview]
+      hippotranslation:id: 48009586-6f16-4493-90d8-c1bc9b0991c0
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: importantbanner
+        selection:label: Important Banner
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: mourningbanner
+        selection:label: Mourning Banner
