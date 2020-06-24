@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: eba3a26b-ad57-402f-964e-596303e88612
+          jcr:uuid: b1c07844-eca2-473c-aa9b-881cb4672727
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -29,7 +29,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable', 'hippotaxonomy:classifiable']
-          jcr:uuid: 54a90952-999b-4a90-8e05-24aa98663fea
+          jcr:uuid: 4bc04ae8-2404-44bd-876c-a727dd945cf3
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -38,6 +38,7 @@ definitions:
           publishing:reportingtags: []
           publishing:pinned: false
           publishing:slug: ''
+          publishing:sensitiveContent: false
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -92,6 +93,15 @@ definitions:
             field: pinned
             hint: Should this item be 'pinned' in its category, causing it to be shown
               at the top and with an element of promenance
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /sensitiveContent:
+            jcr:primaryType: frontend:plugin
+            caption: Sensitive content?
+            field: sensitiveContent
+            hint: 'TODO: tooltip needs to be provided for this'
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

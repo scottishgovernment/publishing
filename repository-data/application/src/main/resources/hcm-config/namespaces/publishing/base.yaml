@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: b2bcb130-e0a3-44e8-a893-a68b776ac86f
+          jcr:uuid: f7482827-f298-475a-97a5-2127a2ee8ec4
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated', 'hippostd:taggable']
@@ -111,6 +111,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [urlalias-validator]
+          /sensitiveContent:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:sensitiveContent
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -124,7 +132,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
           publishing:summary: ''
           publishing:title: ''
-          jcr:uuid: ebc0607f-441e-4c67-9e8b-3dbc68a5168b
+          jcr:uuid: 26574829-58a8-4c9b-903f-502e336ae051
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:07.551+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:07.552+01:00
           publishing:seoTitle: ''
@@ -134,6 +142,7 @@ definitions:
           publishing:pinned: false
           publishing:slug: ''
           publishing:urlAliases: ['']
+          publishing:sensitiveContent: false
           /publishing:relateditems:
             jcr:primaryType: publishing:relateditems
             publishing:title: ''
@@ -190,6 +199,15 @@ definitions:
             field: pinned
             hint: Should this item be 'pinned' in its category, causing it to be shown
               at the top and with an element of prominence
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /sensitiveContent:
+            jcr:primaryType: frontend:plugin
+            caption: Sensitive content?
+            field: sensitiveContent
+            hint: 'TODO: tooltip needs to be provided for this'
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
