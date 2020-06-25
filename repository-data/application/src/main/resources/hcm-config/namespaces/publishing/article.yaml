@@ -56,7 +56,7 @@ definitions:
           publishing:reportingtags: []
           publishing:pinned: false
           publishing:slug: ''
-          publishing:sensitiveContent: false
+          publishing:sensitive: false
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -125,10 +125,10 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /sensitiveContent:
+          /sensitive:
             jcr:primaryType: frontend:plugin
             caption: Sensitive content?
-            field: sensitiveContent
+            field: sensitive
             hint: 'TODO: tooltip needs to be provided for this'
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field

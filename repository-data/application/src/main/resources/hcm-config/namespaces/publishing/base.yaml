@@ -111,12 +111,12 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [urlalias-validator]
-          /sensitiveContent:
+          /sensitive:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:sensitiveContent
+            hipposysedit:path: publishing:sensitive
             hipposysedit:primary: false
             hipposysedit:type: Boolean
       /hipposysedit:prototypes:
@@ -142,7 +142,7 @@ definitions:
           publishing:pinned: false
           publishing:slug: ''
           publishing:urlAliases: ['']
-          publishing:sensitiveContent: false
+          publishing:sensitive: false
           /publishing:relateditems:
             jcr:primaryType: publishing:relateditems
             publishing:title: ''
@@ -203,10 +203,10 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /sensitiveContent:
+          /sensitive:
             jcr:primaryType: frontend:plugin
             caption: Sensitive content?
-            field: sensitiveContent
+            field: sensitive
             hint: 'TODO: tooltip needs to be provided for this'
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field

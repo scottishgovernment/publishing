@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5cc02eb2-0314-4e0c-bab6-dbb63c0b8b99
+          jcr:uuid: 9219302f-0582-48c9-a08b-a0df8b7735ed
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -53,7 +53,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:home
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: f5380e35-357b-4c22-9311-3c7239e1268e
+          jcr:uuid: 9422dfa6-0669-40cf-bc71-77ad6421aec8
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -68,6 +68,7 @@ definitions:
           publishing:authorNotes: ''
           publishing:metaDescription: ''
           publishing:reportingtags: []
+          publishing:navigationType: ''
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -141,6 +142,13 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
+          /relateditems:
+            jcr:primaryType: frontend:plugin
+            caption: Related items
+            field: relateditems
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
           /prologue:
             jcr:primaryType: frontend:plugin
             caption: Prologue
