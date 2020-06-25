@@ -64,7 +64,7 @@ public class AddEventListener {
         }
 
         if (isGuide(node)) {
-            Node index = node.getNode("index").getNode("index");
+            Node index = node.getNode(INDEX).getNode(INDEX);
             index.setProperty("publishing:slug", node.getName());
             session.save();
             return;
@@ -86,7 +86,7 @@ public class AddEventListener {
     boolean isCategory(Node node) throws RepositoryException {
         return isFolder(node)
                 && isUnder(node, "/content/documents/")
-                && hasFolderAction(node, "new-publishing-category");
+                && hasFolderAction(node, NEW_CATEGORY);
     }
 
     boolean hasFolderAction(Node node, String action) throws RepositoryException {
