@@ -21,7 +21,7 @@ public class GuideComponent extends CategoryComponent {
         ArticleComponent.doSetArticleAttributes(request, firstPage);
     }
 
-    HippoBean getFirstGuidePage(HstRequest request) {
+    static HippoBean getFirstGuidePage(HstRequest request) {
         List<Wrapper> children = (List<Wrapper>) request.getAttribute("children");
         return children.isEmpty() ? null : children.get(0).getBean();
     }

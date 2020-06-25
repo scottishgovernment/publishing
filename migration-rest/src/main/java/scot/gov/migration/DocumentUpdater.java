@@ -26,10 +26,14 @@ public class DocumentUpdater {
                 location,
                 "en",
                 contentNode.getName());
-        if (publish) {
-            documentManager.publishDocument(updatedDocumentLocation);
-        }
+        publish(documentManager, publish, updatedDocumentLocation);
         LOG.info("update {}, {}, {}", site, path, contentNode.getName());
         return updatedDocumentLocation;
+    }
+
+    static void publish(DocumentManager documentManager, boolean publish, String location) {
+        if (publish) {
+            documentManager.publishDocument(location);
+        }
     }
 }

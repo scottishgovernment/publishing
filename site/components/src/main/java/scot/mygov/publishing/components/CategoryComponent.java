@@ -11,8 +11,6 @@ import scot.mygov.publishing.beans.Mirror;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.*;
-
 /**
  * Component used to back category pages (including the home page).
  *
@@ -116,9 +114,6 @@ public class CategoryComponent extends EssentialsContentComponent {
         HippoBean mapped = bean.isHippoFolderBean()
                 ? indexBean(bean)
                 : bean;
-        if (mapped == null) {
-            System.out.println("nully!");
-        }
         return mapped;
     }
 
