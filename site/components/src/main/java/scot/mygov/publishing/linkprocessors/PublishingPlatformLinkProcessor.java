@@ -73,6 +73,7 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
         }
 
         if (variant.hasProperty(SLUG)) {
+            LOG.info("HERE");
             setPath(link, variant);
             return link;
         }

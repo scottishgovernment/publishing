@@ -25,7 +25,7 @@ public class DocumentUpdater {
                 contentNode.getPrimaryType(),
                 location,
                 "en",
-                contentNode.getName());
+                localizedName(contentNode));
         publish(documentManager, publish, updatedDocumentLocation);
         LOG.info("update {}, {}, {}", site, path, contentNode.getName());
         return updatedDocumentLocation;
@@ -35,5 +35,11 @@ public class DocumentUpdater {
         if (publish) {
             documentManager.publishDocument(location);
         }
+    }
+
+    static String localizedName(ContentNode contentNode) {
+        return contentNode.hasProperty("hippo:name")
+                ? contentNode.getProperty("hippo:name").getValue()
+                : contentNode.getName();
     }
 }

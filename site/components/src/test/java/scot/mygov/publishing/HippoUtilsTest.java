@@ -35,7 +35,7 @@ public class HippoUtilsTest {
         when(handle.getNodes("name")).thenReturn(nodeIterator);
 
         // ACT
-        Node actual = HippoUtils.getPublishedVariant(handle);
+        Node actual = new HippoUtils().getPublishedVariant(handle);
 
         // ASSERT
         assertSame(actual, publishedNode);
@@ -53,7 +53,7 @@ public class HippoUtilsTest {
         when(handle.getNodes("name")).thenReturn(nodeIterator);
 
         // ACT
-        Node actual = HippoUtils.getPublishedVariant(handle);
+        Node actual = new HippoUtils().getPublishedVariant(handle);
 
         // ASSERT
         assertNull(actual);

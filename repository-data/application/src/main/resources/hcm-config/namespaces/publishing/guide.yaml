@@ -11,11 +11,36 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: b1c07844-eca2-473c-aa9b-881cb4672727
+          jcr:uuid: a040a930-24fb-488d-aa0e-fd81fba547ae
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /slug:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:slug
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required, slug-validator]
+          /audiences:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:audience
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+          /serviceproviders:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:serviceproviders
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -29,7 +54,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable', 'hippotaxonomy:classifiable']
-          jcr:uuid: 4bc04ae8-2404-44bd-876c-a727dd945cf3
+          jcr:uuid: 4baebf27-9cb5-409b-b46c-92c9b56f8641
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -39,6 +64,8 @@ definitions:
           publishing:pinned: false
           publishing:slug: ''
           publishing:sensitive: false
+          publishing:audience: ''
+          publishing:serviceproviders: []
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -198,3 +225,28 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               taxonomy.name: user needs
+          /audience:
+            jcr:primaryType: frontend:plugin
+            caption: Audience
+            field: audiences
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              source: /content/documents/publishing/valuelists/audiences
+          /serviceproviders:
+            jcr:primaryType: frontend:plugin
+            caption: serviceproviders
+            field: serviceproviders
+            multiselect.type: palette
+            palette.alloworder: true
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/publishing/valuelists/serviceproviders

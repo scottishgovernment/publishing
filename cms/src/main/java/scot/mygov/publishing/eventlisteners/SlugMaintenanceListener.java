@@ -4,6 +4,7 @@ import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.onehippo.repository.events.HippoWorkflowEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.mygov.publishing.HippoUtils;
 
 import javax.jcr.*;
 
@@ -23,6 +24,8 @@ public class SlugMaintenanceListener {
     Session session;
 
     SlugLookups slugLookups;
+
+    HippoUtils hippoUtils = new HippoUtils();
 
     public SlugMaintenanceListener(Session session) {
         this.session = session;
@@ -44,8 +47,7 @@ public class SlugMaintenanceListener {
     void doHandleEvent(HippoWorkflowEvent event) throws RepositoryException {
         Node subject = session.getNode(event.subjectPath());
 
-        // categories do not use the slug lookups.
-        if (isCategory(subject)) {
+        if (!requiresSlug(subject)) {
             return;
         }
 
@@ -70,11 +72,14 @@ public class SlugMaintenanceListener {
         }
     }
 
+    boolean requiresSlug(Node subject) throws RepositoryException {
+        if (!subject.hasNode(subject.getName())) {
+            return false;
+        }
 
-    boolean isCategory(Node subject) throws RepositoryException {
-        return
-                subject.hasNode("index") &&
-                subject.getNode("index").isNodeType("publishing:category");
+        Node variant = subject.getNode(subject.getName());
+        return hippoUtils.isOneOfNodeTypes(variant, "publishing:article", "publishing:guide");
     }
+
 
 }

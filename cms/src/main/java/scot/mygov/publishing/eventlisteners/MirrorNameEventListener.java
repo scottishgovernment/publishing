@@ -25,6 +25,8 @@ public class MirrorNameEventListener {
 
     Session session;
 
+    HippoUtils hippoUtils = new HippoUtils();
+
     MirrorNameEventListener(Session session) {
         this.session = session;
     }
@@ -54,12 +56,12 @@ public class MirrorNameEventListener {
     }
 
     Node getPublishedOrDraftVariant(Node handle) throws RepositoryException {
-        Node published = HippoUtils.getPublishedVariant(handle);
+        Node published = hippoUtils.getPublishedVariant(handle);
         if (published != null) {
             return published;
         }
 
-        return HippoUtils.getDraftVariant(handle);
+        return hippoUtils.getDraftVariant(handle);
     }
 
     boolean isSuccessfulPublish(HippoWorkflowEvent event) {
@@ -70,7 +72,7 @@ public class MirrorNameEventListener {
         String title = getMirrorTitle(publishedNode);
         String newName = String.format("Mirror: '%s'", title);
         Node handle = publishedNode.getParent();
-        HippoUtils.ensureHasMixin(handle, "hippo:named");
+        hippoUtils.ensureHasMixin(handle, "hippo:named");
         handle.setProperty("hippo:name", newName);
         LOG.info("mirror name for {} is now {}", publishedNode.getPath(), newName);
         session.save();
@@ -79,7 +81,7 @@ public class MirrorNameEventListener {
     String getMirrorTitle(Node mirror) throws RepositoryException {
         String documentId = mirror.getNode("publishing:document").getProperty("hippo:docbase").getString();
         Node mirroredHandle = session.getNodeByIdentifier(documentId);
-        Node draft = HippoUtils.getVariantWithState(mirroredHandle, HippoStdNodeType.DRAFT);
+        Node draft = hippoUtils.getVariantWithState(mirroredHandle, HippoStdNodeType.DRAFT);
         return draft.getProperty("publishing:title").getString();
     }
 

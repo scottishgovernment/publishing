@@ -59,22 +59,7 @@ public class SlugValidatorTest {
 
         // ASSERT
         assertTrue(violation.isPresent());
-        assertEquals(((ViolationImpl) violation.get()).getSubkey(), "slug-invalid-chars");
-    }
-
-    @Test
-    public void ignoresCategorySlugs() throws RepositoryException {
-        // ARRANGE
-        SlugValidator sut = new SlugValidator();
-        ValidationContext context = validationContext("publishing:category");
-        sut.urlValidationUtils = validationUtils();
-        when(sut.urlValidationUtils.containsInvalidCharacters(any())).thenReturn(true);
-
-        // ACT
-        Optional<Violation> violation = sut.validate(context, "slug");
-
-        // ASSERT
-        assertFalse(violation.isPresent());
+        assertEquals("slug-invalid-chars", ((ViolationImpl) violation.get()).getSubkey());
     }
 
     @Test
@@ -91,7 +76,7 @@ public class SlugValidatorTest {
         // ASSERT
         assertTrue(violationOptional.isPresent());
         ViolationImpl violation = ((ViolationImpl) violationOptional.get());
-        assertEquals(violation.getSubkey(), "slug-clash");
+        assertEquals("slug-clash", violation.getSubkey());
         assertEquals(violation.getParameters(), singletonMap("clash", "clash"));
     }
 
@@ -109,7 +94,7 @@ public class SlugValidatorTest {
         // ASSERT
         assertTrue(violationOptional.isPresent());
         ViolationImpl violation = ((ViolationImpl) violationOptional.get());
-        assertEquals(violation.getSubkey(), "slug-alias-clash");
+        assertEquals("slug-alias-clash", violation.getSubkey());
         assertEquals(violation.getParameters(), singletonMap("clash", "clash"));
     }
 

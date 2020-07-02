@@ -7,6 +7,8 @@
 
 [publishing:ImageCard] > hippogallery:imageset, hippogallery:relaxed
 
+[publishing:ImageDefault] > hippogallery:imageset, hippogallery:relaxed
+
 [publishing:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
 
@@ -37,6 +39,18 @@
 [publishing:mirror] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:organisation] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
+[publishing:organisationlist] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:orginisation] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
 [publishing:relateditems] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:sector] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 

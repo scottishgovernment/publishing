@@ -4,22 +4,21 @@ import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.util.JcrUtils;
 
 import javax.jcr.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class HippoUtils {
 
-    private HippoUtils() {
-        // utility class - prevent instantiation
-    }
-
-    public static Node getPublishedVariant(Node handle) throws RepositoryException {
+    public Node getPublishedVariant(Node handle) throws RepositoryException {
         return getVariantWithState(handle, HippoStdNodeType.PUBLISHED);
     }
 
-    public static Node getDraftVariant(Node handle) throws RepositoryException {
+    public Node getDraftVariant(Node handle) throws RepositoryException {
         return getVariantWithState(handle, HippoStdNodeType.DRAFT);
     }
 
-    public static Node getVariantWithState(Node handle, String state) throws RepositoryException {
+    public Node getVariantWithState(Node handle, String state) throws RepositoryException {
         String name = handle.getName();
         NodeIterator iterator = handle.getNodes(name);
 
@@ -33,10 +32,21 @@ public class HippoUtils {
         return null;
     }
 
-    public static void ensureHasMixin(Node node, String mixin) throws RepositoryException {
+    public void ensureHasMixin(Node node, String mixin) throws RepositoryException {
         if (!node.isNodeType(mixin)) {
             node.addMixin(mixin);
         }
+    }
+
+    public boolean isOneOfNodeTypes(Node node, String ...nodeTypes) throws RepositoryException {
+        Set<String> nodeTypesSet = new HashSet<>();
+        Collections.addAll(nodeTypesSet, nodeTypes);
+        for (String type : nodeTypesSet) {
+            if (node.isNodeType(type)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

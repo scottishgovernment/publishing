@@ -31,7 +31,7 @@ public class CategoryComponent extends EssentialsContentComponent {
 
     static {
         // node names that should not be included on the home page
-        Collections.addAll(EXCLUDED_FOLDERS, "administration", "site-furniture");
+        Collections.addAll(EXCLUDED_FOLDERS, "administration", "site-furniture", "orphans", "unassigned", "organisations");
     }
 
     @Override
@@ -108,7 +108,7 @@ public class CategoryComponent extends EssentialsContentComponent {
     }
 
     /**
-     * Map the bean to use for this lint.  If it is a fodler then return the index file, otherwise just use this bean.
+     * Map the bean to use for this bean.  If it is a folder then return the index file, otherwise just use this bean.
      */
     static HippoBean mapFolder(HippoBean bean) {
         return bean.isHippoFolderBean() ? indexBean(bean) : bean;

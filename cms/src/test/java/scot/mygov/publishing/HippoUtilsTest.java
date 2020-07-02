@@ -1,6 +1,7 @@
 package scot.mygov.publishing;
 
 import org.hippoecm.repository.HippoStdNodeType;
+import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 import scot.mygov.publishing.test.TestUtil;
@@ -10,12 +11,9 @@ import javax.jcr.NodeIterator;
 import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertSame;
+import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -37,7 +35,7 @@ public class HippoUtilsTest {
         when(handle.getNodes("name")).thenReturn(nodeIterator);
 
         // ACT
-        Node actual = HippoUtils.getPublishedVariant(handle);
+        Node actual = new HippoUtils().getPublishedVariant(handle);
 
         // ASSERT
         assertSame(actual, publishedNode);
@@ -55,7 +53,7 @@ public class HippoUtilsTest {
         when(handle.getNodes("name")).thenReturn(nodeIterator);
 
         // ACT
-        Node actual = HippoUtils.getPublishedVariant(handle);
+        Node actual = new HippoUtils().getPublishedVariant(handle);
 
         // ASSERT
         assertNull(actual);
@@ -69,7 +67,7 @@ public class HippoUtilsTest {
         when(node.isNodeType(any())).thenReturn(false);
 
         // ACT
-        HippoUtils.ensureHasMixin(node, "mixin");
+        new HippoUtils().ensureHasMixin(node, "mixin");
 
         // ASSERT
         verify(node, Mockito.times(1)).addMixin("mixin");
@@ -82,10 +80,39 @@ public class HippoUtilsTest {
         when(node.isNodeType(any())).thenReturn(true);
 
         // ACT
-        HippoUtils.ensureHasMixin(node, "mixin");
+        new HippoUtils().ensureHasMixin(node, "mixin");
 
         // ASSERT
         verify(node, never()).addMixin(any());
+    }
+
+    @Test
+    public void isOneOfNodeTypesReturnfFalsIfNotOneOfSpecifiedTypes() throws RepositoryException {
+
+        // ARRANGE
+        Node node = mock(Node.class);
+        when(node.isNodeType(any())).thenReturn(false);
+
+        // ACT
+        boolean actual = new HippoUtils().isOneOfNodeTypes(node, "type1", "type2");
+
+        // ASSERT
+        assertFalse(actual);
+    }
+
+    @Test
+    public void isOneOfNodeTypesReturnfTrueIfOneOfSpecifiedTypes() throws RepositoryException {
+
+        // ARRANGE
+        Node node = mock(Node.class);
+        when(node.isNodeType(eq("type1"))).thenReturn(false);
+        when(node.isNodeType(eq("type2"))).thenReturn(true);
+
+        // ACT
+        boolean actual = new HippoUtils().isOneOfNodeTypes(node, "type1", "type2");
+
+        // ASSERT
+        assertTrue(actual);
     }
 
     Node unpublishedNode() throws RepositoryException {
@@ -103,4 +130,6 @@ public class HippoUtilsTest {
         when(node.getProperty(HippoStdNodeType.HIPPOSTD_STATE)).thenReturn(stateProperty);
         return node;
     }
+
+
 }

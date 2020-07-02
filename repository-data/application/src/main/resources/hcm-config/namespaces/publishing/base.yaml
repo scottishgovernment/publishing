@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f7482827-f298-475a-97a5-2127a2ee8ec4
+          jcr:uuid: 6564d8ff-13cd-4e2a-97c2-e141cc0bb21d
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated', 'hippostd:taggable']
@@ -93,15 +93,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
             hipposysedit:validators: [optional]
-          /slug:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:slug
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [slug-validator]
           /urlAliases:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -119,6 +110,22 @@ definitions:
             hipposysedit:path: publishing:sensitive
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /audiences:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:audience
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+          /serviceproviders:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:serviceproviders
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -132,7 +139,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
           publishing:summary: ''
           publishing:title: ''
-          jcr:uuid: 26574829-58a8-4c9b-903f-502e336ae051
+          jcr:uuid: dab09335-9611-4410-a4f9-dc76fa086c36
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:07.551+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:07.552+01:00
           publishing:seoTitle: ''
@@ -140,9 +147,10 @@ definitions:
           publishing:metaDescription: ''
           publishing:reportingtags: []
           publishing:pinned: false
-          publishing:slug: ''
           publishing:urlAliases: ['']
           publishing:sensitive: false
+          publishing:audience: ''
+          publishing:serviceproviders: []
           /publishing:relateditems:
             jcr:primaryType: publishing:relateditems
             publishing:title: ''
@@ -283,14 +291,6 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /slug:
-            jcr:primaryType: frontend:plugin
-            caption: Slug
-            field: slug
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /urlAliases:
             jcr:primaryType: frontend:plugin
             caption: URL Aliases
@@ -301,3 +301,28 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /audience:
+            jcr:primaryType: frontend:plugin
+            caption: Audience
+            field: audiences
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              source: /content/documents/publishing/valuelists/audiences
+          /serviceproviders:
+            jcr:primaryType: frontend:plugin
+            caption: Service providers
+            field: serviceproviders
+            multiselect.type: palette
+            palette.alloworder: true
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/publishing/valuelists/serviceproviders

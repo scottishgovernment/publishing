@@ -22,88 +22,98 @@ definitions:
             jcr:primaryType: hst:sitemapitem
             hst:relativecontentpath: ${1}
             hst:sitemapitemhandlerids: [trailing-slash]
-            hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage']
-            hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage']
+            hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
+              'hst:pages/organisation']
+            hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
+              'publishing:organisation']
             /_index_:
               jcr:primaryType: hst:sitemapitem
               hst:relativecontentpath: ${parent}/index
               hst:sitemapitemhandlerids: [trailing-slash]
-              hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide']
-              hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide']
+              hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
+                'hst:pages/organisationlist']
+              hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
+                'publishing:organisationlist']
             /_default_:
               jcr:primaryType: hst:sitemapitem
               hst:relativecontentpath: ${parent}/${2}
               hst:sitemapitemhandlerids: [trailing-slash]
-              hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage']
-              hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage']
+              hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
+                'hst:pages/organisation']
+              hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
+                'publishing:organisation']
               /_default_:
                 jcr:primaryType: hst:sitemapitem
                 hst:relativecontentpath: ${parent}/${3}
                 hst:sitemapitemhandlerids: [trailing-slash]
-                hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage']
-                hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage']
+                hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
+                  'hst:pages/organisation']
+                hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
+                  'publishing:organisation']
                 /_default_:
                   jcr:primaryType: hst:sitemapitem
                   hst:relativecontentpath: ${parent}/${4}
                   hst:sitemapitemhandlerids: [trailing-slash]
-                  hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage']
-                  hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage']
+                  hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
+                    'hst:pages/organisation']
+                  hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
+                    'publishing:organisation']
                   /_default_:
                     jcr:primaryType: hst:sitemapitem
                     hst:relativecontentpath: ${parent}/${5}
                     hst:sitemapitemhandlerids: [trailing-slash]
                     hst:componentconfigurationmappingvalues: ['hst:pages/article',
-                      'hst:pages/guidepage']
+                      'hst:pages/guidepage', 'hst:pages/organisationpage']
                     hst:componentconfigurationmappingnames: ['publishing:article',
-                      'publishing:guidepage']
+                      'publishing:guidepage', 'publishing:organisation']
                     /_default_:
                       jcr:primaryType: hst:sitemapitem
                       hst:relativecontentpath: ${parent}/${6}
                       hst:sitemapitemhandlerids: [trailing-slash]
                       hst:componentconfigurationmappingvalues: ['hst:pages/article',
-                        'hst:pages/guidepage']
+                        'hst:pages/guidepage', 'hst:pages/organisationpage']
                       hst:componentconfigurationmappingnames: ['publishing:article',
-                        'publishing:guidepage']
+                        'publishing:guidepage', 'publishing:organisation']
                       /_default_:
                         jcr:primaryType: hst:sitemapitem
                         hst:relativecontentpath: ${parent}/${7}
                         hst:sitemapitemhandlerids: [trailing-slash]
                         hst:componentconfigurationmappingvalues: ['hst:pages/article',
-                          'hst:pages/guidepage']
+                          'hst:pages/guidepage', 'hst:pages/organisationpage']
                         hst:componentconfigurationmappingnames: ['publishing:article',
-                          'publishing:guidepage']
+                          'publishing:guidepage', 'publishing:organisation']
                         /_default_:
                           jcr:primaryType: hst:sitemapitem
                           hst:relativecontentpath: ${parent}/${8}
                           hst:sitemapitemhandlerids: [trailing-slash]
                           hst:componentconfigurationmappingvalues: ['hst:pages/article',
-                            'hst:pages/guidepage']
+                            'hst:pages/guidepage', 'hst:pages/organisationpage']
                           hst:componentconfigurationmappingnames: ['publishing:article',
-                            'publishing:guidepage']
+                            'publishing:guidepage', 'publishing:organisation']
                           /_default_:
                             jcr:primaryType: hst:sitemapitem
                             hst:relativecontentpath: ${parent}/${9}
                             hst:sitemapitemhandlerids: [trailing-slash]
                             hst:componentconfigurationmappingvalues: ['hst:pages/article',
-                              'hst:pages/guidepage']
+                              'hst:pages/guidepage', 'hst:pages/organisationpage']
                             hst:componentconfigurationmappingnames: ['publishing:article',
-                              'publishing:guidepage']
+                              'publishing:guidepage', 'publishing:organisation']
                             /_default_:
                               jcr:primaryType: hst:sitemapitem
                               hst:relativecontentpath: ${parent}/${10}
                               hst:sitemapitemhandlerids: [trailing-slash]
                               hst:componentconfigurationmappingvalues: ['hst:pages/article',
-                                'hst:pages/guidepage']
+                                'hst:pages/guidepage', 'hst:pages/organisationpage']
                               hst:componentconfigurationmappingnames: ['publishing:article',
-                                'publishing:guidepage']
+                                'publishing:guidepage', 'publishing:organisation']
                               /_default_:
                                 jcr:primaryType: hst:sitemapitem
                                 hst:relativecontentpath: ${parent}/${11}
                                 hst:sitemapitemhandlerids: [trailing-slash]
                                 hst:componentconfigurationmappingvalues: ['hst:pages/article',
-                                  'hst:pages/guidepage']
+                                  'hst:pages/guidepage', 'hst:pages/organisationpage']
                                 hst:componentconfigurationmappingnames: ['publishing:article',
-                                  'publishing:guidepage']
+                                  'publishing:guidepage', 'publishing:organisation']
                                 /_index_:
                                   jcr:primaryType: hst:sitemapitem
                                   hst:relativecontentpath: ${parent}/index
@@ -266,6 +276,12 @@ definitions:
           /guide-main:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/guide-main.ftl
+          /organisation-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/organisation-main.ftl
+          /organisationlist-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/organisationlist-main.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

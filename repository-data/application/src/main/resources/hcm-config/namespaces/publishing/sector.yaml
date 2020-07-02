@@ -1,0 +1,99 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/sector:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 2c15599b-dfa0-45f4-89cc-bf07e5c589c7
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 7d51b568-ab67-4f80-8af8-ac7196c60778
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: 9f160c2d-0813-4d2c-9407-5e273ac9d838
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /description:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:description
+            hipposysedit:primary: false
+            hipposysedit:type: Html
+          /sector:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:sector
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+          /title:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:sector
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes: ['mix:referenceable']
+          publishing:description: ''
+          jcr:uuid: b59d18bd-5673-43ea-8ad7-7c28c4d8a844
+          hippostdpubwf:lastModificationDate: 2020-07-01T09:21:10.139+01:00
+          hippostdpubwf:creationDate: 2020-07-01T09:21:10.139+01:00
+          publishing:sector: ''
+          publishing:title: ''
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /title:
+            jcr:primaryType: frontend:plugin
+            caption: Title
+            field: title
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /sector:
+            jcr:primaryType: frontend:plugin
+            caption: Sector
+            field: sector
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              source: /content/documents/publishing/valuelists/sectors
+          /description:
+            jcr:primaryType: frontend:plugin
+            caption: Description
+            field: description
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

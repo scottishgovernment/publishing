@@ -4,8 +4,13 @@ import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.mygov.publishing.HippoUtils;
 
 import javax.jcr.*;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
 
@@ -32,10 +37,16 @@ public class AddEventListener {
 
     private static final String NEW_MIRROR = "new-publishing-mirror";
 
+    Set<String> orgFormats = new HashSet<>();
+
     Session session;
 
+    HippoUtils hippoUtils = new HippoUtils();
+
     AddEventListener(Session session) {
+
         this.session = session;
+        Collections.addAll(orgFormats, "publishing:organisation", "publishing:organisationlist");
     }
 
     @Subscribe
@@ -57,7 +68,13 @@ public class AddEventListener {
 
         Node node = session.getNode(event.result());
 
-        if (isContent(node)) {
+        // during the migration we will see the organisation list etc get created here.
+        // we do not want to take any avtion for these.
+        if (hippoUtils.isOneOfNodeTypes(node, "publishing:organisation", "publishing:organisationlist")) {
+            return;
+        }
+
+        if (isArticle(node)) {
             node.setProperty("publishing:slug", node.getName());
             session.save();
             return;
@@ -131,8 +148,8 @@ public class AddEventListener {
         return node.isNodeType("hippostd:folder");
     }
 
-    boolean isContent(Node node) throws RepositoryException {
-        return node.isNodeType("publishing:base");
+    boolean isArticle(Node node) throws RepositoryException {
+        return node.isNodeType("publishing:article");
     }
 
     boolean isUnder(Node node, String path) throws RepositoryException {

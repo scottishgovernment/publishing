@@ -30,6 +30,8 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
 
     private static final Logger LOG = LoggerFactory.getLogger(GoogleTagManagerComponent.class);
 
+    private HippoUtils hippoUtils = new HippoUtils();
+
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
@@ -121,7 +123,7 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
         }
 
         Node gtmHandle = session.getNode(path);
-        Node gtmNode = HippoUtils.getPublishedVariant(gtmHandle);
+        Node gtmNode = hippoUtils.getPublishedVariant(gtmHandle);
         if (gtmNode == null) {
             LOG.info("No published gtm document for path: {}", path);
         }

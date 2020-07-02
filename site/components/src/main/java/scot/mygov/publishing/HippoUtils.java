@@ -1,33 +1,40 @@
 package scot.mygov.publishing;
 
-import org.hippoecm.repository.HippoStdNodeType;
+import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.repository.util.JcrUtils;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 
+import static org.hippoecm.repository.HippoStdNodeType.*;
+
 public class HippoUtils {
 
-    private HippoUtils() {
-        // utility class - prevent instantiation
+    public Node getPublishedVariant(Node handle) throws RepositoryException {
+        return getVariantWithState(handle, PUBLISHED);
     }
 
-    public static Node getPublishedVariant(Node handle) throws RepositoryException {
-        return getVariantWithState(handle, HippoStdNodeType.PUBLISHED);
-    }
-
-    public static Node getVariantWithState(Node handle, String state) throws RepositoryException {
+    public Node getVariantWithState(Node handle, String state) throws RepositoryException {
         String name = handle.getName();
         NodeIterator iterator = handle.getNodes(name);
 
         while (iterator.hasNext()) {
             Node variant = iterator.nextNode();
-            String variantState = JcrUtils.getStringProperty(variant, HippoStdNodeType.HIPPOSTD_STATE, null);
+            String variantState = JcrUtils.getStringProperty(variant, HIPPOSTD_STATE, null);
             if (variantState.equals(state)) {
                 return variant;
             }
         }
         return null;
     }
+
+    /**
+     * Have factored this into a non static method for the purposes of mocking in unit tests.
+     */
+    public HstQueryBuilder createQuery(HippoBean scope) {
+        return HstQueryBuilder.create(scope);
+    }
+
 }

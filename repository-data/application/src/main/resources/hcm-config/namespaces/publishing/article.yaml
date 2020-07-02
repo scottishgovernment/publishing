@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 1c882d38-fcca-4ed7-bc31-0cd1991b140f
+          jcr:uuid: f8d33b09-35f5-4514-87d7-4dc1178b8ba3
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -34,6 +34,22 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required, slug-validator]
+          /audiences:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:audience
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+          /serviceproviders:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:serviceproviders
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -47,7 +63,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable', 'hippotaxonomy:classifiable']
-          jcr:uuid: 0b4f21d2-ff97-4dfa-aeeb-37b2f28e5732
+          jcr:uuid: cf55f3a1-d3c7-449a-9268-5ff053d25326
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -57,6 +73,8 @@ definitions:
           publishing:pinned: false
           publishing:slug: ''
           publishing:sensitive: false
+          publishing:audience: ''
+          publishing:serviceproviders: []
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -230,3 +248,27 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               taxonomy.name: user needs
+          /audience:
+            jcr:primaryType: frontend:plugin
+            caption: Audience
+            field: audiences
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              source: /content/documents/publishing/valuelists/audiences
+          /serviceproviders:
+            jcr:primaryType: frontend:plugin
+            caption: Service providers
+            field: serviceproviders
+            multiselect.type: palette
+            palette.alloworder: true
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/publishing/valuelists/serviceproviders
