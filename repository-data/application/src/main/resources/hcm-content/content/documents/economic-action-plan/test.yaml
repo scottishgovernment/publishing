@@ -1,0 +1,34 @@
+/content/documents/economic-action-plan/test:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['mix:referenceable']
+  jcr:uuid: 993e75a5-2bb8-48b6-8769-24f0fe45c612
+  /test:
+    jcr:primaryType: publishing:article
+    jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:referenceable']
+    jcr:uuid: 02face9c-f1e6-4371-a2a4-dff5c5a87dbc
+    hippo:availability: []
+    hippostd:holder: admin
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2020-07-03T10:02:02.132+01:00
+    hippostdpubwf:lastModificationDate: 2020-07-03T10:02:02.132+01:00
+    hippostdpubwf:lastModifiedBy: admin
+    hippotranslation:id: 0428b1f8-79d6-45c9-997b-a60c436e3080
+    hippotranslation:locale: document-type-locale
+    publishing:audience: ''
+    publishing:authorNotes: ''
+    publishing:metaDescription: ''
+    publishing:pinned: false
+    publishing:reportingtags: []
+    publishing:sensitive: false
+    publishing:seoTitle: test
+    publishing:serviceproviders: []
+    publishing:slug: test
+    publishing:summary: ''
+    publishing:title: test
+    /publishing:content:
+      jcr:primaryType: hippostd:html
+      hippostd:content: ''
+    /publishing:contentOwner:
+      jcr:primaryType: hippo:mirror
+      hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
