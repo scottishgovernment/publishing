@@ -10,8 +10,22 @@ definitions:
     /hippo:configuration/hippo:domains/hippodocuments/editor:
       hipposys:groups: [admin, cmsadmin, editor]
     /hippo:configuration/hippo:domains/hippodocuments/author:
-      hipposys:groups: [useradmin]
+      hipposys:groups: [useradmin, author]
     /hippo:configuration/hippo:domains/hippodocuments/readonly:
       jcr:primaryType: hipposys:authrole
       hipposys:groups: [cmsadmin, useradmin]
       hipposys:role: readonly
+    /hippo:configuration/hippo:domains/hippodocuments/hippo-document/exclude-trading-nation-banners-folder:
+      jcr:primaryType: hipposys:facetrule
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:filter: false
+      hipposys:type: Reference
+      hipposys:value: /content/documents/trading-nation/site-furniture/banners
+    /hippo:configuration/hippo:domains/hippodocuments/hippo-document/exclude-eap-banners-folder:
+      jcr:primaryType: hipposys:facetrule
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:filter: false
+      hipposys:type: Reference
+      hipposys:value: /content/documents/economic-action-plan/site-furniture/banners
