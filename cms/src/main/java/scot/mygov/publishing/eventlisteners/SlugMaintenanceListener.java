@@ -78,7 +78,7 @@ public class SlugMaintenanceListener {
         }
 
         Node variant = subject.getNode(subject.getName());
-        return hippoUtils.isOneOfNodeTypes(variant, "publishing:article", "publishing:guide");
+        return hippoUtils.isOneOfNodeTypes(variant, "publishing:article", "publishing:guide", "publishing:guidepage");
     }
 
 
