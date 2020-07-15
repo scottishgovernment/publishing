@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4e86b50f-d615-4a3f-b784-9e2c286997d6
+          jcr:uuid: 4fe988fd-7ec7-4f15-ab5a-1c0b08ff98c9
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -48,12 +48,20 @@ definitions:
             hipposysedit:path: publishing:epilogue
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /showSummaries:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:showSummaries
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:home
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: a52a2cf9-97bf-4a30-8f97-f184eff4d33a
+          jcr:uuid: a0ce6896-a22c-45ed-ae3e-d6d0dd088a97
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -69,6 +77,7 @@ definitions:
           publishing:metaDescription: ''
           publishing:reportingtags: []
           publishing:navigationType: ''
+          publishing:showSummaries: false
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -130,6 +139,15 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/publishing/valuelists/navigationtypes
+          /showSummaries:
+            jcr:primaryType: frontend:plugin
+            caption: Show summaries?
+            field: showSummaries
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /summary:
             jcr:primaryType: frontend:plugin
             caption: Summary
