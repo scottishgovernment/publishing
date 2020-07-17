@@ -4,7 +4,7 @@ definitions:
         .meta:residual-child-node-category: content
         jcr:primaryType: hst:mount
         hst:mountpoint: /hst:publishing/hst:sites/mygov
-    /hst:hst/hst:hosts/lcl/scot/mygov/mygov:
+    /hst:hst/hst:hosts/lcl/scot/mygov/www:
         jcr:primaryType: hst:virtualhost
         /lcl:
           jcr:primaryType: hst:virtualhost
@@ -13,7 +13,7 @@ definitions:
             hst:mountpoint: /hst:publishing/hst:sites/mygov
             hst:schemeagnostic: true
             publishing:gtm: /content/documents/mygov/administration/analytics/dev
-    /hst:hst/hst:hosts/dev/scot/mygov/mygov:
+    /hst:hst/hst:hosts/dev/scot/mygov/www:
         jcr:primaryType: hst:virtualhost
         /dev:
           jcr:primaryType: hst:virtualhost
@@ -22,7 +22,7 @@ definitions:
             hst:mountpoint: /hst:publishing/hst:sites/mygov
             hst:schemeagnostic: true
             publishing:gtm: /content/documents/mygov/administration/analytics/dev
-    /hst:hst/hst:hosts/int/scot/mygov/mygov:
+    /hst:hst/hst:hosts/int/scot/mygov/www:
         jcr:primaryType: hst:virtualhost
         /int:
           jcr:primaryType: hst:virtualhost
@@ -31,7 +31,7 @@ definitions:
             hst:mountpoint: /hst:publishing/hst:sites/mygov
             hst:schemeagnostic: true
             publishing:gtm: /content/documents/mygov/administration/analytics/dev
-    /hst:hst/hst:hosts/exp/scot/mygov/mygov:
+    /hst:hst/hst:hosts/exp/scot/mygov/www:
         jcr:primaryType: hst:virtualhost
         /exp:
           jcr:primaryType: hst:virtualhost
@@ -40,7 +40,7 @@ definitions:
             hst:mountpoint: /hst:publishing/hst:sites/mygov
             hst:schemeagnostic: true
             publishing:gtm: /content/documents/mygov/administration/analytics/dev
-    /hst:hst/hst:hosts/uat/scot/mygov/mygov:
+    /hst:hst/hst:hosts/uat/scot/mygov/www:
         jcr:primaryType: hst:virtualhost
         /uat:
           jcr:primaryType: hst:virtualhost
@@ -49,7 +49,7 @@ definitions:
             hst:mountpoint: /hst:publishing/hst:sites/mygov
             hst:schemeagnostic: true
             publishing:gtm: /content/documents/mygov/administration/analytics/dev
-    /hst:hst/hst:hosts/per/scot/mygov/mygov:
+    /hst:hst/hst:hosts/per/scot/mygov/www:
         jcr:primaryType: hst:virtualhost
         /per:
           jcr:primaryType: hst:virtualhost
@@ -58,7 +58,7 @@ definitions:
             hst:mountpoint: /hst:publishing/hst:sites/mygov
             hst:schemeagnostic: true
             publishing:gtm: /content/documents/mygov/administration/analytics/dev
-    /hst:hst/hst:hosts/tst/scot/mygov/mygov:
+    /hst:hst/hst:hosts/tst/scot/mygov/www:
         jcr:primaryType: hst:virtualhost
         /tst:
           jcr:primaryType: hst:virtualhost
@@ -67,7 +67,7 @@ definitions:
             hst:mountpoint: /hst:publishing/hst:sites/mygov
             hst:schemeagnostic: true
             publishing:gtm: /content/documents/mygov/administration/analytics/dev
-    /hst:hst/hst:hosts/blu/scot/mygov/mygov:
+    /hst:hst/hst:hosts/blu/scot/mygov/www:
         jcr:primaryType: hst:virtualhost
         /blu:
           jcr:primaryType: hst:virtualhost
@@ -76,7 +76,7 @@ definitions:
             hst:mountpoint: /hst:publishing/hst:sites/mygov
             hst:schemeagnostic: true
             publishing:gtm: /content/documents/mygov/administration/analytics/live
-    /hst:hst/hst:hosts/grn/scot/mygov/mygov:
+    /hst:hst/hst:hosts/grn/scot/mygov/www:
         jcr:primaryType: hst:virtualhost
         /grn:
           jcr:primaryType: hst:virtualhost
@@ -85,7 +85,7 @@ definitions:
             hst:mountpoint: /hst:publishing/hst:sites/mygov
             hst:schemeagnostic: true
             publishing:gtm: /content/documents/mygov/administration/analytics/live
-    /hst:hst/hst:hosts/live/scot/mygov/mygov:
+    /hst:hst/hst:hosts/live/scot/mygov/www:
         jcr:primaryType: hst:virtualhost
         /live:
           jcr:primaryType: hst:virtualhost
@@ -94,7 +94,7 @@ definitions:
             hst:mountpoint: /hst:publishing/hst:sites/mygov
             hst:schemeagnostic: true
             publishing:gtm: /content/documents/mygov/administration/analytics/live
-    /hst:hst/hst:hosts/origin/scot/mygov/mygov:
+    /hst:hst/hst:hosts/origin/scot/mygov/www:
         jcr:primaryType: hst:virtualhost
         /origin:
           jcr:primaryType: hst:virtualhost
@@ -103,7 +103,7 @@ definitions:
             hst:mountpoint: /hst:publishing/hst:sites/mygov
             hst:schemeagnostic: true
             publishing:gtm: /content/documents/mygov/administration/analytics/live
-    /hst:hst/hst:hosts/production/scot/mygov/mygov:
+    /hst:hst/hst:hosts/production/scot/mygov/www:
         jcr:primaryType: hst:virtualhost
         /hst:root:
           jcr:primaryType: hst:mount
