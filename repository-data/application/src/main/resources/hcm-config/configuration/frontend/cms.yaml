@@ -4,8 +4,7 @@ definitions:
       plugin.class: scot.mygov.publishing.plugins.ExtendedEditorPlugin
     /hippo:configuration/hippo:frontend/cms/cms-static/root:
       wicket.skin: skin/cms-design-tweaks.css
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardTwoThreeFiveS:
-      .meta:order-before: publishing:cardTwoThreeFiveM
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardtwothreefives:
       jcr:primaryType: frontend:pluginconfig
       height: 310
       upscaling: true
@@ -13,8 +12,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardTwoThreeFiveM:
-      .meta:order-before: publishing:cardTwoThreeFiveL
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardtwothreefivem:
       jcr:primaryType: frontend:pluginconfig
       height: 150
       upscaling: true
@@ -22,8 +20,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardTwoThreeFiveL:
-      .meta:order-before: publishing:cardSixteenNineS
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardtwothreefivel:
       jcr:primaryType: frontend:pluginconfig
       height: 130
       upscaling: true
@@ -31,8 +28,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardTwoThreeFiveXl:
-      .meta:order-before: publishing:cardTwoThreeFiveSDbl
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardtwothreefivexl:
       jcr:primaryType: frontend:pluginconfig
       height: 158
       upscaling: true
@@ -40,8 +36,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardTwoThreeFiveSDbl:
-      .meta:order-before: publishing:cardTwoThreeFiveMDbl
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardtwothreefivesdbl:
       jcr:primaryType: frontend:pluginconfig
       height: 620
       upscaling: true
@@ -49,8 +44,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardTwoThreeFiveMDbl:
-      .meta:order-before: publishing:cardTwoThreeFiveLDbl
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardtwothreefivemdbl:
       jcr:primaryType: frontend:pluginconfig
       height: 300
       upscaling: true
@@ -58,8 +52,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardTwoThreeFiveLDbl:
-      .meta:order-before: publishing:cardSixteenNineS
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardtwothreefiveldbl:
       jcr:primaryType: frontend:pluginconfig
       height: 260
       upscaling: true
@@ -67,8 +60,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardTwoThreeFiveXlDbl:
-      .meta:order-before: publishing:cardSixteenNineS
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardtwothreefivexldbl:
       jcr:primaryType: frontend:pluginconfig
       height: 316
       upscaling: true
@@ -76,8 +68,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardSixteenNineS:
-      .meta:order-before: publishing:cardSixteenNineM
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardsixteennines:
       jcr:primaryType: frontend:pluginconfig
       height: 411
       upscaling: true
@@ -85,8 +76,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardSixteenNineM:
-      .meta:order-before: publishing:cardSixteenNineL
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardsixteenminem:
       jcr:primaryType: frontend:pluginconfig
       height: 198
       upscaling: true
@@ -94,7 +84,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardSixteenNineL:
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardaixteennineL:
       jcr:primaryType: frontend:pluginconfig
       height: 171
       upscaling: true
@@ -102,8 +92,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardSixteenNineXl:
-      .meta:order-before: publishing:cardSixteenNineSDbl
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardsixteenninexl:
       jcr:primaryType: frontend:pluginconfig
       height: 209
       upscaling: true
@@ -111,8 +100,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardSixteenNineSDbl:
-      .meta:order-before: publishing:cardSixteenNineMDbl
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardsixteenninesdbl:
       jcr:primaryType: frontend:pluginconfig
       height: 822
       upscaling: true
@@ -120,8 +108,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardSixteenNineMDbl:
-      .meta:order-before: publishing:cardSixteenNineLDbl
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardsixteenninemdbl:
       jcr:primaryType: frontend:pluginconfig
       height: 396
       upscaling: true
@@ -129,7 +116,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardSixteenNineLDbl:
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardsixteennineldbl:
       jcr:primaryType: frontend:pluginconfig
       height: 342
       upscaling: true
@@ -137,7 +124,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardSixteenNineXlDbl:
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardsixteenninexldbl:
       jcr:primaryType: frontend:pluginconfig
       height: 418
       upscaling: true
