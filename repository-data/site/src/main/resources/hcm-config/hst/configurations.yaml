@@ -267,6 +267,9 @@ definitions:
           /base-googletagmanager:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/gtm.ftl
+          /base-styling:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/styling.ftl
           /cookiepreferences-main:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/cookie-preferences-main.ftl

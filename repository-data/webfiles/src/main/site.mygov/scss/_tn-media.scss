@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    TRADING NATION MEDIA
+    placeholder until requirements for media sizing are better understood
+\*------------------------------------*/
+
+main {
+    img,
+    video,
+    audio {
+        max-width: 100%;
+    }
+}
+
+p > img {
+    display: block;
+}
