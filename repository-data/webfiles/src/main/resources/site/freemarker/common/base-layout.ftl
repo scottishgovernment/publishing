@@ -15,7 +15,7 @@
         <meta charset="UTF-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <@hst.headContributions categoryIncludes="styling"/>
+        <link rel="stylesheet" type="text/css" href="<@hst.webfile path="/assets/tradingnation/css/main.css"/>"/>
         <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900,400italic' rel='stylesheet' type='text/css'>
 
 

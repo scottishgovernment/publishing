@@ -27,42 +27,35 @@
 </div>
 
 <div class="category-lower">
-    <div class="ds_wrapper">
-        <#if document.prologue??>
+    <#if document.prologue??>
+        <div class="ds_wrapper">
             <@hst.html hippohtml=document.prologue/>
+        </div>
+    </#if>
+
+    <div class="ds_category-list-container">
+        <#if document.navigationType == "image-card">
+            <#include 'card-navigation--image.ftl'/>
         </#if>
 
+        <#if document.navigationType == "card">
+            <#include 'card-navigation.ftl'/>
+        </#if>
 
+        <#if document.navigationType == "grid">
+            <#include 'grid-navigation.ftl'/>
+        </#if>
 
-        <div class="ds_layout  ds_layout--category-list">
-            <#if document.navigationType == "list">
-            <div class="ds_layout__list">
-            <#else>
-            <div class="ds_layout__grid">
-            </#if>
-                <div class="ds_category-list-container">
-                    <#if document.navigationType == "image-card">
-                        <#include 'card-navigation--image.ftl'/>
-                    </#if>
-                    <#if document.navigationType == "card">
-                        <#include 'card-navigation.ftl'/>
-                    </#if>
-                    <#if document.navigationType == "grid">
-                        <#include 'grid-navigation.ftl'/>
-                    </#if>
-                    <#if document.navigationType == "list">
-                        <#include 'list-navigation.ftl'/>
-                    </#if>
-                </div>
-            </div>
-        </div>
-
-
-
-        <#if document.epilogue??>
-            <@hst.html hippohtml=document.epilogue/>
+        <#if document.navigationType == "list">
+            <#include 'list-navigation.ftl'/>
         </#if>
     </div>
+
+    <#if document.epilogue??>
+        <div class="ds_wrapper">
+            <@hst.html hippohtml=document.epilogue/>
+        </div>
+    </#if>
 </div>
 </#if>
 

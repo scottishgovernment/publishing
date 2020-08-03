@@ -9,20 +9,14 @@
   },
   "scripts": {
     "postshrinkwrap": "node_modules/.bin/sealant @scottish-government/mygov-assets",
-    "sass": "npm run sass_mygov; npm run sass_eap; npm run sass_tn",
-    "sass_mygov": "node_modules/.bin/node-sass ./src/main/mygov/scss/main.scss ./src/main/resources/site/assets/mygov/css/main.css --style compressed --cache-location target/.sass-cache",
-    "sass_eap": "node_modules/.bin/node-sass ./src/main/economicactionplan/scss/main.scss ./src/main/resources/site/assets/economicactionplan/css/main.css --style compressed --cache-location target/.sass-cache",
-    "sass_tn": "node_modules/.bin/node-sass ./src/main/tradingnation/scss/main.scss ./src/main/resources/site/assets/tradingnation/css/main.css --style compressed --cache-location target/.sass-cache",
+    "sass": "node_modules/.bin/node-sass ./src/main/site.tradingnation/scss/main.scss ./src/main/resources/site/assets/tradingnation/css/main.css --style compressed --cache-location target/.sass-cache",
     "svgsprite": "node svg-sprite",
-    "webpack": "npm run webpack_mygov; npm run webpack_eap; npm run webpack_tn",
-    "webpack_mygov": "node_modules/.bin/webpack --config ./src/main/mygov/webpack.config.js",
-    "webpack_eap": "node_modules/.bin/webpack --config ./src/main/economicactionplan/webpack.config.js",
-    "webpack_tn": "node_modules/.bin/webpack --config ./src/main/tradingnation/webpack.config.js"
+    "webpack": "node_modules/.bin/webpack --config ./src/main/site.tradingnation/webpack.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
-    "@scottish-government/pattern-library": "latest",
+    "@scottish-government/pattern-library": "0.0.x",
     "babel-loader": "^8.0.6",
     "node-sass": "^4.12.0",
     "sealant": "^0.1.1",
