@@ -288,6 +288,15 @@ definitions:
           /notification-banner:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/notification-banner.ftl
+          /mygov-siteheader:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/mygov/base-siteheader.ftl
+          /tradingnation-siteheader:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/trading-nation/base-siteheader.ftl
+          /economicactionplan-siteheader:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/economic-action-plan/base-siteheader.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
