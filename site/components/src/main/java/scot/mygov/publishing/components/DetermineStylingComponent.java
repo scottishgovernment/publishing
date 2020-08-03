@@ -13,7 +13,7 @@ public class DetermineStylingComponent extends BaseHstComponent {
 
     private static final Logger LOG = LoggerFactory.getLogger(DetermineStylingComponent.class);
 
-    public void doBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
+    public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
 
         try {
@@ -21,7 +21,14 @@ public class DetermineStylingComponent extends BaseHstComponent {
             WebsiteInfo info = mount.getChannelInfo();
 
             String style = info.getStyle();
-            String css = "/assets/" + style + "/css/main.css";
+            String css;
+
+            if (style.isEmpty()) {
+                // Fallback to compiled "default" CSS
+                css = "/assets/css/main.css";
+            } else {
+                css = "/assets/" + style + "/css/main.css";
+            }
 
             request.setAttribute("css", css);
         } catch (HstComponentException e) {
