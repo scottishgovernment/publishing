@@ -42,6 +42,9 @@
 [publishing:featureditem] > hippo:compound, hippostd:relaxed
   orderable
 
+[publishing:formbase] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
 [publishing:guide] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
@@ -68,4 +71,5 @@
 
 [publishing:sector] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
+
 
