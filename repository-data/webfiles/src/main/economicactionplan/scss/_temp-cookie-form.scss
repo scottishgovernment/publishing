@@ -1,0 +1,154 @@
+/*------------------------------------*\
+    COOKIE FORM
+    temporary styles taken from mygov.scot pending development of design system form styles
+\*------------------------------------*/
+input[type=radio].fancy-radio {
+  display: inline-block;
+  width: 1px;
+  /* having them 0px wide causes Safari to not tab through them */
+  font-size: 40px;
+  margin: 21px 0 0px 10px;
+}
+
+label.fancy-radio {
+  position: relative;
+  padding-left: 41px;
+  margin-top: 21px;
+  margin-left: 0px;
+}
+label.fancy-radio:first-of-type {
+  margin-top: 14px;
+}
+
+input.fancy-radio {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=00)";
+  position: absolute;
+}
+
+input + label.fancy-radio:before, label.fancy-radio:before {
+  background-color: #fff;
+  border: 3px solid $colour__grey--base;
+  border-radius: 50%;
+  content: "";
+  float: left;
+  font-size: 10px;
+  height: 28px;
+  left: 0;
+  line-height: 22px;
+  position: absolute;
+  text-align: center;
+  width: 28px;
+  box-sizing: border-box;
+}
+
+/* CHECKED STATE */
+input:checked + label.fancy-radio:before {
+  border-color: $colour__brand--primary;
+  color: $colour__brand--primary;
+  background-color: #fff;
+}
+
+input:checked + label.fancy-radio:after {
+  background: $colour__brand--primary;
+  border: 5px solid $colour__brand--primary;
+  border-radius: 50%;
+  content: "";
+  height: 0;
+  left: 9px;
+  position: absolute;
+  top: 9px;
+  width: 0;
+}
+
+/* FOCUS STATE */
+input:focus + label.fancy-radio:before {
+  border-color: $colour__black;
+  color: $colour__black;
+  background-color: $colour__gold--base;
+  border-width: 4px;
+  line-height: 20px;
+}
+
+input:focus + label.fancy-radio:after {
+    background: $colour__black;
+    border-color: $colour__black;
+}
+
+/* ERROR STATE */
+.input-error + label.fancy-radio:before {
+  border-color: $colour__red--base;
+  color: $colour__red--base;
+}
+
+
+.form-box fieldset {
+    border: 0;
+    margin: 0;
+}
+
+.form-box {
+	background-color: #f8f8f8;
+	box-sizing: border-box;
+	margin: 28px -15px;
+	padding: 35px 15px
+}
+
+.form-box:first-child {
+	margin-top: 0
+}
+
+@media (min-width: 768px) {
+	.form-box {
+		margin-left: 0;
+		margin-right: 0;
+		padding-left: 20px;
+		padding-right: 20px
+	}
+}
+
+.form-message {
+	background-color: #fff;
+	border: 7px solid #727272;
+	border-radius: 15px;
+	margin-bottom: 28px;
+	padding: 14px 15px 0px 15px;
+	position: relative
+}
+
+.form-message h2 {
+	margin: 5px 0 13px;
+	padding: 0
+}
+
+.form-message--success {
+	border-color: #4e9d52;
+	color: #4e9d52;
+	margin-bottom: 49px
+}
+
+.form-message--success h2 {
+	color: #4e9d52
+}
+
+.form-message--success p {
+	font-weight: 500;
+	color: #333
+}
+
+
+.form-group {
+    margin: 49px 0 28px;
+}
+
+label.fancy-radio {
+    margin-right: 25px;
+}
+
+.no-top-margin {
+    margin-top: 0;
+}
+
+.no-bottom-margin {
+    margin-bottom: 0;
+}

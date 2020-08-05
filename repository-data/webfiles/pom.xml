@@ -89,20 +89,50 @@
         <artifactId>libsass-maven-plugin</artifactId>
         <version>0.2.10-libsass_3.5.3</version>
         <executions>
+
           <execution>
-              <phase>generate-resources</phase>
-              <goals>
-                <goal>compile</goal>
-              </goals>
+            <id>mygov</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <inputPath>src/main/mygov/scss</inputPath>
+              <outputPath>src/main/resources/site/assets/mygov/css/</outputPath>
+              <outputStyle>compressed</outputStyle>
+              <generateSourceMap>false</generateSourceMap>
+            </configuration>
           </execution>
+
+          <execution>
+            <id>EAP</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <inputPath>src/main/economicactionplan/scss</inputPath>
+              <outputPath>src/main/resources/site/assets/economicactionplan/css/</outputPath>
+              <outputStyle>compressed</outputStyle>
+              <generateSourceMap>false</generateSourceMap>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>Trading Nation</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <inputPath>src/main/tradingnation/scss</inputPath>
+              <outputPath>src/main/resources/site/assets/tradingnation/css/</outputPath>
+              <outputStyle>compressed</outputStyle>
+              <generateSourceMap>false</generateSourceMap>
+            </configuration>
+          </execution>
+
         </executions>
-        <configuration>
-          <inputPath>src/main/site.tradingnation/scss</inputPath>
-          <outputPath>src/main/resources/site/assets/tradingnation/css/</outputPath>
-          <outputStyle>compressed</outputStyle>
-          <generateSourceMap>false</generateSourceMap>
-          <cacheLocation>target/.sass-cache</cacheLocation>
-        </configuration>
       </plugin>
 
     </plugins>

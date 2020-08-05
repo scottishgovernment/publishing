@@ -1,23 +1,23 @@
 definitions:
   config:
-    /hst:hst/hst:configurations/common/hst:abstractpages/base:
+    /hst:hst/hst:configurations/trading-nation/hst:abstractpages/base:
       jcr:primaryType: hst:component
-      hst:template: base-layout
       hst:componentclassname: scot.mygov.publishing.components.DetermineStylingComponent
+      hst:template: base-layout
       /notifications:
         jcr:primaryType: hst:component
-        hst:template: base-notifications
         hst:componentclassname: scot.mygov.publishing.components.NotificationBannersComponent
+        hst:template: base-notifications
       /siteheader:
         jcr:primaryType: hst:component
-        hst:template: base-siteheader
+        hst:template: tradingnation-siteheader
       /footer:
         jcr:primaryType: hst:component
-        hst:template: base-footer
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsListComponent
         hst:parameternames: [path]
         hst:parametervalues: [site-furniture/footer]
+        hst:template: base-footer
       /googletagmanager:
         jcr:primaryType: hst:component
-        hst:template: base-googletagmanager
         hst:componentclassname: scot.mygov.publishing.components.GoogleTagManagerComponent
+        hst:template: base-googletagmanager
