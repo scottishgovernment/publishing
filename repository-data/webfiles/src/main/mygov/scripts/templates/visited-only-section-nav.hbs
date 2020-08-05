@@ -1,0 +1,40 @@
+{{#unless hideSectionNav}}
+    <nav aria-label="sections in thie form" class="section-nav">
+        {{#groups}}
+            {{#unless hideFromSectionNav}}
+                    {{#unless current}}
+                    <div class="section-nav__group  section-nav__link group" style="padding: 0;">
+                    {{#unless hideFromGroupNav}}
+                        <a class="ds_no-margin  ds_button  ds_button--small  ds_button--secondary  ds_button--has-icon  {{#if iconLeft}}ds_button--has-icon--left{{/if}}" href="#!/group/{{slug}}/">
+                            {{#if iconLeft}}
+                                <svg class="ds_icon">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/images/icons/icons.stack.svg#chevron-left">
+                                </use></svg>
+                            {{/if}}
+                            {{title}}
+                            {{#unless iconLeft}}
+                                <svg class="ds_icon">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/images/icons/icons.stack.svg#chevron-right">
+                                </use></svg>
+                            {{/unless}}
+                        </a>
+                    {{/unless}}
+                    </div>
+                    {{/unless}}
+                    {{#if current}}
+                    <div class="section-nav__group  group">
+                        <ol class="section-nav__list">
+                            {{#each sections}}
+                                {{#unless hideFromSectionNav}}
+                                <li class="section-nav__list-item  {{#if current}}section-nav__list-item--active{{/if}}">
+                                    {{#if visited}}<a href="#!{{section}}/{{slug}}/" class="section-nav__item  js-validate-step  {{#if current}}section-nav__item--current{{/if}}">{{title}}</a>{{else}}<span class="section-nav__item section-nav__item--disabled">{{title}}</span>{{/if}}
+                                </li>
+                                {{/unless}}
+                            {{/each}}
+                        </ol>
+                    </div>
+                    {{/if}}
+            {{/unless}}
+        {{/groups}}
+    </nav>
+{{/unless}}

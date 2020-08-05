@@ -1,0 +1,452 @@
+<div class="ds_accordion" data-module="ds-accordion">
+    <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-property" aria-labelledby="panel-property-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-property-heading" class="ds_accordion-item__title">
+                Property
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-property"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-property">
+            <table class="summary-table">
+                <tbody>
+                    <tr>
+                        <th>Address</th>
+                        <td>
+                            <div class="hide-if-empty"><a href="#!/property/property-details/property-postcode-lookup/" class="summary__link  summary__user-input">{{propertyAddress}}</a></div>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/property/property-details/" class="edit">change</a></td>
+                    </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td>
+                            <a href="#!/property/property-details/property-building/" class="summary__link  summary__user-input">{{propertyType_text}}</a>
+
+                            {{#compare propertyType 'OTHER'}}
+                                {{#if buildingOther}}
+                                    (<a href="#!/property/property-details/building-other/" class="summary__link  summary__user-input">{{buildingOther}}</a>)
+                                {{/if}}
+                            {{/compare}}
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/property/property-details/" class="edit">change</a></td>
+                    </tr>
+                    <tr>
+                        <th>Facilities</th>
+
+                        <td>
+                            {{#if facilities}}
+                            <ul class="no-bullets">
+                                {{#each facilities}}
+                                <li>
+                                    <a href="#!/property/property-details/facilities-table/{{@index}}/name/" class="summary__link  summary__user-input">{{name}}</a>
+                                    (<a href="#!/property/property-details/facilities-table/{{@index}}/type/" class="summary__link  summary__user-input">{{type}}</a>)
+                                </li>
+                                {{/each}}
+                            </ul>
+                            {{else}}
+                                None
+                            {{/if}}
+                        </td>
+
+                        <td class="summary-table__edit"><a href="#!/property/property-details/" class="edit">change</a></td>
+                    </tr>
+                    <tr>
+                        <th>Furnishing</th>
+                        <td>
+                            <a href="#!/property/property-furnishings/furnishing-part/" class="summary__link  summary__user-input">{{furnishingType_text}}</a>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/property/property-furnished/" class="edit">change</a></td>
+                    </tr>
+                    <tr>
+                        <th>HMO</th>
+                        <td>
+                            {{#compare hmoProperty 'true'}}
+                                <dl class="summary-list">
+                                    <dt class="summary-list__label">Contact number</dt>
+                                    <dd>
+                                        <a href="#!/property/property-hmo/hmo-contact/" class="summary__link  summary__user-input">{{hmo24ContactNumber}}</a>
+                                    </dd>
+
+                                    <dt class="summary-list__label">Expiry date</dt>
+                                    <dd>
+                                        <a href="#!/property/property-hmo/hmo-expiry/" class="summary__link  summary__user-input">{{hmoRegistrationExpiryDate}}</a>
+                                    </dd>
+                                </dl>
+                            {{/compare}}
+
+                            {{#compare hmoProperty 'false'}}
+                                <a href="#!/property/property-hmo/property-hmo/" class="summary__link  summary__user-input">Property is not a HMO</a>
+                            {{/compare}}
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/property/property-hmo/" class="edit">change</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-tenancy" aria-labelledby="panel-tenancy-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-tenancy-heading" class="ds_accordion-item__title">
+                Tenancy
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-tenancy"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-tenancy">
+            <table class="summary-table">
+                <tbody>
+                    <tr>
+                        <th>Start date</th>
+                        <td>
+                            <a href="#!/tenancy/tenancy-start/tenancy-start-date/" class="summary__link  summary__user-input">{{tenancyStartDate}}</a>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/tenancy/tenancy-start/" class="edit">change</a></td>
+                    </tr>
+                    <tr>
+                        <th>Payment details </th>
+                        <td>
+                            <dl class="summary-list">
+                                {{#if rentAmount}}
+                                    <dt class="summary-list__label">Rent amount</dt>
+                                    <dd>
+                                        <a href="#!/tenancy/tenancy-payment/tenancy-rent-amount/" class="summary__link  summary__user-input">{{currency rentAmount}}</a>
+                                    </dd>
+                                {{/if}}
+
+                                {{#if rentPaymentFrequency}}
+                                    <dt class="summary-list__label">Payment frequency</dt>
+                                    <dd>
+                                        <a href="#!/tenancy/tenancy-payment/tenancy-payment-frequency/" class="summary__link  summary__user-input">{{rentPaymentFrequency_text}}</a>
+                                    </dd>
+                                {{/if}}
+
+                                {{#if rentPaymentScheduleObject}}
+                                    {{#if rentPaymentScheduleObject.week}}
+                                    <dt class="summary-list__label">Payment week</dt>
+                                    <dd>
+                                        <a href="#!/tenancy/tenancy-payment/tenancy-payment-frequency-week/" class="summary__link  summary__user-input">{{rentPaymentScheduleObject.week}}</a>
+                                    </dd>
+                                    {{/if}}
+                                    {{#if rentPaymentScheduleObject.day}}
+                                    <dt class="summary-list__label">Payment day</dt>
+                                    <dd>
+                                        <a href="#!/tenancy/tenancy-payment/tenancy-payment-frequency-day/" class="summary__link  summary__user-input">{{rentPaymentScheduleObject.day}}</a>
+                                    </dd>
+                                    {{/if}}
+                                    {{#if rentPaymentScheduleObject.date}}
+                                    <dt class="summary-list__label">Payment date</dt>
+                                    <dd>
+                                        <a href="#!/tenancy/tenancy-payment/tenancy-payment-frequency-date/" class="summary__link  summary__user-input">{{rentPaymentScheduleObject.date}}</a>
+                                    </dd>
+                                    {{/if}}
+                                {{/if}}
+
+                                {{#if rentPayableInAdvance}}
+                                    <dt class="summary-list__label">Advance/arrears</dt>
+                                    <dd>
+                                        <a href="#!/tenancy/tenancy-payment/payment-advance/" class="summary__link  summary__user-input">{{rentPayableInAdvance_text}}</a>
+                                    </dd>
+                                {{/if}}
+
+                                {{#if rentPaymentMethod}}
+                                    <dt class="summary-list__label">Payment method</dt>
+                                    <dd>
+                                        <a href="#!/tenancy/tenancy-payment/tenancy-payment-method/" class="summary__link  summary__user-input">{{rentPaymentMethod}}</a>
+                                    </dd>
+                                {{/if}}
+
+                                {{#if servicesIncludedInRent}}
+                                    <dt class="summary-list__label">Services</dt>
+                                    <dd>
+                                        <ul class="no-bullets">
+                                            {{#each servicesIncludedInRent}}
+                                                <li>
+                                                    <a href="#!/tenancy/tenancy-payment/services-table/{{@index}}/name/" class="summary__link  summary__user-input">{{name}}</a>
+                                                    (<a href="#!/tenancy/tenancy-payment/services-table/{{@index}}/value/" class="summary__link  summary__user-input">{{currency value}}</a>)
+                                                </li>
+                                            {{/each}}
+                                        </ul>
+                                    </dd>
+                                {{/if}}
+                            </dl>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/tenancy/tenancy-payment/" class="edit">change</a></td>
+                    </tr>
+                    <tr>
+                        <th>First payment</th>
+                        <td>
+                            <dl class="summary-list">
+                                {{#if firstPaymentAmount}}
+                                    <dt class="summary-list__label">Amount</dt>
+                                    <dd>
+                                        <a href="#!/tenancy/tenancy-first-payment/first-payment-amount/" class="summary__link  summary__user-input">{{currency firstPaymentAmount}}</a>
+                                    </dd>
+                                {{/if}}
+
+                                {{#if firstPaymentDate}}
+                                    <dt class="summary-list__label">Date</dt>
+                                    <dd>
+                                        <a href="#!/tenancy/tenancy-first-payment/first-payment-date/" class="summary__link  summary__user-input">{{firstPaymentDate}}</a>
+                                    </dd>
+                                {{/if}}
+
+                                {{#if firstPaymentPeriodEnd}}
+                                    <dt class="summary-list__label">End date</dt>
+                                    <dd>
+                                        <a href="#!/tenancy/tenancy-first-payment/first-payment-end-date/" class="summary__link  summary__user-input">{{firstPaymentPeriodEnd}}</a>
+                                    </dd>
+                                {{/if}}
+                            </dl>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/tenancy/tenancy-first-payment/" class="edit">change</a></td>
+                    </tr>
+                    <tr>
+                        <th>Deposit</th>
+                        <td>
+                            <dl class="summary-list">
+                                {{#if depositAmount}}
+                                    <dt class="summary-list__label">Amount</dt>
+                                    <dd>
+                                        <a href="#!/tenancy/tenancy-deposit/deposit-amount/" class="summary__link  summary__user-input">{{currency depositAmount}}</a>
+                                    </dd>
+                                {{/if}}
+
+                                {{#if tenancyDepositSchemeAdministrator}}
+                                    <dt class="summary-list__label">Scheme</dt>
+                                    <dd>
+                                        <a href="#!/tenancy/tenancy-deposit/deposit-scheme/" class="summary__link  summary__user-input">{{tenancyDepositSchemeAdministrator}}</a>
+                                    </dd>
+                                {{/if}}
+                            </dl>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/tenancy/tenancy-deposit/" class="edit">change</a></td>
+                    </tr>
+
+                    <tr>
+                        <th>Communication</th>
+                        <td>
+                            <a href="#!/tenancy/tenancy-communication-agreement/communication-email/" class="summary__link  summary__user-input">{{communicationsAgreement_text}}</a>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/tenancy/tenancy-communication-agreement/" class="edit">change</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-administration" aria-labelledby="panel-administration-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-administration-heading" class="ds_accordion-item__title">
+                Managing the property
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-administration"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-administration">
+            <table class="summary-table">
+
+                <tr>
+                    <th>Letting agent</th>
+                    <td>
+                        {{#compare hasLettingAgent 'letting-agent-yes'}}
+                            <dl class="summary-list">
+                                {{#with lettingAgent}}
+                                    <dt class="summary-list__label">Name</dt>
+                                    <dd><a href="#!/managing-the-property/letting-agent/letting-agent-name/" class="summary__link  summary__user-input">{{name}}</a></dd>
+
+                                    <dt class="summary-list__label">Address</dt>
+
+                                        <div class="hide-if-empty"><a href="#!/managing-the-property/letting-agent/letting-agent-address-building/" class="summary__link  summary__user-input">{{address.building}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/managing-the-property/letting-agent/letting-agent-address-street/" class="summary__link  summary__user-input">{{address.street}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/managing-the-property/letting-agent/letting-agent-address-town/" class="summary__link  summary__user-input">{{address.town}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/managing-the-property/letting-agent/letting-agent-address-region/" class="summary__link  summary__user-input">{{address.region}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/managing-the-property/letting-agent/letting-agent-postcode/" class="summary__link  summary__user-input">{{address.postcode}}</a></div>
+                                    </dd>
+
+                                    <dt class="summary-list__label">Email</dt>
+                                    <dd><a href="#!/managing-the-property/letting-agent/letting-agent-email/" class="summary__link  summary__user-input">{{email}}</a></dd>
+
+                                    <dt class="summary-list__label">Telephone</dt>
+                                    <dd><a href="#!/managing-the-property/letting-agent/letting-agent-telephone/" class="summary__link  summary__user-input">{{telephone}}</a></dd>
+
+                                    <dt class="summary-list__label">Registration number</dt>
+                                    <dd><a href="#!/managing-the-property/letting-agent/letting-agent-registration/" class="summary__link  summary__user-input">{{registrationNumber}}</a></dd>
+                                {{/with}}
+
+                                <dt>Services provided by the letting agent</dt>
+                                <dd>
+                                    {{#if servicesProvidedByLettingAgent}}
+                                        <ul class="no-bullets">
+                                            {{#servicesProvidedByLettingAgent}}
+                                                <li>
+                                                    <a href="#!/managing-the-property/letting-agent/letting-agent-services-table/{{@index}}/name/" class="summary__link  summary__user-input">{{name}}</a>
+                                                    {{#compare lettingAgentIsFirstContact 'YES'}}<a href="#!/managing-the-property/letting-agent/letting-agent-services-table/{{@index}}/lettingAgentIsFirstContact/" class="summary__link  summary__user-input">(first point of contact)</a>{{/compare}}
+                                                </li>
+                                            {{/servicesProvidedByLettingAgent}}
+                                        </ul>
+                                    {{else}}
+                                        None
+                                    {{/if}}
+                                </dd>
+
+                                <dt>Other services that the letting agent is the first point of contact for</dt>
+                                <dd>
+                                    {{#if servicesLettingAgentIsFirstContactFor}}
+                                        <ul class="no-bullets">
+                                            {{#servicesLettingAgentIsFirstContactFor}}
+                                                <li>
+                                                    <a href="#!/managing-the-property/letting-agent/letting-agent-other-services-table/{{@index}}/name/" class="summary__link  summary__user-input">{{name}}</a>
+                                                </li>
+                                            {{/servicesLettingAgentIsFirstContactFor}}
+                                        </ul>
+                                    {{else}}
+                                        None
+                                    {{/if}}
+                                </dd>
+                            </dl>
+
+                        {{/compare}}
+                        {{#compare hasLettingAgent 'letting-agent-no'}}
+                            <a href="#!/managing-the-property/letting-agent/letting-agent-query/" class="summary__link  summary__user-input">None</a>
+                        {{/compare}}
+                    </td>
+                    <td class="summary-table__edit"><a href="#!/managing-the-property/letting-agent/" class="edit">change</a></td>
+                </tr>
+
+                {{#unless landlords}}
+                    <tr>
+                        <th>Landlords</th>
+                        <td></td>
+                        <td class="summary-table__edit"><a href="#!/managing-the-property/landlord-1/" class="edit">change</a></td>
+                    </tr>
+                {{/unless}}
+
+
+                {{#each landlords}}
+                <tr>
+                    <th>Landlord {{add @index 1}}</th>
+                    <td>
+                        <dl class="summary-list">
+                            <dt class="summary-list__label">Name</dt>
+                            <dd>
+                                <a href="#!/managing-the-property/landlord-{{add @index 1}}/landlord-{{add @index 1}}-name/" class="summary__link  summary__user-input">{{name}}</a>
+                            </dd>
+
+                            <dt class="summary-list__label">Address</dt>
+                            <dd>
+                                <div class="hide-if-empty"><a href="#!/managing-the-property/landlord-{{add @index 1}}/landlord-{{add @index 1}}-address-building/" class="summary__link  summary__user-input">{{address.building}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/managing-the-property/landlord-{{add @index 1}}/landlord-{{add @index 1}}-address-street/" class="summary__link  summary__user-input">{{address.street}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/managing-the-property/landlord-{{add @index 1}}/landlord-{{add @index 1}}-address-town/" class="summary__link  summary__user-input">{{address.town}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/managing-the-property/landlord-{{add @index 1}}/landlord-{{add @index 1}}-address-region/" class="summary__link  summary__user-input">{{address.region}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/managing-the-property/landlord-{{add @index 1}}/landlord-{{add @index 1}}-postcode/" class="summary__link  summary__user-input">{{address.postcode}}</a></div>
+                            </dd>
+
+                            <dt class="summary-list__label">Email</dt>
+                            <dd>
+                                <a href="#!/managing-the-property/landlord-{{add @index 1}}/landlord-{{add @index 1}}-email/" class="summary__link  summary__user-input">{{email}}</a>
+                            </dd>
+
+                            <dt class="summary-list__label">Telephone</dt>
+                            <dd>
+                                <a href="#!/managing-the-property/landlord-{{add @index 1}}/landlord-{{add @index 1}}-telephone/" class="summary__link  summary__user-input">{{telephone}}</a>
+                            </dd>
+
+                            <dt class="summary-list__label">Registration number</dt>
+                            <dd>
+                                <a href="#!/managing-the-property/landlord-{{add @index 1}}/landlord-{{add @index 1}}-registration/" class="summary__link  summary__user-input">{{registrationNumber}}</a>
+                            </dd>
+                        </dl>
+                    </td>
+                    <td class="summary-table__edit"><a href="#!/managing-the-property/landlord-{{add @index 1}}/" class="edit">change</a></td>
+                </tr>
+                {{/each}}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-tenants" aria-labelledby="panel-tenants-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-tenants-heading" class="ds_accordion-item__title">
+                Tenants
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-tenants"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-tenants">
+            <table class="summary-table">
+
+                {{#unless tenants}}
+                    <tr>
+                        <th>Tenants</th>
+                        <td></td>
+                        <td class="summary-table__edit"><a href="#!/tenants/tenant-1/" class="edit">change</a></td>
+                    </tr>
+                {{/unless}}
+
+                {{#each tenants}}
+                <tr>
+                    <th>Tenant {{add @index 1}}</th>
+                    <td>
+                        <dl class="summary-list">
+                            <dt class="summary-list__label">Name</dt>
+                            <dd>
+                                <a href="#!/tenants/tenant-{{add @index 1}}/tenant-{{add @index 1}}-name/" class="summary__link  summary__user-input">{{name}}</a>
+                            </dd>
+
+                            <dt class="summary-list__label">Address</dt>
+                            <dd>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{add @index 1}}/tenant-{{add @index 1}}-address-building/" class="summary__link  summary__user-input">{{address.building}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{add @index 1}}/tenant-{{add @index 1}}-address-street/" class="summary__link  summary__user-input">{{address.street}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{add @index 1}}/tenant-{{add @index 1}}-address-town/" class="summary__link  summary__user-input">{{address.town}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{add @index 1}}/tenant-{{add @index 1}}-address-region/" class="summary__link  summary__user-input">{{address.region}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{add @index 1}}/tenant-{{add @index 1}}-postcode/" class="summary__link  summary__user-input">{{address.postcode}}</a></div>
+                            </dd>
+
+                            <dt class="summary-list__label">Email</dt>
+                            <dd>
+                                <a href="#!/tenants/tenant-{{add @index 1}}/tenant-{{add @index 1}}-email/" class="summary__link  summary__user-input">{{email}}</a>
+                            </dd>
+
+                            <dt class="summary-list__label">Telephone</dt>
+                            <dd>
+                                <a href="#!/tenants/tenant-{{add @index 1}}/tenant-{{add @index 1}}-telephone/" class="summary__link  summary__user-input">{{telephone}}</a>
+                            </dd>
+
+                            <dt class="summary-list__label">Guarantor</dt>
+                            {{#compare hasGuarantor 'guarantor-yes'}}
+                                {{#with guarantor}}
+                                    <dd>
+                                        <div class="hide-if-empty"><a href="#!/tenants/tenant-{{add @index 1}}/guarantor-{{add @index 1}}-name/" class="summary__link  summary__user-input">{{name}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/tenants/tenant-{{add @index 1}}/guarantor-{{add @index 1}}-address-building/" class="summary__link  summary__user-input">{{address.building}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/tenants/tenant-{{add @index 1}}/guarantor-{{add @index 1}}-address-street/" class="summary__link  summary__user-input">{{address.street}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/tenants/tenant-{{add @index 1}}/guarantor-{{add @index 1}}-address-town/" class="summary__link  summary__user-input">{{address.town}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/tenants/tenant-{{add @index 1}}/guarantor-{{add @index 1}}-address-region/" class="summary__link  summary__user-input">{{address.region}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/tenants/tenant-{{add @index 1}}/guarantor-{{add @index 1}}-postcode/" class="summary__link  summary__user-input">{{address.postcode}}</a></div>
+                                    </dd>
+                                {{/with}}
+                            {{/compare}}
+                            {{#compare hasGuarantor 'guarantor-no'}}
+                                <a href="#!/tenants/tenant-{{add @index 1}}/guarantor-{{add @index 1}}-query/" class="summary__link  summary__user-input">None</a>
+                            {{/compare}}
+                        </dl>
+                    </td>
+                    <td class="summary-table__edit"><a class="edit" href="#!/tenants/tenant-{{add @index 1}}/">change</a></td>
+                </tr>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+</div>

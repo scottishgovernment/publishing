@@ -1,0 +1,11 @@
+<nav id="suggestions" aria-label="Alternative search suggestions" class="ds_search-suggestions" >
+    <span aria-hidden="true">Did you mean:</span>
+
+    <ul>
+    {{#items}}
+        <li>
+            <a data-search="suggestion-result-{{add @index 1}}/{{../items.length}}" aria-label="Did you mean '{{text}}'?" href="/search/?q={{text}}&cat=sitesearch">{{text}}</a>
+        </li>
+    {{/items}}
+    </ul>
+</nav>

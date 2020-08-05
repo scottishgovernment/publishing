@@ -1,0 +1,36 @@
+<div class="button-group">
+    {{#if prevStep}}
+        <a title="{{prevStep.title}}" id="button-back" href="#!/{{prevStep.section}}/{{prevStep.slug}}/" class="ds_button  ds_button--cancel  ds_button--has-icon  ds_button--has-icon--left  js-validate-step">
+            <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron-left"></use></svg>
+            Back
+        </a>
+    {{/if}}
+
+    {{#if addTenant}}
+        <a href="#!/{{currentStep.section}}/{{incrementslug currentStep.slug}}/" data-section="tenants" class="js-add-repeating-section  ds_button  ds_button--secondary  js-validate-step" title="Add another tenant">
+        + Add another</a>
+    {{/if}}
+
+    {{#if addLandlord}}
+        <a href="#!/{{currentStep.section}}/{{incrementslug currentStep.slug}}/" data-section="landlords" class="js-add-repeating-section  ds_button  ds_button--secondary  js-validate-step" title="Add another landlord">
+        + Add another</a>
+    {{/if}}
+
+    {{#if addTerm}}
+        <a href="#!/{{currentStep.section}}/{{incrementslug currentStep.slug}}/" data-section="additional-terms" class="js-add-repeating-section ds_button  ds_button--secondary  js-validate-step" title="Add another term">
+        + Add another</a>
+    {{/if}}
+
+    {{#if backToDetails}}
+        <a href="#!/end-of-part-1/part-1-summary/" class="js-back-to-details  ds_button  ds_button--secondary  js-validate-step">
+        Back to edit details</a>
+    {{/if}}
+
+    {{#if nextStep}}
+        <a title="{{nextStep.title}}" id="button-next" href="#!/{{nextStep.section}}/{{nextStep.slug}}/" class="ds_button  ds_button--has-icon  js-validate-step" {{#if startPage}}data-gtm="btn-start"{{/if}}>
+            {{#if startPage}}Start{{else}}Next{{/if}}
+
+            <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron-right"></use></svg>
+        </a>
+    {{/if}}
+</div>

@@ -19,11 +19,15 @@
     "webpack_eap": "node_modules/.bin/webpack --config ./src/main/economicactionplan/webpack.config.js",
     "webpack_tn": "node_modules/.bin/webpack --config ./src/main/tradingnation/webpack.config.js"
   },
+  "dependencies": {
+    "handlebars": "^2.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
-    "@scottish-government/pattern-library": "latest",
+    "@scottish-government/pattern-library": "0.0.116",
     "babel-loader": "^8.0.6",
+    "handlebars-loader": "^1.7.1",
     "node-sass": "^4.12.0",
     "sealant": "^0.1.1",
     "svg-sprite": "^1.5.0",

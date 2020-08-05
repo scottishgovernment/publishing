@@ -1,0 +1,19 @@
+{{#hits}}
+    {{#hits}}{{#_source}}
+    <li class="ds_search-result">
+        <header class="ds_search-result__header">
+            <h2 class="gamma  ds_search-result__title" data-search="search-result-{{add ../globalIndex 1}}/{{../../total.value}}">
+                <a class="ds_search-result__link" href="{{url}}">{{{title}}}</a>
+            </h2>
+        </header>
+
+        <p class="ds_search-result__summary">
+            {{#unless ../highlight}}
+                {{{summary}}}
+            {{/unless}}
+
+            {{{../highlight.summary}}}
+        </p>
+    </li>
+    {{/_source}}{{/hits}}
+{{/hits}}

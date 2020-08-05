@@ -1,0 +1,721 @@
+<h3>Must-include terms</h3>
+<div class="ds_accordion" data-module="ds-accordion">
+    <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-tenants" aria-labelledby="panel-tenants-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-tenants-heading" class="ds_accordion-item__title">
+                Tenant(s)
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-tenants"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-tenants">
+            {{#if tenants}}
+
+                <p>Name(s) and Address(es):</p>
+
+                <ol>
+                {{#each tenants}}
+                    <li>
+                        <span class="summary__user-input">
+                        {{{notspecified name}}}<br></span>
+                        <span class="summary__user-input blank-if-empty"><!--
+                        -->{{#if address.building}}{{address.building}}<br>{{/if}}<!--
+                        -->{{#if address.street}}{{address.street}}<br>{{/if}}<!--
+                        -->{{#if address.town}}{{address.town}}<br>{{/if}}<!--
+                        -->{{#if address.region}}{{address.region}}<br>{{/if}}<!--
+                        -->{{#if address.postcode}}{{address.postcode}}{{/if}}<!--
+                        --></span>
+                    </li>
+                {{/each}}
+                </ol>
+
+                <p>(“the Tenant(s)”)</p>
+
+                <p>Where this is a joint tenancy, the term “Tenant” applies to each of the individuals above and the full responsibilities and rights set out in this Agreement apply to each Tenant who will be jointly and severally liable for all of the obligations of the Tenant under this Agreement. </p>
+
+                <p>Email address(es):</p>
+
+                <ol>
+                {{#each tenants}}
+                    <li><span class="summary__user-input">{{{notspecified email}}}</span></li>
+                {{/each}}
+                </ol>
+
+                <p>Telephone number(s)</p>
+
+                <ol>
+                {{#each tenants}}
+                    <li><span class="summary__user-input">{{{notspecified telephone}}}</span></li>
+                {{/each}}
+                </ol>
+
+            {{else}}
+
+                <p>No tenants specified.</p>
+
+            {{/if}}
+        </div>
+    </div>
+
+    {{#compare hasLettingAgent 'letting-agent-yes'}}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-letting-agent" aria-labelledby="panel-letting-agent-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-letting-agent-heading" class="ds_accordion-item__title">
+                Letting agent
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-letting-agent"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-letting-agent">
+            <p>Name: <span class="summary__user-input">{{{notspecified lettingAgent.name}}}</span></p>
+
+            <p>Address: <br>
+            <span class="summary__user-input blank-if-empty"><!--
+            -->{{#if lettingAgent.address.building}}{{lettingAgent.address.building}}<br>{{/if}}<!--
+            -->{{#if lettingAgent.address.street}}{{lettingAgent.address.street}}<br>{{/if}}<!--
+            -->{{#if lettingAgent.address.town}}{{lettingAgent.address.town}}<br>{{/if}}<!--
+            -->{{#if lettingAgent.address.region}}{{lettingAgent.address.region}}<br>{{/if}}<!--
+            -->{{#if lettingAgent.address.postcode}}{{lettingAgent.address.postcode}}{{/if}}</span></p>
+
+            <p>Telephone number: <span class="summary__user-input">{{{notspecified lettingAgent.telephone}}}</span></p>
+
+            <p>Registration number: <span class="summary__user-input">{{{notspecified lettingAgent.registrationNumber}}}</span></p>
+
+            <p>Email address: <span class="summary__user-input">{{{notspecified lettingAgent.email}}}</span></p>
+
+            <p>The above-named Agent will deliver the following services on behalf of the Landlord:</p>
+            <ul class="blank-if-empty"><!--
+                -->{{#each servicesProvidedByLettingAgent}}<!--
+                --><li><span class="summary__user-input">{{name}}</span> {{#compare lettingAgentIsFirstContact 'YES'}}<span class="summary__user-input">(letting agent is first point of contact)</span>{{/compare}}</li><!--
+                -->{{/each}}<!--
+            --></ul>
+
+            <p>The Agent is the first point of contact for the following things:</p>
+            <ul class="blank-if-empty"><!--
+                -->{{#each servicesLettingAgentIsFirstContactFor}}<!--
+                    --><li><span class="summary__user-input">{{name}}</span></li><!--
+                -->{{/each}}<!--
+            --></ul>
+        </div>
+    </div>
+    {{/compare}}
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-landlords" aria-labelledby="panel-landlords-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-landlords-heading" class="ds_accordion-item__title">
+                Landlord(s)
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-landlords"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-landlords">
+            {{#if landlords}}
+
+                <ol>
+                {{#each landlords}}
+                    <li>Name: <span class="summary__user-input">{{{notspecified name}}}</span></li>
+                {{/each}}
+                </ol>
+                (“the Landlord(s)”)</p>
+
+                <ol>
+                {{#each landlords}}
+                    <li>
+                        Address: <br>
+                        <span class="summary__user-input blank-if-empty"><!--
+                        -->{{#if address.building}}{{address.building}}<br>{{/if}}<!--
+                        -->{{#if address.street}}{{address.street}}<br>{{/if}}<!--
+                        -->{{#if address.town}}{{address.town}}<br>{{/if}}<!--
+                        -->{{#if address.region}}{{address.region}}<br>{{/if}}<!--
+                        -->{{#if address.postcode}}{{address.postcode}}{{/if}}</span>
+                    </li>
+                {{/each}}
+                </ol>
+
+                <p>Email address(es): </p>
+                <ol>
+                {{#each landlords}}
+                    <li><span class="summary__user-input">{{{notspecified email}}}</span></li>
+                {{/each}}
+                </ol>
+
+                <p>Telephone number(s): </p>
+                <ol>
+                {{#each landlords}}
+                    <li><span class="summary__user-input">{{{notspecified telephone}}}</span></li>
+                {{/each}}
+                </ol>
+
+                {{#each landlords}}
+                <p>Registration number (Landlord {{add @index 1}}): <span class="summary__user-input">{{{notspecified registrationNumber}}}</span></p>
+                {{/each}}
+
+            {{else}}
+
+                <p>No landlords specified.</p>
+
+            {{/if}}
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-communications" aria-labelledby="panel-communications-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-communications-heading" class="ds_accordion-item__title">
+                Communication
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-communications"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-communications">
+            <p> The Landlord and Tenant agree that all communications which may or must be made under the Private Housing (Tenancies) (Scotland) Act 2016 and in relation to this Agreement, including notices to be served by one party on the other will be made in writing using <span class="summary__user-input" style="text-transform: lowercase;">
+            {{#compare communicationsAgreement 'EMAIL'}}the email addresses set out in clauses [2 or 3] and 1]{{/compare}}
+            {{#compare communicationsAgreement 'HARDCOPY'}}hard copy by personal delivery or recorded delivery{{/compare}}
+            {{#compare communicationsAgreement null}}[the email addresses set out in clauses [2 or 3] and 1]/hard copy by personal delivery or recorded delivery{{/compare}}</span>.</p>
+
+            {{#compare communicationsAgreement 'EMAIL'}}
+            <p>For communication by email it is essential that the Landlord(s) and Tenant(s) consider carefully whether this option is suitable for them.  It should be noted that all notices will be sent by email, which includes important documents such as a rent-increase notice and a notice to leave the Let Property.</p>
+
+            <p>To ensure all emails can be received and read in good time, the Landlord(s) and Tenant(s) agree to inform each other as soon as possible of any new email address which is to be used instead of the email address notified in this Agreement. </p>
+            {{/compare}}
+            {{#compare communicationsAgreement null}}
+            <p>For communication by email it is essential that the Landlord(s) and Tenant(s) consider carefully whether this option is suitable for them.  It should be noted that all notices will be sent by email, which includes important documents such as a rent-increase notice and a notice to leave the Let Property.</p>
+
+            <p>To ensure all emails can be received and read in good time, the Landlord(s) and Tenant(s) agree to inform each other as soon as possible of any new email address which is to be used instead of the email address notified in this Agreement. </p>
+            {{/compare}}
+
+            <p>If sending a document electronically or by recorded delivery post, the document will be regarded as having been received 48 hours after it was sent, unless the receiving party can provide proof that he or she received it later than this.  This extra delivery time should be factored into any required notice periods.   </p>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-let-property" aria-labelledby="panel-let-property-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-let-property-heading" class="ds_accordion-item__title">
+                Details of the Let Property
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-let-property"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-let-property">
+            <p>Address: <br>
+            <span class="summary__user-input">
+                {{{notspecified propertyAddress}}}
+            </span><br>
+            (“the Let Property”)</p>
+
+            <p>Type of property: <span class="summary__user-input">{{{notspecified propertyType_text}}}
+            {{#compare propertyType 'OTHER'}}
+                {{#if buildingOther}}
+                    ({{{notspecified buildingOther}}})
+                {{/if}}
+            {{/compare}}</span></p>
+
+            <p>Any other areas/facilities included with the Let Property:</p>
+            <ul class="blank-if-empty"><!--
+                -->{{#each facilities}}<!--
+                    -->{{#compare type 'INCLUDED'}}<!--
+                        --><li><span class="summary__user-input">{{name}}</span></li><!--
+                    -->{{/compare}}<!--
+                -->{{/each}}<!--
+            --></ul>
+
+            <p>Any shared areas/facilities:</p>
+            <ul class="blank-if-empty"><!--
+                -->{{#each facilities}}<!--
+                -->{{#compare type 'SHARED'}}<!--
+                        --><li><span class="summary__user-input">{{name}}</span></li><!--
+                    -->{{/compare}}<!--
+                -->{{/each}}<!--
+            --></ul>
+
+            <p>Any excluded areas/facilities:</p>
+            <ul class="blank-if-empty"><!--
+                -->{{#each facilities}}<!--
+                -->{{#compare type 'EXCLUDED'}}<!--
+                        --><li><span class="summary__user-input">{{name}}</span></li><!--
+                    -->{{/compare}}<!--
+                -->{{/each}}<!--
+            --></ul>
+
+            <p>The Let Property is <span class="summary__user-input" style="text-transform: lowercase;">{{{notspecified furnishingType_text}}}</span>.  See the Inventory and Record of Condition for further details.</p>
+
+            <p>The Let Property <span class="summary__user-input">{{#compare inRentPressureZone true}}is{{/compare}}{{#compare inRentPressureZone false}}is not{{/compare}}{{#compare inRentPressureZone null}}[is not/is]{{/compare}}</span> located in a rent pressure zone. </p>
+
+            <p>If Scottish Ministers have designated the area that the Let Property is located in as a rent pressure zone, there will be a cap on the amount that the rent can be increased.  You can check whether the Let Property shown above is located in a rent pressure zone on the Scottish Government’s website <a href="https://www.mygov.scot/rent-pressure-zone-checker/" target="_blank">https://www.mygov.scot/rent-pressure-zone-checker/ (opens in a new window)</a>.</p>
+
+            <p>The Let Property <span class="summary__user-input">{{#compare hmoProperty 'true'}}is{{/compare}}{{#compare hmoProperty 'false'}}is not{{/compare}}{{#compare hmoProperty null}}[is not/is]{{/compare}}</span> a House in Multiple Occupation (HMO).</p>
+
+            {{#compare hmoProperty 'true'}}
+            <p>HMO 24-hour contact number: <span class="summary__user-input">{{{notspecified hmo24ContactNumber}}}</span></p>
+
+            <p>HMO licence expiry date: <span class="summary__user-input">{{{notspecified hmoRegistrationExpiryDate}}}</span></p>
+            {{/compare}}
+            {{#compare hmoProperty null}}
+            <p>HMO 24-hour contact number: <span class="summary__user-input">{{{notspecified hmo24ContactNumber}}}</span></p>
+
+            <p>HMO licence expiry date: <span class="summary__user-input">{{{notspecified hmoRegistrationExpiryDate}}}</span></p>
+            {{/compare}}
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-tenancy-start-date" aria-labelledby="panel-tenancy-start-date-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-tenancy-start-date-heading" class="ds_accordion-item__title">
+                Start date of the tenancy
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-tenancy-start-date"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-tenancy-start-date">
+            <p>The private residential tenancy will start on: <span class="summary__user-input">{{{notspecified tenancyStartDate}}}</span> (“the start date of the tenancy”).</p>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-let-property-occupation" aria-labelledby="panel-let-property-occupation-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-let-property-occupation-heading" class="ds_accordion-item__title">
+                Occupation and use of the Let Property
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-let-property-occupation"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-let-property-occupation">
+            <p>The Tenant agrees to continue to occupy the Let Property as his or her home and must obtain the Landlord’s written permission before carrying out any trade, business or profession there.</p>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-rent" aria-labelledby="panel-rent-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-rent-heading" class="ds_accordion-item__title">
+                Rent
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-rent"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-rent">
+            <p>The rent is £<span class="summary__user-input">{{{notspecified rentAmount}}}
+            {{#compare rentPaymentFrequency 'WEEKLY'}}a week{{/compare}}
+            {{#compare rentPaymentFrequency 'FORTNIGHTLY'}}a fortnight{{/compare}}
+            {{#compare rentPaymentFrequency 'EVERY_FOUR_WEEKS'}}every four weeks{{/compare}}
+            {{#compare rentPaymentFrequency 'CALENDAR_MONTH'}}a calendar month{{/compare}}
+            {{#compare rentPaymentFrequency 'QUARTERLY'}}a quarter{{/compare}}
+            {{#compare rentPaymentFrequency 'EVERY_SIX_MONTHS'}}every six months{{/compare}}
+            {{#compare rentPaymentFrequency ''}}<span class="summary__blank" title="not specified"></span>{{/compare}}
+            </span>
+             payable in <span class="summary__user-input blank-if-empty" style="text-transform: lowercase;">{{#compare rentPayableInAdvance "true"}}advance{{/compare}}{{#compare rentPayableInAdvance "false"}}arrears{{/compare}}</span>.</p>
+
+            <p>The first payment will be paid on <span class="summary__user-input">{{{notspecified firstPaymentDate}}}</span> and will be for the sum of £<span class="summary__user-input">{{{notspecified firstPaymentAmount}}}</span> in respect of the period <span class="summary__user-input">{{{notspecified tenancyStartDate}}}</span> to <span class="summary__user-input">{{{notspecified firstPaymentPeriodEnd}}}</span>. (The maximum amount of rent which can be paid in advance is 6 months' rent).</p>
+
+            <p>Thereafter payments of £<span class="summary__user-input" style="text-transform: lowercase;">{{{notspecified rentAmount}}}</span> must be received on <span class="summary__user-input">
+            {{#compare rentPaymentFrequency 'WEEKLY'}}{{{notspecified rentPaymentScheduleObject.day}}}{{/compare}}
+            {{#compare rentPaymentFrequency 'FORTNIGHTLY'}}{{{notspecified rentPaymentScheduleObject.day}}} of the <span style="text-transform: lowercase;">{{{notspecified rentPaymentScheduleObject.week}}}</span>{{/compare}}
+            {{#compare rentPaymentFrequency 'EVERY_FOUR_WEEKS'}}{{{notspecified rentPaymentScheduleObject.day}}} of the <span style="text-transform: lowercase;">{{{notspecified rentPaymentScheduleObject.week}}}</span>{{/compare}}
+            {{#compare rentPaymentFrequency 'CALENDAR_MONTH'}}the {{{notspecified rentPaymentScheduleObject.date}}} of the month{{/compare}}
+            {{#compare rentPaymentFrequency 'QUARTERLY'}} the {{{notspecified rentPaymentScheduleObject.date}}}{{/compare}}
+            {{#compare rentPaymentFrequency 'EVERY_SIX_MONTHS'}} the {{{notspecified rentPaymentScheduleObject.date}}}{{/compare}}
+            {{#compare rentPaymentFrequency ''}}<span class="summary__blank" title="not specified"></span>{{/compare}}</span>
+             and then subsequently on or before the same <span class="summary__user-input blank-if-empty"><!--
+            -->{{#compare rentPaymentFrequency 'WEEKLY'}}day of each week{{/compare}}<!--
+            -->{{#compare rentPaymentFrequency 'FORTNIGHTLY'}}day of each fortnight{{/compare}}<!--
+            -->{{#compare rentPaymentFrequency 'EVERY_FOUR_WEEKS'}}day of each four weekly period{{/compare}}<!--
+            -->{{#compare rentPaymentFrequency 'CALENDAR_MONTH'}}date each calendar month{{/compare}}<!--
+            -->{{#compare rentPaymentFrequency 'QUARTERLY'}}date each quarter{{/compare}}<!--
+            -->{{#compare rentPaymentFrequency 'EVERY_SIX_MONTHS'}}date each 6-month period{{/compare}}<!--
+            --></span> thereafter. </p>
+
+            <p>Method by which rent is to be paid: <span class="summary__user-input">{{{notspecified rentPaymentMethod_text}}}</span> <br>
+            (This is the preferred method but rent may be paid using another method if it is reasonable in the circumstances.)</p>
+
+            <p>The following services are included in the rent amount noted above:</p>
+            <ul class="blank-if-empty"><!--
+            -->{{#each servicesIncludedInRent}}<!--
+                    --><li class="hide-if-empty"><span class="summary__user-input">{{name}}{{#if name}} - {{/if}}£{{value}}</span></li><!--
+                -->{{/each}}<!--
+            --></ul>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-rent-reciepts" aria-labelledby="panel-rent-reciepts-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-rent-reciepts-heading" class="ds_accordion-item__title">
+                Rent receipts
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-rent-reciepts"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-rent-reciepts">
+            <p>Where any payment of rent is made in cash, the Landlord must provide the Tenant with a dated written receipt for the payment stating: the amount paid, and either (as the case may be) the amount which remains outstanding, or confirmation that no further amount remains outstanding. </p>
+        </div>
+    </div>
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-rent-increases" aria-labelledby="panel-rent-increases-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-rent-increases-heading" class="ds_accordion-item__title">
+                Rent increases
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-rent-increases"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-rent-increases">
+            <p>The rent cannot be increased more than once in any twelve month period and the Landlord must give the Tenant at least three months’ notice before any increase can take place.  In order to increase the rent, the Landlord must give the Tenant a rent-increase notice, the content of which is set out in ‘The Private Residential Tenancies (Prescribed Notices and Forms) (Scotland) Regulations 2017’. The notice will be sent using the communication method agreed in the ‘Communication’ clause above.</p>
+
+            <p>Within 21 days of receiving a rent-increase notice, the Tenant can refer the increase to a rent officer for adjudication if he or she considers that the rent increase amount is unreasonable, unless the property is located in a rent pressure zone (RPZ).  Before submitting a referral to a rent officer for rent adjudication, the Tenant must complete Part 3 of the rent-increase notice and return it to his or her Landlord to notify the Landlord of his or her intention to make a referral to a rent officer.   Failure to return Part 3 to the Landlord will mean that the rent increase will take effect from the date proposed in the notice.</p>
+
+            <p>If the Let property is located within a rent pressure zone, the Tenant cannot refer a rent increase to a rent officer as Scottish Ministers will have set a cap on the maximum amount the rent can be increased.  </p>
+        </div>
+    </div>
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-deposit" aria-labelledby="panel-deposit-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-deposit-heading" class="ds_accordion-item__title">
+                Deposit
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-deposit"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-deposit">
+            <p>The Landlord must lodge any deposit they receive with a tenancy deposit scheme within 30 working days of the start date of the tenancy.</p>
+
+            <p>A tenancy deposit scheme is an independent third-party scheme approved by the Scottish Ministers to hold and protect a deposit until it is due to be repaid.</p>
+
+            <p>At the start date of the tenancy or before, a deposit of £<span class="summary__user-input">{{{notspecified depositAmount}}}</span> will be paid by the Tenant to the Landlord.  The Landlord will issue a receipt for the deposit to the Tenant.  No interest shall be paid by the Landlord to the Tenant for the deposit.</p>
+
+            <p>By law, the deposit amount cannot exceed the equivalent of two months’ rent and cannot include any premiums. For example, charging for an administration fee or taking a holding fee (regardless of whether or not the holding fee is refundable).</p>
+
+            <p>The scheme administrator is <span class="summary__user-input">{{{notspecified tenancyDepositSchemeAdministrator}}}</span> and their contact details are: </p>
+
+            <p><span class="summary__user-input">{{#unless tenancyDepositSchemeAdministrator}}<span class="summary__blank" title="not specified"></span><br>{{/unless}}
+            {{#compare tenancyDepositSchemeAdministrator 'Letting Protection Service Scotland'}}
+            Website: https://www.lettingprotectionscotland.com/<br>
+            Telephone: 0330 303 0031<br>
+            {{/compare}}
+            {{#compare tenancyDepositSchemeAdministrator 'Safedeposits Scotland'}}
+            Website: https://www.safedepositsscotland.com/<br>
+            Email: info@safedepositsscotland.com<br>
+            Telephone: 03333 213 136<br>
+            {{/compare}}
+            {{#compare tenancyDepositSchemeAdministrator 'My|deposits Scotland'}}
+            Website: http://www.mydepositsscotland.co.uk/<br>
+            Email: info@mydepositsscotland.co.uk<br>
+            Telephone: 0333 321 9402<br>
+            {{/compare}}
+            </span></p>
+
+            <p>Where it is provided in this Agreement that the Tenant is responsible for a particular cost or to do any particular thing and the Tenant fails to meet that cost, or the Landlord carries out work or performs any other obligation for which the Tenant is responsible, the Landlord can apply for reasonable costs to be deducted from any deposit paid by the Tenant. </p>
+
+            <p>This would include cases where a tenant has not paid all of the rent payable, any amount in respect of one-off services, or unpaid utility bills, or a sum in relation to breakages or cleaning.</p>
+
+            <p>At the end of the tenancy the Landlord should ask the tenancy deposit scheme to release the deposit and the amounts payable to each party. If the Tenant disagrees with the amount, the scheme administrator will provide a dispute resolution mechanism.</p>
+
+            <p>Where the Tenant owes the Landlord an amount greater than the amount held by the tenancy deposit scheme, the Tenant will remain liable for these costs, and the Landlord may take action to recover the difference from the Tenant.</p>
+
+            <p>More information can be found in the Tenancy Deposit Schemes (Scotland) Regulations 2011.(<a target="_blank" href="http://www.legislation.gov.uk/ssi/2011/176/contents/made">http://www.legislation.gov.uk/ssi/2011/176/contents/made (opens in a new window)</a>)</p>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-subletting" aria-labelledby="panel-subletting-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-subletting-heading" class="ds_accordion-item__title">
+                Subletting and assignation
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-subletting"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-subletting">
+            <p>Unless the Tenant has received prior written permission from the Landlord, the Tenant must not:</p>
+
+            <ul>
+                <li>sublet the Let Property (or any part of it),</li>
+                <li>take in a lodger,</li>
+                <li>assign the Tenant’s interest in the Let Property (or any part of it), or</li>
+                <li>otherwise part with, or give up to another person, possession of the Let Property (or any part of it).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-overcrowding" aria-labelledby="panel-overcrowding-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-overcrowding-heading" class="ds_accordion-item__title">
+                Overcrowding
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-overcrowding"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-overcrowding">
+            <p>The number of people who may live in a Let Property depends on the number and size of the rooms, and the age, gender and relationships of the people.  Living rooms and bedrooms are counted as rooms, but not the kitchen or bathroom. </p>
+
+            <p>The Tenant must not allow the Let Property to become overcrowded.  If the Let Property does become overcrowded, the Landlord can take action to evict the Tenant as the Tenant has breached this term of this Agreement.</p>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-insurance" aria-labelledby="panel-insurance-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-insurance-heading" class="ds_accordion-item__title">
+                Insurance
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-insurance"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-insurance">
+            <p>The Landlord is responsible for paying premiums for any insurance of the building and contents belonging to him or her, such as those items included in the property inventory. The Landlord will have no liability to insure any items belonging to the Tenant.</p>
+
+            <p>The Tenant is responsible for arranging any contents insurance which the Tenant requires for his or her own belongings.  The Tenant’s belongings may include personal effects, foodstuffs and consumables, belongings, and any other contents brought in to the Let Property by the Tenant. </p>
+        </div>
+    </div>
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-absences" aria-labelledby="panel-absences-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-absences-heading" class="ds_accordion-item__title">
+                Absences
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-absences"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-absences">
+            <p>The Tenant agrees to tell the Landlord if he or she is to be absent from the Let Property for any reason for a period of more than 14 days. The Tenant must take such measures as the Landlord may reasonably require to secure the Let Property prior to such absence and take appropriate reasonable measures to meet the ‘Reasonable Care’ section below. </p>
+        </div>
+    </div>
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-reasonable-care" aria-labelledby="panel-reasonable-care-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-reasonable-care-heading" class="ds_accordion-item__title">
+                Reasonable care
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-reasonable-care"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-reasonable-care">
+            <p>The Tenant agrees to take reasonable care of the Let Property and any common parts, and in particular agrees to take all reasonable steps to:</p>
+
+            <ul>
+                <li>keep the Let Property adequately ventilated and heated;</li>
+                <li>not bring any hazardous or combustible goods or material into the Let Property, notwithstanding the normal and safe storage of petroleum and gas for garden appliances (mowers etc.), barbecues, candles or other commonly used household goods or appliances;</li>
+                <li>not put any damaging oil, grease or other harmful or corrosive substance into the washing or sanitary appliances or drains;</li>
+                <li>prevent water pipes freezing in cold weather;</li>
+                <li>avoid danger to the Let Property or neighbouring properties by way of fire or flooding;</li>
+                <li>ensure the Let Property and its fixtures and fittings are kept clean during the tenancy;</li>
+                <li>not interfere with the smoke detectors, carbon monoxide detectors, heat detectors or the fire alarm system;</li>
+                <li>not interfere with door closer mechanisms. </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-repairing-standard" aria-labelledby="panel-repairing-standard-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-repairing-standard-heading" class="ds_accordion-item__title">
+                The Repairing Standard and other information
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-repairing-standard"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-repairing-standard">
+            <h3>THE REPAIRING STANDARD</h3>
+
+            <p>The Landlord is responsible for ensuring that the Let Property meets the Repairing Standard. </p>
+
+            <p>The Landlord must carry out a pre-tenancy check of the Let Property to identify work required to meet the Repairing Standard (described below) and notify the Tenant of any such work. The Landlord also has a duty to repair and maintain the Let Property from the start date of the tenancy and throughout the tenancy. This includes a duty to make good any damage caused by doing this work. On becoming aware of a defect, the Landlord must complete the work within a reasonable time.</p>
+
+            <p>A privately rented Let Property must meet the Repairing Standard as follows:</p>
+
+            <ul>
+                <li>The Let Property must be wind and water tight and in all other respects reasonably fit for people to live in.</li>
+                <li>The structure and exterior (including drains, gutters and external pipes) must be in a reasonable state of repair and in proper working order.</li>
+                <li>Installations for supplying water, gas and electricity and for sanitation, space heating and heating water must be in a reasonable state of repair and in proper working order.</li>
+                <li>Any fixtures, fittings and appliances that the Landlord provides under the tenancy must be in a reasonable state of repair and in proper working order.</li>
+                <li>Any furnishings that the Landlord provides under the tenancy must be capable of being used safely for the purpose for which they are designed.</li>
+                <li>The Let Property must have a satisfactory way of detecting fires and for giving warning in the event of a fire or suspected fire.</li>
+                <li>The Let Property must have a satisfactory way of giving warning if there is a hazardous concentration of carbon monoxide gas. </li>
+            </ul>
+
+            <p>More detail on the Repairing Standard is available in the Easy Read Notes for the Scottish Government Model Private Residential Tenancy Agreement, or on the Scottish Government website. If the Tenant believes that the Landlord has failed to ensure that the Let Property meets the Repairing Standard at all times during the tenancy, he or she should discuss this with the Landlord in the first instance. If the Landlord does not rectify the problem within a reasonable time, the Tenant has the right to apply to the First-tier Tribunal for Scotland Housing and Property Chamber (“the Tribunal”). The Tribunal may reject the application; consider whether the case can be resolved by the Tenant and Landlord (for example, by agreeing to mediation); consider the application; or reject the case. The Tribunal has power to require a Landlord to carry out work necessary to meet the Repairing Standard.</p>
+
+            <p>The Repairing Standard does not cover work for which the Tenant is responsible due to his or her duty to use the Let Property in a proper manner; nor does it cover the repair or maintenance of anything that the Tenant is entitled to remove from the Let Property.</p>
+
+            <p>Structure &amp; exterior:</p>
+
+            <p>The Landlord is responsible (together with any other owners of common parts of the building in which the accommodation is situated, if appropriate) for keeping in repair the structure and exterior of the accommodation.</p>
+
+            <p>Gas safety:</p>
+
+            <p>The Landlord must ensure that there is an annual Gas safety check on all pipework and appliances carried out by a Gas Safe registered engineer. The Tenant must be given a copy of the Landlord’s gas safety certificate. The Landlord must keep certificates for at least 2 years. The Gas Safety (Installation and use) Regulations 1998 places duties on Tenants to report any defects with gas pipework or gas appliances that they are aware of to the Landlord. Tenants are forbidden to use appliances that have been deemed unsafe by a gas contractor.</p>
+
+            <p>The Landlord must also ensure that a carbon monoxide detector is installed where there is a fixed carbon-fuelled appliance ( excluding an appliance used solely for cooking ) or where a fixed carbon-fuelled appliance is situated in an inter-connected space such as a garage. A carbon monoxide detector is also required in the bedrooms and main living room if a flue from a carbon-fuelled appliance passes through the room. “Carbon-fuelled” includes wood, coal and oil as well as gas.</p>
+
+            <p>Electrical safety:</p>
+
+            <p>The Landlord must ensure that an electrical safety inspection is carried out at least every five years consisting of an Electrical Installation Condition Report (EICR) and Portable Appliance Testing (PAT) on appliances provided by the Landlord. The EICR must be completed by a suitably competent person.</p>
+
+            <p>The Tenant must be given a copy of the EICR and any PAT.</p>
+
+            <p>Smoke detectors:</p>
+
+            <p>The Landlord must ensure that mains powered smoke alarms are installed in (i) the room which is frequently used by the occupants for general daytime living purposes and (ii) every circulation space such as hallways or landings, there must also be a heat alarm in the kitchen. All alarms should be interlinked.</p>
+
+            <p>Installations: </p>
+
+            <p>The Landlord will keep in repair and in proper working order the installations in the Let Property for the supply of water, gas, electricity, sanitation, space heating and water heating (with the exception of those installed by the Tenant or which the Tenant is entitled to remove).</p>
+
+            <p>Energy Performance Certificate (EPC):</p>
+
+            <p>A valid EPC (not more than 10 years old) must be given to the Tenant at the start date of the tenancy, unless the Tenant is renting a room with shared access to a kitchen, bathroom and living area.</p>
+
+            <p>Furnishings:</p>
+
+            <p>Landlords should ensure that all upholstered furniture provided complies with the Furniture and Furnishings (Fire Safety) Regulations 1988 as amended, as evidenced by the permanent labelling. </p>
+
+            <p>Defective fixtures and fittings:</p>
+
+            <p>All fixtures and fittings provided by the Landlord in the Let Property should be in a reasonable state of repair and in proper working order. The Landlord will repair or replace any of the fixtures, fittings or furnishings supplied which become defective and will do so within a reasonable period of time.  Nothing contained in this Agreement makes the Landlord responsible for repairing damage caused wilfully or negligently by the Tenant, anyone living with the Tenant or an invited visitor to the Let Property.</p>
+
+            <h3>REPAIR TIMETABLE</h3>
+
+            <p>The Tenant undertakes to notify the Landlord as soon as is reasonably practicable of the need for any repair or emergency. The Landlord is responsible for carrying out necessary repairs as soon as is reasonably practicable after having been notified of the need to do so.</p>
+
+            <p>The Tenant must allow the Landlord reasonable access to the Let Property to enable the Landlord to fulfil their duties under the repairing standard (see the clause on ‘Access for Repairs’). </p>
+
+            <h3>PAYMENT FOR REPAIRS</h3>
+
+            <p>The Tenant will be liable for the cost of repairs where the need for them is attributable to his or her fault or negligence, that of any person residing with him or her, or any guest of his or hers. </p>
+
+            <h3>INFORMATION</h3>
+
+            <p>In addition to this Agreement, the Landlord must give to the Tenant:-</p>
+
+            <ul>
+                <li>gas safety certificate;</li>
+                <li>electrical safety inspection reports (EICR and PAT);</li>
+                <li>energy performance certificate (unless the Tenant is renting a room with shared access to a kitchen, bathroom and living area).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-legionella" aria-labelledby="panel-legionella-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-legionella-heading" class="ds_accordion-item__title">
+                Legionella
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-legionella"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-legionella">
+            <p>At the start of the tenancy and throughout, the Landlord must take reasonable steps to assess any risk from exposure to legionella to ensure the safety of the Tenant in the Let Property. </p>
+        </div>
+    </div>
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-access-for-repairs" aria-labelledby="panel-access-for-repairs-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-access-for-repairs-heading" class="ds_accordion-item__title">
+                Access for repairs
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-access-for-repairs"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-access-for-repairs">
+            <p>The Tenant must allow reasonable access to the Let Property for an authorised purpose where the Tenant has been given at least 48 hours’ notice, or access is required urgently.  Authorised purposes are carrying out work in the Let Property which the Landlord is required to or is allowed to, either by law, under the terms of this Agreement, or any other agreement between the Landlord and the Tenant; inspecting the Let Property to see if any such work is needed; and carrying out a valuation of the Let Property. The right of access also covers access by others such as a contractor or tradesman hired by the Landlord.  </p>
+
+            <p>There is nothing to stop the Tenant and Landlord from mutually agreeing more generous rights of access if both parties want to resolve a non-urgent problem more promptly. </p>
+
+            <p>The Landlord has no right to use retained keys to enter the Let Property without the Tenant’s permission, except in an emergency.  </p>
+        </div>
+    </div>
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-respect-for-others" aria-labelledby="panel-respect-for-others-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-respect-for-others-heading" class="ds_accordion-item__title">
+                Respect for others
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-respect-for-others"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-respect-for-others">
+            <p>The Tenant, those living with him/her, and his/her visitors must not engage in anti-social behaviour to another person.  A person includes anyone in the Let Property, a neighbour, visitor, the Landlord, Agent or contractor.</p>
+
+            <p>“Anti-social behaviour” means behaving in a way which causes, or is likely to cause, alarm, distress, nuisance or annoyance to any person; or which amounts to harassment of any person; or causes damage to anyone’s property. Harassment of a person includes causing the person alarm or distress.  Anti-social behaviour includes speech.</p>
+
+            <p>In particular, the Tenant, those living with him/her, and his/her visitors must not:</p>
+
+            <ul>
+                <li>make excessive noise. This includes, but is not limited to, the use of televisions, CD players, digital media players, radios and musical instruments and DIY and power tools;</li>
+                <li>fail to control pets properly or allow them to foul or cause damage to other people’s property;</li>
+                <li>allow visitors to the Let Property to be noisy or disruptive;</li>
+                <li>vandalise or damage the Let Property or any part of the common parts or neighbourhood;</li>
+                <li>leave rubbish either in unauthorised places or at inappropriate times;</li>
+                <li>allow  any other person (including children) living in or using the property to cause a nuisance or annoyance to other people by failing to take reasonable steps to prevent this;</li>
+                <li>harass any other Tenant, member of his/her household, visitors, neighbours, family members of the Landlord or employees of the Landlord or Agent, or any other person or persons in the house, or neighbourhood, for whatever reason. This includes behaviour due to that person’s race colour or ethnic origin, nationality, gender, sexuality, disability, age, religion or other belief, or other status;</li>
+            </ul>
+
+            <p>In addition, the Tenant, those living with him/her, and his/her visitors must not engage in the following unlawful activities:</p>
+
+            <ul>
+                <li>use or carry offensive weapons;</li>
+                <li>use, sell, cultivate or supply unlawful drugs or sell alcohol;</li>
+                <li>store or bring onto the premises any type of unlicensed firearm or firearm ammunition including any replica or decommissioned firearms.</li>
+                <li>use the Let Property or allow it to be used, for illegal or immoral purposes;</li>
+                <li>threaten or assault any other Tenant, member of his/her household, visitors, neighbours, family members of the Landlord or employees of the Landlord or Agent, or any other person or persons in the house, or neighbourhood, for whatever reason.</li>
+            </ul>
+
+            <p>The particular prohibitions on behaviour listed above do not in any way restrict the general responsibilities of the Tenant.</p>
+        </div>
+    </div>
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-equality" aria-labelledby="panel-equality-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-equality-heading" class="ds_accordion-item__title">
+                Equality requirements
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-equality"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-equality">
+            <p>Under the Equality Act 2010, the Landlord must not unlawfully discriminate against the Tenant or prospective Tenant on the basis of their disability, sex, gender reassignment, pregnancy or maternity, race, religion or belief or sexual orientation. </p>
+        </div>
+    </div>
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-data-protection" aria-labelledby="panel-data-protection-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-data-protection-heading" class="ds_accordion-item__title">
+                Data protection
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-data-protection"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-data-protection">
+            <p>The Landlord must comply with the requirements of the Data Protection Act 1988 to ensure that the Tenant’s personal information is held securely and only lawfully disclosed. </p>
+        </div>
+    </div>
