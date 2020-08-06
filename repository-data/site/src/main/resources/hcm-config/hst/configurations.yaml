@@ -211,6 +211,13 @@ definitions:
                 hst:componentconfigurationid: hst:pages/article
                 hst:relativecontentpath: site-furniture/footer/${1}
                 hst:sitemapitemhandlerids: [trailing-slash]
+            /search:
+              jcr:primaryType: hst:sitemapitem
+              /search-results:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/search
+                hst:relativecontentpath: site-furniture/search/search-results
+                hst:sitemapitemhandlerids: [trailing-slash]
           /_any_:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/pagenotfound
@@ -285,6 +292,9 @@ definitions:
           /notification-banner:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/notification-banner.ftl
+          /search-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/search-main.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
