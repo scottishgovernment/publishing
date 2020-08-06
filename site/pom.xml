@@ -12,6 +12,14 @@
   <name>Digital Publishing Site</name>
   <description>Digital Publishing Site</description>
 
+
+  <properties>
+    <sonar.exclusions>target/**</sonar.exclusions>
+    <sonar.coverage.exclusions>
+      **/SearchComponent.java
+    </sonar.coverage.exclusions>
+  </properties>
+
   <modules>
     <module>components</module>
     <module>webapp</module>
