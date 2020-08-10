@@ -14,10 +14,8 @@
     "sass_eap": "node_modules/.bin/node-sass ./src/main/economicactionplan/scss/main.scss ./src/main/resources/site/assets/economicactionplan/css/main.css --style compressed --cache-location target/.sass-cache",
     "sass_tn": "node_modules/.bin/node-sass ./src/main/tradingnation/scss/main.scss ./src/main/resources/site/assets/tradingnation/css/main.css --style compressed --cache-location target/.sass-cache",
     "svgsprite": "node svg-sprite",
-    "webpack": "npm run webpack_mygov; npm run webpack_eap; npm run webpack_tn",
-    "webpack_mygov": "node_modules/.bin/webpack --config ./src/main/mygov/webpack.config.js",
-    "webpack_eap": "node_modules/.bin/webpack --config ./src/main/economicactionplan/webpack.config.js",
-    "webpack_tn": "node_modules/.bin/webpack --config ./src/main/tradingnation/webpack.config.js"
+    "test": "karma start ./test/karma.conf.js",
+    "webpack": "node_modules/.bin/webpack --config ./src/main/scripts/webpack.config.js"
   },
   "dependencies": {
     "handlebars": "^2.0.0"
@@ -28,6 +26,15 @@
     "@scottish-government/pattern-library": "0.0.116",
     "babel-loader": "^8.0.6",
     "handlebars-loader": "^1.7.1",
+    "istanbul-instrumenter-loader": "^3.0.1",
+    "karma": "^3.1.4",
+    "karma-babel-preprocessor": "^8.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage-istanbul-reporter": "^3.0.3",
+    "karma-jasmine": "^2.0.1",
+    "karma-jasmine-jquery-2": "^0.1.1",
+    "karma-jasmine-matchers": "^4.0.1",
+    "karma-webpack": "^4.0.2",
     "node-sass": "^4.12.0",
     "sealant": "^0.1.1",
     "svg-sprite": "^1.5.0",

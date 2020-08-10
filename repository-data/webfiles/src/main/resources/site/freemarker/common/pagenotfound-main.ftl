@@ -20,3 +20,6 @@
         </main>
     </div>
 </div>
+
+<#assign scriptName="default">
+<#include 'scripts.ftl'/>

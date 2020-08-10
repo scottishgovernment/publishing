@@ -1,0 +1,110 @@
+<div class="form-box">
+  <div id="feedback-box">
+    <div class="client-error hidden form-message form-message--error">
+      <div class="form-errors"></div>
+    </div>
+    <div class="server-error hidden form-message form-message--error">
+      <span>
+        We are having issues with our server at the moment, please try again later.
+      </span>
+    </div>
+    <div class="server-success hidden">
+      <div class="form-message form-message--success">
+        <b><p>Letting agent registration form thank you message</p>
+        </b>
+      </div>
+    </div>
+  </div>
+
+  <form class="in-article-form main-content" id="letting-agent-registration-form" novalidate>
+
+    <p>Fields marked * are compulsory.</p>
+
+    <div class="form-group relative">
+      <span class="required-icon">&#42;</span>
+      <label for="letting-agent-registration-name">Your name</label>
+      <div class="input-wrapper">
+        <input data-maxlength="200" id="letting-agent-registration-name" class="grey form-control" type="text">
+      </div>
+    </div>
+
+    <div class="form-group relative">
+      <span class="required-icon">&#42;</span>
+      <label for="letting-agent-registration-company-name">Your company</label>
+      <p><small>As stated in <a href="https://beta.companieshouse.gov.uk/">Companies House</a> or your trading name.</small></p>
+      <div class="input-wrapper">
+        <input data-maxlength="300" id="letting-agent-registration-company-name" class="grey form-control" type="text">
+      </div>
+    </div>
+
+    <div class="form-group relative">
+      <label for="letting-agent-registration-address-line-1">Address Line 1</label>
+      <div class="input-wrapper">
+        <input data-maxlength="200" id="letting-agent-registration-address-line-1" class="grey form-control" type="text">
+      </div>
+    </div>
+
+    <div class="form-group relative">
+      <label for="letting-agent-registration-address-line-2">Address Line 2</label>
+      <div class="input-wrapper">
+        <input data-maxlength="200" id="letting-agent-registration-address-line-2" class="grey form-control" type="text">
+      </div>
+    </div>
+
+    <div class="form-group relative">
+      <label for="letting-agent-registration-town">Town/City</label>
+      <div class="input-wrapper">
+        <input data-maxlength="200" id="letting-agent-registration-town" class="grey form-control" type="text">
+      </div>
+    </div>
+
+    <div class="form-group relative">
+      <label for="letting-agent-registration-postcode">Postcode</label>
+
+      <div class="input-wrapper">
+        <input id="letting-agent-registration-postcode" data-maxlength="12" data-errormessage="Postcode is not in a recognised format" class="grey form-control" type="text">
+      </div>
+    </div>
+
+    <div class="form-group relative">
+      <label for="letting-agent-registration-country">Country</label>
+      <div class="input-wrapper">
+        <input id="letting-agent-registration-country" data-maxlength="30" class="grey form-control" type="text">
+      </div>
+    </div>
+
+    <div class="form-group relative">
+      <span class="required-icon">&#42;</span>
+      <label for="letting-agent-registration-email">Email address</label>
+      <div class="input-wrapper">
+        <input data-errormessage="Email address is not in a recognised format" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" data-maxlength="150" id="letting-agent-registration-email" class="grey form-control" type="text">
+      </div>
+    </div>
+
+    <div class="expandable-item expandable-item--disclaimer">
+      <div class="disclaimer small">
+        <div class="form-group relative">
+          <label for="letting-agent-registration-consent" class="consent fancy-checkbox"><input data-errormessage="Your consent is required" type="checkbox" id="letting-agent-registration-consent" class="fancy-checkbox"/>
+            By ticking the attached box you’re consenting to your data being used as laid out in the
+            <a class="js-toggle-expand expandable-item__link-trigger" href="#consent-statement" data-toggle="collapse" data-gtm="panel-opened" aria-expanded="false" aria-controls="consent-statement">consent statement.</a></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group relative">
+        <div id="recaptcha" class="g-recaptcha" data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV" data-callback="checkRecaptcha" data-expired-callback="checkRecaptcha">
+          <div>
+            <div style="width: 304px; height: 78px;">
+              <iframe src="https://www.google.com/recaptcha/api2/anchor?k=6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV&amp;co=aHR0cHM6Ly9ncm5zdGFnZS5teWdvdi5zY290OjQ0Mw..&amp;hl=en&amp;v=r20160411084021&amp;size=normal&amp;cb=o29wka00y3u" title="recaptcha widget"
+              width="304" height="78" role="presentation" frameborder="0" scrolling="no" name="undefined"></iframe>
+            </div>
+            <textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button data-gtm="form-submit" class="button button--primary">Submit</button>
+      </div>
+    </form>
+  </div>

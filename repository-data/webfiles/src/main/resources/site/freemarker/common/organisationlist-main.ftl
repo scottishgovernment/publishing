@@ -72,3 +72,6 @@
     <meta name="description" content=""/>
     </#if>
 </@hst.headContribution>
+
+<#assign scriptName="organisation-list">
+<#include 'scripts.ftl'/>

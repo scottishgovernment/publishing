@@ -1,0 +1,152 @@
+<div class="multi-page-form">
+
+    <div class="ds_error-summary  fully-hidden  client-error" id="feedback-box" aria-labelledby="error-summary-title" role="alert" aria-live="assertive">
+        <h2 class="ds_error-summary__title" id="error-summary-title">There is a problem</h2>
+
+        <p>There were some errors found on this page:</p>
+
+        <div class="form-errors">
+
+        </div>
+    </div>
+
+    <div class="ds_question">
+        <fieldset id="letting-agent-query" data-validation="requiredRadio">
+            <legend>Does a letting agent manage the property for you?</legend>
+
+            <div class="ds_field-group">
+                <div class="ds_radio">
+                    <input id="letting-agent-yes" value="yes" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-yes" />
+                    <label for="letting-agent-yes" class="ds_radio__label">Yes</label>
+                </div>
+                <div class="ds_radio">
+                    <input id="letting-agent-no" value="no" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-no" />
+                    <label for="letting-agent-no" class="ds_radio__label">No</label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="ds_checkbox  ds_checkbox--small">
+        <input type="checkbox" id="missing-new-terms" class="ds_checkbox__input" name="whatsMissing" data-form="checkbox-whatsMissing">
+        <label class="ds_checkbox__label" for="missing-new-terms">new tenancy terms if your landlord has changed something about your tenancy</label>
+    </div>
+
+    <div class="ds_field-group">
+        <div class="ds_checkbox  ds_checkbox--small">
+            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_SELL" id="LANDLORD_TO_SELL" type="checkbox" data-form="checkbox-LANDLORD_TO_SELL" />
+            <label class="ds_checkbox__label" for="LANDLORD_TO_SELL">You want to sell the property you're renting out (6 months)</label>
+        </div>
+
+        <div class="ds_checkbox  ds_checkbox--small">
+            <input class="ds_checkbox__input" data-group="reasons" value="LENDER_TO_SELL" id="LENDER_TO_SELL" type="checkbox" data-form="checkbox-LENDER_TO_SELL" />
+            <label class="ds_checkbox__label" for="LENDER_TO_SELL">The mortgage lender has repossessed your property and is selling it (6 months)</label>
+        </div>
+
+        <div class="ds_checkbox  ds_checkbox--small">
+            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_REFURBISH" id="LANDLORD_TO_REFURBISH" type="checkbox" data-form="checkbox-LANDLORD_TO_REFURBISH" />
+            <label class="ds_checkbox__label" for="LANDLORD_TO_REFURBISH">You want to carry out work to the property which means no one will be able to live there while the work is carried out (6 months)</label>
+        </div>
+
+        <div class="ds_checkbox  ds_checkbox--small">
+            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_LIVE" id="LANDLORD_TO_LIVE" type="checkbox" data-form="checkbox-LANDLORD_TO_LIVE" />
+            <label class="ds_checkbox__label" for="LANDLORD_TO_LIVE">You want to live in the property (3 months)</label>
+        </div>
+
+        <div class="ds_checkbox  ds_checkbox--small">
+            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_FAMILY_MEMBER_TO_LIVE" id="LANDLORD_FAMILY_MEMBER_TO_LIVE" type="checkbox" data-form="checkbox-LANDLORD_FAMILY_MEMBER_TO_LIVE" />
+            <label class="ds_checkbox__label" for="LANDLORD_FAMILY_MEMBER_TO_LIVE">Someone in your family is going to move into the property (3 months)</label>
+        </div>
+
+        <div class="ds_checkbox  ds_checkbox--small">
+            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_NON_RESIDENTIAL_PURPOSE" id="LANDLORD_NON_RESIDENTIAL_PURPOSE" type="checkbox" data-form="checkbox-LANDLORD_NON_RESIDENTIAL_PURPOSE" />
+            <label class="ds_checkbox__label" for="LANDLORD_NON_RESIDENTIAL_PURPOSE">You no longer want to use the property as a place where someone lives, such as if you want to use it as a business or an office (6 months)</label>
+        </div>
+
+        <div class="ds_checkbox  ds_checkbox--small">
+            <input class="ds_checkbox__input" data-group="reasons" value="RELIGIOUS" id="RELIGIOUS" type="checkbox" data-form="checkbox-RELIGIOUS" />
+            <label class="ds_checkbox__label" for="RELIGIOUS">You need your property for a religious purpose, such as a priest or imam is going to live there (6 months)</label>
+        </div>
+
+        <div class="ds_checkbox  ds_checkbox--small">
+            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_REGISTRATION_REVOKED" id="LANDLORD_REGISTRATION_REVOKED" type="checkbox" data-form="checkbox-LANDLORD_REGISTRATION_REVOKED" />
+            <label class="ds_checkbox__label" for="LANDLORD_REGISTRATION_REVOKED">You have had your registration refused or revoked (3 months)</label>
+        </div>
+
+        <div class="ds_checkbox  ds_checkbox--small">
+            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_HMO_REFUSED" id="LANDLORD_HMO_REFUSED" type="checkbox" data-form="checkbox-LANDLORD_HMO_REFUSED" />
+            <label class="ds_checkbox__label" for="LANDLORD_HMO_REFUSED">Your House in Multiple Occupation (HMO) licence has been revoked by your local council or renewal has been refused (3 months)</label>
+        </div>
+
+        <div class="ds_checkbox  ds_checkbox--small">
+            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_OVERCROWDING_NOTICE" id="LANDLORD_OVERCROWDING_NOTICE" type="checkbox" data-form="checkbox-LANDLORD_OVERCROWDING_NOTICE" />
+            <label class="ds_checkbox__label" for="LANDLORD_OVERCROWDING_NOTICE">An overcrowding statutory notice has been served on you (6 months)</label>
+        </div>
+
+        <div class="ds_checkbox  ds_checkbox--small">
+            <input class="ds_checkbox__input" data-group="reasons" value="YOU_CEASE_TO_BE_EMPLOYEE" id="YOU_CEASE_TO_BE_EMPLOYEE" type="checkbox" data-form="checkbox-YOU_CEASE_TO_BE_EMPLOYEE" />
+            <label class="ds_checkbox__label" for="YOU_CEASE_TO_BE_EMPLOYEE">Your {{#if subtenants}}sub{{/if}}tenant has stopped being employed by you, or you thought they were going to be employed by you but this is no longer the case (6 months)</label>
+        </div>
+
+        <div class="ds_checkbox  ds_checkbox--small">
+            <input class="ds_checkbox__input" data-group="reasons" value="YOU_NO_LONGER_NEED_SUPPORTED_ACC" id="YOU_NO_LONGER_NEED_SUPPORTED_ACC" type="checkbox" data-form="checkbox-YOU_NO_LONGER_NEED_SUPPORTED_ACC" />
+            <label class="ds_checkbox__label" for="YOU_NO_LONGER_NEED_SUPPORTED_ACC">Your property provides supported accommodation but your {{#if subtenants}}sub{{/if}}tenant no longer needs help (6 months)</label>
+        </div>
+    </div>
+
+    <input type="text" data-validation="requiredField" id="tenant-agent-address-building" class="ds_input  building">
+
+    <div class="ds_question">
+        <label class="ds_label" for="current-payment-frequency"><span class="form--required"><span>star</span></span> How often do you pay rent?</label>
+        <div class="ds_select-wrapper">
+            <select class="ds_select" id="current-payment-frequency" data-validation="requiredDropdown" aria-required="true">
+                <option value="" disabled>Choose frequency:</option>
+                <option value="WEEKLY">Weekly</option>
+                <option value="FORTNIGHTLY">Fortnightly</option>
+                <option value="EVERY_FOUR_WEEKS">Four Weekly</option>
+                <option value="CALENDAR_MONTH" selected>Monthly</option>
+                <option value="QUARTERLY">Quarterly</option>
+                <option value="EVERY_SIX_MONTHS">Every 6 months</option>
+            </select>
+            <span class="ds_select-arrow" aria-hidden="true"></span>
+        </div>
+    </div>
+
+    <label for="labeledInput">Labeled input</label>
+    <input type="text" id="labeledInput"/>
+
+    <div id="ariaLabel">Aria-labeled input</div>
+    <input type="text" aria-labeledby="ariaLabel" id="ariaLabeledInput"/>
+
+    <div id="recaptcha" class="g-recaptcha"
+        data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV"
+        data-callback="checkRecaptcha"
+        data-expired-callback="expireRecaptcha"></div>
+
+    <div data-documenttype="WORD" class="js-document-container  document-info  document-info--limelight">
+        <div class="document-info__body">
+            <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                <a disabled="true" title="View this document" href="#" class="js-download-file  file-icon--large  file-icon  file-icon--DOCX"></a>
+            </div>
+        </div>
+
+        <div class="document-info__text">
+
+            <h3 class="document-info__title"><a disabled="true" class="no-icon  js-download-file" href="#">Your rent increase notice - Word document</a></h3>
+
+            <div class="document-info__file-details">
+                <dl class="document-info__meta">
+                    <dt class="hidden">File type</dt>
+                    <dd><b>Word document (.docx)</b></dd>
+                </dl>
+            </div>
+
+            <div class="document-info__download">
+                <a disabled="true" href="#" data-gtm="btn-download-docx" class="button  button--primary  no-icon  button--no-margin  js-download-file">
+                    Download
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>

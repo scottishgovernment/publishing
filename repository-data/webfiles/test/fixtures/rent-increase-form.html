@@ -1,0 +1,421 @@
+<div id="section-progess-indicator">
+</div>
+
+<div id="subsection-progess-indicator">
+</div>
+
+<div class="multi-page-form" name="rent-increase-form">
+
+    <div id="feedback-box" aria-live="assertive">
+        <div aria-hidden="true" class="client-error  fully-hidden  form-message  form-message--error">
+            <h2 tabindex="-1">Oops, there's a problem... </h2>
+
+            <h3>There were some errors found on this page: </h3>
+            <div class="form-errors">
+            </div>
+        </div>
+    </div>
+
+    <form id="ri-form" autocomplete="false">
+
+        <section id="overview" class="form-section">
+
+        </section>
+
+        <section id="tenancy" class="fully-hidden form-section">
+            <section id="start-date">
+                <h2>Tenancy start date</h2>
+
+                <div class="form-group date-entry">
+                    <p>When did the tenancy agreement between you and your tenant start?</p>
+
+                    <label for="tenancy-start-date">Start date</label>
+                    <p>Use DD/MM/YYYY format.</p>
+                    <div class="date-entry__input-group input-group input-wrapper">
+                        <input data-validation="pastDate requiredField" type="text" id="tenancy-start-date" aria-describedby="tenancy-start-date-errors" placeholder="e.g. 01/12/2017" class="grey form-control input__datepicker" />
+                        <button id="tenancy-start-date-trigger" type="button" class="date-entry__trigger button button--primary button--xsmall js-show-calendar">Choose date</button>
+                        <div aria-hidden="true" id="tenancy-start-date-calendar" class="date-entry__calendar">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="first-increase">
+                <h2>First time increase</h2>
+
+                <div class="form-group">
+                    <fieldset id="first-time-query" data-validation="requiredRadio">
+                        <legend>
+                            Is this the first time you've increased this tenant's rent?
+                        </legend>
+                        <div class="input-group">
+                            <input id="first-time-yes" value="yes" name="first-time-query" class="grey form-control fancy-radio" type="radio" />
+                            <label for="first-time-yes" class="inline fancy-radio">Yes</label>
+
+                            <input id="first-time-no" value="no" name="first-time-query" class="grey form-control fancy-radio" type="radio" />
+                            <label for="first-time-no" class="inline fancy-radio">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div data-panel="first-time-no" class="js-conditional-section fully-hidden">
+                    <div class="form-group date-entry">
+                        <label for="last-increase-date">Date of last increase</label>
+                        <p>Use DD/MM/YYYY format.</p>
+                        <div class="date-entry__input-group input-group input-wrapper">
+                            <input data-validation="dateRegex pastDate requiredField" type="text" id="last-increase-date" aria-describedby="last-increase-date-errors" placeholder="e.g. 01/12/2017" class="grey form-control input__datepicker" />
+                            <button id="last-increase-date-trigger" type="button" class="date-entry__trigger button button--primary button--xsmall js-show-calendar">Choose date</button>
+                            <div aria-hidden="true" id="last-increase-date-calendar" class="date-entry__calendar">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="current-rent">
+                <h2>Current rent</h2>
+
+                <div class="form-group">
+                    <label for="current-rent-amount">How much are your tenant's rent payments now?</label>
+                    <span class="pound-span">
+                        <input data-validation="validCurrency requiredField" type="text" id="current-rent-amount" class="grey  form-control  currency" placeholder="e.g. 750.00">
+                    </span>
+                </div>
+
+                <div class="form-group input--medium">
+                    <label for="current-payment-frequency">How often do they need to pay?</label>
+                    <div class="create-select__arrow">
+                        <select class="create-select" data-validation="requiredDropdown" id="current-payment-frequency">
+                            <option value="" disabled>Choose frequency:</option>
+                            <option value="WEEKLY">Weekly</option>
+                            <option value="FORTNIGHTLY">Fortnightly</option>
+                            <option value="EVERY_FOUR_WEEKS">Four Weekly</option>
+                            <option value="CALENDAR_MONTH" selected>Monthly</option>
+                            <option value="QUARTERLY">Quarterly</option>
+                            <option value="EVERY_SIX_MONTHS">Every 6 months</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section id="giving-this-notice" class="form-section ">
+            <h2>Giving this notice</h2>
+
+            <div class="form-group">
+                <fieldset id="giving-notice-query" data-validation="requiredRadio" class="conditional-control">
+                    <legend>
+                        How are you going to give your tenant this notice?
+                    </legend>
+                    <div class="input-group">
+                        <input id="giving-notice-hand" value="hand" name="giving-notice-query" class="grey form-control fancy-radio" type="radio" />
+                        <label for="giving-notice-hand" class="inline fancy-radio">By hand</label>
+
+                        <input id="giving-notice-recorded" value="post" name="giving-notice-query" class="grey form-control fancy-radio" type="radio" />
+                        <label for="giving-notice-recorded" class="inline fancy-radio">Sent by recorded delivery post</label>
+
+                        <input id="giving-notice-email" value="email" name="giving-notice-query" class="grey form-control fancy-radio" type="radio" />
+                        <label for="giving-notice-email" class="inline fancy-radio">By email</label>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section id="address" class="form-section ">
+            <h2>Address</h2>
+
+            <p>Enter a postcode to find the property's address.</p>
+
+            <div id="property-address-postcode-lookup">
+                <div class="form-group">
+                    <div class="js-postcode-lookup">
+                        <label for="property-address-postcode-search">Postcode</label>
+                        <input data-validation="requiredPostcodeLookup" type="text" id="property-address-postcode-search" aria-describedby="property-address-postcode-search-errors" class="grey  form-control  postcode-search  input--small ">
+                        <button class="js-find-address-button  button button--primary button--medium  button--no-margin">Find address</button>
+                    </div>
+
+                    <div class="form-group  postcode-results  fully-hidden">
+                        <label for="property-address-postcode-results">Please select an address</label>
+
+                        <div class="create-select__arrow">
+                            <select class="create-select" id="property-address-postcode-results" aria-describedby="property-address-postcode-results-errors" data-validation="requiredDropdown noAddressNotListed ">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="postcode-info-note  info-note  note  fully-hidden"></div>
+
+                    <textarea class="address-display  fully-hidden" id="property-address-property-address" disabled="true" title="Property address"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <section id="increase" class="form-section ">
+            <section id="improvements">
+                <h2>Improvements</h2>
+
+                <div class="form-group">
+                    <p>You can add a Rent Service Scotland (RSS) approved increase to your rent if:</p>
+
+                    <ul>
+                        <li>you've made improvements to your property</li>
+                        <li>you've had these improvements approved by RSS</li>
+                        <li>they've confirmed an increase that you can add to your rent</li>
+                    </ul>
+
+                    <fieldset id="improvements-query" data-validation="requiredRadio">
+                        <legend>
+                            Do you need to add this increase?
+                        </legend>
+                        <div class="input-group">
+                            <input id="improvements-yes" value="yes" name="improvements-query" class="grey  form-control  fancy-radio" type="radio" />
+                            <label for="improvements-yes" class="inline  fancy-radio">Yes</label>
+
+                            <input id="tenant-agent-no" value="no" name="improvements-query" class="grey  form-control  fancy-radio" type="radio" />
+                            <label for="tenant-agent-no" class="inline  fancy-radio">No</label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div data-panel="improvements-yes" class="js-conditional-section  fully-hidden">
+                    <div class="form-group">
+                        <label for="improvements-increase">Amount of increase</label>
+
+                        <span class="pound-span">
+                            <input data-validation="validCurrency requiredField" type="text" id="improvements-increase" class="grey  form-control  currency" placeholder="e.g. 20.00">
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="new-rent">
+                <h2>New rent</h2>
+
+                <div class="form-group">
+                    <label for="new-rent-amount">How much do you want to increase your tenant's rent to?</label>
+                    <span class="pound-span">
+                        <input data-message="The maximum you can charge for your property is £{value} as the property is in a Rent Pressure Zone." data-validation="validCurrency maxValue requiredField" type="text" id="new-rent-amount" class="grey  form-control  currency" placeholder="e.g. 750.00">
+                    </span>
+                </div>
+
+                <div class="form-group input--medium">
+                    <label for="new-payment-frequency">How often will it be paid?</label>
+                    <div class="create-select__arrow">
+                        <select class="create-select" data-validation="requiredDropdown" id="new-payment-frequency">
+                            <option value="" disabled>Choose frequency:</option>
+                            <option value="WEEKLY">Weekly</option>
+                            <option value="FORTNIGHTLY">Fortnightly</option>
+                            <option value="EVERY_FOUR_WEEKS">Four Weekly</option>
+                            <option value="CALENDAR_MONTH" selected>Monthly</option>
+                            <option value="QUARTERLY">Quarterly</option>
+                            <option value="EVERY_SIX_MONTHS">Every 6 months</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <section id="date-of-increase">
+                <h2>On what date will the rent go up?</h2>
+
+                <div id="date-of-increase-content-container"></div>
+            </section>
+        </section>
+
+        <section id="landlords" class="form-section ">
+
+            <div class="repeating-container js-landlords-container"></div>
+
+        </section>
+
+        <section id="letting-agent" class="form-section ">
+            <h2>Letting agent</h2>
+
+            <div class="form-group">
+                <fieldset id="letting-agent-query" data-validation="requiredRadio">
+                    <legend>Does a letting agent manage the property for you?</legend>
+                    <div class="input-group">
+                        <input id="letting-agent-yes" value="yes" name="letting-agent-query" class="grey form-control fancy-radio" type="radio" />
+                        <label for="letting-agent-yes" class="inline fancy-radio">Yes</label>
+
+                        <input id="letting-agent-no" value="no" name="letting-agent-query" class="grey form-control fancy-radio" type="radio" />
+                        <label for="letting-agent-no" class="inline fancy-radio">No</label>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div data-panel="letting-agent-yes" class="js-conditional-section fully-hidden">
+                <div class="form-group">
+                    <label for="letting-agent-name">Full name</label>
+                    <input type="text" id="letting-agent-name" data-validation="requiredField" class="grey form-control">
+                </div>
+
+                <h3 class="beta">Address</h3>
+
+                <div id="letting-agent-postcode-lookup">
+                    <div class="form-group">
+                        <div class="js-postcode-lookup">
+                            <label for="letting-agent-postcode-search">Postcode</label>
+                            <input data-validation="requiredPostcodeLookup" type="text" id="letting-agent-postcode-search" aria-describedby="letting-agent-postcode-search-errors" class="grey  form-control  postcode-search  input--small ">
+                            <button class="js-find-address-button  button button--primary button--medium  button--no-margin">Find address</button>
+                        </div>
+
+                        <div class="form-group  postcode-results  fully-hidden">
+                            <label for="letting-agent-postcode-results">Please select an address</label>
+
+                            <div class="create-select__arrow">
+                                <select class="create-select" id="letting-agent-postcode-results" aria-describedby="letting-agent-postcode-results-errors" data-validation="requiredDropdown ">
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <p><a href="#letting-agent-manual-address" class="js-address-manual-link">Enter the address manually</a></p>
+
+                        <div id="letting-agent-manual-address" class="address-manual  fully-hidden">
+                            <div class="input-wrapper no-validate" data-validation="requiredBuildingOrStreet" id="letting-agent-building-street">
+                                <label for="letting-agent-address-building">Building</label>
+                                <input type="text" id="letting-agent-address-building" class="grey  form-control  building ">
+
+                                <label for="letting-agent-address-street">Street address</label>
+                                <input type="text" id="letting-agent-address-street" class="grey  form-control  street ">
+                            </div>
+
+                            <label for="letting-agent-address-town">Town or city</label>
+                            <input type="text" id="letting-agent-address-town" class="grey  form-control  town  no-validate" data-validation="requiredField">
+
+                            <label for="letting-agent-address-region">Region or province</label>
+                            <input type="text" id="letting-agent-address-region" class="grey  form-control  region ">
+
+                            <label for="letting-agent-postcode">Postcode</label>
+                            <input type="text" id="letting-agent-postcode" class="grey  form-control  uppercase  input--small  postcode ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tenants" class="form-section ">
+            <h2>Tenant(s)</h2>
+
+            <div class="form-group">
+                <div class="js-tenant-names-container">
+                    <label for="tenant-1-name">Tenant 1: Full name</label>
+                    <input type="text" id="tenant-1-name" class="grey form-control" data-validation="requiredField">
+                </div>
+
+                <button class="js-add-tenant button button--secondary button--margin-right button--primary" title="Add name of joint tenant">
+                + Add name of joint tenant</button>
+            </div>
+        </section>
+
+        <section id="summary" class="form-section ">
+            <h2>Summary</h2>
+
+            <div id="summary-container"></div>
+        </section>
+
+        <section id="download" class="form-section ">
+            <h2>Your Rent Increase Notice is ready to download</h2>
+
+            <p>You need to complete the following challenge before you can download your application.</p>
+
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <div id="recaptcha" class="g-recaptcha"
+            data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+            data-callback="checkRecaptcha"
+            data-expired-callback="expireRecaptcha"></div>
+
+            <section class="document-section">
+
+                <div data-documenttype="WORD" class="js-document-container  document-info  document-info--limelight">
+                    <div class="document-info__body">
+                        <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                            <a disabled="true" title="View this document" href="#" class="js-download-file  file-icon--large  file-icon  file-icon--DOCX"></a>
+                        </div>
+                    </div>
+
+                    <div class="document-info__text">
+
+                        <h3 class="document-info__title"><a disabled="true" class="no-icon  js-download-file" href="#">Your rent increase notice - Word document</a></h3>
+
+                        <div class="document-info__file-details">
+                            <dl class="document-info__meta">
+                                <dt class="hidden">File type</dt>
+                                <dd><b>Word document (.docx)</b></dd>
+                            </dl>
+                        </div>
+
+                        <div class="document-info__download">
+                            <a disabled="true" href="#" data-gtm="btn-download-docx" class="button  button--primary  no-icon  button--no-margin  js-download-file">
+                                Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div data-documenttype="PDF" class="js-document-container  document-info  document-info--limelight">
+
+                    <div class="document-info__body">
+                        <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                            <a disabled="true" title="View this document" href="#" class="js-download-file  file-icon--large  file-icon  file-icon--PDF"></a>
+                        </div>
+                    </div>
+
+                    <div class="document-info__text">
+
+                        <h3 class="document-info__title"><a disabled="true" class="no-icon  js-download-file" href="#">Your rent increase notice - PDF</a></h3>
+
+                        <div class="document-info__file-details">
+                            <dl class="document-info__meta">
+                                <dt class="hidden">File type</dt>
+                                <dd><b>PDF</b></dd>
+                            </dl>
+                        </div>
+
+                        <div class="document-info__download">
+                            <a disabled="true" href="#" data-gtm="btn-download-pdf" class="js-download-file  button  button--primary  no-icon  button--no-margin">
+                                Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<h2 id="signing-this-notice">Signing this notice</h2>
+<p>If you&#39;re sending this notice by email you can sign it without printing the notice.</p>
+<p>You can sign a Word document by opening the document in Microsoft Word and typing your name where you need to sign.</p>
+<p>If you&#39;re signing a PDF, you can open the PDF in <a href="Adobe Acrobat Reader DC">Adobe Acrobat Reader DC</a> and use Adobe&#39;s &#39;fill &amp; sign&#39; tool.</p>
+<p>If you don&#39;t have Adobe Acrobat Reader DC you can get it as a <a href="free download">free download</a>. You can also read Adobe&#39;s advice about <a href="signing a PDF">signing a PDF</a> if you need more help.</p>
+<h3 id="keep-a-version-saved">Keep a version saved</h3>
+<p>You should keep a record of emails you send to and receive from your tenant.</p>
+<h2 id="your-tenant-s-response-to-this-notice">Your tenant&#39;s response to this notice</h2>
+<p>This notice includes a tenant&#39;s response page. Your tenant can fill in this page to:</p>
+<ul>
+<li>accept the rent increase</li>
+<li>if they haven&#39;t received 3 months&#39; notice, advise they won&#39;t need to pay the new amount until 3 months have passed from getting this notice</li>
+<li>tell you that they don&#39;t think the new rent amount is fair</li>
+</ul>
+<p>If your tenant doesn&#39;t think the new rent amount is fair they can apply to Rent Service Scotland (RSS). It&#39;s RSS&#39;s job to rule on what&#39;s a fair rent.</p>
+<p>Your tenant can only apply to RSS if they don&#39;t live in a Rent Pressure Zone.</p>
+<p>Your tenant doesn&#39;t need to fill in the tenant&#39;s response. If they don&#39;t respond, the rent increase will apply from the date you&#39;ve asked for in the notice.</p>
+<h2 id="giving-your-tenant-this-notice">Giving your tenant this notice</h2>
+<p>You must give your tenant this notice in the way <a href="agreed in your tenancy agreement">agreed in your tenancy agreement</a>.</p>
+
+        </section>
+    </form>
+
+    <form id="document-download" action="/service/housing/rent-increase/form" method="POST" enctype="multipart/form-data" class="form-download">
+        <input type="hidden" name="data" value="">
+        <input type="hidden" name="type" value="">
+    </form>
+
+    <nav id="page-nav"></nav>
+
+    <a id="go-to-summary" href="#!/summary/" class="js-validate-step  back-to-summary-button  button  button--secondary  fully-hidden">
+        Back to summary
+
+        <svg class="svg-icon  mg-icon  mg-icon--absolute  mg-icon--right">
+            <use xlink:href="/assets/images/icons/icons.stack.svg#chevron-right"></use>
+        </svg>
+    </a>
+
+</div>

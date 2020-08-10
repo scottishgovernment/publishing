@@ -1,0 +1,130 @@
+<div class="form-box">
+    <div id="feedback-box">
+        <div class="client-error hidden form-message form-message--error">
+            <div class="form-errors"></div>
+        </div>
+        <div class="server-error hidden form-message form-message--error"><span><p>We are having technical difficulties at the moment. Please try again later.</p>
+</span></div>
+        <div class="server-success hidden">
+            <div class="form-message form-message--success">
+                <p>Thank you for contacting the <strong>EU Referendum Business Support Service</strong>.</p>
+                <p></p>
+                <p></p>
+                <p>We have received your enquiry and you will hear from us shortly. We aim to respond to all enquiries within 3 working days.</p>
+            </div>
+        </div>
+    </div>
+    <form class="in-article-form main-content" id="brexit-form" novalidate="">
+        <div class="form-group relative"><span class="required-icon">*</span>
+            <label for="brexit-company-name">Your company</label>
+            <p><small>As stated in <a href="https://beta.companieshouse.gov.uk/">Companies House</a> or your trading name.</small></p>
+            <div class="input-wrapper">
+                <input data-maxlength="300" id="brexit-company-name" class="grey form-control" type="text"><span class="js-count">300</span></div>
+        </div>
+        <div class="form-group relative"><span class="required-icon">*</span>
+            <label for="brexit-name">Your name</label>
+            <div class="input-wrapper">
+                <input data-maxlength="200" id="brexit-name" class="grey form-control" type="text"><span class="js-count">200</span></div>
+        </div>
+        <div class="form-group relative"><span class="required-icon">*</span>
+            <label for="brexit-email">Email address</label>
+            <div class="input-wrapper">
+                <input data-errormessage="Email address is not in a recognised format" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$" data-maxlength="150" id="brexit-email" class="grey form-control" type="text"><span class="js-count">150</span></div>
+        </div>
+        <div class="form-group relative">
+            <label for="brexit-telephone">Telephone</label>
+            <div class="input-wrapper">
+                <input data-maxlength="20" id="brexit-telephone" class="grey form-control" type="text"><span class="js-count">20</span></div>
+        </div>
+        <div class="form-group relative"><span class="required-icon">*</span>
+            <label for="brexit-location">Location</label>
+            <select id="brexit-location">
+                <option selected="" value="" disabled="disabled">Please select a location</option>
+                <option value="Aberdeen">Aberdeen</option>
+                <option value="Aberdeenshire">Aberdeenshire</option>
+                <option value="Angus">Angus</option>
+                <option value="Argyll and Bute">Argyll and Bute</option>
+                <option value="Clackmannanshire">Clackmannanshire</option>
+                <option value="Dumfries and Galloway">Dumfries and Galloway</option>
+                <option value="Dundee City">Dundee City</option>
+                <option value="East Ayrshire">East Ayrshire</option>
+                <option value="East Dunbartonshire">East Dunbartonshire</option>
+                <option value="East Lothian">East Lothian</option>
+                <option value="East Renfrewshire">East Renfrewshire</option>
+                <option value="Edinburgh">Edinburgh</option>
+                <option value="Falkirk">Falkirk</option>
+                <option value="Fife">Fife</option>
+                <option value="Glasgow">Glasgow</option>
+                <option value="Highlands">Highlands</option>
+                <option value="Inverclyde">Inverclyde</option>
+                <option value="Midlothian">Midlothian</option>
+                <option value="Moray">Moray</option>
+                <option value="North Ayrshire">North Ayrshire</option>
+                <option value="North Lanarkshire">North Lanarkshire</option>
+                <option value="Orkney">Orkney</option>
+                <option value="Perth &amp; Kinross">Perth &amp; Kinross</option>
+                <option value="Renfrewshire">Renfrewshire</option>
+                <option value="Scottish Borders">Scottish Borders</option>
+                <option value="Shetland">Shetland</option>
+                <option value="South Ayrshire">South Ayrshire</option>
+                <option value="South Lanarkshire">South Lanarkshire</option>
+                <option value="Stirling">Stirling</option>
+                <option value="West Dunbartonshire">West Dunbartonshire</option>
+                <option value="Western Isles">Western Isles</option>
+                <option value="West Lothian">West Lothian</option>
+            </select>
+        </div>
+        <div class="form-group relative"><span class="required-icon">*</span>
+            <label for="brexit-sector">Sector</label>
+            <select id="brexit-sector" class="form-control">
+                <option selected="" value="" disabled="disabled">Please select a sector</option>
+                <option value="Accommodation and food service activities">Accommodation and food service activities</option>
+                <option value="Activities of extraterritorial organisations and bodies">Activities of extraterritorial organisations and bodies </option>
+                <option value="Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use">Activities of households as employers; undifferentiated goods- and services-producing activities of households for own use</option>
+                <option value="Administrative and support service activities">Administrative and support service activities </option>
+                <option value="Agriculture, Forestry and Fishing">Agriculture, Forestry and Fishing</option>
+                <option value="Arts, entertainment and recreation">Arts, entertainment and recreation</option>
+                <option value="Construction">Construction </option>
+                <option value="Education">Education </option>
+                <option value="Electricity, gas, steam and air conditioning supply">Electricity, gas, steam and air conditioning supply </option>
+                <option value="Financial and insurance activities">Financial and insurance activities </option>
+                <option value="Human health and social work activities">Human health and social work activities</option>
+                <option value="Information and communication">Information and communication </option>
+                <option value="Manufacturing">Manufacturing </option>
+                <option value="Mining and Quarrying">Mining and Quarrying </option>
+                <option value="Professional, scientific and technical activities">Professional, scientific and technical activities </option>
+                <option value="Public administration and defence; compulsory social security">Public administration and defence; compulsory social security </option>
+                <option value="Real estate activities">Real estate activities </option>
+                <option value="Transportation and storage">Transportation and storage</option>
+                <option value="Water supply, sewerage, waste management and remediation activities">Water supply, sewerage, waste management and remediation activities </option>
+                <option value="Wholesale and retail trade; repair of motor vehicles and motorcycles">Wholesale and retail trade; repair of motor vehicles and motorcycles</option>
+                <option value="Other service activities">Other service activities</option>
+            </select>
+        </div>
+        <div class="form-group relative"><span class="required-icon">*</span>
+            <label for="brexit-enquiry">Your message</label>
+            <div class="input-wrapper">
+                <textarea data-maxlength="2000" placeholder="What do you want to know?" rows="5" id="brexit-enquiry" class="form-control"></textarea><span class="js-count">2000</span></div>
+        </div>
+        <div class="disclaimer small">
+            <div class="form-group relative">
+                <label for="brexit-consent">
+                    <input data-errormessage="Your consent is required" type="checkbox" id="brexit-consent"> By ticking the attached box you’re consenting to your data being used as laid out in the <a href="https://mygov.scot/eu-form-consent/">consent statement.</a></label>
+            </div>
+        </div>
+        <div class="form-group relative">
+            <div id="recaptcha" class="g-recaptcha" data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV" data-callback="checkRecaptcha" data-expired-callback="checkRecaptcha">
+                <div>
+                    <div style="width: 304px; height: 78px;">
+                        <iframe src="https://www.google.com/recaptcha/api2/anchor?k=6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV&amp;co=aHR0cHM6Ly9ncm5zdGFnZS5teWdvdi5zY290OjQ0Mw..&amp;hl=en&amp;v=r20160411084021&amp;size=normal&amp;cb=o29wka00y3u" title="recaptcha widget"
+                            width="304" height="78" role="presentation" frameborder="0" scrolling="no" name="undefined"></iframe>
+                    </div>
+                    <textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button data-gtm="form-submit" class="btn btn-default primary">Submit</button>
+        </div>
+    </form>
+</div>

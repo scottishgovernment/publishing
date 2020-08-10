@@ -57,3 +57,6 @@
     <meta name="description" content="${document.metaDescription?html}"/>
     </#if>
 </@hst.headContribution>
+
+<#assign scriptName="organisation">
+<#include 'scripts.ftl'/>

@@ -27,10 +27,22 @@
     <meta name="msapplication-TileColor" content="#0065bd">
     <meta name="theme-color" content="#ffffff">
 
+
+
     <#if document??>
         <@hst.link var="canonicalLink" hippobean=document canonical=true fullyQualified=true/>
         <link rel="canonical" href="${canonicalLink}" />
     </#if>
+
+    <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+
+    <script>
+        var htmlClass = document.documentElement.getAttribute('class') || '';
+        document.documentElement.setAttribute('class', (htmlClass ? htmlClass + ' ' : '') + 'js-enabled');
+    </script>
     </head>
 
     <body>
@@ -53,14 +65,6 @@
 
         <#include "breakpoint-tests.ftl">
 
-        <!-- Older browsers load these files -->
-        <!-- (and module-supporting browsers know *not* to load these files) -->
-        <script nomodule src="<@hst.webfile path='/assets/tradingnation/scripts/site.es5.js'/>"></script>
-        <script nomodule src="<@hst.webfile path='/assets/tradingnation/scripts/pattern-library.es5.js'/>"></script>
-
-        <!-- Browsers with ES module support load these files -->
-        <script type="module" src="<@hst.webfile path='/assets/tradingnation/scripts/site.js'/>"></script>
-        <script type="module" src="<@hst.webfile path='/assets/tradingnation/scripts/pattern-library.js'/>"></script>
-
+        <@hst.headContributions categoryIncludes="footerScripts" xhtml=true/>
     </body>
 </html>
