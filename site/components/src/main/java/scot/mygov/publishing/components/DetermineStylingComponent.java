@@ -1,15 +1,15 @@
 package scot.mygov.publishing.components;
 
-import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
-public class DetermineStylingComponent extends BaseHstComponent {
+public class DetermineStylingComponent extends EssentialsContentComponent {
 
     private static final Logger LOG = LoggerFactory.getLogger(DetermineStylingComponent.class);
 
