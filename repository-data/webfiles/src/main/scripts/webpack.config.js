@@ -24,9 +24,6 @@ const commonItems = {
         'site-item':                    path.resolve(__dirname, './formats/site-item.js'),
         'status':                       path.resolve(__dirname, './formats/status.js'),
 
-        // for the cookie form markdown helper
-        'cookie-form': path.resolve(__dirname, './components/cookie-form.js'),
-
         // mygov-specific formats
         'business-rates-calculator':    path.resolve(__dirname, './formats/mygov/business-rates-calculator.js'),
         'fair-rent-register':           path.resolve(__dirname, './formats/mygov/fair-rent-register.js'),

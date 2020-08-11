@@ -5,9 +5,11 @@ $colour__brand: #A51765;
 $colour__brand--secondary: #F0A75A;
 $brand-gradient-direction: left;
 $category-header__border-colour: $colour__brand--secondary;
-$category-header__title-colour: $colour__brand--primary;
-$category-item__link-colour: $colour__brand--primary;
+$category-header__title-colour: $colour__brand;
+$category-item__link-colour: $colour__brand;
 $site-logo__height--medium: 35px;
+
+$iconsfile: "/webfiles/latest/assets/images/icons/icons.stack.svg";
 
 
 
@@ -16,6 +18,7 @@ $site-logo__height--medium: 35px;
  * BASE STYLES FROM PATTERN LIBRARY
  */
 @import "../../../../node_modules/@scottish-government/pattern-library/src/base/all-base";
+@import "../../../../node_modules/@scottish-government/pattern-library/src/forms/all-forms";
 
 
 
@@ -29,13 +32,17 @@ $site-logo__height--medium: 35px;
 
 
 /**
+ * COMPONENTS FROM PUBLISHING
+ */
+@import "../../scss/form-box";
+
+
+
+
+/**
  * COMPONENTS FROM TRADING NATION
  */
-@import "./page.scss";
-@import "./tn-layouts.scss";
-@import "./tn-media.scss";
-
-@import "./temp-cookie-form.scss";
+// none
 
 
 
@@ -43,4 +50,4 @@ $site-logo__height--medium: 35px;
 /*
  * CMS STYLES
  */
- @import "../../shared-assets/scss/cms-editable.scss";
+ @import "../cms-editable.scss";

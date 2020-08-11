@@ -1,7 +1,7 @@
 /**
  * PATTERN LIBRARY VALUES
  */
-// none
+$iconsfile: "/webfiles/latest/assets/images/icons/icons.stack.svg";
 
 
 
@@ -9,6 +9,7 @@
  * BASE STYLES FROM PATTERN LIBRARY
  */
 @import "../../../../node_modules/@scottish-government/pattern-library/src/base/all-base";
+@import "../../../../node_modules/@scottish-government/pattern-library/src/forms/all-forms";
 
 
 
@@ -22,7 +23,14 @@
 
 
 /**
- * COMPONENTS FROM TRADING NATION
+ * COMPONENTS FROM PUBLISHING
+ */
+@import "../../scss/form-box";
+
+
+
+/**
+ * COMPONENTS FROM MYGOV
  */
 
 
@@ -31,4 +39,4 @@
 /*
  * CMS STYLES
  */
- @import "../../shared-assets/scss/cms-editable.scss";
+@import "../cms-editable";

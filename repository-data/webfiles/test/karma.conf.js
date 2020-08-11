@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const webpackConfig = require('../src/main/scripts/webpack.config')[1];
+const webpackConfig = require('../src/main/scripts/webpack.config')[0];
 const coverageDir = './test/coverage';
 
 const instrumentationConfig = {

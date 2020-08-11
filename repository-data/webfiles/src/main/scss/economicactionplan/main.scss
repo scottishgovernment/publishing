@@ -1,0 +1,47 @@
+/**
+ * PATTERN LIBRARY VALUES
+ */
+$colour__brand: #002d54;
+$colour__brand--secondary: #00a5b5;
+$brand-gradient-direction: left;
+
+$iconsfile: "/webfiles/latest/assets/images/icons/icons.stack.svg";
+
+
+
+/**
+ * BASE STYLES FROM PATTERN LIBRARY
+ */
+@import "../../../../node_modules/@scottish-government/pattern-library/src/base/all-base";
+@import "../../../../node_modules/@scottish-government/pattern-library/src/forms/all-forms";
+
+
+
+
+/**
+ * COMPONENTS FROM PATTERN LIBRARY
+ */
+@import "../../../../node_modules/@scottish-government/pattern-library/src/components/all-components";
+
+
+
+
+/**
+ * COMPONENTS FROM PUBLISHING
+ */
+@import "../../scss/form-box";
+
+
+
+/**
+ * COMPONENTS FROM EAP
+ */
+
+
+
+
+
+/*
+ * CMS STYLES
+ */
+@import "../cms-editable.scss";
