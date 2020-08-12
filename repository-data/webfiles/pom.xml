@@ -97,7 +97,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
-              <inputPath>src/main/mygov/scss</inputPath>
+              <inputPath>src/main/scss/mygov</inputPath>
               <outputPath>src/main/resources/site/assets/mygov/css/</outputPath>
               <outputStyle>compressed</outputStyle>
               <generateSourceMap>false</generateSourceMap>
@@ -111,7 +111,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
-              <inputPath>src/main/economicactionplan/scss</inputPath>
+              <inputPath>src/main/scss/economicactionplan</inputPath>
               <outputPath>src/main/resources/site/assets/economicactionplan/css/</outputPath>
               <outputStyle>compressed</outputStyle>
               <generateSourceMap>false</generateSourceMap>
@@ -125,7 +125,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
-              <inputPath>src/main/tradingnation/scss</inputPath>
+              <inputPath>src/main/scss/tradingnation</inputPath>
               <outputPath>src/main/resources/site/assets/tradingnation/css/</outputPath>
               <outputStyle>compressed</outputStyle>
               <generateSourceMap>false</generateSourceMap>
