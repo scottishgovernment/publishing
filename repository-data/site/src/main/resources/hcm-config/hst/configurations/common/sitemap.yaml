@@ -1,0 +1,217 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:sitemap:
+      jcr:primaryType: hst:sitemap
+      /pagenotfound:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/pagenotfound
+        hst:refId: pagenotfound
+      /site-furniture:
+        jcr:primaryType: hst:sitemapitem
+        /footer:
+          jcr:primaryType: hst:sitemapitem
+          /cookies:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/cookiepreferences
+            hst:refId: cookies
+            hst:relativecontentpath: site-furniture/footer/cookies
+            hst:sitemapitemhandlerids: [trailing-slash]
+          /_default_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/article
+            hst:relativecontentpath: site-furniture/footer/${1}
+            hst:sitemapitemhandlerids: [trailing-slash]
+      /_any_:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/pagenotfound
+        hst:relativecontentpath: '404'
+      /sitemap.xml:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:components/sitemap
+      /robots.txt:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/robotstxt
+        hst:hiddeninchannelmanager: true
+        hst:relativecontentpath: administration/robots
+      /root:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/home
+        hst:refId: root
+        hst:relativecontentpath: index
+      /_default_:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
+          'publishing:organisation', 'publishing:documentcoverpage']
+        hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
+          'hst:pages/organisation', 'hst:pages/documentcoverpage']
+        hst:relativecontentpath: ${1}
+        hst:sitemapitemhandlerids: [trailing-slash]
+        /_default_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
+            'publishing:organisation', 'publishing:documentcoverpage']
+          hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
+            'hst:pages/organisation', 'hst:pages/documentcoverpage']
+          hst:relativecontentpath: ${parent}/${2}
+          hst:sitemapitemhandlerids: [trailing-slash]
+          /_default_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
+              'publishing:organisation', 'publishing:documentcoverpage']
+            hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
+              'hst:pages/organisation', 'hst:pages/documentcoverpage']
+            hst:relativecontentpath: ${parent}/${3}
+            hst:sitemapitemhandlerids: [trailing-slash]
+            /_default_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
+                'publishing:organisation', 'publishing:documentcoverpage']
+              hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
+                'hst:pages/organisation', 'hst:pages/documentcoverpage']
+              hst:relativecontentpath: ${parent}/${4}
+              hst:sitemapitemhandlerids: [trailing-slash]
+              /_default_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
+                  'publishing:organisation', 'publishing:documentcoverpage']
+                hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
+                  'hst:pages/organisation', 'hst:pages/documentcoverpage']
+                hst:relativecontentpath: ${parent}/${5}
+                hst:sitemapitemhandlerids: [trailing-slash]
+                /_default_:
+                  jcr:primaryType: hst:sitemapitem
+                  hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
+                    'publishing:organisation', 'publishing:documentcoverpage']
+                  hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
+                    'hst:pages/organisation', 'hst:pages/documentcoverpage']
+                  hst:relativecontentpath: ${parent}/${6}
+                  hst:sitemapitemhandlerids: [trailing-slash]
+                  /_default_:
+                    jcr:primaryType: hst:sitemapitem
+                    hst:componentconfigurationmappingnames: ['publishing:article',
+                      'publishing:guidepage', 'publishing:organisation', 'publishing:documentcoverpage']
+                    hst:componentconfigurationmappingvalues: ['hst:pages/article',
+                      'hst:pages/guidepage', 'hst:pages/organisation', 'hst:pages/documentcoverpage']
+                    hst:relativecontentpath: ${parent}/${7}
+                    hst:sitemapitemhandlerids: [trailing-slash]
+                    /_default_:
+                      jcr:primaryType: hst:sitemapitem
+                      hst:componentconfigurationmappingnames: ['publishing:article',
+                        'publishing:guidepage', 'publishing:organisation', 'publishing:documentcoverpage']
+                      hst:componentconfigurationmappingvalues: ['hst:pages/article',
+                        'hst:pages/guidepage', 'hst:pages/organisation', 'hst:pages/documentcoverpage']
+                      hst:relativecontentpath: ${parent}/${8}
+                      hst:sitemapitemhandlerids: [trailing-slash]
+                      /_default_:
+                        jcr:primaryType: hst:sitemapitem
+                        hst:componentconfigurationmappingnames: ['publishing:article',
+                          'publishing:guidepage', 'publishing:organisation', 'publishing:documentcoverpage']
+                        hst:componentconfigurationmappingvalues: ['hst:pages/article',
+                          'hst:pages/guidepage', 'hst:pages/organisation', 'hst:pages/documentcoverpage']
+                        hst:relativecontentpath: ${parent}/${9}
+                        hst:sitemapitemhandlerids: [trailing-slash]
+                        /_default_:
+                          jcr:primaryType: hst:sitemapitem
+                          hst:componentconfigurationmappingnames: ['publishing:article',
+                            'publishing:guidepage', 'publishing:organisation', 'publishing:documentcoverpage']
+                          hst:componentconfigurationmappingvalues: ['hst:pages/article',
+                            'hst:pages/guidepage', 'hst:pages/organisation', 'hst:pages/documentcoverpage']
+                          hst:relativecontentpath: ${parent}/${10}
+                          hst:sitemapitemhandlerids: [trailing-slash]
+                          /_default_:
+                            jcr:primaryType: hst:sitemapitem
+                            hst:componentconfigurationmappingnames: ['publishing:article',
+                              'publishing:guidepage', 'publishing:organisation', 'publishing:documentcoverpage']
+                            hst:componentconfigurationmappingvalues: ['hst:pages/article',
+                              'hst:pages/guidepage', 'hst:pages/organisation', 'hst:pages/documentcoverpage']
+                            hst:relativecontentpath: ${parent}/${11}
+                            hst:sitemapitemhandlerids: [trailing-slash]
+                            /_index_:
+                              jcr:primaryType: hst:sitemapitem
+                              hst:componentconfigurationmappingnames: ['publishing:category',
+                                'publishing:guide', 'publishing:organisationlist',
+                                'publishing:documentcoverpage']
+                              hst:componentconfigurationmappingvalues: ['hst:pages/category',
+                                'hst:pages/guide', 'hst:pages/organisationlist', 'hst:pages/documentcoverpage']
+                              hst:relativecontentpath: ${parent}/index
+                              hst:sitemapitemhandlerids: [trailing-slash]
+                          /_index_:
+                            jcr:primaryType: hst:sitemapitem
+                            hst:componentconfigurationmappingnames: ['publishing:category',
+                              'publishing:guide', 'publishing:organisationlist', 'publishing:documentcoverpage']
+                            hst:componentconfigurationmappingvalues: ['hst:pages/category',
+                              'hst:pages/guide', 'hst:pages/organisationlist', 'hst:pages/documentcoverpage']
+                            hst:relativecontentpath: ${parent}/index
+                            hst:sitemapitemhandlerids: [trailing-slash]
+                        /_index_:
+                          jcr:primaryType: hst:sitemapitem
+                          hst:componentconfigurationmappingnames: ['publishing:category',
+                            'publishing:guide', 'publishing:organisationlist', 'publishing:documentcoverpage']
+                          hst:componentconfigurationmappingvalues: ['hst:pages/category',
+                            'hst:pages/guide', 'hst:pages/organisationlist', 'hst:pages/documentcoverpage']
+                          hst:relativecontentpath: ${parent}/index
+                          hst:sitemapitemhandlerids: [trailing-slash]
+                      /_index_:
+                        jcr:primaryType: hst:sitemapitem
+                        hst:componentconfigurationmappingnames: ['publishing:category',
+                          'publishing:guide', 'publishing:organisationlist', 'publishing:documentcoverpage']
+                        hst:componentconfigurationmappingvalues: ['hst:pages/category',
+                          'hst:pages/guide', 'hst:pages/organisationlist', 'hst:pages/documentcoverpage']
+                        hst:relativecontentpath: ${parent}/index
+                        hst:sitemapitemhandlerids: [trailing-slash]
+                    /_index_:
+                      jcr:primaryType: hst:sitemapitem
+                      hst:componentconfigurationmappingnames: ['publishing:category',
+                        'publishing:guide', 'publishing:organisationlist', 'publishing:documentcoverpage']
+                      hst:componentconfigurationmappingvalues: ['hst:pages/category',
+                        'hst:pages/guide', 'hst:pages/organisationlist', 'hst:pages/documentcoverpage']
+                      hst:relativecontentpath: ${parent}/index
+                      hst:sitemapitemhandlerids: [trailing-slash]
+                  /_index_:
+                    jcr:primaryType: hst:sitemapitem
+                    hst:componentconfigurationmappingnames: ['publishing:category',
+                      'publishing:guide', 'publishing:organisationlist', 'publishing:documentcoverpage']
+                    hst:componentconfigurationmappingvalues: ['hst:pages/category',
+                      'hst:pages/guide', 'hst:pages/organisationlist', 'hst:pages/documentcoverpage']
+                    hst:relativecontentpath: ${parent}/index
+                    hst:sitemapitemhandlerids: [trailing-slash]
+                /_index_:
+                  jcr:primaryType: hst:sitemapitem
+                  hst:componentconfigurationmappingnames: ['publishing:category',
+                    'publishing:guide', 'publishing:organisationlist', 'publishing:documentcoverpage']
+                  hst:componentconfigurationmappingvalues: ['hst:pages/category',
+                    'hst:pages/guide', 'hst:pages/organisationlist', 'hst:pages/documentcoverpage']
+                  hst:relativecontentpath: ${parent}/index
+                  hst:sitemapitemhandlerids: [trailing-slash]
+              /_index_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
+                  'publishing:organisationlist', 'publishing:documentcoverpage']
+                hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
+                  'hst:pages/organisationlist', 'hst:pages/documentcoverpage']
+                hst:relativecontentpath: ${parent}/index
+                hst:sitemapitemhandlerids: [trailing-slash]
+            /_index_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
+                'publishing:organisationlist', 'publishing:documentcoverpage']
+              hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
+                'hst:pages/organisationlist', 'hst:pages/documentcoverpage']
+              hst:relativecontentpath: ${parent}/index
+              hst:sitemapitemhandlerids: [trailing-slash]
+          /_index_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
+              'publishing:organisationlist', 'publishing:documentcoverpage']
+            hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
+              'hst:pages/organisationlist', 'hst:pages/documentcoverpage']
+            hst:relativecontentpath: ${parent}/index
+            hst:sitemapitemhandlerids: [trailing-slash]
+        /_index_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
+            'publishing:organisationlist', 'publishing:documentcoverpage']
+          hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
+            'hst:pages/organisationlist', 'hst:pages/documentcoverpage']
+          hst:relativecontentpath: ${parent}/index
+          hst:sitemapitemhandlerids: [trailing-slash]

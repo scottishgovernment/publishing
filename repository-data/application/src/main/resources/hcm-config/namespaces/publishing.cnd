@@ -30,6 +30,12 @@
 [publishing:contentcontact] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:document] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:documentcoverpage] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
 [publishing:guide] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
@@ -42,13 +48,13 @@
 [publishing:mirror] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:notificationbanner] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:organisation] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
 [publishing:organisationlist] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
-  orderable
-
-[publishing:notificationbanner] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:relateditems] > hippo:compound, hippostd:relaxed

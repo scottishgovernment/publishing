@@ -304,6 +304,9 @@ definitions:
           /economicactionplan-siteheader:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/economic-action-plan/base-siteheader.ftl
+          /documentcoverpage-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/documentcoverpage-main.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

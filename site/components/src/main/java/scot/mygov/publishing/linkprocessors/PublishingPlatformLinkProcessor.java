@@ -35,6 +35,12 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
             return link;
         }
 
+        // do not alter binary paths
+        if (isBinaryPath(link)) {
+            return link;
+        }
+
+
         try {
             return doPostProcess(link);
         } catch (RepositoryException e) {
@@ -50,7 +56,6 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
 
         Session session = sessionSource.getSession();
         String contentPath = pathForNode(link);
-
         if (!session.nodeExists(contentPath)) {
             return link;
         }
@@ -144,6 +149,11 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
             return link;
         }
 
+        // do not alter binary paths
+        if (isBinaryPath(link)) {
+            return link;
+        }
+
         try {
             return doPreProcess(link);
         } catch (RepositoryException e) {
@@ -202,5 +212,9 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
     boolean hasExtension(HstLink link) {
         String extension = StringUtils.substringAfterLast(link.getPath(), ".");
         return StringUtils.isNotEmpty(extension);
+    }
+
+    boolean isBinaryPath(HstLink link) {
+        return link.getPath().startsWith("binaries/");
     }
 }

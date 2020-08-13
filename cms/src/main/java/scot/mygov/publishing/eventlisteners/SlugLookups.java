@@ -150,7 +150,7 @@ public class SlugLookups {
     Node ensureFolder(Node parent, String name) throws RepositoryException {
         return parent.hasNode(name)
                 ? parent.getNode(name)
-                : parent.addNode("urls", "hippostd:folder");
+                : parent.addNode(name, "hippostd:folder");
     }
 
     private Node ensureLookupPath(Node parent, int pos, String path) throws RepositoryException {

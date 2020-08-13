@@ -49,4 +49,26 @@ public class HippoUtils {
         return false;
     }
 
+    public void apply(NodeIterator it, ThrowingConsumer consumer) throws RepositoryException {
+        apply(it, node -> true, consumer);
+    }
+
+    public void apply(NodeIterator it, ThrowingPredicate predicate, ThrowingConsumer consumer) throws RepositoryException {
+        while (it.hasNext()) {
+            Node node = it.nextNode();
+            if (predicate.test(node)) {
+                consumer.accept(node);
+            }
+        }
+    }
+
+    @FunctionalInterface
+    public interface ThrowingPredicate {
+        boolean test(Node t) throws RepositoryException;
+    }
+
+    @FunctionalInterface
+    public interface ThrowingConsumer {
+        void accept(Node t) throws RepositoryException;
+    }
 }

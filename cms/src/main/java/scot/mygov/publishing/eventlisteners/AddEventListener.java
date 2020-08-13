@@ -69,12 +69,12 @@ public class AddEventListener {
         Node node = session.getNode(event.result());
 
         // during the migration we will see the organisation list etc get created here.
-        // we do not want to take any avtion for these.
+        // we do not want to take any action for these.
         if (hippoUtils.isOneOfNodeTypes(node, "publishing:organisation", "publishing:organisationlist")) {
             return;
         }
 
-        if (isArticle(node)) {
+        if (isArticle(node) || isDocumentCoverPage(node)) {
             node.setProperty("publishing:slug", node.getName());
             session.save();
             return;
@@ -150,6 +150,10 @@ public class AddEventListener {
 
     boolean isArticle(Node node) throws RepositoryException {
         return node.isNodeType("publishing:article");
+    }
+
+    boolean isDocumentCoverPage(Node node) throws RepositoryException {
+        return node.isNodeType("publishing:documentcoverpage");
     }
 
     boolean isUnder(Node node, String path) throws RepositoryException {
