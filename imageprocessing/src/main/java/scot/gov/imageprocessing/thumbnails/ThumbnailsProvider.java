@@ -20,14 +20,10 @@ public class ThumbnailsProvider {
         Collections.addAll(SIZES, 330, 214, 165, 107);
     }
 
-    private ThumbnailsProvider() {
-        // static only class
-    }
-
     /**
      * Create thumbnails for document attachments.
      */
-    public static Map<Integer, File> thumbnails(InputStream documentStream, String mimeType)
+    public Map<Integer, File> thumbnails(InputStream documentStream, String mimeType)
             throws ThumbnailsProviderException {
 
         FileType type = FileType.forMimeType(mimeType);
@@ -47,12 +43,12 @@ public class ThumbnailsProvider {
         return fixedThumbnails(type.getIconName());
     }
 
-    private static Map<Integer, File> pdfThumbnails(InputStream documentStream) throws ThumbnailsProviderException {
+    private Map<Integer, File> pdfThumbnails(InputStream documentStream) throws ThumbnailsProviderException {
         File pdfImage = pdfImageStream(documentStream);
         return imageThumbnails(pdfImage);
     }
 
-    private static File pdfImageStream(InputStream documentStream) throws ThumbnailsProviderException {
+    private File pdfImageStream(InputStream documentStream) throws ThumbnailsProviderException {
         File pdfImg = null;
         try {
             pdfImg = ImageProcessing.extractPdfCoverImage(documentStream);
@@ -63,7 +59,7 @@ public class ThumbnailsProvider {
         }
     }
 
-    private static Map<Integer, File> imageThumbnails(InputStream input, FileType type) throws ThumbnailsProviderException {
+    private Map<Integer, File> imageThumbnails(InputStream input, FileType type) throws ThumbnailsProviderException {
         File imageFile = null;
         try {
             imageFile = TempFileUtil.createTempFile(type, input);
@@ -75,7 +71,7 @@ public class ThumbnailsProvider {
         }
     }
 
-    private static Map<Integer, File> imageThumbnails(File image) throws ThumbnailsProviderException {
+    private Map<Integer, File> imageThumbnails(File image) throws ThumbnailsProviderException {
         Map<Integer, File> thumbs = new HashMap();
         for (Integer size : SIZES) {
             File thumb = imageThumbnail(image, size);
@@ -84,7 +80,7 @@ public class ThumbnailsProvider {
         return thumbs;
     }
 
-    private static File imageThumbnail(File image, int size) throws ThumbnailsProviderException {
+    private File imageThumbnail(File image, int size) throws ThumbnailsProviderException {
         File thumbnail = null;
         try {
             thumbnail = ImageProcessing.thumbnail(new FileInputStream(image), size);
@@ -96,7 +92,7 @@ public class ThumbnailsProvider {
 
     }
 
-    private static Map<Integer, File> fixedThumbnails(String iconName) throws ThumbnailsProviderException {
+    private Map<Integer, File> fixedThumbnails(String iconName) throws ThumbnailsProviderException {
         Map<Integer, File> thumbs = new HashMap();
         for (Integer size : SIZES) {
             File thumb = fixedThumbnail(iconName, size);
@@ -105,7 +101,7 @@ public class ThumbnailsProvider {
         return thumbs;
     }
 
-    private static File fixedThumbnail(String iconName, int size) throws ThumbnailsProviderException {
+    private File fixedThumbnail(String iconName, int size) throws ThumbnailsProviderException {
 
         // lookup based on the required size
         String filename = String.format("/thumbnails/%s_%dpx.png", iconName, size);

@@ -19,11 +19,7 @@ public class Exif {
 
     private static final Logger LOG = LoggerFactory.getLogger(Exif.class);
 
-    private Exif() {
-        // static only class
-    }
-
-    public static long pageCount(Binary binary) {
+    public long pageCount(Binary binary) {
 
         // write the pdf as a temporary file
         File tmp = null;
@@ -40,7 +36,7 @@ public class Exif {
         return 0;
     }
 
-    private static File writeBinaryToTempFile(Binary binary) throws IOException, RepositoryException {
+    private File writeBinaryToTempFile(Binary binary) throws IOException, RepositoryException {
         File file = File.createTempFile("amphora-tmp-", "tmp");
         FileOutputStream out = new FileOutputStream(file);
         IOUtils.copy(binary.getStream(), out);
@@ -48,7 +44,7 @@ public class Exif {
         return file;
     }
 
-    private static List<String> runExiftool(File file) throws IOException, InterruptedException {
+    private List<String> runExiftool(File file) throws IOException, InterruptedException {
         ProcessBuilder builder =
                 new ProcessBuilder("exiftool",
                         "-s2",
@@ -68,7 +64,7 @@ public class Exif {
         return output;
     }
 
-    private static long extractPageCount(List<String> output) {
+    private long extractPageCount(List<String> output) {
         Map<String, String> map = output.stream()
                 .map(line -> line.split(": "))
                 .filter(splits -> splits.length == 2)

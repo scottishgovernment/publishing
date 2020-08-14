@@ -3,7 +3,6 @@ package scot.mygov.publishing.eventlisteners;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
 import org.onehippo.cms7.services.eventbus.Subscribe;
-import org.onehippo.cms7.services.webfiles.*;
 import org.onehippo.repository.events.HippoWorkflowEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,13 +31,26 @@ public class ThumbnailsEventListener {
 
     private static final Logger LOG = LoggerFactory.getLogger(ThumbnailsEventListener.class);
 
-    private static final String HASH_PROPERTY = "publishing:hash";
+    static final String HASH_PROPERTY = "publishing:hash";
 
     private Session session;
 
-    private HippoUtils hippoUtils = new HippoUtils();
+    HippoUtils hippoUtils = new HippoUtils();
+
+    ThumbnailsProvider thumbnailsProvider = new ThumbnailsProvider();
+
+    Exif exif = new Exif();
 
     ExecutorService executor = Executors.newSingleThreadExecutor();
+
+    interface HashProvider {
+        String hash(Node node) throws RepositoryException, IOException;
+    }
+
+    HashProvider hashProvider = node -> {
+        InputStream is = node.getProperty("jcr:data").getBinary().getStream();
+        return  DigestUtils.md5Hex(is);
+    };
 
     public ThumbnailsEventListener(Session session) {
         this.session = session;
@@ -50,7 +62,7 @@ public class ThumbnailsEventListener {
             return;
         }
 
-        executor.submit(() -> handleEventWithLogging(event));
+        executor.submit(() -> doHandleEventWithLogging(event));
 
     }
 
@@ -62,7 +74,7 @@ public class ThumbnailsEventListener {
         return "upload".equals(event.action());
     }
 
-    void handleEventWithLogging(HippoWorkflowEvent event) {
+    void doHandleEventWithLogging(HippoWorkflowEvent event) {
         try {
             Node node = session.getNodeByIdentifier(event.subjectId());
             ensureThumbnail(node);
@@ -75,7 +87,7 @@ public class ThumbnailsEventListener {
     void ensureThumbnail(Node resource) throws  IOException, ThumbnailsProviderException, RepositoryException {
         Node document = resource.getParent();
         String currentHash = currentHash(document);
-        String newHash = newHash(resource);
+        String newHash = hashProvider.hash(resource);
         if (newHash.equals(currentHash)) {
             return;
         }
@@ -91,7 +103,7 @@ public class ThumbnailsEventListener {
         Binary data = resource.getProperty(JCR_DATA).getBinary();
         String mimeType = resource.getProperty(JCR_MIME_TYPE).getString();
         String filename = resource.getProperty(HIPPO_FILENAME).getString();
-        Map<Integer, File> thumbnails = ThumbnailsProvider.thumbnails(data.getStream(), mimeType);
+        Map<Integer, File> thumbnails = thumbnailsProvider.thumbnails(data.getStream(), mimeType);
         List<Integer> sortedKeys = new ArrayList<>(thumbnails.keySet());
         Collections.sort(sortedKeys);
         for (Integer size : sortedKeys) {
@@ -115,7 +127,7 @@ public class ThumbnailsEventListener {
 
     void setPageCount(Node document, Binary data, String mimeType) throws RepositoryException {
         if (FileType.forMimeType(mimeType) == FileType.PDF) {
-            document.setProperty("publishing:pageCount", Exif.pageCount(data));
+            document.setProperty("publishing:pageCount", exif.pageCount(data));
         } else {
             document.setProperty("publishing:pageCount", 0);
         }
@@ -133,8 +145,4 @@ public class ThumbnailsEventListener {
                 : "";
     }
 
-    String newHash(Node node) throws RepositoryException, IOException {
-        InputStream is = node.getProperty("jcr:data").getBinary().getStream();
-        return  DigestUtils.md5Hex(is);
-    }
 }
