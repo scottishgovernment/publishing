@@ -14,8 +14,10 @@ import java.util.*;
 
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang.StringUtils.isBlank;
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.and;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
+import static org.onehippo.repository.util.JcrConstants.JCR_PRIMARY_TYPE;
 
 @ParametersInfo(type = EssentialsListComponentInfo.class)
 public class SearchComponent extends EssentialsListComponent {
@@ -47,8 +49,32 @@ public class SearchComponent extends EssentialsListComponent {
     }
 
     Constraint whereConstraint(HstRequest request) {
+        List<Constraint> constraints = new ArrayList<>();
+        constraints.add(excludeTypesConstraint());
+
         String term = param(request, "q");
-        return isBlank(term) ? null : termConstraint(term);
+        if (!isBlank(term)) {
+            constraints.add(termConstraint(term));
+        }
+
+        return and(constraints.toArray(new Constraint[] {}));
+    }
+
+    Constraint excludeTypesConstraint() {
+        return and(
+                notType("publishing:mirror"),
+                notType("publishing:documentcoverpage"),
+                notType("publishing:notificationbanner"),
+                notType("publishing:home"),
+                notType("publishing:category"),
+                notType("publishing:organisationlist"),
+                notType("publishing:contentcontact"),
+                notType("publishing:sector")
+        );
+    }
+
+    Constraint notType(String type) {
+        return constraint(JCR_PRIMARY_TYPE).notEqualTo(type);
     }
 
     private Constraint termConstraint(String term) {
