@@ -4,7 +4,6 @@ import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scot.mygov.publishing.HippoUtils;
 
 import javax.jcr.*;
 
@@ -13,6 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
+import static scot.mygov.publishing.eventlisteners.SlugLookups.SLUG;
 
 /**
  * Listen for new pages / folders being created in order to:
@@ -41,8 +41,6 @@ public class AddEventListener {
 
     Session session;
 
-    HippoUtils hippoUtils = new HippoUtils();
-
     AddEventListener(Session session) {
 
         this.session = session;
@@ -68,21 +66,15 @@ public class AddEventListener {
 
         Node node = session.getNode(event.result());
 
-        // during the migration we will see the organisation list etc get created here.
-        // we do not want to take any action for these.
-        if (hippoUtils.isOneOfNodeTypes(node, "publishing:organisation", "publishing:organisationlist")) {
-            return;
-        }
-
-        if (isArticle(node) || isDocumentCoverPage(node)) {
-            node.setProperty("publishing:slug", node.getName());
+        if (isGuide(node)) {
+            Node index = node.getNode(INDEX).getNode(INDEX);
+            index.setProperty(SLUG, node.getName());
             session.save();
             return;
         }
 
-        if (isGuide(node)) {
-            Node index = node.getNode(INDEX).getNode(INDEX);
-            index.setProperty("publishing:slug", node.getName());
+        if (requiresSlug(node)) {
+            node.setProperty(SLUG, node.getName());
             session.save();
             return;
         }
@@ -148,12 +140,8 @@ public class AddEventListener {
         return node.isNodeType("hippostd:folder");
     }
 
-    boolean isArticle(Node node) throws RepositoryException {
-        return node.isNodeType("publishing:article");
-    }
-
-    boolean isDocumentCoverPage(Node node) throws RepositoryException {
-        return node.isNodeType("publishing:documentcoverpage");
+    boolean requiresSlug(Node node) throws RepositoryException {
+        return node.hasProperty(SLUG);
     }
 
     boolean isUnder(Node node, String path) throws RepositoryException {

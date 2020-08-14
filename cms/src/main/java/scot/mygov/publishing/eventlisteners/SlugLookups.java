@@ -18,6 +18,8 @@ public class SlugLookups {
 
     private static final String PATH = "publishing:path";
 
+    public static final String SLUG = "publishing:slug";
+
     Session session;
 
     public SlugLookups(Session session) {
@@ -85,14 +87,14 @@ public class SlugLookups {
         Node variant = subject.getNode(subject.getName());
         return variant.isNodeType("publishing:guidepage")
                 ? guidePageSlug(subject, variant)
-                : variant.getProperty("publishing:slug").getString();
+                : variant.getProperty(SLUG).getString();
     }
 
     String guidePageSlug(Node subject, Node variant) throws RepositoryException {
         String slug = variant.getName();
         Node guideFolder = subject.getParent();
         Node guide = guideFolder.getNode("index").getNode("index");
-        String guideSlug = guide.getProperty("publishing:slug").getString();
+        String guideSlug = guide.getProperty(SLUG).getString();
         return guideSlug + "/" + slug;
     }
 

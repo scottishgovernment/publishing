@@ -139,6 +139,7 @@ public class SlugMaintenanceListenerTest {
         when(node.getNode("index")).thenReturn(index);
         when(index.isNodeType("publishing:category")).thenReturn(true);
         when(session.getNode("subject")).thenReturn(node);
+        when(index.hasProperty("publishing:slug")).thenReturn(false);
         return session;
     }
 
@@ -152,6 +153,7 @@ public class SlugMaintenanceListenerTest {
         when(handle.hasNode("subject")).thenReturn(true);
         when(handle.getNode("subject")).thenReturn(variant);
         when(variant.isNodeType("publishing:article")).thenReturn(true);
+        when(variant.hasProperty("publishing:slug")).thenReturn(true);
         return session;
     }
 }

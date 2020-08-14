@@ -248,6 +248,7 @@ public class AddEventListenerTest {
         Node article = mock(Node.class);
         when(article.isNodeType("publishing:base")).thenReturn(true);
         when(article.isNodeType("publishing:article")).thenReturn(true);
+        when(article.hasProperty("publishing:slug")).thenReturn(true);
         return article;
     }
 

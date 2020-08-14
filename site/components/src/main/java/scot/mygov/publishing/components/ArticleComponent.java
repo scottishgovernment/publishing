@@ -69,7 +69,6 @@ public class ArticleComponent extends CategoryComponent {
         return index;
     }
 
-    // TODO: move these?  used here and in guide page but seem more like utility code.
     static String canonicalUrl(HstRequest request ) {
         HippoBean document = request.getRequestContext().getContentBean();
         return canonicalUrl(request, document);

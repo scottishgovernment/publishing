@@ -4,11 +4,11 @@ import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.onehippo.repository.events.HippoWorkflowEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scot.mygov.publishing.HippoUtils;
 
 import javax.jcr.*;
 
 import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
+import static scot.mygov.publishing.eventlisteners.SlugLookups.SLUG;
 
 /**
  * Maintain the data structure used by PublishingPlatformLinkProcessor to lookup slugs.
@@ -24,8 +24,6 @@ public class SlugMaintenanceListener {
     Session session;
 
     SlugLookups slugLookups;
-
-    HippoUtils hippoUtils = new HippoUtils();
 
     public SlugMaintenanceListener(Session session) {
         this.session = session;
@@ -78,7 +76,7 @@ public class SlugMaintenanceListener {
         }
 
         Node variant = subject.getNode(subject.getName());
-        return hippoUtils.isOneOfNodeTypes(variant, "publishing:article", "publishing:documentcoverpage", "publishing:guide", "publishing:guidepage");
+        return variant.hasProperty(SLUG);
     }
 
 
