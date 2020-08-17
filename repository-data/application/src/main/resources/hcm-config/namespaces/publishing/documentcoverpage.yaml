@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 9664eb94-ba88-45f5-b0c4-30dbcfcfc114
+          jcr:uuid: 8de57c39-326d-442a-8170-91a619282a8e
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -50,9 +50,10 @@ definitions:
           publishing:title: ''
           publishing:reportingtags: []
           publishing:metaDescription: ''
-          jcr:uuid: 5f34309a-1998-454d-a635-6a16c358bcc0
+          jcr:uuid: f5c63306-5d08-4008-baa4-db9c42883bdf
           hippostdpubwf:lastModificationDate: 2020-08-04T08:51:01.604+01:00
           hippostdpubwf:creationDate: 2020-08-04T08:51:01.604+01:00
+          publishing:serviceproviders: []
           /publishing:documents:
             jcr:primaryType: publishing:document
             publishing:title: ''
@@ -96,6 +97,12 @@ definitions:
             field: slug
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: Used to determine the URL of this article. It must be unique and
+              should  be a short, URL friendly version of the title. It should be
+              no more than 60 characters, should not contain stop words (a, an, for,
+              your, my, the, and, is, with, to etc.) or non-alphanumeric characters.
+              Dashes should separate words unless the page is to be used for a campaign
+              landing page.  You should avoid acronyms.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /summary:
@@ -184,3 +191,17 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             type: hippostd:taggable
             wicket.id: ${cluster.id}.field
+          /serviceproviders:
+            jcr:primaryType: frontend:plugin
+            caption: Service providers
+            field: serviceproviders
+            multiselect.type: palette
+            palette.alloworder: true
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/publishing/valuelists/serviceproviders

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 473b827c-5c72-42fc-8d3d-4aaf8ae4dcc5
+          jcr:uuid: fcc7c028-8939-4046-8968-9ad36f60e7da
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -63,7 +63,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable', 'hippotaxonomy:classifiable']
-          jcr:uuid: e4e8f575-67f0-49f6-8d8a-4a0bae354f13
+          jcr:uuid: 5487105e-25b5-4c4f-86c8-767fb2e248ee
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -75,6 +75,7 @@ definitions:
           publishing:sensitive: false
           publishing:audience: ''
           publishing:serviceproviders: []
+          publishing:userneed: ''
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -290,6 +291,24 @@ definitions:
             field: factCheckers
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /lifeEvents:
+            jcr:primaryType: frontend:plugin
+            caption: Life events
+            field: lifeEvents
+            hint: Life events migrated from Rubric
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /userneed:
+            jcr:primaryType: frontend:plugin
+            caption: User need
+            field: userneed
+            hint: User need field migrated from Rubric
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

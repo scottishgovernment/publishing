@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: aef002f4-b82f-409d-a745-2259fdc8a92c
+          jcr:uuid: 70107adf-61e1-4ec7-98ec-60a8429b05c8
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated', 'hippostd:taggable']
@@ -142,6 +142,22 @@ definitions:
             hipposysedit:path: publishing:factCheckers
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
+          /lifeEvents:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:lifeEvents
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /userneed:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:userneed
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -155,7 +171,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
           publishing:summary: ''
           publishing:title: ''
-          jcr:uuid: 68a18045-8240-48d1-9bfd-2e5238a0aed9
+          jcr:uuid: fc750c16-7872-4de7-bfd0-e0fbf91d270a
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:07.551+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:07.552+01:00
           publishing:seoTitle: ''
@@ -167,6 +183,8 @@ definitions:
           publishing:sensitive: false
           publishing:audience: ''
           publishing:serviceproviders: []
+          publishing:lifeEvents: ['']
+          publishing:userneed: ''
           /publishing:relateditems:
             jcr:primaryType: publishing:relateditems
             publishing:title: ''
@@ -362,6 +380,24 @@ definitions:
             field: factCheckers
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /lifeEvents:
+            jcr:primaryType: frontend:plugin
+            caption: Life events
+            field: lifeEvents
+            hint: Life events migrated from Rubric
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /userneed:
+            jcr:primaryType: frontend:plugin
+            caption: User need
+            field: userneed
+            hint: User need field migrated from Rubric
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
