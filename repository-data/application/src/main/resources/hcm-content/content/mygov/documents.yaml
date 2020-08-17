@@ -1,6 +1,8 @@
 /content/documents/mygov:
+  .meta:order-before: administration
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'mix:versionable']
   jcr:uuid: e76fe948-cd58-41eb-938d-4575067eb3d3
   hippo:name: Mygov
-  hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror]
+  hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror,
+    new-publishing-documentcoverpage, new-publishing-documents-folder]

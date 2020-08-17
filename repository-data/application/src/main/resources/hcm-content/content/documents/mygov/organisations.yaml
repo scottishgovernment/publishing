@@ -1,0 +1,649 @@
+/content/documents/mygov/organisations:
+  .meta:order-before: brexit
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['mix:versionable']
+  jcr:uuid: 0ace6f81-58f1-4651-a2a0-c8cf27d306cd
+  hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
+    new-publishing-mirror, new-publishing-organisation]
+  /index:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: d203de6f-4488-4363-89f7-56c7377eb290
+    hippo:name: index
+    hippo:versionHistory: 7b51efde-39d0-44ad-9747-1e7dbed68093
+    /index[1]:
+      jcr:primaryType: publishing:organisationlist
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:versionable']
+      jcr:uuid: 8ffde0dc-4102-4a8f-93fb-b4f9965dd47d
+      hippo:availability: [preview]
+      hippo:name: Organisations
+      hippostd:state: unpublished
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:58.214+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:58.414+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |-
+        Scotland’s public sector is made up of many different organisations covering health, central government, local councils, commissioners and tribunals.
+        To understand the scope of mygov.scot browse our list of organisations by A-Z or sector.
+      publishing:mygovid: MYGOV-4
+      publishing:navigationType: grid
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:reportingtags: []
+      publishing:sensitive: false
+      publishing:seoTitle: Organisations
+      publishing:sequenceable: true
+      publishing:summary: |-
+        Scotland’s public sector is made up of many different organisations covering health, central government, local councils, commissioners and tribunals.
+        To understand the scope of mygov.scot browse our list of organisations by A-Z or sector.
+      publishing:title: Organisations
+      publishing:urlAliases: [/organisations/disclosure, /organisations/forestry-commission]
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p>To understand the scope of mygov.scot browse our list of organisations either by A-Z or sector.</p>
+    /index[2]:
+      jcr:primaryType: publishing:organisationlist
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: 09772206-6479-4af4-b24a-587dd5e83bc5
+      hippo:availability: []
+      hippo:name: Organisations
+      hippostd:state: draft
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:58.214+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:58.349+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |-
+        Scotland’s public sector is made up of many different organisations covering health, central government, local councils, commissioners and tribunals.
+        To understand the scope of mygov.scot browse our list of organisations by A-Z or sector.
+      publishing:mygovid: MYGOV-4
+      publishing:navigationType: grid
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:reportingtags: []
+      publishing:sensitive: false
+      publishing:seoTitle: Organisations
+      publishing:sequenceable: true
+      publishing:summary: |-
+        Scotland’s public sector is made up of many different organisations covering health, central government, local councils, commissioners and tribunals.
+        To understand the scope of mygov.scot browse our list of organisations by A-Z or sector.
+      publishing:title: Organisations
+      publishing:urlAliases: [/organisations/disclosure, /organisations/forestry-commission]
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p>To understand the scope of mygov.scot browse our list of organisations either by A-Z or sector.</p>
+    /index[3]:
+      jcr:primaryType: publishing:organisationlist
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: 20124cd2-3e8a-4603-a765-86222cf3e7b3
+      hippo:availability: [live]
+      hippo:name: Organisations
+      hippostd:state: published
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:58.214+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:58.414+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2020-08-17T07:37:58.472+01:00
+      hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |-
+        Scotland’s public sector is made up of many different organisations covering health, central government, local councils, commissioners and tribunals.
+        To understand the scope of mygov.scot browse our list of organisations by A-Z or sector.
+      publishing:mygovid: MYGOV-4
+      publishing:navigationType: grid
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:reportingtags: []
+      publishing:sensitive: false
+      publishing:seoTitle: Organisations
+      publishing:sequenceable: true
+      publishing:summary: |-
+        Scotland’s public sector is made up of many different organisations covering health, central government, local councils, commissioners and tribunals.
+        To understand the scope of mygov.scot browse our list of organisations by A-Z or sector.
+      publishing:title: Organisations
+      publishing:urlAliases: [/organisations/disclosure, /organisations/forestry-commission]
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p>To understand the scope of mygov.scot browse our list of organisations either by A-Z or sector.</p>
+  /aberdeen-city-council:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: e2e3677f-d111-47a7-8e5b-1c6797c082cd
+    hippo:name: Aberdeen City Council
+    hippo:versionHistory: 48549115-8fe7-46e0-8e7a-37c32753e748
+    /aberdeen-city-council[1]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: 2f7ba2ac-9ab2-410c-8966-3eeeebfcfc45
+      hippo:availability: []
+      hippo:name: Aberdeen City Council
+      hippostd:state: draft
+      hippostd:tags: [na]
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:58.664+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:58.664+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: cbed9c6f-d175-4098-916c-80ee7a9d7157
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Information and services for residents, businesses and visitors to Aberdeen. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:mygovid: MYGOV-183
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: scottish-local-authority
+      publishing:sensitive: false
+      publishing:seoTitle: Aberdeen City Council
+      publishing:serviceprovider: aberdeen-city-council
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Information and services for residents, businesses and visitors to Aberdeen. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:title: Aberdeen City Council
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+    /aberdeen-city-council[2]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 28da42fb-111e-4c8a-a8f2-af73aa49930a
+      hippo:availability: [preview]
+      hippo:name: Aberdeen City Council
+      hippostd:state: unpublished
+      hippostd:tags: [na]
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:58.664+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:58.777+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: cbed9c6f-d175-4098-916c-80ee7a9d7157
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Information and services for residents, businesses and visitors to Aberdeen. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:mygovid: MYGOV-183
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: scottish-local-authority
+      publishing:sensitive: false
+      publishing:seoTitle: Aberdeen City Council
+      publishing:serviceprovider: aberdeen-city-council
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Information and services for residents, businesses and visitors to Aberdeen. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:title: Aberdeen City Council
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+    /aberdeen-city-council[3]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: d58df605-8430-407e-9bb2-df59d7bd4cbf
+      hippo:availability: [live]
+      hippo:name: Aberdeen City Council
+      hippostd:state: published
+      hippostd:tags: [na]
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:58.664+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:58.777+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2020-08-17T07:37:58.859+01:00
+      hippotranslation:id: cbed9c6f-d175-4098-916c-80ee7a9d7157
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Information and services for residents, businesses and visitors to Aberdeen. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:mygovid: MYGOV-183
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: scottish-local-authority
+      publishing:sensitive: false
+      publishing:seoTitle: Aberdeen City Council
+      publishing:serviceprovider: aberdeen-city-council
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Information and services for residents, businesses and visitors to Aberdeen. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:title: Aberdeen City Council
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+  /aberdeenshire-council:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 5cf4804a-4e55-4983-af40-466acb612a8e
+    hippo:name: Aberdeenshire Council
+    hippo:versionHistory: 4d499c86-4c09-464c-aed6-69f009ca795a
+    /aberdeenshire-council[1]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: 4f928cf3-c3a5-4df8-af7a-2691f05eb2ff
+      hippo:availability: []
+      hippo:name: Aberdeenshire Council
+      hippostd:state: draft
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:59.031+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:59.031+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 71eb76e0-fc2a-4905-9820-f07f2a9415c6
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Information and services for residents, businesses and visitors to Aberdeenshire. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:mygovid: MYGOV-103
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: scottish-local-authority
+      publishing:sensitive: false
+      publishing:seoTitle: Aberdeenshire Council
+      publishing:serviceprovider: aberdeenshire-council
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Information and services for residents, businesses and visitors to Aberdeenshire. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:title: Aberdeenshire Council
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+    /aberdeenshire-council[2]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 2310d20a-a436-4170-94c3-4cb848f8157b
+      hippo:availability: [preview]
+      hippo:name: Aberdeenshire Council
+      hippostd:state: unpublished
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:59.031+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:59.147+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 71eb76e0-fc2a-4905-9820-f07f2a9415c6
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Information and services for residents, businesses and visitors to Aberdeenshire. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:mygovid: MYGOV-103
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: scottish-local-authority
+      publishing:sensitive: false
+      publishing:seoTitle: Aberdeenshire Council
+      publishing:serviceprovider: aberdeenshire-council
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Information and services for residents, businesses and visitors to Aberdeenshire. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:title: Aberdeenshire Council
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+    /aberdeenshire-council[3]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: d4ba57d6-9bba-4dfc-a043-123e40e27a3d
+      hippo:availability: [live]
+      hippo:name: Aberdeenshire Council
+      hippostd:state: published
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:59.031+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:59.147+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2020-08-17T07:37:59.220+01:00
+      hippotranslation:id: 71eb76e0-fc2a-4905-9820-f07f2a9415c6
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Information and services for residents, businesses and visitors to Aberdeenshire. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:mygovid: MYGOV-103
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: scottish-local-authority
+      publishing:sensitive: false
+      publishing:seoTitle: Aberdeenshire Council
+      publishing:serviceprovider: aberdeenshire-council
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Information and services for residents, businesses and visitors to Aberdeenshire. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:title: Aberdeenshire Council
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+  /accountant-in-bankruptcy:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 2e4337f5-a023-4ab4-9582-839e40c301cc
+    hippo:name: Accountant in Bankruptcy
+    hippo:versionHistory: 1e33684b-00d1-4628-b1d7-6bfad920e10d
+    /accountant-in-bankruptcy[1]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: 65284349-9b50-402e-ad5c-2a7189f75e35
+      hippo:availability: []
+      hippo:name: Accountant in Bankruptcy
+      hippostd:state: draft
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:59.447+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:59.447+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 10561457-22ac-4fa1-b6ba-c5e01285b29a
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Personal bankruptcy and corporate insolvency information for people and businesses in Scotland.
+      publishing:mygovid: MYGOV-243
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: scottish-government-executive-agencies
+      publishing:sensitive: false
+      publishing:seoTitle: Accountant in Bankruptcy
+      publishing:serviceprovider: accountant-in-bankruptcy
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Personal bankruptcy and corporate insolvency information for people and businesses in Scotland.
+      publishing:title: Accountant in Bankruptcy
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+    /accountant-in-bankruptcy[2]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 3f1e2a4a-8ed9-4a67-bdb8-c590e962431f
+      hippo:availability: [preview]
+      hippo:name: Accountant in Bankruptcy
+      hippostd:state: unpublished
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:59.447+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:59.624+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: 10561457-22ac-4fa1-b6ba-c5e01285b29a
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Personal bankruptcy and corporate insolvency information for people and businesses in Scotland.
+      publishing:mygovid: MYGOV-243
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: scottish-government-executive-agencies
+      publishing:sensitive: false
+      publishing:seoTitle: Accountant in Bankruptcy
+      publishing:serviceprovider: accountant-in-bankruptcy
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Personal bankruptcy and corporate insolvency information for people and businesses in Scotland.
+      publishing:title: Accountant in Bankruptcy
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+    /accountant-in-bankruptcy[3]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: 87311948-e314-48b2-9229-0e82706bf711
+      hippo:availability: [live]
+      hippo:name: Accountant in Bankruptcy
+      hippostd:state: published
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:59.447+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:59.624+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2020-08-17T07:37:59.715+01:00
+      hippotranslation:id: 10561457-22ac-4fa1-b6ba-c5e01285b29a
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Personal bankruptcy and corporate insolvency information for people and businesses in Scotland.
+      publishing:mygovid: MYGOV-243
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: scottish-government-executive-agencies
+      publishing:sensitive: false
+      publishing:seoTitle: Accountant in Bankruptcy
+      publishing:serviceprovider: accountant-in-bankruptcy
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Personal bankruptcy and corporate insolvency information for people and businesses in Scotland.
+      publishing:title: Accountant in Bankruptcy
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+  /accounts-commission-for-scotland:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 04db6b70-34ba-49e8-ae5f-507529b3147f
+    hippo:name: Accounts Commission for Scotland
+    hippo:versionHistory: 435c8337-1240-4eac-8172-fa28f3823f5a
+    /accounts-commission-for-scotland[1]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: 4309c228-4eaf-436f-8c76-b1df9817b3f1
+      hippo:availability: []
+      hippo:name: Accounts Commission for Scotland
+      hippostd:state: draft
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:59.910+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:37:59.910+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: cd3bed59-52a4-4a4a-a1c1-3aaf3f217ab6
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Checks how well Scotland’s councils perform. It operates independently of local and central government.
+      publishing:mygovid: MYGOV-234
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: non-departmental-public-body-ndpb
+      publishing:sensitive: false
+      publishing:seoTitle: Accounts Commission for Scotland
+      publishing:serviceprovider: accounts-commission-for-scotland
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Checks how well Scotland’s councils perform. It operates independently of local and central government.
+      publishing:title: Accounts Commission for Scotland
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+    /accounts-commission-for-scotland[2]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: f3235f8b-d87c-4c61-82ed-d0778407a8d8
+      hippo:availability: [preview]
+      hippo:name: Accounts Commission for Scotland
+      hippostd:state: unpublished
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:59.910+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:38:00.036+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: cd3bed59-52a4-4a4a-a1c1-3aaf3f217ab6
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Checks how well Scotland’s councils perform. It operates independently of local and central government.
+      publishing:mygovid: MYGOV-234
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: non-departmental-public-body-ndpb
+      publishing:sensitive: false
+      publishing:seoTitle: Accounts Commission for Scotland
+      publishing:serviceprovider: accounts-commission-for-scotland
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Checks how well Scotland’s councils perform. It operates independently of local and central government.
+      publishing:title: Accounts Commission for Scotland
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+    /accounts-commission-for-scotland[3]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: 050ea8ac-bf4c-46f0-8280-d644cf738ec4
+      hippo:availability: [live]
+      hippo:name: Accounts Commission for Scotland
+      hippostd:state: published
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:37:59.910+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:38:00.036+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2020-08-17T07:38:00.104+01:00
+      hippotranslation:id: cd3bed59-52a4-4a4a-a1c1-3aaf3f217ab6
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Checks how well Scotland’s councils perform. It operates independently of local and central government.
+      publishing:mygovid: MYGOV-234
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: non-departmental-public-body-ndpb
+      publishing:sensitive: false
+      publishing:seoTitle: Accounts Commission for Scotland
+      publishing:serviceprovider: accounts-commission-for-scotland
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Checks how well Scotland’s councils perform. It operates independently of local and central government.
+      publishing:title: Accounts Commission for Scotland
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+  /angus-council:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: b5aefb14-35af-4666-b717-446c3ce471f1
+    hippo:name: Angus Council
+    hippo:versionHistory: 8e84b8a4-4a91-49d5-9731-7ee6198582f9
+    /angus-council[1]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: d89f195f-defa-4e58-8f2c-6e6100849d20
+      hippo:availability: []
+      hippo:name: Angus Council
+      hippostd:state: draft
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:38:00.283+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:38:00.283+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: a6b1dd54-1870-4d16-8b8c-0fb395a6aa6c
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Information and services for residents, businesses and visitors to Angus. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:mygovid: MYGOV-99
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: scottish-local-authority
+      publishing:sensitive: false
+      publishing:seoTitle: Angus Council
+      publishing:serviceprovider: angus-council
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Information and services for residents, businesses and visitors to Angus. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:title: Angus Council
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+    /angus-council[2]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: add105e2-f812-4372-a2f6-6ac433048b2b
+      hippo:availability: [preview]
+      hippo:name: Angus Council
+      hippostd:state: unpublished
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:38:00.283+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:38:00.374+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: a6b1dd54-1870-4d16-8b8c-0fb395a6aa6c
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Information and services for residents, businesses and visitors to Angus. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:mygovid: MYGOV-99
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: scottish-local-authority
+      publishing:sensitive: false
+      publishing:seoTitle: Angus Council
+      publishing:serviceprovider: angus-council
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Information and services for residents, businesses and visitors to Angus. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:title: Angus Council
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+    /angus-council[3]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: 7ef3346a-7a34-43b8-92eb-008003294b21
+      hippo:availability: [live]
+      hippo:name: Angus Council
+      hippostd:state: published
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T07:38:00.283+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T07:38:00.374+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2020-08-17T07:38:00.438+01:00
+      hippotranslation:id: a6b1dd54-1870-4d16-8b8c-0fb395a6aa6c
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: |
+        Information and services for residents, businesses and visitors to Angus. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:mygovid: MYGOV-99
+      publishing:pinned: false
+      publishing:relatedmygovids: ''
+      publishing:sector: scottish-local-authority
+      publishing:sensitive: false
+      publishing:seoTitle: Angus Council
+      publishing:serviceprovider: angus-council
+      publishing:serviceproviders: []
+      publishing:summary: |
+        Information and services for residents, businesses and visitors to Angus. Check school holidays and find out about local services including housing, council tax and benefits.
+      publishing:title: Angus Council
+      publishing:urlAliases:
+        type: double
+        value: []
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems

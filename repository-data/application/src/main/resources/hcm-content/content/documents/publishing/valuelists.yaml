@@ -43,23 +43,916 @@
       hippo:availability: [live, preview]
       hippotranslation:id: df522156-a372-4762-9b73-d425b07fd2bf
       hippotranslation:locale: inherited - from query
-  /bannertypes:
+  /audiences:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: eee456b8-18cd-475b-960d-ea9c84a4c1fa
-    hippo:name: bannerTypes
-    /bannertypes:
+    jcr:uuid: 4bceecdc-730b-488d-b235-3347049b50c2
+    hippo:name: audiences
+    /audiences:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 7523f1be-75cf-4ea8-abea-f555964ab864
-      hippo:availability: [live, preview]
-      hippotranslation:id: 48009586-6f16-4493-90d8-c1bc9b0991c0
+      jcr:uuid: b4fd7a36-2c7a-492f-a128-c49f411aa9d9
+      hippotranslation:id: 1b2be3aa-520c-40d1-b9b9-d6c60bb00f91
       hippotranslation:locale: inherited - from query
       /selection:listitem[1]:
         jcr:primaryType: selection:listitem
-        selection:key: importantbanner
-        selection:label: Important Banner
+        selection:key: business
+        selection:label: Business
       /selection:listitem[2]:
         jcr:primaryType: selection:listitem
-        selection:key: mourningbanner
-        selection:label: Mourning Banner
+        selection:key: people
+        selection:label: People
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: people-and-business
+        selection:label: People and Business
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: specialists
+        selection:label: Specialists
+  /serviceproviders:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: ca2169d2-bbeb-4e30-9e22-beaa19a3e4b4
+    hippo:name: serviceproviders
+    /serviceproviders:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 5472a687-4709-4533-8535-9c82761fed0b
+      hippotranslation:id: db57898a-8d07-43a9-91b4-0ac6c4b7e696
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: aberdeen-city-council
+        selection:label: Aberdeen City Council
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: aberdeenshire-council
+        selection:label: Aberdeenshire Council
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: accountant-in-bankruptcy
+        selection:label: Accountant in Bankruptcy
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: accounts-commission-for-scotland
+        selection:label: Accounts Commission for Scotland
+      /selection:listitem[5]:
+        jcr:primaryType: selection:listitem
+        selection:key: advanced-learning-and-science-directorate
+        selection:label: Advanced Learning and Science Directorate
+      /selection:listitem[6]:
+        jcr:primaryType: selection:listitem
+        selection:key: agriculture-food-and-rural-communities-directorate
+        selection:label: Agriculture, Food and Rural Communities Directorate
+      /selection:listitem[7]:
+        jcr:primaryType: selection:listitem
+        selection:key: angus-council
+        selection:label: Angus Council
+      /selection:listitem[8]:
+        jcr:primaryType: selection:listitem
+        selection:key: architecture-and-design-scotland
+        selection:label: Architecture and Design Scotland
+      /selection:listitem[9]:
+        jcr:primaryType: selection:listitem
+        selection:key: argyll-bute-council
+        selection:label: Argyll & Bute Council
+      /selection:listitem[10]:
+        jcr:primaryType: selection:listitem
+        selection:key: audit-scotland
+        selection:label: Audit Scotland
+      /selection:listitem[11]:
+        jcr:primaryType: selection:listitem
+        selection:key: bord-na-gaidhlig
+        selection:label: Bòrd na Gàidhlig
+      /selection:listitem[12]:
+        jcr:primaryType: selection:listitem
+        selection:key: business-gateway
+        selection:label: Business Gateway
+      /selection:listitem[13]:
+        jcr:primaryType: selection:listitem
+        selection:key: cairngorms-national-park-authority
+        selection:label: Cairngorms National Park Authority
+      /selection:listitem[14]:
+        jcr:primaryType: selection:listitem
+        selection:key: caledonian-maritime-assets-ltd
+        selection:label: Caledonian Maritime Assets Ltd
+      /selection:listitem[15]:
+        jcr:primaryType: selection:listitem
+        selection:key: care-inspectorate
+        selection:label: Care Inspectorate
+      /selection:listitem[16]:
+        jcr:primaryType: selection:listitem
+        selection:key: children-and-families-directorate
+        selection:label: Children and Families Directorate
+      /selection:listitem[17]:
+        jcr:primaryType: selection:listitem
+        selection:key: childrens-hearings-scotland
+        selection:label: Children's Hearings Scotland
+      /selection:listitem[18]:
+        jcr:primaryType: selection:listitem
+        selection:key: clackmannanshire-council
+        selection:label: Clackmannanshire Council
+      /selection:listitem[19]:
+        jcr:primaryType: selection:listitem
+        selection:key: comhairle-nan-eilean-siar-western-isles-council
+        selection:label: Comhairle nan Eilean Siar (Western Isles Council)
+      /selection:listitem[20]:
+        jcr:primaryType: selection:listitem
+        selection:key: commissioner-for-ethical-standards-in-public-life
+        selection:label: Commissioner for Ethical Standards in Public Life
+      /selection:listitem[21]:
+        jcr:primaryType: selection:listitem
+        selection:key: communications-and-ministerial-support-directorate
+        selection:label: Communications and Ministerial Support Directorate
+      /selection:listitem[22]:
+        jcr:primaryType: selection:listitem
+        selection:key: community-justice-scotland
+        selection:label: Community Justice Scotland
+      /selection:listitem[23]:
+        jcr:primaryType: selection:listitem
+        selection:key: court-of-lord-lyon
+        selection:label: Court of Lord Lyon
+      /selection:listitem[24]:
+        jcr:primaryType: selection:listitem
+        selection:key: creative-scotland
+        selection:label: Creative Scotland
+      /selection:listitem[25]:
+        jcr:primaryType: selection:listitem
+        selection:key: crofting-commission
+        selection:label: Crofting Commission
+      /selection:listitem[26]:
+        jcr:primaryType: selection:listitem
+        selection:key: crown-estate-scotland
+        selection:label: Crown Estate Scotland
+      /selection:listitem[27]:
+        jcr:primaryType: selection:listitem
+        selection:key: crown-office-and-procurator-fiscal-service
+        selection:label: Crown Office and Procurator Fiscal Service
+      /selection:listitem[28]:
+        jcr:primaryType: selection:listitem
+        selection:key: culture-europe-and-external-affairs-directorate
+        selection:label: Culture, Europe and External Affairs Directorate
+      /selection:listitem[29]:
+        jcr:primaryType: selection:listitem
+        selection:key: david-macbrayne-ltd
+        selection:label: David MacBrayne Ltd
+      /selection:listitem[30]:
+        jcr:primaryType: selection:listitem
+        selection:key: digital-directorate
+        selection:label: Digital Directorate
+      /selection:listitem[31]:
+        jcr:primaryType: selection:listitem
+        selection:key: disclosure-scotland
+        selection:label: Disclosure Scotland
+      /selection:listitem[32]:
+        jcr:primaryType: selection:listitem
+        selection:key: drinking-water-quality-regulator
+        selection:label: Drinking Water Quality Regulator
+      /selection:listitem[33]:
+        jcr:primaryType: selection:listitem
+        selection:key: dumfries-and-galloway-council
+        selection:label: Dumfries and Galloway Council
+      /selection:listitem[34]:
+        jcr:primaryType: selection:listitem
+        selection:key: dundee-council
+        selection:label: Dundee Council
+      /selection:listitem[35]:
+        jcr:primaryType: selection:listitem
+        selection:key: east-ayrshire-council
+        selection:label: East Ayrshire Council
+      /selection:listitem[36]:
+        jcr:primaryType: selection:listitem
+        selection:key: east-dunbartonshire-council
+        selection:label: East Dunbartonshire Council
+      /selection:listitem[37]:
+        jcr:primaryType: selection:listitem
+        selection:key: east-lothian-council
+        selection:label: East Lothian Council
+      /selection:listitem[38]:
+        jcr:primaryType: selection:listitem
+        selection:key: east-renfrewshire-council
+        selection:label: East Renfrewshire Council
+      /selection:listitem[39]:
+        jcr:primaryType: selection:listitem
+        selection:key: economic-development-directorate
+        selection:label: Economic Development Directorate
+      /selection:listitem[40]:
+        jcr:primaryType: selection:listitem
+        selection:key: edinburgh-council
+        selection:label: Edinburgh Council
+      /selection:listitem[41]:
+        jcr:primaryType: selection:listitem
+        selection:key: education-scotland
+        selection:label: Education Scotland
+      /selection:listitem[42]:
+        jcr:primaryType: selection:listitem
+        selection:key: energy-and-climate-change-directorate
+        selection:label: Energy and Climate Change Directorate
+      /selection:listitem[43]:
+        jcr:primaryType: selection:listitem
+        selection:key: environment-and-forestry-directorate
+        selection:label: Environment and Forestry Directorate
+      /selection:listitem[44]:
+        jcr:primaryType: selection:listitem
+        selection:key: fair-work-directorate
+        selection:label: Fair Work Directorate
+      /selection:listitem[45]:
+        jcr:primaryType: selection:listitem
+        selection:key: falkirk-council
+        selection:label: Falkirk Council
+      /selection:listitem[46]:
+        jcr:primaryType: selection:listitem
+        selection:key: fife-council
+        selection:label: Fife Council
+      /selection:listitem[47]:
+        jcr:primaryType: selection:listitem
+        selection:key: finance-ehealth-and-analytics-directorate
+        selection:label: Finance, eHealth and Analytics Directorate
+      /selection:listitem[48]:
+        jcr:primaryType: selection:listitem
+        selection:key: financial-management-directorate
+        selection:label: Financial Management Directorate
+      /selection:listitem[49]:
+        jcr:primaryType: selection:listitem
+        selection:key: financial-strategy-directorate
+        selection:label: Financial Strategy Directorate
+      /selection:listitem[50]:
+        jcr:primaryType: selection:listitem
+        selection:key: food-standards-scotland
+        selection:label: Food Standards Scotland
+      /selection:listitem[51]:
+        jcr:primaryType: selection:listitem
+        selection:key: forestry-commission-scotland
+        selection:label: Forestry Commission Scotland
+      /selection:listitem[52]:
+        jcr:primaryType: selection:listitem
+        selection:key: glasgow-council
+        selection:label: Glasgow Council
+      /selection:listitem[53]:
+        jcr:primaryType: selection:listitem
+        selection:key: glasgow-prestwick-airport
+        selection:label: Glasgow Prestwick Airport
+      /selection:listitem[54]:
+        jcr:primaryType: selection:listitem
+        selection:key: gov-uk
+        selection:label: GOV.UK
+      /selection:listitem[55]:
+        jcr:primaryType: selection:listitem
+        selection:key: health-and-social-care-integration-directorate
+        selection:label: Health and Social Care Integration Directorate
+      /selection:listitem[56]:
+        jcr:primaryType: selection:listitem
+        selection:key: health-performance-and-delivery-directorate
+        selection:label: Health Performance and Delivery Directorate
+      /selection:listitem[57]:
+        jcr:primaryType: selection:listitem
+        selection:key: health-workforce-directorate
+        selection:label: Health Workforce Directorate
+      /selection:listitem[58]:
+        jcr:primaryType: selection:listitem
+        selection:key: healthcare-improvement-scotland
+        selection:label: Healthcare Improvement Scotland
+      /selection:listitem[59]:
+        jcr:primaryType: selection:listitem
+        selection:key: healthcare-quality-and-strategy-directorate
+        selection:label: Healthcare Quality and Strategy Directorate
+      /selection:listitem[60]:
+        jcr:primaryType: selection:listitem
+        selection:key: her-majestys-fire-service-inspectorate
+        selection:label: Her Majesty’s Fire Service Inspectorate
+      /selection:listitem[61]:
+        jcr:primaryType: selection:listitem
+        selection:key: her-majestys-inspectorate-of-constabulary-in-scotland
+        selection:label: Her Majesty’s Inspectorate of Constabulary in Scotland
+      /selection:listitem[62]:
+        jcr:primaryType: selection:listitem
+        selection:key: her-majestys-inspectorate-of-prisons-for-scotland
+        selection:label: Her Majesty's Inspectorate of Prisons for Scotland
+      /selection:listitem[63]:
+        jcr:primaryType: selection:listitem
+        selection:key: highland-council
+        selection:label: Highland Council
+      /selection:listitem[64]:
+        jcr:primaryType: selection:listitem
+        selection:key: highlands-and-islands-airports-ltd
+        selection:label: Highlands and Islands Airports Ltd
+      /selection:listitem[65]:
+        jcr:primaryType: selection:listitem
+        selection:key: highlands-and-islands-enterprise
+        selection:label: Highlands and Islands Enterprise
+      /selection:listitem[66]:
+        jcr:primaryType: selection:listitem
+        selection:key: historic-environment-scotland
+        selection:label: Historic Environment Scotland
+      /selection:listitem[67]:
+        jcr:primaryType: selection:listitem
+        selection:key: housing-regeneration-and-welfare-directorate
+        selection:label: Housing, Regeneration and Welfare Directorate
+      /selection:listitem[68]:
+        jcr:primaryType: selection:listitem
+        selection:key: independent-living-fund-scotland
+        selection:label: Independent Living Fund Scotland
+      /selection:listitem[69]:
+        jcr:primaryType: selection:listitem
+        selection:key: inspectorate-of-prosecution-in-scotland
+        selection:label: Inspectorate of Prosecution in Scotland
+      /selection:listitem[70]:
+        jcr:primaryType: selection:listitem
+        selection:key: internal-audit-directorate
+        selection:label: Internal Audit Directorate
+      /selection:listitem[71]:
+        jcr:primaryType: selection:listitem
+        selection:key: inverclyde-council
+        selection:label: Inverclyde Council
+      /selection:listitem[72]:
+        jcr:primaryType: selection:listitem
+        selection:key: judicial-appointments-board-for-scotland
+        selection:label: Judicial Appointments Board for Scotland
+      /selection:listitem[73]:
+        jcr:primaryType: selection:listitem
+        selection:key: justice-directorate
+        selection:label: Justice Directorate
+      /selection:listitem[74]:
+        jcr:primaryType: selection:listitem
+        selection:key: justices-of-the-peace-advisory-committee
+        selection:label: Justices of the Peace Advisory Committee
+      /selection:listitem[75]:
+        jcr:primaryType: selection:listitem
+        selection:key: lands-tribunal-for-scotland
+        selection:label: Lands Tribunal for Scotland
+      /selection:listitem[76]:
+        jcr:primaryType: selection:listitem
+        selection:key: learning-directorate
+        selection:label: Learning Directorate
+      /selection:listitem[77]:
+        jcr:primaryType: selection:listitem
+        selection:key: local-government-and-communities-directorate
+        selection:label: Local Government and Communities Directorate
+      /selection:listitem[78]:
+        jcr:primaryType: selection:listitem
+        selection:key: local-government-boundary-commission-for-scotland
+        selection:label: Local Government Boundary Commission for Scotland
+      /selection:listitem[79]:
+        jcr:primaryType: selection:listitem
+        selection:key: loch-lomond-and-the-trossachs-national-park-authority
+        selection:label: Loch Lomond and The Trossachs National Park Authority
+      /selection:listitem[80]:
+        jcr:primaryType: selection:listitem
+        selection:key: marine-scotland-directorate
+        selection:label: Marine Scotland Directorate
+      /selection:listitem[81]:
+        jcr:primaryType: selection:listitem
+        selection:key: mental-health-tribunal-for-scotland
+        selection:label: Mental Health Tribunal for Scotland
+      /selection:listitem[82]:
+        jcr:primaryType: selection:listitem
+        selection:key: mental-welfare-commission-for-scotland
+        selection:label: Mental Welfare Commission for Scotland
+      /selection:listitem[83]:
+        jcr:primaryType: selection:listitem
+        selection:key: midlothian-council
+        selection:label: Midlothian Council
+      /selection:listitem[84]:
+        jcr:primaryType: selection:listitem
+        selection:key: mobility-and-access-committee-for-scotland
+        selection:label: Mobility and Access Committee for Scotland
+      /selection:listitem[85]:
+        jcr:primaryType: selection:listitem
+        selection:key: moray-council
+        selection:label: Moray Council
+      /selection:listitem[86]:
+        jcr:primaryType: selection:listitem
+        selection:key: national-galleries-of-scotland
+        selection:label: National Galleries of Scotland
+      /selection:listitem[87]:
+        jcr:primaryType: selection:listitem
+        selection:key: national-library-of-scotland
+        selection:label: National Library of Scotland
+      /selection:listitem[88]:
+        jcr:primaryType: selection:listitem
+        selection:key: national-museums-of-scotland
+        selection:label: National Museums of Scotland
+      /selection:listitem[89]:
+        jcr:primaryType: selection:listitem
+        selection:key: national-records-of-scotland
+        selection:label: National Records of Scotland
+      /selection:listitem[90]:
+        jcr:primaryType: selection:listitem
+        selection:key: national-waiting-times-centre-board
+        selection:label: National Waiting Times Centre Board
+      /selection:listitem[91]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-24
+        selection:label: NHS 24
+      /selection:listitem[92]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-ayrshire-arran
+        selection:label: NHS Ayrshire & Arran
+      /selection:listitem[93]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-borders
+        selection:label: NHS Borders
+      /selection:listitem[94]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-dumfries-galloway
+        selection:label: NHS Dumfries & Galloway
+      /selection:listitem[95]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-education-for-scotland
+        selection:label: NHS Education for Scotland
+      /selection:listitem[96]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-fife
+        selection:label: NHS Fife
+      /selection:listitem[97]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-forth-valley
+        selection:label: NHS Forth Valley
+      /selection:listitem[98]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-grampian
+        selection:label: NHS Grampian
+      /selection:listitem[99]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-greater-glasgow-and-clyde
+        selection:label: NHS Greater Glasgow and Clyde
+      /selection:listitem[100]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-health-scotland-board
+        selection:label: NHS Health Scotland Board
+      /selection:listitem[101]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-highland
+        selection:label: NHS Highland
+      /selection:listitem[102]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-inform
+        selection:label: NHS Inform
+      /selection:listitem[103]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-lanarkshire
+        selection:label: NHS Lanarkshire
+      /selection:listitem[104]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-lothian
+        selection:label: NHS Lothian
+      /selection:listitem[105]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-national-services-scotland
+        selection:label: NHS National Services Scotland
+      /selection:listitem[106]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-orkney
+        selection:label: NHS Orkney
+      /selection:listitem[107]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-shetland
+        selection:label: NHS Shetland
+      /selection:listitem[108]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-tayside
+        selection:label: NHS Tayside
+      /selection:listitem[109]:
+        jcr:primaryType: selection:listitem
+        selection:key: nhs-western-isles
+        selection:label: NHS Western Isles
+      /selection:listitem[110]:
+        jcr:primaryType: selection:listitem
+        selection:key: north-ayrshire-council
+        selection:label: North Ayrshire Council
+      /selection:listitem[111]:
+        jcr:primaryType: selection:listitem
+        selection:key: north-lanarkshire-council
+        selection:label: North Lanarkshire Council
+      /selection:listitem[112]:
+        jcr:primaryType: selection:listitem
+        selection:key: office-of-the-chief-economic-advisor
+        selection:label: Office of the Chief Economic Advisor
+      /selection:listitem[113]:
+        jcr:primaryType: selection:listitem
+        selection:key: office-of-the-chief-medical-officer
+        selection:label: Office of the Chief Medical Officer
+      /selection:listitem[114]:
+        jcr:primaryType: selection:listitem
+        selection:key: office-of-the-chief-nursing-officer
+        selection:label: Office of the Chief Nursing Officer
+      /selection:listitem[115]:
+        jcr:primaryType: selection:listitem
+        selection:key: office-of-the-queens-printer
+        selection:label: Office of the Queens Printer
+      /selection:listitem[116]:
+        jcr:primaryType: selection:listitem
+        selection:key: office-of-the-scottish-charity-regulator
+        selection:label: Office of the Scottish Charity Regulator
+      /selection:listitem[117]:
+        jcr:primaryType: selection:listitem
+        selection:key: orkney-council
+        selection:label: Orkney Council
+      /selection:listitem[118]:
+        jcr:primaryType: selection:listitem
+        selection:key: parking-and-bus-lane-tribunal-for-scotland
+        selection:label: Parking and Bus Lane Tribunal for Scotland
+      /selection:listitem[119]:
+        jcr:primaryType: selection:listitem
+        selection:key: parliamentary-counsel-office
+        selection:label: Parliamentary Counsel Office
+      /selection:listitem[120]:
+        jcr:primaryType: selection:listitem
+        selection:key: parole-board-for-scotland
+        selection:label: Parole Board for Scotland
+      /selection:listitem[121]:
+        jcr:primaryType: selection:listitem
+        selection:key: people-directorate
+        selection:label: People Directorate
+      /selection:listitem[122]:
+        jcr:primaryType: selection:listitem
+        selection:key: perth-kinross-council
+        selection:label: Perth & Kinross Council
+      /selection:listitem[123]:
+        jcr:primaryType: selection:listitem
+        selection:key: police-investigations-and-review-commissioner
+        selection:label: Police Investigations and Review Commissioner
+      /selection:listitem[124]:
+        jcr:primaryType: selection:listitem
+        selection:key: police-scotland
+        selection:label: Police Scotland
+      /selection:listitem[125]:
+        jcr:primaryType: selection:listitem
+        selection:key: population-health-improvement-directorate
+        selection:label: Population Health Improvement Directorate
+      /selection:listitem[126]:
+        jcr:primaryType: selection:listitem
+        selection:key: quality-meat-scotland
+        selection:label: Quality Meat Scotland
+      /selection:listitem[127]:
+        jcr:primaryType: selection:listitem
+        selection:key: registers-of-scotland
+        selection:label: Registers of Scotland
+      /selection:listitem[128]:
+        jcr:primaryType: selection:listitem
+        selection:key: renfrewshire-council
+        selection:label: Renfrewshire Council
+      /selection:listitem[129]:
+        jcr:primaryType: selection:listitem
+        selection:key: revenue-scotland
+        selection:label: Revenue Scotland
+      /selection:listitem[130]:
+        jcr:primaryType: selection:listitem
+        selection:key: risk-management-authority
+        selection:label: Risk Management Authority
+      /selection:listitem[131]:
+        jcr:primaryType: selection:listitem
+        selection:key: royal-botanic-garden-edinburgh
+        selection:label: Royal Botanic Garden Edinburgh
+      /selection:listitem[132]:
+        jcr:primaryType: selection:listitem
+        selection:key: safer-communities-directorate
+        selection:label: Safer Communities Directorate
+      /selection:listitem[133]:
+        jcr:primaryType: selection:listitem
+        selection:key: school-closure-review-panels
+        selection:label: School Closure Review Panels
+      /selection:listitem[134]:
+        jcr:primaryType: selection:listitem
+        selection:key: scotlands-commissioner-for-children-and-young-people
+        selection:label: Scotland's Commissioner for Children and Young People
+      /selection:listitem[135]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-advisory-committee-on-distinction-awards
+        selection:label: Scottish Advisory Committee on Distinction Awards
+      /selection:listitem[136]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-agricultural-wages-board
+        selection:label: Scottish Agricultural Wages Board
+      /selection:listitem[137]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-ambulance-service
+        selection:label: Scottish Ambulance Service
+      /selection:listitem[138]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-borders
+        selection:label: Scottish Borders
+      /selection:listitem[139]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-canals
+        selection:label: Scottish Canals
+      /selection:listitem[140]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-childrens-reporter-administration
+        selection:label: Scottish Childrens Reporter Administration
+      /selection:listitem[141]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-courts-and-tribunals-service
+        selection:label: Scottish Courts and Tribunals Service
+      /selection:listitem[142]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-criminal-cases-review-commission
+        selection:label: Scottish Criminal Cases Review Commission
+      /selection:listitem[143]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-enterprise
+        selection:label: Scottish Enterprise
+      /selection:listitem[144]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-environment-protection-agency-sepa
+        selection:label: Scottish Environment Protection Agency (SEPA)
+      /selection:listitem[145]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-fire-rescue-service
+        selection:label: Scottish Fire & Rescue Service
+      /selection:listitem[146]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-fiscal-commission
+        selection:label: Scottish Fiscal Commission
+      /selection:listitem[147]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-funding-council
+        selection:label: Scottish Funding Council
+      /selection:listitem[148]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-futures-trust
+        selection:label: Scottish Futures Trust
+      /selection:listitem[149]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-government
+        selection:label: Scottish Government
+      /selection:listitem[150]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-government-legal-directorate
+        selection:label: Scottish Government Legal Directorate
+      /selection:listitem[151]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-housing-regulator
+        selection:label: Scottish Housing Regulator
+      /selection:listitem[152]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-human-rights-commission
+        selection:label: Scottish Human Rights Commission
+      /selection:listitem[153]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-information-commissioner
+        selection:label: Scottish Information Commissioner
+      /selection:listitem[154]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-land-commission
+        selection:label: Scottish Land Commission
+      /selection:listitem[155]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-law-commission
+        selection:label: Scottish Law Commission
+      /selection:listitem[156]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-legal-aid-board
+        selection:label: Scottish Legal Aid Board
+      /selection:listitem[157]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-legal-complaints-commission
+        selection:label: Scottish Legal Complaints Commission
+      /selection:listitem[158]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-local-authorities-remuneration-committee
+        selection:label: Scottish Local Authorities Remuneration Committee
+      /selection:listitem[159]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-natural-heritage
+        selection:label: Scottish Natural Heritage
+      /selection:listitem[160]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-police-authority
+        selection:label: Scottish Police Authority
+      /selection:listitem[161]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-prison-service
+        selection:label: Scottish Prison Service
+      /selection:listitem[162]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-procurement-and-commercial-directorate
+        selection:label: Scottish Procurement and Commercial Directorate
+      /selection:listitem[163]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-public-pensions-agency
+        selection:label: Scottish Public Pensions Agency
+      /selection:listitem[164]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-public-services-ombudsman
+        selection:label: Scottish Public Services Ombudsman
+      /selection:listitem[165]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-qualifications-authority
+        selection:label: Scottish Qualifications Authority
+      /selection:listitem[166]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-road-works-commissioner
+        selection:label: Scottish Road Works Commissioner
+      /selection:listitem[167]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-sentencing-council
+        selection:label: Scottish Sentencing Council
+      /selection:listitem[168]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-social-services-council
+        selection:label: Scottish Social Services Council
+      /selection:listitem[169]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-veterans-commissioner
+        selection:label: Scottish Veterans Commissioner
+      /selection:listitem[170]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-water
+        selection:label: Scottish Water
+      /selection:listitem[171]:
+        jcr:primaryType: selection:listitem
+        selection:key: shetland-islands-council
+        selection:label: Shetland Islands Council
+      /selection:listitem[172]:
+        jcr:primaryType: selection:listitem
+        selection:key: skills-development-scotland
+        selection:label: Skills Development Scotland
+      /selection:listitem[173]:
+        jcr:primaryType: selection:listitem
+        selection:key: social-security-directorate
+        selection:label: Social Security Directorate
+      /selection:listitem[174]:
+        jcr:primaryType: selection:listitem
+        selection:key: social-security-scotland
+        selection:label: Social Security Scotland
+      /selection:listitem[175]:
+        jcr:primaryType: selection:listitem
+        selection:key: south-ayrshire-council
+        selection:label: South Ayrshire Council
+      /selection:listitem[176]:
+        jcr:primaryType: selection:listitem
+        selection:key: south-lanarkshire-council
+        selection:label: South Lanarkshire Council
+      /selection:listitem[177]:
+        jcr:primaryType: selection:listitem
+        selection:key: south-of-scotland-enterprise
+        selection:label: South of Scotland Enterprise
+      /selection:listitem[178]:
+        jcr:primaryType: selection:listitem
+        selection:key: sportscotland
+        selection:label: SportScotland
+      /selection:listitem[179]:
+        jcr:primaryType: selection:listitem
+        selection:key: standards-commission-for-scotland
+        selection:label: Standards Commission for Scotland
+      /selection:listitem[180]:
+        jcr:primaryType: selection:listitem
+        selection:key: stirling-council
+        selection:label: Stirling Council
+      /selection:listitem[181]:
+        jcr:primaryType: selection:listitem
+        selection:key: strategy-and-constitution-directorate
+        selection:label: Strategy and Constitution Directorate
+      /selection:listitem[182]:
+        jcr:primaryType: selection:listitem
+        selection:key: student-awards-agency-for-scotland
+        selection:label: Student Awards Agency for Scotland
+      /selection:listitem[183]:
+        jcr:primaryType: selection:listitem
+        selection:key: the-first-tier-tribunal-for-scotland-general-regulatory-chamber
+        selection:label: The First-tier Tribunal for Scotland General Regulatory Chamber
+      /selection:listitem[184]:
+        jcr:primaryType: selection:listitem
+        selection:key: the-first-tier-tribunal-for-scotland-health-and-education-chamber
+        selection:label: The First-tier Tribunal for Scotland Health and Education
+          Chamber
+      /selection:listitem[185]:
+        jcr:primaryType: selection:listitem
+        selection:key: the-first-tier-tribunal-for-scotland-housing-and-property-chamber
+        selection:label: The First-tier Tribunal for Scotland Housing and Property
+          Chamber
+      /selection:listitem[186]:
+        jcr:primaryType: selection:listitem
+        selection:key: the-first-tier-tribunal-for-scotland-tax-chamber
+        selection:label: The First-tier Tribunal for Scotland Tax Chamber
+      /selection:listitem[187]:
+        jcr:primaryType: selection:listitem
+        selection:key: the-national-library-of-scotland
+        selection:label: The National Library of Scotland
+      /selection:listitem[188]:
+        jcr:primaryType: selection:listitem
+        selection:key: the-state-hospitals-board-for-scotland
+        selection:label: The State Hospitals Board for Scotland
+      /selection:listitem[189]:
+        jcr:primaryType: selection:listitem
+        selection:key: transport-scotland
+        selection:label: Transport Scotland
+      /selection:listitem[190]:
+        jcr:primaryType: selection:listitem
+        selection:key: visitscotland
+        selection:label: VisitScotland
+      /selection:listitem[191]:
+        jcr:primaryType: selection:listitem
+        selection:key: water-industry-commission-for-scotland
+        selection:label: Water Industry Commission for Scotland
+      /selection:listitem[192]:
+        jcr:primaryType: selection:listitem
+        selection:key: west-dunbartonshire-council
+        selection:label: West Dunbartonshire Council
+      /selection:listitem[193]:
+        jcr:primaryType: selection:listitem
+        selection:key: west-lothian-council
+        selection:label: West Lothian Council
+      /selection:listitem[194]:
+        jcr:primaryType: selection:listitem
+        selection:key: your-local-council
+        selection:label: your local council
+  /sectors:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 7df289c7-c24c-4517-ab38-509f01315911
+    hippo:name: sectors
+    /sectors:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 8b9bac6c-aec6-4f45-a317-f7467379d756
+      hippotranslation:id: da18c3e6-3a2e-41d9-9297-a0e2d2a70778
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: commissioners-and-ombudsmen
+        selection:label: Commissioners and Ombudsmen
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: health-care
+        selection:label: Health  & Care
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: non-departmental-public-body-ndpb
+        selection:label: Non Departmental Public Body (NDPB)
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: other
+        selection:label: Other
+      /selection:listitem[5]:
+        jcr:primaryType: selection:listitem
+        selection:key: public-corporation
+        selection:label: Public Corporation
+      /selection:listitem[6]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-government-executive-agencies
+        selection:label: Scottish Government & Executive Agencies
+      /selection:listitem[7]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-local-authority
+        selection:label: Scottish Local Authority
+      /selection:listitem[8]:
+        jcr:primaryType: selection:listitem
+        selection:key: tribunals
+        selection:label: Tribunals
+  /geographies:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: ac3bf30d-a38c-47c3-bb02-406a5e1df206
+    hippo:name: geographies
+    /geographies:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 4ea9848e-e19f-4c0e-91b4-e937d7debfc6
+      hippotranslation:id: 1a1cb7d8-53dd-4ad8-a1e7-a2ddd14f7cf1
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: all-regions
+        selection:label: All regions
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: scotland
+        selection:label: Scotland
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: uk
+        selection:label: UK
+  /bannertypes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 1c0d7ddd-ff1d-416c-a586-07561ac25ebb
+    hippo:name: bannertypes
+    /bannertypes:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 5883feaa-812e-4728-9cba-14cfaab20e1d
+      hippotranslation:id: fa713252-0c45-4993-8b31-3e637402d966
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: default-banner
+        selection:label: Default banner
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: light-banner
+        selection:label: Light banner
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: major-banner
+        selection:label: Major banner
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: negative-banner
+        selection:label: Negative banner
+      /selection:listitem[5]:
+        jcr:primaryType: selection:listitem
+        selection:key: positive-banner
+        selection:label: Positive banner
