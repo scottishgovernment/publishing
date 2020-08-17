@@ -16,19 +16,19 @@ import java.util.Collections;
 import static java.util.Collections.singletonList;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import static scot.mygov.publishing.eventlisteners.MirrorNameEventListener.PUBLICATION_INTERACTION;
+import static scot.mygov.publishing.eventlisteners.MirrorEventListener.PUBLICATION_INTERACTION;
 
 /**
  * Created by z418868 on 10/03/2020.
  */
-public class MirrorNameEventListenerTest {
+public class MirrorEventListenerTest {
 
     @Test
     public void repoExceptionHandledCorrectly() throws RepositoryException {
 
         // ARRANGE
         Session session = exceptionThrowingSession();
-        MirrorNameEventListener sut = new MirrorNameEventListener(session);
+        MirrorEventListener sut = new MirrorEventListener(session);
 
         // ACT
         sut.handleEvent(publishEvent());
@@ -42,7 +42,7 @@ public class MirrorNameEventListenerTest {
 
         // ARRANGE
         Session session = anySession();
-        MirrorNameEventListener sut = new MirrorNameEventListener(session);
+        MirrorEventListener sut = new MirrorEventListener(session);
 
         // ACT
         sut.handleEvent(failedPublishEvent());
@@ -56,7 +56,7 @@ public class MirrorNameEventListenerTest {
 
         // ARRANGE
         Session session = anySession();
-        MirrorNameEventListener sut = new MirrorNameEventListener(session);
+        MirrorEventListener sut = new MirrorEventListener(session);
 
         // ACT
         sut.handleEvent(nonPublishEvent());
@@ -72,7 +72,7 @@ public class MirrorNameEventListenerTest {
 
         // session.getNodeByIdentifier("subjectId")
         // Node handelWithNoPublushedVariabt
-        MirrorNameEventListener sut = new MirrorNameEventListener(session);
+        MirrorEventListener sut = new MirrorEventListener(session);
 
         // ACT
         sut.handleEvent(publishEvent());
@@ -88,7 +88,7 @@ public class MirrorNameEventListenerTest {
 
         // session.getNodeByIdentifier("subjectId")
         // Node handelWithNoPublushedVariabt
-        MirrorNameEventListener sut = new MirrorNameEventListener(session);
+        MirrorEventListener sut = new MirrorEventListener(session);
 
         // ACT
         sut.handleEvent(publishEvent());
@@ -101,7 +101,7 @@ public class MirrorNameEventListenerTest {
     public void updatesNameForSuccessfulPublishOfMirror() throws RepositoryException {
         // ARRANGE
         Session session = sessionWithMirror();
-        MirrorNameEventListener sut = new MirrorNameEventListener(session);
+        MirrorEventListener sut = new MirrorEventListener(session);
 
         // ACT
         sut.handleEvent(publishEvent());

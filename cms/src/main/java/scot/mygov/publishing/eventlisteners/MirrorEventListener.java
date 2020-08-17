@@ -15,11 +15,11 @@ import javax.jcr.Session;
 import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
 
 /**
- * When a Mirror is published we want to update its name to make it clear what the mirror points to.
+ * When a Mirror is published we want to update its name and title to make it clear what the mirror points to.
  */
-public class MirrorNameEventListener {
+public class MirrorEventListener {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MirrorNameEventListener.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MirrorEventListener.class);
 
     static final String PUBLICATION_INTERACTION = "default:handle:publish";
 
@@ -27,7 +27,7 @@ public class MirrorNameEventListener {
 
     HippoUtils hippoUtils = new HippoUtils();
 
-    MirrorNameEventListener(Session session) {
+    MirrorEventListener(Session session) {
         this.session = session;
     }
 
@@ -69,16 +69,17 @@ public class MirrorNameEventListener {
     }
 
     private void updateMirrorName(Node publishedNode) throws RepositoryException {
-        String title = getMirrorTitle(publishedNode);
+        String title = getMirroredTitle(publishedNode);
         String newName = String.format("Mirror: '%s'", title);
         Node handle = publishedNode.getParent();
         hippoUtils.ensureHasMixin(handle, "hippo:named");
         handle.setProperty("hippo:name", newName);
+        handle.setProperty("publishing:title", title);
         LOG.info("mirror name for {} is now {}", publishedNode.getPath(), newName);
         session.save();
     }
 
-    String getMirrorTitle(Node mirror) throws RepositoryException {
+    String getMirroredTitle(Node mirror) throws RepositoryException {
         String documentId = mirror.getNode("publishing:document").getProperty("hippo:docbase").getString();
         Node mirroredHandle = session.getNodeByIdentifier(documentId);
         Node draft = hippoUtils.getVariantWithState(mirroredHandle, HippoStdNodeType.DRAFT);

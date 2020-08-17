@@ -54,116 +54,6 @@
         jcr:primaryType: robotstxt:section
         robotstxt:disallow: []
         robotstxt:useragent: '*'
-  /analytics:
-    jcr:primaryType: hippostd:folder
-    /dev:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 6b7d801a-b690-4dcb-8cbd-20b8b10fe2a8
-      hippo:versionHistory: cf3567e2-4823-4011-b341-cb3cdce711a2
-      /dev[1]:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: c19b4b99-3549-4bde-ba9d-ea12d153ceb7
-        hippo:availability: []
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
-        hippostdpubwf:lastModificationDate: 2020-04-02T16:05:42.318+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
-        hippotranslation:locale: document-type-locale
-        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
-        publishing:containerid: ''
-        publishing:env: '2'
-        publishing:notes: ''
-      /dev[2]:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: 9f8ec225-5f2a-458d-bbde-7bf5a1a6e758
-        hippo:availability: [preview]
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
-        hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
-        hippotranslation:locale: document-type-locale
-        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
-        publishing:containerid: ''
-        publishing:env: '2'
-        publishing:notes: ''
-      /dev[3]:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 2ae39181-e0cf-4c40-9fac-34d00ee02a73
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
-        hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2020-04-02T16:05:40.816+01:00
-        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
-        hippotranslation:locale: document-type-locale
-        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
-        publishing:containerid: ''
-        publishing:env: '2'
-        publishing:notes: ''
-    /live:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 65a3b695-1809-44b3-a566-19a912bdc56a
-      hippo:versionHistory: a48db8c8-ebf6-458a-b7f2-399dabe17913
-      /live[1]:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: aa211be6-43ea-4159-8736-b00116d58bf5
-        hippo:availability: []
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
-        hippostdpubwf:lastModificationDate: 2020-03-18T10:26:40.070Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
-        hippotranslation:locale: document-type-locale
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: ''
-        publishing:notes: For live we do not include the env or auth in the url.
-      /live[2]:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: 247a316f-c6d4-4d6d-ab0a-4c2775813bfc
-        hippo:availability: [preview]
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
-        hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
-        hippotranslation:locale: document-type-locale
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: ''
-        publishing:notes: For live we do not include the env or auth in the url.
-      /live[3]:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 30c5a5fd-0827-46d8-8c0f-336c2fe719ba
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
-        hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2020-03-18T10:27:34.378Z
-        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
-        hippotranslation:locale: document-type-locale
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: ''
-        publishing:notes: For live we do not include the env or auth in the url.
   /contacts:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
@@ -648,3 +538,113 @@
           /publishing:notes:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
+  /analytics:
+    jcr:primaryType: hippostd:folder
+    /dev:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: e10cdada-2644-4a81-9fb5-8b341aa41837
+      hippo:versionHistory: cf3567e2-4823-4011-b341-cb3cdce711a2
+      /dev[1]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: a1ee95dc-c769-4c9d-8c4d-283ddb319e8d
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2020-04-02T16:05:42.318+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+        hippotranslation:locale: document-type-locale
+        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+        publishing:containerid: ''
+        publishing:env: '2'
+        publishing:notes: ''
+      /dev[2]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: cbb93220-cdb4-45c6-938d-0756b7551f72
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+        hippotranslation:locale: document-type-locale
+        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+        publishing:containerid: ''
+        publishing:env: '2'
+        publishing:notes: ''
+      /dev[3]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 9250faa5-cccd-49e8-a52a-5f2dbe66d3e8
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-04-02T16:05:40.816+01:00
+        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+        hippotranslation:locale: document-type-locale
+        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+        publishing:containerid: ''
+        publishing:env: '2'
+        publishing:notes: ''
+    /live:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 5c55f79c-a910-4c35-85e7-ec7499c2b0fe
+      hippo:versionHistory: a48db8c8-ebf6-458a-b7f2-399dabe17913
+      /live[1]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: ec3a33cc-44e6-4c2a-8451-f7ea84e6a325
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
+        hippostdpubwf:lastModificationDate: 2020-03-18T10:26:40.070Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+        hippotranslation:locale: document-type-locale
+        publishing:auth: ''
+        publishing:containerid: ''
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
+      /live[2]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: d41d1a92-0ae4-4c17-9ba8-16173f4f4dd9
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
+        hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+        hippotranslation:locale: document-type-locale
+        publishing:auth: ''
+        publishing:containerid: ''
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
+      /live[3]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: f621fb3c-9884-4438-b7ba-458cf61acb33
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
+        hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-03-18T10:27:34.378Z
+        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+        hippotranslation:locale: document-type-locale
+        publishing:auth: ''
+        publishing:containerid: ''
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.

@@ -992,8 +992,8 @@
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 11037c06-820d-41f3-ab1f-0b5e9a72d9ce
-      hippo:name: 'Mirror: myaccount'
-      hippo:versionHistory: 5cd742d0-ce37-4b88-a5c4-5fb8db75361a
+      hippo:name: 'Mirror: ''myaccount'''
+      hippo:versionHistory: e64014ff-0bd2-4dd2-ba3e-98011e4f0753
       /mirror-for-mygov-266[1]:
         jcr:primaryType: publishing:mirror
         jcr:mixinTypes: ['mix:referenceable']
@@ -1003,12 +1003,13 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:39.502+01:00
-        hippostdpubwf:lastModificationDate: 2020-08-17T07:36:39.502+01:00
-        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:lastModificationDate: 2020-08-17T13:42:26.059+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 24952e89-60e1-4bf7-bac5-47760d59b5a1
         hippotranslation:locale: document-type-locale
         publishing:mygovid: MYGOV-266
         publishing:pinned: false
+        publishing:title: my account
         /publishing:document:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 04620cc6-916c-469d-9bfe-69f998d768f9
@@ -1021,12 +1022,13 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:39.502+01:00
-        hippostdpubwf:lastModificationDate: 2020-08-17T07:36:39.605+01:00
-        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:lastModificationDate: 2020-08-17T13:42:24.760+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 24952e89-60e1-4bf7-bac5-47760d59b5a1
         hippotranslation:locale: document-type-locale
         publishing:mygovid: MYGOV-266
         publishing:pinned: false
+        publishing:title: my account
         /publishing:document:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 04620cc6-916c-469d-9bfe-69f998d768f9
@@ -1039,13 +1041,14 @@
         hippostd:state: published
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:39.502+01:00
-        hippostdpubwf:lastModificationDate: 2020-08-17T07:36:39.605+01:00
-        hippostdpubwf:lastModifiedBy: system
-        hippostdpubwf:publicationDate: 2020-08-17T07:36:39.675+01:00
+        hippostdpubwf:lastModificationDate: 2020-08-17T13:42:24.760+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-08-17T13:42:28.894+01:00
         hippotranslation:id: 24952e89-60e1-4bf7-bac5-47760d59b5a1
         hippotranslation:locale: document-type-locale
         publishing:mygovid: MYGOV-266
         publishing:pinned: false
+        publishing:title: my account
         /publishing:document:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 04620cc6-916c-469d-9bfe-69f998d768f9
@@ -1586,8 +1589,8 @@
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 50a993d1-0000-453d-a2db-b848eb0a92de
-      hippo:name: 'Mirror: Feedback'
-      hippo:versionHistory: 2633c18a-5eb7-4601-9b3c-1950d57a6c9a
+      hippo:name: 'Mirror: ''Feedback'''
+      hippo:versionHistory: ca002471-ead9-4831-962c-a117e480636c
       /mirror-for-mygov-596[1]:
         jcr:primaryType: publishing:mirror
         jcr:mixinTypes: ['mix:referenceable']
@@ -1597,12 +1600,13 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:40.591+01:00
-        hippostdpubwf:lastModificationDate: 2020-08-17T07:36:40.591+01:00
-        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:lastModificationDate: 2020-08-17T13:42:37.055+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 71d636b8-4fda-41ee-afb4-277506676543
         hippotranslation:locale: document-type-locale
         publishing:mygovid: MYGOV-596
         publishing:pinned: false
+        publishing:title: Feedback
         /publishing:document:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 128572b5-5829-4a33-9a8b-36ad2c8f15af
@@ -1615,12 +1619,13 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:40.591+01:00
-        hippostdpubwf:lastModificationDate: 2020-08-17T07:36:40.734+01:00
-        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:lastModificationDate: 2020-08-17T13:42:37.023+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 71d636b8-4fda-41ee-afb4-277506676543
         hippotranslation:locale: document-type-locale
         publishing:mygovid: MYGOV-596
         publishing:pinned: false
+        publishing:title: Feedback
         /publishing:document:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 128572b5-5829-4a33-9a8b-36ad2c8f15af
@@ -1633,13 +1638,14 @@
         hippostd:state: published
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:40.591+01:00
-        hippostdpubwf:lastModificationDate: 2020-08-17T07:36:40.734+01:00
-        hippostdpubwf:lastModifiedBy: system
-        hippostdpubwf:publicationDate: 2020-08-17T07:36:40.819+01:00
+        hippostdpubwf:lastModificationDate: 2020-08-17T13:42:37.023+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-08-17T13:42:39.706+01:00
         hippotranslation:id: 71d636b8-4fda-41ee-afb4-277506676543
         hippotranslation:locale: document-type-locale
         publishing:mygovid: MYGOV-596
         publishing:pinned: false
+        publishing:title: Feedback
         /publishing:document:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 128572b5-5829-4a33-9a8b-36ad2c8f15af
