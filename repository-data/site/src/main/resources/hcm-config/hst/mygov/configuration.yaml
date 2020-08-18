@@ -17,6 +17,14 @@ definitions:
         jcr:primaryType: hst:pages
       /hst:sitemap:
         jcr:primaryType: hst:sitemap
+        /organisations:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/organisationlist
+          hst:relativecontentpath: organisations/index
+          /_default_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/organisation
+            hst:relativecontentpath: organisations/${1}
       /hst:sitemenus:
         jcr:primaryType: hst:sitemenus
       /hst:templates:

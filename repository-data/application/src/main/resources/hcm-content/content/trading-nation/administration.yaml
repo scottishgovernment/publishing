@@ -1,17 +1,14 @@
 /content/documents/trading-nation/administration:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
-  jcr:uuid: efe7d4d2-748d-4586-b579-2279346fa348
   hippostd:foldertype: [new-resource-bundle, new-untranslated-folder]
   /robots:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: b10d4823-936e-4aa2-8685-283bcf7e7837
     hippo:versionHistory: da8e1eac-b0b3-4e41-83e1-beca7f83edb9
     /robots[1]:
       jcr:primaryType: robotstxt:robotstxt
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: c92a9a4d-6dc0-4bf3-966c-9a0e9396f135
       hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
@@ -27,7 +24,6 @@
     /robots[2]:
       jcr:primaryType: robotstxt:robotstxt
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: 6c278e9e-2a6a-4fce-aecc-e500336ce335
       hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
@@ -42,7 +38,6 @@
     /robots[3]:
       jcr:primaryType: robotstxt:robotstxt
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 4c884eea-ed6d-467c-9904-4b92aad9ccd1
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -59,7 +54,6 @@
     /dev:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 4943c9d0-770b-44be-b42e-0e07992c2c16
       hippo:versionHistory: cf3567e2-4823-4011-b341-cb3cdce711a2
       /dev[1]:
         jcr:primaryType: publishing:analytics
@@ -80,7 +74,6 @@
       /dev[2]:
         jcr:primaryType: publishing:analytics
         jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: 37f4623e-3081-42ac-a60e-2976de64553b
         hippo:availability: [preview]
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
@@ -96,7 +89,6 @@
       /dev[3]:
         jcr:primaryType: publishing:analytics
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 7680c819-39cb-4a93-8f23-1d3fb38d4c13
         hippo:availability: [live]
         hippostd:state: published
         hippostdpubwf:createdBy: admin
@@ -113,12 +105,10 @@
     /live:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: ac6070a1-7dd0-4778-8a0f-a71ca0f94f66
       hippo:versionHistory: a48db8c8-ebf6-458a-b7f2-399dabe17913
       /live[1]:
         jcr:primaryType: publishing:analytics
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: e43cfdb6-48d0-409e-baf5-49a45599047c
         hippo:availability: []
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
@@ -134,7 +124,6 @@
       /live[2]:
         jcr:primaryType: publishing:analytics
         jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: 3153fcc1-f78b-48da-9f2d-4fcea3d1fd2f
         hippo:availability: [preview]
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
@@ -150,7 +139,6 @@
       /live[3]:
         jcr:primaryType: publishing:analytics
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: d64e2996-2ca7-4797-9190-58ad1252128a
         hippo:availability: [live]
         hippostd:state: published
         hippostdpubwf:createdBy: admin
