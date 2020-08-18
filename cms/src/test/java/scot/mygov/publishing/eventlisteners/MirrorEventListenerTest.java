@@ -146,12 +146,11 @@ public class MirrorEventListenerTest {
     Session sessionWithMirror() throws RepositoryException {
         Session session = mock(Session.class);
         HippoNode node = mock(HippoNode.class);
-        //Node handle = mock(Node.class);
-        //when(node.getParent()).thenReturn(handle);
         when(node.getName()).thenReturn("name");
 
         Node publishedVariant = mock(Node.class);
         when(publishedVariant.getParent()).thenReturn(node);
+        when(node.getNodes()).thenReturn(TestUtil.iterator(singletonList(publishedVariant)));
         Property state = stringProperty("published");
         when(publishedVariant.getProperty(HippoStdNodeType.HIPPOSTD_STATE)).thenReturn(state);
         when(publishedVariant.isNodeType("publishing:mirror")).thenReturn(true);

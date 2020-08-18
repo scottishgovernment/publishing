@@ -74,7 +74,7 @@ public class MirrorEventListener {
         Node handle = publishedNode.getParent();
         hippoUtils.ensureHasMixin(handle, "hippo:named");
         handle.setProperty("hippo:name", newName);
-        handle.setProperty("publishing:title", title);
+        hippoUtils.apply(handle.getNodes(), node -> node.setProperty("publishing:title", title));
         LOG.info("mirror name for {} is now {}", publishedNode.getPath(), newName);
         session.save();
     }
