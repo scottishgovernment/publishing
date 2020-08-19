@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 466911de-0895-46fe-a2bb-79e056b60249
+          jcr:uuid: 7008bd43-4d36-4848-8b1a-e9994d65e4ff
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -39,6 +39,14 @@ definitions:
             hipposysedit:path: publishing:sector
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
+          /logo:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:logo
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -57,7 +65,7 @@ definitions:
           publishing:authorNotes: ''
           publishing:serviceproviders: []
           publishing:metaDescription: ''
-          jcr:uuid: c2b1dd37-36eb-40c8-8bd1-5ea2aa4ae88b
+          jcr:uuid: aea8c4ac-a702-4390-a7a5-e759c4be09ce
           hippostdpubwf:lastModificationDate: 2020-06-30T08:47:27.466+01:00
           hippostdpubwf:creationDate: 2020-06-30T08:47:27.466+01:00
           publishing:serviceprovider: ''
@@ -65,6 +73,12 @@ definitions:
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
+          /publishing:logo:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -137,6 +151,15 @@ definitions:
             caption: Card image
             field: cardimage
             hint: Image used for displaying this item within a Card layout
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /logo:
+            jcr:primaryType: frontend:plugin
+            caption: Logo
+            field: logo
+            hint: Logo to use for this organisation
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
