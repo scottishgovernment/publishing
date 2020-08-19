@@ -3,8 +3,7 @@
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:versionable']
   jcr:uuid: 1090441b-41cb-41e8-9eb6-02f8fabf2f40
-  hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-    new-publishing-mirror]
+  hippostd:foldertype: []
   /banners:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
@@ -139,8 +138,7 @@
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
     jcr:uuid: c68fad5e-3fb2-48b9-9356-a3fd224e7a08
-    hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror]
+    hippostd:foldertype: []
     /search-results:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -260,8 +258,7 @@
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
     jcr:uuid: fa40bf4b-fbd8-48ac-99df-efd8a0b39625
-    hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror]
+    hippostd:foldertype: [new-publishing-sector]
     /scottish-local-authority:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -751,8 +748,7 @@
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
     jcr:uuid: b68c7d86-c097-4e95-92e7-bd0893b22c5c
-    hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror]
+    hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
     /about:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -2089,8 +2085,7 @@
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
     jcr:uuid: 682c2638-d82c-4340-81dd-2b09e71e3abc
-    hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror]
+    hippostd:foldertype: [new-publishing-mirror]
     /mirror-for-mygov-262:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -2217,8 +2212,7 @@
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
     jcr:uuid: 80a8e9a8-dc28-441c-8b10-c5a8a19192b8
-    hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror]
+    hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
     /christopher-wroath:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
