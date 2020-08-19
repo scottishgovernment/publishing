@@ -15,6 +15,6 @@ public class ExtendedEditorPlugin extends EditorPlugin {
     @Override
     public void renderHead(IHeaderResponse response) {
 
-        response.render(OnDomReadyHeaderItem.forScript("$(\".hippo-hint-field\").each(function() {$(this).hide();$(this).after(\"<p class='hint-text'>\"+$(this).attr(\"data-original-title\") +\"</p>\");});"));
+        response.render(OnDomReadyHeaderItem.forScript("$(\".hippo-hint-field\").each(function() {if(!$(this).next().hasClass('hint-text')){$(this).hide();$(this).after(\"<p class='hint-text'>\"+$(this).attr(\"data-original-title\") +\"</p>\");}});"));
     }
 }
