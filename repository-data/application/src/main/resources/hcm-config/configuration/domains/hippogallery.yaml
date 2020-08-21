@@ -1,8 +1,0 @@
-definitions:
-  config:
-    /hippo:configuration/hippo:domains/hippogallery/editor:
-      jcr:primaryType: hipposys:authrole
-      hipposys:groups: [cmsadmin]
-      hipposys:role: editor
-    /hippo:configuration/hippo:domains/hippogallery/readwrite:
-      hipposys:groups: [author, cmsadmin, editor, useradmin]
