@@ -8,20 +8,6 @@ definitions:
         hipposys:role: editor
       /trading-nation-document:
         jcr:primaryType: hipposys:domainrule
-        /hide-prototypes:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: false
-          hipposys:facet: nodename
-          hipposys:filter: false
-          hipposys:type: Name
-          hipposys:value: hipposysedit:prototype
-        /nodetype-hippo-document:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: true
-          hipposys:facet: nodetype
-          hipposys:filter: false
-          hipposys:type: Name
-          hipposys:value: hippo:document
         /include-trading-nation-banners-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
@@ -31,20 +17,6 @@ definitions:
           hipposys:value: /content/documents/trading-nation/site-furniture/banners
       /eap document:
         jcr:primaryType: hipposys:domainrule
-        /hide-prototypes:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: false
-          hipposys:facet: nodename
-          hipposys:filter: false
-          hipposys:type: Name
-          hipposys:value: hipposysedit:prototype
-        /nodetype-hippo-document:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: true
-          hipposys:facet: nodetype
-          hipposys:filter: false
-          hipposys:type: Name
-          hipposys:value: hippo:document
         /include-eap-banners-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
@@ -54,20 +26,6 @@ definitions:
           hipposys:value: /content/documents/economic-action-plan/site-furniture/banners
       /mygov-document:
         jcr:primaryType: hipposys:domainrule
-        /hide-prototypes:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: false
-          hipposys:facet: nodename
-          hipposys:filter: false
-          hipposys:type: Name
-          hipposys:value: hipposysedit:prototype
-        /nodetype-hippo-document:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: true
-          hipposys:facet: nodetype
-          hipposys:filter: false
-          hipposys:type: Name
-          hipposys:value: hippo:document
         /include-mygov-banners-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true

@@ -1,38 +1,42 @@
 definitions:
   config:
-    /hippo:configuration/hippo:domains/hippodocuments/hippo-document/exclude-trading-nation-administration-folder:
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-trading-nation-administration-folder:
       jcr:primaryType: hipposys:facetrule
       hipposys:equals: false
       hipposys:facet: jcr:path
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/trading-nation/administration
-    /hippo:configuration/hippo:domains/hippodocuments/editor:
+    /hippo:configuration/hippo:domains/content/editor:
       hipposys:groups: [admin, cmsadmin, editor]
-    /hippo:configuration/hippo:domains/hippodocuments/author:
+    /hippo:configuration/hippo:domains/content/author:
       hipposys:groups: [useradmin, author]
-    /hippo:configuration/hippo:domains/hippodocuments/readonly:
-      jcr:primaryType: hipposys:authrole
+    /hippo:configuration/hippo:domains/content/readonly:
       hipposys:groups: [cmsadmin, useradmin]
-      hipposys:role: readonly
-    /hippo:configuration/hippo:domains/hippodocuments/hippo-document/exclude-trading-nation-banners-folder:
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-trading-nation-banners-folder:
       jcr:primaryType: hipposys:facetrule
       hipposys:equals: false
       hipposys:facet: jcr:path
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/trading-nation/site-furniture/banners
-    /hippo:configuration/hippo:domains/hippodocuments/hippo-document/exclude-eap-banners-folder:
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-eap-banners-folder:
       jcr:primaryType: hipposys:facetrule
       hipposys:equals: false
       hipposys:facet: jcr:path
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/economic-action-plan/site-furniture/banners
-    /hippo:configuration/hippo:domains/hippodocuments/hippo-document/exclude-mygov-banners-folder:
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-mygov-banners-folder:
       jcr:primaryType: hipposys:facetrule
       hipposys:equals: false
       hipposys:facet: jcr:path
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/mygov/site-furniture/banners
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-value-lists:
+      jcr:primaryType: hipposys:facetrule
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:type: Reference
+      hipposys:value: /content/documents/publishing/valuelists
