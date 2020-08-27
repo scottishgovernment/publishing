@@ -30,10 +30,16 @@
 [publishing:contentcontact] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:describedlink] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publishing:document] > hippo:compound, hippostd:relaxed
   orderable
 
 [publishing:documentcoverpage] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
+[publishing:featureditem] > hippo:compound, hippostd:relaxed
   orderable
 
 [publishing:guide] > hippostd:relaxed, hippotranslation:translated, publishing:base

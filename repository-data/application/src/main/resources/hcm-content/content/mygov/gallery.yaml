@@ -1,6 +1,13 @@
 /content/gallery/mygov:
   jcr:primaryType: hippogallery:stdImageGallery
   jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: b23931ff-e8ce-480d-8e10-d6888293d99a
   hippo:name: Mygov
   hippostd:foldertype: [new-image-folder]
   hippostd:gallerytype: ['hippogallery:imageset']
+  /orglogos:
+    jcr:primaryType: hippogallery:stdImageGallery
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 01766fa9-20f1-478e-8b4f-7f1b98284afa
+    hippostd:foldertype: [new-image-folder]
+    hippostd:gallerytype: ['hippogallery:imageset']
