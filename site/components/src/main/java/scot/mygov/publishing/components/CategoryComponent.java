@@ -11,6 +11,8 @@ import scot.mygov.publishing.beans.Mirror;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.util.Objects.nonNull;
+
 /**
  * Component used to back category pages (including the home page).
  *
@@ -75,6 +77,7 @@ public class CategoryComponent extends EssentialsContentComponent {
                 .map(CategoryComponent::mapFolder)
                 .filter(Objects::nonNull)
                 .map(CategoryComponent::wrap)
+                .filter(wrapper -> nonNull(wrapper.getBean()))
                 .collect(Collectors.partitioningBy(Wrapper::getPinned));
         List<Wrapper> all = new ArrayList<>();
         all.addAll(byWrapped.get(true));
