@@ -47,7 +47,7 @@
 
     <body>
         <@hst.include ref="googletagmanager"/>
-
+        <@hst.include ref="preview-indicator"/>
         <div class="ds_page">
             <div class="ds_page__top">
                 <@hst.include ref="notifications"/>
