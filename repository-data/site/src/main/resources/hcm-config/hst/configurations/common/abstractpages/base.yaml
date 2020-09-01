@@ -13,10 +13,10 @@ definitions:
         hst:template: base-siteheader
       /footer:
         jcr:primaryType: hst:component
-        hst:template: base-footer
-        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsListComponent
+        hst:componentclassname: scot.mygov.publishing.components.FooterComponent
         hst:parameternames: [path]
         hst:parametervalues: [site-furniture/footer]
+        hst:template: base-footer
       /googletagmanager:
         jcr:primaryType: hst:component
         hst:template: base-googletagmanager
