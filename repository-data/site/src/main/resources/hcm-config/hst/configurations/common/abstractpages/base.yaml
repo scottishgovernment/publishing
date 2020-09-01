@@ -21,3 +21,7 @@ definitions:
         jcr:primaryType: hst:component
         hst:template: base-googletagmanager
         hst:componentclassname: scot.mygov.publishing.components.GoogleTagManagerComponent
+      /preview-indicator:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.PreviewIndicatorComponent
+        hst:template: base-preview-indicator

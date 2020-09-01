@@ -1,0 +1,21 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:update/hippo:registry/PreviewLinksCleaner:
+      jcr:primaryType: hipposys:updaterinfo
+      hipposys:batchsize: 10
+      hipposys:description: "Preview Links cleaner is a script for administrators\
+        \ to run for the maintenance of the repository.\r\nThere are two supported\
+        \ parameters which you can specify in the Parameters section: mode and period\r\
+        \nThe mode parameter supports two values: all and invalid NOTE: The invalid\
+        \ mode requires to define the second parameter: period.\r\nThe parameter period\
+        \ is minutes from current time and preview links creation time that will be\
+        \ considered invalid.\r\n\r\nDefault values are mode=all and period=30. The\
+        \ default values can also be modified in the script."
+      hipposys:dryrun: false
+      hipposys:parameters: '{"mode": "all", period: 30}'
+      hipposys:query: //element(*, staging:preview)
+      hipposys:script:
+        type: string
+        resource: previewlinkscleaner.groovy
+      hipposys:throttle: 1000
+      hipposys:loglevel: DEBUG
