@@ -138,122 +138,62 @@
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
     jcr:uuid: c68fad5e-3fb2-48b9-9356-a3fd224e7a08
-    hippostd:foldertype: []
+    hippostd:foldertype: [new-document]
     /search-results:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 10a6941b-f607-4116-baa7-88419966922e
+      jcr:uuid: b7a20af3-ce14-4055-913d-63835aea5643
       hippo:name: Search results
-      hippo:versionHistory: 454ec5c5-5b87-4680-8e3a-0649a5b2aaf5
+      hippo:versionHistory: d7939ccc-21a1-4c20-87d8-63065443fbd7
       /search-results[1]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
-          'mix:referenceable']
-        jcr:uuid: 1a5e1954-6245-49c7-b107-81673999b135
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c546896f-9d72-414a-b92c-6aee20c0a721
         hippo:availability: []
-        hippo:name: Search results
         hippostd:state: draft
-        hippostd:tags: []
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
-        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:07.324+01:00
-        hippostdpubwf:lastModifiedBy: system
-        hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-09-02T09:01:54.089+01:00
+        hippostdpubwf:lastModificationDate: 2020-09-02T09:03:35.333+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: a5810590-6d5c-4046-b173-c16c5d070fcb
         hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:metaDescription: ''
-        publishing:mygovid: MYGOV-585
-        publishing:pinned: false
-        publishing:relatedmygovids: ''
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Search results
-        publishing:serviceproviders: []
-        publishing:slug: search
-        publishing:summary: ''
-        publishing:title: Search results
-        publishing:urlAliases:
-          type: double
-          value: []
+        publishing:title: Search resultss
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:relateditems:
-          jcr:primaryType: publishing:relateditems
+          hippostd:content: <p>Som content?</p>
       /search-results[2]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
-          'mix:referenceable', 'mix:versionable']
-        jcr:uuid: 2fe1fd06-6704-490c-ad44-feea8bd36dca
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 4e72a172-b987-4188-b786-660be49d15d0
         hippo:availability: [preview]
-        hippo:name: Search results
         hippostd:state: unpublished
-        hippostd:tags: []
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
-        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:07.667+01:00
-        hippostdpubwf:lastModifiedBy: system
-        hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-09-02T09:01:54.089+01:00
+        hippostdpubwf:lastModificationDate: 2020-09-02T09:03:35.235+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: a5810590-6d5c-4046-b173-c16c5d070fcb
         hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:metaDescription: ''
-        publishing:mygovid: MYGOV-585
-        publishing:pinned: false
-        publishing:relatedmygovids: ''
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Search results
-        publishing:serviceproviders: []
-        publishing:slug: search
-        publishing:summary: ''
-        publishing:title: Search results
-        publishing:urlAliases:
-          type: double
-          value: []
+        publishing:title: Search resultss
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:relateditems:
-          jcr:primaryType: publishing:relateditems
+          hippostd:content: <p>Som content?</p>
       /search-results[3]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
-          'mix:referenceable']
-        jcr:uuid: 2e5bc107-34b6-4d20-842a-762a815ebcc9
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 5a578a43-81c4-4a68-bb69-d6e3c0498648
         hippo:availability: [live]
-        hippo:name: Search results
         hippostd:state: published
-        hippostd:tags: []
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
-        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:07.667+01:00
-        hippostdpubwf:lastModifiedBy: system
-        hippostdpubwf:publicationDate: 2020-08-17T07:16:07.842+01:00
-        hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-09-02T09:01:54.089+01:00
+        hippostdpubwf:lastModificationDate: 2020-09-02T09:03:35.235+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-09-02T09:03:37.412+01:00
+        hippotranslation:id: a5810590-6d5c-4046-b173-c16c5d070fcb
         hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:metaDescription: ''
-        publishing:mygovid: MYGOV-585
-        publishing:pinned: false
-        publishing:relatedmygovids: ''
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Search results
-        publishing:serviceproviders: []
-        publishing:slug: search
-        publishing:summary: ''
-        publishing:title: Search results
-        publishing:urlAliases:
-          type: double
-          value: []
+        publishing:title: Search resultss
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:relateditems:
-          jcr:primaryType: publishing:relateditems
+          hippostd:content: <p>Som content?</p>
   /sectors:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
