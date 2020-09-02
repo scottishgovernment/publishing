@@ -80,7 +80,7 @@ public class PreviewDatePickerDialog extends AbstractDialog {
         Form form = new Form<>("form", new CompoundPropertyModel<>(this));
         final DateTextField publicationDateBefore = new DateTextField("expiration-date",
                 new PropertyModel<>(this, "expirationDate"),
-                new PatternDateConverter("MM/dd/yyyy", true)) {
+                new PatternDateConverter("dd/MM/yyyy", true)) {
 
             @Override
             protected void onModelChanged() {
