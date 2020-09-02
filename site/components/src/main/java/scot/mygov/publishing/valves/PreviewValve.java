@@ -7,6 +7,7 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.configuration.hosting.Mount;
@@ -33,7 +34,7 @@ public class PreviewValve extends AbstractOrderableValve {
                 //fetching the content bean
                 HippoBean contentBean = requestContext.getContentBean();
                 //fetching the previewkey
-                String previewKey = getPreviewKey(context);
+                String previewKey = getPreviewKey(context, resolvedMount);
                 try {
                     //intercepting requests having the id in the url
                     if (contentBean != null && StringUtils.isNotBlank(previewKey)) {
@@ -69,14 +70,17 @@ public class PreviewValve extends AbstractOrderableValve {
         return expirationCalendar == null || Calendar.getInstance().before(expirationCalendar);
     }
 
-    private String getPreviewKey(final ValveContext context){
+    private String getPreviewKey(final ValveContext context, final Mount resolvedMount){
         String previewKey = context.getServletRequest().getParameter(PREVIEW_KEY);
         Cookie previewCookie = getPreviewCookie(context);
 
         if(StringUtils.isNotEmpty(previewKey) && previewCookie == null){
             Cookie cookie = new Cookie(PREVIEW_KEY, previewKey);
-            cookie.setHttpOnly(true);
-            cookie.setSecure(true);
+            cookie.setPath(getPath(context.getServletRequest()));
+            boolean httpOnly = Boolean.parseBoolean(resolvedMount.getProperty("preview-cookie-httponly"));
+            boolean secure = Boolean.parseBoolean(resolvedMount.getProperty("preview-cookie-secure"));
+            cookie.setHttpOnly(httpOnly);
+            cookie.setSecure(secure);
             context.getServletResponse().addCookie(cookie);
             return previewKey;
         } else if (StringUtils.isNotEmpty(previewKey) && previewCookie != null){
@@ -90,6 +94,14 @@ public class PreviewValve extends AbstractOrderableValve {
         } else {
             return null;
         }
+    }
+
+    private static String getPath(HttpServletRequest request) {
+        final String contextPath = request.getContextPath();
+        if (StringUtils.isBlank(contextPath)) {
+            return "/";
+        }
+        return contextPath;
     }
 
     private Cookie getPreviewCookie(final ValveContext context){

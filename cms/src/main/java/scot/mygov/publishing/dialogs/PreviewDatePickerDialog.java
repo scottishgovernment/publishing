@@ -68,17 +68,19 @@ public class PreviewDatePickerDialog extends AbstractDialog {
     private static final CssResourceReference CSS = new CssResourceReference(PreviewDatePickerDialog.class, "PreviewDatePickerDialog.css");
     private static final ResourceReference DATE_PICKER_ICON = new PackageResourceReference(GenericFiltersPlugin.class, "images/calendar.png");
     private String title;
-    private final long invalidationTime;
     private Date expirationDate;
     private Set<String> nodeIDs;
 
-    public PreviewDatePickerDialog(final Set<String> nodeIDs, final long invalidationTime) {
+    public PreviewDatePickerDialog(final Set<String> nodeIDs) {
         this.title = getString("dialog-title", null, "Preview generation");
         this.nodeIDs = nodeIDs;
-        this.invalidationTime = invalidationTime;
+
+        Calendar preselectedDate = Calendar.getInstance();
+        preselectedDate.add(Calendar.DATE, 21); //3 weeks
+        this.expirationDate =  preselectedDate.getTime();
 
         Form form = new Form<>("form", new CompoundPropertyModel<>(this));
-        final DateTextField publicationDateBefore = new DateTextField("expiration-date",
+        final DateTextField expirationDate = new DateTextField("expiration-date",
                 new PropertyModel<>(this, "expirationDate"),
                 new PatternDateConverter("dd/MM/yyyy", true)) {
 
@@ -91,10 +93,10 @@ public class PreviewDatePickerDialog extends AbstractDialog {
                 }
             }
         };
-        publicationDateBefore.add(createDatePicker());
-        publicationDateBefore.add(createSimpleAjaxChangeBehavior());
-        form.add(publicationDateBefore);
-        form.add(createSimpleResetLink(publicationDateBefore, this));
+        expirationDate.add(createDatePicker());
+        expirationDate.add(createSimpleAjaxChangeBehavior());
+        form.add(expirationDate);
+        form.add(createSimpleResetLink(expirationDate, this));
         add(form);
 
         Label counttext = new Label("counttext", MessageFormat.format(
@@ -105,7 +107,6 @@ public class PreviewDatePickerDialog extends AbstractDialog {
         counttext.setVisible(nodeIDs.size()>1);
 
         setOutputMarkupId(true);
-        setOkEnabled(false);
         setCancelVisible(true);
     }
 
@@ -226,10 +227,9 @@ public class PreviewDatePickerDialog extends AbstractDialog {
                     previewId.setProperty("staging:user", UserSession.get().getJcrSession().getUser().getId());
                     Calendar creationCalendar = Calendar.getInstance();
                     previewId.setProperty("staging:creationdate", creationCalendar);
-                    Calendar expiration = determineExpiration(expirationDate, creationCalendar);
-                    if(expiration!=null) {
-                        previewId.setProperty("staging:expirationdate", expiration);
-                    }
+                    Calendar expiration = Calendar.getInstance();
+                    expiration.setTime(expirationDate);
+                    previewId.setProperty("staging:expirationdate", expiration);
                     previewId.getSession().save();
                 } catch (RepositoryException e) {
                     log.error("Exception while generating preview link nodes.", e);
@@ -238,27 +238,6 @@ public class PreviewDatePickerDialog extends AbstractDialog {
                 }
             }
         });
-    }
-
-    private Calendar determineExpiration(final Date expirationDate, final Calendar creationCalendar){
-        if(invalidationTime <= 0){
-            if(expirationDate == null){
-                return null;
-            } else {
-                Calendar expiration = Calendar.getInstance();
-                expiration.setTime(expirationDate);
-                return expiration;
-            }
-        } else {
-            if(expirationDate == null){
-                creationCalendar.add(Calendar.DATE, Math.toIntExact(invalidationTime));
-                return creationCalendar;
-            } else {
-                Calendar expiration = Calendar.getInstance();
-                expiration.setTime(expirationDate);
-                return expiration;
-            }
-        }
     }
 
     private static Node getUnpublishedVariant(Node handle) throws RepositoryException {

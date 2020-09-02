@@ -9,6 +9,8 @@ definitions:
         jcr:primaryType: hst:mount
         hst:alias: trading-nation-staging
         hst:type: preview
+        preview-cookie-httponly: 'false'
+        preview-cookie-secure: 'false'
     /hst:hst/hst:hosts/lcl/scot/mygov/tradingnation:
       jcr:primaryType: hst:virtualhost
       /lcl:

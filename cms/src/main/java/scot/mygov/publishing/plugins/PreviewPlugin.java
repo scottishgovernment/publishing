@@ -45,13 +45,11 @@ public class PreviewPlugin extends RenderPlugin<Workflow> {
 
     private static final Logger log = LoggerFactory.getLogger(PreviewPlugin.class);
     private boolean isPreview;
-    private long invalidationTime;
 
     public static final String INTERNAL_PREVIEW_NODE_NAME = "previewId";
 
     public PreviewPlugin(IPluginContext context, IPluginConfig config) {
         super(context, config);
-        invalidationTime = config.getLong("invalidation.time.days", 0);
         WorkflowDescriptorModel model = (WorkflowDescriptorModel) getDefaultModel();
         if (model != null) {
             try {
@@ -195,7 +193,7 @@ public class PreviewPlugin extends RenderPlugin<Workflow> {
         @Override
         protected IDialogService.Dialog createRequestDialog() {
             try {
-                return new PreviewDatePickerDialog(Collections.singleton(getModel().getNode().getIdentifier()), invalidationTime);
+                return new PreviewDatePickerDialog(Collections.singleton(getModel().getNode().getIdentifier()));
             } catch (RepositoryException e){
                 log.error("An exception occurred while trying to generate a preview link for a single document.");
                 return new ExceptionDialog(e);

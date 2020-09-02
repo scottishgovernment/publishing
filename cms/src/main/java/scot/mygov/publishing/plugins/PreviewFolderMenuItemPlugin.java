@@ -17,8 +17,6 @@ import org.hippoecm.frontend.dialog.IDialogService;
 import org.hippoecm.frontend.plugin.IPluginContext;
 import org.hippoecm.frontend.plugin.config.IPluginConfig;
 import org.hippoecm.frontend.service.render.RenderPlugin;
-import org.hippoecm.frontend.session.UserSession;
-import org.hippoecm.repository.util.JcrUtils;
 import org.hippoecm.repository.util.NodeIterable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,7 +43,7 @@ public class PreviewFolderMenuItemPlugin extends RenderPlugin {
                 try {
                     Set<String> nodeIDs = new HashSet<>();
                     folderPreviewGeneration(getModel().getNode(), nodeIDs);
-                    return new PreviewDatePickerDialog(nodeIDs, getInvalidationTime());
+                    return new PreviewDatePickerDialog(nodeIDs);
                 } catch (RepositoryException e){
                     log.error("An exception occurred while trying to generate a preview link for a folder.");
                     return new ExceptionDialog(e);
@@ -63,16 +61,6 @@ public class PreviewFolderMenuItemPlugin extends RenderPlugin {
                 nodeIDs.add(child.getIdentifier());
             }
         }
-    }
-
-    private long getInvalidationTime(){
-        try{
-            Node node = UserSession.get().getJcrSession().getNode("/hippo:configuration/hippo:workflows/default/handle/frontend:renderer/preview");
-            return JcrUtils.getLongProperty(node, "invalidation.time.days", 0L);
-        } catch (RepositoryException e) {
-            log.error("An exception occurred while trying to read invalidation time property for preview sharing plugin.", e);
-        }
-        return 0;
     }
 
     protected IModel<String> getDialogTitleModel() {
