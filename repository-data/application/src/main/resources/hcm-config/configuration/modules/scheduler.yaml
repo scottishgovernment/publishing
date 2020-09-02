@@ -1,0 +1,17 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/PreviewLinksCleanup:
+      jcr:primaryType: hipposched:repositoryjob
+      hipposched:attributeNames: [batchsize]
+      hipposched:attributeValues: ['100']
+      hipposched:enabled: true
+      hipposched:repositoryJobClass: scot.mygov.publishing.scheduler.PreviewLinksCleanupJob
+      /hipposched:triggers:
+        jcr:primaryType: hipposched:triggers
+        /nightly:
+          jcr:primaryType: hipposched:crontrigger
+          jcr:mixinTypes: ['mix:lockable']
+          jcr:uuid: ba851e5f-b012-43e4-8877-c41fe545e669
+          hipposched:cronExpression: 0 0 0 ? * * *
+          hipposched:enabled: true
+          hipposched:nextFireTime: 2020-09-03T00:00:00+03:00

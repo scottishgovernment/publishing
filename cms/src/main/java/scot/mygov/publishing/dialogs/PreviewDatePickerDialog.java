@@ -94,7 +94,7 @@ public class PreviewDatePickerDialog extends AbstractDialog {
         publicationDateBefore.add(createDatePicker());
         publicationDateBefore.add(createSimpleAjaxChangeBehavior());
         form.add(publicationDateBefore);
-        form.add(createSimpleResetLink(publicationDateBefore));
+        form.add(createSimpleResetLink(publicationDateBefore, this));
         add(form);
 
         Label counttext = new Label("counttext", MessageFormat.format(
@@ -105,6 +105,7 @@ public class PreviewDatePickerDialog extends AbstractDialog {
         counttext.setVisible(nodeIDs.size()>1);
 
         setOutputMarkupId(true);
+        setOkEnabled(false);
         setCancelVisible(true);
     }
 
@@ -134,6 +135,7 @@ public class PreviewDatePickerDialog extends AbstractDialog {
         return new AjaxFormComponentUpdatingBehavior("change") {
             @Override
             protected void onUpdate(AjaxRequestTarget target) {
+                setOkEnabled(true);
                 if (components != null) {
                     for (final Component component : components) {
                         target.add(component);
@@ -147,7 +149,7 @@ public class PreviewDatePickerDialog extends AbstractDialog {
         };
     }
 
-    private MarkupContainer createSimpleResetLink(final Component component) {
+    private MarkupContainer createSimpleResetLink(final Component component, final PreviewDatePickerDialog dialog) {
         WebMarkupContainer container = new WebMarkupContainer(component.getId() + RESET_CONTAINER);
         container.setOutputMarkupId(true);
         Image resetImage = new Image(component.getId() + "-reset", IConstraintProvider.RESET_ICON) {
@@ -167,6 +169,7 @@ public class PreviewDatePickerDialog extends AbstractDialog {
 
             @Override
             protected void onEvent(final AjaxRequestTarget target) {
+                dialog.setOkEnabled(false);
                 component.setDefaultModelObject(null);
                 target.add(component);
             }
