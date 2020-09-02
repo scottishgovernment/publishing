@@ -37,6 +37,8 @@ public class AddEventListener {
 
     private static final String NEW_MIRROR = "new-publishing-mirror";
 
+    private static final String NEW_FORMBASE = "new-publishing-formbase";
+
     Set<String> orgFormats = new HashSet<>();
 
     Session session;
@@ -116,11 +118,11 @@ public class AddEventListener {
     }
 
     String [] allActions() {
-        return new String[] { NEW_ARTICLE, NEW_CATEGORY, NEW_GUIDE, NEW_MIRROR };
+        return new String[] { NEW_ARTICLE, NEW_CATEGORY, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE };
     }
 
     String [] actionsWithoutNewCategory() {
-        return new String[] { NEW_ARTICLE, NEW_GUIDE, NEW_MIRROR };
+        return new String[] { NEW_ARTICLE, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE };
     }
 
     void setNavigationStyle(Node folder) throws RepositoryException {

@@ -956,3 +956,43 @@
         jcr:primaryType: selection:listitem
         selection:key: positive-banner
         selection:label: Positive banner
+  /formtypes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 02d2884a-74e7-4a76-a1ed-d1d4fe8a2ff1
+    hippo:name: formTypes
+    /formtypes:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: b2ce317e-5b9d-44d9-8d44-e0cd8a161c65
+      hippo:availability: [live, preview]
+      hippotranslation:id: 8ba712d1-9880-4065-b893-b40b0e39af83
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: model-tenancy-form
+        selection:label: Model Tenancy Form
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: non-provision-form
+        selection:label: FFT Non Provision Form
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: notice-to-leave-form
+        selection:label: Notice to Leave Form
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: rent-adjudication-form
+        selection:label: Rent Adjudication Form
+      /selection:listitem[5]:
+        jcr:primaryType: selection:listitem
+        selection:key: rent-improvements-form
+        selection:label: Rent Improvements Form
+      /selection:listitem[6]:
+        jcr:primaryType: selection:listitem
+        selection:key: rent-increase-form
+        selection:label: Rent Increase Form
+      /selection:listitem[7]:
+        jcr:primaryType: selection:listitem
+        selection:key: subtenant-notice-to-leave-form
+        selection:label: Subtenant Notice to Leave Form

@@ -208,11 +208,11 @@ public class AddEventListenerTest {
     }
 
     String [] allActions() {
-        return new String [] {"new-publishing-article", "new-publishing-category", "new-publishing-guide", "new-publishing-mirror"};
+        return new String [] {"new-publishing-article", "new-publishing-category", "new-publishing-guide", "new-publishing-mirror", "new-publishing-formbase"};
     }
 
     String [] actionsWithoutAddCategory() {
-        return new String [] {"new-publishing-article", "new-publishing-guide", "new-publishing-mirror"};
+        return new String [] {"new-publishing-article", "new-publishing-guide", "new-publishing-mirror", "new-publishing-formbase"};
     }
 
     HippoEvent eventWithAction(String action) {

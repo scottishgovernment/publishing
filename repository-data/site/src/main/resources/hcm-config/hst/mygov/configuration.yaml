@@ -29,6 +29,9 @@ definitions:
         jcr:primaryType: hst:sitemenus
       /hst:templates:
         jcr:primaryType: hst:templates
+        /home-main:
+          jcr:primaryType: hst:template
+          hst:renderpath: webfile:/freemarker/mygov/home-main.ftl
       /hst:workspace:
         jcr:primaryType: hst:workspace
         /hst:channel:
