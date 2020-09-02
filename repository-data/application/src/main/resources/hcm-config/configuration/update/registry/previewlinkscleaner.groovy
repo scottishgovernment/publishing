@@ -30,7 +30,7 @@ class PreviewLinksCleaner extends BaseNodeUpdateVisitor {
         Calendar expirationCalendar = JcrUtils.getDateProperty(node, "staging:expirationdate", null)
         expirationCalendar == null || Calendar.getInstance().before(expirationCalendar)
 
-        if("all".equals(mode) || ("expired".equals(mode) && expirationCalendar.after(Calendar.getInstance()))){
+        if("all".equals(mode) || ("expired".equals(mode) && expirationCalendar.before(Calendar.getInstance()))){
             shouldRemove = true
         }
 
