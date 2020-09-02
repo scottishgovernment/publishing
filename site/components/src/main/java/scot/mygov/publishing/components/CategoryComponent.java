@@ -9,7 +9,10 @@ import scot.mygov.publishing.beans.Base;
 import scot.mygov.publishing.beans.Mirror;
 
 import java.util.*;
-import java.util.stream.Collectors;
+
+import static java.util.Objects.nonNull;
+import static java.util.stream.Collectors.partitioningBy;
+import static java.util.stream.Collectors.toList;
 
 /**
  * Component used to back category pages (including the home page).
@@ -66,16 +69,22 @@ public class CategoryComponent extends EssentialsContentComponent {
         return request.getRequestContext().getContentBean() != null;
     }
 
+    static List<Wrapper> getWrappedChildren(HippoFolderBean folder, HippoBean baseBean) {
+        return folder
+            .getChildBeans(HippoBean.class)
+            .stream()
+            .filter(CategoryComponent::notIndexFile)
+            .filter(node -> !isExcluded(node, folder, baseBean))
+            .map(CategoryComponent::mapFolder)
+            .filter(Objects::nonNull)
+            .map(CategoryComponent::wrap)
+            .filter(wrapper -> nonNull(wrapper.getBean()))
+            .collect(toList());
+    }
+
     static List<Wrapper> getChildren(HippoFolderBean folder, HippoBean baseBean) {
-        Map<Boolean, List<Wrapper>> byWrapped = folder
-                .getChildBeans(HippoBean.class)
-                .stream()
-                .filter(CategoryComponent::notIndexFile)
-                .filter(node -> !isExcluded(node, folder, baseBean))
-                .map(CategoryComponent::mapFolder)
-                .filter(Objects::nonNull)
-                .map(CategoryComponent::wrap)
-                .collect(Collectors.partitioningBy(Wrapper::getPinned));
+        Map<Boolean, List<Wrapper>> byWrapped = getWrappedChildren(folder, baseBean)
+                .stream().collect(partitioningBy(Wrapper::getPinned));
         List<Wrapper> all = new ArrayList<>();
         all.addAll(byWrapped.get(true));
         all.addAll(byWrapped.get(false));

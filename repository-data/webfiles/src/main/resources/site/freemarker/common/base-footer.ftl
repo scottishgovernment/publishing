@@ -4,7 +4,7 @@
     <div class="ds_wrapper">
         <div class="ds_site-footer__content">
             <ul class="ds_site-footer__site-items">
-                <#list pageable.items as item>
+                <#list children as item>
                     <li class="ds_site-items__item">
                         <@hst.link var="link" hippobean=item />
                         <a data-footer="footer-link-${item?index + 1}" href="${link}">${item.title}</a>
