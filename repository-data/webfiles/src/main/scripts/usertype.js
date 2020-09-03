@@ -6,7 +6,7 @@
     window.dataLayer = window.dataLayer || [{}];
 
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://www.gov.scot/service/usertype', true);
+    xhr.open('GET', '/service/usertype', true);
 
     xhr.timeout = 1000;
 
