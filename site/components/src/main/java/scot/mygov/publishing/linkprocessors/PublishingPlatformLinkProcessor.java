@@ -40,7 +40,6 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
             return link;
         }
 
-
         try {
             return doPostProcess(link);
         } catch (RepositoryException e) {
@@ -163,31 +162,60 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
     }
 
     HstLink doPreProcess(HstLink link) throws RepositoryException {
-        Session session = sessionSource.getSession();
-        String lookupPath = slugLookupPath(link);
-
-        if (!session.nodeExists(lookupPath)) {
+        if (link.getPathElements().length >= 3) {
             return link;
         }
 
-        Node lookupNode = session.getNode(lookupPath);
-        if (!lookupNode.hasProperty("publishing:path")) {
+        // if the link has 2 elements then see if it is a guide page
+        if (link.getPathElements().length == 2) {
+             /// its a guide sub page
+            String guideSlug = link.getPathElements()[0];
+            String guidePath = lookupPath(link, guideSlug);
+            if (guidePath != null) {
+                guidePath = StringUtils.substringBefore(guidePath, "/index");
+                String guidPage = link.getPathElements()[1];
+                link.setPath(guidePath + "/" + guidPage);
+            }
             return link;
         }
 
-        String path = lookupNode.getProperty("publishing:path").getString();
-        link.setPath(path);
+        String path = lookupPath(link, link.getPath());
+        if (path != null) {
+            link.setPath(path);
+        }
         return link;
     }
 
+    String lookupPath(HstLink link, String path) throws RepositoryException {
+        Session session = sessionSource.getSession();
+        String lp = slugLookupPath(link, path);
+        if (!session.nodeExists(lp)) {
+            return null;
+        }
+        Node lookupNode = session.getNode(lp);
+        if (!lookupNode.hasProperty("publishing:path")) {
+            return null;
+        }
+
+        return lookupNode.getProperty("publishing:path").getString();
+    }
+
     String slugLookupPath(HstLink link) {
+        return slugLookupPath(siteName(link), link.getMount().getType(), link.getPath());
+    }
+
+    String slugLookupPath(HstLink link, String path) {
+        return slugLookupPath(siteName(link), link.getMount().getType(), path);
+    }
+
+    String slugLookupPath(String siteName, String mountType, String path) {
         StringBuilder b = new StringBuilder()
                 .append("/content/urls/")
-                .append(siteName(link))
+                .append(siteName)
                 .append('/')
-                .append(link.getMount().getType())
+                .append(mountType)
                 .append('/');
-        appendSlugAsLetterslugLetterPath(b, link.getPath());
+        appendSlugAsLetterslugLetterPath(b, path);
         return b.toString();
     }
 
