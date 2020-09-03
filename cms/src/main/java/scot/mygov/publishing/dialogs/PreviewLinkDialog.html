@@ -6,7 +6,7 @@
 <wicket:extend>
   <div class="document-preview-links-table">
     <table des>
-      <tr wicket:id="listview">
+      <tr wicket:id="listview" class="preview-link-row">
         <td>
           <div class="preview-item">
             <span class="preview-link" wicket:id="name"></span>
@@ -17,7 +17,7 @@
           <p style="margin-top: 10px" wicket:id="preview-info"></p>
           <p class="expired-notification" wicket:id="expired-notification"></p>
         </td>
-        <td>
+        <td style="margin-left: 20px;">
           <div class="link-delete">
             <a wicket:id="delete">
               <span wicket:id="delete-icon"></span>

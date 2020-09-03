@@ -174,11 +174,6 @@ public class PreviewPlugin extends RenderPlugin<Workflow> {
         }
 
         @Override
-        public boolean isEnabled() {
-            return !previewLinkExists();
-        }
-
-        @Override
         protected IModel<String> getTitle() {
             return new LoadableDetachableModel<String>() {
                 private static final long serialVersionUID = 1L;

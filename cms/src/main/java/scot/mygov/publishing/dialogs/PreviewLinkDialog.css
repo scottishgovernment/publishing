@@ -2,6 +2,13 @@
     width: 100%;
     padding: 16px;
 }
+.preview-link-row{
+    display: flex;
+}
+
+.preview-link-row:not(:first-child) {
+    margin-top: 20px;
+}
 
 .preview-item{
     display: flex;
