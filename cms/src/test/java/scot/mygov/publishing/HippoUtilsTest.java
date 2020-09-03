@@ -1,7 +1,6 @@
 package scot.mygov.publishing;
 
 import org.hippoecm.repository.HippoStdNodeType;
-import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 import scot.mygov.publishing.test.TestUtil;
@@ -10,8 +9,9 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Property;
 import javax.jcr.RepositoryException;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -127,6 +127,7 @@ public class HippoUtilsTest {
         Node node = mock(Node.class);
         Property stateProperty = mock(Property.class);
         when(stateProperty.getString()).thenReturn(state);
+        when(node.hasProperty(HippoStdNodeType.HIPPOSTD_STATE)).thenReturn(true);
         when(node.getProperty(HippoStdNodeType.HIPPOSTD_STATE)).thenReturn(stateProperty);
         return node;
     }

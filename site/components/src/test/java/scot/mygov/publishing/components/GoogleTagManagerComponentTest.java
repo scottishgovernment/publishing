@@ -2,7 +2,6 @@ package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
 import org.hippoecm.hst.configuration.hosting.Mount;
-import org.hippoecm.hst.configuration.hosting.VirtualHost;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -16,7 +15,6 @@ import javax.jcr.Node;
 import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-
 import java.util.Collections;
 
 import static org.mockito.Mockito.*;
@@ -169,6 +167,7 @@ public class GoogleTagManagerComponentTest {
         Property containerIdProp = prop(containerId);
         Property authProp = prop(auth);
         Property envProp = prop(env);
+        when(gtmNode.hasProperty(HippoStdNodeType.HIPPOSTD_STATE)).thenReturn(true);
         when(gtmNode.getProperty(HippoStdNodeType.HIPPOSTD_STATE)).thenReturn(state);
         when(gtmNode.getProperty("publishing:containerid")).thenReturn(containerIdProp);
         when(gtmNode.getProperty("publishing:auth")).thenReturn(authProp);
