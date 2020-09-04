@@ -135,6 +135,7 @@ public class MirrorEventListenerTest {
         HippoNode node = mock(HippoNode.class);
         Node publishedVariant = mock(Node.class);
         Property property = stringProperty("published");
+        when(publishedVariant.hasProperty(HippoStdNodeType.HIPPOSTD_STATE)).thenReturn(true);
         when(publishedVariant.getProperty(HippoStdNodeType.HIPPOSTD_STATE)).thenReturn(property);
         when(publishedVariant.isNodeType("publishing:mirror")).thenReturn(false);
         when(node.getName()).thenReturn("name");
@@ -152,6 +153,7 @@ public class MirrorEventListenerTest {
         when(publishedVariant.getParent()).thenReturn(node);
         when(node.getNodes()).thenReturn(TestUtil.iterator(singletonList(publishedVariant)));
         Property state = stringProperty("published");
+        when(publishedVariant.hasProperty(HippoStdNodeType.HIPPOSTD_STATE)).thenReturn(true);
         when(publishedVariant.getProperty(HippoStdNodeType.HIPPOSTD_STATE)).thenReturn(state);
         when(publishedVariant.isNodeType("publishing:mirror")).thenReturn(true);
         when(node.getNodes("name")).thenReturn(TestUtil.iterator(singletonList(publishedVariant)));
@@ -167,6 +169,7 @@ public class MirrorEventListenerTest {
         Node draft = mock(Node.class);
         when(pointedAt.getNodes("name")).thenReturn(TestUtil.iterator(singletonList(draft)));
         Property draftState = stringProperty(HippoStdNodeType.DRAFT);
+        when(draft.hasProperty(HippoStdNodeType.HIPPOSTD_STATE)).thenReturn(true);
         when(draft.getProperty(HippoStdNodeType.HIPPOSTD_STATE)).thenReturn(draftState);
         Property title = stringProperty("title");
         when(draft.getProperty("publishing:title")).thenReturn(title);
