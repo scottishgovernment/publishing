@@ -29,7 +29,7 @@ public class SearchComponent extends EssentialsListComponent {
                 "publishing:title",
                 "publishing:summary",
                 "publishing:content/hippostd:content",
-                "publishing:tags"
+                "hippostd:tags"
         );
     }
 
