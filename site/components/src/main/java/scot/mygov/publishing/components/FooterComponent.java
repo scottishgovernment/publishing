@@ -6,6 +6,7 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.CommonComponent;
 
+import java.util.Collections;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -21,7 +22,9 @@ public class FooterComponent extends CommonComponent  {
     }
 
     List<HippoBean> getChildren(HippoFolderBean folder, HippoBean baseBean) {
-        return CategoryComponent.getWrappedChildren(folder, baseBean)
-                .stream().map(CategoryComponent.Wrapper::getBean).collect(toList());
+        return folder == null
+                ? Collections.emptyList()
+                : CategoryComponent.getWrappedChildren(folder, baseBean)
+                    .stream().map(CategoryComponent.Wrapper::getBean).collect(toList());
     }
 }
