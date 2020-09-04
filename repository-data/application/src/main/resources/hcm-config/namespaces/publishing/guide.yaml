@@ -11,9 +11,9 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 671a1f3a-6e6e-4bf7-ab42-3fe5a0aa8dc0
+          jcr:uuid: a44a73c6-bc23-4974-9087-835ce4058073
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
+          hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           /slug:
@@ -53,8 +53,8 @@ definitions:
           hippotranslation:locale: document-type-locale
           publishing:summary: ''
           publishing:title: ''
-          jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable', 'hippotaxonomy:classifiable']
-          jcr:uuid: e2ec0ddc-c82f-42d3-adaf-d5b4d704228c
+          jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
+          jcr:uuid: 2cd804c5-d42f-4685-abc8-37d20ef17def
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -179,6 +179,34 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
+          /tags:
+            jcr:primaryType: frontend:plugin
+            engine: ${engine}
+            mode: ${mode}
+            plugin.class: org.onehippo.forge.ecmtagging.editor.TagsPlugin
+            search.paths: /content
+            wicket.id: ${cluster.id}.field
+            wicket.model: ${wicket.model}
+            widget.cols: '20'
+            widget.rows: '2'
+            /yui.config:
+              jcr:primaryType: frontend:pluginconfig
+              anim.vert: true
+              container.id: tagging-autocomplete
+              schema.fields: [label, url]
+              schema.result.list: response.results
+              use.shadow: true
+              /schema.meta.fields:
+                jcr:primaryType: frontend:pluginconfig
+                totalHits: response.totalHits
+          /tagsuggest:
+            jcr:primaryType: frontend:plugin
+            engine: ${engine}
+            mode: ${mode}
+            numberOfSuggestions: 10
+            plugin.class: org.onehippo.forge.ecmtagging.editor.TagSuggestPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.model: ${wicket.model}
           /reportingtags:
             jcr:primaryType: frontend:plugin
             caption: Reporting tags
@@ -210,13 +238,6 @@ definitions:
             hint: You can add additional urls that this page should be available at.  All
               of them will redirect to the official URL of this page.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /taggable:
-            jcr:primaryType: frontend:plugin
-            mixin: hippostd:taggable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
