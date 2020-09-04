@@ -35,7 +35,6 @@
                 ${orgAndSector.organisations?size}
                 ${orgAndSector.sector.description}
             </p>
-
         </li>
     </#list>
 </ol>
@@ -43,7 +42,7 @@
 <ol>
     <#list orgsByLetter as orgAndLetter>
         <li >
-            <h2>${orgAndLetter.leter}</a></h2>
+            <h2>${orgAndLetter.letter}</a></h2>
             <p>
                 ${orgAndLetter.organisations?size}
                 <ol>
