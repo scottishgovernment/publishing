@@ -4,13 +4,14 @@ definitions:
       .meta:residual-child-node-category: content
       jcr:primaryType: hst:mount
       hst:mountpoint: /hst:publishing/hst:sites/trading-nation
-      /preview:
-        .meta:residual-child-node-category: content
-        jcr:primaryType: hst:mount
-        hst:alias: trading-nation-staging
-        hst:type: preview
-        preview-cookie-httponly: 'false'
-        preview-cookie-secure: 'false'
+    /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/trading-nation-preview:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:mount
+      hst:alias: trading-nation-staging
+      hst:mountpoint: /hst:publishing/hst:sites/trading-nation
+      hst:type: preview
+      preview-cookie-httponly: 'false'
+      preview-cookie-secure: 'false'
     /hst:hst/hst:hosts/lcl/scot/mygov/tradingnation:
       jcr:primaryType: hst:virtualhost
       /lcl:
