@@ -80,8 +80,17 @@ public class MirrorEventListener {
     }
 
     String getMirroredTitle(Node mirror) throws RepositoryException {
-        String documentId = mirror.getNode("publishing:document").getProperty("hippo:docbase").getString();
-        Node mirroredHandle = session.getNodeByIdentifier(documentId);
+
+        String docbase = mirror.getNode("publishing:document").getProperty("hippo:docbase").getString();
+
+        // during the migration we set mirror docbases to cafebabe-cafe-babe-cafe-babecafebabe (the content root)
+        // becuase we do not know if the mirrored item has been added yet.
+        // after the migrastion we can remove this condition.
+        if ("cafebabe-cafe-babe-cafe-babecafebabe".equals(docbase)) {
+            return "no title available, migration still running";
+
+        }
+        Node mirroredHandle = session.getNodeByIdentifier(docbase);
         Node draft = hippoUtils.getVariantWithState(mirroredHandle, HippoStdNodeType.DRAFT);
         return draft.getProperty("publishing:title").getString();
     }
