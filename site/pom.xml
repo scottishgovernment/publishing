@@ -17,7 +17,8 @@
     <sonar.exclusions>target/**</sonar.exclusions>
     <sonar.coverage.exclusions>
       **/SearchComponent.java,
-      **/DetermineStylingComponent.java
+      **/DetermineStylingComponent.java,
+      **/FooterComponent.java
     </sonar.coverage.exclusions>
   </properties>
 
