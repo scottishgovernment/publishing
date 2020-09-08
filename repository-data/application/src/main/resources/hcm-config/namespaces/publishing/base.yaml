@@ -11,10 +11,10 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 70107adf-61e1-4ec7-98ec-60a8429b05c8
+          jcr:uuid: 4474f48c-2c24-4d2e-9629-ca78ca1b80cd
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
-            'hippotranslation:translated', 'hippostd:taggable']
+            'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           /summary:
             jcr:primaryType: hipposysedit:field
@@ -168,10 +168,10 @@ definitions:
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
+          jcr:mixinTypes: ['mix:referenceable']
           publishing:summary: ''
           publishing:title: ''
-          jcr:uuid: fc750c16-7872-4de7-bfd0-e0fbf91d270a
+          jcr:uuid: 63601a15-3690-4c57-80fb-cfdbf839e7b2
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:07.551+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:07.552+01:00
           publishing:seoTitle: ''
@@ -272,13 +272,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '60'
-          /taggable:
-            jcr:primaryType: frontend:plugin
-            mixin: hippostd:taggable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /metaDescription:
             jcr:primaryType: frontend:plugin
             caption: Meta description

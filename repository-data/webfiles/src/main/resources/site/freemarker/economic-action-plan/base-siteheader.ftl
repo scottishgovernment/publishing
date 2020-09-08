@@ -10,7 +10,7 @@
                 </a>
 
                 <div class="ds_site-branding__title">
-                    <a data-header="header-title" class="ds_site-branding__link" href="${home}">A Trading Nation</a>
+                    <a data-header="header-title" class="ds_site-branding__link" href="${home}">Economic Action Plan 2019-20</a>
                 </div>
             </div>
         </div>

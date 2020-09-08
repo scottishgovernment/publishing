@@ -270,8 +270,8 @@
         Check MOT history, theory test, SORN]
       hippostdpubwf:createdBy: system
       hippostdpubwf:creationDate: 2020-08-17T16:42:36.986+01:00
-      hippostdpubwf:lastModificationDate: 2020-08-17T16:42:36.986+01:00
-      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:lastModificationDate: 2020-09-04T14:16:05.226+01:00
+      hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 0a2abf31-0e4b-4dcc-8c6e-b557e4274168
       hippotranslation:locale: document-type-locale
       publishing:audience: people
@@ -349,12 +349,16 @@
           <p>Includes vehicle log books (V5C), private registration plates and taking your vehicle off the road (SORN). </p>
       /publishing:relateditems:
         jcr:primaryType: publishing:relateditems
+        publishing:title: ''
         /publishing:relatedItem[1]:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 14711b89-b9d3-4ff8-8db2-96b2822c86f3
         /publishing:relatedItem[2]:
           jcr:primaryType: hippo:mirror
           hippo:docbase: d74d19c7-9e21-43d6-a878-7cfcc054fb8d
+      /publishing:contentOwner:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
     /driving-licences-tests-car-tax-and-registration[2]:
       jcr:primaryType: publishing:article
       jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -372,8 +376,8 @@
         Check MOT history, theory test, SORN]
       hippostdpubwf:createdBy: system
       hippostdpubwf:creationDate: 2020-08-17T16:42:36.986+01:00
-      hippostdpubwf:lastModificationDate: 2020-08-17T16:42:37.114+01:00
-      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:lastModificationDate: 2020-09-04T14:16:04.579+01:00
+      hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 0a2abf31-0e4b-4dcc-8c6e-b557e4274168
       hippotranslation:locale: document-type-locale
       publishing:audience: people
@@ -451,12 +455,16 @@
           <p>Includes vehicle log books (V5C), private registration plates and taking your vehicle off the road (SORN). </p>
       /publishing:relateditems:
         jcr:primaryType: publishing:relateditems
+        publishing:title: ''
         /publishing:relatedItem[1]:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 14711b89-b9d3-4ff8-8db2-96b2822c86f3
         /publishing:relatedItem[2]:
           jcr:primaryType: hippo:mirror
           hippo:docbase: d74d19c7-9e21-43d6-a878-7cfcc054fb8d
+      /publishing:contentOwner:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
     /driving-licences-tests-car-tax-and-registration[3]:
       jcr:primaryType: publishing:article
       jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -784,7 +792,7 @@
         hippo:name: When to appeal
         /when-to-appeal[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 8816d6b9-3b79-4400-8fd5-9dd91b3b9a59
           hippo:availability: []
           hippo:name: When to appeal
@@ -864,7 +872,8 @@
               hippo:values: []
         /when-to-appeal[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: b5d7c2f1-a0bd-4871-ab8b-713b69495e85
           hippo:availability: [preview]
           hippo:name: When to appeal
@@ -949,7 +958,7 @@
         hippo:name: How to appeal
         /how-to-appeal[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: a55806df-6fab-47a2-bae2-d94deb21b19b
           hippo:availability: []
           hippo:name: How to appeal
@@ -1029,7 +1038,8 @@
               hippo:values: []
         /how-to-appeal[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: f9d85bac-98ac-4351-ad8d-f1bb443bcbec
           hippo:availability: [preview]
           hippo:name: How to appeal
@@ -1114,7 +1124,7 @@
         hippo:name: How the decision is made
         /how-the-decision-is-made[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 40d6df0b-a1cc-441c-9c9f-0eaa663a35b8
           hippo:availability: []
           hippo:name: How the decision is made
@@ -1196,7 +1206,8 @@
               hippo:values: []
         /how-the-decision-is-made[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 666803b6-2880-4e47-b0e3-2ca1827696b9
           hippo:availability: [preview]
           hippo:name: How the decision is made
@@ -1283,7 +1294,7 @@
         hippo:name: After the decision
         /after-the-decision[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 2ab63a79-d466-4e84-ab5b-c357a05410ea
           hippo:availability: []
           hippo:name: After the decision
@@ -1590,7 +1601,8 @@
               \ can give you advice on money, debt and the law.</p> \n  "
         /after-the-decision[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 08224609-dbeb-44c0-a6fd-93430464acaa
           hippo:availability: [preview]
           hippo:name: After the decision
@@ -3031,18 +3043,19 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 9e471a76-8ae9-460b-8154-edcc365b3c57
         hippo:name: Apply for a new Blue Badge
-        hippo:versionHistory: 07c9cd6c-ff9d-40fb-bf39-b26e7a558ef2
+        hippo:versionHistory: a045c5a2-ecd8-4d75-ac17-308556f17e66
         /apply-for-a-new-blue-badge[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 05502305-477b-42f5-93d0-0fd87a85d73c
           hippo:availability: []
           hippo:name: Apply for a new Blue Badge
           hippostd:state: draft
+          hippostd:tags: [one, two, three]
           hippostdpubwf:createdBy: system
           hippostdpubwf:creationDate: 2020-08-17T16:42:45.160+01:00
-          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:45.160+01:00
-          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:lastModificationDate: 2020-09-04T14:44:11.108+01:00
+          hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: dfaa4c65-d466-44a8-847e-3c902f59ade2
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
@@ -3320,15 +3333,17 @@
               >NI direct</a> if you live in Northern Ireland.</li> \n  </ul> \n  "
         /apply-for-a-new-blue-badge[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 432ef55e-2d6e-4335-90b5-aac9216681d8
           hippo:availability: [preview]
           hippo:name: Apply for a new Blue Badge
           hippostd:state: unpublished
+          hippostd:tags: [one, two, three]
           hippostdpubwf:createdBy: system
           hippostdpubwf:creationDate: 2020-08-17T16:42:45.160+01:00
-          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:45.254+01:00
-          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:lastModificationDate: 2020-09-04T14:44:05.063+01:00
+          hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: dfaa4c65-d466-44a8-847e-3c902f59ade2
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
@@ -3606,16 +3621,17 @@
               >NI direct</a> if you live in Northern Ireland.</li> \n  </ul> \n  "
         /apply-for-a-new-blue-badge[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 28fe4359-91a0-4b3b-ab9f-6cd108c0653d
           hippo:availability: [live]
           hippo:name: Apply for a new Blue Badge
           hippostd:state: published
+          hippostd:tags: [one, two, three]
           hippostdpubwf:createdBy: system
           hippostdpubwf:creationDate: 2020-08-17T16:42:45.160+01:00
-          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:45.254+01:00
-          hippostdpubwf:lastModifiedBy: system
-          hippostdpubwf:publicationDate: 2020-08-17T16:42:45.367+01:00
+          hippostdpubwf:lastModificationDate: 2020-09-04T14:44:05.063+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2020-09-04T14:44:07.914+01:00
           hippotranslation:id: dfaa4c65-d466-44a8-847e-3c902f59ade2
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
@@ -3896,18 +3912,19 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: d9d67cd3-9d0d-476a-b715-920f9928693c
         hippo:name: Renew a Blue Badge
-        hippo:versionHistory: 67303caf-71ae-436a-98aa-84dba480482c
+        hippo:versionHistory: 79d8e7bc-12f1-41c1-83fd-b005ef84b46a
         /renew-a-blue-badge[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: f08d62b1-3b7e-4dcf-9029-3bad797652a8
           hippo:availability: []
           hippo:name: Renew a Blue Badge
           hippostd:state: draft
+          hippostd:tags: [one, t, two]
           hippostdpubwf:createdBy: system
           hippostdpubwf:creationDate: 2020-08-17T16:42:45.552+01:00
-          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:45.552+01:00
-          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:lastModificationDate: 2020-09-04T14:44:46.043+01:00
+          hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 309fe312-435c-41b1-83ec-7afd6aefa98e
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
@@ -4188,15 +4205,17 @@
               \ You need to reapply for it every 3 years.\n  </div> \n  "
         /renew-a-blue-badge[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 919a4ba0-ba77-4f44-8e13-9f460b5b14d8
           hippo:availability: [preview]
           hippo:name: Renew a Blue Badge
           hippostd:state: unpublished
+          hippostd:tags: [one, t, two]
           hippostdpubwf:createdBy: system
           hippostdpubwf:creationDate: 2020-08-17T16:42:45.552+01:00
-          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:45.683+01:00
-          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:lastModificationDate: 2020-09-04T14:44:46.015+01:00
+          hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 309fe312-435c-41b1-83ec-7afd6aefa98e
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
@@ -4477,16 +4496,17 @@
               \ You need to reapply for it every 3 years.\n  </div> \n  "
         /renew-a-blue-badge[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 8e748081-d725-4c2b-aa96-bc76793b09eb
           hippo:availability: [live]
           hippo:name: Renew a Blue Badge
           hippostd:state: published
+          hippostd:tags: [one, t, two]
           hippostdpubwf:createdBy: system
           hippostdpubwf:creationDate: 2020-08-17T16:42:45.552+01:00
-          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:45.683+01:00
-          hippostdpubwf:lastModifiedBy: system
-          hippostdpubwf:publicationDate: 2020-08-17T16:42:45.742+01:00
+          hippostdpubwf:lastModificationDate: 2020-09-04T14:44:46.015+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2020-09-04T14:44:48.245+01:00
           hippotranslation:id: 309fe312-435c-41b1-83ec-7afd6aefa98e
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
@@ -4773,7 +4793,7 @@
         hippo:versionHistory: 0d80c438-b6ee-422c-96f6-bf866a2fe269
         /eligibility[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 710b4cd6-c705-4482-92f1-ee0ac1304e0a
           hippo:availability: []
           hippo:name: Eligibility
@@ -4854,7 +4874,8 @@
               \  </div> \n  "
         /eligibility[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 38394625-5f68-45d8-9bf1-121f88486e15
           hippo:availability: [preview]
           hippo:name: Eligibility
@@ -4935,7 +4956,7 @@
               \  </div> \n  "
         /eligibility[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: b7c40ca2-353b-4316-8821-eabdfd802a8e
           hippo:availability: [live]
           hippo:name: Eligibility
@@ -5023,7 +5044,7 @@
         hippo:versionHistory: 70a3f5dd-b4ba-40f7-a1c7-9995b7adb747
         /using-your-blue-badge[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: c97e7f2e-3511-47b0-806f-996f09d9d8dd
           hippo:availability: []
           hippo:name: Using your Blue Badge
@@ -5342,7 +5363,8 @@
               hippo:values: []
         /using-your-blue-badge[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 66adbb5e-c510-4b3f-a48e-496847765260
           hippo:availability: [preview]
           hippo:name: Using your Blue Badge
@@ -5661,7 +5683,7 @@
               hippo:values: []
         /using-your-blue-badge[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 88d7efd6-9a67-4013-a29f-b2e620254c9f
           hippo:availability: [live]
           hippo:name: Using your Blue Badge
@@ -5987,7 +6009,7 @@
         hippo:versionHistory: be565415-9bce-4170-a73a-0107ce001105
         /report-a-lost-stolen-or-misused-blue-badge[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 16151f88-2f4a-47a4-ae70-739752d0e236
           hippo:availability: []
           hippo:name: Report a lost, stolen or misused Blue Badge
@@ -6235,7 +6257,8 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /report-a-lost-stolen-or-misused-blue-badge[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: c4a78033-faa0-47bd-b5d7-169b14acce1c
           hippo:availability: [preview]
           hippo:name: Report a lost, stolen or misused Blue Badge
@@ -6483,7 +6506,7 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /report-a-lost-stolen-or-misused-blue-badge[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: e61dbac1-ff4e-4ba4-8281-3e904c751e99
           hippo:availability: [live]
           hippo:name: Report a lost, stolen or misused Blue Badge
@@ -6738,7 +6761,7 @@
         hippo:versionHistory: c135992d-19e1-4857-95bf-6ed511238974
         /changing-or-handing-back-a-blue-badge[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: e73912b9-7aec-4b0e-880f-9673751fb900
           hippo:availability: []
           hippo:name: Changing or handing back a Blue Badge
@@ -6986,7 +7009,8 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /changing-or-handing-back-a-blue-badge[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 44d3f83d-386b-4f9f-b1ba-b0fe86d30295
           hippo:availability: [preview]
           hippo:name: Changing or handing back a Blue Badge
@@ -7234,7 +7258,7 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /changing-or-handing-back-a-blue-badge[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 7be8879a-9dcc-4837-88f7-88aca9141269
           hippo:availability: [live]
           hippo:name: Changing or handing back a Blue Badge
@@ -7489,7 +7513,7 @@
         hippo:versionHistory: 81368243-fafe-4781-a598-974dc4b9c435
         /get-further-help-with-a-blue-badge[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: adeaf086-ce17-40f6-94d1-8bc90255df9a
           hippo:availability: []
           hippo:name: Get further help with a Blue Badge
@@ -7736,7 +7760,8 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /get-further-help-with-a-blue-badge[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 68315d41-e2f4-4d1a-883f-ca372265e0c2
           hippo:availability: [preview]
           hippo:name: Get further help with a Blue Badge
@@ -7983,7 +8008,7 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /get-further-help-with-a-blue-badge[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: d2afccf4-69d7-4ac9-a895-f77063e4cddf
           hippo:availability: [live]
           hippo:name: Get further help with a Blue Badge
@@ -8746,7 +8771,7 @@
         hippo:versionHistory: da24da81-3b2d-47c5-b303-0f07733659ee
         /disabled-persons-bus-passes-during-coronavirus[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 208e81ba-d1af-4988-8c85-aaf9fd47027c
           hippo:availability: []
           hippo:name: Disabled person's bus passes during coronavirus
@@ -8792,7 +8817,8 @@
               \ on the Transport Scotland website. </p> \n  "
         /disabled-persons-bus-passes-during-coronavirus[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 9652ca5c-67a5-4718-b1d3-1123a140466c
           hippo:availability: [preview]
           hippo:name: Disabled person's bus passes during coronavirus
@@ -8838,7 +8864,7 @@
               \ on the Transport Scotland website. </p> \n  "
         /disabled-persons-bus-passes-during-coronavirus[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 5b61a1f6-57b6-4b3f-aee4-0e8caf84e34e
           hippo:availability: [live]
           hippo:name: Disabled person's bus passes during coronavirus
@@ -8891,7 +8917,7 @@
         hippo:versionHistory: 978515d6-362a-4b0e-bf00-31274e0d2b50
         /eligibility---can-you-get-one[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: ecfae300-399a-4457-b578-8b4588acda1a
           hippo:availability: []
           hippo:name: Eligibility - can you get one?
@@ -9167,7 +9193,8 @@
               hippo:values: []
         /eligibility---can-you-get-one[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 52fe89d7-4d96-418e-a8ba-4307155b2b7f
           hippo:availability: [preview]
           hippo:name: Eligibility - can you get one?
@@ -9443,7 +9470,7 @@
               hippo:values: []
         /eligibility---can-you-get-one[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 9bdd7bd4-a079-4542-ae26-f56ec1d29faa
           hippo:availability: [live]
           hippo:name: Eligibility - can you get one?
@@ -9726,7 +9753,7 @@
         hippo:versionHistory: f673ced3-076f-4fca-85f3-7675d8e946e2
         /lost-stolen-or-damaged-cards[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 5302e107-bb6f-4795-afd6-19692e0943ff
           hippo:availability: []
           hippo:name: Lost, stolen or damaged cards
@@ -9981,7 +10008,8 @@
               \ your card by cutting it up with scissors. </p> \n  "
         /lost-stolen-or-damaged-cards[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 938ff90b-58d9-4049-8ca7-e4965ded3a2b
           hippo:availability: [preview]
           hippo:name: Lost, stolen or damaged cards
@@ -10236,7 +10264,7 @@
               \ your card by cutting it up with scissors. </p> \n  "
         /lost-stolen-or-damaged-cards[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 053198f0-fe1e-4714-968f-d43e95ddeda5
           hippo:availability: [live]
           hippo:name: Lost, stolen or damaged cards
@@ -10498,7 +10526,7 @@
         hippo:versionHistory: 573ce688-2d22-460a-822d-41d9fcefaf24
         /using-your-card[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 3243c0ca-1f38-4eac-9fb1-b229c77945aa
           hippo:availability: []
           hippo:name: Using your card
@@ -10561,7 +10589,8 @@
               hippo:values: []
         /using-your-card[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 22be9aa7-dd3d-4c82-ae31-8a9785117c38
           hippo:availability: [preview]
           hippo:name: Using your card
@@ -10624,7 +10653,7 @@
               hippo:values: []
         /using-your-card[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 81258d47-7a18-4564-8a0a-428d724a5837
           hippo:availability: [live]
           hippo:name: Using your card
@@ -10694,7 +10723,7 @@
         hippo:versionHistory: 04e18445-0d70-489d-9ebf-d640be9096a6
         /travelling-with-a-companion[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: c119bac3-cb70-44d8-9fc5-3f9f697294c6
           hippo:availability: []
           hippo:name: Travelling with a companion
@@ -10733,7 +10762,8 @@
               >Transport Scotland</a> website for more information.</p> \n  "
         /travelling-with-a-companion[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: ec431ca6-610f-4c34-8a93-85d5281d1a7c
           hippo:availability: [preview]
           hippo:name: Travelling with a companion
@@ -10772,7 +10802,7 @@
               >Transport Scotland</a> website for more information.</p> \n  "
         /travelling-with-a-companion[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: e5602c44-e489-4439-a0e2-8e67bf937204
           hippo:availability: [live]
           hippo:name: Travelling with a companion
@@ -10818,7 +10848,7 @@
         hippo:versionHistory: bb2c66c8-47a0-439f-a442-4aaa4c7eb803
         /update-or-cancel-a-card[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 3d5d1800-7143-455e-b0f6-7d76818b829c
           hippo:availability: []
           hippo:name: Update or cancel a card
@@ -11067,7 +11097,8 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /update-or-cancel-a-card[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: cf43844a-b9d1-4a98-a68e-a1e8684cb4c9
           hippo:availability: [preview]
           hippo:name: Update or cancel a card
@@ -11316,7 +11347,7 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /update-or-cancel-a-card[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: e641cdf3-dd0b-4b33-9909-9ab195932ba8
           hippo:availability: [live]
           hippo:name: Update or cancel a card
@@ -11572,7 +11603,7 @@
         hippo:versionHistory: f309fc3c-f1eb-488a-be4f-b2090cef08b8
         /help-and-support[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 25951e1d-debe-4129-8f38-d80cddbd7d30
           hippo:availability: []
           hippo:name: Help and support
@@ -11822,7 +11853,8 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /help-and-support[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 1bdd8c92-cf59-4af3-bb86-1fa016f3c968
           hippo:availability: [preview]
           hippo:name: Help and support
@@ -12072,7 +12104,7 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /help-and-support[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 0864ac44-b6af-49a1-8019-bee1f04d9b1f
           hippo:availability: [live]
           hippo:name: Help and support
@@ -12538,7 +12570,7 @@
         hippo:versionHistory: ad1a5f04-7893-4067-a7db-b75bcbc2bab1
         /older-persons-bus-passes-during-coronavirus[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 923336dc-d0d7-4808-a413-107741ff7509
           hippo:availability: []
           hippo:name: Older person's bus passes during coronavirus
@@ -12584,7 +12616,8 @@
               \ on the Transport Scotland website. </p> \n  "
         /older-persons-bus-passes-during-coronavirus[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 34cea130-57eb-41f3-8169-58f62fcad40a
           hippo:availability: [preview]
           hippo:name: Older person's bus passes during coronavirus
@@ -12630,7 +12663,7 @@
               \ on the Transport Scotland website. </p> \n  "
         /older-persons-bus-passes-during-coronavirus[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: cb806e43-f9fc-47bd-846d-2908230b1dce
           hippo:availability: [live]
           hippo:name: Older person's bus passes during coronavirus
@@ -12683,7 +12716,7 @@
         hippo:versionHistory: 4712f320-fe66-456a-820f-d1bd518fda90
         /apply-for-or-renew-your-bus-pass[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: de05f23e-1c54-49bf-9d14-fb0cb011a1b9
           hippo:availability: []
           hippo:name: Apply for or renew your bus pass
@@ -12948,7 +12981,8 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /apply-for-or-renew-your-bus-pass[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: ea8e7045-70b4-4a32-9708-0dc6b0dea2a7
           hippo:availability: [preview]
           hippo:name: Apply for or renew your bus pass
@@ -13213,7 +13247,7 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /apply-for-or-renew-your-bus-pass[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: e0026f38-c5b7-4a71-a8fb-b144e8d7712e
           hippo:availability: [live]
           hippo:name: Apply for or renew your bus pass
@@ -13485,7 +13519,7 @@
         hippo:versionHistory: 1e71c318-c938-4865-8ffe-15bcffcb10f0
         /using-your-card[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: b38de11d-3de3-41b1-b335-f50407b94fbd
           hippo:availability: []
           hippo:name: Using your card
@@ -13528,7 +13562,8 @@
               \ tram in Edinburgh.</p> \n  "
         /using-your-card[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: aa4ad40c-1fd7-4cd8-84bc-fac070b6a587
           hippo:availability: [preview]
           hippo:name: Using your card
@@ -13571,7 +13606,7 @@
               \ tram in Edinburgh.</p> \n  "
         /using-your-card[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 71a1288c-2047-4792-846f-dee1d4a96436
           hippo:availability: [live]
           hippo:name: Using your card
@@ -13621,7 +13656,7 @@
         hippo:versionHistory: aca9fdaa-03e1-4192-8b43-6fabe7663d5f
         /update-or-cancel-a-card[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: d604f206-1309-4033-8770-ab6f9704a870
           hippo:availability: []
           hippo:name: Update or cancel a card
@@ -13870,7 +13905,8 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /update-or-cancel-a-card[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: dbaa349d-8bf2-402e-a450-6a45d95818d7
           hippo:availability: [preview]
           hippo:name: Update or cancel a card
@@ -14119,7 +14155,7 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /update-or-cancel-a-card[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: e65fb7e3-16e5-4314-bf66-6dd7466272c9
           hippo:availability: [live]
           hippo:name: Update or cancel a card
@@ -14375,7 +14411,7 @@
         hippo:versionHistory: cc5688b0-993e-4698-a0c3-3078e7e3848a
         /help-and-support[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: f39743b1-e69b-45e7-8d02-40c3ec020568
           hippo:availability: []
           hippo:name: Help and support
@@ -14623,7 +14659,8 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /help-and-support[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 9b467398-6256-4f09-b696-b61f9fc7965b
           hippo:availability: [preview]
           hippo:name: Help and support
@@ -14871,7 +14908,7 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /help-and-support[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 67408226-96bf-4d71-9775-f6c53d5a7340
           hippo:availability: [live]
           hippo:name: Help and support
@@ -16067,7 +16104,7 @@
         hippo:name: Planning your journey
         /planning-your-journey[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 1a073b54-5e77-44b4-9d38-2ef209cfda74
           hippo:availability: []
           hippo:name: Planning your journey
@@ -16120,7 +16157,8 @@
               >Changing Places toilet map.</a></p> \n  "
         /planning-your-journey[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: e209d601-6b2c-4490-8931-230a132988e4
           hippo:availability: [preview]
           hippo:name: Planning your journey
@@ -16178,7 +16216,7 @@
         hippo:name: Buses, coaches and trams
         /buses-coaches-and-trams[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 4bf6bba7-a1f5-4e1e-b537-f1cd75b929c5
           hippo:availability: []
           hippo:name: Buses, coaches and trams
@@ -16284,7 +16322,8 @@
               hippo:values: []
         /buses-coaches-and-trams[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: b9c6abbc-3626-4539-b086-b9e452d43efe
           hippo:availability: [preview]
           hippo:name: Buses, coaches and trams
@@ -16395,7 +16434,7 @@
         hippo:name: Community transport
         /community-transport[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 737ba298-c1eb-43dd-b38f-e67a668ed7b4
           hippo:availability: []
           hippo:name: Community transport
@@ -16674,7 +16713,8 @@
               \ \n  "
         /community-transport[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 223fd220-22f8-49b5-9a28-229b08e26584
           hippo:availability: [preview]
           hippo:name: Community transport
@@ -16958,7 +16998,7 @@
         hippo:name: Trains and the subway
         /trains-and-the-subway[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 1a094128-0d8c-4048-b005-b7efb5243d9a
           hippo:availability: []
           hippo:name: Trains and the subway
@@ -17032,7 +17072,8 @@
               \ \n  "
         /trains-and-the-subway[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 0bbd4281-9bfb-4761-bed1-d632aae60be8
           hippo:availability: [preview]
           hippo:name: Trains and the subway
@@ -17111,7 +17152,7 @@
         hippo:name: Cars and taxis
         /cars-and-taxis[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: efe59a24-3547-4315-8d15-72542e023a8f
           hippo:availability: []
           hippo:name: Cars and taxis
@@ -17410,7 +17451,8 @@
               hippo:values: []
         /cars-and-taxis[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 2cd1583b-8652-4a4f-8361-adece5da198c
           hippo:availability: [preview]
           hippo:name: Cars and taxis
@@ -17714,7 +17756,7 @@
         hippo:name: Ferries
         /ferries[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 3c0570b8-16e7-40e8-9325-2060574c75f9
           hippo:availability: []
           hippo:name: Ferries
@@ -17753,7 +17795,8 @@
               \ you're entitled to it.</p> \n  </blockquote> \n  "
         /ferries[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 4f1b0cc3-4101-472d-aff0-109bc1930110
           hippo:availability: [preview]
           hippo:name: Ferries
@@ -17797,7 +17840,7 @@
         hippo:name: Planes
         /planes[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 038ae5c4-f9a3-4fd0-8f6b-53351f7cc745
           hippo:availability: []
           hippo:name: Planes
@@ -17843,7 +17886,8 @@
               >Civil Aviation Authority website.</a></p> \n  "
         /planes[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 06841539-d243-4090-9830-3894c4b4b33b
           hippo:availability: [preview]
           hippo:name: Planes
@@ -17894,7 +17938,7 @@
         hippo:name: Roads and pavements
         /roads-and-pavements[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: ca1926d4-a787-47b9-ba38-19407bdd20b7
           hippo:availability: []
           hippo:name: Roads and pavements
@@ -18145,7 +18189,8 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /roads-and-pavements[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 227c64ea-e870-47a2-a31c-c2d657de12d7
           hippo:availability: [preview]
           hippo:name: Roads and pavements
@@ -18569,7 +18614,7 @@
         hippo:versionHistory: 1e2c582d-551e-4e8b-88d5-8aa496e4342c
         /buses-coaches-and-trams[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 5721f949-16fa-4122-b8f2-c11e2a2649bc
           hippo:availability: []
           hippo:name: Buses, coaches and trams
@@ -18650,7 +18695,8 @@
               hippo:values: []
         /buses-coaches-and-trams[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: a0000fc9-6079-4d89-a561-50eb8cb08978
           hippo:availability: [preview]
           hippo:name: Buses, coaches and trams
@@ -18731,7 +18777,7 @@
               hippo:values: []
         /buses-coaches-and-trams[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 95f8d71c-f9f6-491b-88f0-2ce57284d813
           hippo:availability: [live]
           hippo:name: Buses, coaches and trams
@@ -18819,7 +18865,7 @@
         hippo:versionHistory: 5d378564-67e2-4086-be73-3089cf24bde7
         /if-you-cannot-get-a-bus[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 4a1d442b-92ee-46b7-83bc-3d0800284829
           hippo:availability: []
           hippo:name: If you cannot get a bus
@@ -19094,7 +19140,8 @@
               >Visit GOV.UK to check if you're eligible</a>.</p> \n  "
         /if-you-cannot-get-a-bus[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 7b45c04e-4a54-41c6-854b-603e0cb95261
           hippo:availability: [preview]
           hippo:name: If you cannot get a bus
@@ -19369,7 +19416,7 @@
               >Visit GOV.UK to check if you're eligible</a>.</p> \n  "
         /if-you-cannot-get-a-bus[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: fc533fce-1c0b-43d7-b9c7-45af6fdccdd7
           hippo:availability: [live]
           hippo:name: If you cannot get a bus
@@ -19651,7 +19698,7 @@
         hippo:versionHistory: 34e8f9aa-d9a3-4eaf-8421-3cbb16c66cc5
         /trains-and-the-subway[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: d1973124-e07c-4701-b971-e9f79df5c538
           hippo:availability: []
           hippo:name: Trains and the subway
@@ -19709,7 +19756,8 @@
               \ \n  "
         /trains-and-the-subway[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 92cae7fc-aecd-43c6-98d9-4386a36509ee
           hippo:availability: [preview]
           hippo:name: Trains and the subway
@@ -19767,7 +19815,7 @@
               \ \n  "
         /trains-and-the-subway[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 2e90d75c-f412-4719-8e6f-a3f038b51d09
           hippo:availability: [live]
           hippo:name: Trains and the subway
@@ -19832,7 +19880,7 @@
         hippo:versionHistory: 6a1a9400-9c5c-4ca7-a8a4-827aa26246ef
         /cars-and-taxis[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 8bed24f5-d377-45a1-9d6d-aeec175954fc
           hippo:availability: []
           hippo:name: Cars and taxis
@@ -20108,7 +20156,8 @@
               hippo:values: []
         /cars-and-taxis[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: c209d617-6a3e-4585-974e-4eaf1e9a99b7
           hippo:availability: [preview]
           hippo:name: Cars and taxis
@@ -20384,7 +20433,7 @@
               hippo:values: []
         /cars-and-taxis[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 448ece8c-cf7b-4e08-8d1e-926772d9647b
           hippo:availability: [live]
           hippo:name: Cars and taxis
@@ -20667,7 +20716,7 @@
         hippo:versionHistory: 778a811b-036c-4634-bb8f-5def8fe28fd5
         /ferries[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: aea25bdd-917c-47ec-affa-a41fb6ff51e6
           hippo:availability: []
           hippo:name: Ferries
@@ -20697,7 +20746,8 @@
               >contact details for ferry operators</a>.</p> \n  "
         /ferries[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 476ec491-f858-4ad1-bfb1-4da38728d2db
           hippo:availability: [preview]
           hippo:name: Ferries
@@ -20727,7 +20777,7 @@
               >contact details for ferry operators</a>.</p> \n  "
         /ferries[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: e97084fd-3619-448c-9495-3e5c6de647f5
           hippo:availability: [live]
           hippo:name: Ferries
@@ -20764,7 +20814,7 @@
         hippo:versionHistory: abf1b8b7-4639-4c4f-aede-bbd66703d550
         /planes[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: dddc645f-0c4a-47f2-a142-7d92f48a33c7
           hippo:availability: []
           hippo:name: Planes
@@ -20796,7 +20846,8 @@
               \ \n  </blockquote> \n  "
         /planes[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 60928ec7-1703-4851-99cc-ac45be06b191
           hippo:availability: [preview]
           hippo:name: Planes
@@ -20828,7 +20879,7 @@
               \ \n  </blockquote> \n  "
         /planes[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 1b339a54-ae9c-466a-9f26-49d20ec60353
           hippo:availability: [live]
           hippo:name: Planes
@@ -20867,7 +20918,7 @@
         hippo:versionHistory: 21b4bdb5-d729-4352-a83c-6ba3e1a38c53
         /roads-and-pavements[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 2380c103-3f32-4a62-9925-f2e052924eb7
           hippo:availability: []
           hippo:name: Roads and pavements
@@ -21119,7 +21170,8 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /roads-and-pavements[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: e5d2087d-c2e9-4185-89b7-32b244cf2f4d
           hippo:availability: [preview]
           hippo:name: Roads and pavements
@@ -21371,7 +21423,7 @@
               ></use>\n    </svg></a>\n  </div> \n  "
         /roads-and-pavements[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 14bcce94-9267-43a9-9cf4-f9d8484eb522
           hippo:availability: [live]
           hippo:name: Roads and pavements
@@ -22652,15 +22704,15 @@
         hippo:versionHistory: 666334d9-2e18-4f9b-9871-7a11a7d88383
         /when-to-appeal[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 9dd85344-7a2d-4385-8b5c-6916be38db77
           hippo:availability: []
           hippo:name: When to appeal
           hippostd:state: draft
           hippostdpubwf:createdBy: system
           hippostdpubwf:creationDate: 2020-08-17T16:43:01.251+01:00
-          hippostdpubwf:lastModificationDate: 2020-08-17T16:43:01.251+01:00
-          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:lastModificationDate: 2020-09-04T14:44:55.513+01:00
+          hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 59499f76-c99d-48ad-896d-fdf50e0ab4a7
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
@@ -22732,15 +22784,16 @@
               hippo:values: []
         /when-to-appeal[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: e1cddd55-d453-42d1-9a73-085dc6fd0fae
           hippo:availability: [preview]
           hippo:name: When to appeal
           hippostd:state: unpublished
           hippostdpubwf:createdBy: system
           hippostdpubwf:creationDate: 2020-08-17T16:43:01.251+01:00
-          hippostdpubwf:lastModificationDate: 2020-08-17T16:43:01.339+01:00
-          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:lastModificationDate: 2020-09-04T14:45:02.773+01:00
+          hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 59499f76-c99d-48ad-896d-fdf50e0ab4a7
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
@@ -22812,7 +22865,7 @@
               hippo:values: []
         /when-to-appeal[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 6e8ebff6-b26a-448b-9bdf-c72c07d1a2ed
           hippo:availability: [live]
           hippo:name: When to appeal
@@ -22899,7 +22952,7 @@
         hippo:versionHistory: 080c6c3e-01d8-4cae-8b36-877cbd014d33
         /how-to-appeal[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: a9a5b9ce-6468-4d03-83d8-f832e45af8ef
           hippo:availability: []
           hippo:name: How to appeal
@@ -22978,7 +23031,8 @@
               hippo:values: []
         /how-to-appeal[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: d4fca292-dd30-4a5e-a2b1-ebb7112c784f
           hippo:availability: [preview]
           hippo:name: How to appeal
@@ -23057,7 +23111,7 @@
               hippo:values: []
         /how-to-appeal[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: a6cf0dd3-bc93-44d9-9fa2-381109c6e510
           hippo:availability: [live]
           hippo:name: How to appeal
@@ -23143,7 +23197,7 @@
         hippo:versionHistory: b5081f82-6c37-4b3a-bbcb-37ab8d820e3c
         /how-the-decision-is-made[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: eb99311c-b8b5-47a0-be05-66423e1b1e21
           hippo:availability: []
           hippo:name: How the decision is made
@@ -23225,7 +23279,8 @@
               hippo:values: []
         /how-the-decision-is-made[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: accc1101-d096-43fd-9210-6a1f6756b3d7
           hippo:availability: [preview]
           hippo:name: How the decision is made
@@ -23307,7 +23362,7 @@
               hippo:values: []
         /how-the-decision-is-made[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 30ffac87-b20b-4789-b867-6c4ebeb822fd
           hippo:availability: [live]
           hippo:name: How the decision is made
@@ -23396,7 +23451,7 @@
         hippo:versionHistory: dcf803bf-898b-4583-bc9b-0b327c94bb17
         /after-the-decision[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: a7cfe04b-6b87-43f2-800b-32747ac1d216
           hippo:availability: []
           hippo:name: After the decision
@@ -23703,7 +23758,8 @@
               \ can give you advice on money, debt and the law.</p> \n  "
         /after-the-decision[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: c5842eb0-8467-4e05-ac89-8ba58f602ba4
           hippo:availability: [preview]
           hippo:name: After the decision
@@ -24010,7 +24066,7 @@
               \ can give you advice on money, debt and the law.</p> \n  "
         /after-the-decision[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: a29e17de-7d77-42a0-bd88-42b056c565cb
           hippo:availability: [live]
           hippo:name: After the decision
@@ -24521,7 +24577,7 @@
         hippo:versionHistory: 15c63e92-5134-4337-bee4-a67fc8a6477f
         /overview[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 83daa266-01e5-4a75-88f0-ccad6f4f8ea3
           hippo:availability: []
           hippo:name: Overview
@@ -24570,7 +24626,8 @@
               hippo:values: []
         /overview[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 137242c4-9d19-4031-ba0b-deb92d11af1e
           hippo:availability: [preview]
           hippo:name: Overview
@@ -24619,7 +24676,7 @@
               hippo:values: []
         /overview[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: ef59aa30-4d52-4909-bb80-6c5d96b57c0c
           hippo:availability: [live]
           hippo:name: Overview
@@ -24675,7 +24732,7 @@
         hippo:versionHistory: f9970c7d-5838-497d-a141-e4565b048569
         /pay-a-bus-lane-penalty[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 6c1131f4-49bd-47f5-b3f8-434f07ba4510
           hippo:availability: []
           hippo:name: Pay a bus lane penalty
@@ -24734,7 +24791,8 @@
               hippo:values: []
         /pay-a-bus-lane-penalty[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 6a25f4a8-7aac-4d9a-91fa-f74577e8dc64
           hippo:availability: [preview]
           hippo:name: Pay a bus lane penalty
@@ -24793,7 +24851,7 @@
               hippo:values: []
         /pay-a-bus-lane-penalty[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: d71a8bda-443a-4e83-a3d8-9ab4504da5a4
           hippo:availability: [live]
           hippo:name: Pay a bus lane penalty
@@ -24860,7 +24918,7 @@
         hippo:versionHistory: f363ff76-f491-461c-a142-6b90a6ac0f68
         /challenge-a-bus-lane-enforcement-charge-notice-or-penalty-charge-notice[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: fb74938f-37a3-4f00-8cc5-8c81952c1a46
           hippo:availability: []
           hippo:name: Challenge a Bus lane Enforcement Charge Notice or Penalty Charge
@@ -24934,7 +24992,8 @@
               hippo:values: []
         /challenge-a-bus-lane-enforcement-charge-notice-or-penalty-charge-notice[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: d71b059c-b29f-4aa6-b1ca-86398b435e87
           hippo:availability: [preview]
           hippo:name: Challenge a Bus lane Enforcement Charge Notice or Penalty Charge
@@ -25008,7 +25067,7 @@
               hippo:values: []
         /challenge-a-bus-lane-enforcement-charge-notice-or-penalty-charge-notice[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 5124c53d-7cc3-433b-8bcc-4def5e9266a8
           hippo:availability: [live]
           hippo:name: Challenge a Bus lane Enforcement Charge Notice or Penalty Charge
@@ -26478,7 +26537,7 @@
         hippo:versionHistory: 40dcd959-7041-4c0b-bb14-6fc478dac22b
         /types-of-tickets[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 769a2fec-d6a5-4176-8bb5-1ac4beadf82e
           hippo:availability: []
           hippo:name: Types of tickets
@@ -26579,7 +26638,8 @@
               hippo:values: []
         /types-of-tickets[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 98997d3a-1e10-4ca1-8300-1e1b7b5f0814
           hippo:availability: [preview]
           hippo:name: Types of tickets
@@ -26680,7 +26740,7 @@
               hippo:values: []
         /types-of-tickets[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 9b18dcf3-18e8-49c4-9ad5-298c9ead9eae
           hippo:availability: [live]
           hippo:name: Types of tickets
@@ -26788,7 +26848,7 @@
         hippo:versionHistory: c89bbd72-f50a-46d9-8995-d87a10b4c449
         /pay-a-parking-ticket[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 9b5c2917-f5cd-4bd0-940f-5c7723eb5f7b
           hippo:availability: []
           hippo:name: Pay a parking ticket
@@ -27000,7 +27060,8 @@
               \  "
         /pay-a-parking-ticket[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 07e42095-0758-43e5-b31c-8883e952647e
           hippo:availability: [preview]
           hippo:name: Pay a parking ticket
@@ -27212,7 +27273,7 @@
               \  "
         /pay-a-parking-ticket[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 0d5beb3b-2cbb-4151-8d4e-d438ebe40e1f
           hippo:availability: [live]
           hippo:name: Pay a parking ticket
@@ -27431,7 +27492,7 @@
         hippo:versionHistory: c5df96e2-6a9f-4c4f-a48d-1c447a6f836b
         /challenge-a-parking-ticket[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: dfde7c90-0a48-4e33-aae7-367446b8ae6d
           hippo:availability: []
           hippo:name: Challenge a parking ticket
@@ -27651,7 +27712,8 @@
               hippo:values: []
         /challenge-a-parking-ticket[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: c55c442b-a6ab-44a1-b051-8f1ab986016b
           hippo:availability: [preview]
           hippo:name: Challenge a parking ticket
@@ -27871,7 +27933,7 @@
               hippo:values: []
         /challenge-a-parking-ticket[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 3df287a6-0f8f-4ef0-a1e3-33457bef1281
           hippo:availability: [live]
           hippo:name: Challenge a parking ticket

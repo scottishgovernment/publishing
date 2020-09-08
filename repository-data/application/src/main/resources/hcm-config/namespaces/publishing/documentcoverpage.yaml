@@ -11,9 +11,10 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 8de57c39-326d-442a-8170-91a619282a8e
+          jcr:uuid: 1d52e977-670d-4d0a-8e7a-dcc448b337bf
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
+          hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
+            'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           /slug:
             jcr:primaryType: hipposysedit:field
@@ -42,7 +43,7 @@ definitions:
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
           publishing:authorNotes: ''
           publishing:slug: ''
           publishing:summary: ''
@@ -50,7 +51,7 @@ definitions:
           publishing:title: ''
           publishing:reportingtags: []
           publishing:metaDescription: ''
-          jcr:uuid: f5c63306-5d08-4008-baa4-db9c42883bdf
+          jcr:uuid: ef9c1c4b-395d-4326-9cab-89f3c274e52e
           hippostdpubwf:lastModificationDate: 2020-08-04T08:51:01.604+01:00
           hippostdpubwf:creationDate: 2020-08-04T08:51:01.604+01:00
           publishing:serviceproviders: []
@@ -151,15 +152,34 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
-          /relateditems:
+          /tags:
             jcr:primaryType: frontend:plugin
-            caption: Related items
-            field: relateditems
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            engine: ${engine}
+            mode: ${mode}
+            plugin.class: org.onehippo.forge.ecmtagging.editor.TagsPlugin
+            search.paths: /content
             wicket.id: ${cluster.id}.field
-            /cluster.options:
+            wicket.model: ${wicket.model}
+            widget.cols: '20'
+            widget.rows: '2'
+            /yui.config:
               jcr:primaryType: frontend:pluginconfig
+              anim.vert: true
+              container.id: tagging-autocomplete
+              schema.fields: [label, url]
+              schema.result.list: response.results
+              use.shadow: true
+              /schema.meta.fields:
+                jcr:primaryType: frontend:pluginconfig
+                totalHits: response.totalHits
+          /tagsuggest:
+            jcr:primaryType: frontend:plugin
+            engine: ${engine}
+            mode: ${mode}
+            numberOfSuggestions: 10
+            plugin.class: org.onehippo.forge.ecmtagging.editor.TagSuggestPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.model: ${wicket.model}
           /reportingtags:
             jcr:primaryType: frontend:plugin
             caption: Reporting tags
@@ -174,6 +194,15 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/publishing/valuelists/reportingtags
+          /relateditems:
+            jcr:primaryType: frontend:plugin
+            caption: Related items
+            field: relateditems
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /authorNotes:
             jcr:primaryType: frontend:plugin
             caption: Author notes
@@ -184,13 +213,6 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /tags:
-            jcr:primaryType: frontend:plugin
-            caption: Tags
-            field: tags
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            type: hippostd:taggable
-            wicket.id: ${cluster.id}.field
           /serviceproviders:
             jcr:primaryType: frontend:plugin
             caption: Service providers
