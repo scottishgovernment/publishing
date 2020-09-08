@@ -1,4 +1,5 @@
 #TODO Remove after https://issues.onehippo.com/browse/CMS-13026 is fixed
+#However, keep in mind adding any custom groups that need access to tags
 definitions:
   config:
     /hippo:configuration/hippo:domains/tags-plugin:
@@ -18,7 +19,7 @@ definitions:
           .meta:add-new-system-values: true
           operation: override
           type: string
-          value: []
+          value: [economic-action-plan-authors, economic-action-plan-editors, mygov-authors, mygov-editors, trading-nation-authors, trading-nation-editors]
         hipposys:role: readwrite
         hipposys:userrole:
           .meta:category: system
