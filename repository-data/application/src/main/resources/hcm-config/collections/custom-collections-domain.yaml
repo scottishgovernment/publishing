@@ -1,0 +1,18 @@
+definitions:
+  config:
+    /collections/hippocollection:domains/collection:
+      /readonly:
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          value: [mygov-authors, trading-nation-authors, economic-action-plan-authors]
+      /editor:
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          value: [mygov-editors, trading-nation-editors, economic-action-plan-editors]
+      /readwrite:
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          value: [mygov-editors, trading-nation-editors, economic-action-plan-editors]
