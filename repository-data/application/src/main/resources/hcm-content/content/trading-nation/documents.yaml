@@ -156,7 +156,7 @@
         hippo:versionHistory: 1ad70809-be49-4690-887b-5471fb313e2e
         /privacy[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: b546ea4a-fc13-4e22-bbb0-70b1c13b2add
           hippo:availability: []
           hippostd:state: draft
@@ -204,7 +204,7 @@
               <p>The button redirects users to the mygov.scot homepage.</p>
         /privacy[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 99efcab5-b858-4676-9c0c-e3a87d6b9341
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -252,7 +252,7 @@
               <p>The button redirects users to the mygov.scot homepage.</p>
         /privacy[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: bcf08738-c19a-46ca-8772-1747086e74ac
           hippo:availability: [live]
           hippostd:state: published
@@ -307,7 +307,7 @@
         hippo:versionHistory: acc1b3b7-3f60-42db-b539-c261ed20d6ca
         /accessibility[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: d1b61de9-2b65-4f69-a219-3285b106f753
           hippo:availability: []
           hippostd:state: draft
@@ -343,7 +343,7 @@
               <p>If you have any trouble using mygov.scot, please <a href="https://www.mygov.scot/give-feedback/">contact us</a> and let us know.</p>
         /accessibility[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 06af3ea0-2f07-4572-bba9-4f42949cb9fd
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -379,7 +379,7 @@
               <p>If you have any trouble using mygov.scot, please <a href="https://www.mygov.scot/give-feedback/">contact us</a> and let us know.</p>
         /accessibility[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: a3241c8a-eaf2-435a-9612-0161bba2a651
           hippo:availability: [live]
           hippostd:state: published
@@ -422,7 +422,7 @@
         hippo:versionHistory: ee4e222f-5a7a-4053-95ab-3fa7fcdaf045
         /contact[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 85cd1dd3-6cc3-4c45-8de5-fcea6426dbe3
           hippo:availability: []
           hippostd:state: draft
@@ -482,7 +482,7 @@
               hippo:values: []
         /contact[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: f30b90e5-2e6d-400b-9c5d-8e25243e3353
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -542,7 +542,7 @@
               hippo:values: []
         /contact[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 69a7e9f7-7d8b-4429-857b-89672e0ac225
           hippo:availability: [live]
           hippostd:state: published
@@ -609,7 +609,7 @@
         hippo:versionHistory: 6e4f239a-97d1-44e2-a135-82944bb50f1b
         /cookies[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 5c94187a-23e3-4bd6-8b8e-198047c592ba
           hippo:availability: []
           hippostd:state: draft
@@ -652,7 +652,7 @@
               hippo:values: []
         /cookies[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 22508692-6d7e-4b9e-a9d7-539d9862fd15
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -695,7 +695,7 @@
               hippo:values: []
         /cookies[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: a5c194e4-3f65-48a9-a1ec-f0ea61c59a46
           hippo:availability: [live]
           hippostd:state: published
@@ -745,7 +745,7 @@
       hippo:versionHistory: d4992ad4-ebcd-482f-9866-dfd74880f021
       /cookie-details[1]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: 14c5a76b-fa1b-4f8f-a808-787bb621b52f
         hippo:availability: []
         hippostd:state: draft
@@ -824,7 +824,7 @@
             </div>
       /cookie-details[2]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
         jcr:uuid: d04a2dce-5ea6-41ee-9c03-4e7330f01c3e
         hippo:availability: [preview]
         hippostd:state: unpublished
@@ -903,7 +903,7 @@
             </div>
       /cookie-details[3]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: e7aa8b39-c842-42e9-900e-cebe51ab53d2
         hippo:availability: [live]
         hippostd:state: published
@@ -997,7 +997,7 @@
       hippo:versionHistory: 9e20c0a9-44cd-4196-8927-10330a7bf0ea
       /why-exporting-is-important[1]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: c26a213e-8a1b-4915-ac1a-551f1ef4069b
         hippo:availability: []
         hippostd:state: draft
@@ -1060,7 +1060,7 @@
             hippo:values: []
       /why-exporting-is-important[2]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
         jcr:uuid: b33eaed2-7341-4bd2-b1ed-2d0c9fa41d9c
         hippo:availability: [preview]
         hippostd:state: unpublished
@@ -1123,7 +1123,7 @@
             hippo:values: []
       /why-exporting-is-important[3]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: e426c938-a55b-4d9a-a803-a056ba4747b0
         hippo:availability: [live]
         hippostd:state: published
@@ -1193,7 +1193,7 @@
       hippo:versionHistory: aff4eb61-0928-43cc-bafa-e0e76aec7f4d
       /what-we-could-sell-more-of[1]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: a0e0e7ca-5759-4720-b64a-753e9bd46356
         hippo:availability: []
         hippostd:state: draft
@@ -1290,7 +1290,7 @@
             hippo:values: []
       /what-we-could-sell-more-of[2]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
         jcr:uuid: cc1b3504-f808-4dec-ab09-61f303005d37
         hippo:availability: [preview]
         hippostd:state: unpublished
@@ -1387,7 +1387,7 @@
             hippo:values: []
       /what-we-could-sell-more-of[3]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: 8eb59b90-6ee6-498e-8616-bcd163ff6215
         hippo:availability: [live]
         hippostd:state: published
@@ -1491,7 +1491,7 @@
       hippo:versionHistory: 6e31952f-bc4f-48e3-99cc-42918762117a
       /export-coronavirus-help[1]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: 201e8f04-5f9e-495a-ac96-c2b64f03d67f
         hippo:availability: []
         hippostd:state: draft
@@ -1547,7 +1547,7 @@
             &nbsp;</p>
       /export-coronavirus-help[2]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
         jcr:uuid: 763bb0a3-49ce-48a8-a4cd-0471086d6261
         hippo:availability: [preview]
         hippostd:state: unpublished
@@ -1603,7 +1603,7 @@
             &nbsp;</p>
       /export-coronavirus-help[3]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: dfb4882e-cb6d-4fbf-85e2-1f82d666cc52
         hippo:availability: [live]
         hippostd:state: published
@@ -1797,7 +1797,7 @@
         hippo:versionHistory: 43c6884c-7c4d-41bd-a288-01301c0b1b64
         /usa[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: f4702816-ce9f-41a0-b470-05cfb7f2f279
           hippo:availability: []
           hippostd:state: draft
@@ -1944,7 +1944,7 @@
               hippo:values: []
         /usa[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 28c34196-ee70-4b9d-9aec-a952191ffd52
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -2091,7 +2091,7 @@
               hippo:values: []
         /usa[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 3869ab79-1e15-41ec-a613-7c59dc53e5fc
           hippo:availability: [live]
           hippostd:state: published
@@ -2245,7 +2245,7 @@
         hippo:versionHistory: 25bd71eb-10df-4936-8468-ccdf4b8099c5
         /germany[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 65cb5ade-1dd3-41c6-8cad-ce112eb0d02b
           hippo:availability: []
           hippostd:state: draft
@@ -2354,7 +2354,7 @@
               hippo:values: []
         /germany[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 2c45e01e-2d28-430e-ac8e-6e8beb060549
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -2463,7 +2463,7 @@
               hippo:values: []
         /germany[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: d6b59231-9ad5-430f-bb74-b1a4d41a816a
           hippo:availability: [live]
           hippostd:state: published
@@ -2579,7 +2579,7 @@
         hippo:versionHistory: 44e8cbfa-7857-47ad-ac94-ae3396ae4a38
         /france[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: fd30cb22-5879-4bf1-94c6-0acbd9ae1e04
           hippo:availability: []
           hippostd:state: draft
@@ -2689,7 +2689,7 @@
               hippo:values: []
         /france[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 0938936d-f29f-4e44-861f-8689ee20cdab
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -2799,7 +2799,7 @@
               hippo:values: []
         /france[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 85ea2826-a01a-438c-bf37-d83a803c89e1
           hippo:availability: [live]
           hippostd:state: published
@@ -2916,7 +2916,7 @@
         hippo:versionHistory: 9dc2c207-4315-452f-9d74-c7d49ca47610
         /netherlands[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: c4881099-0402-4644-b5cc-65c5287d51e3
           hippo:availability: []
           hippostd:state: draft
@@ -3028,7 +3028,7 @@
               hippo:values: []
         /netherlands[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 2e0b1187-00a5-4b03-87df-d0fcb65d7366
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -3140,7 +3140,7 @@
               hippo:values: []
         /netherlands[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 81feb941-c975-4dd5-9e58-e33ec21063a4
           hippo:availability: [live]
           hippostd:state: published
@@ -3259,7 +3259,7 @@
         hippo:versionHistory: 5598da88-a5b2-4ba4-b562-6f2f4f788f33
         /switzerland[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 8d198e0d-9264-47f0-bc11-c9f09b01d110
           hippo:availability: []
           hippostd:state: draft
@@ -3366,7 +3366,7 @@
               hippo:values: []
         /switzerland[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: ed20451e-c875-404c-9e46-e6caf282f85d
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -3473,7 +3473,7 @@
               hippo:values: []
         /switzerland[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: d3737cc4-3617-428f-9c98-98921260e6c3
           hippo:availability: [live]
           hippostd:state: published
@@ -3587,7 +3587,7 @@
         hippo:versionHistory: 888c8988-d8bd-4b75-9827-a2aed8ce12c3
         /norway[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: c69dee9e-76bd-4286-8f9c-a543d8c749c5
           hippo:availability: []
           hippostd:state: draft
@@ -3687,7 +3687,7 @@
               hippo:values: []
         /norway[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: e905bf8a-f81e-4ba2-b529-8c54b14d0b80
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -3787,7 +3787,7 @@
               hippo:values: []
         /norway[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 0993ef07-ddba-465a-b3db-5452c2a519a4
           hippo:availability: [live]
           hippostd:state: published
@@ -3894,7 +3894,7 @@
         hippo:versionHistory: e2462651-a6f4-4f2d-b2f7-9fbdcead9387
         /poland[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 9477c1f6-4ce1-4784-991d-051443cc2766
           hippo:availability: []
           hippostd:state: draft
@@ -3999,7 +3999,7 @@
               hippo:values: []
         /poland[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: f1b21645-bf8e-4f33-bc7b-b18aa5f9f2b9
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -4104,7 +4104,7 @@
               hippo:values: []
         /poland[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 7c907172-0d48-40db-b47f-34d0d4d1c852
           hippo:availability: [live]
           hippostd:state: published
@@ -4216,7 +4216,7 @@
         hippo:versionHistory: 9c631cf1-39d5-4ea0-9d44-67c4d3c39355
         /belgium[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 41b695ab-b702-4f41-abc4-a734c749e330
           hippo:availability: []
           hippostd:state: draft
@@ -4333,7 +4333,7 @@
               hippo:values: []
         /belgium[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: b1de0654-999e-4dba-b289-ffbfe55387b2
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -4450,7 +4450,7 @@
               hippo:values: []
         /belgium[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 476bdadd-950a-4564-8ba0-4b86928e482a
           hippo:availability: [live]
           hippostd:state: published
@@ -4574,7 +4574,7 @@
         hippo:versionHistory: d8b1e794-f537-48f4-84ef-c4197ebea78e
         /china[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: bf1ed652-df18-4ba8-9350-a6edd1d8bc54
           hippo:availability: []
           hippostd:state: draft
@@ -4678,7 +4678,7 @@
               hippo:values: []
         /china[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 0c4dfe68-0672-4f70-8dc7-316e41f97105
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -4782,7 +4782,7 @@
               hippo:values: []
         /china[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: f13ac980-9ddd-4b78-9c54-f1422ef8112d
           hippo:availability: [live]
           hippostd:state: published
@@ -4893,7 +4893,7 @@
         hippo:versionHistory: f4a7c1b1-5f54-4cd7-af95-5e07b9377c5a
         /ireland[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 803d35be-b0f1-4217-9b94-7fc29584481f
           hippo:availability: []
           hippostd:state: draft
@@ -4996,7 +4996,7 @@
               hippo:values: []
         /ireland[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 9fe6810f-3c4f-49b1-bbff-3c6e902d5889
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -5099,7 +5099,7 @@
               hippo:values: []
         /ireland[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 3d7786bf-b686-42ed-b443-af4d9d90fef5
           hippo:availability: [live]
           hippostd:state: published
@@ -5209,7 +5209,7 @@
         hippo:versionHistory: a490f2d4-de81-463a-870c-a4bde33da5b4
         /denmark[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 955101b7-d421-4097-8beb-c05e9e4341e3
           hippo:availability: []
           hippostd:state: draft
@@ -5328,7 +5328,7 @@
               hippo:values: []
         /denmark[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 1eeca327-0ac6-4a79-99b8-7c6fa126e57d
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -5447,7 +5447,7 @@
               hippo:values: []
         /denmark[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: f9f3e802-c663-429b-91f6-d1c9f040976b
           hippo:availability: [live]
           hippostd:state: published
@@ -5573,7 +5573,7 @@
         hippo:versionHistory: 6e02b6dc-dc48-46ee-b584-deefbaf10626
         /sweden[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 2accc8d7-11f5-406b-87ff-84a70d76f3b5
           hippo:availability: []
           hippostd:state: draft
@@ -5693,7 +5693,7 @@
               hippo:values: []
         /sweden[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 1e2e03e1-bb5d-49a4-bbab-86352e938a6d
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -5813,7 +5813,7 @@
               hippo:values: []
         /sweden[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 0b3ea611-36c6-4817-a945-8d833c56383f
           hippo:availability: [live]
           hippostd:state: published
@@ -5940,7 +5940,7 @@
         hippo:versionHistory: 68ee0fe4-8558-4b24-b2f7-d3d229675e99
         /italy[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 8239b8ca-ac3a-43f4-938a-b7d7f5a7386f
           hippo:availability: []
           hippostd:state: draft
@@ -6066,7 +6066,7 @@
               hippo:values: []
         /italy[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 28bbc56a-b614-48ec-bf87-86dfcd567348
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -6192,7 +6192,7 @@
               hippo:values: []
         /italy[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: a884901c-0ec1-4236-afca-56a6e841fb3c
           hippo:availability: [live]
           hippostd:state: published
@@ -6325,7 +6325,7 @@
         hippo:versionHistory: e9ff03c2-b910-4442-93b6-b54d25193dea
         /canada[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: fe825dc2-63fb-457b-864f-1315874ebe63
           hippo:availability: []
           hippostd:state: draft
@@ -6494,7 +6494,7 @@
               hippo:values: []
         /canada[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 7c404a5b-fcef-4d9b-9cd5-ef0fa8641c86
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -6663,7 +6663,7 @@
               hippo:values: []
         /canada[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: e18ccdc3-1d78-4961-a31f-aa8b7ceb63d7
           hippo:availability: [live]
           hippostd:state: published
@@ -6839,7 +6839,7 @@
         hippo:versionHistory: de6ab29e-56e5-49f3-ac4c-168bfe8acb4a
         /spain[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 4c31453c-aced-4d4e-9ad2-3ad7836a9160
           hippo:availability: []
           hippostd:state: draft
@@ -6958,7 +6958,7 @@
               hippo:values: []
         /spain[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: f610df86-c17f-45e3-af41-94d689ecfeae
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -7077,7 +7077,7 @@
               hippo:values: []
         /spain[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 50dc32d8-9169-4dad-bea1-1482e29724e7
           hippo:availability: [live]
           hippostd:state: published
@@ -7334,7 +7334,7 @@
         hippo:versionHistory: f0d60a31-6c10-4157-ad8b-b056a6270f06
         /energy[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 2bdd5374-06f2-4059-b36c-003455d0b6c9
           hippo:availability: []
           hippostd:state: draft
@@ -7466,7 +7466,7 @@
               hippo:values: []
         /energy[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 28b7f2e6-4b11-478a-9e06-5877ed78cfdd
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -7598,7 +7598,7 @@
               hippo:values: []
         /energy[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 409ed307-9830-4e78-a94f-fac1027bd6c1
           hippo:availability: [live]
           hippostd:state: published
@@ -7737,7 +7737,7 @@
         hippo:versionHistory: a083f925-7de3-451b-871a-ea7d240c3de6
         /engineering-and-advanced-manufacturing[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 9993558b-6a25-4312-9aa8-e8b4a296e4d4
           hippo:availability: []
           hippostd:state: draft
@@ -7887,7 +7887,7 @@
               hippo:values: []
         /engineering-and-advanced-manufacturing[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 60d7c565-cab4-495f-9441-722a4f0e36e7
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -8037,7 +8037,7 @@
               hippo:values: []
         /engineering-and-advanced-manufacturing[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: af17c123-61e2-471a-a644-cbaad4e71892
           hippo:availability: [live]
           hippostd:state: published
@@ -8194,7 +8194,7 @@
         hippo:versionHistory: 3fbf2087-6546-47f3-9ca7-888cb221a6b8
         /financial-and-business-services[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 7444662f-2117-4486-bafc-b4d44c165272
           hippo:availability: []
           hippostd:state: draft
@@ -8346,7 +8346,7 @@
               hippo:values: []
         /financial-and-business-services[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: d3d578ef-b5f3-4f73-9445-098ac97816e7
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -8498,7 +8498,7 @@
               hippo:values: []
         /financial-and-business-services[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 0d409d92-c332-4957-95f3-e73d9482524e
           hippo:availability: [live]
           hippostd:state: published
@@ -8657,7 +8657,7 @@
         hippo:versionHistory: 51f440b7-38ed-4b73-87cd-3271fd40e941
         /food-and-drink[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 2d4f688f-5756-4ff9-b825-80ebb8462501
           hippo:availability: []
           hippostd:state: draft
@@ -8813,7 +8813,7 @@
               hippo:values: []
         /food-and-drink[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: c38b3048-2013-4af8-993a-3a2115f1e9a1
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -8969,7 +8969,7 @@
               hippo:values: []
         /food-and-drink[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 84ea4f1e-d82a-414a-a7e5-3f269a7c3d85
           hippo:availability: [live]
           hippostd:state: published
@@ -9132,7 +9132,7 @@
         hippo:versionHistory: c8382a9f-8bb8-426c-9047-583bb80a99d2
         /life-and-chemical-sciences[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 20ffa5f3-728b-4b95-a22c-828deb6c9c2f
           hippo:availability: []
           hippostd:state: draft
@@ -9323,7 +9323,7 @@
               hippo:values: []
         /life-and-chemical-sciences[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 8f4ae9bc-9ee4-4013-8296-5bd1b0058864
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -9514,7 +9514,7 @@
               hippo:values: []
         /life-and-chemical-sciences[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 52c2579b-5d27-4856-a43c-3d3a5eda65c2
           hippo:availability: [live]
           hippostd:state: published
@@ -9712,7 +9712,7 @@
         hippo:versionHistory: 37ad5e14-9d62-49a6-8368-4205839b9d8e
         /technology-digital-and-media[1]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: 832f8efb-9f0a-4013-94c9-4152c512af39
           hippo:availability: []
           hippostd:state: draft
@@ -9855,7 +9855,7 @@
               hippo:values: []
         /technology-digital-and-media[2]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
           jcr:uuid: 7bbbee44-8614-423a-8e08-0b00eb1a7dfc
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -9998,7 +9998,7 @@
               hippo:values: []
         /technology-digital-and-media[3]:
           jcr:primaryType: publishing:article
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
           jcr:uuid: ff730944-419f-4d01-8966-33ff5b2302da
           hippo:availability: [live]
           hippostd:state: published
@@ -10148,7 +10148,7 @@
       hippo:versionHistory: fa26fa9f-6c6c-4525-86d5-b62563443de3
       /where-we-could-sell-more[1]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: 9f0a44d5-14f4-4ec5-99f8-ed15a436ab21
         hippo:availability: []
         hippostd:state: draft
@@ -10312,7 +10312,7 @@
             hippo:values: []
       /where-we-could-sell-more[2]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
         jcr:uuid: 3ea356ad-9ea3-4497-9778-991cd140bb5f
         hippo:availability: [preview]
         hippostd:state: unpublished
@@ -10476,7 +10476,7 @@
             hippo:values: []
       /where-we-could-sell-more[3]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: 2af2fc11-224c-4bfa-a899-dc8ef43cd161
         hippo:availability: [live]
         hippostd:state: published
@@ -10647,7 +10647,7 @@
       hippo:versionHistory: d9622d63-4597-454a-a5a6-b2161125c56f
       /help-for-businesses[1]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: d67dff53-d9d3-4261-9d9b-4f50c0dd9eea
         hippo:availability: []
         hippostd:state: draft
@@ -10762,7 +10762,7 @@
             </ul>
       /help-for-businesses[2]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
         jcr:uuid: 32b4d868-5672-457d-b3d7-147a15608804
         hippo:availability: [preview]
         hippostd:state: unpublished
@@ -10855,7 +10855,7 @@
             </ul>
       /help-for-businesses[3]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: 9c2a9632-9361-4e6e-a358-92b917c0c9a7
         hippo:availability: [live]
         hippostd:state: published
@@ -10955,7 +10955,7 @@
       hippo:versionHistory: d811b926-1ac1-4206-bd85-79fd5f9f5599
       /increase-scottish-exports[1]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: 09fb3d2e-91b6-474c-a24b-ea82c633886f
         hippo:availability: []
         hippostd:state: draft
@@ -11112,7 +11112,7 @@
             hippo:values: []
       /increase-scottish-exports[2]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
         jcr:uuid: 9595186b-24bc-4002-98b5-05c4ec24f37a
         hippo:availability: [preview]
         hippostd:state: unpublished
@@ -11269,7 +11269,7 @@
             hippo:values: []
       /increase-scottish-exports[3]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: 5747fc87-f024-4de0-bbbf-cecd0bab7a0b
         hippo:availability: [live]
         hippostd:state: published

@@ -11,40 +11,10 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5ade11de-6f71-46ca-8823-b33570bc9b49
-          hipposysedit:node: true
-          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
-          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          /mirror:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:link
-            hipposysedit:primary: false
-            hipposysedit:type: hippo:mirror
-          /description:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:description
-            hipposysedit:primary: false
-            hipposysedit:type: Html
-          /title:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-        /hipposysedit:nodetype[2]:
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 4fb35ed3-dc93-43ff-9b5f-c050851f861a
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           /mirror:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -73,14 +43,6 @@ definitions:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:describedlink
-          publishing:description: ''
-          publishing:title: ''
-          /publishing:link:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /hipposysedit:prototype[2]:
-          jcr:primaryType: nt:unstructured
-          jcr:mixinTypes: ['hippostd:relaxed']
           publishing:description: ''
           publishing:title: ''
           /publishing:link:

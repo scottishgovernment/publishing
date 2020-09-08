@@ -50,8 +50,9 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
 
     HstLink doPostProcess(HstLink link) throws RepositoryException {
 
-        // we need to consider guides. Do we need special case for guide folder?
-        // in the case where is uses the slug, for guide pages we need to use guideslug/slug
+        if (!mountLookupExists(link)) {
+            return link;
+        }
 
         Session session = sessionSource.getSession();
         String contentPath = pathForNode(link);
@@ -162,6 +163,10 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
     }
 
     HstLink doPreProcess(HstLink link) throws RepositoryException {
+        if (!mountLookupExists(link)) {
+            return link;
+        }
+
         if (link.getPathElements().length >= 3) {
             return link;
         }
@@ -200,8 +205,11 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
         return lookupNode.getProperty("publishing:path").getString();
     }
 
-    String slugLookupPath(HstLink link) {
-        return slugLookupPath(siteName(link), link.getMount().getType(), link.getPath());
+    boolean mountLookupExists(HstLink link) throws RepositoryException {
+        Session session = sessionSource.getSession();
+        String mountLookupPath = mountLookupPath(
+                siteName(link), link.getMount().getType()).toString();
+        return session.nodeExists(mountLookupPath);
     }
 
     String slugLookupPath(HstLink link, String path) {
@@ -209,14 +217,18 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
     }
 
     String slugLookupPath(String siteName, String mountType, String path) {
-        StringBuilder b = new StringBuilder()
+        StringBuilder b = mountLookupPath(siteName, mountType);
+        appendSlugAsLetterslugLetterPath(b, path);
+        return b.toString();
+    }
+
+    StringBuilder mountLookupPath(String siteName, String mountType) {
+        return new StringBuilder()
                 .append("/content/urls/")
                 .append(siteName)
                 .append('/')
                 .append(mountType)
                 .append('/');
-        appendSlugAsLetterslugLetterPath(b, path);
-        return b.toString();
     }
 
     StringBuilder appendSlugAsLetterslugLetterPath(StringBuilder b, String slug) {

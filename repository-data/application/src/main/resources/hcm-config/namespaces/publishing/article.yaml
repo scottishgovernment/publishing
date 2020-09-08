@@ -11,9 +11,9 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: fcc7c028-8939-4046-8968-9ad36f60e7da
+          jcr:uuid: aed8b13b-5d63-446a-9fdd-cf8a29a955d7
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
+          hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           /content:
@@ -62,8 +62,8 @@ definitions:
           hippotranslation:locale: document-type-locale
           publishing:summary: ''
           publishing:title: ''
-          jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable', 'hippotaxonomy:classifiable']
-          jcr:uuid: 5487105e-25b5-4c4f-86c8-767fb2e248ee
+          jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
+          jcr:uuid: ea7cafef-fbcb-487c-ae84-a432490e8342
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -127,13 +127,6 @@ definitions:
               \ where this page is listed on the live website, such as a category\
               \ page and in search results. \r\n\r\nIt must be between 3 and 255 characters."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /taggable:
-            jcr:primaryType: frontend:plugin
-            mixin: hippostd:taggable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -209,6 +202,34 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
+          /tags:
+            jcr:primaryType: frontend:plugin
+            engine: ${engine}
+            mode: ${mode}
+            plugin.class: org.onehippo.forge.ecmtagging.editor.TagsPlugin
+            search.paths: /content
+            wicket.id: ${cluster.id}.field
+            wicket.model: ${wicket.model}
+            widget.cols: '20'
+            widget.rows: '2'
+            /yui.config:
+              jcr:primaryType: frontend:pluginconfig
+              anim.vert: true
+              container.id: tagging-autocomplete
+              schema.fields: [label, url]
+              schema.result.list: response.results
+              use.shadow: true
+              /schema.meta.fields:
+                jcr:primaryType: frontend:pluginconfig
+                totalHits: response.totalHits
+          /tagsuggest:
+            jcr:primaryType: frontend:plugin
+            engine: ${engine}
+            mode: ${mode}
+            numberOfSuggestions: 10
+            plugin.class: org.onehippo.forge.ecmtagging.editor.TagSuggestPlugin
+            wicket.id: ${cluster.id}.field
+            wicket.model: ${wicket.model}
           /reportingtags:
             jcr:primaryType: frontend:plugin
             caption: Reporting tags

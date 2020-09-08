@@ -105,4 +105,4 @@
 </@hst.headContribution>
 
 <#assign scriptName="home">
-<#include 'scripts.ftl'/>
+<#include '../common/scripts.ftl'/>
