@@ -1,6 +1,10 @@
 package scot.mygov.publishing.scheduler;
 
-import java.util.Calendar;
+import org.hippoecm.repository.util.JcrUtils;
+import org.onehippo.repository.scheduling.RepositoryJob;
+import org.onehippo.repository.scheduling.RepositoryJobExecutionContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -8,30 +12,25 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
-
-import org.hippoecm.repository.util.JcrUtils;
-import org.onehippo.repository.scheduling.RepositoryJob;
-import org.onehippo.repository.scheduling.RepositoryJobExecutionContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Calendar;
 
 public class PreviewLinksCleanupJob implements RepositoryJob {
 
-    private static final Logger log = LoggerFactory.getLogger(PreviewLinksCleanupJob.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PreviewLinksCleanupJob.class);
 
     private static final String CONFIG_BATCH_SIZE = "batchsize";
     private static final String PREVIEW_LINKS_QUERY = "//element(*, staging:preview)";
 
     @Override
     public void execute(final RepositoryJobExecutionContext context) throws RepositoryException {
-        log.info("Running preview links cleanup job");
+        LOG.info("Running preview links cleanup job");
         final Session session = context.createSystemSession();
         try {
             long batchSize;
             try {
                 batchSize = Long.parseLong(context.getAttribute(CONFIG_BATCH_SIZE));
             } catch (NumberFormatException e) {
-                log.warn("Incorrect batch size '"+context.getAttribute(CONFIG_BATCH_SIZE)+"'. Setting default to 100");
+                LOG.warn("Incorrect batch size '"+context.getAttribute(CONFIG_BATCH_SIZE)+"'. Setting default to 100");
                 batchSize = 100;
             }
             removeOldFormData(batchSize, session);
@@ -53,26 +52,23 @@ public class PreviewLinksCleanupJob implements RepositoryJob {
                 if(expirationCalendar == null || Calendar.getInstance().before(expirationCalendar)){
                     break;
                 }
-                log.debug("Removing preview node at {}", node.getPath());
+                LOG.debug("Removing preview node at {}", node.getPath());
                 node.remove();
                 if (count++ % batchSize == 0) {
                     session.save();
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException ignored) {
-                    }
+                    Thread.sleep(100);
                 }
-            } catch (RepositoryException e) {
-                log.error("Error while cleaning up preview links", e);
+            } catch (RepositoryException | InterruptedException e) {
+                LOG.error("Error while cleaning up preview links", e);
             }
         }
         if (session.hasPendingChanges()) {
             session.save();
         }
         if (count > 0) {
-            log.info("Done cleaning " + count + " items");
+            LOG.info("Done cleaning " + count + " items");
         } else {
-            log.info("No timed out items");
+            LOG.info("No timed out items");
         }
     }
 

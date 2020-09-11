@@ -1,16 +1,5 @@
 package scot.mygov.publishing.plugins;
 
-import java.io.Serializable;
-import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.List;
-
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.wicket.Component;
 import org.apache.wicket.model.IModel;
@@ -36,14 +25,23 @@ import org.hippoecm.repository.util.NodeIterable;
 import org.onehippo.repository.documentworkflow.DocumentWorkflow;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import scot.mygov.publishing.dialogs.PreviewDatePickerDialog;
 import scot.mygov.publishing.dialogs.PreviewLink;
 import scot.mygov.publishing.dialogs.PreviewLinkDialog;
 
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.List;
+
 public class PreviewPlugin extends RenderPlugin<Workflow> {
 
-    private static final Logger log = LoggerFactory.getLogger(PreviewPlugin.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PreviewPlugin.class);
     private boolean isPreview;
 
     public static final String INTERNAL_PREVIEW_NODE_NAME = "previewId";
@@ -61,7 +59,7 @@ public class PreviewPlugin extends RenderPlugin<Workflow> {
                     isPreview = (isPreviewAvailable instanceof Boolean) && ((Boolean) isPreviewAvailable);
                 }
             } catch (RepositoryException | RemoteException | WorkflowException e) {
-                log.error("Error getting document node from WorkflowDescriptorModel", e);
+                LOG.error("Error getting document node from WorkflowDescriptorModel", e);
             }
         }
 
@@ -89,7 +87,7 @@ public class PreviewPlugin extends RenderPlugin<Workflow> {
                 try {
                     return new PreviewLinkDialog(getPreviewLinks());
                 } catch (RepositoryException exception) {
-                    log.warn("Problems while generating url ", exception);
+                    LOG.warn("Problems while generating url ", exception);
                     return new ExceptionDialog(exception);
                 }
             }
@@ -145,7 +143,7 @@ public class PreviewPlugin extends RenderPlugin<Workflow> {
                 return unpublishedNode.hasNode(INTERNAL_PREVIEW_NODE_NAME);
             }
         } catch (RepositoryException e) {
-            log.error("Exception while performing check for preview link existence.", e);
+            LOG.error("Exception while performing check for preview link existence.", e);
         }
         return false;
     }
@@ -190,7 +188,7 @@ public class PreviewPlugin extends RenderPlugin<Workflow> {
             try {
                 return new PreviewDatePickerDialog(Collections.singleton(getModel().getNode().getIdentifier()));
             } catch (RepositoryException e){
-                log.error("An exception occurred while trying to generate a preview link for a single document.");
+                LOG.error("An exception occurred while trying to generate a preview link for a single document.");
                 return new ExceptionDialog(e);
             }
         }

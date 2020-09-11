@@ -15,7 +15,9 @@
   <properties>
     <sonar.exclusions>target/**</sonar.exclusions>
     <sonar.coverage.exclusions>
-      **/SlugLookups.java
+      **/SlugLookups.java,
+      **/PreviewPlugin.java,
+      **/PreviewLinkDialog.java
     </sonar.coverage.exclusions>
   </properties>
 

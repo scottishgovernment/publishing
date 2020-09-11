@@ -1,11 +1,5 @@
 package scot.mygov.publishing.plugins;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.jcr.Node;
-import javax.jcr.RepositoryException;
-
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.StringResourceModel;
 import org.apache.wicket.request.resource.PackageResourceReference;
@@ -20,8 +14,13 @@ import org.hippoecm.frontend.service.render.RenderPlugin;
 import org.hippoecm.repository.util.NodeIterable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import scot.mygov.publishing.dialogs.PreviewDatePickerDialog;
+
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.hippoecm.repository.HippoStdNodeType.NT_DIRECTORY;
 import static org.hippoecm.repository.HippoStdNodeType.NT_FOLDER;
 import static org.hippoecm.repository.api.HippoNodeType.NT_HANDLE;
@@ -29,7 +28,7 @@ import static org.hippoecm.repository.api.HippoNodeType.NT_HANDLE;
 public class PreviewFolderMenuItemPlugin extends RenderPlugin {
 
     private static final long serialVersionUID = 1L;
-    private static Logger log = LoggerFactory.getLogger(PreviewFolderMenuItemPlugin.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PreviewFolderMenuItemPlugin.class);
 
     public PreviewFolderMenuItemPlugin(IPluginContext context, IPluginConfig config) {
         super(context, config);
@@ -45,7 +44,7 @@ public class PreviewFolderMenuItemPlugin extends RenderPlugin {
                     folderPreviewGeneration(getModel().getNode(), nodeIDs);
                     return new PreviewDatePickerDialog(nodeIDs);
                 } catch (RepositoryException e){
-                    log.error("An exception occurred while trying to generate a preview link for a folder.");
+                    LOG.error("An exception occurred while trying to generate a preview link for a folder.");
                     return new ExceptionDialog(e);
                 }
             }

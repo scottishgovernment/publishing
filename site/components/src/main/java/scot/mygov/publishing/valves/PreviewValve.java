@@ -1,14 +1,5 @@
 package scot.mygov.publishing.valves;
 
-import java.io.IOException;
-import java.util.Calendar;
-
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.valves.AbstractOrderableValve;
@@ -20,50 +11,79 @@ import org.hippoecm.repository.util.JcrUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.Calendar;
+
 public class PreviewValve extends AbstractOrderableValve {
 
-    private static final Logger log = LoggerFactory.getLogger(PreviewValve.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PreviewValve.class);
     private static final String PREVIEW_KEY = "previewkey";
 
     @Override
     public void invoke(ValveContext context) throws ContainerException {
+        HstRequestContext requestContext = context.getRequestContext();
+        Mount resolvedMount = requestContext.getResolvedMount().getMount();
+
         try {
-            HstRequestContext requestContext = context.getRequestContext();
-            Mount resolvedMount = requestContext.getResolvedMount().getMount();
-            if ("preview".equals(resolvedMount.getType()) && resolvedMount.getAlias().endsWith("-staging")) {
-                //fetching the content bean
-                HippoBean contentBean = requestContext.getContentBean();
-                //fetching the previewkey
-                String previewKey = getPreviewKey(context, resolvedMount);
-                try {
-                    //intercepting requests having the id in the url
-                    if (contentBean != null && StringUtils.isNotBlank(previewKey)) {
-                        boolean found = false;
-                        NodeIterator iterator = contentBean.getNode().getNodes("previewId");
-                        while (iterator.hasNext() && !found) {
-                            Node node = iterator.nextNode();
-                            Calendar expirationCalendar = JcrUtils.getDateProperty(node, "staging:expirationdate", null);
-                            if (JcrUtils.getStringProperty(node, "staging:key", "").equals(previewKey) && isValid(expirationCalendar)) {
-                                found = true;
-                            }
-                        }
-                        if (!found) {
-                            log.debug("Preview key {} for document {} is invalid or preview link has expired.", contentBean.getPath(), previewKey);
-                            requestContext.getServletResponse().sendError(403);
-                        }
-                    } else {
-                        log.debug("Preview request doesn't contain content bean or preview key");
-                        requestContext.getServletResponse().sendError(403);
-                    }
-                } catch (RepositoryException repositoryException) {
-                    log.error("Something with repo went wrong while accessing this node {}.", requestContext.getSiteContentBaseBean(), repositoryException);
-                } catch (IOException ioException) {
-                    log.error("Something with IO went wrong while accessing this node {}.", requestContext.getSiteContentBaseBean(), ioException);
-                }
+            if (isPreviewMount(resolvedMount)) {
+                doInvoke(context, requestContext, resolvedMount);
             }
+        } catch (RepositoryException repositoryException) {
+            LOG.error("Something with repo went wrong while accessing this node {}.", requestContext.getSiteContentBaseBean(), repositoryException);
+        } catch (IOException ioException) {
+            LOG.error("Something with IO went wrong while accessing this node {}.", requestContext.getSiteContentBaseBean(), ioException);
         } finally {
             context.invokeNext();
         }
+    }
+
+    void doInvoke(ValveContext valveContext, HstRequestContext requestContext, Mount resolvedMount)
+            throws RepositoryException, IOException {
+
+        //fetching the content bean
+        HippoBean contentBean = requestContext.getContentBean();
+        //fetching the previewkey
+        String previewKey = getPreviewKey(valveContext, resolvedMount);
+
+        //intercepting requests having the id in the url
+        if (contentBean == null) {
+            LOG.debug("Preview request doesn't contain content bean");
+            requestContext.getServletResponse().sendError(403);
+            return;
+        }
+
+        if (StringUtils.isBlank(previewKey)) {
+            LOG.debug("Preview request doesn't contain content bean");
+            requestContext.getServletResponse().sendError(403);
+            return;
+        }
+
+        if (!hasValidStagingKey(contentBean, previewKey)) {
+            LOG.debug("Preview key {} for document {} is invalid or preview link has expired.", previewKey, contentBean.getPath());
+            requestContext.getServletResponse().sendError(403);
+        }
+    }
+
+    boolean isPreviewMount(Mount resolvedMount) {
+        return "preview".equals(resolvedMount.getType()) && resolvedMount.getAlias().endsWith("-staging");
+    }
+
+    boolean hasValidStagingKey(HippoBean contentBean, String previewKey) throws RepositoryException {
+        NodeIterator iterator = contentBean.getNode().getNodes("previewId");
+        while (iterator.hasNext()) {
+            Node node = iterator.nextNode();
+            Calendar expirationCalendar = JcrUtils.getDateProperty(node, "staging:expirationdate", null);
+            if (JcrUtils.getStringProperty(node, "staging:key", "").equals(previewKey) && isValid(expirationCalendar)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean isValid(final Calendar expirationCalendar){

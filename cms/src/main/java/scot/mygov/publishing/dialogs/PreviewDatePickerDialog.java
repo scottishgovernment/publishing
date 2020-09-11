@@ -1,18 +1,7 @@
 package scot.mygov.publishing.dialogs;
 
-import java.net.URISyntaxException;
-import java.text.MessageFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
-import java.util.stream.Collectors;
-
-import javax.jcr.Node;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-
+import com.onehippo.cms7.search.frontend.constraints.IConstraintProvider;
+import com.onehippo.cms7.search.frontend.filters.GenericFiltersPlugin;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.wicket.Component;
 import org.apache.wicket.MarkupContainer;
@@ -29,11 +18,7 @@ import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.image.Image;
-import org.apache.wicket.model.AbstractReadOnlyModel;
-import org.apache.wicket.model.CompoundPropertyModel;
-import org.apache.wicket.model.IModel;
-import org.apache.wicket.model.PropertyModel;
-import org.apache.wicket.model.StringResourceModel;
+import org.apache.wicket.model.*;
 import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.handler.resource.ResourceReferenceRequestHandler;
 import org.apache.wicket.request.resource.CssResourceReference;
@@ -55,15 +40,20 @@ import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.onehippo.cms7.search.frontend.constraints.IConstraintProvider;
-import com.onehippo.cms7.search.frontend.filters.GenericFiltersPlugin;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import java.net.URISyntaxException;
+import java.text.MessageFormat;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static scot.mygov.publishing.plugins.PreviewPlugin.INTERNAL_PREVIEW_NODE_NAME;
 
 public class PreviewDatePickerDialog extends AbstractDialog {
 
     private static final long serialVersionUID = 1L;
-    private static final Logger log = LoggerFactory.getLogger(PreviewDatePickerDialog.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PreviewDatePickerDialog.class);
     private static final String RESET_CONTAINER = "-reset-container";
     private static final CssResourceReference CSS = new CssResourceReference(PreviewDatePickerDialog.class, "PreviewDatePickerDialog.css");
     private static final ResourceReference DATE_PICKER_ICON = new PackageResourceReference(GenericFiltersPlugin.class, "images/calendar.png");
@@ -75,12 +65,13 @@ public class PreviewDatePickerDialog extends AbstractDialog {
         this.title = getString("dialog-title", null, "Preview generation");
         this.nodeIDs = nodeIDs;
 
+        //3 week default expiration date
         Calendar preselectedDate = Calendar.getInstance();
-        preselectedDate.add(Calendar.DATE, 21); //3 weeks
+        preselectedDate.add(Calendar.DATE, 21);
         this.expirationDate =  preselectedDate.getTime();
 
         Form form = new Form<>("form", new CompoundPropertyModel<>(this));
-        final DateTextField expirationDate = new DateTextField("expiration-date",
+        final DateTextField expiryDate = new DateTextField("expiration-date",
                 new PropertyModel<>(this, "expirationDate"),
                 new PatternDateConverter("dd/MM/yyyy", true)) {
 
@@ -93,10 +84,10 @@ public class PreviewDatePickerDialog extends AbstractDialog {
                 }
             }
         };
-        expirationDate.add(createDatePicker());
-        expirationDate.add(createSimpleAjaxChangeBehavior());
-        form.add(expirationDate);
-        form.add(createSimpleResetLink(expirationDate, this));
+        expiryDate.add(createDatePicker());
+        expiryDate.add(createSimpleAjaxChangeBehavior());
+        form.add(expiryDate);
+        form.add(createSimpleResetLink(expiryDate, this));
         add(form);
 
         Label counttext = new Label("counttext", MessageFormat.format(
@@ -190,7 +181,7 @@ public class PreviewDatePickerDialog extends AbstractDialog {
                 List<String> urls = getPreviewURLs(node);
                 generatePreviewLinkNodes(node, urls, randomUUIDString);
             } catch (RepositoryException e){
-                log.error("An exception occurred while generating a preview for node with uuid {}", id, e);
+                LOG.error("An exception occurred while generating a preview for node with uuid {}", id, e);
             }
         });
     }
@@ -206,7 +197,7 @@ public class PreviewDatePickerDialog extends AbstractDialog {
                     try {
                         return "preview".equals(mount.getType()) && mount.getAlias().endsWith("-staging") && node.getPath().contains(mount.getContentPath());
                     } catch (RepositoryException e) {
-                        log.error("An exception occurred during preview link creation.", e);
+                        LOG.error("An exception occurred during preview link creation.", e);
                     }
                     return false;
                 })
@@ -225,16 +216,15 @@ public class PreviewDatePickerDialog extends AbstractDialog {
                     previewId.setProperty("staging:key", randomUUIDString);
                     previewId.setProperty("staging:url", fullURL);
                     previewId.setProperty("staging:user", UserSession.get().getJcrSession().getUser().getId());
-                    Calendar creationCalendar = Calendar.getInstance();
-                    previewId.setProperty("staging:creationdate", creationCalendar);
+                    previewId.setProperty("staging:creationdate", Calendar.getInstance());
                     Calendar expiration = Calendar.getInstance();
                     expiration.setTime(expirationDate);
                     previewId.setProperty("staging:expirationdate", expiration);
                     previewId.getSession().save();
                 } catch (RepositoryException e) {
-                    log.error("Exception while generating preview link nodes.", e);
+                    LOG.error("Exception while generating preview link nodes.", e);
                 } catch (URISyntaxException e){
-                    log.error("Exception while constructing full URL.", e);
+                    LOG.error("Exception while constructing full URL.", e);
                 }
             }
         });

@@ -1,12 +1,5 @@
 package scot.mygov.publishing.dialogs;
 
-import java.text.MessageFormat;
-import java.time.format.FormatStyle;
-import java.util.Calendar;
-import java.util.List;
-
-import javax.jcr.Node;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.markup.html.AjaxLink;
@@ -29,10 +22,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.wicketstuff.clipboardjs.ClipboardJsBehavior;
 
+import javax.jcr.Node;
+import java.text.MessageFormat;
+import java.time.format.FormatStyle;
+import java.util.Calendar;
+import java.util.List;
+
 public class PreviewLinkDialog extends AbstractDialog {
 
     private static final long serialVersionUID = 1L;
-    private static final Logger log = LoggerFactory.getLogger(PreviewLinkDialog.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PreviewLinkDialog.class);
     private static final FormatStyle DATE_STYLE = FormatStyle.LONG;
     private static final CssResourceReference CSS = new CssResourceReference(PreviewLinkDialog.class, "PreviewLinkDialog.css");
     private String title;
@@ -83,7 +82,7 @@ public class PreviewLinkDialog extends AbstractDialog {
                             previewLinkList.remove(previewLink);
                             target.add(PreviewLinkDialog.this);
                         } catch(Exception exception){
-                            log.error("Something went wrong while deleting preview with uuid: {}.", previewLink.getPreviewKey(), exception);
+                            LOG.error("Something went wrong while deleting preview with uuid: {}.", previewLink.getPreviewKey(), exception);
                         }
                     }
                 }.add(HippoIcon.fromSprite("delete-icon", Icon.TIMES, IconSize.L)));
@@ -100,7 +99,7 @@ public class PreviewLinkDialog extends AbstractDialog {
                        nodeToRemove.remove();
                        nodeToRemove.getSession().save();
                    } catch(Exception e){
-                       log.warn("Something went wrong while removing expired links.", e);
+                       LOG.warn("Something went wrong while removing expired links.", e);
                    }
                 });
                 previewLinkList.clear();
