@@ -13,14 +13,16 @@
   <description>Digital Publishing CMS</description>
 
   <properties>
-    <sonar.exclusions>target/**</sonar.exclusions>
+    <sonar.exclusions>
+      target/**,
+      **/PreviewLinkDialog.java,
+      **/PreviewPlugin.java
+    </sonar.exclusions>
     <sonar.coverage.exclusions>
       **/SlugLookups.java,
       **/PreviewDatePickerDialog.java,
       **/PreviewFolderMenuItemPlugin.java,
-      **/PreviewLinkDialog.java,
-      **/PreviewLinksCleanupJob.java,
-      **/PreviewPlugin.java
+      **/PreviewLinksCleanupJob.java
     </sonar.coverage.exclusions>
   </properties>
 
