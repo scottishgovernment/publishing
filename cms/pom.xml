@@ -15,7 +15,9 @@
   <properties>
     <sonar.exclusions>target/**</sonar.exclusions>
     <sonar.coverage.exclusions>
-      **/SlugLookups.java
+      **/SlugLookups.java,
+      **/PreviewPlugin.java,
+      **/PreviewLinkDialog.java
     </sonar.coverage.exclusions>
   </properties>
 
@@ -78,6 +80,23 @@
   <build>
 
     <finalName>cms</finalName>
+
+    <resources>
+      <resource>
+        <filtering>false</filtering>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.html</include>
+          <include>**/*.css</include>
+          <include>**/*.png</include>
+        </includes>
+      </resource>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
 
     <plugins>
 
