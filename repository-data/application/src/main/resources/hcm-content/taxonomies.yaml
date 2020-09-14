@@ -1,2 +1,161 @@
 /content/taxonomies:
   jcr:primaryType: hippotaxonomy:container
+  /orgs:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo']
+    hippo:versionHistory: 28e71dc8-529b-4284-b220-ae7636a4680b
+    /orgs[1]:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:versionable']
+      jcr:uuid: e0d3e1d0-aa07-49d5-af28-e981bfd2e310
+      hippo:availability: [live]
+      hippostd:holder: admin
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T18:01:12.069+03:00
+      hippostdpubwf:lastModificationDate: 2020-09-10T18:16:12.504+03:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-09-10T18:16:14.695+03:00
+      hippotaxonomy:locales: [en]
+      /scottish-gov:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: scottish-gov
+        /hippotaxonomy:categoryinfos:
+          jcr:primaryType: hippotaxonomy:categoryinfos
+          /en:
+            jcr:primaryType: hippotaxonomy:categoryinfo
+            hippotaxonomy:name: Scottish gov
+        /digital-directorate:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: digital-directorate
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Digital Directorate
+        /social-security-directorate:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: social-security-directorate
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Social Security Directorate
+          /baby-box-program:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: baby-box-program
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Baby box program
+          /first-start-program:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: first-start-program
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: First start program
+    /orgs[2]:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 12698014-01e7-45e3-81ca-dbfa19079dea
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T18:01:12.069+03:00
+      hippostdpubwf:lastModificationDate: 2020-09-10T18:16:12.504+03:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:locales: [en]
+      /scottish-gov:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: scottish-gov
+        /hippotaxonomy:categoryinfos:
+          jcr:primaryType: hippotaxonomy:categoryinfos
+          /en:
+            jcr:primaryType: hippotaxonomy:categoryinfo
+            hippotaxonomy:name: Scottish gov
+        /digital-directorate:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: digital-directorate
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Digital Directorate
+        /social-security-directorate:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: social-security-directorate
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Social Security Directorate
+          /baby-box-program:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: baby-box-program
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Baby box program
+          /first-start-program:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: first-start-program
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: First start program
+    /orgs[3]:
+      jcr:primaryType: hippotaxonomy:taxonomy
+      jcr:mixinTypes: ['hippostd:publishableSummary', 'mix:referenceable']
+      jcr:uuid: f1eb2438-85dd-4faa-a4f1-1f1932acd3fa
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-09-10T18:01:12.069+03:00
+      hippostdpubwf:lastModificationDate: 2020-09-10T18:14:21.264+03:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:locales: [en]
+      /scottish-gov:
+        jcr:primaryType: hippotaxonomy:category
+        hippotaxonomy:key: scottish-gov
+        /hippotaxonomy:categoryinfos:
+          jcr:primaryType: hippotaxonomy:categoryinfos
+          /en:
+            jcr:primaryType: hippotaxonomy:categoryinfo
+            hippotaxonomy:name: Scottish gov
+        /digital-directorate:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: digital-directorate
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Digital Directorate
+        /social-security-directorate:
+          jcr:primaryType: hippotaxonomy:category
+          hippotaxonomy:key: social-security-directorate
+          /hippotaxonomy:categoryinfos:
+            jcr:primaryType: hippotaxonomy:categoryinfos
+            /en:
+              jcr:primaryType: hippotaxonomy:categoryinfo
+              hippotaxonomy:name: Social Security Directorate
+          /baby-box-program:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: baby-box-program
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: Baby box program
+          /first-start-program:
+            jcr:primaryType: hippotaxonomy:category
+            hippotaxonomy:key: first-start-program
+            /hippotaxonomy:categoryinfos:
+              jcr:primaryType: hippotaxonomy:categoryinfos
+              /en:
+                jcr:primaryType: hippotaxonomy:categoryinfo
+                hippotaxonomy:name: First start program

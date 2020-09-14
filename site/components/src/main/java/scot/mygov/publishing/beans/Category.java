@@ -101,5 +101,5 @@ public class Category extends Base {
     @HippoEssentialsGenerated(internalName = "publishing:factCheckers")
     public List<HippoBean> getFactCheckers() {
         return getLinkedBeans("publishing:factCheckers", HippoBean.class);
-    }
+
 }
