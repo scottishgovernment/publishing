@@ -37,4 +37,9 @@ public class Category extends Base {
     public ImageCard getCardImage() {
         return getLinkedBean("publishing:cardImage", ImageCard.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "hippotaxonomy:keys")
+    public String[] getKeys() {
+        return getMultipleProperty("hippotaxonomy:keys");
+    }
 }
