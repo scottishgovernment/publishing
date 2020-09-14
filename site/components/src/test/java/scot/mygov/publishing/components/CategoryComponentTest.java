@@ -29,27 +29,6 @@ public class CategoryComponentTest {
     static final String INDEX = "index";
 
     @Test
-    public void getChildrenExcludesExpectedItemsFromRoot() {
-
-        // ARRANGE
-        HippoFolderBean folder = mock(HippoFolderBean.class);
-        HippoBean basebean = folder;
-        HippoBean siteFurnitureFolder = subfolderBean("site-furniture");
-        HippoBean adminFolder = subfolderBean("administration");
-        HippoBean index = indexBean();
-
-        List<HippoBean> children = new ArrayList<>();
-        Collections.addAll(children, siteFurnitureFolder, adminFolder, index);
-        when(folder.getChildBeans(any(Class.class))).thenReturn(children);
-
-        // ACT
-        List<CategoryComponent.Wrapper> actual = CategoryComponent.getChildren(folder, basebean);
-
-        // ASSERT -- these items should all have been excluded
-        assertEquals(emptyList(), actual);
-    }
-
-    @Test
     public void getChildrenIncludesAdministrationFolderIfNotInRoot() {
 
         // ARRANGE - note that the folder are base bean are different
@@ -64,7 +43,7 @@ public class CategoryComponentTest {
         when(folder.getChildBeans(any(Class.class))).thenReturn(children);
 
         // ACT
-        List<CategoryComponent.Wrapper> actual = CategoryComponent.getChildren(folder, basebean);
+        List<CategoryComponent.Wrapper> actual = CategoryComponent.getChildren(folder);
 
         // ASSERT -- this isnt the root so subfolders should not have nee excluded
         assertTrue("should be 2 children", actual.size() == 2);
@@ -84,7 +63,7 @@ public class CategoryComponentTest {
         when(folder.getChildBeans(any(Class.class))).thenReturn(children);
 
         // ACT
-        List<CategoryComponent.Wrapper> actual = CategoryComponent.getChildren(folder, basebean);
+        List<CategoryComponent.Wrapper> actual = CategoryComponent.getChildren(folder);
 
         // ASSERT -- these items should all have been excluded
         assertSame(actual.get(0).getBean(), pinned);
@@ -113,7 +92,7 @@ public class CategoryComponentTest {
         // - the order is correct according to the mirrored pin status
 
         // ACT
-        List<CategoryComponent.Wrapper> actual = CategoryComponent.getChildren(folder, basebean);
+        List<CategoryComponent.Wrapper> actual = CategoryComponent.getChildren(folder);
 
         // ASSERT -- these items should all have been excluded
         assertSame(actual.get(0).getBean(), unpinned);
@@ -136,21 +115,6 @@ public class CategoryComponentTest {
         // ASSERT
         verify(request, never()).setAttribute(any(), any());
     }
-//    static void setCategoryAttributes(HstRequest request) {
-//
-//        if (!hasContentBean(request)) {
-//            return;
-//        }
-//
-//        HippoBean bean = getDocumentBean(request);
-//        HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
-//        HippoFolderBean folder = (HippoFolderBean) bean.getParentBean();
-//        request.setAttribute("children", getChildren(folder, baseBean));
-//    }
-//static HippoBean getDocumentBean(HstRequest request) {
-//    HippoBean document = request.getRequestContext().getContentBean();
-//    return document instanceof Mirror ? mirroredDocument(document) : document;
-//}
 
     @Test
     public void childAttributeSetIfContentBeanPresent() {
@@ -165,26 +129,10 @@ public class CategoryComponentTest {
         when(request.getRequestContext()).thenReturn(context);
         when(context.getContentBean()).thenReturn(contentBean);
 
-        // ACT
-        CategoryComponent.setCategoryAttributes(request);
+        HippoBean base = mock(HippoFolderBean.class);
+        when(context.getSiteContentBaseBean()).thenReturn(base);
 
-        // ASSERT
-        verify(request).setAttribute(any(), any());
-    }
-
-    @Test
-    public void childAttributeSetIfContentBeanPresentAndIsAMirror() {
-        // ARRANGE
-        HstRequest request = mock(HstRequest.class);
-        HstRequestContext context = mock(HstRequestContext.class);
-        Mirror contentBeanMirror = mock(Mirror.class);
-        Base contentBean = mock(Base.class);
-        HippoBean folder = mock(HippoFolderBean.class);
-        when(contentBean.getParentBean()).thenReturn(folder);
-        when(contentBeanMirror.getDocument()).thenReturn(contentBean);
-        when(request.getRequestContext()).thenReturn(context);
-        when(context.getContentBean()).thenReturn(contentBeanMirror);
-
+        request.getRequestContext().getSiteContentBaseBean();
         // ACT
         CategoryComponent.setCategoryAttributes(request);
 
