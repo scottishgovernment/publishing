@@ -1672,7 +1672,7 @@
         hippo:versionHistory: 445f7ff0-fc90-482b-9acf-4f52bbb5f0f3
         /index[1]:
           jcr:primaryType: publishing:category
-          jcr:mixinTypes: ['mix:versionable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
           jcr:uuid: 19675142-e954-4169-a3bc-6f105c5572f1
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -1711,7 +1711,7 @@
             hippostd:content: ''
         /index[2]:
           jcr:primaryType: publishing:category
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: cb8fd8d1-f161-404a-bb22-bab422039272
           hippo:availability: []
           hippostd:state: draft
@@ -1750,7 +1750,7 @@
             hippostd:content: ''
         /index[3]:
           jcr:primaryType: publishing:category
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 2b7ce3fc-4f49-470e-a682-fc72055f9465
           hippo:availability: [live]
           hippostd:state: published
@@ -7209,7 +7209,7 @@
         hippo:versionHistory: fc70f5d1-cc7b-456b-987e-f02a694f2728
         /index[1]:
           jcr:primaryType: publishing:category
-          jcr:mixinTypes: ['mix:versionable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
           jcr:uuid: 2fd879c4-82e1-473b-be22-fcb220fcc680
           hippo:availability: [preview]
           hippostd:state: unpublished
@@ -7248,7 +7248,7 @@
             hippostd:content: ''
         /index[2]:
           jcr:primaryType: publishing:category
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 32acbf74-1afd-47de-b4d7-7ff0392f3627
           hippo:availability: []
           hippostd:state: draft
@@ -7287,7 +7287,7 @@
             hippostd:content: ''
         /index[3]:
           jcr:primaryType: publishing:category
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 215afc02-b08b-4813-8411-3cc4b55dd08b
           hippo:availability: [live]
           hippostd:state: published

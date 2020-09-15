@@ -4,7 +4,7 @@ definitions:
       jcr:primaryType: hipposys:domain
       /content-domain:
         jcr:primaryType: hipposys:domainrule
-        /include-special-task-documents:
+        /include-social-security-documents:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
           hipposys:facet: hippotaxonomy:keys
