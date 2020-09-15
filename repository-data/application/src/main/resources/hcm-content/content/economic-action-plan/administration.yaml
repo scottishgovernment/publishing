@@ -1,14 +1,17 @@
 /content/documents/economic-action-plan/administration:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
+  jcr:uuid: 985cdd09-c40e-4a4a-9e31-5dcb8bb52d69
   hippostd:foldertype: [new-resource-bundle, new-untranslated-folder]
   /robots:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 85685fcd-33b1-4909-8289-dfe496397e81
     hippo:versionHistory: da8e1eac-b0b3-4e41-83e1-beca7f83edb9
     /robots[1]:
       jcr:primaryType: robotstxt:robotstxt
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 82128542-ca8c-438c-b263-5a3d89cbe608
       hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
@@ -24,6 +27,7 @@
     /robots[2]:
       jcr:primaryType: robotstxt:robotstxt
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 6456d79e-4ff2-4c5b-acb1-ff01d516533e
       hippo:availability: [preview]
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
@@ -38,6 +42,7 @@
     /robots[3]:
       jcr:primaryType: robotstxt:robotstxt
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 5240e1f9-1465-4e7f-8462-d10ef88020c8
       hippo:availability: []
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
@@ -51,6 +56,7 @@
         robotstxt:useragent: '*'
   /analytics:
     jcr:primaryType: hippostd:folder
+    hippostd:foldertype: []
     /dev:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']

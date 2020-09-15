@@ -9,7 +9,8 @@ definitions:
         $localName, './index/index/hippo:name', $localName, './index/index/hippostdpubwf:createdBy',
         $holder, './index/index/hippostdpubwf:lastModifiedBy', $holder, './index/index/hippostdpubwf:creationDate',
         $now, './index/index/hippostdpubwf:lastModificationDate', $now, './index/index/publishing:seoTitle',
-        $localName]
+        $localName, './index/index/hippotranslation:id', $uuid, './index/index/hippotranslation:locale',
+        $inherited]
       hipposys:classname: org.hippoecm.repository.impl.query.DirectPath
       jcr:language: xpath
       jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-publishing-guide/hippostd:templates/node()
@@ -27,7 +28,7 @@ definitions:
             hippo:name: index
             /index:
               jcr:primaryType: publishing:guide
-              jcr:mixinTypes: ['mix:versionable']
+              jcr:mixinTypes: ['mix:versionable', 'hippotaxonomy:classifiable']
               jcr:uuid: 359b1878-e793-49f8-9c4e-a8eb9cedb24a
               hippo:availability: [preview]
               hippostd:state: unpublished
@@ -35,7 +36,7 @@ definitions:
               hippostdpubwf:creationDate: 2019-10-02T09:27:13.455+01:00
               hippostdpubwf:lastModificationDate: 2019-10-02T09:27:13.657+01:00
               hippostdpubwf:lastModifiedBy: system
-              hippotranslation:id: 2004f627-d7f7-471d-b445-8dc36c5c9c33
+              hippotranslation:id: document-type-locale-id
               hippotranslation:locale: document-type-locale
               publishing:authorNotes: ''
               publishing:metaDescription: ''
@@ -44,3 +45,10 @@ definitions:
               publishing:summary: ''
               publishing:title: ''
               publishing:pinned: false
+              publishing:audience: ''
+              publishing:serviceproviders: []
+              publishing:sensitive: false
+              publishing:userneed: ''
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
