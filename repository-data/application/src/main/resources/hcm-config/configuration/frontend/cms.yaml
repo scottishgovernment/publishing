@@ -4,6 +4,7 @@ definitions:
       plugin.class: scot.mygov.publishing.plugins.ExtendedEditorPlugin
     /hippo:configuration/hippo:frontend/cms/cms-static/root:
       wicket.skin: skin/cms-design-tweaks.css
+      max.inactive.interval.minutes: '120'
     /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardtwothreefives:
       jcr:primaryType: frontend:pluginconfig
       height: 310

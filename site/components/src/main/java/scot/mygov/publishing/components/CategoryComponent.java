@@ -24,18 +24,10 @@ import static java.util.stream.Collectors.toList;
  * This will also resolve any "mirror" content items.  These are used to allow a content item to appear in more than
  * one category.
  *
- * The footer and administration folders are excluded.
  */
 public class CategoryComponent extends EssentialsContentComponent {
 
     static final String INDEX = "index";
-
-    static final Set<String> EXCLUDED_FOLDERS = new HashSet<>();
-
-    static {
-        // node names that should not be included on the home page
-        Collections.addAll(EXCLUDED_FOLDERS, "administration", "site-furniture", "orphans", "unassigned", "organisations");
-    }
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -48,11 +40,30 @@ public class CategoryComponent extends EssentialsContentComponent {
         if (!hasContentBean(request)) {
             return;
         }
+        HippoFolderBean folder = getChildrenFolder(request);
+        request.setAttribute("children", getChildren(folder));
+    }
 
+    static HippoFolderBean getChildrenFolder(HstRequest request) {
         HippoBean bean = getDocumentBean(request);
         HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
         HippoFolderBean folder = (HippoFolderBean) bean.getParentBean();
-        request.setAttribute("children", getChildren(folder, baseBean));
+        // special case for the home page. If the base bean is the folder this category lives in, then
+        // use the "browse" folder to get the children from
+        return baseBean.isSelf(folder)
+            ? browseFolder(folder)
+            : folder;
+    }
+
+    static HippoFolderBean browseFolder(HippoFolderBean folder) {
+        return folder.getFolders().stream()
+                .filter(CategoryComponent::isBrowseFolder)
+                .findFirst()
+                .orElse(folder);
+    }
+
+    static boolean isBrowseFolder(HippoFolderBean folder) {
+        return "browse".equals(folder.getName());
     }
 
     static HippoBean getDocumentBean(HstRequest request) {
@@ -69,21 +80,20 @@ public class CategoryComponent extends EssentialsContentComponent {
         return request.getRequestContext().getContentBean() != null;
     }
 
-    static List<Wrapper> getWrappedChildren(HippoFolderBean folder, HippoBean baseBean) {
+    static List<Wrapper> getWrappedChildren(HippoFolderBean folder) {
         return folder
             .getChildBeans(HippoBean.class)
             .stream()
             .filter(CategoryComponent::notIndexFile)
-            .filter(node -> !isExcluded(node, folder, baseBean))
             .map(CategoryComponent::mapFolder)
             .filter(Objects::nonNull)
             .map(CategoryComponent::wrap)
-            .filter(wrapper -> nonNull(wrapper.getBean()))
+            .filter(Wrapper::containsNonNullBean)
             .collect(toList());
     }
 
-    static List<Wrapper> getChildren(HippoFolderBean folder, HippoBean baseBean) {
-        Map<Boolean, List<Wrapper>> byWrapped = getWrappedChildren(folder, baseBean)
+    static List<Wrapper> getChildren(HippoFolderBean folder) {
+        Map<Boolean, List<Wrapper>> byWrapped = getWrappedChildren(folder)
                 .stream().collect(partitioningBy(Wrapper::getPinned));
         List<Wrapper> all = new ArrayList<>();
         all.addAll(byWrapped.get(true));
@@ -93,11 +103,6 @@ public class CategoryComponent extends EssentialsContentComponent {
 
     static boolean notIndexFile(HippoBean bean) {
         return !INDEX.equals(bean.getName());
-    }
-
-    // do not list certain folders at the root (e.g. footer, administration)
-    static boolean isExcluded(HippoBean bean, HippoFolderBean folder, HippoBean baseBean) {
-        return folder.equals(baseBean) &&  EXCLUDED_FOLDERS.contains(bean.getName());
     }
 
     static Wrapper wrap(HippoBean bean) {
@@ -117,6 +122,15 @@ public class CategoryComponent extends EssentialsContentComponent {
     }
 
     /**
+     * Replace any mirrors with the document they point at
+     */
+    private static HippoBean mapMirror(HippoBean bean) {
+        return bean instanceof Mirror
+                ? getDocumentFromMirror(bean)
+                : bean;
+    }
+
+    /**
      * Map the bean to use for this bean.  If it is a folder then return the index file, otherwise just use this bean.
      */
     static HippoBean mapFolder(HippoBean bean) {
@@ -125,15 +139,6 @@ public class CategoryComponent extends EssentialsContentComponent {
 
     static HippoBean indexBean(HippoBean bean) {
         return bean.getBean(INDEX);
-    }
-
-    /**
-     * Replace any mirrors with the document they point at
-     */
-    static HippoBean mapMirror(HippoBean bean) {
-        return bean instanceof Mirror
-                ? getDocumentFromMirror(bean)
-                : bean;
     }
 
     static HippoBean getDocumentFromMirror(HippoBean bean) {
@@ -157,6 +162,10 @@ public class CategoryComponent extends EssentialsContentComponent {
 
         public boolean getPinned() {
             return pinned;
+        }
+
+        boolean containsNonNullBean() {
+            return nonNull(bean);
         }
     }
 }
