@@ -227,3 +227,12 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/publishing/valuelists/serviceproviders
+          /reviewDate:
+            jcr:primaryType: frontend:plugin
+            caption: Review Date
+            field: reviewDate
+            hint: The date on which this content item should next be reviewed
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

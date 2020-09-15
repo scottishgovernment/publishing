@@ -158,6 +158,15 @@ definitions:
             hipposysedit:path: publishing:userneed
             hipposysedit:primary: false
             hipposysedit:type: String
+          /reviewDate:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:reviewDate
+            hipposysedit:primary: false
+            hipposysedit:type: CalendarDate
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -179,18 +188,12 @@ definitions:
           publishing:metaDescription: ''
           publishing:reportingtags: []
           publishing:pinned: false
-          publishing:urlAliases: ['']
+          publishing:urlAliases: []
           publishing:sensitive: false
           publishing:audience: ''
           publishing:serviceproviders: []
-          publishing:lifeEvents: ['']
+          publishing:lifeEvents: []
           publishing:userneed: ''
-          /publishing:relateditems:
-            jcr:primaryType: publishing:relateditems
-            publishing:title: ''
-            /publishing:relatedItem:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           /publishing:cardimage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -291,6 +294,8 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /cardimage:
             jcr:primaryType: frontend:plugin
             caption: Card image
@@ -390,6 +395,15 @@ definitions:
             caption: User need
             field: userneed
             hint: User need field migrated from Rubric
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /reviewDate:
+            jcr:primaryType: frontend:plugin
+            caption: Review Date
+            field: reviewDate
+            hint: The date on which this content item should next be reviewed
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
