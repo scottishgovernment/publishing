@@ -167,6 +167,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: CalendarDate
             hipposysedit:validators: [optional]
+          /lastUpdatedDate:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:lastUpdatedDate
+            hipposysedit:primary: false
+            hipposysedit:type: CalendarDate
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -401,10 +410,20 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /reviewDate:
             jcr:primaryType: frontend:plugin
-            caption: Review Date
+            caption: Review date
             field: reviewDate
             hint: The date on which this content item should next be reviewed
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /lastUpdatedDate:
+            jcr:primaryType: frontend:plugin
+            caption: Last updated date
+            field: lastUpdatedDate
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: "The 'Last updated' date displayed in the article heading. If left blank
+              will use the system-generated last updated date instead"
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

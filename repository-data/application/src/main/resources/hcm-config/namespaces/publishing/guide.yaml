@@ -312,9 +312,19 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /reviewDate:
             jcr:primaryType: frontend:plugin
-            caption: Review Date
+            caption: Review date
             field: reviewDate
             hint: The date on which this content item should next be reviewed
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /lastUpdatedDate:
+            jcr:primaryType: frontend:plugin
+            caption: Last updated date
+            field: lastUpdatedDate
+            hint: "The 'Last updated' date displayed in the article heading. If left blank
+              will use the system-generated last updated date instead"
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
