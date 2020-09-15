@@ -18,13 +18,13 @@ public class FooterComponent extends CommonComponent  {
         super.doBeforeRender(request, response);
         HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
         HippoFolderBean footer = baseBean.getBean("site-furniture/footer/");
-        request.setAttribute("children", getChildren(footer, baseBean));
+        request.setAttribute("children", getChildren(footer));
     }
 
-    List<HippoBean> getChildren(HippoFolderBean folder, HippoBean baseBean) {
+    List<HippoBean> getChildren(HippoFolderBean folder) {
         return folder == null
                 ? Collections.emptyList()
-                : CategoryComponent.getWrappedChildren(folder, baseBean)
+                : CategoryComponent.getWrappedChildren(folder)
                     .stream().map(CategoryComponent.Wrapper::getBean).collect(toList());
     }
 }
