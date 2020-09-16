@@ -85,7 +85,7 @@
                                             </#if>
                                         </#list>
                                         <#if letterFound>
-                                            <a class="az-nav__link" data-gtm="orgs-${abc}" href="#${abc}">${abc?upper_case}</a>
+                                            <a class="az-nav__link" data-gtm="orgs-${abc}" href="#${abc?upper_case}">${abc?upper_case}</a>
                                         <#else>
                                             <span class="az-nav__link">${abc?upper_case}</span>
                                         </#if>
