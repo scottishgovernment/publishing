@@ -13,8 +13,9 @@ definitions:
         hst:sitemapitemhandlerids: [trailing-slash]
       /site-furniture:
         jcr:primaryType: hst:sitemapitem
-        /footer:
+        /_default_:
           jcr:primaryType: hst:sitemapitem
+          hst:relativecontentpath: ${parent}/${1}
           /cookies:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/cookiepreferences
@@ -24,7 +25,7 @@ definitions:
           /_default_:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/article
-            hst:relativecontentpath: site-furniture/footer/${1}
+            hst:relativecontentpath: ${parent}/${2}
             hst:sitemapitemhandlerids: [trailing-slash]
       /_any_:
         jcr:primaryType: hst:sitemapitem
