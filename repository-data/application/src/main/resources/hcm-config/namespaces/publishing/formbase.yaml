@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: bf4653e5-79b2-4f8a-9606-5b151cc86dc4
+          jcr:uuid: 2870acc6-753e-4fa6-a0a8-d9c94db4610b
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -48,7 +48,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
-          jcr:uuid: bd3d8005-d85c-4030-a3b1-59c5e80fdcf5
+          jcr:uuid: 83c16b74-85a6-442c-bae1-be182489b6e0
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''

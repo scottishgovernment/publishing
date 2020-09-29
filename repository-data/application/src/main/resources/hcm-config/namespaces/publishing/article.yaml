@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: aed8b13b-5d63-446a-9fdd-cf8a29a955d7
+          jcr:uuid: bd865521-2abc-4925-a19d-29fc47a141c9
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -63,7 +63,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: ea7cafef-fbcb-487c-ae84-a432490e8342
+          jcr:uuid: 4cb6f959-c785-4823-b7ac-911a6c1ffd91
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -306,6 +306,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              nodetypes: ['publishing:contentcontact']
           /factCheckers:
             jcr:primaryType: frontend:plugin
             caption: Fact checkers
@@ -315,6 +316,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              nodetypes: ['publishing:contentcontact']
           /lifeEvents:
             jcr:primaryType: frontend:plugin
             caption: Life events
@@ -346,8 +348,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Last updated date
             field: lastUpdatedDate
-            hint: "The 'Last updated' date displayed in the article heading. If left blank
-            will use the system-generated last updated date instead"
+            hint: The 'Last updated' date displayed in the article heading. If left
+              blank will use the system-generated last updated date instead
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

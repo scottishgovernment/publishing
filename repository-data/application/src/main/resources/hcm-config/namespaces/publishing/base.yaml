@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4474f48c-2c24-4d2e-9629-ca78ca1b80cd
+          jcr:uuid: 2ab51070-c88d-4208-8619-b86cebcd2cb6
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -189,7 +189,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           publishing:summary: ''
           publishing:title: ''
-          jcr:uuid: 63601a15-3690-4c57-80fb-cfdbf839e7b2
+          jcr:uuid: fb7d5153-7d70-41c1-a17d-eec14ac47507
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:07.551+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:07.552+01:00
           publishing:seoTitle: ''
@@ -379,8 +379,10 @@ definitions:
             field: contentOwner
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              nodetypes: ['publishing:contentcontact']
           /factCheckers:
             jcr:primaryType: frontend:plugin
             caption: Fact checkers
@@ -423,7 +425,7 @@ definitions:
             field: lastUpdatedDate
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: "The 'Last updated' date displayed in the article heading. If left blank
-              will use the system-generated last updated date instead"
+            hint: The 'Last updated' date displayed in the article heading. If left
+              blank will use the system-generated last updated date instead
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
