@@ -1,0 +1,13 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:workflows/export:
+      jcr:primaryType: hipposys:workflowcategory
+      /csvexport:
+        jcr:primaryType: frontend:workflow
+        hipposys:classname: com.onehippo.cms7.search.workflow.impl.CollectionWorkflowImpl
+        hipposys:nodetype: hippocollection:collection
+        /hipposys:types:
+          jcr:primaryType: hipposys:types
+        /frontend:renderer:
+          jcr:primaryType: frontend:plugin
+          plugin.class: scot.mygov.publishing.advancedsearch.workflow.ExportWorkflowPlugin
