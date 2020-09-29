@@ -1,0 +1,68 @@
+<html xmlns:wicket="http://wicket.apache.org/">
+<wicket:panel>
+  <div class="hippo-advanced-search-filter">
+    <form wicket:id="form">
+      <ul>
+        <li class="filter">
+          <h3>
+            <wicket:message key="review-date">Review date</wicket:message>
+          </h3>
+          <table>
+            <tr>
+              <th>
+                <wicket:message key="from">From:</wicket:message>
+              </th>
+              <td class="hippo-advanced-search-input hippo-advanced-search-input-picker">
+                <input type="text" wicket:id="review-date-from" class="hippo-advanced-search-input-date" readonly="true"/>
+                <div class="hippo-advanced-search-reset" wicket:id="review-date-from-reset-container">
+                  <img wicket:id="review-date-from-reset"/>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <wicket:message key="to">To:</wicket:message>
+              </th>
+              <td class="hippo-advanced-search-input hippo-advanced-search-input-picker">
+                <input type="text" wicket:id="review-date-to" class="hippo-advanced-search-input-date" readonly="true"/>
+                <div class="hippo-advanced-search-reset" wicket:id="review-date-to-reset-container">
+                  <img wicket:id="review-date-to-reset"/>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </li>
+        <li class="filter">
+          <h3>
+            <wicket:message key="last-official-update-date">Last Official Update Date</wicket:message>
+          </h3>
+          <table>
+            <tr>
+              <th>
+                <wicket:message key="from">From:</wicket:message>
+              </th>
+              <td class="hippo-advanced-search-input hippo-advanced-search-input-picker">
+                <input type="text" wicket:id="last-official-update-date-from" class="hippo-advanced-search-input-date" readonly="true"/>
+                <div class="hippo-advanced-search-reset" wicket:id="last-official-update-date-from-reset-container">
+                  <img wicket:id="last-official-update-date-from-reset"/>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <wicket:message key="to">To:</wicket:message>
+              </th>
+              <td class="hippo-advanced-search-input hippo-advanced-search-input-picker">
+                <input type="text" wicket:id="last-official-update-date-to" class="hippo-advanced-search-input-date" readonly="true"/>
+                <div class="hippo-advanced-search-reset" wicket:id="last-official-update-date-to-reset-container">
+                  <img wicket:id="last-official-update-date-to-reset"/>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </li>
+      </ul>
+    </form>
+  </div>
+</wicket:panel>
+</html>
