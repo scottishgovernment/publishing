@@ -14,13 +14,11 @@ import javax.jcr.RepositoryException;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.ResourceLink;
 import org.apache.wicket.model.StringResourceModel;
-import org.apache.wicket.request.cycle.RequestCycle;
 import org.apache.wicket.request.resource.AbstractResource;
 import org.apache.wicket.request.resource.ByteArrayResource;
 import org.apache.wicket.request.resource.ContentDisposition;
@@ -28,6 +26,7 @@ import org.apache.wicket.request.resource.CssResourceReference;
 import org.hippoecm.frontend.dialog.Dialog;
 import org.hippoecm.frontend.dialog.DialogConstants;
 import org.hippoecm.frontend.plugins.standards.datetime.DateTimePrinter;
+import org.hippoecm.frontend.session.UserSession;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -50,6 +49,7 @@ import static org.hippoecm.repository.HippoStdNodeType.UNPUBLISHED;
 import static org.hippoecm.repository.HippoStdPubWfNodeType.HIPPOSTDPUBWF_CREATED_BY;
 import static org.hippoecm.repository.HippoStdPubWfNodeType.HIPPOSTDPUBWF_LAST_MODIFIED_BY;
 import static org.hippoecm.repository.HippoStdPubWfNodeType.HIPPOSTDPUBWF_LAST_MODIFIED_DATE;
+import static org.hippoecm.repository.api.HippoNodeType.HIPPO_DOCBASE;
 
 public class ExportDialog extends Dialog<WorkflowDescriptor> {
 
@@ -61,9 +61,9 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     private static final String QUOTE = "\"";
     private static final String DEFAULT_SEPARATOR = ",";
     private static final String separatorWithQuotes = QUOTE + DEFAULT_SEPARATOR + QUOTE;
-    private static final String[] headers = new String[]{"fact_checker", "format" , "sme", "title", "created_by", "url", "review_date", "date_modified", "modified_by", "id", "state"};
+    private static final String[] headers = new String[]{"fact_checkers", "format" , "sme", "title", "created_by", "url", "review_date", "date_modified", "modified_by", "id", "state"};
     //TODO Replace with correct properties
-    private static final String[] documentProperties = new String[]{"fact_checker", "format" , "sme", "hippo:name", HIPPOSTDPUBWF_CREATED_BY, "url", "publishing:reviewDate", HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE};
+    private static final String[] documentProperties = new String[]{"publishing:factCheckers", "format" , "publishing:contentOwner", "hippo:name", HIPPOSTDPUBWF_CREATED_BY, "url", "publishing:reviewDate", HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE};
 
     private final ResourceLink<String> exportCSVLink;
     private final ISearchContext searcher;
@@ -213,6 +213,13 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                             props.add("");
                         }
                         break;
+                    case "publishing:contentOwner": case "publishing:factCheckers":
+                        if (variant.hasNode(property)) {
+                            props.add(extractContactEmails(variant.getNodes(property)));
+                        } else {
+                            props.add("");
+                        }
+                        break;
                     default:
                         if (variant.hasProperty(property)) {
                             props.add(variant.getProperty(property).getString());
@@ -225,6 +232,21 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
         }
 
         return props;
+    }
+
+    private String extractContactEmails(final NodeIterator nodeIterator) throws RepositoryException{
+        ArrayList<String> contactEmails = new ArrayList<>();
+        while (nodeIterator.hasNext()){
+            Node currentNode = nodeIterator.nextNode();
+            if(currentNode.hasProperty(HIPPO_DOCBASE)){
+                Node contactHandle = UserSession.get().getJcrSession().getNodeByIdentifier(currentNode.getProperty(HIPPO_DOCBASE).getString());
+                Node publishedVariant = getDocumentVariantByHippoStdState(contactHandle, PUBLISHED);
+                if(publishedVariant != null && publishedVariant.hasProperty("publishing:email")){
+                    contactEmails.add(publishedVariant.getProperty("publishing:email").getString());
+                }
+            }
+        }
+        return String.join(", ", contactEmails);
     }
 
     private String getNodeStateSummary(final Node handle) throws RepositoryException{
