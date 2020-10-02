@@ -61,8 +61,10 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     private static final String QUOTE = "\"";
     private static final String DEFAULT_SEPARATOR = ",";
     private static final String separatorWithQuotes = QUOTE + DEFAULT_SEPARATOR + QUOTE;
-    private static final String[] headers = new String[]{"fact_checkers", "format" , "sme", "title", "created_by", "url", "review_date", "date_modified", "modified_by", "id", "state"};
-    //TODO Replace with correct properties
+
+    //When required to add a new property in the CSV export add displayed label and corresponding property in the two lists below.
+    //You might have to change #constructPropertiesList method below to add your property if it requires special handling.
+    private static final String[] headers = new String[]{"fact_checkers", "format" , "content_owner", "title", "created_by", "url", "review_date", "date_modified", "modified_by", "id", "state"};
     private static final String[] documentProperties = new String[]{"publishing:factCheckers", "format" , "publishing:contentOwner", "hippo:name", HIPPOSTDPUBWF_CREATED_BY, "url", "publishing:reviewDate", HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE};
 
     private final ResourceLink<String> exportCSVLink;
