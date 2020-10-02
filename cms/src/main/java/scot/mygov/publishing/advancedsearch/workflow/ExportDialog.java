@@ -1,17 +1,7 @@
 package scot.mygov.publishing.advancedsearch.workflow;
 
-import java.text.MessageFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-
+import com.google.common.base.Charsets;
+import com.onehippo.cms7.search.frontend.ISearchContext;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.wicket.markup.head.CssHeaderItem;
@@ -39,16 +29,19 @@ import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.base.Charsets;
-import com.onehippo.cms7.search.frontend.ISearchContext;
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+import java.text.MessageFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import static org.hippoecm.repository.HippoStdNodeType.HIPPOSTD_STATE;
-import static org.hippoecm.repository.HippoStdNodeType.HIPPOSTD_STATESUMMARY;
-import static org.hippoecm.repository.HippoStdNodeType.PUBLISHED;
-import static org.hippoecm.repository.HippoStdNodeType.UNPUBLISHED;
-import static org.hippoecm.repository.HippoStdPubWfNodeType.HIPPOSTDPUBWF_CREATED_BY;
-import static org.hippoecm.repository.HippoStdPubWfNodeType.HIPPOSTDPUBWF_LAST_MODIFIED_BY;
-import static org.hippoecm.repository.HippoStdPubWfNodeType.HIPPOSTDPUBWF_LAST_MODIFIED_DATE;
+import static org.hippoecm.repository.HippoStdNodeType.*;
+import static org.hippoecm.repository.HippoStdPubWfNodeType.*;
 import static org.hippoecm.repository.api.HippoNodeType.HIPPO_DOCBASE;
 
 public class ExportDialog extends Dialog<WorkflowDescriptor> {
@@ -60,7 +53,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     private static final String DEFAULT_LINE_TERMINATOR = "\r\n";
     private static final String QUOTE = "\"";
     private static final String DEFAULT_SEPARATOR = ",";
-    private static final String separatorWithQuotes = QUOTE + DEFAULT_SEPARATOR + QUOTE;
+    private static final String SEPARATOR_WITH_QUOTES = QUOTE + DEFAULT_SEPARATOR + QUOTE;
 
     //When required to add a new property in the CSV export add displayed label and corresponding property in the two lists below.
     //You might have to change #constructPropertiesList method below to add your property if it requires special handling.
@@ -137,7 +130,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
         final StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(QUOTE);
-        stringBuilder.append(StringUtils.join(headers, separatorWithQuotes));
+        stringBuilder.append(StringUtils.join(headers, SEPARATOR_WITH_QUOTES));
         stringBuilder.append(QUOTE);
         stringBuilder.append(DEFAULT_LINE_TERMINATOR);
 
@@ -148,7 +141,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
             for (int i = 0; i < propertiesList.size(); i++) {
                 appendValue(stringBuilder, i, propertiesList.get(i));
             }
-            if(propertiesList.size()>0){
+            if(!propertiesList.isEmpty()){
                 stringBuilder.append(DEFAULT_LINE_TERMINATOR);
             }
         }

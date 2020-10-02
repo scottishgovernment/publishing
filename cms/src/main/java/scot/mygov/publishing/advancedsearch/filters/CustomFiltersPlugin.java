@@ -1,9 +1,8 @@
 package scot.mygov.publishing.advancedsearch.filters;
 
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-
+import com.onehippo.cms7.search.frontend.ISearchContext;
+import com.onehippo.cms7.search.frontend.constraints.IConstraintProvider;
+import com.onehippo.cms7.search.frontend.filters.GenericFiltersPlugin;
 import org.apache.wicket.Component;
 import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.ajax.AjaxEventBehavior;
@@ -33,13 +32,14 @@ import org.onehippo.cms7.services.search.query.QueryUtils;
 import org.onehippo.cms7.services.search.query.constraint.Constraint;
 import org.onehippo.cms7.services.search.query.constraint.LowerBoundedDateConstraint;
 
-import com.onehippo.cms7.search.frontend.ISearchContext;
-import com.onehippo.cms7.search.frontend.constraints.IConstraintProvider;
-import com.onehippo.cms7.search.frontend.filters.GenericFiltersPlugin;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 public class CustomFiltersPlugin extends RenderPlugin implements IConstraintProvider {
 
     private static final ResourceReference DATE_PICKER_ICON = new PackageResourceReference(GenericFiltersPlugin.class, "images/calendar.png");
+    private static final String RESET_CONTAINER = "-reset-container";
     private String datePattern = "dd/MM/yyyy";
 
     private Date reviewDateFrom;
@@ -139,7 +139,7 @@ public class CustomFiltersPlugin extends RenderPlugin implements IConstraintProv
             visitChildren(MarkupContainer.class, new IVisitor<MarkupContainer, Void>() {
                 @Override
                 public void component(final MarkupContainer container, IVisit<Void> visit) {
-                    if (container.getId().endsWith("-reset-container")) {
+                    if (container.getId().endsWith(RESET_CONTAINER)) {
                         target.add(container);
                         visit.dontGoDeeper();
                     }
@@ -217,7 +217,7 @@ public class CustomFiltersPlugin extends RenderPlugin implements IConstraintProv
                 if (components != null) {
                     for (final Component component : components) {
                         target.add(component);
-                        Component reset = component.getParent().get(component.getId() + "-reset-container");
+                        Component reset = component.getParent().get(component.getId() + RESET_CONTAINER);
                         if (reset != null) {
                             target.add(reset);
                         }
@@ -228,7 +228,7 @@ public class CustomFiltersPlugin extends RenderPlugin implements IConstraintProv
     }
 
     private MarkupContainer createSimpleResetLink(final Component component) {
-        WebMarkupContainer container = new WebMarkupContainer(component.getId() + "-reset-container");
+        WebMarkupContainer container = new WebMarkupContainer(component.getId() + RESET_CONTAINER);
         container.setOutputMarkupId(true);
         Image resetImage = new Image(component.getId() + "-reset", IConstraintProvider.RESET_ICON) {
 

@@ -1,11 +1,5 @@
 package scot.mygov.publishing.advancedsearch.columns;
 
-import java.util.Calendar;
-
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-
 import org.apache.wicket.model.IDetachable;
 import org.hippoecm.frontend.model.JcrNodeModel;
 import org.hippoecm.frontend.model.event.IObservable;
@@ -15,11 +9,16 @@ import org.hippoecm.repository.api.HippoNodeType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+import java.util.Calendar;
+
 public class CustomAttributes implements IObservable, IDetachable {
 
     private static final long serialVersionUID = 1L;
 
-    static final Logger log = LoggerFactory.getLogger(CustomAttributes.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CustomAttributes.class);
 
     private JcrNodeModel nodeModel;
     private Observable observable;
@@ -70,10 +69,10 @@ public class CustomAttributes implements IObservable, IDetachable {
             }
         } catch (RepositoryException repositoryException) {
             try {
-                log.error("Unable to obtain state properties, nodeModel path: " + node.getPath(), repositoryException);
+                LOG.error("Unable to obtain state properties, nodeModel path: " + node.getPath(), repositoryException);
             } catch (RepositoryException nodeModelPathException) {
-                log.error("Unable to obtain state properties", repositoryException);
-                log.error("Unable to get path of node model", nodeModelPathException);
+                LOG.error("Unable to obtain state properties", repositoryException);
+                LOG.error("Unable to get path of node model", nodeModelPathException);
             }
         }
         loaded = true;
