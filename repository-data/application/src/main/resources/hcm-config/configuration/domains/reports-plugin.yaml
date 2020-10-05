@@ -1,0 +1,30 @@
+#TODO Remove after https://issues.onehippo.com/browse/CMS-13957 is resolved
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/reports-plugin:
+      jcr:primaryType: hipposys:domain
+      /reports-plugin:
+        jcr:primaryType: hipposys:domainrule
+        /reports-node:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /hippo:reports
+      /read-reports-user:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: []
+        hipposys:role: readonly
+        hipposys:userrole:
+          .meta:category: system
+          type: string
+          value: xm.report.user
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: []
