@@ -1,0 +1,327 @@
+/*------------------------------------*\
+    SITE PAGE LAYOUTS
+\*------------------------------------*/
+
+$mg-prefix: 'mg_';
+
+.#{$mg-prefix}layout {
+
+}
+
+@include media-query(medium) {
+    .#{$mg-prefix}layout {
+        &--corp-org-hub {
+            > .#{$pl-prefix}layout {
+                &__content {
+                    @include colwidth(8);
+                }
+            }
+        }
+
+        &--paged-form {
+            > .#{$pl-prefix}layout {
+                &__section-progress {
+                    clear: both;
+                    @include colwidth(12);
+                }
+
+                &__subsection-progress {
+                    float: left;
+                    @include colwidth(3);
+                }
+
+                &__form-content {
+                    float: left;
+                    @include colwidth(9);
+                }
+
+                &__feedback {
+                    @include colwidth(9);
+                }
+            }
+        }
+
+        &--org-hub {
+
+        }
+    }
+}
+
+@include media-query(large) {
+    .#{$mg-prefix}layout {
+        &--corp-org-hub {
+            > .#{$pl-prefix}layout {
+                &__contact {
+                    float: left;
+                    @include colwidth(8);
+                }
+
+                &__connect {
+                    float: left;
+                    @include colwidth(4);
+                }
+            }
+        }
+
+        &--paged-form {
+            > .#{$pl-prefix}layout {
+                &__section-progress {
+                    clear: both;
+                    @include colwidth(10);
+                }
+
+                &__subsection-progress {
+                    float: left;
+                    @include colwidth(3);
+                }
+
+                &__form-content {
+                    float: left;
+                    @include colwidth(7);
+                }
+
+                &__feedback {
+                    @include colwidth(7);
+                }
+            }
+        }
+    }
+}
+
+@supports(display: grid) {
+    /**
+     * GRID KEY
+     * c: content
+     * f: feedback
+     * h: header
+     * l: list (e.g. category items, search results)
+     * n: navigation (e.g. subpages of a publication or guide)
+     * p: partner branding
+     * s: sidebar
+
+     * corp org hub key additions
+     * o: organisation
+     * s: services
+     * F: featured
+     * A: contact
+     * B: connect
+     */
+    $grid-area-org-organisation:    o;
+    $grid-area-org-services:        s;
+    $grid-area-org-featured:        F;
+    $grid-area-org-contact:         A;
+    $grid-area-org-connect:         B;
+
+    /**
+     * paged form additions
+     * S: section nav
+     * U: subsection nav
+     * F: form contents
+     */
+    $grid-area-form-section:    S;
+    $grid-area-form-subsection: U;
+    $grid-area-form-content:    F;
+
+    .#{$pl-prefix}layout {
+        &__organisation {
+            grid-area: $grid-area-org-organisation;
+        }
+
+        &__services {
+            grid-area: $grid-area-org-services;
+        }
+
+        &__featured,
+        &__org-list {
+            grid-area: $grid-area-org-featured;
+        }
+
+        &__contact {
+            grid-area: $grid-area-org-contact;
+        }
+
+        &__connect {
+            grid-area: $grid-area-org-connect;
+        }
+
+        &__section-progress {
+            grid-area: $grid-area-form-section;
+        }
+
+        &__subsection-progress {
+            grid-area: $grid-area-form-subsection;
+        }
+
+        &__form-content {
+            grid-area: $grid-area-form-content;
+        }
+    }
+
+    .#{$mg-prefix}layout {
+        &--paged-form {
+            grid-template-areas:
+                'h h'
+                'S S'
+                'U U'
+                'F F'
+                'f f';
+        }
+
+        &--corp-org-hub {
+            grid-gap: 28px 30px;
+            grid-template-areas:
+                'h h'
+                'p p'
+                'c c'
+                's s'
+                'F F'
+                'o o'
+                'A A'
+                'B B'
+                'f f'
+        }
+
+        &--org-list {
+            grid-template-areas:
+                'h h'
+                'c c'
+                'F F'
+                'f f';
+        }
+    }
+
+    @include media-query(small) {
+        .#{$mg-prefix}layout {
+            &--paged-form {
+                grid-template-areas:
+                    'h h h h h h'
+                    'S S S S S S'
+                    'U U U U U U'
+                    'F F F F F F'
+                    'f f f f f f';
+            }
+
+            &--corp-org-hub {
+                grid-template-areas:
+                    'h h h h h h'
+                    'p p p p p p'
+                    'c c c c c c'
+                    's s s s s s'
+                    'F F F F F F'
+                    'o o o o o o'
+                    'A A A A A A'
+                    'B B B B B B'
+                    'f f f f f f';
+            }
+
+            &--org-hub {
+                grid-template-areas:
+                    'h h h h h h'
+                    'p p p p p p'
+                    'c c c c c c'
+                    'f f f f f f'
+            }
+
+            &--org-list {
+                grid-template-areas:
+                    'h h h h h h'
+                    'c c c c c c'
+                    'F F F F F F'
+                    'f f f f f f';
+            }
+        }
+    }
+
+    @include media-query(medium) {
+        .#{$mg-prefix}layout {
+            &--paged-form {
+                grid-template-areas:
+                    'h h h h h h h h h h h h'
+                    'S S S S S S S S S S S S'
+                    'F F F F F F F F F U U U'
+                    'f f f f f f f f f . . .';
+            }
+
+            &--corp-org-hub {
+                grid-template-areas:
+                    'h h h h h h h h p p p p'
+                    'c c c c c c c c . . . .'
+                    's s s s s s s s s s s s'
+                    'F F F F F F F F F F F F'
+                    'o o o o o o o o o o o o'
+                    'A A A A A A A A B B B B'
+                    'f f f f f f f f f f f f';
+            }
+
+            &--org-hub {
+                grid-template-areas:
+                    'h h h h h h h h p p p p'
+                    'c c c c c c c c p p p p'
+                    'f f f f f f f f . . . .'
+            }
+
+            &--org-list {
+                grid-template-areas:
+                    'h h h h h h h h h h h h'
+                    'c c c c c c c c c c c c'
+                    'F F F F F F F F F F F F'
+                    'f f f f f f f f f f f f';
+            }
+        }
+    }
+
+    @include media-query(large) {
+        .#{$mg-prefix}layout {
+            &--paged-form {
+                grid-template-areas:
+                    'h h h h h h h h h h h h'
+                    'S S S S S S S S S S . .'
+                    'F F F F F F F U U U . .'
+                    'f f f f f f f . . . . .';
+            }
+
+            &--org-list {
+                grid-template-areas:
+                    'h h h h h h h h . . . .'
+                    'c c c c c c c c . . . .'
+                    'F F F F F F F F F F F F'
+                    'f f f f f f f f . . . .';
+            }
+        }
+    }
+
+    @include media-query(xlarge) {
+        .#{$mg-prefix}layout {
+            &--corp-org-hub {
+                grid-template-areas:
+                    'h h h h h h h h p p p p'
+                    'c c c c c c c c . . . .'
+                    's s s s s s s s s s s s'
+                    'F F F F F F F F F F F F'
+                    'o o o o o o o o o o o o'
+                    'A A A A A A A A B B B B'
+                    'f f f f f f f f . . . .'
+            }
+        }
+    }
+}
+
+.ds_cols {
+    @include layout();
+}
+
+.ds_cols--2 {
+    @include media-query(large) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.ds_cols--4 {
+    @include media-query(small) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media-query(large) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

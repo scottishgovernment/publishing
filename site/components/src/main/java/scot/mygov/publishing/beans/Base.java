@@ -3,6 +3,8 @@ package scot.mygov.publishing.beans;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 
+import java.util.Calendar;
+
 @HippoEssentialsGenerated(internalName = "publishing:base")
 @Node(jcrType = "publishing:base")
 public class Base extends BaseDocument {
@@ -50,5 +52,13 @@ public class Base extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "publishing:cardImage")
     public ImageCard getCardImage() {
         return getLinkedBean("publishing:cardImage", ImageCard.class);
+    }
+
+    public Calendar getReviewDate() {
+        return getSingleProperty("publishing:reviewDate");
+    }
+
+    public Calendar getLastUpdatedDate() {
+        return getSingleProperty("publishing:lastUpdatedDate");
     }
 }

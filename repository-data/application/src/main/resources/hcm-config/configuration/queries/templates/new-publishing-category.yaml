@@ -9,7 +9,8 @@ definitions:
         $localName, './index/index/hippo:name', $localName, './index/index/hippostdpubwf:createdBy',
         $holder, './index/index/hippostdpubwf:lastModifiedBy', $holder, './index/index/hippostdpubwf:creationDate',
         $now, './index/index/hippostdpubwf:lastModificationDate', $now, './index/index/publishing:seoTitle',
-        $localName]
+        $localName, './index/index/hippotranslation:id', $uuid, './index/index/hippotranslation:locale',
+        $inherited]
       hipposys:classname: org.hippoecm.repository.impl.query.DirectPath
       jcr:language: xpath
       jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-publishing-category/hippostd:templates/node()
@@ -35,7 +36,7 @@ definitions:
               hippostdpubwf:creationDate: 2019-10-02T09:27:13.455+01:00
               hippostdpubwf:lastModificationDate: 2019-10-02T09:27:13.657+01:00
               hippostdpubwf:lastModifiedBy: system
-              hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
+              hippotranslation:id: document-type-locale-id
               hippotranslation:locale: document-type-locale
               publishing:authorNotes: ''
               publishing:metaDescription: ''
@@ -47,10 +48,16 @@ definitions:
               publishing:title: ''
               /publishing:heroImage:
                 jcr:primaryType: hippogallerypicker:imagelink
-                hippo:docbase: 672485e1-5670-4a2c-97d3-b8f23bf51d8d
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
                 hippo:facets: []
                 hippo:modes: []
                 hippo:values: []
               /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /publishing:epilogue:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+              /publishing:prologue:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''

@@ -4,6 +4,7 @@ definitions:
       .meta:residual-child-node-category: content
       jcr:primaryType: hst:mount
       hst:mountpoint: /hst:publishing/hst:sites/mygov
+      hst:locale: en_GB
     /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/mygov-preview:
       .meta:residual-child-node-category: content
       jcr:primaryType: hst:mount
@@ -12,6 +13,7 @@ definitions:
       hst:type: preview
       preview-cookie-httponly: 'false'
       preview-cookie-secure: 'false'
+      hst:locale: en_GB
     /hst:hst/hst:hosts/lcl/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
       /lcl:
@@ -21,6 +23,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/lcl/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
       /lcl:
@@ -34,6 +37,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/dev/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
       /dev:
@@ -43,6 +47,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/dev/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
       /dev:
@@ -56,6 +61,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/int/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
       /int:
@@ -65,6 +71,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/int/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
       /int:
@@ -78,6 +85,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/exp/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
       /exp:
@@ -87,6 +95,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/exp/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
       /exp:
@@ -100,6 +109,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/uat/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
       /uat:
@@ -109,6 +119,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/uat/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
       /uat:
@@ -122,6 +133,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/per/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
       /per:
@@ -131,6 +143,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/per/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
       /per:
@@ -144,6 +157,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/tst/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
       /tst:
@@ -153,6 +167,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/tst/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
       /tst:
@@ -166,6 +181,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          hst:locale: en_GB
     /hst:hst/hst:hosts/blu/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
       /blu:
@@ -175,6 +191,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          hst:locale: en_GB
     /hst:hst/hst:hosts/blu/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
       /blu:
@@ -190,6 +207,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          hst:locale: en_GB
     /hst:hst/hst:hosts/grn/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
       /grn:
@@ -199,6 +217,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          hst:locale: en_GB
     /hst:hst/hst:hosts/grn/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
       /grn:
@@ -212,6 +231,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          hst:locale: en_GB
     /hst:hst/hst:hosts/live/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
       /live:
@@ -221,6 +241,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          hst:locale: en_GB
     /hst:hst/hst:hosts/live/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
       /live:
@@ -234,6 +255,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          hst:locale: en_GB
     /hst:hst/hst:hosts/origin/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
       /origin:
@@ -243,6 +265,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          hst:locale: en_GB
     /hst:hst/hst:hosts/origin/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
       /origin:
@@ -256,6 +279,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          hst:locale: en_GB
     /hst:hst/hst:hosts/production/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
       /hst:root:
@@ -263,6 +287,7 @@ definitions:
         hst:mountpoint: /hst:publishing/hst:sites/mygov
         hst:schemeagnostic: true
         publishing:gtm: /content/documents/mygov/administration/analytics/live
+        hst:locale: en_GB
     /hst:hst/hst:hosts/production/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
       /hst:root:
@@ -274,3 +299,4 @@ definitions:
         preview-cookie-httponly: 'false'
         preview-cookie-secure: 'false'
         publishing:gtm: /content/documents/mygov/administration/analytics/live
+        hst:locale: en_GB

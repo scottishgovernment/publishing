@@ -10,6 +10,7 @@ $mg-prefix: "mg_";
  */
 @import "../../../../node_modules/@scottish-government/pattern-library/src/base/all-base";
 @import "../../../../node_modules/@scottish-government/pattern-library/src/forms/all-forms";
+@import "base.mg-layouts";
 
 
 
@@ -32,7 +33,9 @@ $mg-prefix: "mg_";
 /**
  * COMPONENTS FROM MYGOV
  */
-@import "homepage-hero";
+@import "component.az-nav";
+@import "component.homepage-hero";
+@import "component.org-sectors";
 
 
 

@@ -1,5 +1,6 @@
 package scot.mygov.publishing.components;
 
+import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -72,14 +73,15 @@ public class URLAliasComponent extends BaseHstComponent {
 
     String xpath(HstRequest request) {
         Mount mount = request.getRequestContext().getResolvedMount().getMount();
-        String xpathTemplate =
-                "/jcr:root%s//element(*, publishing:base)" +
-                "[publishing:urlAliases = '%s']" +
-                "[hippostd:state = '%s']";
+        String xpathTemplate = "/jcr:root%s//element(*, publishing:base)[publishing:urlAliases = '%s'][hippostd:state = '%s']";
+
+        // url aliases do not contain a trailing slash so remove one if it is present
+        String path = StringUtils.stripEnd(request.getPathInfo(), "/");
+
         return String.format(
                 xpathTemplate,
                 mount.getContentPath(),
-                request.getPathInfo(),
+                path,
                 targetState(mount));
     }
 

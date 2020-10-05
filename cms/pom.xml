@@ -15,6 +15,7 @@
   <properties>
     <sonar.exclusions>
       target/**,
+      **/LoginPanel.java,
       **/PreviewLinkDialog.java,
       **/PreviewPlugin.java
     </sonar.exclusions>
