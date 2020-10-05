@@ -9,3 +9,8 @@ definitions:
         type: string
         value: [xm.dashboard.user, xm.cms.user, xm.urlrewriter.admin, xm.report.user,
           xm.channel.admin, xm.content.admin, xm.content.editor, xm.security.user-admin]
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: []

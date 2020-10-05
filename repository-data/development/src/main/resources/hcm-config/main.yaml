@@ -15,6 +15,11 @@ definitions:
         operation: add
         type: string
         value: [editor]
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [xm.default-user.editor, xm.report.user]
     /hippo:configuration/hippo:groups/webmaster:
       hipposys:members:
         operation: add
