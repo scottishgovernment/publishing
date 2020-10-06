@@ -133,3 +133,16 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-advanced-search/customColumns:
+      .meta:order-before: workflowPlugin
+      jcr:primaryType: frontend:plugin
+      column.id: ${column.id}
+      plugin.class: scot.mygov.publishing.advancedsearch.columns.CustomColumnsProviderPlugin
+    /hippo:configuration/hippo:frontend/cms/cms-advanced-search/customFilters:
+      .meta:order-before: genericFilters
+      jcr:primaryType: frontend:plugin
+      plugin.class: scot.mygov.publishing.advancedsearch.filters.CustomFiltersPlugin
+      wicket.id: ${search.extensions}
+      wicket.model: ${model.search}
+    /hippo:configuration/hippo:frontend/cms/cms-advanced-search/workflowPlugin:
+      workflow.categories: [collections, export]
