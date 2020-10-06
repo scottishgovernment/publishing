@@ -21,7 +21,9 @@
                 <#list document.documents as doc>
                     <div>
                         <p>
-                        ${doc.title}
+                            <a href="<@hst.link hippobean=doc.document/>"
+                                ${doc.title}
+                            </a>
                         </p>
                         <p>
                             ${doc.document.filename}
