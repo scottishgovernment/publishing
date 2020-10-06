@@ -1,4 +1,5 @@
 /content/documents/mygov/organisations:
+  .meta:order-before: browse
   jcr:primaryType: hippostd:folder
   hippostd:foldertype: [new-publishing-organisation]
   /index:
@@ -113,23 +114,23 @@
         jcr:primaryType: hippostd:html
         hippostd:content: <p>To understand the scope of mygov.scot browse our list
           of organisations either by A-Z or sector.</p>
-  /qwert:
+  /visitscotland:
     jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 4b8bbce0-9141-4377-b4f2-12c593d11a4c
-    /qwert[1]:
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: a01f7156-e0b2-422f-ab05-c09b4ee6d352
+    hippo:name: VisitScotland
+    hippo:versionHistory: 05de9a5e-985e-440a-b7f6-33821dde435d
+    /visitscotland[1]:
       jcr:primaryType: publishing:organisation
       jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
-      jcr:uuid: 9733784e-9801-446b-b760-67f7ec765b37
+      jcr:uuid: 1d89ac4e-fb05-4b52-92ba-a98b15b2093b
       hippo:availability: []
-      hippostd:holder: admin
       hippostd:state: draft
-      hippostd:tags: [QWERT]
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-09-04T14:49:47.559+01:00
-      hippostdpubwf:lastModificationDate: 2020-09-04T14:50:32.125+01:00
+      hippostdpubwf:creationDate: 2020-10-01T08:21:07.935+01:00
+      hippostdpubwf:lastModificationDate: 2020-10-01T08:21:07.935+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: b3a3078e-6382-44ae-9878-efa68f2b9969
+      hippotranslation:id: 7cc31b08-35ff-4850-a328-022b189df908
       hippotranslation:locale: document-type-locale
       publishing:address: ''
       publishing:authorNotes: ''
@@ -137,28 +138,30 @@
       publishing:email: ''
       publishing:facebook: ''
       publishing:fax: ''
-      publishing:featureditemstitle: sdfsdf
+      publishing:featureditemstitle: Featured Items
       publishing:featuredrole: ''
       publishing:featuredroledescription: ''
       publishing:featuredrolename: ''
       publishing:featuredservicestitle: Our services
       publishing:flickr: ''
-      publishing:metaDescription: sdfsdf
-      publishing:organisationtitle: sdfsdf
+      publishing:metaDescription: Provides information and helpful advice on travel,
+        accommodation and things to see and do in Scotland.
+      publishing:organisationtitle: VisitScotland
       publishing:phone: ''
       publishing:pinned: false
-      publishing:sector: commissioners-and-ombudsmen
-      publishing:seoTitle: qwert
-      publishing:serviceprovider: accountant-in-bankruptcy
+      publishing:sector: non-departmental-public-body-ndpb
+      publishing:seoTitle: VisitScotland
+      publishing:serviceprovider: visitscotland
       publishing:serviceproviders: []
-      publishing:summary: asdasd
-      publishing:title: qwert
+      publishing:summary: Provides information and helpful advice on travel, accommodation
+        and things to see and do in Scotland.
+      publishing:title: VisitScotland
       publishing:twitter: ''
       publishing:website: ''
       publishing:youtube: ''
       /publishing:content:
         jcr:primaryType: hippostd:html
-        hippostd:content: <p>asdasd</p>
+        hippostd:content: ''
       /publishing:logo:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -167,7 +170,7 @@
         hippo:values: []
       /publishing:notices:
         jcr:primaryType: hippostd:html
-        hippostd:content: <p>asdads</p>
+        hippostd:content: ''
       /publishing:featuredroleimage:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -177,18 +180,17 @@
       /publishing:organisationstructure:
         jcr:primaryType: hippostd:html
         hippostd:content: ''
-    /qwert[2]:
+    /visitscotland[2]:
       jcr:primaryType: publishing:organisation
       jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
-      jcr:uuid: 36992463-a8d6-4b9e-a2f9-024fabbdec57
+      jcr:uuid: deeb9ed9-177c-47fc-9fbb-3ffe57a9bb9c
       hippo:availability: [preview]
       hippostd:state: unpublished
-      hippostd:tags: [QWERT]
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2020-09-04T14:49:47.559+01:00
-      hippostdpubwf:lastModificationDate: 2020-09-04T14:50:28.010+01:00
+      hippostdpubwf:creationDate: 2020-10-01T08:21:07.935+01:00
+      hippostdpubwf:lastModificationDate: 2020-10-01T08:25:17.252+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: b3a3078e-6382-44ae-9878-efa68f2b9969
+      hippotranslation:id: 7cc31b08-35ff-4850-a328-022b189df908
       hippotranslation:locale: document-type-locale
       publishing:address: ''
       publishing:authorNotes: ''
@@ -196,28 +198,30 @@
       publishing:email: ''
       publishing:facebook: ''
       publishing:fax: ''
-      publishing:featureditemstitle: sdfsdf
+      publishing:featureditemstitle: Featured Items
       publishing:featuredrole: ''
       publishing:featuredroledescription: ''
       publishing:featuredrolename: ''
       publishing:featuredservicestitle: Our services
       publishing:flickr: ''
-      publishing:metaDescription: sdfsdf
-      publishing:organisationtitle: sdfsdf
+      publishing:metaDescription: Provides information and helpful advice on travel,
+        accommodation and things to see and do in Scotland.
+      publishing:organisationtitle: VisitScotland
       publishing:phone: ''
       publishing:pinned: false
-      publishing:sector: commissioners-and-ombudsmen
-      publishing:seoTitle: qwert
-      publishing:serviceprovider: accountant-in-bankruptcy
+      publishing:sector: non-departmental-public-body-ndpb
+      publishing:seoTitle: VisitScotland
+      publishing:serviceprovider: visitscotland
       publishing:serviceproviders: []
-      publishing:summary: asdasd
-      publishing:title: qwert
+      publishing:summary: Provides information and helpful advice on travel, accommodation
+        and things to see and do in Scotland.
+      publishing:title: VisitScotland
       publishing:twitter: ''
       publishing:website: ''
       publishing:youtube: ''
       /publishing:content:
         jcr:primaryType: hippostd:html
-        hippostd:content: <p>asdasd</p>
+        hippostd:content: ''
       /publishing:logo:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -226,7 +230,68 @@
         hippo:values: []
       /publishing:notices:
         jcr:primaryType: hippostd:html
-        hippostd:content: <p>asdads</p>
+        hippostd:content: ''
+      /publishing:featuredroleimage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:organisationstructure:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+    /visitscotland[3]:
+      jcr:primaryType: publishing:organisation
+      jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: b8d6a613-a933-49e8-91d5-222b32617c43
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2020-10-01T08:21:07.935+01:00
+      hippostdpubwf:lastModificationDate: 2020-10-01T08:25:17.252+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2020-10-01T08:25:20.288+01:00
+      hippotranslation:id: 7cc31b08-35ff-4850-a328-022b189df908
+      hippotranslation:locale: document-type-locale
+      publishing:address: ''
+      publishing:authorNotes: ''
+      publishing:blog: ''
+      publishing:email: ''
+      publishing:facebook: ''
+      publishing:fax: ''
+      publishing:featureditemstitle: Featured Items
+      publishing:featuredrole: ''
+      publishing:featuredroledescription: ''
+      publishing:featuredrolename: ''
+      publishing:featuredservicestitle: Our services
+      publishing:flickr: ''
+      publishing:metaDescription: Provides information and helpful advice on travel,
+        accommodation and things to see and do in Scotland.
+      publishing:organisationtitle: VisitScotland
+      publishing:phone: ''
+      publishing:pinned: false
+      publishing:sector: non-departmental-public-body-ndpb
+      publishing:seoTitle: VisitScotland
+      publishing:serviceprovider: visitscotland
+      publishing:serviceproviders: []
+      publishing:summary: Provides information and helpful advice on travel, accommodation
+        and things to see and do in Scotland.
+      publishing:title: VisitScotland
+      publishing:twitter: ''
+      publishing:website: ''
+      publishing:youtube: ''
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /publishing:logo:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:notices:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
       /publishing:featuredroleimage:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe

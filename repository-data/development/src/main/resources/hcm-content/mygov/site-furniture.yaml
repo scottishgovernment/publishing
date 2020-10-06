@@ -1,0 +1,1599 @@
+/content/documents/mygov/site-furniture:
+  .meta:order-before: organisations
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 8e3ba899-5497-433d-9bc3-a4139aecf8df
+  hippo:name: Site Furniture
+  hippostd:foldertype: [new-document, new-folder]
+  /search:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: c68fad5e-3fb2-48b9-9356-a3fd224e7a08
+    hippostd:foldertype: []
+    /search-results:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 10a6941b-f607-4116-baa7-88419966922e
+      hippo:name: Search results
+      hippo:versionHistory: 454ec5c5-5b87-4680-8e3a-0649a5b2aaf5
+      /search-results[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
+        jcr:uuid: 1a5e1954-6245-49c7-b107-81673999b135
+        hippo:availability: []
+        hippo:name: Search results
+        hippostd:state: draft
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
+        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:07.324+01:00
+        hippostdpubwf:lastModifiedBy: system
+        hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: ''
+        publishing:mygovid: MYGOV-585
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Search results
+        publishing:serviceproviders: []
+        publishing:slug: search
+        publishing:summary: ''
+        publishing:title: Search results
+        publishing:urlAliases:
+          type: double
+          value: []
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+      /search-results[2]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable', 'mix:versionable']
+        jcr:uuid: 2fe1fd06-6704-490c-ad44-feea8bd36dca
+        hippo:availability: [preview]
+        hippo:name: Search results
+        hippostd:state: unpublished
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
+        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:07.667+01:00
+        hippostdpubwf:lastModifiedBy: system
+        hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: ''
+        publishing:mygovid: MYGOV-585
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Search results
+        publishing:serviceproviders: []
+        publishing:slug: search
+        publishing:summary: ''
+        publishing:title: Search results
+        publishing:urlAliases:
+          type: double
+          value: []
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+      /search-results[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
+        jcr:uuid: 2e5bc107-34b6-4d20-842a-762a815ebcc9
+        hippo:availability: [live]
+        hippo:name: Search results
+        hippostd:state: published
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
+        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:07.667+01:00
+        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:publicationDate: 2020-08-17T07:16:07.842+01:00
+        hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: ''
+        publishing:mygovid: MYGOV-585
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Search results
+        publishing:serviceproviders: []
+        publishing:slug: search
+        publishing:summary: ''
+        publishing:title: Search results
+        publishing:urlAliases:
+          type: double
+          value: []
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+  /banners:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: e6941ecc-051e-4bf4-bcb6-c6c76c392fcd
+    hippostd:foldertype: [new-notification-banner]
+    /coronavirus-banner:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 9732a6cb-57b6-4462-bf44-5e0eb0ca8f85
+      hippo:name: Coronavirus Banner
+      hippo:versionHistory: 653d02b4-8887-4603-9dac-dfb2dc7c9dc4
+      /coronavirus-banner[1]:
+        jcr:primaryType: publishing:notificationbanner
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 38d222f9-b3e1-4943-9627-684d53af36f4
+        hippo:availability: []
+        hippo:name: Coronavirus Banner
+        hippostd:state: draft
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:16:04.495+01:00
+        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:04.495+01:00
+        hippostdpubwf:lastModifiedBy: system
+        hippotranslation:id: b4497c73-cd46-4d56-a6f5-dfc63c693a24
+        hippotranslation:locale: document-type-locale
+        publishing:authorNotes: 16/04/20 - Eilidh M - replaced link to gov.scot coronavirus
+          hub with mygov coronavirus hub link
+        publishing:bannertype: importantbanner
+        publishing:closeable: true
+        publishing:metaDescription: 'Coronavirus (COVID-19): what you need to know'
+        publishing:mygovid: MYGOV-2835
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:sensitive: false
+        publishing:seoTitle: Coronavirus Banner
+        publishing:summary: 'Coronavirus (COVID-19): what you need to know'
+        publishing:title: Coronavirus Banner
+        publishing:urlAliases:
+          type: double
+          value: []
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p><a href=\"support-for-people-affected-by-coronavirus-covid-19\"\
+            >Coronavirus (COVID-19): what you need to know</a></p> \n </body>\n</html>"
+          /support-for-people-affected-by-coronavirus-covid-19:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: fbe852e7-b763-4ae4-aedf-b2831c7b907e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /coronavirus-banner[2]:
+        jcr:primaryType: publishing:notificationbanner
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+          'mix:versionable']
+        jcr:uuid: 573c734a-33aa-4483-a041-e9fea7556e04
+        hippo:availability: [preview]
+        hippo:name: Coronavirus Banner
+        hippostd:state: unpublished
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:16:04.495+01:00
+        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:05.907+01:00
+        hippostdpubwf:lastModifiedBy: system
+        hippotranslation:id: b4497c73-cd46-4d56-a6f5-dfc63c693a24
+        hippotranslation:locale: document-type-locale
+        publishing:authorNotes: 16/04/20 - Eilidh M - replaced link to gov.scot coronavirus
+          hub with mygov coronavirus hub link
+        publishing:bannertype: importantbanner
+        publishing:closeable: true
+        publishing:metaDescription: 'Coronavirus (COVID-19): what you need to know'
+        publishing:mygovid: MYGOV-2835
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:sensitive: false
+        publishing:seoTitle: Coronavirus Banner
+        publishing:summary: 'Coronavirus (COVID-19): what you need to know'
+        publishing:title: Coronavirus Banner
+        publishing:urlAliases:
+          type: double
+          value: []
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p><a href=\"support-for-people-affected-by-coronavirus-covid-19\"\
+            >Coronavirus (COVID-19): what you need to know</a></p> \n </body>\n</html>"
+          /support-for-people-affected-by-coronavirus-covid-19:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: fbe852e7-b763-4ae4-aedf-b2831c7b907e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /coronavirus-banner[3]:
+        jcr:primaryType: publishing:notificationbanner
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: f9397287-1ef9-40eb-bae8-c93db9923911
+        hippo:availability: [live]
+        hippo:name: Coronavirus Banner
+        hippostd:state: published
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:16:04.495+01:00
+        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:05.907+01:00
+        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:publicationDate: 2020-08-17T07:16:06.361+01:00
+        hippotranslation:id: b4497c73-cd46-4d56-a6f5-dfc63c693a24
+        hippotranslation:locale: document-type-locale
+        publishing:authorNotes: 16/04/20 - Eilidh M - replaced link to gov.scot coronavirus
+          hub with mygov coronavirus hub link
+        publishing:bannertype: importantbanner
+        publishing:closeable: true
+        publishing:metaDescription: 'Coronavirus (COVID-19): what you need to know'
+        publishing:mygovid: MYGOV-2835
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:sensitive: false
+        publishing:seoTitle: Coronavirus Banner
+        publishing:summary: 'Coronavirus (COVID-19): what you need to know'
+        publishing:title: Coronavirus Banner
+        publishing:urlAliases:
+          type: double
+          value: []
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p><a href=\"support-for-people-affected-by-coronavirus-covid-19\"\
+            >Coronavirus (COVID-19): what you need to know</a></p> \n </body>\n</html>"
+          /support-for-people-affected-by-coronavirus-covid-19:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: fbe852e7-b763-4ae4-aedf-b2831c7b907e
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+  /sectors:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: fa40bf4b-fbd8-48ac-99df-efd8a0b39625
+    hippostd:foldertype: [new-publishing-sector]
+    /non-departmental-public-body-ndpb:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 4711a887-7ddc-44a5-a943-78cd66522bb1
+      hippo:name: Non Departmental Public Body (NDPB)
+      hippo:versionHistory: 251e06cc-f28f-4523-a192-a18423a2a962
+      /non-departmental-public-body-ndpb[1]:
+        jcr:primaryType: publishing:sector
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: cbfe71d8-f20d-4dc3-a917-19a931cd8b64
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-01T08:31:27.867+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T08:31:27.867+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ebabf443-b54e-4fff-bad7-c1b34c01eb60
+        hippotranslation:locale: document-type-locale
+        publishing:description: <p>Executive NDPBs have a national remit and carry
+          out functions at arm's length from Government. Advisory NDPBs carry out
+          advisory functions and give advice to Ministers and others.</p>
+        publishing:sector: non-departmental-public-body-ndpb
+        publishing:title: Non Departmental Public Body (NDPB)
+      /non-departmental-public-body-ndpb[2]:
+        jcr:primaryType: publishing:sector
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 6989dadf-7e84-4d6e-99ae-66d14ea738e4
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-01T08:31:27.867+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T08:31:55.250+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ebabf443-b54e-4fff-bad7-c1b34c01eb60
+        hippotranslation:locale: document-type-locale
+        publishing:description: <p>Executive NDPBs have a national remit and carry
+          out functions at arm's length from Government. Advisory NDPBs carry out
+          advisory functions and give advice to Ministers and others.</p>
+        publishing:sector: non-departmental-public-body-ndpb
+        publishing:title: Non Departmental Public Body (NDPB)
+      /non-departmental-public-body-ndpb[3]:
+        jcr:primaryType: publishing:sector
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 95690cf5-a375-41a7-82ab-5303e81c2f67
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-10-01T08:31:27.867+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T08:31:55.250+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-10-01T08:31:56.867+01:00
+        hippotranslation:id: ebabf443-b54e-4fff-bad7-c1b34c01eb60
+        hippotranslation:locale: document-type-locale
+        publishing:description: <p>Executive NDPBs have a national remit and carry
+          out functions at arm's length from Government. Advisory NDPBs carry out
+          advisory functions and give advice to Ministers and others.</p>
+        publishing:sector: non-departmental-public-body-ndpb
+        publishing:title: Non Departmental Public Body (NDPB)
+  /footer:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: b68c7d86-c097-4e95-92e7-bd0893b22c5c
+    hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
+    /about:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: d5dbe0f4-b808-4606-a0e3-1209a3649886
+      hippo:name: About
+      hippo:versionHistory: cbbb2d6e-c821-485b-90e7-606746ccce60
+      /about[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
+        jcr:uuid: 4474b596-8b0c-4bf6-9da0-7c27a461d743
+        hippo:availability: []
+        hippo:name: About
+        hippostd:state: draft
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:36:39.165+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:06.249+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 1d703c5b-f0e0-4fde-b705-86d6897c5d2b
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: About mygov.scot.
+        publishing:mygovid: MYGOV-262
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: About
+        publishing:serviceproviders: []
+        publishing:slug: about-mygovscot
+        publishing:summary: About mygov.scot.
+        publishing:title: About
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>Mygov.scot gives\
+            \ people and businesses information about and access to public services\
+            \ in Scotland.</p> \n  <p>We work closely with public sector organisations\
+            \ to make public services easy to find and understand.</p> \n  <h2 id=\"\
+            feedback\">Feedback</h2> \n  <p>We use feedback to improve the information\
+            \ and access to services on mygov.scot.</p> \n  <p><a href=\"feedback\"\
+            >Share your feedback</a> to help us make it better.</p> \n  <h2 id=\"\
+            freedom-of-information\">Freedom of Information</h2> \n  <p>You have a\
+            \ legal right to access information held by public authorities. Visit\
+            \ gov.scot If you want to <a href=\"https://www.gov.scot/about/contact-information/how-to-request-information/\"\
+            >find out more about Freedom of Information requests</a>.</p> \n  <h2\
+            \ id=\"archive\">Archive</h2> \n  <p>We aim to keep mygov.scot content\
+            \ up to date and accurate. This means that we remove content when we no\
+            \ longer think it meets the needs of users. If you're looking to view\
+            \ past versions of this site you can access archives which are maintained\
+            \ by:</p> \n  <ul> \n   <li><a href=\"https://www.webarchive.org.uk/wayback/en/archive/*/https:/www.mygov.scot/\"\
+            >National Library of Scotland</a></li> \n   <li><a href=\"https://wayback.archive-it.org/10682/*/https:/www.mygov.scot/\"\
+            >National Records of Scotland</a></li> \n  </ul> \n  <h2 id=\"re-using-crown-copyright-material\"\
+            >Re-using Crown copyright material</h2> \n  <p>Crown copyright covers\
+            \ anything created by:</p> \n  <ul> \n   <li>civil servants</li> \n  \
+            \ <li>ministers</li> \n   <li>government departments</li> \n   <li>government\
+            \ agencies</li> \n  </ul> \n  <p>You can use anything under Crown Copyright,\
+            \ apart from logos, free of charge under the <a href=\"http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\"\
+            >terms of the Open Government Licence</a>.</p> \n  <p>Any questions about\
+            \ using this information should be sent to <a href=\"mailto:psi@nationalarchives.gsi.gov.uk\"\
+            >psi@nationalarchives.gsi.gov.uk</a></p> \n  <h3 id=\"re-using-third-party-material\"\
+            >Re-using third party material</h3> \n  <p>Some images on the website\
+            \ may be under copyright by a third party, so they're not covered by Crown\
+            \ Copyright. </p> \n  <p>If you want to use this material you must get\
+            \ permission from the copyright holder. You can check if items are copyrighted\
+            \ by contacting: <a href=\"mailto:contentupdates@gov.scot\">contentupdates@gov.scot</a></p>\
+            \ \n  <h3 id=\"more-information\">More information</h3> \n  <p>For more\
+            \ information on Crown copyright policy and licensing arrangements, see\
+            \ the <a href=\"http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/\"\
+            >National Archives guidance</a>.</p> \n </body>\n</html>"
+          /feedback:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 128572b5-5829-4a33-9a8b-36ad2c8f15af
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /about[2]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable', 'mix:versionable']
+        jcr:uuid: 33ee0ac2-30e8-442b-a804-1e586797c0c7
+        hippo:availability: [preview]
+        hippo:name: About
+        hippostd:state: unpublished
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:36:39.165+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:06.221+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 1d703c5b-f0e0-4fde-b705-86d6897c5d2b
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: About mygov.scot.
+        publishing:mygovid: MYGOV-262
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: About
+        publishing:serviceproviders: []
+        publishing:slug: about-mygovscot
+        publishing:summary: About mygov.scot.
+        publishing:title: About
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>Mygov.scot gives\
+            \ people and businesses information about and access to public services\
+            \ in Scotland.</p> \n  <p>We work closely with public sector organisations\
+            \ to make public services easy to find and understand.</p> \n  <h2 id=\"\
+            feedback\">Feedback</h2> \n  <p>We use feedback to improve the information\
+            \ and access to services on mygov.scot.</p> \n  <p><a href=\"feedback\"\
+            >Share your feedback</a> to help us make it better.</p> \n  <h2 id=\"\
+            freedom-of-information\">Freedom of Information</h2> \n  <p>You have a\
+            \ legal right to access information held by public authorities. Visit\
+            \ gov.scot If you want to <a href=\"https://www.gov.scot/about/contact-information/how-to-request-information/\"\
+            >find out more about Freedom of Information requests</a>.</p> \n  <h2\
+            \ id=\"archive\">Archive</h2> \n  <p>We aim to keep mygov.scot content\
+            \ up to date and accurate. This means that we remove content when we no\
+            \ longer think it meets the needs of users. If you're looking to view\
+            \ past versions of this site you can access archives which are maintained\
+            \ by:</p> \n  <ul> \n   <li><a href=\"https://www.webarchive.org.uk/wayback/en/archive/*/https:/www.mygov.scot/\"\
+            >National Library of Scotland</a></li> \n   <li><a href=\"https://wayback.archive-it.org/10682/*/https:/www.mygov.scot/\"\
+            >National Records of Scotland</a></li> \n  </ul> \n  <h2 id=\"re-using-crown-copyright-material\"\
+            >Re-using Crown copyright material</h2> \n  <p>Crown copyright covers\
+            \ anything created by:</p> \n  <ul> \n   <li>civil servants</li> \n  \
+            \ <li>ministers</li> \n   <li>government departments</li> \n   <li>government\
+            \ agencies</li> \n  </ul> \n  <p>You can use anything under Crown Copyright,\
+            \ apart from logos, free of charge under the <a href=\"http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\"\
+            >terms of the Open Government Licence</a>.</p> \n  <p>Any questions about\
+            \ using this information should be sent to <a href=\"mailto:psi@nationalarchives.gsi.gov.uk\"\
+            >psi@nationalarchives.gsi.gov.uk</a></p> \n  <h3 id=\"re-using-third-party-material\"\
+            >Re-using third party material</h3> \n  <p>Some images on the website\
+            \ may be under copyright by a third party, so they're not covered by Crown\
+            \ Copyright. </p> \n  <p>If you want to use this material you must get\
+            \ permission from the copyright holder. You can check if items are copyrighted\
+            \ by contacting: <a href=\"mailto:contentupdates@gov.scot\">contentupdates@gov.scot</a></p>\
+            \ \n  <h3 id=\"more-information\">More information</h3> \n  <p>For more\
+            \ information on Crown copyright policy and licensing arrangements, see\
+            \ the <a href=\"http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/\"\
+            >National Archives guidance</a>.</p> \n </body>\n</html>"
+          /feedback:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 128572b5-5829-4a33-9a8b-36ad2c8f15af
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /about[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
+        jcr:uuid: 6aed7899-e19e-4bc1-8466-bd1c338c07ec
+        hippo:availability: [live]
+        hippo:name: About
+        hippostd:state: published
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:36:39.165+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:06.221+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-10-01T09:33:08.643+01:00
+        hippotranslation:id: 1d703c5b-f0e0-4fde-b705-86d6897c5d2b
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: About mygov.scot.
+        publishing:mygovid: MYGOV-262
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: About
+        publishing:serviceproviders: []
+        publishing:slug: about-mygovscot
+        publishing:summary: About mygov.scot.
+        publishing:title: About
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>Mygov.scot gives\
+            \ people and businesses information about and access to public services\
+            \ in Scotland.</p> \n  <p>We work closely with public sector organisations\
+            \ to make public services easy to find and understand.</p> \n  <h2 id=\"\
+            feedback\">Feedback</h2> \n  <p>We use feedback to improve the information\
+            \ and access to services on mygov.scot.</p> \n  <p><a href=\"feedback\"\
+            >Share your feedback</a> to help us make it better.</p> \n  <h2 id=\"\
+            freedom-of-information\">Freedom of Information</h2> \n  <p>You have a\
+            \ legal right to access information held by public authorities. Visit\
+            \ gov.scot If you want to <a href=\"https://www.gov.scot/about/contact-information/how-to-request-information/\"\
+            >find out more about Freedom of Information requests</a>.</p> \n  <h2\
+            \ id=\"archive\">Archive</h2> \n  <p>We aim to keep mygov.scot content\
+            \ up to date and accurate. This means that we remove content when we no\
+            \ longer think it meets the needs of users. If you're looking to view\
+            \ past versions of this site you can access archives which are maintained\
+            \ by:</p> \n  <ul> \n   <li><a href=\"https://www.webarchive.org.uk/wayback/en/archive/*/https:/www.mygov.scot/\"\
+            >National Library of Scotland</a></li> \n   <li><a href=\"https://wayback.archive-it.org/10682/*/https:/www.mygov.scot/\"\
+            >National Records of Scotland</a></li> \n  </ul> \n  <h2 id=\"re-using-crown-copyright-material\"\
+            >Re-using Crown copyright material</h2> \n  <p>Crown copyright covers\
+            \ anything created by:</p> \n  <ul> \n   <li>civil servants</li> \n  \
+            \ <li>ministers</li> \n   <li>government departments</li> \n   <li>government\
+            \ agencies</li> \n  </ul> \n  <p>You can use anything under Crown Copyright,\
+            \ apart from logos, free of charge under the <a href=\"http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\"\
+            >terms of the Open Government Licence</a>.</p> \n  <p>Any questions about\
+            \ using this information should be sent to <a href=\"mailto:psi@nationalarchives.gsi.gov.uk\"\
+            >psi@nationalarchives.gsi.gov.uk</a></p> \n  <h3 id=\"re-using-third-party-material\"\
+            >Re-using third party material</h3> \n  <p>Some images on the website\
+            \ may be under copyright by a third party, so they're not covered by Crown\
+            \ Copyright. </p> \n  <p>If you want to use this material you must get\
+            \ permission from the copyright holder. You can check if items are copyrighted\
+            \ by contacting: <a href=\"mailto:contentupdates@gov.scot\">contentupdates@gov.scot</a></p>\
+            \ \n  <h3 id=\"more-information\">More information</h3> \n  <p>For more\
+            \ information on Crown copyright policy and licensing arrangements, see\
+            \ the <a href=\"http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/\"\
+            >National Archives guidance</a>.</p> \n </body>\n</html>"
+          /feedback:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 128572b5-5829-4a33-9a8b-36ad2c8f15af
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /accessibility:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: c64f1c2f-b17e-43b9-b7d4-5b91fb7bb11f
+      hippo:name: Accessibility
+      hippo:versionHistory: 28a9fbbe-f763-4aba-ae44-52bee7d36729
+      /accessibility[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
+        jcr:uuid: 764901cb-2f08-4d01-a8fa-2095bb4a02cd
+        hippo:availability: []
+        hippo:name: Accessibility
+        hippostd:state: draft
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:36:39.845+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:29.512+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f4e5a19c-9125-486b-9971-a350246044bf
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: 19/09/19 - Updated state to meet new regulations.
+          kevin.white@gov.scot is the SME.
+        publishing:metaDescription: Website accessibility on mygov.scot
+        publishing:mygovid: MYGOV-263
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:slug: accessibility
+        publishing:summary: Website accessibility on mygov.scot
+        publishing:title: Accessibility
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>We want mygov.scot\
+            \ to be accessible and usable for as many people as possible. </p> \n\
+            \  <p>We try to make our site more accessible by using:</p> \n  <ul> \n\
+            \   <li>easier-to-read colours</li> \n   <li>larger fonts</li> \n   <li>plain\
+            \ English</li> \n   <li>keyboard only navigation</li> \n  </ul> \n  <h2\
+            \ id=\"feedback\">Feedback</h2> \n  <p>If you cannot access any part of\
+            \ this site or want to report an accessibility problem, please <a href=\"\
+            feedback\">tell us</a>.</p> \n  <h3 id=\"enforcement-procedure\">Enforcement\
+            \ procedure</h3> \n  <p>The Equality and Human Rights Commission enforces\
+            \ the <a href=\"http://www.legislation.gov.uk/uksi/2018/952/regulation/4/made\"\
+            >accessibility regulations</a> (the Public Sector Bodies (Websites and\
+            \ Mobile Applications) (No. 2) Accessibility Regulations 2018).</p> \n\
+            \  <p>If you're not happy with how we respond to your feedback, <a href=\"\
+            https://www.equalityadvisoryservice.com/\">contact the Equality Advisory\
+            \ and Support Service</a>. They are an independent advice service. They\
+            \ will advise you on what to do next.</p> \n  <h2 id=\"compliance-statement\"\
+            >Compliance statement</h2> \n  <p>Scottish Government commits to making\
+            \ its websites accessible in line with the accessibility regulations.\
+            \ This accessibility statement applies to mygov.scot. It was prepared\
+            \ on 19 September 2019.</p> \n  <p>This website is partially compliant\
+            \ with the <a href=\"https://www.w3.org/TR/WCAG21/\">Web Content Accessibility\
+            \ Guidelines version 2.1</a> (WCAG) A and AA success criteria.</p> \n\
+            \  <p>An external accessibility expert audited the website in March 2019.\
+            \ Most issues found were fixed. The following issues were not.</p> \n\
+            \  <h3 id=\"non-accessible-content\">Non-accessible content</h3> \n  <h4\
+            \ id=\"not-compliant-with-the-accessibility-regulations\">Not compliant\
+            \ with the accessibility regulations</h4> \n  <ol> \n   <li><p>Date pickers\
+            \ are not available to or usable by screen readers. The elements are not\
+            \ keyboard operable. You can still enter dates using the text field.</p>\
+            \ </li> \n   <li><p>Some links are identified by colour alone. For example\
+            \ results on the search page. This is under review.</p> </li> \n  </ol>\
+            \ \n  <h4 id=\"not-fully-covered-by-the-accessibility-regulations\">Not\
+            \ fully covered by the accessibility regulations</h4> \n  <p>The accessibility\
+            \ regulations do not need us to fix PDFs or other documents published\
+            \ before 23 September 2018 if they're not essential to providing our services.\
+            \ </p> \n  <p>By September 2020, we plan to either fix these or replace\
+            \ them with accessible HTML pages.</p> \n </body>\n</html>"
+          /feedback:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 128572b5-5829-4a33-9a8b-36ad2c8f15af
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /accessibility[2]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable', 'mix:versionable']
+        jcr:uuid: 0ce74d5e-df0e-4647-a59e-35234bf64121
+        hippo:availability: [preview]
+        hippo:name: Accessibility
+        hippostd:state: unpublished
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:36:39.845+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:29.465+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f4e5a19c-9125-486b-9971-a350246044bf
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: 19/09/19 - Updated state to meet new regulations.
+          kevin.white@gov.scot is the SME.
+        publishing:metaDescription: Website accessibility on mygov.scot
+        publishing:mygovid: MYGOV-263
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:slug: accessibility
+        publishing:summary: Website accessibility on mygov.scot
+        publishing:title: Accessibility
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>We want mygov.scot\
+            \ to be accessible and usable for as many people as possible. </p> \n\
+            \  <p>We try to make our site more accessible by using:</p> \n  <ul> \n\
+            \   <li>easier-to-read colours</li> \n   <li>larger fonts</li> \n   <li>plain\
+            \ English</li> \n   <li>keyboard only navigation</li> \n  </ul> \n  <h2\
+            \ id=\"feedback\">Feedback</h2> \n  <p>If you cannot access any part of\
+            \ this site or want to report an accessibility problem, please <a href=\"\
+            feedback\">tell us</a>.</p> \n  <h3 id=\"enforcement-procedure\">Enforcement\
+            \ procedure</h3> \n  <p>The Equality and Human Rights Commission enforces\
+            \ the <a href=\"http://www.legislation.gov.uk/uksi/2018/952/regulation/4/made\"\
+            >accessibility regulations</a> (the Public Sector Bodies (Websites and\
+            \ Mobile Applications) (No. 2) Accessibility Regulations 2018).</p> \n\
+            \  <p>If you're not happy with how we respond to your feedback, <a href=\"\
+            https://www.equalityadvisoryservice.com/\">contact the Equality Advisory\
+            \ and Support Service</a>. They are an independent advice service. They\
+            \ will advise you on what to do next.</p> \n  <h2 id=\"compliance-statement\"\
+            >Compliance statement</h2> \n  <p>Scottish Government commits to making\
+            \ its websites accessible in line with the accessibility regulations.\
+            \ This accessibility statement applies to mygov.scot. It was prepared\
+            \ on 19 September 2019.</p> \n  <p>This website is partially compliant\
+            \ with the <a href=\"https://www.w3.org/TR/WCAG21/\">Web Content Accessibility\
+            \ Guidelines version 2.1</a> (WCAG) A and AA success criteria.</p> \n\
+            \  <p>An external accessibility expert audited the website in March 2019.\
+            \ Most issues found were fixed. The following issues were not.</p> \n\
+            \  <h3 id=\"non-accessible-content\">Non-accessible content</h3> \n  <h4\
+            \ id=\"not-compliant-with-the-accessibility-regulations\">Not compliant\
+            \ with the accessibility regulations</h4> \n  <ol> \n   <li><p>Date pickers\
+            \ are not available to or usable by screen readers. The elements are not\
+            \ keyboard operable. You can still enter dates using the text field.</p>\
+            \ </li> \n   <li><p>Some links are identified by colour alone. For example\
+            \ results on the search page. This is under review.</p> </li> \n  </ol>\
+            \ \n  <h4 id=\"not-fully-covered-by-the-accessibility-regulations\">Not\
+            \ fully covered by the accessibility regulations</h4> \n  <p>The accessibility\
+            \ regulations do not need us to fix PDFs or other documents published\
+            \ before 23 September 2018 if they're not essential to providing our services.\
+            \ </p> \n  <p>By September 2020, we plan to either fix these or replace\
+            \ them with accessible HTML pages.</p> \n </body>\n</html>"
+          /feedback:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 128572b5-5829-4a33-9a8b-36ad2c8f15af
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /accessibility[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
+        jcr:uuid: 3b0f0530-de6b-4e50-bcb3-1d5429435c8a
+        hippo:availability: [live]
+        hippo:name: Accessibility
+        hippostd:state: published
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:36:39.845+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:29.465+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-10-01T09:33:31.459+01:00
+        hippotranslation:id: f4e5a19c-9125-486b-9971-a350246044bf
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: 19/09/19 - Updated state to meet new regulations.
+          kevin.white@gov.scot is the SME.
+        publishing:metaDescription: Website accessibility on mygov.scot
+        publishing:mygovid: MYGOV-263
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:slug: accessibility
+        publishing:summary: Website accessibility on mygov.scot
+        publishing:title: Accessibility
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>We want mygov.scot\
+            \ to be accessible and usable for as many people as possible. </p> \n\
+            \  <p>We try to make our site more accessible by using:</p> \n  <ul> \n\
+            \   <li>easier-to-read colours</li> \n   <li>larger fonts</li> \n   <li>plain\
+            \ English</li> \n   <li>keyboard only navigation</li> \n  </ul> \n  <h2\
+            \ id=\"feedback\">Feedback</h2> \n  <p>If you cannot access any part of\
+            \ this site or want to report an accessibility problem, please <a href=\"\
+            feedback\">tell us</a>.</p> \n  <h3 id=\"enforcement-procedure\">Enforcement\
+            \ procedure</h3> \n  <p>The Equality and Human Rights Commission enforces\
+            \ the <a href=\"http://www.legislation.gov.uk/uksi/2018/952/regulation/4/made\"\
+            >accessibility regulations</a> (the Public Sector Bodies (Websites and\
+            \ Mobile Applications) (No. 2) Accessibility Regulations 2018).</p> \n\
+            \  <p>If you're not happy with how we respond to your feedback, <a href=\"\
+            https://www.equalityadvisoryservice.com/\">contact the Equality Advisory\
+            \ and Support Service</a>. They are an independent advice service. They\
+            \ will advise you on what to do next.</p> \n  <h2 id=\"compliance-statement\"\
+            >Compliance statement</h2> \n  <p>Scottish Government commits to making\
+            \ its websites accessible in line with the accessibility regulations.\
+            \ This accessibility statement applies to mygov.scot. It was prepared\
+            \ on 19 September 2019.</p> \n  <p>This website is partially compliant\
+            \ with the <a href=\"https://www.w3.org/TR/WCAG21/\">Web Content Accessibility\
+            \ Guidelines version 2.1</a> (WCAG) A and AA success criteria.</p> \n\
+            \  <p>An external accessibility expert audited the website in March 2019.\
+            \ Most issues found were fixed. The following issues were not.</p> \n\
+            \  <h3 id=\"non-accessible-content\">Non-accessible content</h3> \n  <h4\
+            \ id=\"not-compliant-with-the-accessibility-regulations\">Not compliant\
+            \ with the accessibility regulations</h4> \n  <ol> \n   <li><p>Date pickers\
+            \ are not available to or usable by screen readers. The elements are not\
+            \ keyboard operable. You can still enter dates using the text field.</p>\
+            \ </li> \n   <li><p>Some links are identified by colour alone. For example\
+            \ results on the search page. This is under review.</p> </li> \n  </ol>\
+            \ \n  <h4 id=\"not-fully-covered-by-the-accessibility-regulations\">Not\
+            \ fully covered by the accessibility regulations</h4> \n  <p>The accessibility\
+            \ regulations do not need us to fix PDFs or other documents published\
+            \ before 23 September 2018 if they're not essential to providing our services.\
+            \ </p> \n  <p>By September 2020, we plan to either fix these or replace\
+            \ them with accessible HTML pages.</p> \n </body>\n</html>"
+          /feedback:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 128572b5-5829-4a33-9a8b-36ad2c8f15af
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /cookies:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: caf08bcd-4f67-4c88-a87b-6adc08160986
+      hippo:name: Cookies
+      hippo:versionHistory: 86e28bf7-6b8e-4e5e-804d-e1f6f376bc3d
+      /cookies[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
+        jcr:uuid: 835e4fe4-56d7-4366-b948-24196fa0a9bc
+        hippo:availability: []
+        hippo:name: Cookies
+        hippostd:state: draft
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:36:40.238+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:34.213+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 79da858c-d7a7-442f-9caa-ae31a14aa96d
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Cookie information for mygov.scot.
+        publishing:mygovid: MYGOV-265
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:slug: cookies
+        publishing:summary: Cookie information for mygov.scot.
+        publishing:title: Cookies
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>A cookie lets a\
+            \ website recognise your device and store some information about your\
+            \ preferences or interactions.</p> \n  <h2 id=\"why-we-use-cookies\">Why\
+            \ we use cookies</h2> \n  <p>We use mygov.scot cookie tracking data to\
+            \ make informed decisions on whether the site is meeting your needs, which\
+            \ leads to us making improvements. For example, we monitor how much traffic\
+            \ each part of the site gets and work to improve areas which are not being\
+            \ found when they should be.</p> \n  <div class=\"info-note note\">\n\
+            \    The cookies that we set on mygov.scot cannot be used to identify\
+            \ you personally. \n   <a href=\"https://ico.org.uk/your-data-matters/online/cookies/\"\
+            >Find out more about how to manage cookies for all websites</a> \n  </div>\
+            \ \n  <h2 id=\"turn-cookies-on-or-off\">Turn cookies on or off</h2> \n\
+            \  <p>We use 3 main types of cookie on our website. You can choose which\
+            \ cookies you're happy for us to use.</p> \n  <p><a href=\"cookie-details\"\
+            >Find out more about the cookies we use</a></p> \n  <noscript> \n   <div\
+            \ class=\"info-note info-note--large-margins caution\">\n     We've detected\
+            \ from your browser that JavaScript is disabled. Please enable JavaScript\
+            \ in order to change your cookie preferences. \n   </div> \n  </noscript>\
+            \ \n  <div class=\"form-box  hidden\" id=\"cookie-form-box\"> \n   <form\
+            \ id=\"cookie-preferences\"> \n    <fieldset> \n     <legend class=\"\
+            hidden\">Turn cookies on or off</legend> \n     <div class=\"form-group\
+            \  no-top-margin\"> \n      <h3 class=\"beta  no-top-margin\">Cookies\
+            \ needed for the website to work</h3> \n      <p>These cookies do things\
+            \ like keep the website secure. They always need to be on.</p> \n    \
+            \ </div> \n     <div class=\"form-group\"> \n      <h3 class=\"beta\"\
+            >Cookies that remember your settings</h3> \n      <p>These cookies do\
+            \ things like remember pop-ups you’ve seen, so you're not shown them again.</p>\
+            \ \n      <div class=\"input-wrapper\"> \n       <input id=\"preferences-yes\"\
+            \ value=\"true\" name=\"cookie-preferences\" class=\"fancy-radio\" type=\"\
+            radio\"> \n       <label for=\"preferences-yes\" class=\"inline fancy-radio\"\
+            >On</label> \n       <input id=\"preferences-no\" value=\"false\" name=\"\
+            cookie-preferences\" class=\"fancy-radio\" type=\"radio\"> \n       <label\
+            \ for=\"preferences-no\" class=\"inline fancy-radio\">Off</label> \n \
+            \     </div> \n     </div> \n     <div class=\"form-group\"> \n      <h3\
+            \ class=\"beta\">Cookies that measure website use</h3> \n      <p>These\
+            \ cookies store information about how you use our website, such as what\
+            \ you click on.</p> \n      <div class=\"input-wrapper\"> \n       <input\
+            \ id=\"statistics-yes\" value=\"true\" name=\"cookie-statistics\" class=\"\
+            fancy-radio\" type=\"radio\"> \n       <label for=\"statistics-yes\" class=\"\
+            inline fancy-radio\">On</label> \n       <input id=\"statistics-no\" value=\"\
+            false\" name=\"cookie-statistics\" class=\"fancy-radio\" type=\"radio\"\
+            > \n       <label for=\"statistics-no\" class=\"inline fancy-radio\">Off</label>\
+            \ \n      </div> \n     </div> \n     <div id=\"cookie-success-message\"\
+            \ class=\"form-message  form-message--success  hidden  hidden--hard\"\
+            > \n      <b>Your cookie preferences have been saved.</b> \n     </div>\
+            \ \n     <p><button class=\"button  button--primary  no-bottom-margin\"\
+            \ type=\"submit\">Save cookie preferences</button> </p>\n    </fieldset>\
+            \ \n   </form>\n   <p></p> \n   <p></p>\n  </div>\n  <p></p> \n  <!--\
+            \ Browsers with ES module support load these files --> \n  <script type=\"\
+            module\" src=\"/assets/scripts/cookie-form.js\"></script> \n  <!-- Older\
+            \ browsers load these files --> \n  <!-- (and module-supporting browsers\
+            \ know *not* to load these files) --> \n  <script nomodule src=\"/assets/scripts/cookie-form.es5.js\"\
+            ></script> \n </body>\n</html>"
+          /cookie-details:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 3b4b55b0-c4c7-430a-ad56-75b2f263c562
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /cookies[2]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable', 'mix:versionable']
+        jcr:uuid: f6b6d13f-a902-42a1-a42c-f112114f35a3
+        hippo:availability: [preview]
+        hippo:name: Cookies
+        hippostd:state: unpublished
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:36:40.238+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:35.247+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 79da858c-d7a7-442f-9caa-ae31a14aa96d
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Cookie information for mygov.scot.
+        publishing:mygovid: MYGOV-265
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:slug: cookies
+        publishing:summary: Cookie information for mygov.scot.
+        publishing:title: Cookies
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>A cookie lets a\
+            \ website recognise your device and store some information about your\
+            \ preferences or interactions.</p> \n  <h2 id=\"why-we-use-cookies\">Why\
+            \ we use cookies</h2> \n  <p>We use mygov.scot cookie tracking data to\
+            \ make informed decisions on whether the site is meeting your needs, which\
+            \ leads to us making improvements. For example, we monitor how much traffic\
+            \ each part of the site gets and work to improve areas which are not being\
+            \ found when they should be.</p> \n  <div class=\"info-note note\">\n\
+            \    The cookies that we set on mygov.scot cannot be used to identify\
+            \ you personally. \n   <a href=\"https://ico.org.uk/your-data-matters/online/cookies/\"\
+            >Find out more about how to manage cookies for all websites</a> \n  </div>\
+            \ \n  <h2 id=\"turn-cookies-on-or-off\">Turn cookies on or off</h2> \n\
+            \  <p>We use 3 main types of cookie on our website. You can choose which\
+            \ cookies you're happy for us to use.</p> \n  <p><a href=\"cookie-details\"\
+            >Find out more about the cookies we use</a></p> \n  <noscript> \n   <div\
+            \ class=\"info-note info-note--large-margins caution\">\n     We've detected\
+            \ from your browser that JavaScript is disabled. Please enable JavaScript\
+            \ in order to change your cookie preferences. \n   </div> \n  </noscript>\
+            \ \n  <div class=\"form-box  hidden\" id=\"cookie-form-box\"> \n   <form\
+            \ id=\"cookie-preferences\"> \n    <fieldset> \n     <legend class=\"\
+            hidden\">Turn cookies on or off</legend> \n     <div class=\"form-group\
+            \  no-top-margin\"> \n      <h3 class=\"beta  no-top-margin\">Cookies\
+            \ needed for the website to work</h3> \n      <p>These cookies do things\
+            \ like keep the website secure. They always need to be on.</p> \n    \
+            \ </div> \n     <div class=\"form-group\"> \n      <h3 class=\"beta\"\
+            >Cookies that remember your settings</h3> \n      <p>These cookies do\
+            \ things like remember pop-ups you’ve seen, so you're not shown them again.</p>\
+            \ \n      <div class=\"input-wrapper\"> \n       <input id=\"preferences-yes\"\
+            \ value=\"true\" name=\"cookie-preferences\" class=\"fancy-radio\" type=\"\
+            radio\"> \n       <label for=\"preferences-yes\" class=\"inline fancy-radio\"\
+            >On</label> \n       <input id=\"preferences-no\" value=\"false\" name=\"\
+            cookie-preferences\" class=\"fancy-radio\" type=\"radio\"> \n       <label\
+            \ for=\"preferences-no\" class=\"inline fancy-radio\">Off</label> \n \
+            \     </div> \n     </div> \n     <div class=\"form-group\"> \n      <h3\
+            \ class=\"beta\">Cookies that measure website use</h3> \n      <p>These\
+            \ cookies store information about how you use our website, such as what\
+            \ you click on.</p> \n      <div class=\"input-wrapper\"> \n       <input\
+            \ id=\"statistics-yes\" value=\"true\" name=\"cookie-statistics\" class=\"\
+            fancy-radio\" type=\"radio\"> \n       <label for=\"statistics-yes\" class=\"\
+            inline fancy-radio\">On</label> \n       <input id=\"statistics-no\" value=\"\
+            false\" name=\"cookie-statistics\" class=\"fancy-radio\" type=\"radio\"\
+            > \n       <label for=\"statistics-no\" class=\"inline fancy-radio\">Off</label>\
+            \ \n      </div> \n     </div> \n     <div id=\"cookie-success-message\"\
+            \ class=\"form-message  form-message--success  hidden  hidden--hard\"\
+            > \n      <b>Your cookie preferences have been saved.</b> \n     </div>\
+            \ \n     <p><button class=\"button  button--primary  no-bottom-margin\"\
+            \ type=\"submit\">Save cookie preferences</button> </p>\n    </fieldset>\
+            \ \n   </form>\n   <p></p> \n   <p></p>\n  </div>\n  <p></p> \n  <!--\
+            \ Browsers with ES module support load these files --> \n  <script type=\"\
+            module\" src=\"/assets/scripts/cookie-form.js\"></script> \n  <!-- Older\
+            \ browsers load these files --> \n  <!-- (and module-supporting browsers\
+            \ know *not* to load these files) --> \n  <script nomodule src=\"/assets/scripts/cookie-form.es5.js\"\
+            ></script> \n </body>\n</html>"
+          /cookie-details:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 3b4b55b0-c4c7-430a-ad56-75b2f263c562
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /cookies[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
+        jcr:uuid: 309dea94-ed72-4561-9f17-9a9616a3e5d3
+        hippo:availability: [live]
+        hippo:name: Cookies
+        hippostd:state: published
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:36:40.238+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:35.247+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-10-01T09:33:37.150+01:00
+        hippotranslation:id: 79da858c-d7a7-442f-9caa-ae31a14aa96d
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Cookie information for mygov.scot.
+        publishing:mygovid: MYGOV-265
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:slug: cookies
+        publishing:summary: Cookie information for mygov.scot.
+        publishing:title: Cookies
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>A cookie lets a\
+            \ website recognise your device and store some information about your\
+            \ preferences or interactions.</p> \n  <h2 id=\"why-we-use-cookies\">Why\
+            \ we use cookies</h2> \n  <p>We use mygov.scot cookie tracking data to\
+            \ make informed decisions on whether the site is meeting your needs, which\
+            \ leads to us making improvements. For example, we monitor how much traffic\
+            \ each part of the site gets and work to improve areas which are not being\
+            \ found when they should be.</p> \n  <div class=\"info-note note\">\n\
+            \    The cookies that we set on mygov.scot cannot be used to identify\
+            \ you personally. \n   <a href=\"https://ico.org.uk/your-data-matters/online/cookies/\"\
+            >Find out more about how to manage cookies for all websites</a> \n  </div>\
+            \ \n  <h2 id=\"turn-cookies-on-or-off\">Turn cookies on or off</h2> \n\
+            \  <p>We use 3 main types of cookie on our website. You can choose which\
+            \ cookies you're happy for us to use.</p> \n  <p><a href=\"cookie-details\"\
+            >Find out more about the cookies we use</a></p> \n  <noscript> \n   <div\
+            \ class=\"info-note info-note--large-margins caution\">\n     We've detected\
+            \ from your browser that JavaScript is disabled. Please enable JavaScript\
+            \ in order to change your cookie preferences. \n   </div> \n  </noscript>\
+            \ \n  <div class=\"form-box  hidden\" id=\"cookie-form-box\"> \n   <form\
+            \ id=\"cookie-preferences\"> \n    <fieldset> \n     <legend class=\"\
+            hidden\">Turn cookies on or off</legend> \n     <div class=\"form-group\
+            \  no-top-margin\"> \n      <h3 class=\"beta  no-top-margin\">Cookies\
+            \ needed for the website to work</h3> \n      <p>These cookies do things\
+            \ like keep the website secure. They always need to be on.</p> \n    \
+            \ </div> \n     <div class=\"form-group\"> \n      <h3 class=\"beta\"\
+            >Cookies that remember your settings</h3> \n      <p>These cookies do\
+            \ things like remember pop-ups you’ve seen, so you're not shown them again.</p>\
+            \ \n      <div class=\"input-wrapper\"> \n       <input id=\"preferences-yes\"\
+            \ value=\"true\" name=\"cookie-preferences\" class=\"fancy-radio\" type=\"\
+            radio\"> \n       <label for=\"preferences-yes\" class=\"inline fancy-radio\"\
+            >On</label> \n       <input id=\"preferences-no\" value=\"false\" name=\"\
+            cookie-preferences\" class=\"fancy-radio\" type=\"radio\"> \n       <label\
+            \ for=\"preferences-no\" class=\"inline fancy-radio\">Off</label> \n \
+            \     </div> \n     </div> \n     <div class=\"form-group\"> \n      <h3\
+            \ class=\"beta\">Cookies that measure website use</h3> \n      <p>These\
+            \ cookies store information about how you use our website, such as what\
+            \ you click on.</p> \n      <div class=\"input-wrapper\"> \n       <input\
+            \ id=\"statistics-yes\" value=\"true\" name=\"cookie-statistics\" class=\"\
+            fancy-radio\" type=\"radio\"> \n       <label for=\"statistics-yes\" class=\"\
+            inline fancy-radio\">On</label> \n       <input id=\"statistics-no\" value=\"\
+            false\" name=\"cookie-statistics\" class=\"fancy-radio\" type=\"radio\"\
+            > \n       <label for=\"statistics-no\" class=\"inline fancy-radio\">Off</label>\
+            \ \n      </div> \n     </div> \n     <div id=\"cookie-success-message\"\
+            \ class=\"form-message  form-message--success  hidden  hidden--hard\"\
+            > \n      <b>Your cookie preferences have been saved.</b> \n     </div>\
+            \ \n     <p><button class=\"button  button--primary  no-bottom-margin\"\
+            \ type=\"submit\">Save cookie preferences</button> </p>\n    </fieldset>\
+            \ \n   </form>\n   <p></p> \n   <p></p>\n  </div>\n  <p></p> \n  <!--\
+            \ Browsers with ES module support load these files --> \n  <script type=\"\
+            module\" src=\"/assets/scripts/cookie-form.js\"></script> \n  <!-- Older\
+            \ browsers load these files --> \n  <!-- (and module-supporting browsers\
+            \ know *not* to load these files) --> \n  <script nomodule src=\"/assets/scripts/cookie-form.es5.js\"\
+            ></script> \n </body>\n</html>"
+          /cookie-details:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 3b4b55b0-c4c7-430a-ad56-75b2f263c562
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /privacy:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 8c60d6d8-8da8-483a-ab7d-247fc81d6c39
+      hippo:name: Privacy
+      hippo:versionHistory: 9111525b-b476-48dd-b3f5-0a45f24e835b
+      /privacy[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
+        jcr:uuid: 3d55581f-4d91-4d5a-a457-6493cf8222e8
+        hippo:availability: []
+        hippo:name: Privacy
+        hippostd:state: draft
+        hippostd:tags: [data, data security, privacy, privacy policy, cookies, personal
+            data]
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:36:41.089+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:38.725+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f0db4015-8a93-4555-b2d2-c325f41ff315
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: 22/5/18 - updated to include link to new Disclosure
+          Scotland privacy policy page. - RB
+        publishing:metaDescription: Read our privacy statement.
+        publishing:mygovid: MYGOV-267
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:slug: privacy
+        publishing:summary: Read our privacy statement.
+        publishing:title: Privacy
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>You can contact\
+            \ our Data Protection Officer about this privacy policy:</p> \n  <div\
+            \ class=\"contact\"> \n   <div class=\"contact__group\"> \n    <p class=\"\
+            contact__item\"><b>Email:</b> <a href=\"mailto:[DataProtectionOfficer@gov.scot](mailto:DataProtectionOfficer@gov.scot)\"\
+            ></a><a href=\"mailto:DataProtectionOfficer@gov.scot\">DataProtectionOfficer@gov.scot</a></p>\
+            \ \n   </div> \n   <div class=\"contact__group\"> \n    <p class=\"contact__item\"\
+            ><b>Address:</b></p> \n    <p class=\"contact__item\"> Data Protection\
+            \ Officer<br> Victoria Quay<br> Commercial Street<br> Edinburgh<br> EH6\
+            \ 6QQ<br> </p> \n   </div> \n   <p></p>\n  </div>\n  <p></p> \n  <h2 id=\"\
+            what-type-of-information-we-collect\">What type of information we collect</h2>\
+            \ \n  <p>We collect and process the following information when you visit\
+            \ mygov.scot:</p> \n  <ul> \n   <li>any feedback you share with us</li>\
+            \ \n   <li>your cookies using Google Analytics</li> \n   <li>your IP address</li>\
+            \ \n   <li>your form details - if you apply for <a href=\"letting-agent-registration-updates\"\
+            >letting agent registration updates</a></li> \n  </ul> \n  <p>We also\
+            \ use Google Analytics to collect information about:</p> \n  <ul> \n \
+            \  <li>which type of browser and device you used </li> \n   <li>the pages\
+            \ you visit on mygov.scot</li> \n   <li>how long you spend on each mygov.scot\
+            \ page</li> \n   <li>how you got to the site</li> \n   <li>what you click\
+            \ on while you're visiting the site</li> \n  </ul> \n  <p>Google Analytics\
+            \ data is only collected from users who have consented to share this data.\
+            \ Any information we get about you from Google Analytics will be anonymised\
+            \ before we see it. This means we will not hold any personally identifiable\
+            \ information about you, such as your name or address. </p> \n  <p>To\
+            \ get information about how the mygov.scot website is used, we also use\
+            \ Simple Analytics. This software collects basic website analytics data.\
+            \ This gives us general insight about our visitors whilst respecting user's\
+            \ privacy. </p> \n  <p>The software does not track visitors, does not\
+            \ use cookies, and does not collect, store or process any personal identifiable\
+            \ information. </p> \n  <p>It lets us see:</p> \n  <ul> \n   <li>how many\
+            \ times each page has been viewed</li> \n   <li>which sites send traffic\
+            \ to mygov.scot</li> \n   <li>the percentages of users using each different\
+            \ screen sizes</li> \n   <li>the percentages of users using the different\
+            \ types of browser</li> \n   <li>the percentages of users from different\
+            \ countries </li> \n  </ul> \n  <h2 id=\"information-we-do-not-collect\"\
+            >Information we do not collect</h2> \n  <p>There are webpages on mygov.scot\
+            \ where you can enter personal information. But we do not store or process\
+            \ this information. This includes:</p> \n  <ul> \n   <li><a href=\"/tenancy-agreement-scotland/\"\
+            >create a tenancy agreement</a></li> \n   <li><a href=\"/tenants-tribunal-notice-to-a-landlord/\"\
+            >tell your landlord that you want to go the Tribunal</a></li> \n   <li><a\
+            \ href=\"/tell-your-tenant-they-need-to-leave/\">tell your tenant that\
+            \ they need to leave</a></li> \n   <li><a href=\"/tell-your-subtenant-they-need-to-leave/\"\
+            >tell your subtenant that they need to leave</a></li> \n   <li><a href=\"\
+            /apply-about-rent/\">apply to Rent Service Scotland about your rent increase</a></li>\
+            \ \n   <li><a href=\"/landlords-rent-increase-notice-to-tenants/\">create\
+            \ a Rent Notice Increase for your tenant</a></li> \n  </ul> \n  <p>Once\
+            \ you enter this information, it is immediately 'forgotten' on mygov.scot.\
+            \ <br></p> \n  <h2 id=\"why-we-collect-this-information\">Why we collect\
+            \ this information</h2> \n  <p>We use the information you share with us:</p>\
+            \ \n  <ul> \n   <li>to improve our services</li> \n   <li>give you access\
+            \ to government services </li> \n   <li>to identify security threats</li>\
+            \ \n  </ul> \n  <p>Our legal basis for processing this data is 'legitimate\
+            \ interests'. That's because: </p> \n  <ul> \n   <li>it's in the legitimate\
+            \ interests of our users to make improvements to our website </li> \n\
+            \   <li>we need to maintain the security of mygov.scot </li> \n  </ul>\
+            \ \n  <p>We only collect information about you using Google Analytics\
+            \ if you consent to it.</p> \n  <p>If you do not consent to it, you can\
+            \ let us know by emailing <a href=\"mailto:DataProtectionOfficer@gov.scot\"\
+            >DataProtectionOfficer@gov.scot</a>. <br></p> \n  <h2 id=\"what-we-do-with-this-information\"\
+            >What we do with this information</h2> \n  <p>We may share your anonymised\
+            \ information with other agencies or public bodies in the Scottish Government.\
+            \ But this will not include personally identifiable information. </p>\
+            \ \n  <p>We'll only share your data with a third party if we're required\
+            \ to do so by law. For example by court order or to prevent fraud. </p>\
+            \ \n  <p>We will not:</p> \n  <ul> \n   <li>sell or give your data to\
+            \ third parties</li> \n   <li>share your data with third parties for marketing\
+            \ purposes</li> \n  </ul> \n  <h2 id=\"how-long-we-keep-your-information\"\
+            >How long we keep your information</h2> \n  <p>We will delete any feedback\
+            \ you share with us after 3 years. We keep anonymised analytics for 38\
+            \ months. <br></p> \n  <h2 id=\"how-we-store-this-information\">How we\
+            \ store this information</h2> \n  <p>All personal information is stored\
+            \ in the European Economic Area (EEA). Data collected by Google Analytics\
+            \ data may be processed outside the EEA. </p> \n  <p>We're committed to\
+            \ doing everything we can to keep your data safe. We perform regular security\
+            \ tests to make sure our systems and processes are secure. <br></p> \n\
+            \  <h2 id=\"your-data-protection-rights\">Your data protection rights</h2>\
+            \ \n  <p> You have the right to: </p> \n  <ul> \n   <li>see your information\
+            \ – through a <a href=\"https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-of-access/\"\
+            >subject access request</a></li> \n   <li>improve your data – if you think\
+            \ the information we have is inaccurate or incomplete</li> \n   <li>delete\
+            \ your information – if you do not want us to use your data anymore </li>\
+            \ \n   <li>limit what we do with your data – <a href=\"https://ico.org.uk/your-data-matters/your-right-to-limit-how-organisations-use-your-data/\"\
+            >depending on the circumstances </a></li> \n   <li>stop us using your\
+            \ data – <a href=\"https://ico.org.uk/your-data-matters/the-right-to-object-to-the-use-of-your-data/\"\
+            >depending on the circumstances</a> </li> \n   <li>take your data with\
+            \ you – if you want to share it to another organisation, <a href=\"https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-data-portability/\"\
+            >depending on the circumstances</a> </li> \n  </ul> \n  <h2 id=\"how-to-complain\"\
+            >How to complain</h2> \n  <p>If you're unhappy with how we've used your\
+            \ data, you can complain to the Information Commissioner's Office (ICO):</p>\
+            \ \n  <div class=\"contact\"> \n   <div class=\"contact__group\"> \n \
+            \   <p class=\"contact__item\"><b>Phone:</b> 0303 123 1113</p> \n    <p\
+            \ class=\"contact__supporting-item\"><a href=\"https://www.gov.uk/call-charges\"\
+            >Find out about call charges</a></p> \n   </div> \n   <div class=\"contact__group\"\
+            > \n    <p class=\"contact__item\"><b>Address:</b></p> \n    <p class=\"\
+            contact__item\"> Information Commissioner's Office<br> Wycliffe House<br>\
+            \ Water Lane<br> Wilmslow<br> Cheshire <br> SK9 5AF<br> </p> \n   </div>\
+            \ \n   <p></p>\n  </div>\n  <p></p> \n  <h2 id=\"changes-to-this-policy\"\
+            >Changes to this policy</h2> \n  <p>We may change this privacy policy.\
+            \ In that case, the 'last updated' date at the top of this page will also\
+            \ change.</p> \n </body>\n</html>"
+          /letting-agent-registration-updates:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 5743ac2e-17b0-46c7-a2a3-c6c3e4cb0a57
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /privacy[2]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable', 'mix:versionable']
+        jcr:uuid: 9fe92f5d-4094-4c86-b4c7-ce5551c51716
+        hippo:availability: [preview]
+        hippo:name: Privacy
+        hippostd:state: unpublished
+        hippostd:tags: [data, data security, privacy, privacy policy, cookies, personal
+            data]
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:36:41.089+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:39.769+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f0db4015-8a93-4555-b2d2-c325f41ff315
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: 22/5/18 - updated to include link to new Disclosure
+          Scotland privacy policy page. - RB
+        publishing:metaDescription: Read our privacy statement.
+        publishing:mygovid: MYGOV-267
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:slug: privacy
+        publishing:summary: Read our privacy statement.
+        publishing:title: Privacy
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>You can contact\
+            \ our Data Protection Officer about this privacy policy:</p> \n  <div\
+            \ class=\"contact\"> \n   <div class=\"contact__group\"> \n    <p class=\"\
+            contact__item\"><b>Email:</b> <a href=\"mailto:[DataProtectionOfficer@gov.scot](mailto:DataProtectionOfficer@gov.scot)\"\
+            ></a><a href=\"mailto:DataProtectionOfficer@gov.scot\">DataProtectionOfficer@gov.scot</a></p>\
+            \ \n   </div> \n   <div class=\"contact__group\"> \n    <p class=\"contact__item\"\
+            ><b>Address:</b></p> \n    <p class=\"contact__item\"> Data Protection\
+            \ Officer<br> Victoria Quay<br> Commercial Street<br> Edinburgh<br> EH6\
+            \ 6QQ<br> </p> \n   </div> \n   <p></p>\n  </div>\n  <p></p> \n  <h2 id=\"\
+            what-type-of-information-we-collect\">What type of information we collect</h2>\
+            \ \n  <p>We collect and process the following information when you visit\
+            \ mygov.scot:</p> \n  <ul> \n   <li>any feedback you share with us</li>\
+            \ \n   <li>your cookies using Google Analytics</li> \n   <li>your IP address</li>\
+            \ \n   <li>your form details - if you apply for <a href=\"letting-agent-registration-updates\"\
+            >letting agent registration updates</a></li> \n  </ul> \n  <p>We also\
+            \ use Google Analytics to collect information about:</p> \n  <ul> \n \
+            \  <li>which type of browser and device you used </li> \n   <li>the pages\
+            \ you visit on mygov.scot</li> \n   <li>how long you spend on each mygov.scot\
+            \ page</li> \n   <li>how you got to the site</li> \n   <li>what you click\
+            \ on while you're visiting the site</li> \n  </ul> \n  <p>Google Analytics\
+            \ data is only collected from users who have consented to share this data.\
+            \ Any information we get about you from Google Analytics will be anonymised\
+            \ before we see it. This means we will not hold any personally identifiable\
+            \ information about you, such as your name or address. </p> \n  <p>To\
+            \ get information about how the mygov.scot website is used, we also use\
+            \ Simple Analytics. This software collects basic website analytics data.\
+            \ This gives us general insight about our visitors whilst respecting user's\
+            \ privacy. </p> \n  <p>The software does not track visitors, does not\
+            \ use cookies, and does not collect, store or process any personal identifiable\
+            \ information. </p> \n  <p>It lets us see:</p> \n  <ul> \n   <li>how many\
+            \ times each page has been viewed</li> \n   <li>which sites send traffic\
+            \ to mygov.scot</li> \n   <li>the percentages of users using each different\
+            \ screen sizes</li> \n   <li>the percentages of users using the different\
+            \ types of browser</li> \n   <li>the percentages of users from different\
+            \ countries </li> \n  </ul> \n  <h2 id=\"information-we-do-not-collect\"\
+            >Information we do not collect</h2> \n  <p>There are webpages on mygov.scot\
+            \ where you can enter personal information. But we do not store or process\
+            \ this information. This includes:</p> \n  <ul> \n   <li><a href=\"/tenancy-agreement-scotland/\"\
+            >create a tenancy agreement</a></li> \n   <li><a href=\"/tenants-tribunal-notice-to-a-landlord/\"\
+            >tell your landlord that you want to go the Tribunal</a></li> \n   <li><a\
+            \ href=\"/tell-your-tenant-they-need-to-leave/\">tell your tenant that\
+            \ they need to leave</a></li> \n   <li><a href=\"/tell-your-subtenant-they-need-to-leave/\"\
+            >tell your subtenant that they need to leave</a></li> \n   <li><a href=\"\
+            /apply-about-rent/\">apply to Rent Service Scotland about your rent increase</a></li>\
+            \ \n   <li><a href=\"/landlords-rent-increase-notice-to-tenants/\">create\
+            \ a Rent Notice Increase for your tenant</a></li> \n  </ul> \n  <p>Once\
+            \ you enter this information, it is immediately 'forgotten' on mygov.scot.\
+            \ <br></p> \n  <h2 id=\"why-we-collect-this-information\">Why we collect\
+            \ this information</h2> \n  <p>We use the information you share with us:</p>\
+            \ \n  <ul> \n   <li>to improve our services</li> \n   <li>give you access\
+            \ to government services </li> \n   <li>to identify security threats</li>\
+            \ \n  </ul> \n  <p>Our legal basis for processing this data is 'legitimate\
+            \ interests'. That's because: </p> \n  <ul> \n   <li>it's in the legitimate\
+            \ interests of our users to make improvements to our website </li> \n\
+            \   <li>we need to maintain the security of mygov.scot </li> \n  </ul>\
+            \ \n  <p>We only collect information about you using Google Analytics\
+            \ if you consent to it.</p> \n  <p>If you do not consent to it, you can\
+            \ let us know by emailing <a href=\"mailto:DataProtectionOfficer@gov.scot\"\
+            >DataProtectionOfficer@gov.scot</a>. <br></p> \n  <h2 id=\"what-we-do-with-this-information\"\
+            >What we do with this information</h2> \n  <p>We may share your anonymised\
+            \ information with other agencies or public bodies in the Scottish Government.\
+            \ But this will not include personally identifiable information. </p>\
+            \ \n  <p>We'll only share your data with a third party if we're required\
+            \ to do so by law. For example by court order or to prevent fraud. </p>\
+            \ \n  <p>We will not:</p> \n  <ul> \n   <li>sell or give your data to\
+            \ third parties</li> \n   <li>share your data with third parties for marketing\
+            \ purposes</li> \n  </ul> \n  <h2 id=\"how-long-we-keep-your-information\"\
+            >How long we keep your information</h2> \n  <p>We will delete any feedback\
+            \ you share with us after 3 years. We keep anonymised analytics for 38\
+            \ months. <br></p> \n  <h2 id=\"how-we-store-this-information\">How we\
+            \ store this information</h2> \n  <p>All personal information is stored\
+            \ in the European Economic Area (EEA). Data collected by Google Analytics\
+            \ data may be processed outside the EEA. </p> \n  <p>We're committed to\
+            \ doing everything we can to keep your data safe. We perform regular security\
+            \ tests to make sure our systems and processes are secure. <br></p> \n\
+            \  <h2 id=\"your-data-protection-rights\">Your data protection rights</h2>\
+            \ \n  <p> You have the right to: </p> \n  <ul> \n   <li>see your information\
+            \ – through a <a href=\"https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-of-access/\"\
+            >subject access request</a></li> \n   <li>improve your data – if you think\
+            \ the information we have is inaccurate or incomplete</li> \n   <li>delete\
+            \ your information – if you do not want us to use your data anymore </li>\
+            \ \n   <li>limit what we do with your data – <a href=\"https://ico.org.uk/your-data-matters/your-right-to-limit-how-organisations-use-your-data/\"\
+            >depending on the circumstances </a></li> \n   <li>stop us using your\
+            \ data – <a href=\"https://ico.org.uk/your-data-matters/the-right-to-object-to-the-use-of-your-data/\"\
+            >depending on the circumstances</a> </li> \n   <li>take your data with\
+            \ you – if you want to share it to another organisation, <a href=\"https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-data-portability/\"\
+            >depending on the circumstances</a> </li> \n  </ul> \n  <h2 id=\"how-to-complain\"\
+            >How to complain</h2> \n  <p>If you're unhappy with how we've used your\
+            \ data, you can complain to the Information Commissioner's Office (ICO):</p>\
+            \ \n  <div class=\"contact\"> \n   <div class=\"contact__group\"> \n \
+            \   <p class=\"contact__item\"><b>Phone:</b> 0303 123 1113</p> \n    <p\
+            \ class=\"contact__supporting-item\"><a href=\"https://www.gov.uk/call-charges\"\
+            >Find out about call charges</a></p> \n   </div> \n   <div class=\"contact__group\"\
+            > \n    <p class=\"contact__item\"><b>Address:</b></p> \n    <p class=\"\
+            contact__item\"> Information Commissioner's Office<br> Wycliffe House<br>\
+            \ Water Lane<br> Wilmslow<br> Cheshire <br> SK9 5AF<br> </p> \n   </div>\
+            \ \n   <p></p>\n  </div>\n  <p></p> \n  <h2 id=\"changes-to-this-policy\"\
+            >Changes to this policy</h2> \n  <p>We may change this privacy policy.\
+            \ In that case, the 'last updated' date at the top of this page will also\
+            \ change.</p> \n </body>\n</html>"
+          /letting-agent-registration-updates:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 5743ac2e-17b0-46c7-a2a3-c6c3e4cb0a57
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /privacy[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
+        jcr:uuid: 4602b33a-70cb-4952-aae6-a5475466cfdf
+        hippo:availability: [live]
+        hippo:name: Privacy
+        hippostd:state: published
+        hippostd:tags: [data, data security, privacy, privacy policy, cookies, personal
+            data]
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:36:41.089+01:00
+        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:39.769+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-10-01T09:33:41.494+01:00
+        hippotranslation:id: f0db4015-8a93-4555-b2d2-c325f41ff315
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: 22/5/18 - updated to include link to new Disclosure
+          Scotland privacy policy page. - RB
+        publishing:metaDescription: Read our privacy statement.
+        publishing:mygovid: MYGOV-267
+        publishing:pinned: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:slug: privacy
+        publishing:summary: Read our privacy statement.
+        publishing:title: Privacy
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>You can contact\
+            \ our Data Protection Officer about this privacy policy:</p> \n  <div\
+            \ class=\"contact\"> \n   <div class=\"contact__group\"> \n    <p class=\"\
+            contact__item\"><b>Email:</b> <a href=\"mailto:[DataProtectionOfficer@gov.scot](mailto:DataProtectionOfficer@gov.scot)\"\
+            ></a><a href=\"mailto:DataProtectionOfficer@gov.scot\">DataProtectionOfficer@gov.scot</a></p>\
+            \ \n   </div> \n   <div class=\"contact__group\"> \n    <p class=\"contact__item\"\
+            ><b>Address:</b></p> \n    <p class=\"contact__item\"> Data Protection\
+            \ Officer<br> Victoria Quay<br> Commercial Street<br> Edinburgh<br> EH6\
+            \ 6QQ<br> </p> \n   </div> \n   <p></p>\n  </div>\n  <p></p> \n  <h2 id=\"\
+            what-type-of-information-we-collect\">What type of information we collect</h2>\
+            \ \n  <p>We collect and process the following information when you visit\
+            \ mygov.scot:</p> \n  <ul> \n   <li>any feedback you share with us</li>\
+            \ \n   <li>your cookies using Google Analytics</li> \n   <li>your IP address</li>\
+            \ \n   <li>your form details - if you apply for <a href=\"letting-agent-registration-updates\"\
+            >letting agent registration updates</a></li> \n  </ul> \n  <p>We also\
+            \ use Google Analytics to collect information about:</p> \n  <ul> \n \
+            \  <li>which type of browser and device you used </li> \n   <li>the pages\
+            \ you visit on mygov.scot</li> \n   <li>how long you spend on each mygov.scot\
+            \ page</li> \n   <li>how you got to the site</li> \n   <li>what you click\
+            \ on while you're visiting the site</li> \n  </ul> \n  <p>Google Analytics\
+            \ data is only collected from users who have consented to share this data.\
+            \ Any information we get about you from Google Analytics will be anonymised\
+            \ before we see it. This means we will not hold any personally identifiable\
+            \ information about you, such as your name or address. </p> \n  <p>To\
+            \ get information about how the mygov.scot website is used, we also use\
+            \ Simple Analytics. This software collects basic website analytics data.\
+            \ This gives us general insight about our visitors whilst respecting user's\
+            \ privacy. </p> \n  <p>The software does not track visitors, does not\
+            \ use cookies, and does not collect, store or process any personal identifiable\
+            \ information. </p> \n  <p>It lets us see:</p> \n  <ul> \n   <li>how many\
+            \ times each page has been viewed</li> \n   <li>which sites send traffic\
+            \ to mygov.scot</li> \n   <li>the percentages of users using each different\
+            \ screen sizes</li> \n   <li>the percentages of users using the different\
+            \ types of browser</li> \n   <li>the percentages of users from different\
+            \ countries </li> \n  </ul> \n  <h2 id=\"information-we-do-not-collect\"\
+            >Information we do not collect</h2> \n  <p>There are webpages on mygov.scot\
+            \ where you can enter personal information. But we do not store or process\
+            \ this information. This includes:</p> \n  <ul> \n   <li><a href=\"/tenancy-agreement-scotland/\"\
+            >create a tenancy agreement</a></li> \n   <li><a href=\"/tenants-tribunal-notice-to-a-landlord/\"\
+            >tell your landlord that you want to go the Tribunal</a></li> \n   <li><a\
+            \ href=\"/tell-your-tenant-they-need-to-leave/\">tell your tenant that\
+            \ they need to leave</a></li> \n   <li><a href=\"/tell-your-subtenant-they-need-to-leave/\"\
+            >tell your subtenant that they need to leave</a></li> \n   <li><a href=\"\
+            /apply-about-rent/\">apply to Rent Service Scotland about your rent increase</a></li>\
+            \ \n   <li><a href=\"/landlords-rent-increase-notice-to-tenants/\">create\
+            \ a Rent Notice Increase for your tenant</a></li> \n  </ul> \n  <p>Once\
+            \ you enter this information, it is immediately 'forgotten' on mygov.scot.\
+            \ <br></p> \n  <h2 id=\"why-we-collect-this-information\">Why we collect\
+            \ this information</h2> \n  <p>We use the information you share with us:</p>\
+            \ \n  <ul> \n   <li>to improve our services</li> \n   <li>give you access\
+            \ to government services </li> \n   <li>to identify security threats</li>\
+            \ \n  </ul> \n  <p>Our legal basis for processing this data is 'legitimate\
+            \ interests'. That's because: </p> \n  <ul> \n   <li>it's in the legitimate\
+            \ interests of our users to make improvements to our website </li> \n\
+            \   <li>we need to maintain the security of mygov.scot </li> \n  </ul>\
+            \ \n  <p>We only collect information about you using Google Analytics\
+            \ if you consent to it.</p> \n  <p>If you do not consent to it, you can\
+            \ let us know by emailing <a href=\"mailto:DataProtectionOfficer@gov.scot\"\
+            >DataProtectionOfficer@gov.scot</a>. <br></p> \n  <h2 id=\"what-we-do-with-this-information\"\
+            >What we do with this information</h2> \n  <p>We may share your anonymised\
+            \ information with other agencies or public bodies in the Scottish Government.\
+            \ But this will not include personally identifiable information. </p>\
+            \ \n  <p>We'll only share your data with a third party if we're required\
+            \ to do so by law. For example by court order or to prevent fraud. </p>\
+            \ \n  <p>We will not:</p> \n  <ul> \n   <li>sell or give your data to\
+            \ third parties</li> \n   <li>share your data with third parties for marketing\
+            \ purposes</li> \n  </ul> \n  <h2 id=\"how-long-we-keep-your-information\"\
+            >How long we keep your information</h2> \n  <p>We will delete any feedback\
+            \ you share with us after 3 years. We keep anonymised analytics for 38\
+            \ months. <br></p> \n  <h2 id=\"how-we-store-this-information\">How we\
+            \ store this information</h2> \n  <p>All personal information is stored\
+            \ in the European Economic Area (EEA). Data collected by Google Analytics\
+            \ data may be processed outside the EEA. </p> \n  <p>We're committed to\
+            \ doing everything we can to keep your data safe. We perform regular security\
+            \ tests to make sure our systems and processes are secure. <br></p> \n\
+            \  <h2 id=\"your-data-protection-rights\">Your data protection rights</h2>\
+            \ \n  <p> You have the right to: </p> \n  <ul> \n   <li>see your information\
+            \ – through a <a href=\"https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-of-access/\"\
+            >subject access request</a></li> \n   <li>improve your data – if you think\
+            \ the information we have is inaccurate or incomplete</li> \n   <li>delete\
+            \ your information – if you do not want us to use your data anymore </li>\
+            \ \n   <li>limit what we do with your data – <a href=\"https://ico.org.uk/your-data-matters/your-right-to-limit-how-organisations-use-your-data/\"\
+            >depending on the circumstances </a></li> \n   <li>stop us using your\
+            \ data – <a href=\"https://ico.org.uk/your-data-matters/the-right-to-object-to-the-use-of-your-data/\"\
+            >depending on the circumstances</a> </li> \n   <li>take your data with\
+            \ you – if you want to share it to another organisation, <a href=\"https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-data-portability/\"\
+            >depending on the circumstances</a> </li> \n  </ul> \n  <h2 id=\"how-to-complain\"\
+            >How to complain</h2> \n  <p>If you're unhappy with how we've used your\
+            \ data, you can complain to the Information Commissioner's Office (ICO):</p>\
+            \ \n  <div class=\"contact\"> \n   <div class=\"contact__group\"> \n \
+            \   <p class=\"contact__item\"><b>Phone:</b> 0303 123 1113</p> \n    <p\
+            \ class=\"contact__supporting-item\"><a href=\"https://www.gov.uk/call-charges\"\
+            >Find out about call charges</a></p> \n   </div> \n   <div class=\"contact__group\"\
+            > \n    <p class=\"contact__item\"><b>Address:</b></p> \n    <p class=\"\
+            contact__item\"> Information Commissioner's Office<br> Wycliffe House<br>\
+            \ Water Lane<br> Wilmslow<br> Cheshire <br> SK9 5AF<br> </p> \n   </div>\
+            \ \n   <p></p>\n  </div>\n  <p></p> \n  <h2 id=\"changes-to-this-policy\"\
+            >Changes to this policy</h2> \n  <p>We may change this privacy policy.\
+            \ In that case, the 'last updated' date at the top of this page will also\
+            \ change.</p> \n </body>\n</html>"
+          /letting-agent-registration-updates:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 5743ac2e-17b0-46c7-a2a3-c6c3e4cb0a57
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+  /hero-panel-site-items:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 682c2638-d82c-4340-81dd-2b09e71e3abc
+    hippostd:foldertype: [new-publishing-mirror]
+  /other-site-items:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 80a8e9a8-dc28-441c-8b10-c5a8a19192b8
+    hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
