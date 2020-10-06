@@ -25,6 +25,13 @@ definitions:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/organisation
             hst:relativecontentpath: organisations/${1}
+        /document-cover-pages:
+          jcr:primaryType: hst:sitemapitem
+          hst:relativecontentpath: document-cover-pages
+          /_any_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/documentcoverpage
+            hst:relativecontentpath: ${parent}/${1}
       /hst:sitemenus:
         jcr:primaryType: hst:sitemenus
       /hst:templates:
