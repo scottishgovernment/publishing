@@ -10,9 +10,11 @@ public class PreviewIndicatorComponent extends BaseHstComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+        request.setAttribute("isStaging", isStaging(request));
+    }
+
+    boolean isStaging(HstRequest request) {
         Mount resolvedMount = request.getRequestContext().getResolvedMount().getMount();
-        if("preview".equals(resolvedMount.getType()) && resolvedMount.getAlias().endsWith("-staging")){
-            request.setAttribute("isStaging", true);
-        }
+        return "preview".equals(resolvedMount.getType()) && resolvedMount.getAlias().endsWith("-staging");
     }
 }
