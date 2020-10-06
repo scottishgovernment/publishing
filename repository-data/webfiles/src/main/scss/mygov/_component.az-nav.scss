@@ -8,7 +8,7 @@
     margin-right: auto;
 
     &__link {
-        background-color: $colour__grey--lighter;
+        background-color: $ds_colour__grey--lighter;
         display: inline-block;
         font-size: $large-size;
         height: 40px;
@@ -50,7 +50,7 @@
         @include layout;
 
         &:not(:last-child) {
-            border-bottom: 1px solid $colour__border--light;
+            border-bottom: 1px solid $ds_colour__border--light;
             margin-bottom: 64px;
             padding-bottom: 31px;
         }

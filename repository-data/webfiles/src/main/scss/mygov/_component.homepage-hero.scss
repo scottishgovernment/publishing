@@ -53,7 +53,7 @@
         grid-template-columns: auto 40px;
 
         &:focus {
-            border-color: $colour__link--focus__background;
+            border-color: $ds_colour__link--focus__background;
         }
 
         &::after {
@@ -68,13 +68,13 @@
 
 /* A-Z */
 .#{$mg-prefix}hero-az {
-    background-color: $colour__blue--dark;
+    background-color: $ds_colour__blue--dark;
     font-size: 1em;
     padding-top: 12px;
     padding-bottom: 12px;
 
     &:hover:not(:focus):not(:active) {
-        background-color: $colour__blue--darker;
+        background-color: $ds_colour__blue--darker;
     }
 
     &__text {

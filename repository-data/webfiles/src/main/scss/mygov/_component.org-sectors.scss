@@ -8,7 +8,7 @@
 .sector {
     @include blocklink('.sector__link');
 
-    color: $colour__link;
+    color: $ds_colour__link;
     margin-bottom: 0;
     padding: 32px 16px 80px;
     text-decoration: none;
@@ -20,11 +20,11 @@
     transition: color $transition-in-time;
 
     &:hover {
-        color: $colour__link--hover;
+        color: $ds_colour__link--hover;
     }
 
     &--has-focus {
-        color: $colour__text;
+        color: $ds_colour__text;
     }
 }
 
@@ -126,7 +126,7 @@
         }
 
         &__sublist-item {
-            border-top: 1px solid $colour__border--light;
+            border-top: 1px solid $ds_colour__border--light;
             margin-bottom: 0;
             padding: 8px 0;
 
