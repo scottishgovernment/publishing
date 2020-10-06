@@ -30,6 +30,10 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
     @Override
     public HstLink postProcess(final HstLink link) {
 
+        if (isLocalhost(link)) {
+            return link;
+        }
+
         // do not alter paths with extensions
         if (hasExtension(link)) {
             return link;
@@ -49,10 +53,6 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
     }
 
     HstLink doPostProcess(HstLink link) throws RepositoryException {
-
-        if (!mountLookupExists(link)) {
-            return link;
-        }
 
         Session session = sessionSource.getSession();
         String contentPath = pathForNode(link);
@@ -144,6 +144,10 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
     @Override
     public HstLink preProcess(HstLink link) {
 
+        if (isLocalhost(link)) {
+            return link;
+        }
+
         // do not alter links with extensions
         if (hasExtension(link)) {
             return link;
@@ -163,9 +167,6 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
     }
 
     HstLink doPreProcess(HstLink link) throws RepositoryException {
-        if (!mountLookupExists(link)) {
-            return link;
-        }
 
         if (link.getPathElements().length >= 3) {
             return link;
@@ -205,11 +206,8 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
         return lookupNode.getProperty("publishing:path").getString();
     }
 
-    boolean mountLookupExists(HstLink link) throws RepositoryException {
-        Session session = sessionSource.getSession();
-        String mountLookupPath = mountLookupPath(
-                siteName(link), link.getMount().getType()).toString();
-        return session.nodeExists(mountLookupPath);
+    boolean isLocalhost(HstLink link) {
+        return "localhost".equals(link.getMount().getVirtualHost().getName());
     }
 
     String slugLookupPath(HstLink link, String path) {

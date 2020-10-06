@@ -1,6 +1,7 @@
 package scot.mygov.publishing.linkprocessors;
 
 import org.hippoecm.hst.configuration.hosting.Mount;
+import org.hippoecm.hst.configuration.hosting.VirtualHost;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.junit.Assert;
 import org.junit.Test;
@@ -114,6 +115,9 @@ public class PublishingPlatformLinkProcessorTest {
         HstLink link = mock(HstLink.class);
         when(link.getPath()).thenReturn(path);
         Mount mount = mock(Mount.class);
+        VirtualHost virtualHost = mock(VirtualHost.class);
+        when(virtualHost.getName()).thenReturn("");
+        when(mount.getVirtualHost()).thenReturn(virtualHost);
         when(link.getMount()).thenReturn(mount);
         when(link.getPathElements()).thenReturn(path.split("/"));
         return link;
@@ -122,6 +126,9 @@ public class PublishingPlatformLinkProcessorTest {
     HstLink folderLink() {
         HstLink link = mock(HstLink.class);
         Mount mount = mock(Mount.class);
+        VirtualHost virtualHost = mock(VirtualHost.class);
+        when(virtualHost.getName()).thenReturn("");
+        when(mount.getVirtualHost()).thenReturn(virtualHost);
         when(mount.getContentPath()).thenReturn("contenPath");
         when(link.getPath()).thenReturn("/folder/");
         when(link.getMount()).thenReturn(mount);
