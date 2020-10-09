@@ -19,15 +19,12 @@ public class HippoUtils {
     public Node getVariantWithState(Node handle, String state) throws RepositoryException {
         String name = handle.getName();
         NodeIterator iterator = handle.getNodes(name);
+        return find(iterator, node -> hasState(node, state));
+    }
 
-        while (iterator.hasNext()) {
-            Node variant = iterator.nextNode();
-            String variantState = JcrUtils.getStringProperty(variant, HIPPOSTD_STATE, null);
-            if (variantState.equals(state)) {
-                return variant;
-            }
-        }
-        return null;
+    boolean hasState(Node node, String state) throws RepositoryException {
+        String nodeState = JcrUtils.getStringProperty(node, HIPPOSTD_STATE, null);
+        return state.equals(nodeState);
     }
 
     /**
@@ -37,4 +34,18 @@ public class HippoUtils {
         return HstQueryBuilder.create(scope);
     }
 
+    @FunctionalInterface
+    public interface ThrowingPredicate {
+        boolean test(Node t) throws RepositoryException;
+    }
+
+    public Node find(NodeIterator it, ThrowingPredicate predicate) throws RepositoryException {
+        while (it.hasNext()) {
+            Node node = it.nextNode();
+            if (predicate.test(node)) {
+                return node;
+            }
+        }
+        return null;
+    }
 }

@@ -5,6 +5,8 @@ import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 
+import static org.apache.commons.lang3.StringUtils.endsWith;
+
 public class PreviewIndicatorComponent extends BaseHstComponent {
 
     @Override
@@ -15,6 +17,7 @@ public class PreviewIndicatorComponent extends BaseHstComponent {
 
     boolean isStaging(HstRequest request) {
         Mount resolvedMount = request.getRequestContext().getResolvedMount().getMount();
-        return "preview".equals(resolvedMount.getType()) && resolvedMount.getAlias().endsWith("-staging");
+        return "preview".equals(resolvedMount.getType()) && endsWith(resolvedMount.getAlias(), "-staging");
     }
+
 }
