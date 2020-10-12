@@ -12,6 +12,7 @@ import gup from './tools/gup';
 import './components/tooltip';
 import NotificationBanner from './components/notification';
 import cookies from './components/cookies';
+import finders from './components/finders';
 
 import {initAll} from '../../../node_modules/@scottish-government/pattern-library/src/all';
 initAll();
@@ -41,15 +42,7 @@ const global = {
         this.setInitialCookiePermissions();
         this.initNotifications();
 
-        if ($('#leave-this-page').length > 0) {
-            this.initSensitiveContent();
-
-            $(document).on('keyup',function(evt) {
-                if (evt.keyCode === 27) {
-                    that.goToBaseURL();
-                }
-            });
-        }
+        finders.init();
     },
 
     initNotifications: function () {
