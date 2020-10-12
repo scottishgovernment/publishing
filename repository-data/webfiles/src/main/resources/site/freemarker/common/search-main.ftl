@@ -41,12 +41,12 @@
                             <li class="ds_search-result">
                                 <#assign position = item_index + ((pageable.currentPage-1) * pageable.pageSize) />
                                 <header class="ds_search-result__header">
-                                    <dl class="ds_search-result__metadata  ds_metadata  ds_metadata--inline">
+                                    <#--  <dl class="ds_search-result__metadata  ds_metadata  ds_metadata--inline">
                                         <span class="ds_metadata__item">
                                             <dt class="ds_metadata__key  visually-hidden">Type</dt>
                                             <dd class="ds_metadata__value  ds_content-label">Policy</dd>
                                         </span>
-                                    </dl>
+                                    </dl>  -->
 
                                     <h2 class="gamma  ds_search-result__title">
                                         <a class="ds_search-result__link" href="${link}" data-search="search-result-${position}/${pageable.total}">${item.title?html}</a>
