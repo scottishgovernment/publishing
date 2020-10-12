@@ -24,7 +24,7 @@
                     </#if>
                     <#if pageable.currentPage == pageNr>
                         <li class="ds_pagination__item" aria-current="page">
-                            <span class="ds_pagination__link">${pageNr}</span>
+                            <span class="ds_pagination__link  ds_current">${pageNr}</span>
                         </li>
                     <#else >
                         <li class="ds_pagination__item ">
