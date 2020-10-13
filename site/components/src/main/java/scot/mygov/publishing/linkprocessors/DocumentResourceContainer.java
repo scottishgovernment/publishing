@@ -12,6 +12,8 @@ import org.slf4j.LoggerFactory;
 
 import scot.mygov.publishing.HippoUtils;
 
+import static org.apache.commons.lang.StringUtils.equalsIgnoreCase;
+
 public class DocumentResourceContainer extends AbstractResourceContainer {
 
     private static final Logger LOG = LoggerFactory.getLogger(DocumentResourceContainer.class);
@@ -29,7 +31,6 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
 
     /**
      * Clean up urls for document cover page documents and thumbnails.
-
      */
     @Override
     public String resolveToPathInfo(Node resourceContainerNode, Node resourceNode, Mount mount) {
@@ -88,6 +89,6 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
 
     boolean hasFilename(Node node, String filename) throws RepositoryException {
         String nodeFileName = node.getProperty(HIPPO_FILENAME).getString();
-        return filename.equals(nodeFileName);
+        return equalsIgnoreCase(filename, nodeFileName);
     }
 }
