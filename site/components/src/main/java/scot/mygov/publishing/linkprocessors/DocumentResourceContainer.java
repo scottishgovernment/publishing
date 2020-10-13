@@ -59,8 +59,7 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
         try {
             Node handle = session.getNode(path);
             Node publishedVariant = getVariant(handle);
-            Node documentWithFilename = findNodeWithFilename(publishedVariant, name);
-            return documentWithFilename;
+            return findNodeWithFilename(publishedVariant, name);
         } catch (RepositoryException e) {
             LOG.error("Exception processing a container resource link for a publishing:document node type.", e);
         }
