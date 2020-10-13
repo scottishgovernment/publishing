@@ -14,7 +14,7 @@ import scot.mygov.publishing.HippoUtils;
 
 public class DocumentResourceContainer extends AbstractResourceContainer {
 
-    private static Logger LOG = LoggerFactory.getLogger(DocumentResourceContainer.class);
+    private static final Logger LOG = LoggerFactory.getLogger(DocumentResourceContainer.class);
 
     private static final String PUBLISHING_DOCUMENT = "publishing:document";
 
