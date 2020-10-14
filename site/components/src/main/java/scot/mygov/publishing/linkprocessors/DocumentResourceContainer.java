@@ -5,6 +5,7 @@ import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.core.linking.AbstractResourceContainer;
 import org.slf4j.Logger;
@@ -44,6 +45,7 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
 
             String filename = resourceNode.getProperty(HIPPO_FILENAME).getString();
             String path = resourceContainerNode.getParent().getParent().getPath();
+            path = StringUtils.substringAfter(path, "/content/documents");
             return path + "/" + filename;
         } catch (RepositoryException e) {
             LOG.error("Exception processing a container resource link for a publishing:document node type.", e);
@@ -55,7 +57,7 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
     public Node resolveToResourceNode(Session session, String pathInfo) {
         int lastSlash = pathInfo.lastIndexOf('/');
         String name = pathInfo.substring(lastSlash + 1);
-        String path = pathInfo.substring(0, lastSlash);
+        String path = "/content/documents" + pathInfo.substring(0, lastSlash);
 
         try {
             Node handle = session.getNode(path);
