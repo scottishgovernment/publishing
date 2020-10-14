@@ -425,7 +425,7 @@ definitions:
             field: lastUpdatedDate
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: The 'Last updated' date displayed in the article heading. If left
-              blank will use the system-generated last updated date instead
+            hint: The 'Last updated' date displayed in the article heading.
+            If left blank no date will be displayed
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

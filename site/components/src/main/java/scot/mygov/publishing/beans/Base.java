@@ -58,7 +58,5 @@ public class Base extends BaseDocument {
         return getSingleProperty("publishing:reviewDate");
     }
 
-    public Calendar getLastUpdatedDate() {
-        return getSingleProperty("publishing:lastUpdatedDate");
-    }
+    public Calendar getLastUpdatedDate() { return getSingleProperty("publishing:lastUpdatedDate"); }
 }
