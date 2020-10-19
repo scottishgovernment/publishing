@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
 
   <Appenders>
@@ -52,6 +52,8 @@
 
     <!-- project logging -->
     <Logger name="org.example" level="info"/>
+    <Logger name="com.onehippo.cms.wpm.hst.configuration.branch" level="warn"/>
+    <Logger name="com.onehippo.cms7.services.wpm.project" level="warn"/>
 
     <Root level="warn">
       <AppenderRef ref="console"/>

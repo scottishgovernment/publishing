@@ -151,6 +151,21 @@
     </dependencies>
   </dependencyManagement>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.onehippo.cms7</groupId>
+      <artifactId>hippo-addon-wpm-camunda</artifactId>
+      <type>war</type>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.onehippo.cms7</groupId>
+      <artifactId>hippo-enterprise-services</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
   <build>
     <defaultGoal>package</defaultGoal>
 
@@ -380,6 +395,14 @@
                     <context>/essentials</context>
                   </properties>
                 </deployable>
+                <deployable>
+                  <properties>
+                    <context>/bpm</context>
+                  </properties>
+                  <groupId>com.onehippo.cms7</groupId>
+                  <artifactId>hippo-addon-wpm-camunda</artifactId>
+                  <type>war</type>
+                </deployable>
               </deployables>
               <container>
                 <systemProperties>
@@ -388,6 +411,13 @@
                   <project.basedir>${project.basedir}</project.basedir>
                   <send.usage.statistics.to.hippo>true</send.usage.statistics.to.hippo>
                 </systemProperties>
+                <dependencies>
+                  <dependency>
+                    <groupId>com.onehippo.cms7</groupId>
+                    <artifactId>hippo-enterprise-services</artifactId>
+                    <classpath>shared</classpath>
+                  </dependency>
+                </dependencies>
               </container>
             </configuration>
           </plugin>
