@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="ds_layout__feedback">
-                    {{>feedback}}
+
                 </div>
             </main>
         </div>

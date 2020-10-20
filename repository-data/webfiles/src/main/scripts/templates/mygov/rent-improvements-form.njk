@@ -1,0 +1,241 @@
+{% from "../macros.njk" import postcodeLookup %}
+
+<form id="r-imp-form" autocomplete="false">
+
+    <section data-step="overview" id="overview" class="form-section">
+    </section>
+
+    <section data-step="address" class="form-section  fully-hidden">
+        <h2>Address</h2>
+
+        <p>Enter a postcode to find the property's address.</p>
+
+        {{ postcodeLookup('property-address', required=true, note=true, readOnly=true, onlyRPZAllowed=true) }}
+    </section>
+
+    <section data-step="landlords" class="form-section  fully-hidden">
+
+        <div class="repeating-container js-landlords-container"></div>
+
+    </section>
+
+    <section data-step="letting-agent" class="form-section  form-step  fully-hidden">
+        <h2>Letting agent</h2>
+
+        <div class="ds_question">
+            <fieldset id="letting-agent-query" data-validation="requiredRadio">
+                <legend>Does a letting agent manage the property?</legend>
+                <div class="field-group">
+                    <div class="ds_radio">
+                        <input id="letting-agent-yes" value="yes" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-yes"/>
+                        <label for="letting-agent-yes" class="ds_radio__label">Yes</label>
+
+                        <div class="ds_reveal-content">
+                            <div class="ds_question">
+                                <label class="ds_label" for="letting-agent-name">Full name</label>
+                                <input type="text" id="letting-agent-name" data-validation="requiredField" class="ds_input" data-form="textinput-letting-agent-name">
+
+                            <div class="ds_question">
+                                <label class="ds_label" for="letting-agent-email">Email</label>
+                                <input data-validation="validEmail" type="text" data-validation="requiredField" id="letting-agent-email" class="ds_input" data-form="textinput-letting-agent-email">
+                            </div>
+
+                            <div class="ds_question">
+                                <label class="ds_label" for="letting-agent-phone">Phone number</label>
+                                <input data-validation="validPhone" type="text" data-validation="requiredField" id="letting-agent-phone" class="ds_input  ds_input--fixed-20" data-form="textinput-letting-agent-phone">
+                            </div>
+
+                            <h3 class="beta">Address</h3>
+
+                            {{ postcodeLookup('letting-agent', required=true) }}
+                        </div>
+                    </div>
+
+                    <div class="ds_radio">
+                        <input id="letting-agent-no" value="no" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-no"/>
+                        <label for="letting-agent-no" class="ds_radio__label">No</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+
+    </section>
+
+    <section data-step="tenants" class="fully-hidden form-section">
+
+        <div class="repeating-container js-tenants-container"></div>
+
+    </section>
+
+    <section data-step="improvements" class="form-section  fully-hidden">
+
+        <section data-step="property-improvements"  class="form-step  fully-hidden">
+            <h2>Property improvements</h2>
+
+            <div class="form-group">
+                <label for="improvements-details">What work have you done to the property?</label>
+
+                <p>List work you've done that you're claiming an increase for. You should give as much detail as you and include:<p>
+
+                <ul>
+                    <li>what it cost you</li>
+                    <li>when it was finished</li>
+                </ul>
+
+                <p>You can't claim for your own labour, only what you paid someone else to do.</p>
+
+                <textarea id="improvements-details" class="ds_input" rows="10" data-validation="requiredField" data-form="textarea-improvements-details"></textarea>
+            </div>
+
+        </section>
+
+        <section data-step="proof-of-work"  class="form-step  fully-hidden">
+            <h2>Proof of work</h2>
+
+            <p>For a Rent Officer to be able to decide how much extra rent you can charge, you should send some proof of the work you've done. </p>
+
+            <div class="ds_question">
+                <fieldset id="documents-query">
+                    <legend>You should confirm that you're sending at least one of:</legend>
+
+                    <div class="field-group">
+                        <div class="ds_checkbox">
+                            <input type="checkbox" id="documents-receipts" class="ds_checkbox__input" name="improvements-documents" data-form="checkbox-documents-receipts">
+                            <label class="ds_checkbox__label" for="documents-receipts">copies of invoices or receipts, proving the cost of work</label>
+                        </div>
+
+                        <div class="ds_checkbox">
+                            <input type="checkbox" id="documents-photos" class="ds_checkbox__input" name="improvements-documents" data-form="checkbox-documents-photos">
+                            <label class="ds_checkbox__label" for="documents-photos">'before' and 'after' photos of the work you've done</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+        </section>
+
+    </section>
+
+    <section data-step="rent-increase" class="form-section  fully-hidden">
+        <h2>Rent Increase</h2>
+
+        <div class="ds_question">
+            <label class="ds_label" for="rent-increase-amount">How much extra rent do you want to charge?</label>
+
+            <p class="ds_hint-text">Only put the amount you want to charge for work you've done.</p>
+
+            <div class="ds_currency-wrapper">
+                <input data-validation="requiredField validCurrency" aria-required="true" type="text" id="rent-increase-amount" class="ds_input  ds_input--fixed-10" placeholder="e.g. 50.00" data-form="textinput-rent-increase-amount">
+            </div>
+        </div>
+
+        <div class="ds_question">
+            <label class="ds_label" for="rent-payment-frequency">How often are rent payments?</label>
+            <div class="ds_select-wrapper">
+                <select class="ds_select" data-validation="requiredDropdown" id="rent-payment-frequency">
+                    <option value="" disabled selected>Choose frequency:</option>
+                    <option value="WEEKLY">Weekly</option>
+                    <option value="FORTNIGHTLY">Fortnightly</option>
+                    <option value="EVERY_FOUR_WEEKS">Four Weekly</option>
+                    <option value="CALENDAR_MONTH">Monthly</option>
+                    <option value="QUARTERLY">Quarterly</option>
+                </select>
+                <span class="ds_select-arrow" aria-hidden="true"></span>
+            </div>
+        </div>
+    </section>
+
+    <section data-step="summary" class="form-section  fully-hidden">
+
+        <section data-step="summary" class="fully-hidden  form-step">
+
+            <h2>Summary</h2>
+
+            <div id="summary-container"></div>
+
+        </section>
+
+    </section>
+
+    <section data-step="declaration" class="fully-hidden form-step">
+        <h2>Declaration</h2>
+
+        <div class="ds_question">
+            <fieldset id="declaration-checkbox" data-validation="atLeastOneCheckbox" data-message="You must confirm the declaration to complete this form." class="no-validate">
+                <legend class="visually-hidden">Form Declaration</legend>
+
+                <div class="ds_checkbox">
+                    <input id="form-declaration" class="ds_checkbox__input" type="checkbox" data-form="checkbox-form-declaration"/>
+                    <label for="form-declaration" class="ds_checkbox__label">I apply to a Rent Officer to decide how much extra rent can be charged for improvements made at <span class="js-declaration-address summary__user-input"></span>.</label>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+
+    <section data-step="download" class="form-section  fully-hidden">
+
+        <section data-step="form-download" class="fully-hidden form-step">
+
+            <h2>Apply</h2>
+
+            <p>To apply you'll need to download your finished form.</p>
+
+            <p>You need to complete the following challenge before you can download your application.</p>
+
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <div id="recaptcha" class="g-recaptcha"
+            data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV"
+            data-callback="checkRecaptcha"
+            data-expired-callback="expireRecaptcha"></div>
+
+            <section class="document-section">
+
+                <div data-documenttype="PDF" class="js-document-container  document-info  document-info--limelight">
+                    <div class="document-info__body">
+                        <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                            <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--PDF" title="View this document" href="#">
+                                <span class="mg_file__icon">
+                                    <span class="mg_file__content">PDF</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="document-info__text">
+                        <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your application - PDF document</a></h3>
+
+                        <dl class="ds_metadata  ds_metadata--inline">
+                            <div class="ds_metadata__item">
+                                <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                                <dd class="ds_metadata__value"><b>PDF document (.pdf)</b></dd>
+                            </div>
+                        </dl>
+
+                        <div class="document-info__download">
+                            <a disabled="true" href="#" data-gtm="btn-download-pdf" class="ds_no-margin  ds_button  js-download-file">
+                                Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="js-download-details-container"></div>
+
+        </section>
+    </section>
+
+</form>
+
+<form id="r-imp-document-download" action="/service/housing/rent-increase-for-improvements/form" method="POST" enctype="multipart/form-data" class="form-download">
+    <input type="hidden" name="data" value="">
+    <input type="hidden" name="type" value="">
+</form>
+
+<nav id="page-nav" aria-label="Navigation buttons"></nav>
+
+<a id="go-to-summary" href="#!/summary/" class="js-validate-step  back-to-summary-button  ds_button  ds_button--secondary  ds_button--has-icon  fully-hidden">
+    Back to summary
+    <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron-right"></use></svg>
+</a>
