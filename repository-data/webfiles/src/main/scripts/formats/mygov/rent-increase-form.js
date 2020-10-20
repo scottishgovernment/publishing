@@ -63,7 +63,6 @@ import PostcodeLookup from '../../components/postcode-lookup';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import formSections from '../../components/mygov/housing-forms/rent-increase-sections';
-import moment from '../../vendor/moment';
 import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
 
 const formTemplate = require('../../templates/mygov/rent-increase-form');
@@ -598,8 +597,7 @@ const rentIncreaseForm = {
                 continue;
             }
 
-            const momentDate = moment(value, 'DD/MM/YYYY');
-            formDataForPost[field] = momentDate.format('YYYY-MM-DD');
+            formDataForPost[field] = value.split('/').reverse().join('-');
         }
 
         return formDataForPost;

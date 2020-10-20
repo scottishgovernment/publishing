@@ -15,7 +15,6 @@ import formSections from '../../components/mygov/housing-forms/model-tenancy-sec
 import formMapping from '../../components/mygov/housing-forms/model-tenancy-mapping';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
-import moment from '../../vendor/moment';
 import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
 
 const formTemplate = require('../../templates/mygov/model-tenancy-form');
@@ -569,8 +568,7 @@ const modelTenancyForm = {
                 continue;
             }
 
-            const momentDate = moment(value, 'DD/MM/YYYY');
-            formData[field] = momentDate.format('YYYY-MM-DD');
+            formData[field] = value.split('/').reverse().join('-');
         }
 
         // 3. Add value from 'other' option in property type field if selected

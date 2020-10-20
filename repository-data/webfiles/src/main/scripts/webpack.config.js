@@ -35,6 +35,7 @@ const commonItems = {
         'rent-improvements-form':       path.resolve(__dirname, './formats/mygov/rent-improvements-form.js'),
         'rent-increase-form':           path.resolve(__dirname, './formats/mygov/rent-increase-form.js'),
         'rpz-checker':                  path.resolve(__dirname, './formats/mygov/rpz-checker.js'),
+        'subtenant-notice-to-leave-form':   path.resolve(__dirname, './formats/mygov/subtenant-notice-to-leave-form.js')
     },
 
     externals: {

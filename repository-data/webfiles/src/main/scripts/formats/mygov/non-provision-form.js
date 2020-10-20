@@ -263,7 +263,7 @@ import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
-import moment from '../../vendor/moment';
+
 import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
 
 const formTemplate = require('../../templates/mygov/non-provision-form');
@@ -280,11 +280,11 @@ const noticeTemplate = require('../../templates/mygov/non-provision-notice-end')
 const calcNoticeEnd = function(){
     // Standard notice period is 28 days
     let noticePeriod = 28;
-    const dateNoticeGiven = moment(formObject.noticeDate, 'DD/MM/YYYY');
+    const dateNoticeGiven = formObject.noticeDate.split('/').reverse().join('-');
 
     // If terms have changed in the 28 days before the notice is given, add the remainder of that period
     if (formObject.section10bFailure && formObject.hasChangedTerms === 'true'){
-        const lastChangedDate = moment(formObject.changedTermsDate, 'DD/MM/YYYY');
+        const lastChangedDate = formObject.changedTermsDate.split('/').reverse().join('-');
 
         const daysBetween = dateNoticeGiven.diff(lastChangedDate, 'days');
 
@@ -478,8 +478,8 @@ const nonProvisionForm = {
 
 
     setupDatePickers: function () {
-        const newDate = moment();
-        const minChangedDate = newDate.subtract(27, 'days').toDate();
+        const newDate = new Date();
+        const minChangedDate = new Date(newDate.setDate(newDate.getDate() - 27));
 
         const changedDatePicker = new DSDatePicker(document.getElementById('changed-terms-date-picker'), {minDate: minChangedDate, maxDate: new Date()});
         const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date-picker'), {minDate: new Date()});
@@ -526,9 +526,6 @@ const nonProvisionForm = {
     },
 
     validateStep: function () {
-        console.warn('validation is diabled'); return true;
-
-
         /* look for data-validation attributes in current step & PERFORM VALIDATION
             * do not allow progress if invalid
             */
@@ -571,8 +568,7 @@ const nonProvisionForm = {
                 continue;
             }
 
-            const momentDate = moment(value, 'DD/MM/YYYY');
-            formData[field] = momentDate.format('YYYY-MM-DD');
+            formData[field] = value.split('/').reverse().join('-');
         }
 
         // 2. Remove details from 'missing' if box not checked

@@ -60,7 +60,7 @@ export default class EditableTable {
                 const row = event.target.closest('tr');
                 var index = parseInt(row.dataset.index, 10);
                 editableTable.removeEntry(index, row);
-console.log(index, row)
+
                 // rerender table
                 editableTable.renderTable();
             }
