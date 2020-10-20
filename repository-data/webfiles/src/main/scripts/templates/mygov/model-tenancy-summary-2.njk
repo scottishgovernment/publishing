@@ -1,0 +1,275 @@
+<h3>Extra terms</h3>
+<div class="ds_accordion" data-module="ds-accordion">
+    <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+
+    {% if optionalTerms.contentsAndConditions %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-contents-and-condition" aria-labelledby="panel-contents-and-condition-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-contents-and-condition-heading" class="ds_accordion-item__title">
+                Contents and condition
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-contents-and-condition"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-contents-and-condition">
+            {{ optionalTerms.contentsAndConditions | paragraphify | safe }}
+
+            <a href="#!/extra-terms/contents-and-condition/">Edit <span class="visually-hidden">contents and condition</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if optionalTerms.localAuthorityTaxesAndCharges %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-local-authority" aria-labelledby="panel-local-authority-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-local-authority-heading" class="ds_accordion-item__title">
+                Local authority taxes/charges
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-local-authority"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-local-authority">
+            {{ optionalTerms.localAuthorityTaxesAndCharges | paragraphify | safe }}
+
+            <a href="#!/extra-terms/local-authority-taxes/">Edit <span class="visually-hidden">local authority taxes/charges</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if optionalTerms.utilities %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-utilities" aria-labelledby="panel-utilities-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-utilities-heading" class="ds_accordion-item__title">
+                Utilities
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-utilities"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-utilities">
+            {{ optionalTerms.utilities | paragraphify | safe }}
+
+            <a href="#!/extra-terms/utilities/">Edit <span class="visually-hidden">utilities</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if optionalTerms.alterations %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-alterations-1" aria-labelledby="panel-alterations-1-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-alterations-1-heading" class="ds_accordion-item__title">
+                Alterations
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-alterations-1"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-alterations-1">
+            {{ optionalTerms.alterations | paragraphify | safe }}
+
+            <p>Any request for adaptations, auxiliary aids or services under section 37 of the Equality Act 2010 or section 52 of the Housing (Scotland) Act 2006 must be made in writing to the Landlord and any other owners of the common parts, where appropriate. Consent for alterations requested under this legislation should not be unreasonably withheld. If no consent is given for the adaptations you may appeal to the Tribunal in relation to section 52 (or sheriff court in relation to section 37) within 6 months of being notified of the decision. Before doing this, you may find it helpful to discuss your circumstance with your local Citizens Advice Bureau, Shelter Scotland or the local authority for the area where the Let Property is situated.</p>
+
+            <a href="#!/extra-terms/alterations/">Edit <span class="visually-hidden">alterations</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if (alterations == '') %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-alterations-2" aria-labelledby="panel-alterations-2-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-alterations-2-heading" class="ds_accordion-item__title">
+                Alterations
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-alterations-2"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-alterations-2">
+            <p>Any request for adaptations, auxiliary aids or services under section 37 of the Equality Act 2010 or section 52 of the Housing (Scotland) Act 2006 must be made in writing to the Landlord and any other owners of the common parts, where appropriate. Consent for alterations requested under this legislation should not be unreasonably withheld. If no consent is given for the adaptations you may appeal to the Tribunal in relation to section 52 (or sheriff court in relation to section 37) within 6 months of being notified of the decision. Before doing this, you may find it helpful to discuss your circumstance with your local Citizens Advice Bureau, Shelter Scotland or the local authority for the area where the Let Property is situated.</p>
+
+            <a href="#!/extra-terms/alterations/">Edit <span class="visually-hidden">alterations</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if optionalTerms.commonParts %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-common-parts" aria-labelledby="panel-common-parts-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-common-parts-heading" class="ds_accordion-item__title">
+                Common parts
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-common-parts"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-common-parts">
+            {{ optionalTerms.commonParts | paragraphify | safe }}
+
+            <a href="#!/extra-terms/common-parts/">Edit <span class="visually-hidden">common parts</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if optionalTerms.privateGarden %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-private-garden" aria-labelledby="panel-private-garden-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-private-garden-heading" class="ds_accordion-item__title">
+                Private garden
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-private-garden"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-private-garden">
+            {{ optionalTerms.privateGarden | paragraphify | safe }}
+
+            <a href="#!/extra-terms/private-garden/">Edit <span class="visually-hidden">private garden</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if optionalTerms.roof %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-roof" aria-labelledby="panel-roof-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-roof-heading" class="ds_accordion-item__title">
+                Roof
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-roof"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-roof">
+            {{ optionalTerms.roof | paragraphify | safe }}
+
+            <a href="#!/extra-terms/roof/">Edit <span class="visually-hidden">roof</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if optionalTerms.binsAndRecycling %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-bins-and-recycling" aria-labelledby="panel-bins-and-recycling-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-bins-and-recycling-heading" class="ds_accordion-item__title">
+                Bins and recycling
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-bins-and-recycling"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-bins-and-recycling">
+            {{ optionalTerms.binsAndRecycling | paragraphify | safe }}
+
+            <a href="#!/extra-terms/bins-and-recycling/">Edit <span class="visually-hidden">bins and recycling</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if optionalTerms.storage %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-storage" aria-labelledby="panel-storage-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-storage-heading" class="ds_accordion-item__title">
+                Storage
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-storage"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-storage">
+            {{ optionalTerms.storage | paragraphify | safe }}
+
+            <a href="#!/extra-terms/storage/">Edit <span class="visually-hidden">storage</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if optionalTerms.dangerousSubstances %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-dangerous-substances" aria-labelledby="panel-dangerous-substances-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-dangerous-substances-heading" class="ds_accordion-item__title">
+                Dangerous substances
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-dangerous-substances"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-dangerous-substances">
+            {{ optionalTerms.dangerousSubstances | paragraphify | safe }}
+
+            <a href="#!/extra-terms/dangerous-substances/">Edit <span class="visually-hidden">dangerous substances</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if optionalTerms.pets %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-pets" aria-labelledby="panel-pets-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-pets-heading" class="ds_accordion-item__title">
+                Pets
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-pets"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-pets">
+            {{ optionalTerms.pets | paragraphify | safe }}
+
+            <a href="#!/extra-terms/pets/">Edit <span class="visually-hidden">pets</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if optionalTerms.smoking %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-smoking" aria-labelledby="panel-smoking-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-smoking-heading" class="ds_accordion-item__title">
+                Smoking
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-smoking"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-smoking">
+            {{ optionalTerms.smoking | paragraphify | safe }}
+
+            <a href="#!/extra-terms/smoking/">Edit <span class="visually-hidden">smoking</span></a>
+        </div>
+    </div>
+    {% endif %}
+
+{% for key, term in additionalTerms %}
+    {% if term.title %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-{{loop.index | add(13)}}" aria-labelledby="panel-{{loop.index | add(13)}}-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-{{loop.index | add(13)}}-heading" class="ds_accordion-item__title">
+                {{term.title}}
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-{{loop.index | add(13)}}"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-{{loop.index | add(13)}}">
+            {{term.content | paragraphify | safe}}
+
+            <a href="#!/additional-terms/additional-term-{{loop.index | add(13)}}/">Edit <span class="visually-hidden">{{term.title}}</span></a>
+        </div>
+    </div>
+    {% endif %}
+{% endfor %}
+
+</div>

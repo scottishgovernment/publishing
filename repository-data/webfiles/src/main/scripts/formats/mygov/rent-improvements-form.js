@@ -43,11 +43,11 @@ import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import formSections from '../../components/mygov/housing-forms/rent-improvements-sections';
 
-const rentImprovementsSummaryTemplate = require('../../templates/rent-improvements-summary.hbs');
-const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav.hbs');
-const sectionNavTemplate = require('../../templates/visited-only-section-nav.hbs');
-const subNavTemplate = require('../../templates/visited-only-subsection-nav.hbs');
-const rentImprovementsDownloadTemplate = require('../../templates/rent-improvements-download.hbs');
+const summaryTemplate = require('../../templates/_rent-improvements-summary.hbs');
+const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
+const sectionNavTemplate = require('../../templates/visited-only-section-nav');
+const subNavTemplate = require('../../templates/visited-only-subsection-nav');
+const downloadTemplate = require('../../templates/_rent-improvements-download.hbs');
 
 $('form').each(function() {
     this.reset();
@@ -60,7 +60,7 @@ const rentImprovementsForm = {
         formObject: formObject,
         formEvents: {
             updateSummary: function () {
-                const html = rentImprovementsSummaryTemplate(rentImprovementsForm.form.settings.formObject);
+                const html = summaryTemplate(rentImprovementsForm.form.settings.formObject);
                 document.querySelector('#summary-container').innerHTML = html;
 
                 commonHousing.validateSummary();
@@ -76,7 +76,7 @@ const rentImprovementsForm = {
                 const formObject = rentImprovementsForm.form.settings.formObject;
                 const noDocuments = !formObject.includesReceipts && !formObject.includesBeforeAndAfterPictures;
 
-                const html = rentImprovementsDownloadTemplate({form: rentImprovementsForm.form.settings.formObject,
+                const html = downloadTemplate({form: rentImprovementsForm.form.settings.formObject,
                     noDocuments: noDocuments});
                 document.querySelector('.js-download-details-container').innerHTML = html;
             }
@@ -96,6 +96,9 @@ const rentImprovementsForm = {
     init: function () {
         feedback.init();
         rentImprovementsForm.form.validateStep = rentImprovementsForm.validateStep;
+        if (!formTemplateContainer) {
+            return false;
+        }
         rentImprovementsForm.form.init();
         commonHousing.setManualLinkSections();
         this.setupRepeatingSections();
@@ -115,7 +118,7 @@ const rentImprovementsForm = {
                 name: 'tenants',
                 nameInput: '.js-tenant-name',
                 container: '.js-tenants-container',
-                template: 'tenantHtml',
+                template: require('../../templates/tenant-html'),
                 addressrequired: true,
                 requiredName: true,
                 slug: 'tenant',
@@ -134,7 +137,7 @@ const rentImprovementsForm = {
                 name: 'landlords',
                 nameInput: '.js-landlord-name',
                 container: '.js-landlords-container',
-                template: 'landlordHtml',
+                template: require('../../templates/landlord-html'),
                 addressrequired: true,
                 requiredName: true,
                 slug: 'landlord',

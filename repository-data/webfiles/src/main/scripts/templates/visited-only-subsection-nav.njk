@@ -1,0 +1,36 @@
+{% if hideSubsectionNav %}
+{% else %}
+    <nav aria-label="Subsections in this section" class="ds_side-navigation  ds_no-margin--top">
+        <input type="checkbox" class="fully-hidden  js-toggle-side-navigation" id="show-side-navigation" aria-controls="side-navigation-root">
+        <label class="ds_side-navigation__expand  ds_link" for="show-side-navigation"><span class="visually-hidden">Show all</span> Pages in this section <span class="ds_side-navigation__expand-indicator"></span></label>
+
+        <ul class="ds_side-navigation__list  ds_side-navigation__list--root"  id="side-navigation-root">
+            {% for page in pages %}
+                {% if page.hidden %}
+                {% else %}
+                    {% if page.disabled %}
+                        <li class="ds_side-navigation__item  ds_side-navigation__item--disabled">
+                            <spn class="ds_side-navigation__link  ds_side-navigation__link--inactive">{{page.title}}</span>
+                        </li>
+                    {% else %}
+                        <li class="ds_side-navigation__item">
+                            {% if page.visited %}
+                                {% if page.current %}
+                                    <span class="ds_side-navigation__link  ds_current">{{page.title}}</span>
+                                {% else %}
+                                    <a href="#!/{{page.section}}/{{page.slug}}/" class="ds_side-navigation__link  js-validate-step">
+                                    {{page.title}}
+                                    </a>
+                                {% endif %}
+                            {% else %}
+                                <span class="ds_side-navigation__link  ds_side-navigation__link--inactive">
+                                    {{page.title}}
+                                </span>
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+{% endif %}

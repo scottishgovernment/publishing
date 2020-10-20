@@ -1,0 +1,16 @@
+.#{$mg-prefix}org-services {
+    list-style-type: none;
+    margin-left: 0;
+
+    &__item {
+        @include block-margins;
+    }
+
+    &__title {
+        margin-bottom: 8px;
+
+        > a:not(:focus) {
+            text-decoration: underline;
+        }
+    }
+}

@@ -4,70 +4,72 @@
 
 'use strict';
 
-const formObject = {
-    propertyAddress: null,
-    tenants: { 'tenant-1': {} },
-    tenantAgent: {
-        name: null,
-        email: null,
-        telephone: null,
-        address: {
-            building: null,
-            street: null,
-            town: null,
-            region: null,
-            postcode: null
-        }
-    },
-    'propertyType': null,
-    'rooms': [{
-        name: 'Living rooms',
-        quantity: 1
-    },{
-        name: 'Bedrooms',
-        quantity: 1
-    },{
-        name: 'Kitchens',
-        quantity: 1
-    },{
-        name: 'Bathrooms',
-        quantity: 1
-    },{
-        name: 'WC',
-        quantity: 0
-    }],
-    'sharedAreas': null,
-    'included': null,
-    'heating': null,
-    'doubleGlazing': null,
-    'servicesDetails': null,
-    'servicesCostDetails': null,
-    'furnished': null,
-    'noInventory': null,
-    'improvementsTenant': null,
-    'improvementsLandlord': null,
-    'damage': null,
-    'currentRentAmount': null,
-    'currentRentFrequency': null,
-    'newRentAmount': null,
-    'newRentFrequency': null,
 
-    landlords: { 'landlord-1': {} },
-    'hasLettingAgent': null,
-    lettingAgent: {
-        name: null,
-        email: null,
-        telephone: null,
-        address: {
-            building: null,
-            street: null,
-            town: null,
-            region: null,
-            postcode: null
-        }
-    },
-    'notAvailableForInspection': null
-};
+const formObject = {"propertyAddress":null,"tenants":{"tenant-1":{"name":"Jonathan Sutcliffe","email":"jonathan.a.sutcliffe@gmail.com","telephone":"01578750763","address":{"street":"Over Hartside","town":"Oxton","region":"Berwickshire"}}},"tenantAgent":{"name":"Jonathan Sutcliffe","email":"jonathan.a.sutcliffe@gmail.com","telephone":"01578750763","address":{"building":null,"street":"Over Hartside","town":"Oxton","region":"Berwickshire","postcode":null}},"propertyType":"BUNGALOW","rooms":[{"name":"Living rooms","quantity":1,"quantity_options_nodisplay":[{"displayName":0,"value":0},{"displayName":1,"value":1},{"displayName":2,"value":2},{"displayName":3,"value":3},{"displayName":4,"value":4},{"displayName":5,"value":5},{"displayName":6,"value":6},{"displayName":7,"value":7}],"slug_nodisplay":"quantity"},{"name":"Bedrooms","quantity":1,"quantity_options_nodisplay":[{"displayName":0,"value":0},{"displayName":1,"value":1},{"displayName":2,"value":2},{"displayName":3,"value":3},{"displayName":4,"value":4},{"displayName":5,"value":5},{"displayName":6,"value":6},{"displayName":7,"value":7}],"slug_nodisplay":"quantity"},{"name":"Kitchens","quantity":1,"quantity_options_nodisplay":[{"displayName":0,"value":0},{"displayName":1,"value":1},{"displayName":2,"value":2},{"displayName":3,"value":3},{"displayName":4,"value":4},{"displayName":5,"value":5},{"displayName":6,"value":6},{"displayName":7,"value":7}],"slug_nodisplay":"quantity"},{"name":"Bathrooms","quantity":1,"quantity_options_nodisplay":[{"displayName":0,"value":0},{"displayName":1,"value":1},{"displayName":2,"value":2},{"displayName":3,"value":3},{"displayName":4,"value":4},{"displayName":5,"value":5},{"displayName":6,"value":6},{"displayName":7,"value":7}],"slug_nodisplay":"quantity"},{"name":"WC","quantity":0,"quantity_options_nodisplay":[{"displayName":0,"value":0},{"displayName":1,"value":1},{"displayName":2,"value":2},{"displayName":3,"value":3},{"displayName":4,"value":4},{"displayName":5,"value":5},{"displayName":6,"value":6},{"displayName":7,"value":7}],"slug_nodisplay":"quantity"}],"sharedAreas":"eerwewrewrrew","included":"sssss","heating":"Part central heating","doubleGlazing":"Partial double glazing","servicesDetails":null,"servicesCostDetails":null,"furnished":"yes","noInventory":true,"improvementsTenant":"werewerw","improvementsLandlord":"werwewer","damage":"erwwerewewrewr","currentRentAmount":"234324","currentRentFrequency":"WEEKLY","newRentAmount":"23443","newRentFrequency":"CALENDAR_MONTH","landlords":{"landlord-1":{"name":"Jonathan Sutcliffe","email":"jonathan.a.sutcliffe@gmail.com","telephone":"01578750763","address":{"building":"qew"}}},"hasLettingAgent":"true","lettingAgent":{"name":"Jonathan Sutcliffe","email":"jonathan.a.sutcliffe@gmail.com","telephone":"01578750763","address":{"building":null,"street":"Over Hartside","town":"Oxton","region":"Berwickshire","postcode":null}},"notAvailableForInspection":"23324","hasTenantAgent":"yes","hasTenantAgent_text":"Yes","propertyType_text":"Bungalow","sharedAreasQuery":"yes","sharedAreasQuery_text":"Yes","includedQuery":"yes","includedQuery_text":"Yes","heating_text":"Part central heating","doubleGlazing_text":"Some double glazing","furnished_text":"Yes","tenantImprovementsQuery":"yes","tenantImprovementsQuery_text":"Yes","landlordImprovementsQuery":"yes","landlordImprovementsQuery_text":"Yes","damagesQuery":"yes","damagesQuery_text":"Yes","currentRentFrequency_text":"Weekly","newRentFrequency_text":"Monthly","hasLettingAgent_text":"Yes"}
+// const formObject = {
+//     propertyAddress: null,
+//     tenants: { 'tenant-1': {} },
+//     tenantAgent: {
+//         name: null,
+//         email: null,
+//         telephone: null,
+//         address: {
+//             building: null,
+//             street: null,
+//             town: null,
+//             region: null,
+//             postcode: null
+//         }
+//     },
+//     'propertyType': null,
+//     'rooms': [{
+//         name: 'Living rooms',
+//         quantity: 1
+//     },{
+//         name: 'Bedrooms',
+//         quantity: 1
+//     },{
+//         name: 'Kitchens',
+//         quantity: 1
+//     },{
+//         name: 'Bathrooms',
+//         quantity: 1
+//     },{
+//         name: 'WC',
+//         quantity: 0
+//     }],
+//     'sharedAreas': null,
+//     'included': null,
+//     'heating': null,
+//     'doubleGlazing': null,
+//     'servicesDetails': null,
+//     'servicesCostDetails': null,
+//     'furnished': null,
+//     'noInventory': null,
+//     'improvementsTenant': null,
+//     'improvementsLandlord': null,
+//     'damage': null,
+//     'currentRentAmount': null,
+//     'currentRentFrequency': null,
+//     'newRentAmount': null,
+//     'newRentFrequency': null,
+
+//     landlords: { 'landlord-1': {} },
+//     'hasLettingAgent': null,
+//     lettingAgent: {
+//         name: null,
+//         email: null,
+//         telephone: null,
+//         address: {
+//             building: null,
+//             street: null,
+//             town: null,
+//             region: null,
+//             postcode: null
+//         }
+//     },
+//     'notAvailableForInspection': null
+// };
 
 const formMapping = {
     'propertyAddress': '#rpz-property-address',
@@ -130,10 +132,11 @@ import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import formSections from '../../components/mygov/housing-forms/rent-adjudication-sections';
 
-const rentAdjudicationSummaryTemplate = require('../../templates/rent-adjudication-summary.hbs');
-const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav.hbs');
-const sectionNavTemplate = require('../../templates/visited-only-section-nav.hbs');
-const subNavTemplate = require('../../templates/visited-only-subsection-nav.hbs');
+const formTemplate = require('../../templates/mygov/rent-adjudication-form');
+const summaryTemplate = require('../../templates/mygov/rent-adjudication-summary');
+const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
+const sectionNavTemplate = require('../../templates/visited-only-section-nav');
+const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 
 $('form').each(function() {
     this.reset();
@@ -146,7 +149,12 @@ const rentAdjudicationForm = {
         formObject: formObject,
         formEvents: {
             updateSummary: function () {
-                const html = rentAdjudicationSummaryTemplate(rentAdjudicationForm.form.settings.formObject);
+                const summaryObject = JSON.parse(JSON.stringify(rentAdjudicationForm.form.settings.formObject));
+
+                summaryObject.hasTenants = Object.values(summaryObject.tenants)[0].name;
+                summaryObject.hasLandlords = Object.values(summaryObject.landlords)[0].name;
+
+                const html = summaryTemplate.render(summaryObject);
                 document.querySelector('#summary-container').innerHTML = html;
 
                 commonHousing.validateSummary();
@@ -180,6 +188,15 @@ const rentAdjudicationForm = {
     }),
 
     init: function () {
+        // append form template
+        const formTemplateContainer = document.querySelector('#form-container');
+        if (!formTemplateContainer) {
+            return false;
+        }
+        const overviewContent = formTemplateContainer.innerHTML;
+        formTemplateContainer.innerHTML = formTemplate.render({tenants: true});
+        formTemplateContainer.querySelector('#overview').innerHTML = formTemplateContainer.querySelector('#overview').innerHTML + overviewContent;
+
         feedback.init();
         rentAdjudicationForm.form.validateStep = rentAdjudicationForm.validateStep;
         rentAdjudicationForm.form.init();
@@ -192,7 +209,7 @@ const rentAdjudicationForm = {
         commonForms.setupRecaptcha();
 
         new EditableTable({ // NOSONAR
-            tableContainer: $('#rooms-table'),
+            tableContainer: document.querySelector('#rooms-table'),
             formObject: rentAdjudicationForm.form.settings.formObject,
             dataPath: 'rooms',
             fields: [
@@ -231,7 +248,7 @@ const rentAdjudicationForm = {
                 name: 'tenants',
                 nameInput: '.js-tenant-name',
                 container: '.js-tenants-container',
-                template: 'tenantHtml',
+                template: require('../../templates/tenant-html'),
                 addressrequired: true,
                 requiredName: true,
                 slug: 'tenant',
@@ -258,7 +275,7 @@ const rentAdjudicationForm = {
                 name: 'landlords',
                 nameInput: '.js-landlord-name',
                 container: '.js-landlords-container',
-                template: 'landlordHtml',
+                template: require('../../templates/landlord-html'),
                 addressrequired: true,
                 requiredName: true,
                 slug: 'landlord',

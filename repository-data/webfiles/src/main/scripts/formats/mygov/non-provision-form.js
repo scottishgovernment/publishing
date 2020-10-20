@@ -252,9 +252,9 @@ const formMapping = {
     'section11Details': '#missing-notes-details',
     'section16Failure': '[name="payment-order-query"]',
     'hasChangedTerms': '[name="changed-terms-query"]',
-    'changedTermsDate': '#changed-terms-date-picker',
+    'changedTermsDate': '#changed-terms-date',
     'communicationMethod': '[name="communication-query"]',
-    'noticeDate': '#notice-date-picker'
+    'noticeDate': '#notice-date'
 };
 
 import $ from 'jquery';
@@ -266,11 +266,12 @@ import commonHousing from '../../tools/housing';
 import moment from '../../vendor/moment';
 import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
 
-const nonProvisionSummaryTemplate = require('../../templates/non-provision-summary.hbs');
-const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav.hbs');
-const nonProvisionSectionNavTemplate = require('../../templates/visited-only-section-nav.hbs');
-const nonProvisionSubNavTemplate = require('../../templates/visited-only-subsection-nav.hbs');
-const noticeTemplate = require('../../templates/non-provision-notice-end.hbs');
+const formTemplate = require('../../templates/mygov/non-provision-form');
+const summaryTemplate = require('../../templates/mygov/non-provision-summary');
+const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
+const sectionNavTemplate = require('../../templates/visited-only-section-nav');
+const subNavTemplate = require('../../templates/visited-only-subsection-nav');
+const noticeTemplate = require('../../templates/mygov/non-provision-notice-end');
 
 /*
     * Calculate the end date of the notice period the landlord has to respond.
@@ -319,8 +320,8 @@ const nonProvisionForm = {
         formEvents: {
             updateSummary: function () {
                 calcNoticeEnd();
-nonProvisionForm.form.settings.formObject = {"address":{"building":"CLINTZ COTTAGE HARTSIDE","street":"","region":"","town":"OXTON, LAUDER","postcode":"TD2 6PU"},"tenantNames":{"tenant1":"ten 1 name","tenant2":"ten 2 name"},"hasAgent":"true","tenantsAgent":{"name":"Jonathan Sutcliffe","address":{"building":"CLINTZ COTTAGE HARTSIDE","street":"","region":"","town":"OXTON, LAUDER","postcode":"TD2 6PU"}},"hasLettingAgent":"true","landlordsAgent":{"name":"Jonathan Sutcliffe","address":{"building":"NETHER HARTSIDE","street":"","region":"","town":"OXTON, LAUDER","postcode":"TD2 6PU"}},"landlords":{"landlord-1":{}},"communicationMethod":null,"noticeDate":"16/06/2020","intendedReferralDate":"28/07/2020","section10aFailure":false,"section10bFailure":true,"section10aDetails":"","section10bDetails":"234","section11Failure":false,"section11Details":"","section16Failure":"true","hasChangedTerms":"true","changedTermsDate":"02/06/2020","hasAgent_text":"Yes","hasLettingAgent_text":"Yes","hasChangedTerms_text":"Yes","section16Failure_text":"Yes"}
-                const html = nonProvisionSummaryTemplate(nonProvisionForm.form.settings.formObject);
+
+                const html = summaryTemplate.render(nonProvisionForm.form.settings.formObject);
                 document.querySelector('#summary-container').innerHTML = html;
 
                 commonHousing.validateSummary();
@@ -328,17 +329,26 @@ nonProvisionForm.form.settings.formObject = {"address":{"building":"CLINTZ COTTA
             },
             updateNoticeEndDate: function () {
                 calcNoticeEnd();
-                const html = noticeTemplate({noticeEndDate: formObject.intendedReferralDate});
+                const html = noticeTemplate.render({noticeEndDate: formObject.intendedReferralDate});
                 document.querySelector('#notice-end-container').innerHTML = html;
             }
         },
-        sectionTemplate: nonProvisionSectionNavTemplate,
-        subsectionTemplate: nonProvisionSubNavTemplate,
+        sectionTemplate: sectionNavTemplate,
+        subsectionTemplate: subNavTemplate,
         pageNavTemplate: housingFormPageNavTemplate,
         pageNavFunction: pageNavFunction
     }),
 
     init: function () {
+        // append form template
+        const formTemplateContainer = document.querySelector('#form-container');
+        if (!formTemplateContainer) {
+            return false;
+        }
+        const overviewContent = formTemplateContainer.innerHTML;
+        formTemplateContainer.innerHTML = formTemplate.render({tenants: true});
+        formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
+
         feedback.init();
         commonHousing.setManualLinkSections();
         this.setupAddTenantNames();
@@ -422,7 +432,7 @@ nonProvisionForm.form.settings.formObject = {"address":{"building":"CLINTZ COTTA
                 group: 'managing-the-property',
                 nameInput: '.js-landlord-name',
                 container: '.js-landlords-container',
-                template: 'landlordFTTHtml',
+                template: require('../../templates/mygov/ftt-landlord-html'),
                 slug: 'landlord',
                 stepTitle: 'Landlord',
                 fieldMappings: function(number) {
@@ -516,6 +526,9 @@ nonProvisionForm.form.settings.formObject = {"address":{"building":"CLINTZ COTTA
     },
 
     validateStep: function () {
+        console.warn('validation is diabled'); return true;
+
+
         /* look for data-validation attributes in current step & PERFORM VALIDATION
             * do not allow progress if invalid
             */

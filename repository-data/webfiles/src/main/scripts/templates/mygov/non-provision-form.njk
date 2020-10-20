@@ -1,0 +1,412 @@
+{% from "../macros.njk" import postcodeLookup %}
+
+<form id="non-provision-form">
+
+    <section id="overview" data-step="overview" class="form-section  fully-hidden">
+
+    </section>
+
+    <section data-step="property" class="fully-hidden form-section">
+
+        <section data-step="property-address" class="fully-hidden form-step">
+            <h2>Property address</h2>
+
+            {{ postcodeLookup('property', required=true, note=true) }}
+        </section>
+
+    </section>
+
+    <section data-step="tenants" class="fully-hidden form-section">
+
+        <section data-step="tenant-names" class="fully-hidden form-step">
+            <h2>Tenant(s)</h2>
+
+            <div>
+                <div class="js-tenant-names-container">
+                    <div class="ds_question">
+                        <label class="ds_label" for="tenant-1-name">Tenant 1: Full name</label>
+                        <input class="ds_input" type="text" id="tenant-1-name" data-validation="requiredField" data-form="textinput-tenant-1-name">
+                    </div>
+                </div>
+
+                <button class="js-add-tenant  ds_button" title="Add name of joint tenant">
+                + Add name of joint tenant</button>
+            </div>
+        </section>
+
+        <section data-step="agent-details" class="fully-hidden form-step">
+            <h2>If someone's helping</h2>
+
+            <p>Someone can act on a tenant's behalf if they apply to a tribunal. This person is known as the tenant's 'agent'.</p>
+
+            <div class="ds_question">
+                <fieldset aria-required="true" id="tenants-agent-query" data-validation="requiredRadio">
+                    <legend>Have you agreed there'll be an agent?</legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="agent-yes" value="true" name="tenants-agent-query" class="ds_radio__input" type="radio" data-form="radio-tenants-agent-query-true"/>
+                            <label for="agent-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <h3 class="beta">Agent details</h3>
+
+                                <div class="ds_question">
+                                    <label class="ds_label" for="tenants-agent-name">Full name</label>
+                                    <input type="text" id="tenants-agent-name" class="ds_input" data-validation="requiredField" data-form="textinput-tenants-agent-name">
+                                </div>
+
+                                {{ postcodeLookup('tenants-agent', required=true, note=true) }}
+                            </div>
+                        </div>
+
+                        <div class="ds_radio">
+                            <input id="agent-no" value="false" name="tenants-agent-query" class="ds_radio__input" type="radio" data-form="radio-tenants-agent-query-false"/>
+                            <label for="agent-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+    </section>
+
+    <section data-step="managing-the-property" class="fully-hidden form-section">
+        <section data-step="letting-agent" class="fully-hidden form-step">
+            <h2>Letting agent</h2>
+            <div class="ds_question">
+                <fieldset id="letting-agent-query" data-validation="requiredRadio">
+                    <legend>Does a letting agent manage the property for the landlord?</legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="letting-agent-yes" value="true" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="letting-agent-query-true">
+                            <label for="letting-agent-yes" class="ds_radio__label">Yes</label>
+
+                            <div data-panel="letting-agent-yes" class="ds_reveal-content">
+                                <h3 class="beta">Letting agent details</h3>
+
+                                <div class="ds_question">
+                                    <label class="ds_label" for="letting-agent-name">Full name</label>
+                                    <input type="text" id="letting-agent-name" class="ds_input" data-validation="requiredField" data-form="textinput-letting-agent-name">
+                                </div>
+
+                                {{ postcodeLookup('letting-agent', required=true, note=true) }}
+                            </div>
+                        </div>
+
+                        <div class="ds_radio">
+                            <input id="letting-agent-no" value="false" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="letting-agent-query-false">
+                            <label for="letting-agent-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <div class="repeating-container js-landlords-container">
+        </div>
+
+    </section>
+
+    <section data-step="whats-missing" class="fully-hidden form-section">
+
+        <section data-step="whats-missing-details" class="fully-hidden form-step">
+            <h2>What's missing</h2>
+
+            <div class="ds_question">
+                <fieldset data-validation="atLeastOneCheckbox" id="whats-missing-query">
+                    <legend>You want to take your landlord to the Tribunal because they haven't given you, in writing:</legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input type="checkbox" id="missing-tenancy" class="ds_checkbox__input" name="whatsMissing" data-form="checkbox-whatsMissing">
+                            <label class="ds_checkbox__label" for="missing-tenancy">all the terms of your tenancy</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="missing-tenancy-details">Give details of what your landlord hasn't given you:</label>
+                                    <textarea id="missing-tenancy-details" data-validation="requiredField" class="ds_input" data-form="textarea-missing-tenancy-details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input type="checkbox" id="missing-new-terms" class="ds_checkbox__input" name="whatsMissing" data-form="checkbox-whatsMissing">
+                            <label class="ds_checkbox__label" for="missing-new-terms">new tenancy terms if your landlord has changed something about your tenancy</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="missing-new-terms-details">Give details of what your landlord hasn't given you:</label>
+                                    <textarea id="missing-new-terms-details" data-validation="requiredField" class="ds_input" data-form="textarea-missing-new-terms-details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input type="checkbox" id="missing-notes" class="ds_checkbox__input" name="whatsMissing" data-form="checkbox-whatsMissing">
+                            <label class="ds_checkbox__label" for="missing-notes">either the 'Easy Read Notes for the Scottish Government Model Tenancy Agreement', or the 'Private Residential Tenancy Statutory Terms Supporting Notes'</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="missing-notes-details">Give details of what your landlord hasn't given you:</label>
+                                    <textarea id="missing-notes-details" data-validation="requiredField" class="ds_input" data-form="textarea-missing-notes-details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="changed-terms" class="fully-hidden form-step">
+            <h2>Changed or new terms</h2>
+
+            <div class="ds_question">
+                <p>After a change to your tenancy, your landlord has 28 days to give you new written terms.</p>
+
+                <fieldset aria-required="true" id="changed-terms-query" data-validation="requiredRadio">
+                    <legend>Has your landlord changed something about your tenancy in the last 28 days?</legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="changed-terms-yes" value="true" name="changed-terms-query" class="ds_radio__input" type="radio" data-form="radio-changed-terms-query-true"/>
+                            <label for="changed-terms-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="date-entry  ds_question">
+                                    <label class="ds_label" for="changed-terms-date">When did your landlord make the change?</label>
+                                    <div class="ds_hint-text">
+                                        <p>Use DD/MM/YYYY format.</p>
+                                    </div>
+
+                                    <div id="changed-terms-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                                        <div class="ds_input__wrapper">
+                                            <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex requiredField" type="text" id="changed-terms-date" placeholder="e.g. 01/12/2020" data-form="textinput-changed-terms-date-picker" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ds_radio">
+                            <input id="changed-terms-no" value="false" name="changed-terms-query" class="ds_radio__input" type="radio" data-form="radio-changed-terms-query-false"/>
+                            <label for="changed-terms-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="payment-order" class="fully-hidden form-step">
+            <h2>Payment Order</h2>
+
+            <div class="ds_question">
+                <fieldset id="payment-order-query" data-validation="requiredRadio">
+                    <legend>Do you want to apply for a 'payment order' from your landlord?</legend>
+
+                    <p>This means you're asking the Tribunal to order your landlord to pay you money.</p>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="payment-order-yes" value="true" name="payment-order-query" class="ds_radio__input" type="radio" data-form="radio-payment-order-query-true"/>
+                            <label for="payment-order-yes" class="ds_radio__label">Yes</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input id="payment-order-no" value="false" name="payment-order-query" class="ds_radio__input" type="radio" data-form="radio-payment-order-query-false"/>
+                            <label for="payment-order-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+    </section>
+
+    <section data-step="giving-this-notice" class="fully-hidden form-section">
+
+        <section data-step="communication" class="fully-hidden form-step">
+            <h2>Giving this notice</h2>
+
+            <div class="ds_question">
+                <fieldset id="communication-query" data-validation="requiredRadio">
+                    <legend>How are you going to give your landlord this notice?</legend>
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input class="ds_radio__input" id="hand-delivered" value="hand-delivered" name="communication-query" type="radio" data-form="radio-communication-query-hand-delivered"/>
+                            <label class="ds_radio__label" for="hand-delivered">By hand</label>
+                        </div>
+
+                        <div class="ds_radio">
+                            <input class="ds_radio__input" id="recorded-delivery" value="recorded-delivery" name="communication-query" type="radio" data-form="radio-communication-query-recorded-delivery"/>
+                            <label class="ds_radio__label" for="recorded-delivery">Sent by recorded delivery post</label>
+                        </div>
+
+                        <div class="ds_radio">
+                            <input class="ds_radio__input" id="email" value="email" name="communication-query" type="radio" data-form="radio-communication-query-email"/>
+                            <label class="ds_radio__label" for="email">By email</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="notice-date" class="fully-hidden form-step">
+            <h2>Notice date</h2>
+
+            <div class="date-entry  ds_question">
+                <label class="ds_label" for="notice-date">By what date will you have given your landlord this notice?</label>
+                <div class="ds_hint-text">
+                    <p>If you do not give this notice to your landlord by the date you enter, it won't be valid.</p>
+                    <p>Use DD/MM/YYYY format.</p>
+                </div>
+
+                <div id="notice-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                    <div class="ds_input__wrapper">
+                        <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex requiredField" type="text" id="notice-date" placeholder="e.g. 15/12/2019" data-form="textinput-notice-date-picker" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section data-step="notice-end" class="fully-hidden form-step">
+            <h2>Notice period end date</h2>
+
+            <div id="notice-end-container">
+            </div>
+        </section>
+    </section>
+
+    <section data-step="summary" class="fully-hidden form-section">
+
+        <section data-step="summary" class="fully-hidden form-step">
+            <h2 class="labelled  no-suffix">Summary</h2>
+
+            <p>Check the details you've entered to make sure they're correct.</p>
+
+            <div id="summary-container">
+            </div>
+        </section>
+
+    </section>
+
+
+    <section data-step="download" class="fully-hidden form-section">
+        <div>
+            <section data-step="notice-download" class="fully-hidden form-step">
+
+                <h2>Your tribunal notice is ready</h2>
+
+                <div id="feedback-box">
+                    <div class="server-error hidden form-message form-message--error">
+                        <span>
+                            Sorry, we are unable to generate your document at this time.
+                        </span>
+                    </div>
+                </div>
+
+                <p>You need to complete the following challenge before you can download your tribunal notice.</p>
+
+                <div id="recaptcha" class="g-recaptcha"
+                data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV"
+                data-callback="checkRecaptcha"
+                data-expired-callback="expireRecaptcha"></div>
+
+                <section class="document-section">
+
+                    <div data-documenttype="WORD" class="js-document-container  document-info  document-info--limelight">
+
+                        <div class="document-info__body">
+                            <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                                <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--DOCX" title="View this document" href="#">
+                                    <span class="mg_file__icon">
+                                        <span class="mg_file__content">DOCX</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-info__text">
+                            <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your tribunal notice - Word document</a></h3>
+
+                            <dl class="ds_metadata  ds_metadata--inline">
+                                <div class="ds_metadata__item">
+                                    <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                                    <dd class="ds_metadata__value"><b>Word document (.docx)</b></dd>
+                                </div>
+                            </dl>
+
+                            <div class="document-info__download">
+                                <a disabled="true" href="#" data-gtm="btn-download-docx" class="ds_no-margin  ds_button  js-download-file">
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div data-documenttype="PDF" class="js-document-container  document-info  document-info--limelight">
+
+                        <div class="document-info__body">
+                            <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                                <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--PDF" title="View this document" href="#">
+                                    <span class="mg_file__icon">
+                                        <span class="mg_file__content">PDF</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="document-info__text">
+                            <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your tribunal notice - PDF document</a></h3>
+
+                            <dl class="ds_metadata  ds_metadata--inline">
+                                <div class="ds_metadata__item">
+                                    <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                                    <dd class="ds_metadata__value"><b>PDF document (.pdf)</b></dd>
+                                </div>
+                            </dl>
+
+                            <div class="document-info__download">
+                                <a disabled="true" href="#" data-gtm="btn-download-pdf" class="ds_no-margin  ds_button  js-download-file">
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <article>
+                    <h2 class="gamma">Signing this notice</h2>
+
+                    <p>If you're sending this notice by email you can sign it without printing the notice.</p>
+
+                    <p>You can sign a Word document by opening the document in Microsoft Word and typing your name where you need to sign.</p>
+
+                    <p>If you're signing a PDF, you can open the PDF in <a target="_blank" href="https://acrobat.adobe.com/uk/en/acrobat/pdf-reader.html">Adobe Acrobat Reader DC</a> and use Adobe's 'fill &amp; sign' tool.</p>
+
+                    <p>If you do not have Adobe Acrobat Reader DC you can get it as a <a target="_blank" href="https://get.adobe.com/uk/reader/">free download</a>. You can also read Adobe's advice about <a target="_blank" href="https://helpx.adobe.com/reader/using/sign-pdfs.html">signing a PDF</a> if you need more help.</p>
+
+                    <h2 class="gamma">Keep a version saved</h2>
+
+                    <p>You should keep a record of emails you send to and receive from your landlord.</p>
+
+                    <h2 class="gamma">Giving your landlord, or letting agent, this notice</h2>
+
+                    <p>You must give your landlord or letting agent this notice in the way agreed in your tenancy agreement.</p>
+                </article>
+            </section>
+        </div>
+    </section>
+</form>
+
+<form id="non-provision-document-download" action="/service/housing/non-provision-of-documentation/form" method="POST" enctype="multipart/form-data" class="non-provision-form-download">
+    <input type="hidden" name="data" value="">
+    <input type="hidden" name="type" value="">
+</form>
+
+<nav id="page-nav" aria-label="Navigation buttons"></nav>
+
+<a id="go-to-summary" href="#!/summary/" class="js-validate-step  back-to-summary-button  ds_button  ds_button--secondary  ds_button--has-icon  fully-hidden">
+    Back to summary
+    <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron-right"></use></svg>
+</a>

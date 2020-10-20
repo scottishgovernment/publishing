@@ -1,0 +1,82 @@
+$ds_colour__icon--default: $ds_colour__text--secondary;
+$ds_colour__icon--image: $ds_colour__icon--default;
+$ds_colour__icon--word: $ds_colour__blue--base;
+$ds_colour__icon--pdf: $ds_colour__icon--default;
+$ds_colour__icon--excel: $ds_colour__green--base;
+$ds_colour__icon--ppt: red;//$ds_colour__orange--base;
+$ds_colour__icon--txt: $ds_colour__icon--default;
+$ds_colour__icon--rtf: $ds_colour__icon--default;
+$ds_colour__icon--xml: $ds_colour__icon--default;
+$ds_colour__icon--geo: $ds_colour__icon--default;
+$ds_colour__icon--csv: $ds_colour__green--base;
+
+$filetypegroups: (
+    (gif png jpg jpeg) image $ds_colour__icon--image,
+    (doc docx) word $ds_colour__icon--word,
+    (pdf) pdf $ds_colour__icon--pdf,
+    (xls xlsx xlsm) excel $ds_colour__icon--excel,
+    (ppt pptx pps ppsx) ppt $ds_colour__icon--ppt,
+    (rtf) rtf $ds_colour__icon--rtf,
+    (txt) txt $ds_colour__icon--txt,
+    (xml, xsd) xml $ds_colour__icon--xml,
+    (csv) csv $ds_colour__icon--csv,
+    (kml, kmz) geo $ds_colour__icon--geo
+) !default;
+
+.#{$mg-prefix}file {
+    color: $ds_colour__icon--default;
+    display: inline-block;
+    @include small-size;
+    outline: 0 !important;
+    width: 100%;
+
+    &--link:focus {
+        box-shadow: 0 3px 0 $ds_colour__link--focus__shadow;
+    }
+
+    /*
+     [1] A4 ratio
+     */
+    &__icon {
+        border: 2px solid currentColor;
+        display: block;
+        height: 0;
+        padding-bottom: calc(29700%/210); /* [1] */
+        position: relative;
+
+        &::before {
+            border-left: 24px solid currentColor;
+            border-top: 24px solid #fff;
+            content: '';
+            position: absolute;
+            right: -2px;
+            top: -2px;
+        }
+    }
+
+    &__content {
+        position: absolute;
+        font-weight: $bold;
+        left:0;
+        line-height: 0;
+        right: 0;
+        text-align: center;
+        text-decoration: none;
+        top: 50%;
+    }
+
+    // colours
+    @each $filetypegroup in $filetypegroups {
+        $classList: '';
+        $extensions: nth($filetypegroup, 1);
+        $iconname: nth($filetypegroup, 2);
+        $iconcolor: nth($filetypegroup, 3);
+        @each $extension in $extensions {
+            $classList: '#{$classList} &--#{to-upper-case($extension)}, ';
+        }
+
+        #{$classList} {
+            color: $iconcolor;
+        }
+    }
+}

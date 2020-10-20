@@ -1,0 +1,172 @@
+<div class="editable-table">
+    <table class="ds_table  editable-table__table">
+        <thead>
+            <tr>
+                {% for field in fields %}
+                    <th id="{{field.slug}}-heading">{{field.title}}</td>
+                {% endfor %}
+
+                {% if readonly %}
+                {% else %}
+                    <th><span class="visually-hidden">Controls</span></th>
+                {% endif %}
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in data %}
+                {% set itemIndex = loop.index %}
+                <tr data-index="{{loop.index0}}">
+                    {% for key, value in item %}
+                        {% set field = fields[loop.index0] %}
+                        {% set regExp = r/.*_nodisplay$/g %}
+                        {% if regExp.test(key) %}
+                        {% else %}
+                            <td>
+                                <!-- view -->
+                                <span class="editable-table__view  editable-table__value">
+                                {% if field.options %}
+                                    {% if (field.type == 'radio') %}
+                                        {{value}}
+                                    {% else %}
+                                        {{value}}
+                                    {% endif %}
+                                {% else %}
+                                    {% if (field.type == 'checkbox') %}
+                                    {% else %}
+                                        {% if (field.format == 'currency') %}
+                                            {{value | currency}}
+                                        {% else %}
+                                            {{value}}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                                </span>
+
+                                <!-- edit -->
+                                {% if field.options %}
+                                    {% if (field.type == 'radio') %}
+                                        <fieldset class="editable-table__edit" id="{{slug}}">
+                                            <div id="{{name}}-{{field.slug}}-{{itemIndex}}" class="et_inline-radio--small  ds_field-group  ds_field-group--inline  js-value  js-radio-group  no-validate" data-field="{{field.slug}}" {% if field.validation %}data-validation="{{validation}}"{% endif %}>
+                                                {% for option in field.options %}
+                                                    <div class="ds_radio  ds_radio--small">
+                                                        <input {% if (option.value == value) %}checked{% endif %} id="{{name}}-{{field.slug}}-{{loop.index}}" value="{{option.value}}" name="{{field.slug}}" class="ds_radio__input" type="radio" data-form="radio-{{field.slug}}-{{option.value}}">
+                                                        <label for="{{name}}-{{field.slug}}-{{itemIndex}}" class="ds_radio__label">{{option.displayName}}</label>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </fieldset>
+                                    {% else %}
+                                        <div class="ds_select-wrapper  et_select--small  editable-table__edit">
+                                            <select id="{{name}}-{{field.slug}}-{{itemIndex}}" {% if field.validation %}data-validation="{{validation}}"{% endif %} data-field="{{field.slug}}" class="js-value  ds_select  no-validate">
+                                                {% for option in field.options %}
+                                                    <option {% if (option.value == value) %}selected{% endif %} value="{{option.value}}">{{option.displayName}}</option>
+                                                {% endfor %}
+                                            </select>
+                                            <span class="ds_select-arrow" aria-hidden="true"></span>
+                                        </div>
+                                    {% endif %}
+                                {% else %}
+                                    {% if (field.type == 'checkbox') %}
+                                        <div class="ds_checkbox  editable-table__edit">
+                                            <input data-field="{{field.slug}}" id="{{name}}-{{field.slug}}-{{itemIndex}}" name="{{field.slug}}" class="ds_checkbox__input" type="checkbox" data-form="checkbox-{{field.slug}}">
+                                            <label class="ds_checkbox__label" for="{{name}}-{{field.slug}}-{{itemIndex}}">{{field.title}}</label>
+                                        </div>
+                                    {% else %}
+                                    {% if (field.format == 'currency') %}<span class="editable-table__edit  ds_currency-wrapper  et_currency-wrapper--small">{% endif %}
+                                        <input
+                                        id="{{name}}-{{field.slug}}-{{itemIndex}}"
+                                        type="text"
+                                        data-field="{{key}}"
+                                        aria-labeledby="{{field.slug}}-heading"
+                                        {% if field.validation %}data-validation={{field.validation}}{% endif %}
+                                        class="js-value  editable-table__edit  ds_input  et_input--small  no-validate  {% if (field.format == 'currency') %}ds_input--fixed-4{% endif %}"
+                                        value="{{value}}"
+                                        data-form="text-input-id-{{name}}-{{loop.index0}}">
+                                    {% if (field.format == 'currency') %}</span>{% endif %}
+                                    {% endif %}
+                                {% endif %}
+
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if data.readonly %}
+                    {% else %}
+                        <td>
+                            <button class="ds_button  editable-table__view  js-edit-button" aria-label="Edit item {{loop.index}}">Edit</button>
+                            <button class="ds_button  ds_button--cancel  editable-table__view  js-remove-button" aria-label="Remove item {{loop.index}}">Remove</button>
+
+                            <button class="ds_button  editable-table__edit  js-save-button" aria-label="Save item {{loop.index}}">Save</button>
+                            <button class="ds_button  ds_button--cancel  editable-table__edit  js-cancel-button" aria-label="Cancel edit of item {{loop.index}}">Cancel</button>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+
+            <tr class="editable-table__add-button-row">
+                {% for field in fields %}
+                    <td></td>
+                {% endfor %}
+                <td><button class="ds_button  editable-table__add-button  js-show-add-form">{{addText}}</button></td>
+            </tr>
+
+            <tr class="editable-table__add-form  js-add-form">
+                {% for field in fields %}
+                    <td>
+                        <div class="ds_question">
+                            <label class="visually-hidden" for="{{name}}-{{field.slug}}-new">{{field.title}}{% if field.mandatory %} <span class="mandatory">*</span>{% endif %}</label>
+
+                            {% if field.options %}
+                                {% if (field.type == 'radio') %}
+                                    <fieldset id="{{slug}}">
+
+                                        <div id="{{name}}-{{field.slug}}-new" class="et_inline-radio--small  ds_field-group  ds_field-group--inline  js-value  js-radio-group  no-validate" data-field="{{field.slug}}" {% if field.validation %}data-validation="{{validation}}"{% endif %}>
+                                            {% for option in field.options %}
+                                                <div class="ds_radio  ds_radio--small">
+                                                    <input id="{{field.slug}}-{{option.value}}" value="{{option.value}}" name="{{field.slug}}" class="ds_radio__input" type="radio" data-form="radio-{{field.slug}}-{{option.value}}">
+                                                    <label for="{{field.slug}}-{{option.value}}" class="ds_radio__label">{{option.displayName}}</label>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </fieldset>
+                                {% else %}
+                                    <div class="ds_select-wrapper  et_select--small">
+                                        <select id="{{name}}-{{field.slug}}-new" {% if field.validation %}data-validation="{{validation}}"{% endif %} data-field="{{field.slug}}" class="js-value  ds_select  no-validate">
+                                            {% for option in field.options %}
+                                                <option value="{{option.value}}">{{option.displayName}}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <span class="ds_select-arrow" aria-hidden="true"></span>
+                                    </div>
+                                {% endif %}
+                            {% else %}
+                                {% if (field.type == 'checkbox') %}
+                                    <div class="ds_checkbox">
+                                        <input data-field="{{field.slug}}" id="{{field.slug}}" name="{{field.slug}}" class="ds_checkbox__input" type="checkbox" data-form="checkbox-{{field.slug}}">
+                                        <label class="ds_checkbox__label" for="{{field.slug}}">{{field.title}}</label>
+                                    </div>
+                                {% else %}
+                                    {% if (field.format == 'currency') %}<div class="ds_currency-wrapper  et_currency-wrapper--small">{% endif %}
+                                        <input id="{{name}}-{{field.slug}}-new"
+                                        {% if field.validation %}data-validation={{field.validation}}{% endif %}
+                                        type="text"
+                                        data-field="{{field.slug}}"
+                                        class="js-value  ds_input  et_input--small  no-validate  {% if (field.format == 'currency') %}ds_input--fixed-4{% endif %}"
+                                        data-form="text-input-id-{{name}}-{{field.slug}}-new">
+                                    {% if (field.format == 'currency') %}</div>{% endif %}
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </td>
+                {% endfor %}
+
+                <td>
+                    <button class="ds_button  editable-table__add  js-add-button">Save</button>
+                    <button class="ds_button  ds_button--cancel  editable-table__add  js-cancel-add-button">Cancel</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

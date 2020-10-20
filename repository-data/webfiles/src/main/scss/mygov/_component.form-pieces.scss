@@ -1,0 +1,28 @@
+.multi-page-form {
+    .remove {
+        text-decoration: line-through;
+    }
+
+    .buttons-container {
+        margin-bottom: 8px;
+        text-align: right;
+    }
+
+    h2[data-suffix] {
+        &::after {
+            content: attr(data-suffix);
+            display: inline;
+            font-size: $tiny-size;
+            font-weight: 700;
+            line-height: 16px;
+            margin-left: 0.5em;
+        }
+    }
+}
+
+
+.mg_section-navigation {
+    border-bottom: 4px solid $ds_colour__brand;
+    display: flex;
+    justify-content: space-between;
+}

@@ -48,7 +48,7 @@ const commonItems = {
             'node_modules'
         ],
 
-        extensions: ['.js', '.hbs'],
+        extensions: ['.js', '.hbs', '.njk'],
     },
 
     module: {
@@ -61,6 +61,13 @@ const commonItems = {
                         helperDirs: [path.join(__dirname, 'src/scripts/templates/helpers/')]
                     }
                 }]
+            },
+            {
+                test: /\.njk/,
+                loader: 'nunjucks-loader',
+                query: {
+                    config: 'src/main/scripts/nunjucks.config.js'
+                }
             }
         ]
     }
@@ -84,6 +91,7 @@ module.exports = [{
         module: {
             rules: [
                 commonItems.module.rules[0],
+                commonItems.module.rules[1],
                 {
                     test: /\.js$/,
                     use: {

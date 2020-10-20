@@ -74,14 +74,13 @@ import formSections from '../../components/mygov/housing-forms/notice-to-leave-s
 import moment from '../../vendor/moment';
 import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
 
-const summaryTemplate = require('../../templates/notice-to-leave-summary.hbs');
-const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav.hbs');
-const sectionNavTemplate = require('../../templates/visited-only-section-nav.hbs');
-const subNavTemplate = require('../../templates/visited-only-subsection-nav.hbs');
+const formTemplate = require('../../templates/mygov/notice-to-leave-form');
+const summaryTemplate = require('../../templates/mygov/notice-to-leave-summary');
+const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
+const sectionNavTemplate = require('../../templates/visited-only-section-nav');
+const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 
-$('form').each(function() {
-    this.reset();
-});
+[].slice.call(document.querySelectorAll('form')).forEach((form) => form.reset());
 
 const noticeToLeaveForm = {
     form: new MultiPageForm({
@@ -94,8 +93,9 @@ const noticeToLeaveForm = {
 
                 summaryObject.tenantNames = commonForms.objectValues(summaryObject.tenantNames).filter(item => item);
                 summaryObject.subtenantNames = commonForms.objectValues(summaryObject.subtenantNames).filter(item => item);
+                summaryObject.hasLandlords = Object.values(summaryObject.landlords)[0].name;
 
-                const html = summaryTemplate(summaryObject);
+                const html = summaryTemplate.render(summaryObject);
                 document.querySelector('#summary-container').innerHTML = html;
 
                 commonHousing.validateSummary();
@@ -114,6 +114,15 @@ const noticeToLeaveForm = {
     }),
 
     init: function () {
+        // append form template
+        const formTemplateContainer = document.querySelector('#form-container');
+        if (!formTemplateContainer) {
+            return false;
+        }
+        const overviewContent = formTemplateContainer.innerHTML;
+        formTemplateContainer.innerHTML = formTemplate.render({tenants: true});
+        formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
+
         this.formType = $('#notice-to-leave-form').attr('data-type');
         noticeToLeaveForm.form.settings.formObject.formType = this.formType;
 
@@ -177,9 +186,9 @@ const noticeToLeaveForm = {
     },
 
     setupDatePickers: function () {
-        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date'), {maxDate: new Date()});
+        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), { maxDate: new Date() });
         const tenancyStartWithHelpDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-with-help-picker'), {maxDate: new Date()});
-        const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date'), {minDate: new Date()});
+        const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date-picker'), {minDate: new Date()});
         const tribunalDatePicker = new DSDatePicker(document.getElementById('notice-period-end-date-picker'), {minDate: new Date()});
         const tribunalWithHelpDatePicker = new DSDatePicker(document.getElementById('notice-period-end-date-with-help-picker'), {minDate: new Date()});
 
@@ -233,7 +242,7 @@ const noticeToLeaveForm = {
                 name: 'landlords',
                 nameInput: '.js-landlord-name',
                 container: '.js-landlords-container',
-                template: 'landlordHtmlWithTelephone',
+                template: require('../../templates/landlord-html'),
                 addressrequired: true,
                 slug: 'landlord',
                 stepTitle: 'Landlord',
@@ -261,41 +270,52 @@ const noticeToLeaveForm = {
         commonHousing.setupRepeatingSections(sections, this.form);
     },
 
-    setupAddTenantNames: function(){
-        $('.js-add-tenant').on('click', function(event){
-            event.preventDefault();
+    setupAddTenantNames: function () {
+        const addTenantButton = document.querySelector('.js-add-tenant');
+        if (addTenantButton) {
+            addTenantButton.addEventListener('click', (event) => {
+                event.preventDefault();
 
-            const tenantNames = noticeToLeaveForm.form.settings.formObject.tenantNames;
-            const currentNumberOfTenants = commonForms.objectKeys(tenantNames).length;
-            const newNumber = currentNumberOfTenants + 1;
+                const tenantNamesContainer = document.querySelector('.js-tenant-names-container');
 
-            $('.js-tenant-names-container').append(
-                '<div class="ds_question">' +
-                    '<label class="ds_label" for="tenant-' + newNumber + '-name">Tenant ' + newNumber + ': Full name</label>' +
-                    '<input class="ds_input" type="text" id="tenant-' + newNumber + '-name" data-form="textinput-tenant-' + newNumber + '-name">' +
-                '</div>'
-            );
+                const tenantNames = noticeToLeaveForm.form.settings.formObject.tenantNames;
+                const currentNumberOfTenants = tenantNamesContainer.querySelectorAll('.ds_question').length;
+                const newNumber = currentNumberOfTenants + 1;
 
-            noticeToLeaveForm.form.mapField('tenantNames.tenant' + newNumber, '#tenant-' + newNumber + '-name');
-            tenantNames['tenant' + newNumber] = null;
-        });
+                const newTenantField = document.createElement('div');
+                newTenantField.classList.add('ds_question');
+                newTenantField.innerHTML = `<label class="ds_label" for="tenant-${newNumber}-name">Tenant ${newNumber}: Full name</label>
+            <input class="ds_input" type="text" id="tenant-${newNumber}-name" data-form="textinput-tenant-${newNumber}-name">`;
 
-        $('.js-add-subtenant').on('click', function(event){
-            event.preventDefault();
+                tenantNamesContainer.appendChild(newTenantField);
 
-            const subtenantNames = noticeToLeaveForm.form.settings.formObject.subtenantNames;
-            const currentNumberOfSubtenants = commonForms.objectKeys(subtenantNames).length;
-            const newNumber = currentNumberOfSubtenants + 1;
+                noticeToLeaveForm.form.mapField(`tenantNames.tenant${newNumber}`, `#tenant-${newNumber}-name`);
+                tenantNames[`tenant${newNumber}`] = null;
+            });
+        }
 
-            $('.js-subtenant-names-container').append(
-                '<div class="ds_question">' +
-                '<label class="ds_label" for="subtenant-' + newNumber + '-name">Subtenant ' + newNumber + ': Full name</label>' +
-                '<input type="text" id="subtenant-' + newNumber + '-name" class="ds_input" data-form="textinput-subtenant-' + newNumber + '-name">' +
-                '</div>');
+        const addSubtenantButton = document.querySelector('.js-add-subtenant');
+        if (addSubtenantButton) {
+            addSubtenantButton.addEventListener('click', (event) => {
+                event.preventDefault();
 
-            noticeToLeaveForm.form.mapField('subtenantNames.subtenant' + newNumber, '#subtenant-' + newNumber + '-name');
-            subtenantNames['subtenant' + newNumber] = null;
-        });
+                const subtenantNamesContainer = document.querySelector('.js-subtenant-names-container');
+
+                const subtenantNames = noticeToLeaveForm.form.settings.formObject.subtenantNames;
+                const currentNumberOfSubtenants = subtenantNamesContainer.querySelectorAll('.ds_question').length;
+                const newNumber = currentNumberOfSubtenants + 1;
+
+                const newSubtenantField = document.createElement('div');
+                newSubtenantField.classList.add('ds_question');
+                newSubtenantField.innerHTML = `<label class="ds_label" for="subtenant-${newNumber}-name">Subtenant ${newNumber}: Full name</label>
+            <input class="ds_input" type="text" id="subtenant-${newNumber}-name" data-form="textinput-subtenant-${newNumber}-name">`;
+
+                subtenantNamesContainer.appendChild(newSubtenantField);
+
+                noticeToLeaveForm.form.mapField(`subtenantNames.subtenant${newNumber}`, `#subtenant-${newNumber}-name`);
+                subtenantNames[`subtenant${newNumber}`] = null;
+            });
+        }
     },
 
     setupValidations: function () {

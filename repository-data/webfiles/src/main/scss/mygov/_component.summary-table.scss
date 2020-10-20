@@ -1,0 +1,109 @@
+/*------------------------------------*\
+    #SUMMARY
+    Classes for elements used in form summaries
+\*------------------------------------*/
+
+#summary-container .ds_accordion-item__body {
+    padding: 16px 0;
+}
+
+.summary-table {
+    border: 0;
+    table-layout: initial;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    tr, tr:last-child {
+        border-bottom: 0;
+    }
+
+    tr:hover {
+        background-color: transparent;
+    }
+
+    thead + tbody tr:nth-child(2n - 1) th {
+        background-color: #f8f8f8;
+    }
+
+    tr:first-child td {
+        font-weight: 400;
+    }
+
+    tr:first-child td {
+        border-color: #ebebeb;
+    }
+
+    tr:nth-child(2n) th {
+        background-color: #f8f8f8;
+    }
+
+    th {
+        border-color: #ebebeb;
+        padding-left: 15px;
+        width: 30%;
+    }
+
+    td,
+    th {
+        background: transparent !important;
+    }
+
+    &__edit {
+        text-align: right !important;
+    }
+
+    .summary__user-input {
+        word-break: break-all;
+    }
+}
+
+.summary-list {
+    &__label {
+        font-size: $small-size;
+        font-weight: 700;
+    }
+
+    &:after {
+        content: '';
+        clear: both;
+        display: block;
+    }
+
+    dd {
+        margin-left: 0;
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.summary__link:empty {
+    display: none;
+}
+
+.summary__blank, .blank-if-empty:empty {
+    background: $ds_colour__grey--lighter;
+    border-bottom: 2px solid $ds_colour__blue--dark;
+    margin-left: 0;
+
+    &:before {
+        background: $ds_colour__grey--lighter;
+        content: 'not specified';
+        display: inline-block;
+        opacity: 0;
+    }
+}
+
+.summary__user-input {
+    background: $ds_colour__grey--lighter;
+    font-weight: $bold;
+}
+
+.summary__link .summary__blank {
+    background-color: transparent;
+}
+
+.hide-if-empty:empty {display: none;}

@@ -1,0 +1,465 @@
+{% from "../macros.njk" import postcodeLookup %}
+
+<form id="notice-to-leave-form" autocomplete="false" {% if tenants %}data-type="tenant"{% endif %}{% if subtenants %}data-type="subtenant"{% endif %}>
+
+    <section id="overview" data-step="overview" class="form-section">
+
+    </section>
+
+    <section data-step="address" class="form-section ">
+        <h2>Address</h2>
+
+        <p>Enter a postcode to find the rental property's address.</p>
+
+        {{ postcodeLookup('property', required=true, note=true) }}
+    </section>
+
+    <section data-step="letting-agent" class="form-section ">
+        <h2>Letting agent</h2>
+
+        <div class="ds_question">
+            <fieldset id="letting-agent-query" data-validation="requiredRadio">
+                <legend>Does a letting agent manage the property for you?</legend>
+
+                <div class="ds_field-group">
+                    <div class="ds_radio">
+                        <input id="letting-agent-yes" value="yes" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-yes" />
+                        <label for="letting-agent-yes" class="ds_radio__label">Yes</label>
+
+                        <div class="ds_reveal-content">
+                            <div class="ds_question">
+                                <label class="ds_label" for="letting-agent-name">Letting agent's full name</label>
+                                <input type="text" id="letting-agent-name" data-validation="requiredField" class="ds_input" data-form="textinput-letting-agent-name">
+                            </div>
+
+                            <h3>Letting agent's address</h3>
+
+                            {{ postcodeLookup('letting-agent', required=true, note=true) }}
+
+                            <div class="ds_question">
+                                <label class="ds_label" for="letting-agent-phone">Phone number</label>
+                                <input data-validation="validPhone" type="text" id="letting-agent-phone" class="ds_input  ds_input--fixed-20" data-form="textinput-letting-agent-phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ds_radio">
+                        <input id="letting-agent-no" value="no" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-no" />
+                        <label for="letting-agent-no" class="ds_radio__label">No</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+
+    <section data-step="landlords" class="form-section ">
+        <div class="repeating-container  js-landlords-container"></div>
+    </section>
+
+    {% if tenants %}
+    <section data-step="tenants" class="form-section ">
+        <h2>Tenant(s)</h2>
+
+        <div class="js-tenant-names-container">
+            <div class="ds_question">
+                <label class="ds_label" for="tenant-1-name">Tenant 1: Full name</label>
+                <input class="ds_input" type="text" id="tenant-1-name" data-validation="requiredField" data-form="textinput-tenant-1-name">
+            </div>
+        </div>
+
+        <button class="js-add-tenant  ds_button" title="Add name of joint tenant">
+        + Add name of joint tenant</button>
+    </section>
+    {% endif %}
+
+    {% if subtenants %}
+    <section data-step="subtenants" class="form-section ">
+        <h2>Subtenant(s)</h2>
+
+        <div class="js-subtenant-names-container">
+            <div class="ds_question">
+                <label class="ds_label" for="subtenant-1-name">Subtenant 1: Full name</label>
+                <input type="text" id="subtenant-1-name" class="ds_input" data-validation="requiredField" data-form="textinput-subtenant-1-name">
+            </div>
+        </div>
+
+        <button class="js-add-subtenant  ds_button" title="Add name of joint subtenant">
+        + Add name of joint subtenant</button>
+    </section>
+    {% endif %}
+
+    <section data-step="end-date" class="form-section ">
+
+        <section data-step="grounds">
+            <h2>Grounds for eviction</h2>
+            <div class="ds_question">
+                <fieldset data-validation="atLeastOneCheckbox" id="eviction-reason">
+                    <legend>Choose the reason why your {% if subtenants %}sub{% endif %}tenant needs to leave</legend>
+                    <div class="ds_field-group">
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_SELL" id="LANDLORD_TO_SELL" type="checkbox" data-form="checkbox-LANDLORD_TO_SELL" />
+                            <label class="ds_checkbox__label" for="LANDLORD_TO_SELL">You want to sell the property you're renting out (6 months)</label>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input class="ds_checkbox__input" data-group="reasons" value="LENDER_TO_SELL" id="LENDER_TO_SELL" type="checkbox" data-form="checkbox-LENDER_TO_SELL" />
+                            <label class="ds_checkbox__label" for="LENDER_TO_SELL">The mortgage lender has repossessed your property and is selling it (6 months)</label>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_REFURBISH" id="LANDLORD_TO_REFURBISH" type="checkbox" data-form="checkbox-LANDLORD_TO_REFURBISH" />
+                            <label class="ds_checkbox__label" for="LANDLORD_TO_REFURBISH">You want to carry out work to the property which means no one will be able to live there while the work is carried out (6 months)</label>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_LIVE" id="LANDLORD_TO_LIVE" type="checkbox" data-form="checkbox-LANDLORD_TO_LIVE" />
+                            <label class="ds_checkbox__label" for="LANDLORD_TO_LIVE">You want to live in the property (3 months)</label>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_FAMILY_MEMBER_TO_LIVE" id="LANDLORD_FAMILY_MEMBER_TO_LIVE" type="checkbox" data-form="checkbox-LANDLORD_FAMILY_MEMBER_TO_LIVE" />
+                            <label class="ds_checkbox__label" for="LANDLORD_FAMILY_MEMBER_TO_LIVE">Someone in your family is going to move into the property (3 months)</label>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_NON_RESIDENTIAL_PURPOSE" id="LANDLORD_NON_RESIDENTIAL_PURPOSE" type="checkbox" data-form="checkbox-LANDLORD_NON_RESIDENTIAL_PURPOSE" />
+                            <label class="ds_checkbox__label" for="LANDLORD_NON_RESIDENTIAL_PURPOSE">You no longer want to use the property as a place where someone lives, such as if you want to use it as a business or an office (6 months)</label>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input class="ds_checkbox__input" data-group="reasons" value="RELIGIOUS" id="RELIGIOUS" type="checkbox" data-form="checkbox-RELIGIOUS" />
+                            <label class="ds_checkbox__label" for="RELIGIOUS">You need your property for a religious purpose, such as a priest or imam is going to live there (6 months)</label>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_REGISTRATION_REVOKED" id="LANDLORD_REGISTRATION_REVOKED" type="checkbox" data-form="checkbox-LANDLORD_REGISTRATION_REVOKED" />
+                            <label class="ds_checkbox__label" for="LANDLORD_REGISTRATION_REVOKED">You have had your registration refused or revoked (3 months)</label>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_HMO_REFUSED" id="LANDLORD_HMO_REFUSED" type="checkbox" data-form="checkbox-LANDLORD_HMO_REFUSED" />
+                            <label class="ds_checkbox__label" for="LANDLORD_HMO_REFUSED">Your House in Multiple Occupation (HMO) licence has been revoked by your local council or renewal has been refused (3 months)</label>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_OVERCROWDING_NOTICE" id="LANDLORD_OVERCROWDING_NOTICE" type="checkbox" data-form="checkbox-LANDLORD_OVERCROWDING_NOTICE" />
+                            <label class="ds_checkbox__label" for="LANDLORD_OVERCROWDING_NOTICE">An overcrowding statutory notice has been served on you (6 months)</label>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input class="ds_checkbox__input" data-group="reasons" value="YOU_CEASE_TO_BE_EMPLOYEE" id="YOU_CEASE_TO_BE_EMPLOYEE" type="checkbox" data-form="checkbox-YOU_CEASE_TO_BE_EMPLOYEE" />
+                            <label class="ds_checkbox__label" for="YOU_CEASE_TO_BE_EMPLOYEE">Your {% if subtenants %}sub{% endif %}tenant has stopped being employed by you, or you thought they were going to be employed by you but this is no longer the case (6 months)</label>
+                        </div>
+
+                        <div class="ds_checkbox  ds_checkbox--small">
+                            <input class="ds_checkbox__input" data-group="reasons" value="YOU_NO_LONGER_NEED_SUPPORTED_ACC" id="YOU_NO_LONGER_NEED_SUPPORTED_ACC" type="checkbox" data-form="checkbox-YOU_NO_LONGER_NEED_SUPPORTED_ACC" />
+                            <label class="ds_checkbox__label" for="YOU_NO_LONGER_NEED_SUPPORTED_ACC">Your property provides supported accommodation but your {% if subtenants %}sub{% endif %}tenant no longer needs help (6 months)</label>
+                        </div>
+
+                        {% if tenants %}
+                            <div class="ds_checkbox  ds_checkbox--small">
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_NO_LONGER_OCCUPY" id="YOU_NO_LONGER_OCCUPY" type="checkbox" data-form="checkbox-YOU_NO_LONGER_OCCUPY" />
+                                <label class="ds_checkbox__label" for="YOU_NO_LONGER_OCCUPY">Your tenant is no longer living in your property (28 days)</label>
+                            </div>
+
+                            <div class="ds_checkbox  ds_checkbox--small">
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_BREACHED_TERMS" id="YOU_BREACHED_TERMS" type="checkbox" data-form="checkbox-YOU_BREACHED_TERMS" />
+                                <label class="ds_checkbox__label" for="YOU_BREACHED_TERMS">Your tenant has breached a term(s) of their tenancy agreement (6 months)</label>
+                            </div>
+
+                            <div class="ds_checkbox  ds_checkbox--small">
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_RENT_ARREARS" id="YOU_RENT_ARREARS" type="checkbox" data-form="checkbox-YOU_RENT_ARREARS" />
+                                <label class="ds_checkbox__label" for="YOU_RENT_ARREARS">Your tenant is in rent arrears for at least three consecutive months (6 months)</label>
+                            </div>
+
+                            <div class="ds_checkbox  ds_checkbox--small">
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_CRIMINAL_CONVICTION" id="YOU_CRIMINAL_CONVICTION" type="checkbox" data-form="checkbox-YOU_CRIMINAL_CONVICTION" />
+                                <label class="ds_checkbox__label" for="YOU_CRIMINAL_CONVICTION">Your tenant has a criminal conviction - this ground only applies to <a href="#">certain crimes</a> (3 months)</label>
+                            </div>
+
+                            <div class="ds_checkbox  ds_checkbox--small">
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_ANTISOCIAL_BEHAVIOUR" id="YOU_ANTISOCIAL_BEHAVIOUR" type="checkbox" data-form="checkbox-YOU_ANTISOCIAL_BEHAVIOUR" />
+                                <label class="ds_checkbox__label" for="YOU_ANTISOCIAL_BEHAVIOUR">Your tenant has been involved in antisocial behaviour - this ground only applies to <a href="#">certain antisocial behaviour</a> (3 months)</label>
+                            </div>
+
+                            <div class="ds_checkbox  ds_checkbox--small">
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL" id="YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL" type="checkbox" data-form="checkbox-YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL" />
+                                <label class="ds_checkbox__label" for="YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL">Your tenant has been with someone at the property who has a criminal conviction or has engaged in antisocial behaviour - <a href="#">only applies to certain crimes or antisocial behaviour</a> (3 months)</label>
+                            </div>
+                        {% endif %}
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="details-and-evidence">
+            <h2>Details</h2>
+
+            <p>You need to give details about the ground you've chosen for eviction.</p>
+
+            <p>As an example, if you're giving your {% if subtenants %}sub{% endif %}tenant a Notice to Leave because they haven't
+                paid rent, include details about how many payments have been missed and the amount
+                of each missed payment.</p>
+
+            <div class="ds_question">
+                <label class="ds_label" for="eviction-details">Details</label>
+                <textarea id="eviction-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-eviction-details"></textarea>
+            </div>
+
+            <h2>Evidence</h2>
+
+            <p>If you can, you should give evidence to support the reason you've given your {% if subtenants %}sub{% endif %}tenant
+                for eviction. For instance, if you're evicting your {% if subtenants %}sub{% endif %}tenant because of work on your
+                property, you can give your {% if subtenants %}sub{% endif %}tenant copies of building plans or receipts as proof of
+                the work you're doing. You can give your {% if subtenants %}sub{% endif %}tenant these copies when you hand them this
+                Notice to Leave, post them, or include them as part of an email if that's your
+                {% if subtenants %}sub{% endif %}tenant's preferred method of contact.</p>
+
+            <div class="ds_question">
+                <label class="ds_label" for="supporting-evidence">Supporting evidence</label>
+                <textarea id="supporting-evidence" class="ds_input" rows="4" data-form="textarea-supporting-evidence"></textarea>
+            </div>
+        </section>
+
+        <section data-step="notice-period">
+            <h2>Notice period</h2>
+
+            <div class="ds_inset-text">
+                <div class="ds_inset-text__text">
+                    You need to tell your {% if subtenants %}sub{% endif %}tenant what the last day of this notice period is. There are rules around how much notice you need to give.</p>
+                </div>
+            </div>
+
+            <div class="ds_question">
+                <fieldset id="end-notice-help-query" data-validation="requiredRadio">
+                    <legend>Do you want help to work out the end date of the notice?</legend>
+
+                    <div class="field-group">
+                        <div class="ds_radio">
+                            <input class="ds_radio__input" id="end-notice-help-yes" value="yes" name="end-notice-help-query" type="radio" data-form="radio-end-notice-help-query-yes" />
+                            <label class="ds_radio__label" for="end-notice-help-yes">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="date-entry  ds_question">
+                                    <label class="ds_label" for="tenancy-start-date-with-help">Start date</label>
+                                    <div class="ds_hint-text">
+                                        <p>Enter the start date of the tenancy. This is on the tenancy agreement between you and your {% if subtenants %}sub{% endif %}tenant.</p>
+                                        <p>Use DD/MM/YYYY format.</p>
+                                    </div>
+                                    <div id="tenancy-start-date-with-help-picker" data-module="ds-datepicker" class="ds_datepicker">
+                                        <div class="ds_input__wrapper">
+                                            <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex pastDate requiredField" type="text" id="tenancy-start-date-with-help" placeholder="e.g. 01/12/2020" data-form="textinput-tenancy-start-date-with-help"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="date-entry  ds_question">
+                                    <label class="ds_label" for="notice-date">Notice date</label>
+                                    <div class="ds_hint-text">
+                                        <p>When will you give your {% if subtenants %}sub{% endif %}tenant this notice?</p>
+                                        <p>Use DD/MM/YYYY format.</p>
+                                    </div>
+                                    <div id="notice-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                                        <div class="ds_input__wrapper">
+                                            <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex futureDate requiredField" type="text" id="notice-date" placeholder="e.g. 01/12/2020" data-form="textinput-notice-date"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="ds_question">
+                                    <fieldset id="giving-notice-query" data-validation="requiredRadio">
+                                        <legend>
+                                            How will you give your {% if subtenants %}sub{% endif %}tenant this notice?
+                                        </legend>
+                                        <div class="ds_field-group  ds_field-group--inline">
+                                            <div class="ds_radio  ds_radio--small">
+                                                <input class="ds_radio__input  js-end-date-input" id="giving-notice-hand" value="hand" name="givingNoticeQuery" type="radio" data-form="givingNoticeQuery-hand" />
+                                                <label class="ds_radio__label" for="giving-notice-hand">By hand</label>
+                                            </div>
+
+                                            <div class="ds_radio  ds_radio--small">
+                                                <input class="ds_radio__input  js-end-date-input" id="giving-notice-email" value="email" name="givingNoticeQuery" type="radio" data-form="givingNoticeQuery-email" />
+                                                <label class="ds_radio__label" for="giving-notice-email">By email</label>
+                                            </div>
+
+                                            <div class="ds_radio  ds_radio--small">
+                                                <input class="ds_radio__input  js-end-date-input" id="giving-notice-post" value="post" name="givingNoticeQuery" type="radio" data-form="givingNoticeQuery-post" />
+                                                <label class="ds_radio__label" for="giving-notice-post">By post</label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div id="end-of-notice-result" class="fully-hidden">
+                                    <div id="end-of-notice-note" class="ds_inset-text"></div>
+
+                                    <div class="date-entry  ds_question">
+                                        <label class="ds_label" for="notice-period-end-date-with-help">End date of the notice period</label>
+                                        <p class="ds_hint-text">Use DD/MM/YYYY format.</p>
+                                        <div id="notice-period-end-date-with-help-picker" data-module="ds-datepicker" class="ds_datepicker">
+                                            <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
+                                                <input class="ds_input  ds_input--fixed-10" data-validation="dateRegex afterDate requiredField" type="text" id="notice-period-end-date-with-help" placeholder="e.g. 01/12/2020" data-form="textinput-notice-period-end-date-with-help"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ds_radio">
+                            <input class="ds_radio__input" id="end-notice-help-no" value="no" name="end-notice-help-query" type="radio" data-form="radio-end-notice-help-query-no" />
+                            <label class="ds_radio__label" for="end-notice-help-no">No</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="date-entry  ds_question">
+                                    <label class="ds_label" for="tenancy-start-date">Start date of the tenancy</label>
+                                    <div class="ds_hint-text">
+                                        <p>Enter the start date of the tenancy. This is on the tenancy agreement between you and your {% if subtenants %}sub{% endif %}tenant.</p>
+                                        <p>Use DD/MM/YYYY format.</p>
+                                    </div>
+                                    <div id="tenancy-start-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                                        <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
+                                            <input class="ds_input  ds_input--fixed-10" data-validation="dateRegex pastDate requiredField" type="text" id="tenancy-start-date" placeholder="e.g. 01/12/2020" data-form="textinput-tenancy-start-date"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="date-entry  ds_question">
+                                    <label class="ds_label" for="notice-period-end-date">End date of the notice period</label>
+                                    <div class="ds_hint-text">
+                                        <p>Enter the end date of the notice period. This is the last date before you can apply to a tribunal to make your {% if subtenants %}sub{% endif %}tenant leave.</p>
+                                        <p>Use DD/MM/YYYY format.</p>
+                                    </div>
+                                    <div id="notice-period-end-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                                        <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
+                                            <input class="ds_input  ds_input--fixed-10" data-validation="dateRegex futureDate requiredField" type="text" id="notice-period-end-date" placeholder="e.g. 01/12/2020" data-form="textinput-notice-period-end-date"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+    </section>
+
+    <section data-step="summary" class="form-section">
+        <h2>Summary</h2>
+
+        <div id="summary-container"></div>
+    </section>
+
+    <section data-step="download" class="form-section ">
+        <h2>Your {% if subtenants %}Subtenant{% endif %} Notice To Leave is ready to download</h2>
+
+        <p>You need to complete the following challenge before you can download your application.</p>
+
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <div id="recaptcha" class="g-recaptcha"
+        data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV"
+        data-callback="checkRecaptcha"
+        data-expired-callback="expireRecaptcha"></div>
+
+        <section class="document-section">
+
+            <div data-documenttype="WORD" class="js-document-container  document-info  document-info--limelight">
+                <div class="document-info__body">
+                    <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                        <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--DOCX" title="View this document" href="#">
+                            <span class="mg_file__icon">
+                                <span class="mg_file__content">DOCX</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="document-info__text">
+                    <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your {% if subtenants %}Subtenant{% endif %} Notice To Leave - Word document</a></h3>
+
+                    <dl class="ds_metadata  ds_metadata--inline">
+                        <div class="ds_metadata__item">
+                            <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                            <dd class="ds_metadata__value"><b>Word document (.docx)</b></dd>
+                        </div>
+                    </dl>
+
+                    <div class="document-info__download">
+                        <a disabled="true" href="#" data-gtm="btn-download-docx" class="ds_no-margin  ds_button  js-download-file">
+                            Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div data-documenttype="PDF" class="js-document-container  document-info  document-info--limelight">
+
+                <div class="document-info__body">
+                    <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                        <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--PDF" title="View this document" href="#">
+                            <span class="mg_file__icon">
+                                <span class="mg_file__content">PDF</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="document-info__text">
+                    <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your {% if subtenants %}Subtenant{% endif %} Notice To Leave - PDF document</a></h3>
+
+                    <dl class="ds_metadata  ds_metadata--inline">
+                        <div class="ds_metadata__item">
+                            <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                            <dd class="ds_metadata__value"><b>PDF document (.pdf)</b></dd>
+                        </div>
+                    </dl>
+
+                    <div class="document-info__download">
+                        <a disabled="true" href="#" data-gtm="btn-download-pdf" class="ds_no-margin  ds_button  js-download-file">
+                            Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <article>
+<h2>Signing this notice</h2>
+
+<h3>Giving your {% if subtenants %}sub{% endif %}tenant this notice</h3>
+
+<p>You must give your {% if subtenants %}sub{% endif %}tenant this notice in the way agreed in your tenancy agreement.</p>
+
+<p>If you're sending this notice by email you can sign it without printing the notice.</p>
+
+<p>You can sign a Word document by opening the document in Microsoft Word and typing your name where you need to sign.</p>
+
+<p>If you're signing a PDF, you can open the PDF in <a href="https://acrobat.adobe.com/uk/en/acrobat/pdf-reader.html" target="_blank">Adobe Acrobat Reader DC</a> and use Adobe's 'fill &amp; sign' tool.</p>
+
+<p>If you do not have Adobe Acrobat Reader DC you can get it as a <a href="https://get.adobe.com/uk/reader/" target="_blank">free download</a>. You can also read Adobe's advice about <a href="https://helpx.adobe.com/reader/using/sign-pdfs.html" target="_blank">signing a PDF</a> if you need more help.</p>
+
+<h3>Keep a version saved</h3>
+
+<p>You should keep a record of emails you send to and receive from your {% if subtenants %}sub{% endif %}tenant.</p>
+        </article>
+    </section>
+</form>
+
+{% if tenants %}
+    <form id="document-download" action="/service/housing/notice-to-leave/form" method="POST" enctype="multipart/form-data" class="form-download">
+        <input type="hidden" name="data" value="">
+        <input type="hidden" name="type" value="">
+    </form>
+{% endif %}
+
+{% if subtenants %}
+    <form id="document-download" action="/service/housing/subtenant-notice-to-leave/form" method="POST" enctype="multipart/form-data" class="form-download">
+        <input type="hidden" name="data" value="">
+        <input type="hidden" name="type" value="">
+    </form>
+{% endif %}
+
+<nav id="page-nav" aria-label="Navigation buttons"></nav>
+
+<a id="go-to-summary" href="#!/summary/" class="js-validate-step  back-to-summary-button  ds_button  ds_button--secondary  ds_button--has-icon  fully-hidden">
+    Back to summary
+    <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron-right"></use></svg>
+</a>

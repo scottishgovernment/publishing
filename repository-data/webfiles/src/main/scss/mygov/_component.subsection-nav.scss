@@ -1,0 +1,288 @@
+/*------------------------------------*\
+    #SUBSECTION NAV
+    Vertical nav of multi-page forms
+\*------------------------------------*/
+
+@supports (display: grid) {
+    .multi-page-form.form-box {
+      margin-right: -32px;
+    }
+  }
+
+  .subsection-nav {
+    position: relative;
+  }
+
+  .subsection-nav__title {
+    margin-bottom: 24px;
+  }
+
+  .subsection-nav__content {
+    @include media-query(medium-down) {
+      padding-top: 32px;
+    }
+  }
+
+  .subsection-nav__list {
+    display: none;
+    font-size: 16px;
+    line-height: 24px;
+    list-style-type: none;
+    margin: 0 -16px 24px;
+    padding: 0 16px;
+
+    &--mobile {
+        display: block;
+    }
+  }
+
+  .subsection-nav__item {
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    &:first-child .subsection-nav__text {
+        border-top-color: $ds_colour__white;
+    }
+
+    &:first-child {
+      border-top: none;
+    }
+
+    a:before,
+    span:before {
+      background-color: $ds_colour__link;
+      border-radius: 24px;
+      color: $ds_colour__white;
+      font-size: 14px;
+      font-weight: 700;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      width: 24px;
+
+      position: absolute;
+      left: 0;
+      top: 16px;
+    }
+  }
+
+  .subsection-nav__item--disabled,
+  .subsection-nav__text--inactive {
+      background-color: $ds_colour__grey--light;
+      color: $ds_colour__grey--base;
+      pointer-events: none;
+  }
+
+  .subsection-nav__item--disabled .subsection-nav__text,
+  .subsection-nav__text--inactive {
+      color: $ds_colour__grey--base;
+  }
+
+  .subsection-nav__item--disabled .subsection-nav__text:before,
+  .subsection-nav__text--inactive:before {
+      background-color: $ds_colour__grey--base;
+      color: $ds_colour__grey--light;
+  }
+
+  ol.subsection-nav__list {
+      counter-reset: li;
+
+      .subsection-nav__item {
+        counter-increment: li;
+
+        .subsection-nav__text--inactive:before {
+          background-color: $ds_colour__grey--base;
+        }
+
+        a:before,
+        span:before {
+          content: counter(li);
+        }
+      }
+  }
+
+  .subsection-nav__text {
+    display: block;
+    padding: 15px 8px 15px 32px;
+    text-decoration: none;
+    border-top: 1px solid $ds_colour__grey--light;
+    border-left: 1px solid $ds_colour__grey--light;
+    border-bottom: 1px solid $ds_colour__grey--light;
+
+    &:active {
+        outline: none;
+    }
+
+    &.ds_current {
+      background-color: $ds_colour__link--current__background;
+      border-color: $ds_colour__link--current__background;
+      margin-left: -16px;
+      margin-right: -16px;
+      padding-left: 48px;
+    }
+
+    &--link {
+      transition: background-color $transition-out-time;
+
+      &:hover {
+        background-color: $ds_colour__grey--lighter;
+        text-decoration: none;
+
+        margin-left: -16px;
+        margin-right: -16px;
+        padding-left: 48px;
+
+        transition-duration: $transition-in-time;
+      }
+
+      &:active {
+        background-color: $ds_colour__blue--light;
+        outline: 0;
+
+        margin-left: -16px;
+        margin-right: -16px;
+        padding-left: 48px;
+
+        transition: none;
+      }
+    }
+  }
+
+  // state amends
+  a.subsection-nav__text {
+    &:hover, &:focus, &:active {
+      outline: 0;
+    }
+
+    &:focus,
+    &:active {
+      box-shadow: inset 0 -3px #333
+    }
+  }
+
+  @include media-query(medium) {
+
+    .subsection-nav {
+      &--section-nav {
+        a {
+          color: $ds_colour__text;
+        }
+
+        &:after {
+          content: none;
+        }
+      }
+
+      &__list {
+        display: block !important;
+        font-size: 15px;
+        margin: 0;
+        padding: 0;
+      }
+
+      &__item {
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        a:before,
+        span:before {
+          height: 18px;
+          left: 5px;
+          line-height: 18px;
+          width: 18px;
+        }
+      }
+
+      &__text.ds_current,
+      &__text,
+      &__text:hover {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 32px;
+      }
+
+      &__text.ds_current {
+
+        &:after {
+          $subsection-nav-triangle-size: 10px;
+
+          border-top: $subsection-nav-triangle-size solid transparent;
+          border-left: $subsection-nav-triangle-size solid $ds_colour__link;
+          border-bottom: $subsection-nav-triangle-size solid transparent;
+          content: '';
+          height: 0;
+          margin-top: $subsection-nav-triangle-size * -1;
+          position: absolute;
+          right: $subsection-nav-triangle-size * -1;
+          top: 50%;
+          width: 0;
+          z-index: 100;
+        }
+      }
+    }
+
+    .subsection-nav--right .subsection-nav__text.ds_current:after {
+        $subsection-nav-triangle-size: 10px;
+
+        border-left: 0;
+        border-right: $subsection-nav-triangle-size solid $ds_colour__link;
+        left: $subsection-nav-triangle-size * -1;
+        right: auto;
+    }
+
+      ul.subsection-nav__list {
+        .subsection-nav__item {
+          a:before,
+          span:before {
+            background-position: -1px center;
+          }
+        }
+      }
+
+      .subsection-nav__text--link:active {
+          margin-left: 0;
+          margin-right: 0;
+          padding-left: 32px;
+      }
+  }
+
+  @include media-query(large) {
+      ol.subsection-nav__list
+        .subsection-nav__item {
+          a:before,
+          span:before {
+            height: 24px;
+            left: 8px;
+            line-height: 24px;
+            width: 24px;
+          }
+        }
+
+
+      .subsection-nav {
+          &__list {
+              font-size: 16px;
+          }
+
+          &__text.ds_current,
+          &__text,
+          &__text:hover {
+            padding-left: 48px;
+          }
+      }
+
+      ul.subsection-nav__list {
+        .subsection-nav__item {
+          a:before,
+          span:before {
+            background-position: 0 center;
+          }
+        }
+      }
+
+      .subsection-nav__text--link:active {
+          padding-left: 48px;
+      }
+  }

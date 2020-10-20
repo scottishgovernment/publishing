@@ -1,0 +1,240 @@
+<div class="ds_accordion" data-module="ds-accordion">
+    <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-tenancy" aria-labelledby="panel-tenancy-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-tenancy-heading" class="ds_accordion-item__title">
+                Tenancy
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-tenancy"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-tenancy">
+            <table class="ds_table  summary-table">
+                <tbody>
+                    <tr>
+                        <th>Start date</th>
+                        <td>
+                            <div class="hide-if-empty"><a href="#!/tenancy/start-date/tenancy-start-date/" class="summary__link  summary__user-input">{{tenancyStartDate | notspecified | safe}}</a></div>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/tenancy/start-date/tenancy-start-date" class="edit">edit</a></td>
+                    </tr>
+                    {% if lastIncreaseDate %}
+                        <tr>
+                            <th>Date of last rent increase</th>
+                            <td>
+                                <div class="hide-if-empty"><a href="#!/tenancy/first-increase/last-increase-date/" class="summary__link  summary__user-input">{{lastIncreaseDate | notspecified | safe}}</a></div>
+                            </td>
+                            <td class="summary-table__edit"><a href="#!/tenancy/first-increase/" class="edit">edit</a></td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <th>Current rent</th>
+                        <td>
+                            <a href="#!/tenancy/current-rent/current-rent-amount/" class="summary__link  summary__user-input">{{currentRentAmount | currency | notspecified | safe}}</a>
+                            <a href="#!/tenancy/current-rent/current-payment-frequency/" class="summary__link  summary__user-input">{{currentRentFrequency_text}}</a>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/tenancy/current-rent/" class="edit">edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-giving-notice" aria-labelledby="panel-giving-notice-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-giving-notice-heading" class="ds_accordion-item__title">
+                Giving this notice
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-giving-notice"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-property">
+            <table class="ds_table  summary-table">
+                <tbody>
+                    <tr>
+                        <th>Method</th>
+                        <td>
+                            <div class="hide-if-empty"><a href="#!/giving-this-notice/giving-this-notice/giving-notice-query/" class="summary__link  summary__user-input">{{givingThisNotice_text | notspecified | safe}}</a></div>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/giving-this-notice/giving-this-notice/" class="edit">edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-address" aria-labelledby="panel-address-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-address-heading" class="ds_accordion-item__title">
+                Address
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-address"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-property">
+            <table class="ds_table  summary-table">
+                <tbody>
+                    <tr>
+                        <th>Address</th>
+                        <td>
+                            <div class="hide-if-empty"><a href="#!/address/address/property-address-postcode-search/" class="summary__link  summary__user-input">{{address | notspecified | safe}}</a></div>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/address/address/" class="edit">edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-increase" aria-labelledby="panel-increase-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-increase-heading" class="ds_accordion-item__title">
+                Increase
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-increase"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-property">
+            <table class="ds_table  summary-table">
+                <tbody>
+                    {# {{#compare improvementsQuery 'yes'}}
+                    <tr>
+                        <th>Improvements</th>
+                        <td>
+                            <div class="hide-if-empty"><a href="#!/increase/improvements/improvements-increase/" class="summary__link  summary__user-input">{{{notspecified (currency improvementsIncrease)}}}</a></div>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/increase/improvements/" class="edit">edit</a></td>
+                    </tr>
+                    {{/compare}} #}
+                    <tr>
+                        <th>New rent</th>
+                        <td>
+                            <a href="#!/increase/new-rent/new-rent-amount/" class="summary__link  summary__user-input">{{newRentAmount | currency | notspecified | safe}}</a>
+                            <a href="#!/increase/new-rent/new-payment-frequency/" class="summary__link  summary__user-input">{{newRentFrequency_text}}</a>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/increase/new-rent/" class="edit">edit</a></td>
+                    </tr>
+                    <tr>
+                        <th>Date of increase</th>
+                        <td>
+                            <div class="hide-if-empty"><a href="#!/increase/date-of-increase/rent-increase-date/" class="summary__link  summary__user-input">{{dateOfIncrease | notspecified | safe}}</a></div>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/increase/date-of-increase/" class="edit">edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-landlord" aria-labelledby="panel-landlord-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-landlord-heading" class="ds_accordion-item__title">
+                Landlord
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-landlord"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-property">
+            <table class="ds_table  summary-table">
+                <tbody>
+                    {% if hasLandlords %}
+                    {% else %}
+                        <tr>
+                            <th>Landlords</th>
+                            <td></td>
+                            <td class="summary-table__edit"><a href="#!/landlords/landlord-1/" class="edit">edit</a></td>
+                        </tr>
+                    {% endif %}
+
+                    {% for key, landlord in landlords %}
+                        {% if landlord.name %}
+                        <tr>
+                            <th>Landlord {{loop.index}}</th>
+                            <td>
+                                <dl class="summary-list">
+                                    <dt class="summary-list__label">Name</dt>
+                                    <dd>
+                                        <a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-name/" class="summary__link  summary__user-input">{{ landlord.name | notspecified | safe}}</a>
+                                    </dd>
+
+                                    <dt class="summary-list__label">Address</dt>
+                                    <dd>
+                                        <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-building/" class="summary__link  summary__user-input">{{landlord.address.building}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-street/" class="summary__link  summary__user-input">{{landlord.address.street}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-town/" class="summary__link  summary__user-input">{{landlord.address.town}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-region/" class="summary__link  summary__user-input">{{landlord.address.region}}</a></div>
+                                        <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-postcode/" class="summary__link  summary__user-input">{{landlord.address.postcode}}</a></div>
+                                    </dd>
+                                </dl>
+                            </td>
+                            <td class="summary-table__edit"><a href="#!/landlords/landlord-{{loop.index}}/" class="edit">edit</a></td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if lettingAgent.name %}
+                    <tr>
+                        <th>Letting agent</th>
+                        <td>
+                            <dl class="summary-list">
+                                <dt class="summary-list__label">Name</dt>
+                                <dd>
+                                    <a href="#!/landlords/letting-agent/letting-agent-name/" class="summary__link  summary__user-input">{{lettingAgent.name | notspecified | safe}}</a>
+                                </dd>
+
+                                <dt class="summary-list__label">Address</dt>
+                                <dd>
+                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-building/" class="summary__link  summary__user-input">{{lettingAgent.address.building}}</a></div>
+                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-street/" class="summary__link  summary__user-input">{{lettingAgent.address.street}}</a></div>
+                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-town/" class="summary__link  summary__user-input">{{lettingAgent.address.town}}</a></div>
+                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-region/" class="summary__link  summary__user-input">{{lettingAgent.address.region}}</a></div>
+                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-postcode/" class="summary__link  summary__user-input">{{lettingAgent.address.postcode}}</a></div>
+                                </dd>
+                            </dl>
+                        </td>
+                        <td class="summary-table__edit"><a class="edit" href="#!/landlords/letting-agent/">edit</a></td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-tenants" aria-labelledby="panel-tenants-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-tenants-heading" class="ds_accordion-item__title">
+                Tenants
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-tenants"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-property">
+            <table class="ds_table  summary-table">
+                <tbody>
+                    <tr data-summary-field="tenant-1-name">
+                        <th>Tenant name(s)</th>
+                        <td>
+                            {% for key, name in tenantNames %}
+                            <a href="#!/tenants/tenant-names/tenant-{{loop.index}}-name/" class="summary__link  summary__user-input">{{name}}</a>
+                            {% endfor %}
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/tenants/" class="edit">edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

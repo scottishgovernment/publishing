@@ -27,6 +27,7 @@ module.exports = function (config) {
     config.set({
         basePath: '../',
         frameworks: [
+            'jquery-1.8.3',
             'jasmine-jquery',
             'jasmine'
         ],
@@ -42,12 +43,12 @@ module.exports = function (config) {
         singleRun: true,
 
         files: [
-            'test/specs/**/*.js',
-            'test/fixtures/*.html',
+            'test/specs/**.js',
+            'test/fixtures/*.html'
         ],
 
         preprocessors: {
-            '../src/main/scripts/**/*.js': ['babel', 'webpack'],
+            '../src/main/**/*.js': ['babel', 'webpack'],
             'test/specs/**/**.js': ['webpack']
         },
 

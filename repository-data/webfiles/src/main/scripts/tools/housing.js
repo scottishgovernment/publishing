@@ -2,8 +2,6 @@
 
 'use strict';
 
-import Handlebars from '../vendor/hbs/handlebars';
-import HousingTemplates from '../components/mygov/housing-forms/housing-templates';
 import commonForms from './forms';
 import $ from 'jquery';
 import { Accordion } from '../../../../node_modules/@scottish-government/pattern-library/src/all';
@@ -113,9 +111,9 @@ const commonHousing = {
     },
 
     // Address manual fill section show/hide
-    setManualLinkSections: function(){
-        $('body').on('click', '.js-address-manual-link', function(event){
-           event.preventDefault();
+    setManualLinkSections: function () {
+        $('body').on('click', '.js-address-manual-link', function (event) {
+            event.preventDefault();
 
             const manualAddress = $(this).closest('.js-postcode-lookup').find('.address-manual');
             const buildingOrStreet = $(this).parent().parent().find('.town, .input-wrapper');
@@ -150,7 +148,7 @@ const commonHousing = {
         }
 
         const appendRepeatingSection = function (sectionNumber, sectionId, section) {
-            const sectionTemplate = Handlebars.compile(HousingTemplates[section.template]);
+            const sectionTemplate = section.template;
 
             const templateData = {
                 index: sectionNumber,
@@ -167,7 +165,7 @@ const commonHousing = {
                 section.suppressedFields.forEach(field => templateData['hide_' + field] = true);
             }
 
-            const sectionHtml = sectionTemplate(templateData);
+            const sectionHtml = sectionTemplate.render(templateData);
 
             $(section.container).append(sectionHtml);
 

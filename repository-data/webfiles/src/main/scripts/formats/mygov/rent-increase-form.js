@@ -57,7 +57,6 @@ const formMapping = {
     'tenantNames.tenant1': '#tenant-1-name'
 };
 
-import $ from 'jquery';
 import feedback from '../../components/feedback';
 import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
@@ -67,15 +66,14 @@ import formSections from '../../components/mygov/housing-forms/rent-increase-sec
 import moment from '../../vendor/moment';
 import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
 
-const rentIncreaseSummaryTemplate = require('../../templates/rent-increase-summary');
+const formTemplate = require('../../templates/mygov/rent-increase-form');
+const summaryTemplate = require('../../templates/mygov/rent-increase-summary');
 const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
-const rentIncreaseDateOfIncreaseTemplate = require('../../templates/rent-increase-date-of-increase');
+const dateOfIncreaseTemplate = require('../../templates/mygov/rent-increase-date-of-increase');
 const sectionNavTemplate = require('../../templates/visited-only-section-nav');
 const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 
-$('form').each(function (){
-    this.reset();
-});
+[].slice.call(document.querySelectorAll('form')).forEach((form) => form.reset());
 
 const NOW = new Date();
 NOW.setHours(6,0,0,0);
@@ -125,7 +123,10 @@ const rentIncreaseForm = {
         formObject: formObject,
         formEvents: {
             updateSummary: function () {
-                const html = rentIncreaseSummaryTemplate(rentIncreaseForm.form.settings.formObject);
+                const summaryObject = JSON.parse(JSON.stringify(rentIncreaseForm.form.settings.formObject));
+                summaryObject.hasLandlords = Object.values(summaryObject.landlords)[0].name;
+                const html = summaryTemplate.render(summaryObject);
+
                 document.querySelector('#summary-container').innerHTML = html;
                 commonHousing.summaryAccordion(document.getElementById('summary-container'));
             },
@@ -151,6 +152,16 @@ const rentIncreaseForm = {
     init: function () {
         feedback.init();
         rentIncreaseForm.form.validateStep = rentIncreaseForm.validateStep;
+
+        // append form template
+        const formTemplateContainer = document.querySelector('#form-container');
+        if (!formTemplateContainer) {
+            return false;
+        }
+        const overviewContent = formTemplateContainer.innerHTML;
+        formTemplateContainer.innerHTML = formTemplate.render();
+        formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
+
         rentIncreaseForm.form.init();
         commonHousing.setManualLinkSections();
         this.setupRepeatingSections();
@@ -174,7 +185,7 @@ const rentIncreaseForm = {
                 name: 'landlords',
                 nameInput: '.js-landlord-name',
                 container: '.js-landlords-container',
-                template: 'landlordHtml',
+                template: require('../../templates/landlord-html'),
                 addressrequired: true,
                 slug: 'landlord',
                 stepTitle: 'Landlord',
@@ -205,16 +216,19 @@ const rentIncreaseForm = {
     },
 
     setupAddTenantNames: function () {
-        $('.js-add-tenant').on('click', function (event) {
+        document.querySelector('.js-add-tenant').addEventListener('click', function (event) {
             event.preventDefault();
 
             const tenantNames = rentIncreaseForm.form.settings.formObject.tenantNames;
             const currentNumberOfTenants = commonForms.objectKeys(tenantNames).length;
             const newNumber = currentNumberOfTenants + 1;
 
-            $('.js-tenant-names-container').append(
-                `<div class="ds_question"><label class="ds_label" for="tenant-${newNumber}-name">Tenant ${newNumber}: Full name</label>
-                <input type="text" id="tenant-${newNumber}-name" class="ds_input" data-form="textinput-tenant-${newNumber}-name"></div>`);
+            const question = document.createElement('div');
+            question.classList.add('ds_question');
+            question.innerHTML = `<label class="ds_label" for="tenant-${newNumber}-name">Tenant ${newNumber}: Full name</label>
+            <input type="text" id="tenant-${newNumber}-name" class="ds_input" data-form="textinput-tenant-${newNumber}-name">`;
+
+            document.querySelector('.js-tenant-names-container').appendChild(question);
 
             rentIncreaseForm.form.mapField(`tenantNames.tenant${newNumber}`, `#tenant-${newNumber}-name`);
             tenantNames[`tenant${newNumber}`] = null;
@@ -413,7 +427,7 @@ const rentIncreaseForm = {
         templateData.afterDate = commonForms.dateToString(adjustDate(earliestDateForNextIncrease, {days: -1}));
         templateData.initialValue = rentIncreaseForm.form.settings.formObject.dateOfIncrease;
 
-        const html = rentIncreaseDateOfIncreaseTemplate(templateData);
+        const html = dateOfIncreaseTemplate.render(templateData);
         document.querySelector('#date-of-increase-content-container').innerHTML = html;
 
         const rentIncreaseDatePicker = new DSDatePicker(document.getElementById('rent-increase-date-picker'), {minDate: earliestDateForNextIncrease});
@@ -497,12 +511,11 @@ const rentIncreaseForm = {
                 <div class="ds_input__wrapper">
                     <input data-mindate="${templateData.today}" data-maxDate="${templateData.notificationDate}" class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex beforeDate requiredField" type="text" id="rent-increase-send-date" placeholder="e.g. ${templateData.today}" value="${rentIncreaseForm.notificationSendDate}" data-form="textinput-rent-increase-send-date">
                 </div>
-        </div>`;
+            </div>`;
 
         if (!isNaN(rentIncreaseForm.notificationDate.getTime())){
             document.getElementById('date-increase-notification-alert').innerHTML = html;
-
-            const rentIncreaseSendDatePicker = new DSDatePicker(document.getElementById('rent-increase-send-date'), {minDate: new Date(TODAY), maxDate: rentIncreaseForm.notificationDate});
+            const rentIncreaseSendDatePicker = new DSDatePicker(document.getElementById('rent-increase-send-date-picker'), {minDate: new Date(TODAY), maxDate: rentIncreaseForm.notificationDate});
             rentIncreaseSendDatePicker.init();
 
             // bind change event
@@ -661,7 +674,7 @@ const rentIncreaseForm = {
         const newRentFrequency = rentIncreaseForm.form.settings.formObject.newRentFrequency;
         const maximumRentNormalizedPerAnnum = Number(rentIncreaseForm.getMaximumRentAmountNormalizedPerAnnum());
         const maxRentAmount = rentIncreaseForm.getMaximumRentAmountForPeriod(newRentFrequency, maximumRentNormalizedPerAnnum);
-        $('#new-rent-amount').attr('data-maxvalue', maxRentAmount);
+        document.querySelector('#new-rent-amount').setAttribute('data-maxvalue', maxRentAmount);
     },
 
     getMaximumRentAmountForPeriod: function (period, maximumRentNormalizedPerAnnum) {
