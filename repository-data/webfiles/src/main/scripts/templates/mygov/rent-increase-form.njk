@@ -1,0 +1,380 @@
+{% from "../macros.njk" import postcodeLookup %}
+
+<form id="ri-form" autocomplete="false">
+
+    <section id="overview" data-step="overview" class="form-section">
+
+    </section>
+
+    <section data-step="tenancy" class="fully-hidden form-section">
+        <section data-step="start-date">
+
+            <h2>Tenancy start date</h2>
+
+            <div class="date-entry  ds_question">
+                <label class="ds_label" for="tenancy-start-date">Start date</label>
+                <div class="ds_hint-text">
+                    <p>When did the tenancy agreement between you and your tenant start?</p>
+                    <p>Use DD/MM/YYYY format.</p>
+                </div>
+                <div id="tenancy-start-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                    <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
+                        <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex pastDate requiredField" type="text" id="tenancy-start-date" placeholder="e.g. 01/12/2020" data-form="textinput-tenancy-start-date"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section data-step="first-increase">
+            <h2>First time increase</h2>
+
+            <div class="ds_question">
+                <fieldset id="first-time-query" data-validation="requiredRadio">
+                    <legend>
+                        Is this the first time you've increased this tenant's rent?
+                    </legend>
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="first-time-yes" value="yes" name="first-time-query" class="ds_radio__input" type="radio" data-form="radio-first-time-query-yes" />
+                            <label for="first-time-yes" class="ds_radio__label">Yes</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input id="first-time-no" value="no" name="first-time-query" class="ds_radio__input" type="radio" data-form="radio-first-time-query-no" />
+                            <label for="first-time-no" class="ds_radio__label">No</label>
+
+                            <div class="ds_reveal-content">
+
+                                <div class="date-entry  ds_question">
+                                    <label class="ds_label" for="last-increase-date">Date of last increase</label>
+                                    <div class="ds_hint-text">
+                                        <p>Use DD/MM/YYYY format.</p>
+                                    </div>
+                                    <div id="last-increase-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                                        <div class="ds_input__wrapper">
+                                            <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex pastDate requiredField" type="text" id="last-increase-date" placeholder="e.g. 01/12/2020" data-form="textinput-last-increase-date"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="current-rent">
+            <h2>Current rent</h2>
+
+            <div class="ds_question">
+                <label class="ds_label" for="current-rent-amount">How much are your tenant's rent payments now?</label>
+
+                <div class="ds_currency-wrapper">
+                    <input data-validation="validCurrency requiredField" class="ds_input  ds_input--fixed-10" type="text" id="current-rent-amount" placeholder="e.g. 750.00" data-form="textinput-current-rent-amount"/>
+                </div>
+            </div>
+
+            <div class="ds_question">
+                <label class="ds_label" for="current-payment-frequency">How often do they need to pay?</label>
+                <div class="ds_select-wrapper  ds_input--fluid-half">
+                    <select class="ds_select" data-validation="requiredDropdown" id="current-payment-frequency">
+                        <option value="" disabled>Choose frequency:</option>
+                        <option value="WEEKLY">Weekly</option>
+                        <option value="FORTNIGHTLY">Fortnightly</option>
+                        <option value="EVERY_FOUR_WEEKS">Four Weekly</option>
+                        <option value="CALENDAR_MONTH" selected>Monthly</option>
+                        <option value="QUARTERLY">Quarterly</option>
+                        <option value="EVERY_SIX_MONTHS">Every 6 months</option>
+                    </select>
+                    <span class="ds_select-arrow" aria-hidden="true"></span>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section data-step="giving-this-notice" class="form-section ">
+        <h2>Giving this notice</h2>
+
+        <div class="ds_question">
+            <fieldset id="giving-notice-query" data-validation="requiredRadio">
+                <legend>
+                    How are you going to give your tenant this notice?
+                </legend>
+                <div class="ds_field-group  ds_field-group--inline">
+                    <div class="ds_radio  ds_radio--small">
+                        <input class="ds_radio__input  js-end-date-input" id="giving-notice-hand" value="hand" name="giving-notice-query" type="radio" data-form="radio-giving-notice-query-hand" />
+                        <label class="ds_radio__label" for="giving-notice-hand">By hand</label>
+                    </div>
+
+                    <div class="ds_radio  ds_radio--small">
+                        <input class="ds_radio__input  js-end-date-input" id="giving-notice-email" value="email" name="giving-notice-query" type="radio" data-form="radio-giving-notice-query-email" />
+                        <label class="ds_radio__label" for="giving-notice-email">By email</label>
+                    </div>
+
+                    <div class="ds_radio  ds_radio--small">
+                        <input class="ds_radio__input  js-end-date-input" id="giving-notice-post" value="post" name="giving-notice-query" type="radio" data-form="radio-giving-notice-query-post" />
+                        <label class="ds_radio__label" for="giving-notice-post">By post</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+
+    <section data-step="address" class="form-section ">
+        <h2>Address</h2>
+
+        <p>Enter a postcode to find the property's address.</p>
+
+        {{ postcodeLookup('property-address', required=true, readOnly=true, note=true) }}
+    </section>
+
+    <section data-step="increase" class="form-section ">
+        <section data-step="improvements">
+            <h2>Improvements</h2>
+
+            <p>You can add a Rent Service Scotland (RSS) approved increase to your rent if:</p>
+
+            <ul>
+                <li>you've made improvements to your property</li>
+                <li>you've had these improvements approved by RSS</li>
+                <li>they've confirmed an increase that you can add to your rent</li>
+            </ul>
+
+            <div class="ds_question">
+                <fieldset id="improvements-query" data-validation="requiredRadio">
+                    <legend>
+                        Do you need to add this increase?
+                    </legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="improvements-yes" value="yes" name="improvements-query" class="ds_radio__input" type="radio" data-form="radio-improvements-query-yes"/>
+                            <label for="improvements-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="improvements-increase">Amount of increase</label>
+
+                                    <div class="ds_currency-wrapper">
+                                        <input data-validation="validCurrency requiredField" type="text" id="improvements-increase" class="ds_input  ds_input--fixed-10" placeholder="e.g. 20.00" data-form="textinput-improvements-increase">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ds_radio">
+                            <input id="improvements-no" value="no" name="improvements-query" class="ds_radio__input" type="radio" data-form="radio-improvements-query-no"/>
+                            <label for="improvements-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="new-rent">
+            <h2>New rent</h2>
+
+            <div class="ds_question">
+                <label class="ds_label" for="new-rent-amount">How much do you want to increase your tenant's rent to?</label>
+
+                <div class="ds_currency-wrapper">
+                    <input data-validation="validCurrency requiredField" class="ds_input  ds_input--fixed-10" type="text" id="new-rent-amount" placeholder="e.g. 750.00" data-form="textinput-new-rent-amount"/>
+                </div>
+            </div>
+
+            <div class="ds_question">
+                <label class="ds_label" for="new-payment-frequency">How often will it be paid?</label>
+                <div class="ds_select-wrapper  ds_input--fluid-half">
+                    <select class="ds_select" data-validation="requiredDropdown" id="new-payment-frequency">
+                        <option value="" disabled>Choose frequency:</option>
+                        <option value="WEEKLY">Weekly</option>
+                        <option value="FORTNIGHTLY">Fortnightly</option>
+                        <option value="EVERY_FOUR_WEEKS">Four Weekly</option>
+                        <option value="CALENDAR_MONTH" selected>Monthly</option>
+                        <option value="QUARTERLY">Quarterly</option>
+                        <option value="EVERY_SIX_MONTHS">Every 6 months</option>
+                    </select>
+                    <span class="ds_select-arrow" aria-hidden="true"></span>
+                </div>
+            </div>
+        </section>
+
+        <section data-step="date-of-increase">
+            <h2>On what date will the rent go up?</h2>
+
+            <div id="date-of-increase-content-container"></div>
+        </section>
+    </section>
+
+    <section data-step="landlords" class="form-section ">
+
+        <div class="repeating-container js-landlords-container"></div>
+
+    </section>
+
+    <section data-step="letting-agent" class="form-section ">
+        <h2>Letting agent</h2>
+
+        <div class="ds_question">
+            <fieldset id="letting-agent-query" data-validation="requiredRadio">
+                <legend>Does a person, such as a letting agent, manage the property for you?</legend>
+
+                <div class="ds_field-group">
+                    <div class="ds_radio">
+                        <input id="letting-agent-yes" value="yes" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-yes" />
+                        <label for="letting-agent-yes" class="ds_radio__label">Yes</label>
+
+                        <div class="ds_reveal-content">
+                            <div class="ds_question">
+                                <label class="ds_label" for="letting-agent-name">Full name</label>
+                                <input type="text" id="letting-agent-name" data-validation="requiredField" class="ds_input" data-form="textinput-letting-agent-name">
+                            </div>
+
+                            <h3 class="beta">Address</h3>
+
+                            {{ postcodeLookup('letting-agent', required=true) }}
+                        </div>
+                    </div>
+                    <div class="ds_radio">
+                        <input id="letting-agent-no" value="no" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-no" />
+                        <label for="letting-agent-no" class="ds_radio__label">No</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+
+    <section data-step="tenants" class="form-section ">
+        <h2>Tenant(s)</h2>
+
+        <div>
+            <div class="js-tenant-names-container">
+                <div class="ds_question">
+                    <label class="ds_label" for="tenant-1-name">Tenant 1: Full name</label>
+                    <input class="ds_input" type="text" id="tenant-1-name" data-validation="requiredField" data-form="textinput-tenant-1-name">
+                </div>
+            </div>
+
+            <button class="js-add-tenant  ds_button" title="Add name of joint tenant">
+            + Add name of joint tenant</button>
+        </div>
+    </section>
+
+    <section data-step="summary" class="form-section ">
+        <h2>Summary</h2>
+
+        <div id="summary-container"></div>
+    </section>
+
+    <section data-step="download" class="form-section ">
+        <h2>Your Rent Increase Notice is ready to download</h2>
+
+        <p>You need to tick the 'I'm not a robot' box before you can download your form.</p>
+
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <div id="recaptcha" class="g-recaptcha"
+        data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV"
+        data-callback="checkRecaptcha"
+        data-expired-callback="expireRecaptcha"></div>
+
+        <section class="document-section">
+
+            <div data-documenttype="WORD" class="js-document-container  document-info  document-info--limelight">
+                <div class="document-info__body">
+                    <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                        <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--DOCX" title="View this document" href="#">
+                            <span class="mg_file__icon">
+                                <span class="mg_file__content">DOCX</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="document-info__text">
+                    <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your rent increase notice - Word document</a></h3>
+
+                    <dl class="ds_metadata  ds_metadata--inline">
+                        <div class="ds_metadata__item">
+                            <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                            <dd class="ds_metadata__value"><b>Word document (.docx)</b></dd>
+                        </div>
+                    </dl>
+
+                    <div class="document-info__download">
+                        <a disabled="true" href="#" data-gtm="btn-download-docx" class="ds_no-margin  ds_button  js-download-file">
+                            Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div data-documenttype="PDF" class="js-document-container  document-info  document-info--limelight">
+
+                <div class="document-info__body">
+                    <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                        <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--PDF" title="View this document" href="#">
+                            <span class="mg_file__icon">
+                                <span class="mg_file__content">PDF</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="document-info__text">
+                    <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your rent increase notice - PDF document</a></h3>
+
+                    <dl class="ds_metadata  ds_metadata--inline">
+                        <div class="ds_metadata__item">
+                            <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                            <dd class="ds_metadata__value"><b>PDF document (.pdf)</b></dd>
+                        </div>
+                    </dl>
+
+                    <div class="document-info__download">
+                        <a disabled="true" href="#" data-gtm="btn-download-pdf" class="ds_no-margin  ds_button  js-download-file">
+                            Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <article>
+            <h2>Signing this notice</h2>
+
+            <p>If you’re sending this notice by email you can sign it without printing the notice.</p>
+            <p>You can sign a Word document by opening the document in Microsoft Word and typing your name where you need to sign.</p>
+            <p>If you’re signing a PDF, you can open the PDF in <a href="https://acrobat.adobe.com/uk/en/acrobat/pdf-reader.html">Adobe Acrobat Reader DC</a> and use Adobe’s ‘fill &amp; sign’ tool.</p>
+            <p>If you do not have Adobe Acrobat Reader DC you can get it as a <a href="https://get.adobe.com/uk/reader/">free download</a>. You can also read Adobe’s advice about <a href="https://helpx.adobe.com/reader/using/sign-pdfs.html">signing a PDF</a> if you need more help.</p>
+
+            <h3>Keep a version saved</h3>
+
+            <p>You should keep a record of emails you send to and receive from your tenant.</p>
+
+            <h2>Your tenant’s response to this notice</h2>
+
+            <p>This notice includes a page your tenant can fill in.</p>
+            <p>If they fill in this page, they can choose an option to:</p>
+            <ul>
+                <li>accept the rent increase</li>
+                <li>advise they won’t need to pay you the new amount until 3 months have passed, if you haven’t given them 3 months’ notice</li>
+                <li>tell you that they do not think the new rent amount is fair</li>
+            </ul>
+            <p>Your tenant can ask Rent Service Scotland (RSS) to rule on whether the rent increase is fair. Your tenant can only apply to RSS if they do not live in a Rent Pressure Zone.</p>
+            <p>If your tenant doesn’t choose any of these options the rent increase will apply from the date you’ve asked for in the notice.</p>
+
+            <h2>Giving your tenant this notice</h2>
+
+            <p>You must give your tenant this notice in the way agreed in your tenancy agreement.</p>
+        </article>
+    </section>
+</form>
+
+<form id="document-download" action="/service/housing/rent-increase/form" method="POST" enctype="multipart/form-data" class="form-download">
+    <input type="hidden" name="data" value="">
+    <input type="hidden" name="type" value="">
+</form>
+
+<nav id="page-nav" aria-label="Navigation buttons"></nav>
+
+<a id="go-to-summary" href="#!/summary/" class="js-validate-step  back-to-summary-button  ds_button  ds_button--secondary  ds_button--has-icon  fully-hidden">
+    Back to summary
+    <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron-right"></use></svg>
+</a>

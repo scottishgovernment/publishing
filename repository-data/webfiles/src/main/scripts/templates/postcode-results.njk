@@ -1,0 +1,5 @@
+<option disabled selected>Select an address</option>
+<option value="-1">My address is not listed</option>
+{% for result in results %}
+	<option value={{loop.index0}}>{% if result.org %}{{result.org}}, {% endif %}{% if result.building %}{{result.building}}, {% endif %}{% if result.street %}{{result.street}}, {% endif %}{{result.town}}</option>
+{% endfor %}

@@ -4,7 +4,7 @@
 
 'use strict';
 
-const formObject = {'propertyType':null, 'propertyInRpz': false, 'buildingOther':null,'furnishingType':'','propertyAddress':{'addressLine1':null,'addressLine2':null,'addressLine3':null,'postcode':null},'hmoProperty':'','hmo24ContactNumber':null,'hmoRegistrationExpiryDate':null,'hmoRenewalApplicationSubmitted':false,'tenancyStartDate':null,'rentAmount':null,'rentPaymentFrequency':null,'rentPaymentScheduleObject':{},'rentPaymentSchedule': null,'rentPayableInAdvance':null,'rentPaymentMethod':null,'firstPaymentAmount':null,'firstPaymentDate':null,'firstPaymentPeriodEnd':null,'servicesIncludedInRent':[],includedAreasOrFacilities:[],sharedFacilities:[],excludedAreasFacilities:[],'communicationsAgreement':'','depositAmount':null,'tenancyDepositSchemeAdministrator':null,'services':null,'facilities':[],'landlords':{'landlord-1':{}},'lettingAgent':{'name':null,'address':{'addressLine1':null,'addressLine2':null,'addressLine3':null,'postcode':null},'telephone':null,'registrationNumber':null},'agent':{'name':null,'address':{'addressLine1':null,'addressLine2':null,'addressLine3':null,'postcode':null},'telephone':null},'factor':{'name':null,'address':{'addressLine1':null,'addressLine2':null,'addressLine3':null,'postcode':null},'telephone':null,'registrationNumber':null},'tenants':{'tenant-1':{}},'optionalTerms':{'contentsAndConditions':null,'localAuthorityTaxesAndCharges':null,'utilities':null,'commonParts':null,'alterations':null,'privateGarden':null,'roof':null,'binsAndRecycling':null,'storage':null,'dangerousSubstances':null,'pets':null,'smoking':null,'liquidPetroleumGas':null},'additionalTerms':{'additional-term-1':{}}};
+const formObject = {'propertyType':null, 'propertyInRpz': false, 'buildingOther':null,'furnishingType':'','propertyAddress':null,'hmoProperty':'','hmo24ContactNumber':null,'hmoRegistrationExpiryDate':null,'hmoRenewalApplicationSubmitted':false,'tenancyStartDate':null,'rentAmount':null,'rentPaymentFrequency':null,'rentPaymentScheduleObject':{},'rentPaymentSchedule': null,'rentPayableInAdvance':null,'rentPaymentMethod':null,'firstPaymentAmount':null,'firstPaymentDate':null,'firstPaymentPeriodEnd':null,'servicesIncludedInRent':[],includedAreasOrFacilities:[],sharedFacilities:[],excludedAreasFacilities:[],'communicationsAgreement':'','depositAmount':null,'tenancyDepositSchemeAdministrator':null,'services':null,'facilities':[],'landlords':{'landlord-1':{}},'lettingAgent':{'name':null,'address':{'addressLine1':null,'addressLine2':null,'addressLine3':null,'postcode':null},'telephone':null,'registrationNumber':null},'agent':{'name':null,'address':{'addressLine1':null,'addressLine2':null,'addressLine3':null,'postcode':null},'telephone':null},'factor':{'name':null,'address':{'addressLine1':null,'addressLine2':null,'addressLine3':null,'postcode':null},'telephone':null,'registrationNumber':null},'tenants':{'tenant-1':{}},'optionalTerms':{'contentsAndConditions':null,'localAuthorityTaxesAndCharges':null,'utilities':null,'commonParts':null,'alterations':null,'privateGarden':null,'roof':null,'binsAndRecycling':null,'storage':null,'dangerousSubstances':null,'pets':null,'smoking':null,'liquidPetroleumGas':null},'additionalTerms':{'additional-term-1':{}}};
 
 import $ from 'jquery';
 import feedback from '../../components/feedback';
@@ -12,20 +12,34 @@ import EditableTable from '../../components/editable-table';
 import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
 import formSections from '../../components/mygov/housing-forms/model-tenancy-sections';
-import HousingTemplates from '../../components/mygov/housing-forms/housing-templates';
 import formMapping from '../../components/mygov/housing-forms/model-tenancy-mapping';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
-import moment from '../../vendor/moment';
 import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
 
-const modelTenancySummaryOneTemplate = require('../../templates/model-tenancy-summary-1.hbs');
-const modelTenancySummaryTwoTemplate = require('../../templates/model-tenancy-summary-2.hbs');
-const modelTenancySummaryTwoExcludedTemplate = require('../../templates/model-tenancy-summary-2-excluded.hbs');
-const modelTenancyMandatoryTemplate = require('../../templates/model-tenancy-mandatory-1.hbs');
-const modelTenancyMandatoryTwoTemplate = require('../../templates/model-tenancy-mandatory-2.hbs');
-const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav.hbs');
-const modelTenancyPaymentTemplate = require('../../templates/model-tenancy-payment-dates.hbs');
+const formTemplate = require('../../templates/mygov/model-tenancy-form');
+const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
+const mandatoryTemplate = require('../../templates/mygov/model-tenancy-mandatory');
+const paymentTemplate = require('../../templates/mygov/model-tenancy-payment-dates');
+const summaryOneTemplate = require('../../templates/mygov/model-tenancy-summary-1');
+const summaryTwoExcludedTemplate = require('../../templates/mygov/model-tenancy-summary-2-excluded');
+const summaryTwoTemplate = require('../../templates/mygov/model-tenancy-summary-2');
+
+const confirmDefaultModal = `<div class="modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__dialog">
+
+        <a href="#" id="js-modal-close" class="modal__close" ds_button  ds_button--icon-only  ds_button--small  ds_button--cancel">
+            <span class="visually-hidden">Close</span>
+            <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#close-21"></use></svg>
+        </a>
+
+        <h2 class="modal__title">Reset to recommended text?</h2>
+        <p class="modal__body">Note: You will lose all of your custom text and will revert to the recommended term provided.</p>
+        <button class="ds_no-margin  ds_button  ds_button--small" id="js-modal-continue">Continue</button>
+        <button class="ds_no-margin  ds_button--cancel  ds_button  ds_button--small" id="js-modal-cancel">Cancel</button>
+    </div>
+</div>`;
 
 $('form').each(function() {
     this.reset();
@@ -39,24 +53,32 @@ const modelTenancyForm = {
         formObject: formObject,
         formEvents: {
             updateSummary1: function () {
-                const html = modelTenancySummaryOneTemplate(modelTenancyForm.form.settings.formObject);
+                const html = summaryOneTemplate.render(modelTenancyForm.form.settings.formObject);
                 document.querySelector('#summary-container-1').innerHTML = html;
                 commonHousing.summaryAccordion(document.getElementById('summary-container-1'));
             },
             updateSummary2: function () {
-                modelTenancyForm.form.settings.formObject.mandatory2 = true;
-                const mandatoryHtml = modelTenancyMandatoryTemplate(modelTenancyForm.form.settings.formObject);
-                delete modelTenancyForm.form.settings.formObject.mandatory2;
-                const mandatoryEditableHtml = modelTenancyMandatoryTwoTemplate(modelTenancyForm.form.settings.formObject);
-                const extraTermsHtml = modelTenancySummaryTwoTemplate(modelTenancyForm.form.settings.formObject);
-                const excludedHtml = modelTenancySummaryTwoExcludedTemplate(modelTenancyForm.form.settings.formObject);
-                document.querySelector('#summary-container-2').innerHTML = mandatoryHtml + mandatoryEditableHtml + extraTermsHtml;
+                const summaryObject = JSON.parse(JSON.stringify(modelTenancyForm.form.settings.formObject));
+
+                summaryObject.hasTenants = Object.values(summaryObject.tenants)[0].name;
+                summaryObject.hasLandlords = Object.values(summaryObject.landlords)[0].name;
+                summaryObject.mandatory2 = true;
+                const mandatoryHtml = mandatoryTemplate.render(summaryObject);
+
+                const extraTermsHtml = summaryTwoTemplate.render(summaryObject);
+                const excludedHtml = summaryTwoExcludedTemplate.render(summaryObject);
+                document.querySelector('#summary-container-2').innerHTML = mandatoryHtml + extraTermsHtml;
                 document.querySelector('#summary-container-2-excluded').innerHTML = excludedHtml;
                 commonHousing.summaryAccordion(document.getElementById('summary-container-2'));
                 commonHousing.summaryAccordion(document.getElementById('summary-container-2-excluded'));
             },
             updateMandatoryTerms: function () {
-                const html = modelTenancyMandatoryTemplate(modelTenancyForm.form.settings.formObject);
+                const summaryObject = JSON.parse(JSON.stringify(modelTenancyForm.form.settings.formObject));
+
+                summaryObject.hasTenants = Object.values(summaryObject.tenants)[0].name;
+                summaryObject.hasLandlords = Object.values(summaryObject.landlords)[0].name;
+                const html = mandatoryTemplate.render(summaryObject);
+
                 document.querySelector('#mandatory-terms-container').innerHTML = html + '</div>';
                 commonHousing.summaryAccordion(document.getElementById('mandatory-terms-container'));
             }
@@ -74,6 +96,14 @@ const modelTenancyForm = {
     downloadCount: { word: 0, pdf: 0 },
 
     init: function () {
+        // append form template
+        const formTemplateContainer = document.querySelector('#form-container');
+        if (!formTemplateContainer) {
+            return false;
+        }
+        const overviewContent = formTemplateContainer.innerHTML;
+        formTemplateContainer.innerHTML = formTemplate.render({tenants: true});
+        formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
         feedback.init();
         this.getDefaultText();
@@ -88,7 +118,7 @@ const modelTenancyForm = {
         modelTenancyForm.form.validateStep = modelTenancyForm.validateStep;
 
         new EditableTable({ // NOSONAR
-            tableContainer: $('#facilities-table'),
+            tableContainer: document.querySelector('#facilities-table'),
             dataPath: 'facilities',
             fields: [{
                 title: 'Facility name',
@@ -109,7 +139,7 @@ const modelTenancyForm = {
         });
 
         new EditableTable({ // NOSONAR
-            tableContainer: $('#services-table'),
+            tableContainer: document.querySelector('#services-table'),
             dataPath: 'servicesIncludedInRent',
             fields: [{
                 title: 'Service name',
@@ -125,7 +155,7 @@ const modelTenancyForm = {
         });
 
         new EditableTable({ // NOSONAR
-            tableContainer: $('#letting-agent-services-table'),
+            tableContainer: document.querySelector('#letting-agent-services-table'),
             dataPath: 'servicesProvidedByLettingAgent',
             fields: [{
                 title: 'Service name',
@@ -145,7 +175,7 @@ const modelTenancyForm = {
         });
 
         new EditableTable({ // NOSONAR
-            tableContainer: $('#letting-agent-other-services-table'),
+            tableContainer: document.querySelector('#letting-agent-other-services-table'),
             dataPath: 'servicesLettingAgentIsFirstContactFor',
             fields: [{
                 title: 'Service name',
@@ -231,7 +261,7 @@ const modelTenancyForm = {
         $('body').on('click', '.js-reset-term', function(event){
             event.preventDefault();
             // open modal to confirm revert to default text
-            $(this).parent().siblings('textarea').after(HousingTemplates.confirmDefaultModal);
+            $(this).parent().siblings('textarea').after(confirmDefaultModal);
             $('.modal')[0].focus();
 
             $('#js-modal-cancel, #js-modal-close, .modal__overlay').on('click', function(){
@@ -301,7 +331,7 @@ const modelTenancyForm = {
                 name: 'tenants',
                 nameInput: '.js-tenant-name',
                 container: '.js-tenants-container',
-                template: 'tenantHtml',
+                template: require('../../templates/tenant-html'),
                 slug: 'tenant',
                 stepTitle: 'Tenant',
                 guarantor: true,
@@ -334,7 +364,7 @@ const modelTenancyForm = {
                 group: 'managing-the-property',
                 nameInput: '.js-landlord-name',
                 container: '.js-landlords-container',
-                template: 'landlordHtml',
+                template: require('../../templates/landlord-html'),
                 slug: 'landlord',
                 stepTitle: 'Landlord',
                 fieldMappings: function(number) {
@@ -358,7 +388,7 @@ const modelTenancyForm = {
                 name: 'additional-terms',
                 container: '.js-terms-container',
                 slug: 'additional-term',
-                template: 'additionalTermHtml',
+                template: require('../../templates/mygov/mta-additional-term-html'),
                 stepTitle: 'Additional terms',
                 fieldMappings: function(number) {
                     const fieldMappings = {};
@@ -458,7 +488,7 @@ const modelTenancyForm = {
             const paymentData  = {};
             paymentData[$(this).val()] = true;
 
-            const paymentHtml = modelTenancyPaymentTemplate(paymentData);
+            const paymentHtml = paymentTemplate.render(paymentData);
             $('#tenancy-payment-dates').html(paymentHtml);
 
             // Reset the form's data on what the schedule is
@@ -538,8 +568,7 @@ const modelTenancyForm = {
                 continue;
             }
 
-            const momentDate = moment(value, 'DD/MM/YYYY');
-            formData[field] = momentDate.format('YYYY-MM-DD');
+            formData[field] = value.split('/').reverse().join('-');
         }
 
         // 3. Add value from 'other' option in property type field if selected

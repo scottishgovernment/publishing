@@ -1,5 +1,0 @@
-<option disabled selected>Select an address</option>
-<option value="-1">My address is not listed</option>
-{{#each results}}
-	<option value={{@index}}>{{#if org}}{{org}}, {{/if}}{{#if building}}{{building}}, {{/if}}{{#if street}}{{street}}, {{/if}}{{town}}</option>
-{{/each}}

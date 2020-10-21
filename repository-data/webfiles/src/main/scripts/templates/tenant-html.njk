@@ -1,0 +1,169 @@
+<section data-group="{{slug}}s" data-step="{{slug}}-{{index}}" id="{{slug}}-{{index}}" class="form-step  fully-hidden">
+    <h2>{{stepTitle}} details: <span class="js-dynamic-title"></span></h2>
+    <button class="js-remove-repeating-section  repeating-container__remove  ds_button  ds_button--cancel">Remove this {{slug}}</button>
+
+    <div class="ds_question">
+        <label class="ds_label" for="{{slug}}-{{index}}-name">{% if requiredName %}<span class="form--required"><span>star</span></span>{% endif %} Full name</label>
+        <input {% if requiredName %}data-validation="requiredField" aria-required="true"{% endif %} type="text" id="{{slug}}-{{index}}-name" class="js-dynamic-title-input  ds_input" data-form="textinput-{{slug}}-{{index}}-name">
+    </div>
+
+    {% if hide_email %}
+    {% else %}
+    <div class="ds_question">
+        <label class="ds_label" for="{{slug}}-{{index}}-email">Email</label>
+        <input data-validation="validEmail" type="text" id="{{slug}}-{{index}}-email" class="ds_input" data-form="textinput-{{slug}}-{{index}}-email">
+    </div>
+    {% endif %}
+
+    {% if hide_phone %}
+    {% else %}
+    <div class="ds_question">
+        <label class="ds_label" for="{{slug}}-{{index}}-phone">Phone number</label>
+        <input data-validation="validPhone" type="text" id="{{slug}}-{{index}}-phone" class="ds_input  ds_input--fixed-20" data-form="textinput-{{slug}}-{{index}}-phone">
+    </div>
+    {% endif %}
+
+    {% if hide_address %}
+    {% else %}
+    <div id="{{slug}}-{{index}}-postcode-lookup" class="js-postcode-lookup">
+        <div class="form-group">
+
+            <h3 class="beta">{{stepTitle}} address</h3>
+            <div class="ds_question">
+                <label class="ds_label" for="{{slug}}-{{index}}-postcode-search">Postcode</label>
+
+                <div class="ds_input__wrapper">
+                    <input class="ds_input  ds_input--fixed-10  postcode-search" {% if addressrequired %}data-validation="requiredPostcodeLookup"{% endif %} type="text" id="{{slug}}-{{index}}-postcode-search" data-form="textinput-{{slug}}-{{index}}-postcode-search">
+                    <button class="js-find-address-button  ds_button">Find address</button>
+                </div>
+            </div>
+
+            <div class="ds_question  postcode-results  fully-hidden">
+                <label for="{{slug}}-{{index}}-postcode-results" class="ds_label">Select an address</label>
+
+                <div class="ds_select-wrapper">
+                    <select class="ds_select" id="{{slug}}-{{index}}-postcode-results" {% if addressrequired %}data-validation="requiredDropdown"{% endif %}></select>
+                    <span class="ds_select-arrow" aria-hidden="true"></span>
+                </div>
+            </div>
+
+            <div class="postcode-info-note  ds_inset-text  fully-hidden"></div>
+
+            <textarea class="address-display  ds_input  fully-hidden" id="rpz-property-address" disabled="true" title="Property address" data-form="textarea-rpz-property-address"></textarea>
+
+            <p>
+                <a href="#" class="js-address-manual-link">Enter the address manually</a>
+            </p>
+
+            <div class="address-manual  fully-hidden">
+                {% if addressrequired %}<div class="ds_question" data-validation="requiredBuildingOrStreet" id="tenant-{{index}}-building-street">{% endif %}
+                    <label class="ds_label" for="{{slug}}-{{index}}-address-building">Building</label>
+                    <input type="text" id="{{slug}}-{{index}}-address-building" class="ds_input  building" data-form="textinput-{{slug}}-{{index}}-address-building">
+
+                    <label class="ds_label" for="{{slug}}-{{index}}-address-street">Street address</label>
+                    <input type="text" id="{{slug}}-{{index}}-address-street" class="ds_input  street" data-form="textinput-{{slug}}-{{index}}-address-street">
+                {% if addressrequired %}</div>{% endif %}
+
+                <div class="ds_question">
+                    <label class="ds_label" for="{{slug}}-{{index}}-address-town">Town or city</label>
+                    <input type="text" id="{{slug}}-{{index}}-address-town" class="ds_input town" {% if addressrequired %}data-validation="requiredField"{% endif %} data-form="textinput-{{slug}}-{{index}}-address-town">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="{{slug}}-{{index}}-address-region">Region or province</label>
+                    <input type="text" id="{{slug}}-{{index}}-address-region" class="ds_input region" data-form="textinput-{{slug}}-{{index}}-address-region">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="{{slug}}-{{index}}-postcode">Postcode</label>
+                    <input type="text" id="{{slug}}-{{index}}-postcode" class="ds_input uppercase input--small postcode" data-form="textinput-{{slug}}-{{index}}-postcode">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if guarantor %}
+
+        <div class="ds_question">
+            <h3 class="beta">Guarantor</h3>
+            <fieldset id="guarantor-{{index}}-query">
+                <legend>
+                Does this tenant have a guarantor?
+                </legend>
+                <div class="ds_field-group">
+                    <div class="ds_radio">
+                        <input id="guarantor-{{index}}-yes" name="guarantor-{{index}}-query" value="guarantor-yes" class="ds_radio__input" type="radio" data-form="radio-guarantor-{{index}}-query-guarantor-yes">
+                        <label for="guarantor-{{index}}-yes" class="ds_radio__label">Yes</label>
+
+                        <div class="ds_reveal-content">
+                            <div class="ds_question">
+                                <label class="ds_label" for="guarantor-{{index}}-name">Guarantor full name</label>
+                                <input type="text" id="guarantor-{{index}}-name" class="ds_input" data-form="textinput-guarantor-{{index}}-name">
+                            </div>
+
+                            <div id="guarantor-{{index}}-postcode-lookup" class="js-postcode-lookup">
+                                <div class="form-group">
+                                    <div class="ds_question">
+                                        <h3 class="beta">Guarantor address</h3>
+                                        <label class="ds_label" for="guarantor-{{index}}-postcode-search">Postcode (UK only)</label>
+                                        <div class="ds_input__wrapper">
+                                            <input type="text" id="guarantor-{{index}}-postcode-search" class="ds_input  ds_input--fixed-10  postcode-search" data-form="textinput-guarantor-{{index}}-postcode-search">
+
+                                            <button class="js-find-address-button  ds_button">Find address</button>
+                                        </div>
+
+                                        <p>
+                                            <a href="#" class="js-address-manual-link">Enter the address manually</a>
+                                        </p>
+                                    </div>
+
+                                    <div class="ds_question  postcode-results  fully-hidden">
+                                        <label class="ds_label" for="guarantor-{{index}}-postcode-results">Please select your address</label>
+                                        <div class="ds_select-wrapper">
+                                            <select class="ds_select" id="guarantor-{{index}}-postcode-results"><option disabled="" selected="">Select an address</option>
+                                            </select>
+                                            <span class="ds_select-arrow" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="postcode-info-note  ds_inset-text  fully-hidden"></div>
+
+                                    <div class="address-manual  fully-hidden">
+                                        <div class="ds_question">
+                                            <label class="ds_label" for="guarantor-{{index}}-building">Building</label>
+                                            <input type="text" id="guarantor-{{index}}-address-building" class="ds_input  building" data-form="textinput-guarantor-{{index}}-address-building">
+
+                                            <label class="ds_label" for="guarantor-{{index}}-street">Street address</label>
+                                            <input type="text" id="guarantor-{{index}}-address-street" class="ds_input  street" data-form="textinput-guarantor-{{index}}-address-street">
+                                        </div>
+
+                                        <div class="ds_question">
+                                            <label class="ds_label" for="guarantor-{{index}}-address-town">Town or city</label>
+                                            <input type="text" id="guarantor-{{index}}-address-town" class="ds_input town" data-form="textinput-guarantor-{{index}}-address-town">
+                                        </div>
+
+                                        <div class="ds_question">
+                                            <label class="ds_label" for="guarantor-{{index}}-region">Region or province</label>
+                                            <input type="text" id="guarantor-{{index}}-address-region" class="ds_input region" data-form="textinput-guarantor-{{index}}-address-region">
+                                        </div>
+
+                                        <div class="ds_question">
+                                            <label class="ds_label" for="guarantor-{{index}}-postcode">Postcode</label>
+                                            <input type="text" id="guarantor-{{index}}-postcode" class="ds_input ds_input--fixed-10 postcode" data-form="textinput-guarantor-{{index}}-postcode">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ds_radio">
+                        <input id="guarantor-{{index}}-no" name="guarantor-{{index}}-query" value="guarantor-no" class="ds_radio__input" type="radio" data-form="radio-guarantor-{{index}}-query-guarantor-no">
+                        <label for="guarantor-{{index}}-no" class="ds_radio__label">No</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    {% endif %}
+</section>

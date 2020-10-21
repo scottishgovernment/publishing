@@ -6,16 +6,23 @@
 
 import commonForms from '../tools/forms';
 import _ from '../vendor/lodash/dist/tinydash.es6';
-import $ from 'jquery';
 
-const editableTableTemplate = require('../templates/editable-table.hbs');
+const editableTableTemplate = require('../templates/editable-table');
+
+function extend(){
+    for(var i=1; i<arguments.length; i++)
+        for(var key in arguments[i])
+            if(arguments[i].hasOwnProperty(key))
+                arguments[0][key] = arguments[i][key];
+    return arguments[0];
+}
 
 export default class EditableTable {
     constructor(settings) {
 
         this.settings = {};
 
-        this.settings = $.extend(this.settings, settings);
+        this.settings = extend(this.settings, settings);
         this.settings.data = _.get(window.formObject, this.settings.dataPath);
 
         // self-init
@@ -27,74 +34,75 @@ export default class EditableTable {
 
         this.renderTable();
 
-        this.settings.tableContainer.on('click', '.js-edit-button', function (event) {
+        this.settings.tableContainer.addEventListener('click', (event) => {
             event.preventDefault();
-            var row = $(this).closest('tr');
-            row.addClass('editable-table__edit-row');
-            row.find('input, select').filter(':first').focus();
-
-            var tableContainer = editableTable.settings.tableContainer;
-            tableContainer.find('button:not(.editable-table__edit)').prop('disabled', true);
         });
 
-        this.settings.tableContainer.on('click', '.js-cancel-button', function (event) {
+        this.settings.tableContainer.addEventListener('click', (event) => {
             event.preventDefault();
-            // rerender table
-            editableTable.renderTable();
-        });
 
-        this.settings.tableContainer.on('click', '.js-remove-button', function (event) {
-            event.preventDefault();
-            // update data
-            var row = $(this).closest('tr');
-            var index = row.prevAll().length;
+            if (event.target.classList.contains('js-edit-button')) {
+                const row = event.target.closest('tr');
 
-            editableTable.removeEntry(index, row);
+                row.classList.add('editable-table__edit-row');
+                row.querySelector('input, select').focus();
 
-            // rerender table
-            editableTable.renderTable();
-        });
+                const viewButtons = editableTable.settings.tableContainer.querySelectorAll('button:not(.editable-table__edit)');
 
-        this.settings.tableContainer.on('click', '.js-save-button', function (event) {
-            event.preventDefault();
-            // update data
-            var row = $(this).closest('tr');
-            var index = row.prevAll().length;
-            var inputs = row[0].querySelectorAll('.js-value');
+                viewButtons.forEach((button => button.disabled = true));
+            }
 
-            if (editableTable.addOrEditEntry(index, inputs, row)) {
+            if (event.target.classList.contains('js-cancel-button')) {
+                editableTable.renderTable();
+            }
+
+            if (event.target.classList.contains('js-remove-button')) {
+                const row = event.target.closest('tr');
+                var index = parseInt(row.dataset.index, 10);
+                editableTable.removeEntry(index, row);
+
                 // rerender table
                 editableTable.renderTable();
             }
-        });
 
-        this.settings.tableContainer.on('click', '.js-show-add-form', function (event) {
-            event.preventDefault();
-            editableTable.settings.tableContainer.children('.editable-table').addClass('editable-table--adding');
-            editableTable.settings.tableContainer.find('button:not(.editable-table__add)').prop('disabled', true);
+            if (event.target.classList.contains('js-save-button')) {
+                var row = event.target.closest('tr');
+                var index = parseInt(row.dataset.index, 10);
+                var inputs = row.querySelectorAll('.js-value');
 
-            editableTable.settings.tableContainer.find('.js-add-form input, .js-add-form select').filter(':first').focus();
-        });
+                if (editableTable.addOrEditEntry(index, inputs, row)) {
+                    // rerender table
+                    editableTable.renderTable();
+                }
+            }
 
-        this.settings.tableContainer.on('click', '.js-add-button', function (event) {
-            event.preventDefault();
-            editableTable.settings.data = editableTable.settings.data || [];
+            if (event.target.classList.contains('js-show-add-form')) {
+                const table = editableTable.settings.tableContainer.querySelector('.editable-table');
+                table.classList.add('editable-table--adding');
 
-            // creates a new entry
-            var addForm = $(this).closest('.js-add-form');
-            var index = editableTable.settings.data.length;
-            var inputs = addForm[0].querySelectorAll('.js-value');
+                const nonAddButtons = editableTable.settings.tableContainer.querySelectorAll('button:not(.editable-table__add)');
+                nonAddButtons.forEach(button => button.disabled = true);
 
-            if (editableTable.addOrEditEntry(index, inputs, addForm)) {
-                // rerender table
+                editableTable.settings.tableContainer.querySelector('.js-add-form input, .js-add-form select').focus();
+            }
+
+            if (event.target.classList.contains('js-add-button')) {
+                editableTable.settings.data = editableTable.settings.data || [];
+
+                // creates a new entry
+                var addForm = event.target.closest('.js-add-form');
+                var index = editableTable.settings.data.length;
+                var inputs = addForm.querySelectorAll('.js-value');
+
+                if (editableTable.addOrEditEntry(index, inputs, addForm)) {
+                    // rerender table
+                    editableTable.renderTable();
+                }
+            }
+
+            if (event.target.classList.contains('js-cancel-add-button')) {
                 editableTable.renderTable();
             }
-        });
-
-        this.settings.tableContainer.on('click', '.js-cancel-add-button', function (event) {
-            event.preventDefault();
-            // rerender table
-            editableTable.renderTable();
         });
     }
 
@@ -114,13 +122,13 @@ export default class EditableTable {
             }
         }
 
-        var tableHtml = editableTableTemplate({
+        var tableHtml = editableTableTemplate.render({
             data: this.settings.data,
             fields: this.settings.fields,
             addText: this.settings.addText || 'Add',
-            name: this.settings.tableContainer.attr('id') ? this.settings.tableContainer.attr('id').replace('#', '') : ''
+            name: this.settings.tableContainer.id ? this.settings.tableContainer.id.replace('#', '') : ''
         });
-        this.settings.tableContainer.html(tableHtml);
+        this.settings.tableContainer.innerHTML = tableHtml;
     }
 
     removeEntry (index) {
@@ -128,7 +136,7 @@ export default class EditableTable {
 
         _.set(window.formObject, this.settings.dataPath, this.settings.data);
 
-        this.settings.tableContainer.children('.editable-table').removeClass('editable-table--adding');
+        this.settings.tableContainer.querySelector('.editable-table').classList.remove('editable-table--adding');
     }
 
     addOrEditEntry (index, inputs, container) {
@@ -141,8 +149,8 @@ export default class EditableTable {
             var value;
 
             // determine the value
-            if ($(field).hasClass('js-radio-group')) {
-                value = $(field).find(':checked').val();
+            if (field.classList.contains('js-radio-group')) {
+                value = field.querySelector(':checked').val();
             } else if (field.tagName === 'INPUT') {
                 if (field.getAttribute('type') === 'checkbox') {
                     value = field.value;
@@ -165,9 +173,9 @@ export default class EditableTable {
             tempEntry[field.getAttribute('data-field')] = value;
         }
 
-        var fieldsThatNeedToBeValidated = container.find('[data-validation]:visible');
+        var fieldsThatNeedToBeValidated = [].slice.call(container.querySelectorAll('[data-validation]'));
 
-        fieldsThatNeedToBeValidated.each(function (index, element) {
+        fieldsThatNeedToBeValidated.forEach(element => {
             var validations = element.getAttribute('data-validation').split(' ');
             var validationChecks = [];
             for (var i = 0, il = validations.length; i < il; i++) {
@@ -176,10 +184,10 @@ export default class EditableTable {
                 }
             }
 
-            commonForms.validateInput($(this), validationChecks);
+            commonForms.validateInput($(element), validationChecks);
         });
 
-        var invalidFields = container.find('[aria-invalid="true"]');
+        var invalidFields = container.querySelectorAll('[aria-invalid="true"]');
 
         if (invalidFields.length) {
             return false;
@@ -190,7 +198,7 @@ export default class EditableTable {
 
             editableTable.settings.data[index] = tempEntry;
 
-            editableTable.settings.tableContainer.children('.editable-table').removeClass('editable-table--adding');
+            editableTable.settings.tableContainer.querySelector('.editable-table').classList.remove('editable-table--adding');
 
             return true;
         }

@@ -12,6 +12,11 @@
                 <header class="ds_page-header">
                     <span class="ds_page-header__label  ds_content-label">${guide.title}</span>
                     <h1 class="ds_page-header__title">${document.title}</h1>
+                    <#if document.lastUpdatedDate??>
+                    <div class="ds_category-header__meta">
+                        <small>Last updated: <b><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></b></small>
+                    </div>
+                    </#if>
                 </header>
             </div>
 

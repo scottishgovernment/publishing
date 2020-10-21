@@ -1,0 +1,94 @@
+<section data-group="landlords" data-step="landlord-{{index}}" id="landlord-{{index}}" class="fully-hidden  form-step">
+    <h2>Landlord: <span class="js-dynamic-title"></span></h2>
+    <button class="js-remove-repeating-section  repeating-container__remove  ds_button  ds_button--cancel">Remove this landlord</button>
+
+    {% if injectedContent %}<p>{{injectedContent}}</p>{% endif %}
+
+    <div class="form-group">
+        <div class="ds_question">
+            <label class="ds_label" for="landlord-{{index}}-name">Full name {% if requiredName %}(required){% endif %}</label>
+            <input {% if requiredName %}data-validation="requiredField" aria-required="true"{% endif %} type="text" id="landlord-{{index}}-name" class="js-dynamic-title-input  ds_input" data-form="textinput-landlord-{{index}}-name">
+        </div>
+
+        {% if hide_registrationNumber %}
+        {% else %}
+        <div class="ds_question">
+            <label class="ds_label" for="landlord-{{index}}-registration">Landlord registration number</label>
+            <div class="ds_hint-text">
+                <p><a href="https://www.mygov.scot/renting-your-property-out/registration/" target="_blank">Find out more if you don't have a landlord registration number.</a></p>
+                <p>If you have applied for Landlord Registration and are waiting to receive your registration number leave this field blank.</p>
+                <p>Landlord registration numbers use the format 123456/123/12345.</p>
+            </div>
+            <input data-validation="regexMatch" data-errormessage="Landlord registration number is not in a recognised format (e.g. 123456/123/12345)" pattern="^\\d{5,7}[-/ ]\\d{3}[-/ ]\\d{5}$" type="text" id="landlord-{{index}}-registration" class="ds_input" data-form="textinput-landlord-{{index}}-registration">
+        </div>
+        {% endif %}
+
+        {% if hide_email %}
+        {% else %}
+        <div class="ds_question">
+        <label class="ds_label" for="landlord-{{index}}-email">Email</label>
+        <input data-validation="validEmail" type="text" id="landlord-{{index}}-email" class="ds_input" data-form="textinput-landlord={{index}}-email">
+        </div>
+        {% endif %}
+
+
+        {% if hide_phone %}
+        {% else %}
+        <div class="ds_question">
+        <label class="ds_label" for="landlord-{{index}}-phone">Phone number</label>
+        <input data-validation="validPhone" type="text" id="landlord-{{index}}-phone" class="ds_input  ds_input--fixed-20" data-form="textinput-landlord={{index}}-phone">
+        </div>
+        {% endif %}
+    </div>
+
+    <div id="landlord-{{index}}-postcode-lookup" class="js-postcode-lookup">
+        <div class="form-group">
+            <div class="ds_question">
+                <h3 class="beta">Landlord address</h3>
+                <label class="ds_label" for="landlord-{{index}}-postcode-search">Postcode (UK only)</label>
+                <div class="ds_input__wrapper">
+                    <input {% if addressrequired %}data-validation="requiredPostcodeLookup"{% endif %} type="text" id="landlord-{{index}}-postcode-search" class="ds_input  ds_input--fixed-10  postcode-search" tada-form="landlord-{{index}}-postcode-search">
+                    <button class="js-find-address-button  ds_button">Find address</button>
+                </div>
+                <p>
+                    <a href="#" class="js-address-manual-link">Enter the address manually</a>
+                </p>
+            </div>
+
+            <div class="ds_question  postcode-results  fully-hidden">
+                <label class="ds_label" for="landlord-{{index}}-postcode-results">Please select your address</label>
+                <div class="ds_select-wrapper">
+                    <select class="ds_select" id="landlord-{{index}}-postcode-results" {% if addressrequired %}data-validation="requiredDropdown"{% endif %}>
+                    </select>
+                    <span class="ds_select-arrow" aria-hidden="true"></span>
+                </div>
+            </div>
+
+            <div class="postcode-info-note  ds_inset-text  fully-hidden"></div>
+
+            <div class="address-manual  fully-hidden">
+                <div class="ds_question" {% if addressrequired %}data-validation="requiredBuildingOrStreet" id="landlord-{{index}}-building-street"{% endif %}>
+                    <label class="ds_label" for="landlord-{{index}}-building">Building</label>
+                    <input type="text" id="landlord-{{index}}-address-building" class="ds_input  building" data-form="textinput-landlord-{{index}}-address-building">
+
+                    <label class="ds_label" for="landlord-{{index}}-street">Street address</label>
+                    <input type="text" id="landlord-{{index}}-address-street" class="ds_input  street" data-form="textinput-landlord-{{index}}-address-street">
+                </div>
+
+                <div class="ds_question">
+                <label class="ds_label" for="landlord-{{index}}-address-town">Town or city</label>
+                <input type="text" id="landlord-{{index}}-address-town" class="ds_input town"  {% if addressrequired %}data-validation="requiredField"{% endif %} data-form="textinput-landlord-{{index}}-address-town">
+                </div>
+
+                <div class="ds_question">
+                <label class="ds_label" for="landlord-{{index}}-region">Region or province</label>
+                <input type="text" id="landlord-{{index}}-address-region" class="ds_input region" data-form="textinput-landlord-{{index}}-address-region">
+                </div>
+
+                <div class="ds_question">
+                <label class="ds_label" for="landlord-{{index}}-postcode">Postcode</label>
+                <input type="text" id="landlord-{{index}}-postcode" class="ds_input ds_input--fixed-10 postcode" data-form="textinput-landlord-{{index}}-postcode">
+                </div>
+            </div>
+        </div>
+    </section>

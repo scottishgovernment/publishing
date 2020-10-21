@@ -3,7 +3,7 @@
 const path = require('path');
 
 const commonItems = {
-    mode: 'development',
+    mode: 'production',
 
     entry: {
         'global':                       path.resolve(__dirname, './global.js'),
@@ -35,6 +35,7 @@ const commonItems = {
         'rent-improvements-form':       path.resolve(__dirname, './formats/mygov/rent-improvements-form.js'),
         'rent-increase-form':           path.resolve(__dirname, './formats/mygov/rent-increase-form.js'),
         'rpz-checker':                  path.resolve(__dirname, './formats/mygov/rpz-checker.js'),
+        'subtenant-notice-to-leave-form':   path.resolve(__dirname, './formats/mygov/subtenant-notice-to-leave-form.js')
     },
 
     externals: {
@@ -48,7 +49,7 @@ const commonItems = {
             'node_modules'
         ],
 
-        extensions: ['.js', '.hbs'],
+        extensions: ['.js', '.hbs', '.njk'],
     },
 
     module: {
@@ -61,6 +62,13 @@ const commonItems = {
                         helperDirs: [path.join(__dirname, 'src/scripts/templates/helpers/')]
                     }
                 }]
+            },
+            {
+                test: /\.njk/,
+                loader: 'nunjucks-loader',
+                query: {
+                    config: 'src/main/scripts/nunjucks.config.js'
+                }
             }
         ]
     }
@@ -84,6 +92,7 @@ module.exports = [{
         module: {
             rules: [
                 commonItems.module.rules[0],
+                commonItems.module.rules[1],
                 {
                     test: /\.js$/,
                     use: {

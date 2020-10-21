@@ -1,0 +1,157 @@
+/*------------------------------------*\
+    #SECTION NAV
+\*------------------------------------*/
+
+.section-nav {
+    border-bottom: 4px solid $ds_colour__blue--base;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.section-nav__group {
+    display: inline-block;
+
+    &:last-of-type.section-nav__link {
+        float: right;
+    }
+}
+
+.section-nav__link {
+    display: none;
+}
+
+.section-nav__item:not(:first-child) {
+    display: none;
+}
+
+@include media-query(xlarge) {
+    .section-nav__link {
+        display: inline-block;
+        padding: 8px 16px;
+        font-size: 17px;
+        color: $ds_colour__text;
+
+        a {
+            color: $ds_colour__text;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        svg {
+            vertical-align: middle;
+        }
+    }
+}
+
+.section-nav__list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+}
+
+.section-nav__list-item {
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.section-nav__item {
+    color: $ds_colour__link;
+    display: block;
+    font-size: 17px;
+    line-height: 32px;
+    margin: 0;
+    outline: none !important;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-bottom: 4px solid transparent;
+
+    &:focus,
+    &:active {
+        box-shadow: 0 3px $ds_colour__text;
+        border-color: $ds_colour__text;
+    }
+}
+
+.section-nav__item:not(.section-nav__item--current):not(.section-nav__item--disabled):hover {
+    // background-color: $ds_colour__grey--lighter;
+}
+
+.section-nav__item:not(.section-nav__item--current):not(.section-nav__item--disabled):active {
+    // background-color: $ds_colour__blue--light;
+}
+
+.section-nav__item--current {
+    background-color: $ds_colour__link--current__background;
+    color: $ds_colour__link--current;
+    border-bottom: 4px solid $ds_colour__blue--base;
+}
+
+.section-nav__item--disabled {
+    color: $ds_colour__grey--base;
+    pointer-events: none;
+}
+
+span.section-nav__item {
+    color: $ds_colour__grey--base;
+}
+
+
+
+
+/*
+    for mobile devices
+*/
+.section-nav {
+    position: relative;
+
+    &__list-item--active {
+        left: 0;
+        position: sticky;
+        position: -webkit-sticky;
+        right: 0;
+    }
+}
+
+@include media-query(medium-down) {
+    .section-nav {
+        overflow-x: scroll;
+        border-bottom-width: 4px;
+        margin-bottom: 12px;
+        overflow-x: scroll;
+        position: relative;
+        white-space: nowrap;
+
+        &__list-item--active {
+            left: 0;
+            position: sticky;
+            position: -webkit-sticky;
+            right: 0;
+        }
+    }
+
+    .section-nav__group:last-of-type.section-nav__link {
+        display: none;
+    }
+
+    .section-nav__item {
+        border-bottom-width: 0;
+        font-size: 12px;
+        padding: 4px 8px 4px;
+
+        &--current {
+            border-bottom-width: 4px;
+        }
+    }
+}
+
+
+
+
+
+// temp design system additions
+.section-nav {
+    .ds_button {
+        outline: 0;
+    }
+}

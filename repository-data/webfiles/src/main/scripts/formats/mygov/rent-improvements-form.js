@@ -43,11 +43,12 @@ import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import formSections from '../../components/mygov/housing-forms/rent-improvements-sections';
 
-const rentImprovementsSummaryTemplate = require('../../templates/rent-improvements-summary.hbs');
-const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav.hbs');
-const sectionNavTemplate = require('../../templates/visited-only-section-nav.hbs');
-const subNavTemplate = require('../../templates/visited-only-subsection-nav.hbs');
-const rentImprovementsDownloadTemplate = require('../../templates/rent-improvements-download.hbs');
+const formTemplate = require('../../templates/mygov/rent-improvements-form');
+const summaryTemplate = require('../../templates/mygov/rent-improvements-summary');
+const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
+const sectionNavTemplate = require('../../templates/visited-only-section-nav');
+const subNavTemplate = require('../../templates/visited-only-subsection-nav');
+const downloadTemplate = require('../../templates/mygov/rent-improvements-download');
 
 $('form').each(function() {
     this.reset();
@@ -60,7 +61,12 @@ const rentImprovementsForm = {
         formObject: formObject,
         formEvents: {
             updateSummary: function () {
-                const html = rentImprovementsSummaryTemplate(rentImprovementsForm.form.settings.formObject);
+                const summaryObject = JSON.parse(JSON.stringify(rentImprovementsForm.form.settings.formObject));
+
+                summaryObject.hasTenants = Object.values(summaryObject.tenants)[0].name;
+                summaryObject.hasLandlords = Object.values(summaryObject.landlords)[0].name;
+
+                const html = summaryTemplate.render(summaryObject);
                 document.querySelector('#summary-container').innerHTML = html;
 
                 commonHousing.validateSummary();
@@ -76,7 +82,7 @@ const rentImprovementsForm = {
                 const formObject = rentImprovementsForm.form.settings.formObject;
                 const noDocuments = !formObject.includesReceipts && !formObject.includesBeforeAndAfterPictures;
 
-                const html = rentImprovementsDownloadTemplate({form: rentImprovementsForm.form.settings.formObject,
+                const html = downloadTemplate.render({form: rentImprovementsForm.form.settings.formObject,
                     noDocuments: noDocuments});
                 document.querySelector('.js-download-details-container').innerHTML = html;
             }
@@ -94,6 +100,15 @@ const rentImprovementsForm = {
     }),
 
     init: function () {
+        // append form template
+        const formTemplateContainer = document.querySelector('#form-container');
+        if (!formTemplateContainer) {
+            return false;
+        }
+        const overviewContent = formTemplateContainer.innerHTML;
+        formTemplateContainer.innerHTML = formTemplate.render();
+        formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
+
         feedback.init();
         rentImprovementsForm.form.validateStep = rentImprovementsForm.validateStep;
         rentImprovementsForm.form.init();
@@ -115,7 +130,7 @@ const rentImprovementsForm = {
                 name: 'tenants',
                 nameInput: '.js-tenant-name',
                 container: '.js-tenants-container',
-                template: 'tenantHtml',
+                template: require('../../templates/tenant-html'),
                 addressrequired: true,
                 requiredName: true,
                 slug: 'tenant',
@@ -134,7 +149,7 @@ const rentImprovementsForm = {
                 name: 'landlords',
                 nameInput: '.js-landlord-name',
                 container: '.js-landlords-container',
-                template: 'landlordHtml',
+                template: require('../../templates/landlord-html'),
                 addressrequired: true,
                 requiredName: true,
                 slug: 'landlord',
@@ -192,6 +207,7 @@ const rentImprovementsForm = {
     },
 
     validateStep: function () {
+        console.error('validation is disabled'); return true;
         return commonHousing.validateStep(rentImprovementsForm.form.currentStep);
     },
 

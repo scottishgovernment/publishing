@@ -1,0 +1,1125 @@
+{% from "../macros.njk" import postcodeLookup %}
+
+<form id="mta-form">
+
+    <section id="overview" data-step="summary" class="form-section">
+
+    </section>
+
+<section data-step="property" class="fully-hidden form-section">
+    <div>
+        <section data-step="property-details" class="fully-hidden form-step">
+            <h2>Property details</h2>
+
+            {{ postcodeLookup('property', readOnly=true, note=true) }}
+
+            <div class="ds_question">
+                <h3 class="beta">Type of home</h3>
+
+                <fieldset id="property-building">
+                    <legend>Select the type of home for let</legend>
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input value="FLAT" id="building-flat" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-FLAT" />
+                            <label for="building-flat" class="ds_radio__label">Flat</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="BUNGALOW" id="building-bungalow" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-BUNGALOW" />
+                            <label for="building-bungalow" class="ds_radio__label">Bungalow</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="COTTAGE" id="building-cottage" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-COTTAGE" />
+                            <label for="building-cottage" class="ds_radio__label">Cottage</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="TERRACED" id="building-terraced" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-TERRACED" />
+                            <label for="building-terraced" class="ds_radio__label">Terraced house</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="SEMI" id="building-semi" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-SEMI" />
+                            <label for="building-semi" class="ds_radio__label">Semi-detached house</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="DETACHED" id="building-detached" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-DETACHED" />
+                            <label for="building-detached" class="ds_radio__label">Detached house</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="OTHER" id="building-other-query" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-OTHER" />
+                            <label for="building-other-query" class="ds_radio__label">Other</label>
+
+                            <div class="ds_reveal-content">
+                                <label class="ds_label" for="building-other">Building type description</label><br />
+                                <input type="text" id="building-other" class="ds_input" data-form="textinput-building-other">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+            <h3 class="beta">Other parts of your property and facilities</h3>
+
+            <p>The 'type of home' you've chosen covers the inside of your property. If you want it to be clear that your tenancy agreement also covers other areas, such as a private garden or a common area, you should list the extra part.</p>
+
+            <p>You can also include a 'facility' if you want, such as a home telephone.</p>
+
+            <p>If you put something, you need to choose whether the listed part of your property is:</p>
+
+            <ul>
+                <li>included - this means the tenant can use it and only them</li>
+                <li>excluded - it's a part of the property but the tenant can't use it</li>
+                <li>shared - the tenant can use it but it's shared with others, such as a common area</li>
+            </ul>
+
+            <div id="facilities-table"></div>
+        </section>
+
+        <section data-step="property-furnishings" class="fully-hidden form-step">
+            <h2>Furnishings</h2>
+
+            <div id="property-furnishing">
+                <p>You need to say whether the home in this tenancy agreement is:</p>
+
+                <ul>
+                    <li><strong>Unfurnished</strong> - this means that carpets, curtains and some white goods, such as a fridge or cooker, are included in the property.</li>
+                    <li><strong>Part Furnished</strong> - could have the same as an unfurnished property, plus things like wardrobes, dining table and chairs. Things like beds, 3-piece suites, TV, dish washers or washing machines would not usually be included.</li>
+                    <li><strong>Furnished</strong> - could include all the items of a part furnished property, plus things like a 3 piece suite, TV, dish washer, cutlery or washing machine. </li>
+                </ul>
+
+                <div class="ds_question">
+                    <fieldset aria-required="true" id="property-furnishing">
+                        <legend>
+                        Is the home:
+                        </legend>
+
+                        <div class="ds_field-group">
+                            <div class="ds_radio">
+                                <input value="UNFURNISHED" id="furnishing-none" name="property-furnishing" class="ds_radio__input" type="radio" data-form="radio-propertyFurnishing-UNFURNISHED" />
+                                <label for="furnishing-none" class="ds_radio__label">Unfurnished</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input value="PARTLY_FURNISHED" id="furnishing-part" name="property-furnishing" class="ds_radio__input" type="radio" data-form="radio-propertyFurnishing-PARTLY_FURNISHED" />
+                                <label for="furnishing-part" class="ds_radio__label">Part Furnished</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input value="FURNISHED" id="furnishing-full" name="property-furnishing" class="ds_radio__input" type="radio" data-form="radio-propertyFurnishing-FULLY_UNFURNISHED" />
+                                <label for="furnishing-full" class="ds_radio__label">Furnished</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </section>
+
+        <section data-step="property-hmo" class="fully-hidden form-step">
+            <h2>House in Multiple Occupation (HMO)</h2>
+
+            <p>You need a HMO licence if:</p>
+            <ul>
+                <li>you rent your property out to 3 or more tenants over the age of 16</li>
+                <li>3 or more of these tenants are not related or part of the same family</li>
+                <li>your property is the only, or the main, place they live</li>
+            </ul>
+
+            <div class="ds_inset-text">
+                <div class="ds_inset-text__text">
+                    <a target="_blank" href="/renting-your-property-out/registration/">If you need a HMO license but do not have one, find out how to get one (opens in a new window).</a>
+                </div>
+            </div>
+
+            <div class="ds_question">
+                <fieldset aria-required="true" id="property-hmo-query">
+                    <legend>
+                        Is the home for rent a House in Multiple Occupation (HMO)?
+                    </legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="hmo-yes" value="true" name="property-hmo" class="ds_radio__input" type="radio" data-form="radio-property-hmo-true" />
+                            <label for="hmo-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="hmo-contact">HMO 24 hour contact number</label>
+                                    <input type="text" data-validation="validPhone" id="hmo-contact" class="ds_input  ds_input--fixed-20" data-form="textinput-hmo-contact">
+                                </div>
+
+                                <div class="date-entry  ds_question">
+                                    <a id="hmo-expiry-link"></a>
+                                    <label class="ds_label" for="hmo-expiry">HMO licence expiry date</label>
+
+                                    <div class="ds_hint-text">
+                                        <p>Use DD/MM/YYYY format.</p>
+                                    </div>
+
+                                    <div id="hmo-expiry-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                                        <div class="ds_input__wrapper">
+                                            <input class="ds_input  ds_input--fixed-10" data-mindate="12/01/2017" data-validation="dateRegex futureDate" type="text" id="hmo-expiry" placeholder="e.g. 01/12/2019" data-form="textinput-hmo-expiry" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="ds_question">
+                                    <h3>If you have submitted a renewal application please indicate</h3>
+
+                                    <div class="ds_checkbox  ds_checkbox--small">
+                                        <input type="checkbox" name="hmoRenewalApplicationSubmitted" id="hmo-renewal" class="ds_checkbox__input" data-form="checkbox-hmoRenewalApplicationSubmitted"/>
+                                        <label for="hmo-renewal" class="ds_checkbox__label">HMO renewal application submitted</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ds_radio">
+                            <input id="hmo-no" value="false" name="property-hmo" class="ds_radio__input" type="radio" data-form="radio-property-hmo-false" />
+                            <label for="hmo-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+    </div>
+</section>
+
+<section data-step="tenancy" class="fully-hidden form-section">
+
+    <div>
+        <section data-step="tenancy-start" class="fully-hidden form-step">
+            <h2>Tenancy start date</h2>
+
+            <div class="date-entry  ds_question">
+                <p>Choose the start date of the tenancy.</p>
+
+                <label class="ds_label" for="tenancy-start-date">Start date</label>
+
+                <div class="ds_hint-text">
+                    <p>Use DD/MM/YYYY format.</p>
+                </div>
+
+                <div id="tenancy-start-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                    <div class="ds_input__wrapper">
+                        <input class="ds_input  ds_input--fixed-10" data-mindate="12/01/2017" data-validation="dateRegex futureDate" type="text" id="tenancy-start-date" placeholder="e.g. 01/12/2019" data-form="textinput-tenancy-start-date" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section data-step="tenancy-payment" class="fully-hidden form-step">
+            <h2>Payment details</h2>
+
+            <div class="form-group">
+                <p>Enter the total regular amount of rent payable for this property, and the frequency of payment.</p>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="tenancy-payment-method">How will your tenant pay?</label>
+                    <div class="ds_select-wrapper">
+                        <select id="tenancy-payment-method" class="ds_select">
+                            <option value="" disabled selected>Choose payment method:</option>
+                            <option>BACS</option>
+                            <option>Direct debit</option>
+                            <option>Bank transfer</option>
+                            <option>Cash</option>
+                            <option>Cheque</option>
+                            <option>Standing order</option>
+                            <option>Other</option>
+                        </select>
+                        <span class="ds_select-arrow" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="tenancy-payment-frequency">How often will they pay?</label>
+                    <div class="ds_select-wrapper">
+                        <select class="ds_select" id="tenancy-payment-frequency">
+                            <option value="" disabled selected>Choose how often:</option>
+                            <option value="WEEKLY">Weekly</option>
+                            <option value="FORTNIGHTLY">Fortnightly</option>
+                            <option value="EVERY_FOUR_WEEKS">Four weekly</option>
+                            <option value="CALENDAR_MONTH">Monthly</option>
+                            <option value="QUARTERLY">Quarterly</option>
+                            <option value="EVERY_SIX_MONTHS">Every 6 months</option>
+                        </select>
+                        <span class="ds_select-arrow" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+                <div id="tenancy-payment-dates"></div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="tenancy-rent-amount">How much will each of these payments be?</label>
+                    <div class="ds_currency-wrapper">
+                        <input data-validation="validCurrency" type="text" id="tenancy-rent-amount" class="ds_input  ds_input--fixed-10" placeholder="e.g. 750.00" data-form="textinput-tenancy-rent-amount">
+                    </div>
+                </div>
+
+                <div class="ds_question">
+                    <fieldset id="payment-advance">
+                        <legend>
+                        Will the payments be paid in:
+                        </legend>
+
+                        <div class="ds_field-group">
+                            <div class="ds_radio">
+                                <input id="tenancy-payment-advance" value="true" name="payment-advance" class="ds_radio__input" type="radio" data-form="radio-payment-advance-true" />
+                                <label for="tenancy-payment-advance" class="ds_radio__label">Advance</label>
+                                <p class="ds_hint-text">This means you're paid for the period coming up, e.g. the month ahead</p>
+                            </div>
+                            <div class="ds_radio">
+                                <input id="tenancy-payment-arrears" value="false" name="payment-advance" class="ds_radio__input" type="radio" data-form="radio-payment-advance-false" />
+                                <label for="tenancy-payment-arrears" class="ds_radio__label">Arrears</label>
+                                <p class="ds_hint-text">This means you're paid for the time that's just passed, e.g. for the last month</p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <h3 class="beta">Services included</h2>
+                <p>You should list all services that are charged for as part of the rent. </p>
+                <p>Services can include things like a laundry service or a maintenance charge for shared areas.</p>
+
+                <div id="services-table"></div>
+            </div>
+
+        </section>
+
+        <section data-step="tenancy-first-payment" class="fully-hidden form-step">
+            <h2>First payment</h2>
+
+            <p>This tenancy agreement needs to tell your tenant:</p>
+
+            <ul>
+                <li>how much the very first payment of rent is</li>
+                <li>its date of payment</li>
+            </ul>
+
+            <p>It can be for the same amount or a different amount to normal rent payments.</p>
+            <p>The amount you put mustn't include the deposit.</p>
+
+            <div class="ds_question">
+                <label class="ds_label" for="first-payment-amount">How much is the first payment of rent you'll receive from the tenant?</label>
+                <div class="ds_currency-wrapper">
+                    <input type="text" data-validation="validCurrency" id="first-payment-amount" class="ds_input  ds_input--fixed-10" placeholder="e.g. 375.00" data-form="textinput-first-payment-amount">
+                </div>
+            </div>
+
+            <div class="date-entry  ds_question">
+                <label class="ds_label" for="first-payment-date">When will your tenant make this first payment?</label>
+                <div class="ds_hint-text">
+                    <p>Use DD/MM/YYYY format.</p>
+                </div>
+
+                <div id="first-payment-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                    <div class="ds_input__wrapper">
+                        <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex futureDate" type="text" id="first-payment-date" placeholder="e.g. 01/12/2020" data-form="textinput-first-payment-date" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="date-entry  ds_question">
+                <label class="ds_label" for="first-payment-end-date">The first payment covers rent from the start date of the tenancy until:</label>
+                <div class="ds_hint-text">
+                    <p>Use DD/MM/YYYY format.</p>
+                </div>
+
+                <div id="first-payment-end-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                    <div class="ds_input__wrapper">
+                        <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex futureDate" type="text" id="first-payment-end-date" placeholder="e.g. 01/12/2020" data-form="textinput-first-payment-end-date" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section data-step="tenancy-deposit" class="fully-hidden form-step">
+            <h2>Deposit</h2>
+
+            <div class="ds_question">
+                <label class="ds_label" for="deposit-amount">How much is the deposit the tenant will pay?</label>
+
+                <div class="ds_hint-text">
+                    <p>The amount you put must be no more than the total of 2 months' rent.</p>
+                </div>
+
+                <div class="ds_currency-wrapper">
+                    <input data-validation="validCurrency" type="text" id="deposit-amount" class="ds_input  ds_input--fixed-10" placeholder="e.g. 375.00" data-form="textinput-deposit-amount">
+                </div>
+            </div>
+
+            <div class="ds_question">
+                <label class="ds_label" for="deposit-scheme">Which deposit scheme are you using?</label>
+                <div class="ds_select-wrapper">
+                    <select id="deposit-scheme" class="ds_select">
+                        <option value="" disabled>Choose deposit scheme:</option>
+                        <option>Letting Protection Service Scotland</option>
+                        <option>Safedeposits Scotland</option>
+                        <option>My|deposits Scotland</option>
+                    </select>
+                    <span class="ds_select-arrow" aria-hidden="true"></span>
+                </div>
+            </div>
+        </section>
+
+        <section data-step="tenancy-communication-agreement" class="fully-hidden form-step">
+            <h2>Communication agreement</h2>
+
+            <div class="ds_warning-text">
+                <strong class="ds_warning-text__icon" aria-hidden="true">!</strong>
+                <strong class="visually-hidden">Warning</strong>
+                <div class="ds_warning-text__text">
+                    You must agree with your tenant how you can both send things, like a legal notice, to each other.
+                </div>
+            </div>
+
+            <div class="ds_question">
+                <fieldset id="communication-agreement">
+                    <legend>
+                        What have you agreed with your tenant?
+                    </legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="communication-post" value="HARDCOPY" name="communication-agreement" class="ds_radio__input" type="radio" data-form="radio-communication-agreement-HARDCOPY"/>
+                            <label for="communication-post" class="ds_radio__label">To give a paper copy, by post or in person</label>
+                        </div>
+
+                        <div class="ds_radio">
+                            <input id="communication-email" value="EMAIL" name="communication-agreement" class="ds_radio__input" type="radio" data-form="radio-communication-agreement-EMAIL"/>
+                            <label for="communication-email" class="ds_radio__label">To send things by email</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+            </div>
+        </section>
+    </div>
+</section>
+
+
+<section data-step="managing-the-property" class="form-section">
+    <section data-step="letting-agent" class="fully-hidden form-step">
+        <h2>Letting agent</h2>
+
+        <div class="ds_question">
+            <fieldset id="letting-agent-query">
+                <legend>
+                    Is a letting agency managing the property?
+                </legend>
+
+                <div class="ds_field-group">
+                    <div class="ds_radio">
+                        <input class="ds_radio__input" id="letting-agent-yes" value="letting-agent-yes" name="letting-agent-query" type="radio" data-form="radio-letting-agent-query-yes"/>
+                        <label for="letting-agent-yes" class="ds_radio__label">Yes</label>
+
+                        <div class="ds_reveal-content">
+                            <h3 class="beta">Letting agent details</h3>
+
+                            <div class="ds_question">
+                                <label class="ds_label" for="letting-agent-name">Full name</label>
+                                <input type="text" id="letting-agent-name" class="ds_input" data-form="textinput-letting-agent-name">
+                            </div>
+
+                            <div class="ds_question">
+                                <label class="ds_label" for="letting-agent-registration">Letting agent registration number</label>
+                                <input type="text" id="letting-agent-registration" class="ds_input" data-form="textinput-letting-agent-registration">
+                            </div>
+
+                            <div class="ds_question">
+                                <label class="ds_label" for="letting-agent-email">Email</label>
+                                <input data-validation="validEmail" type="text" id="letting-agent-email" class="ds_input" data-form="textinput-letting-agent-email">
+                            </div>
+
+                            <div class="ds_question">
+                                <label class="ds_label" for="letting-agent-phone">Phone number</label>
+                                <input data-validation="validPhone" type="text" id="letting-agent-phone" class="ds_input  ds_input--fixed-20" data-form="textinput-letting-agent-phone">
+                            </div>
+
+                            {{ postcodeLookup('letting-agent') }}
+
+                            <h3 class="beta">Letting agent services</h3>
+
+                            <p>If your letting agent looks after a service for you, such as repairs or complaints, you need to list these things for your tenant.</p>
+
+                            <div id="letting-agent-services-table"></div>
+
+                            <p>List any other service your letting agent doesn’t look after but is the first point of contact for.</p>
+
+                            <div id="letting-agent-other-services-table"></div>
+                        </div>
+                    </div>
+
+                    <div class="ds_radio">
+                        <input id="letting-agent-no" value="no" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-no" />
+                        <label for="letting-agent-no" class="ds_radio__label">No</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+
+    <div class="repeating-container js-landlords-container">
+    </div>
+</section>
+
+
+<section data-step="tenants" class="fully-hidden form-section">
+
+    <div class="repeating-container js-tenants-container">
+    </div>
+</section>
+
+
+<section data-step="end-of-part-1" class="fully-hidden form-section">
+
+    <section data-step="part-1-summary" class="fully-hidden form-step">
+        <h2 class="labelled  no-suffix">Summary</h2>
+
+        <div id="summary-container-1">
+        </div>
+
+    </section>
+</section>
+
+
+<section data-step="must-include-terms" class="fully-hidden form-section">
+    <section data-step="must-include-terms-list" class="fully-hidden form-step">
+        <h2>Must-include terms</h2>
+
+        <p>These are the terms that, by law, you must give your tenant as part of a new tenancy agreement in Scotland. <strong>In the final tenancy agreement these terms are known as the 'mandatory clauses' of your contract.</strong> You can't change or get rid of any of these terms.
+        </p>
+
+        <p>They cover things like:</p>
+
+        <ul>
+            <li>data protection</li>
+            <li>access for repairs</li>
+            <li>safety, such as laws about smoke detectors and gas safety</li>
+        </ul>
+
+        <p>Your input has been inserted into the mandatory terms and is shown <span class="summary__user-input">highlighted in blue</span>. If you notice any errors you can go back to the relevant section and correct them.</p>
+
+        <div id="mandatory-terms-container">
+
+        </div>
+    </section>
+
+    <section data-step="notification-residents" class="fully-hidden form-step">
+        <h2 id="terms-notification-label">Notification about other residents</h2>
+
+        <div class="form-group">
+
+            <div class="ds_inset-text"><div class="ds_inset-text__text">
+            This 'must-include term' contains some text that you can <a href="#terms-notification-edit">change</a>, if you prefer.
+            </div></div>
+
+            <p>If a person aged 16 or over (who is not a Joint Tenant) occupies the Let Property with the Tenant as that person’s only or principal home, the Tenant must tell the Landlord in writing that person’s name, and the person’s relationship to the Tenant.</p>
+
+            <p>If that person subsequently leaves the Let Property the Tenant must tell the Landlord.</p>
+
+            <p>The Tenant will take reasonable care to ensure that anyone living with them does not do anything that would be a breach of this Agreement if they were the Tenant. </p>
+
+            <a name="terms-notification-edit"></a>
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="11" disabled="true" id="terms-notification" data-term-title="notificationResidents" aria-labelledby="terms-notification-label" data-form="textarea-terms-notification">If they do, the Tenant will be treated as being responsible for any such action and will be liable for the cost of any repairs, renewals or replacement of items where required.
+
+                When allowing a person to occupy the Let Property with the Tenant as that person’s only or principal home, the Tenant must ensure that the Let Property does not become an unlicensed “house in multiple occupation” (HMO) (see SECTION 2: GLOSSARY OF TERMS for definition of “house in multiple occupation”).
+
+                The Tenant will be liable for reasonable costs and expenses, including if applicable, legal or court expenses, payable by the Landlord or his or her Agent as a result of the accommodation being, as a consequence of the Tenant’s breach, deemed an unlicensed or unregistered “house in multiple occupation”.
+                </textarea>
+
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="notification-query" class="ds_checkbox__input  js-include-term" checked="true" data-form="checkbox-notification-query">
+                <label class="ds_checkbox__label" for="notification-query">Include this text in my agreement</label>
+            </div>
+        </div>
+
+    </section>
+
+    <section data-step="ending-the-tenancy" class="fully-hidden form-step">
+        <h2 id="terms-ending-tenancy-label">Ending the tenancy</h2>
+
+        <div class="form-group">
+
+           <div class="ds_inset-text"><div class="ds_inset-text__text">
+            This 'must-include term' contains some text that you can <a href="#terms-ending-the-tenancy-edit">change</a>, if you prefer.
+            </div></div>
+
+            <p>This Tenancy may be ended by:-</p>
+
+            <ul>
+                <li>The Tenant giving notice to the Landlord
+
+                    <ul>
+                        <li>The Tenant giving the Landlord at least 28 days’ notice in writing to terminate the tenancy, or an earlier date if the Landlord is content to waive the minimum 28 day notice period.  Where the Landlord agrees to waive the notice period, his or her agreement must be in writing.  The tenancy will come to an end on the date specified in the notice or, where appropriate, the earlier date agreed between the Tenant and Landlord.  To end a joint tenancy, all the Joint Tenants must agree to end the tenancy.  One Joint Tenant cannot terminate the joint tenancy on behalf of all Joint Tenants.</li>
+                    </ul>
+
+                </li>
+
+                <li>The Landlord giving notice to the Tenant, which is only possible using one of the 18 grounds for eviction set out in schedule 3 of the Act.  This can happen either:-
+
+                    <ul>
+                        <li>By the Landlord giving the Tenant a Notice to Leave stating one or more of the eviction grounds, and the Tenant choosing to leave.  In this case, the tenancy will come to an end on the day specified in the Notice to Leave, or the day on which the Tenant actually leaves the Let Property, whichever is the later.</li>
+
+                    or:-
+
+                        <li>By the Landlord giving the Tenant a Notice to Leave stating one or more of the eviction grounds and then, if the Tenant chooses not to leave on the day after the notice period expires, subsequently obtaining an eviction order from the Tribunal on the stated eviction ground(s).  In this case, the tenancy will come to an end on the date specified in the eviction order. </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <p>The Landlord can bring the tenancy to an end only if one of the 18 grounds for eviction apply.  If the Landlord serves a Notice to Leave on the Tenant, he or she must specify which eviction ground(s) is being used, and give the reasons why they believe this eviction ground applies.</p>
+
+            <p>If the Landlord applies to the Tribunal for an eviction order, the Tribunal will ask the Landlord to provide supporting evidence for any eviction ground(s) being used.</p>
+
+            <p>The amount of notice your Landlord must give you will depend on the eviction ground used.  The notice period (during COVID-19 emergency procedures) will either be 6 months, 3 months or 28 days. Details of the amount of notice that your landlord must give you for each ground are detailed below:</p>
+
+            <h4>Grounds that require 6 months’ notice:</h4>
+            <ul>
+            <li>Your Landlord intends to sell the Let Property </li>
+            <li>The Let Property is to be sold by the mortgage lender  </li>
+            <li>Your Landlord intends to refurbish the Let Property </li>
+            <li>Your Landlord intends to use the Let Property for a non-residential purpose </li>
+            <li>The Let Property is required for a religious purpose </li>
+            <li>You cease to be - or fail to become - an employee of the Landlord </li>
+            <li>You no longer need supported accommodation </li>
+            <li>You have breached a term(s) of your tenancy agreement </li>
+            <li>You are in rent arrears over three consecutive months </li>
+            <li>An Overcrowding Statutory Notice has been served on your Landlord </li>
+            </ul>
+
+            <h4>Grounds that require 3 months’ notice:</h4>
+            <ul>
+            <li>Your Landlord intends to live in the Let Property </li>
+            <li>Your Landlord’s family member intends to live in the Let Property </li>
+            <li>You have a relevant criminal conviction </li>
+            <li>You have engaged in relevant antisocial behaviour </li>
+            <li>You have associated in the Let Property with someone who has a relevant criminal conviction or has engaged in relevant antisocial behaviour </li>
+            <li>Your Landlord has had their registration refused or revoked </li>
+            <li>Your Landlord’s HMO licence has been revoked or renewal has been refused </li>
+            </ul>
+
+            <h4>Ground that requires 28 days’ notice:</h4>
+            <ul>
+                <li>You are no longer occupying the Let Property </li>
+            </ul>
+
+            <a name="terms-ending-the-tenancy-edit"></a>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-ending-the-tenancy" data-term-title="endingTheTenancy" aria-labelledby="terms-ending-tenancy-label" data-form="textarea-terms-ending-the-tenancy">
+                    The Tenant agrees to remove all of his or her belongings when the Tenancy ends. The Tenant’s belongings may include personal effects, foodstuffs and consumables, belongings, and any other contents brought in to the Let Property by the Tenant.
+                </textarea>
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="ending-tenancy-query" class="ds_checkbox__input  js-include-term" checked="true" data-form="checkbox-ending-tenancy-query">
+                <label class="ds_checkbox__label" for="ending-tenancy-query">Include this text in my agreement</label>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<section data-step="extra-terms" class="hidden form-section">
+
+    <div>
+
+        <section data-step="extra-terms-overview" class="fully-hidden form-step">
+            <h2>Extra terms</h2>
+
+                <p>These are terms you can choose to have in your tenancy agreement. <strong>In your final tenancy agreement they are known as the 'discretionary clauses' of your contract.</strong></p>
+
+                <p>You can amend or delete any of the terms if you do not think they apply to your property.</p>
+
+                <p>They cover things like:</p>
+
+                <ul>
+                    <li>payment of bills such as gas or electric by the tenant</li>
+                    <li>a rule that there shouldn't be any smoking in the property</li>
+                    <li>a rule that pets aren't allowed in the property</li>
+                    <li>rules around shared areas, if there are any</li>
+                    <li>a rule that the tenant must dispose of rubbish in the right way</li>
+                </ul>
+
+                <div class="ds_warning-text">
+                    <strong class="ds_warning-text__icon" aria-hidden="true">!</strong>
+                    <strong class="visually-hidden">Warning</strong>
+                    <div class="warning-text__text">
+                        You should read through these terms to check they are right for your tenancy agreement.</div>
+                </div>
+        </section>
+
+        <section data-step="contents-and-condition" class="hidden form-step">
+            <h2 id="terms-contents-label">Contents and condition</h2>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-contents" data-term-title="contentsAndConditions" aria-labelledby="terms-contents-label" data-form="textarea-terms-contents"></textarea>
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="contents-and-condition-query" class="ds_checkbox__input  js-include-term" checked="true" data-form="checkbox-contents-and-condition-query">
+                <label class="ds_checkbox__label" for="contents-and-condition-query">Include this term in my tenancy agreement</label>
+            </div>
+        </section>
+
+        <section data-step="local-authority-taxes" class="hidden form-step">
+            <h2 id="terms-council-tax-label">Local authority taxes/charges</h2>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-council-tax" data-term-title="localAuthorityTaxesAndCharges" aria-labelledby="terms-council-tax-label" data-form="textarea-terms-council-tax"></textarea>
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="local-authority-taxes-query" class="ds_checkbox__input  js-include-term" checked="true">
+                <label class="ds_checkbox__label" for="local-authority-taxes-query">Include this term in my tenancy agreement</label>
+            </div>
+        </section>
+
+        <section data-step="utilities" class="hidden form-step">
+            <h2 id="terms-utilities-label">Utilities</h2>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-utilities" data-term-title="utilities" aria-labelledby="terms-utilities-label" data-form="textarea-terms-utilities"></textarea>
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="utilities-query" class="ds_checkbox__input  js-include-term" checked="true">
+                <label class="ds_checkbox__label" for="utilities-query">Include this term in my tenancy agreement</label>
+            </div>
+        </section>
+
+        <section data-step="alterations" class="hidden form-step">
+            <h2 id="terms-alterations-label">Alterations</h2>
+
+            <div class="ds_inset-text">
+                <div class="ds_inset-text__text">If you give this section to your tenant, you can’t edit all its text. You can only change or edit the first paragraph.</div>
+            </div>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-alterations" data-term-title="alterations" aria-labelledby="terms-alterations-label" data-form="textarea-terms-alterations"></textarea>
+            </div>
+
+            <p class="js-term-content">Any request for adaptations, auxiliary aids or services under section 37 of the Equality
+                Act 2010 or section 52 of the Housing (Scotland) Act 2006 must be made in writing to the
+                Landlord and any other owners of the common parts, where appropriate. Consent for alterations
+                requested under this legislation should not be unreasonably withheld. If no consent is
+                given for the adaptations you may appeal to the Tribunal in relation to section 52 (or
+                sheriff court in relation to section 37) within 6 months of being notified of the decision.
+                Before doing this, you may find it helpful to discuss your circumstance with your local
+                Citizens Advice Bureau, Shelter Scotland or the local authority for the area where the
+                Let Property is situated.</p>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="alterations-query" class="ds_checkbox__input  js-include-term" checked="true">
+                <label class="ds_checkbox__label" for="alterations-query">Include this term in my tenancy agreement</label>
+            </div>
+        </section>
+
+        <section data-step="common-parts" class="hidden form-step">
+            <h2 id="terms-common-parts-label">Common parts</h2>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-common-parts" data-term-title="commonParts" aria-labelledby="terms-common-parts-label" data-form="textarea-terms-common-parts"></textarea>
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="common-parts-query" class="ds_checkbox__input  js-include-term" checked="true">
+                <label class="ds_checkbox__label" for="common-parts-query">Include this term in my tenancy agreement</label>
+            </div>
+        </section>
+
+        <section data-step="private-garden" class="hidden form-step">
+            <h2 id="terms-private-garden-label">Private garden</h2>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-private-garden" data-term-title="privateGarden" aria-labelledby="terms-private-garden-label" data-form="textarea-terms-private-garden"></textarea>
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="private-garden-query" class="ds_checkbox__input  js-include-term" checked="true">
+                <label class="ds_checkbox__label" for="private-garden-query">Include this term in my tenancy agreement</label>
+            </div>
+        </section>
+
+        <section data-step="roof" class="hidden form-step">
+            <h2 id="terms-roof-label">Roof</h2>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-roof" data-term-title="roof" aria-labelledby="terms-roof-label" data-form="textareaterms-roof"></textarea>
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="roof-query" class="ds_checkbox__input  js-include-term" checked="true">
+                <label class="ds_checkbox__label" for="roof-query">Include this term in my tenancy agreement</label>
+            </div>
+        </section>
+
+        <section data-step="bins-and-recycling" class="hidden form-step">
+            <h2 id="terms-bins-recycling-label">Bins and recycling</h2>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-bins-recycling" data-term-title="binsAndRecycling" aria-labelledby="terms-bins-recycling-label" data-form="textarea-terms-bins-recycling"></textarea>
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="bins-recycling-query" class="ds_checkbox__input  js-include-term" checked="true">
+                <label class="ds_checkbox__label" for="bins-recycling-query">Include this term in my tenancy agreement</label>
+            </div>
+        </section>
+
+        <section data-step="storage" class="hidden form-step">
+            <h2 id="terms-storage-label">Storage</h2>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-storage" data-term-title="storage" aria-labelledby="terms-storage-label" data-form="textarea-terms-storage"></textarea>
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="storage-query" class="ds_checkbox__input  js-include-term" checked="true">
+                <label class="ds_checkbox__label" for="storage-query">Include this term in my tenancy agreement</label>
+            </div>
+        </section>
+
+        <section data-step="dangerous-substances" class="hidden form-step">
+            <h2 id="terms-dangerous-substances-label">Dangerous substances</h2>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-dangerous-substances" data-term-title="dangerousSubstances" aria-labelledby="terms-dangerous-substances-label" data-form="textarea-terms-dangerous-substances"></textarea>
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="dangerous-substances-query" class="ds_checkbox__input  js-include-term" checked="true">
+                <label class="ds_checkbox__label" for="dangerous-substances-query">Include this term in my tenancy agreement</label>
+            </div>
+        </section>
+
+        <section data-step="pets" class="hidden form-step">
+            <h2 id="terms-pets-label">Pets</h2>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-pets" data-term-title="pets" aria-labelledby="terms-pets-label" data-form="textarea-terms-pets"></textarea>
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="pets-query" class="ds_checkbox__input  js-include-term" checked="true">
+                <label class="ds_checkbox__label" for="pets-query">Include this term in my tenancy agreement</label>
+            </div>
+        </section>
+
+        <section data-step="smoking" class="hidden form-step">
+            <h2 id="terms-smoking-label">Smoking</h2>
+
+            <div class="modal-container">
+                <div class="buttons-container">
+                    <button class="ds_no-margin  ds_button  ds_button--cancel  ds_button--small  js-reset-term  fully-hidden">Reset</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-edit-term">Edit</button>
+                    <button class="ds_no-margin  ds_button  ds_button--small  js-save-term  fully-hidden">Done</button>
+                </div>
+
+                <textarea class="ds_input  js-term-content" rows="5" disabled="true" id="terms-smoking" data-term-title="smoking" aria-labelledby="terms-smoking-label" data-form="textarea-terms-smoking"></textarea>
+            </div>
+
+            <div class="ds_checkbox  ds_checkbox--small">
+                <input type="checkbox" id="smoking-query" class="ds_checkbox__input  js-include-term" checked="true">
+                <label class="ds_checkbox__label" for="smoking-query">Include this term in my tenancy agreement</label>
+            </div>
+        </section>
+    </div>
+</section>
+
+
+<section data-step="additional-terms" class="fully-hidden form-section">
+    <div class="repeating-container js-terms-container">
+
+    </div>
+</section>
+
+
+<section data-step="end-of-part-2" class="fully-hidden form-section">
+
+    <section data-step="part-2-summary" class="fully-hidden form-step">
+        <h2 class="labelled  no-suffix">Summary of your tenancy agreement</h2>
+
+
+        <div id="summary-container-2">
+        </div>
+
+        <div id="summary-container-2-excluded">
+        </div>
+
+    </section>
+</section>
+
+
+<section data-step="download" class="fully-hidden form-section">
+    <div>
+        <section data-step="tenancy-download" class="fully-hidden form-step">
+
+            <h2>Your tenancy agreement is ready</h2>
+
+            <div id="feedback-box" class="ds_error-summary" aria-labelledby="error-summary-title" role="alert">
+                <h2 class="ds_error-summary__title" id="error-summary-title">There is a problem</h2>
+                <div class="client-error hidden">
+                    <div class="form-errors"></div>
+                </div>
+                <div class="server-error hidden">
+                    <span>
+                        Sorry, we are unable to generate your document at this time.
+                    </span>
+                </div>
+            </div>
+
+            <p>You need to complete the following challenge before you can download your tenancy agreement.</p>
+
+
+            <div id="recaptcha" class="g-recaptcha"
+            data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV"
+            data-callback="checkRecaptcha"
+            data-expired-callback="expireRecaptcha"></div>
+
+            <section class="document-section">
+
+                <div data-documenttype="WORD" class="js-document-container  document-info  document-info--limelight">
+
+                    <div class="document-info__body">
+                        <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                            <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--DOCX" title="View this document" href="#">
+                                <span class="mg_file__icon">
+                                    <span class="mg_file__content">DOCX</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="document-info__text">
+                        <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your tenancy agreement - Word document</a></h3>
+
+                        <dl class="ds_metadata  ds_metadata--inline">
+                            <div class="ds_metadata__item">
+                                <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                                <dd class="ds_metadata__value"><b>Word document (.docx)</b></dd>
+                            </div>
+                        </dl>
+
+                        <div class="document-info__download">
+                            <a disabled="true" href="#" data-gtm="btn-download-docx" class="ds_no-margin  ds_button  js-download-file">
+                                Download
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div data-documenttype="PDF" class="js-document-container  document-info  document-info--limelight">
+
+                    <div class="document-info__body">
+                        <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                            <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--PDF" title="View this document" href="#">
+                                <span class="mg_file__icon">
+                                    <span class="mg_file__content">PDF</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="document-info__text">
+                        <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your tenancy agreement - PDF document</a></h3>
+
+                        <dl class="ds_metadata  ds_metadata--inline">
+                            <div class="ds_metadata__item">
+                                <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                                <dd class="ds_metadata__value"><b>PDF document (.pdf)</b></dd>
+                            </div>
+                        </dl>
+
+                        <div class="document-info__download">
+                            <a disabled="true" href="#" data-gtm="btn-download-pdf" class="ds_no-margin  ds_button  js-download-file">
+                                Download
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <article>
+                <h2 class="gamma">Your download includes:</h2>
+
+                <ul>
+                    <li>your tenancy agreement, with all the details you've entered</li>
+                    <li>the terms of your tenancy agreement you must include, known as 'mandatory clauses', which are written in <b>bold</b> in your download</li>
+                    <li>the terms of your tenancy agreement you've chosen to include, known as 'discretionary clauses', which are written in a normal font</li>
+                    <li>the Scottish Government's 'easy read notes' that help explain the tenancy agreement and the tenancy agreement's clauses</li>
+                    <li>any terms of your own you've added, if any</li>
+                </ul>
+
+                <h2 class="gamma">You must give your tenant:</h2>
+
+                <ul>
+                    <li>the tenancy agreement</li>
+                    <li>the must-include terms of your tenancy agreement, known as 'mandatory clauses', which are written in <b>bold</b> in your download</li>
+                    <li>the Scottish Government's 'easy read notes' that help explain the tenancy agreement and the tenancy agreement's clauses</li>
+                </ul>
+
+                <p>If you do not give your tenant these, your tenant can apply to a first-tier tribunal and make a claim for up to 3 months' rent.</p>
+
+                <div class="info-note note">
+                    <p>If you've got more details you want to add to your tenancy agreement you can choose the Word document download, save it to your computer and add them later.</p>
+
+                    <p>Or you can download and print this tenancy agreement and fill in what you need by hand.</p>
+                </div>
+
+                <h2 class="gamma">Signing the agreement</h2>
+
+                <p>You and your tenant can finish this agreement by signing:</p>
+
+                <ul>
+                    <li>a Word document or PDF</li>
+                    <li>a paper copy</li>
+                </ul>
+
+                <div class="ds_accordion" data-module="ds-accordion">
+                    <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+
+                    <div class="ds_accordion-item">
+                        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-1" aria-labelledby="panel-1-heading" />
+                        <div class="ds_accordion-item__header">
+                            <h3 id="panel-1-heading" class="ds_accordion-item__title">
+                                Signing a Word document or PDF
+                            </h3>
+                            <span class="ds_accordion-item__indicator"></span>
+                            <label class="ds_accordion-item__label" for="panel-1"><span class="visually-hidden">Show this section</span></label>
+                        </div>
+                        <div class="ds_accordion-item__body">
+                            <p>The most common way you can sign a word document is by opening the document in Microsoft Word and typing your name where you need to sign.</p>
+
+                            <p>If it's a PDF, you can open the document in <a target="_blank" href="https://acrobat.adobe.com/uk/en/acrobat/pdf-reader.html">Adobe Acrobat Reader DC</a> and use Adobe's 'fill &amp; sign' tool.</p>
+
+                            <p>If you do not have Adobe Acrobat Reader DC you can get it as a <a target="_blank" href="https://get.adobe.com/uk/reader/">free download</a>. You can also read Adobe's advice about <a target="_blank" href="https://helpx.adobe.com/reader/using/sign-pdfs.html">signing a PDF</a> if you need more help.</p>
+
+                            <h3>No need to print</h3>
+
+                            <p>You and your tenant can send a signed tenancy agreement by email. You don’t need to print it.</p>
+
+                            <h3>Keep a version saved</h3>
+
+                            <p>You should keep a record of emails you send to and receive from your tenant. This includes emails about your tenancy agreement.</p>
+                        </div>
+                    </div>
+
+                    <div class="ds_accordion-item">
+                        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-2" aria-labelledby="panel-2-heading" />
+                        <div class="ds_accordion-item__header">
+                            <h3 id="panel-2-heading" class="ds_accordion-item__title">
+                                If you sign a paper copy
+                            </h3>
+                            <span class="ds_accordion-item__indicator"></span>
+                            <label class="ds_accordion-item__label" for="panel-2"><span class="visually-hidden">Show this section</span></label>
+                        </div>
+                        <div class="ds_accordion-item__body">
+                            <p>If you do this you'll need to have 2 versions signed, one for your tenant to keep and one for you to keep.</p>
+
+                            <p>You and your tenant can either sign the agreements in person or you can post both copies for your tenant to sign.</p>
+
+                            <p>No one needs to witness the signing of this agreement.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </div>
+</section>
+
+</form>
+
+<form id="mta-document-download" action="/service/housing/model-tenancy/form" method="POST" enctype="multipart/form-data" class="mta-form-download">
+    <input type="hidden" name="data" value="">
+    <input type="hidden" name="type" value="">
+</form>
+
+<nav id="page-nav" aria-label="Navigation buttons"></nav>
+
+<a id="go-to-summary" href="#!/end-of-part-1/" class="js-validate-step  back-to-summary-button  ds_button  ds_button--secondary  ds_button--has-icon  fully-hidden">
+    Back to summary
+    <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron-right"></use></svg>
+</a>

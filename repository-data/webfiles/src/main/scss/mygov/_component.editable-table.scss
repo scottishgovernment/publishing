@@ -1,0 +1,144 @@
+/*------------------------------------*\
+    #EDITABLE TABLE
+\*------------------------------------*/
+
+.editable-table {
+    font-size: 16px;
+}
+
+.editable-table__table {
+    table-layout: fixed;
+}
+
+.editable-table__input {
+    max-width: 100%;
+}
+
+.editable-table__value {
+    left: 9px;
+    position: relative;
+    top: 4px;
+}
+
+.editable-table__table + .editable-table__add-container {
+    margin-top: -8px;
+}
+
+// display states
+.editable-table__edit {
+    display: none;
+}
+
+.editable-table__edit-row {
+    // active row
+    td {
+        background-color: $ds_colour__blue--lighter !important;
+    }
+
+    .editable-table__view {
+        display: none;
+    }
+
+    .editable-table__edit {
+        display: inline-block;
+
+        &.ds_field-group--inline {
+            display: flex;
+        }
+    }
+}
+
+.editable-table__add-form {
+    display: none;
+}
+
+.editable-table__add-button-row {
+    display: table-row;
+}
+
+.editable-table--adding {
+    .editable-table__add-form {
+        display: table-row;
+    }
+
+    .editable-table__add-button-row {
+        display: none;
+    }
+}
+
+.editable-table td .ds_button {
+    font-size: .85em;
+    margin: 0;
+    padding: 8px 8px;
+
+}
+
+.editable-table td .ds_input {
+    margin-bottom: 0;
+}
+
+.editable-table td .ds_question {
+    margin-bottom: 0;
+}
+
+
+
+// small variants of inputs. this might be useful to move elsewhere & make resuable
+// currently lmited to editable table with the et_ prefix
+.et_inline-radio--small {
+    margin-top: 0;
+
+    .ds_radio--small {
+        margin-bottom: 0;
+    }
+
+    .ds_radio__label {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+
+.et_select--small {
+    margin-bottom: 0;
+    min-height: 40px;
+    height: 40px;
+    width: 100%;
+
+    position: relative;
+
+    .ds_select {
+        height: 36px;
+        min-width: 100px;
+        padding-top: 2px;
+    }
+
+    .ds_select-arrow {
+        height: 40px;
+        width: 40px;
+
+        &::before {
+            right: 12px;
+            top: 10px;
+        }
+    }
+}
+
+.et_input--small {
+    height: 40px;
+    min-height: auto;
+}
+
+.et_currency-wrapper--small {
+    &::before {
+        height: 40px;
+        font-size: 1em;
+        line-height: 41px;
+        width: 32px;
+    }
+
+    > .ds_input,
+    > .ds_input:focus {
+        padding-left: 24px;
+    }
+}

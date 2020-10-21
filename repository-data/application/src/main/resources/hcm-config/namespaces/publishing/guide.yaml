@@ -326,8 +326,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Last updated date
             field: lastUpdatedDate
-            hint: The 'Last updated' date displayed in the article heading. If left
-              blank will use the system-generated last updated date instead
+            hint: The 'Last updated' date displayed in the article heading.
+              If left blank no date will be displayed
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

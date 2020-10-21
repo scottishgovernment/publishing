@@ -1,0 +1,681 @@
+{% from "../macros.njk" import postcodeLookup %}
+
+<form id="ra-form" autocomplete="false">
+
+    <section id="overview" data-step="overview" class="form-section  fully-hidden">
+        <h2>If you think your rent increase is too high</h2>
+    </section>
+
+    <section data-step="address" class="form-section  fully-hidden">
+        <h2>Property address</h2>
+
+        <p>Enter a postcode to find the rental property's address.</p>
+
+        {{ postcodeLookup('rpz', required=true, readonly=true, noRPZAllowed=true, note=true) }}
+
+    </section>
+
+    <section data-step="tenants" class="form-section  fully-hidden">
+        <div class="repeating-container  js-tenants-container">
+        </div>
+
+        <section data-step="tenants-agent" class="form-section  fully-hidden">
+            <h2>Tenant's Agent</h2>
+
+            <p>A tenant can ask someone, such as a friend, to deal with RSS on their behalf.</p>
+            <div class="ds_question">
+                <fieldset id="tenant-agent-query" data-validation="requiredRadio">
+                    <legend>Have you agreed this?</legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="tenant-agent-yes" value="yes" name="tenant-agent-query" class="ds_radio__input" type="radio" data-form="radio-tenant-agent-query-yes" />
+                            <label for="tenant-agent-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <p>When someone acts on the tenant's behalf, they're known as the tenant's 'agent'.</p>
+
+                                <p>Give the agent's full contact details:</p>
+
+                                <div class="ds_question">
+                                    <label class="ds_label" for="tenant-agent-name">Full name</label>
+                                    <input type="text" id="tenant-agent-name" data-validation="requiredField" class="ds_input" data-form="textinput-tenant-agent-name">
+                                </div>
+
+                                <div class="ds_question">
+                                    <label class="ds_label" for="tenant-agent-email">Email</label>
+                                    <input data-validation="validEmail" type="text" id="tenant-agent-email" class="ds_input" data-form="textinput-tenant-agent-email">
+                                </div>
+
+                                <div class="ds_question">
+                                    <label class="ds_label" for="tenant-agent-phone">Phone number</label>
+                                    <input data-validation="validPhone" type="text" id="tenant-agent-phone" class="ds_input  ds_input--fixed-20" data-form="textinput-tenant-agent-phone">
+                                </div>
+
+                                <h3 class="beta">Address</h3>
+                                {{ postcodeLookup('tenant-agent', required=true) }}
+                            </div>
+                        </div>
+
+                        <div class="ds_radio">
+                            <input id="tenant-agent-no" value="no" name="tenant-agent-query" class="ds_radio__input" type="radio" data-form="radio-tenant-agent-query-no" />
+                            <label for="tenant-agent-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+    </section>
+
+    <section data-step="about-the-home" class="form-section  fully-hidden">
+        <section data-step="type">
+            <h2>Type of home</h2>
+
+            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
+
+            <div class="ds_question" id="property-building">
+                <fieldset aria-required="true" id="property-building-link" data-validation="requiredRadio">
+                    <legend><span class="form--required"><span>star</span></span> What type of home is being rented?
+                    </legend>
+                    <div class="ds_field-group ">
+                        <div class="ds_radio">
+                            <input value="FLAT" id="building-flat" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-FLAT"/>
+                            <label for="building-flat" class="ds_radio__label">Flat</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="BUNGALOW" id="building-bungalow" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-BUNGALOW"/>
+                            <label for="building-bungalow" class="ds_radio__label">Bungalow</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="COTTAGE" id="building-cottage" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-COTTAGE"/>
+                            <label for="building-cottage" class="ds_radio__label">Cottage</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="TERRACED" id="building-terraced" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-TERRACED"/>
+                            <label for="building-terraced" class="ds_radio__label">Terraced house</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="SEMI" id="building-semi" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-SEMI"/>
+                            <label for="building-semi" class="ds_radio__label">Semi-detached house</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="DETACHED" id="building-detached" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-DETACHED"/>
+                            <label for="building-detached" class="ds_radio__label">Detached house</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="OTHER" id="building-other-query" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-OTHER"/>
+                            <label for="building-other-query" class="ds_radio__label">Other</label>
+
+
+                            <div class="ds_reveal-content">
+                                <label class="ds_label" for="building-other">Building type description</label><br />
+                                <input type="text" id="building-other" class="ds_input" data-form="textinput-building-other">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="rooms">
+            <h2>Rooms</h2>
+
+            <p>You need to tell us how many of each type of room the home has.</p>
+
+            <p>Enter the number of:</p>
+
+            <div id="rooms-table"></div>
+        </section>
+
+        <section data-step="shared-areas">
+            <h2>Shared areas</h2>
+
+            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
+
+            <div class="ds_question">
+                <fieldset id="shared-areas-query" aria-required="true" data-validation="requiredRadio">
+                    <legend><span class="form--required"><span>star</span></span> Do you share any part of the home, or an area outside, with other tenants?
+                    </legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="shared-areas-yes" value="yes" name="shared-areas-query" class="ds_radio__input" type="radio" data-form="radio-shared-areas-query-yes" />
+                            <label for="shared-areas-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="shared-areas-details"><span class="form--required"><span>star</span></span> Tell us what part(s) of your home is shared</label>
+                                    <textarea id="shared-areas-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-shared-areas-details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ds_radio">
+                            <input id="shared-areas-no" value="no" name="shared-areas-query" class="ds_radio__input" type="radio" data-form="radio-shared-areas-query-no" />
+                            <label for="shared-areas-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="outside-space">
+            <h2>Outside space</h2>
+
+            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
+
+            <div class="ds_question">
+                <fieldset id="included-query" aria-required="true" data-validation="requiredRadio">
+                    <legend><span class="form--required"><span>star</span></span> Does the tenancy agreement with your landlord include the use of any outside space, such as a parking space, garden, other building or land?
+                    </legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="included-yes" value="yes" name="included-query" class="ds_radio__input" type="radio" data-form="radio-included-query-yes" />
+                            <label for="included-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="included-details"><span class="form--required"><span>star</span></span> Tell us what the outside space is</label>
+                                    <textarea id="included-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-included-details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ds_radio">
+                            <input id="included-no" value="no" name="included-query" class="ds_radio__input" type="radio"  data-form="radio-included-query-no"/>
+                            <label for="included-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="heating">
+            <h2>Heating</h2>
+
+            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
+
+            <div class="ds_question">
+                <fieldset id="heating-query" aria-required="true" data-validation="requiredRadio">
+                    <legend><span class="form--required"><span>star</span></span> What type of heating does the home have?</legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input class="ds_radio__input" value="None" id="heating-none" name="heating-query" type="radio" data-form="radio-heating-query-None"/>
+                            <label class="ds_radio__label" for="heating-none">None</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input class="ds_radio__input" value="Part central heating" id="heating-part" name="heating-query" type="radio" data-form="radio-heating-query-Part central heating"/>
+                            <label class="ds_radio__label" for="heating-part">Part central heating</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input class="ds_radio__input" value="Full central heating" id="heating-full" name="heating-query" type="radio" data-form="radio-heating-query-Full central heatingne"/>
+                            <label class="ds_radio__label" for="heating-full">Full central heating</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input class="ds_radio__input" value="Electric heating" id="heating-electric" name="heating-query" type="radio" data-form="radio-heating-query-Electric heating"/>
+                            <label class="ds_radio__label" for="heating-electric">Electric heating</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input class="ds_radio__input" value="Storage heaters" id="heating-storage" name="heating-query" type="radio" data-form="radio-heating-query-Storage heaters"/>
+                            <label class="ds_radio__label" for="heating-storage">Storage heaters</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="glazing">
+            <h2>Glazing</h2>
+
+            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
+
+            <div class="ds_question">
+                <fieldset id="glazing-query" aria-required="true" data-validation="requiredRadio">
+
+                    <legend><span class="form--required"><span>star</span></span> What type of glazing does the home have?</legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input value="None" id="glazing-none" name="glazing-query" class="ds_radio__input" type="radio" data-form="radio-glazing-query-None"/>
+                            <label for="glazing-none" class="ds_radio__label">No double glazing</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="Full double glazing" id="glazing-full" name="glazing-query" class="ds_radio__input" type="radio" data-form="radio-glazing-query-Full double glazing"/>
+                            <label for="glazing-full" class="ds_radio__label">Full double glazing</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="Partial double glazing" id="glazing-partial" name="glazing-query" class="ds_radio__input" type="radio" data-form="radio-glazing-query-Partial double glazing"/>
+                            <label for="glazing-partial" class="ds_radio__label">Some double glazing</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="Secondary glazing" id="glazing-secondary" name="glazing-query" class="ds_radio__input" type="radio" data-form="radio-glazing-query-Secondary glazing"/>
+                            <label for="glazing-secondary" class="ds_radio__label">Secondary glazing - this means a second pane of glass and a second window frame has been added to the windows</label>
+                        </div>
+                        <div class="ds_radio">
+                            <input value="Triple glazing" id="glazing-triple" name="glazing-query" class="ds_radio__input" type="radio" data-form="radio-glazing-query-Triple glazing"/>
+                            <label for="glazing-triple" class="ds_radio__label">Triple glazing</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="services">
+            <h2>Services</h2>
+
+            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
+
+            <div class="ds_question">
+                <fieldset id="services-query" aria-required="true" data-validation="requiredRadio" >
+                    <legend><span class="form--required"><span>star</span></span> Do you pay your landlord for a service as part of your rent?
+                    </legend>
+                    <p>A service can include things like:</p>
+                    <ul>
+                        <li>a cleaning charge</li>
+                        <li>a fee for the upkeep of a shared area</li>
+                    </ul>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="services-yes" value="yes" name="services-query" class="ds_radio__input" type="radio" data-form="radio-services-query-yes" />
+                            <label for="services-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="services-details"><span class="form--required"><span>star</span></span> What is the service?</label>
+                                    <textarea id="services-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-services-details"></textarea>
+                                </div>
+
+                                <div class="ds_question">
+                                    <label class="ds_label" for="services-cost-details"><span class="form--required"><span>star</span></span> Tell us how much your landlord charges for this service.</label>
+
+                                    <p>If your landlord hasn't given you a list telling you what you're charged, please let us know.</p>
+
+                                    <textarea id="services-cost-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true"  data-form="textarea-services-cost-details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ds_radio">
+                            <input id="services-no" value="no" name="services-query" class="ds_radio__input" type="radio" data-form="radio-services-query-no" />
+                            <label for="services-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="furniture">
+            <h2>Furniture</h2>
+
+            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
+
+            <div class="ds_question">
+                <fieldset id="furnished-query" aria-required="true" data-validation="requiredRadio">
+                    <legend><span class="form--required"><span>star</span></span> Are you charged for things in the home, such as white goods or furniture, as part of the rent?
+                    </legend>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="furnished-yes" value="yes" name="furnished-query" class="ds_radio__input" type="radio" data-form="radio-furnished-query-yes"/>
+                            <label for="furnished-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <p>Your landlord should have given you a list of the things they charge for. This list can be in your tenancy agreement or can be a separate page, sometimes called an 'inventory'.</p>
+
+                                <p>If you have it, you'll need to give this list to Rent Service Scotland.</p>
+
+                                <div class="ds_checkbox">
+                                    <input id="has-inventory" class="ds_checkbox__input" type="checkbox" data-form="checkbox-has-inventory"/>
+                                    <label for="has-inventory" class="ds_checkbox__label">I do not have this list</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ds_radio">
+                            <input id="furnished-no" value="no" name="furnished-query" class="ds_radio__input" type="radio" data-form="radio-furnished-query-no"/>
+                            <label for="furnished-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="improvements">
+            <h2>Improvements</h2>
+
+            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
+
+            <div class="ds_question">
+                <fieldset id="tenant-improvements-query" aria-required="true" data-validation="requiredRadio">
+                    <legend><span class="form--required"><span>star</span></span> Have you, or a joint tenant, made any changes to the home? </legend>
+
+                    <p>This can include:</p>
+                    <ul>
+                        <li>if you've added furniture to the home</li>
+                        <li>changed any fittings </li>
+                    </ul>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="tenant-improvements-yes" value="yes" name="tenant-improvements-query" class="ds_radio__input" type="radio" data-form="radio-tenant-improvements-query-yes" />
+                            <label for="tenant-improvements-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="tenant-improvements-details"><span class="form--required"><span>star</span></span> What have you added or changed?</label>
+                                    <textarea id="tenant-improvements-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-tenant-improvements-details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ds_radio">
+                            <input id="tenant-improvements-no" value="no" name="tenant-improvements-query" class="ds_radio__input" type="radio" data-form="radio-tenant-improvements-query-no" />
+                            <label for="tenant-improvements-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="ds_question">
+                <fieldset id="landlord-improvements-query" aria-required="true" data-validation="requiredRadio">
+                    <legend><span class="form--required"><span>star</span></span> Has the landlord done anything to improve the property since you moved in?</legend>
+                    <p>This can include work to make the property more modern.</p>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="landlord-improvements-yes" value="yes" name="landlord-improvements-query" class="ds_radio__input" type="radio" data-form="radio-landlord-improvements-query-yes"/>
+                            <label for="landlord-improvements-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="landlord-improvements-details"><span class="form--required"><span>star</span></span> What work has your landlord done to improve the property?</label>
+                                    <textarea id="landlord-improvements-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-landlord-improvements-details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ds_radio">
+                            <input id="landlord-improvements-no" value="no" name="landlord-improvements-query" class="ds_radio__input" type="radio" data-form="radio-landlord-improvements-query-no"/>
+                            <label for="landlord-improvements-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+
+        <section data-step="damage">
+            <h2>Damage</h2>
+
+            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
+
+            <div class="ds_question">
+                <fieldset id="damages-query" aria-required="true" data-validation="requiredRadio">
+                    <legend><span class="form--required"><span>star</span></span> Have you, or a previous tenant, damaged or caused defects to any of the following?
+                        <ul>
+                            <li>the house</li>
+                            <li>fixtures</li>
+                            <li>fittings</li>
+                            <li>furniture</li>
+                        </ul>
+                    </legend>
+
+                    <p>Only include damage or defects caused by not following the terms of your tenancy.</p>
+
+                    <div class="ds_field-group">
+                        <div class="ds_radio">
+                            <input id="damages-yes" value="yes" name="damages-query" class="ds_radio__input" type="radio"  data-form="radio-damages-query-yes"/>
+                            <label for="damages-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="damages-details"><span class="form--required"><span>star</span></span> If yes, please give details.</label>
+                                    <textarea id="damages-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-damages-details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ds_radio">
+                            <input id="damages-no" value="no" name="damages-query" class="ds_radio__input" type="radio"  data-form="radio-damages-query-no"/>
+                            <label for="damages-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+    </section>
+
+    <section data-step="rent" class="form-section  fully-hidden">
+        <section data-step="current-rent">
+            <h2>Current rent</h2>
+
+            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
+
+            <div class="ds_question">
+                <label class="ds_label" for="current-rent-amount"><span class="form--required"><span>star</span></span> How much is each rent payment?</label>
+                <div class="ds_currency-wrapper">
+                    <input data-validation="requiredField validCurrency" aria-required="true" type="text" id="current-rent-amount" class="ds_input  ds_input--fixed-10" placeholder="e.g. 750.00" data-form="textinput-current-rent-amount">
+                </div>
+            </div>
+
+            <div class="ds_question">
+                <label class="ds_label" for="current-payment-frequency"><span class="form--required"><span>star</span></span> How often do you pay rent?</label>
+                <div class="ds_select-wrapper">
+                    <select class="ds_select" id="current-payment-frequency" data-validation="requiredDropdown" aria-required="true">
+                        <option value="" disabled>Choose frequency:</option>
+                        <option value="WEEKLY">Weekly</option>
+                        <option value="FORTNIGHTLY">Fortnightly</option>
+                        <option value="EVERY_FOUR_WEEKS">Four Weekly</option>
+                        <option value="CALENDAR_MONTH" selected>Monthly</option>
+                        <option value="QUARTERLY">Quarterly</option>
+                        <option value="EVERY_SIX_MONTHS">Every 6 months</option>
+                    </select>
+                    <span class="ds_select-arrow" aria-hidden="true"></span>
+                </div>
+            </div>
+        </section>
+
+        <section data-step="new-rent">
+            <h2>New rent</h2>
+
+            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
+
+            <div class="ds_question">
+                <label class="ds_label" for="new-rent-amount"><span class="form--required"><span>star</span></span> How much does your landlord want to charge for rent after the increase?</label>
+                <div class="ds_currency-wrapper">
+                    <input data-validation="requiredField validCurrency" aria-required="true" type="text" id="new-rent-amount" class="ds_input  ds_input--fixed-10" placeholder="e.g. 750.00" data-form="textinput-new-rent-amount">
+                </div>
+            </div>
+
+            <div class="ds_question">
+                <label class="ds_label" for="new-payment-frequency"><span class="form--required"><span>star</span></span> How often would you need to pay the new rent charge?</label>
+                <div class="ds_select-wrapper">
+                    <select class="ds_select" id="new-payment-frequency" data-validation="requiredDropdown" aria-required="true">
+                        <option value="" disabled>Choose frequency:</option>
+                        <option value="WEEKLY">Weekly</option>
+                        <option value="FORTNIGHTLY">Fortnightly</option>
+                        <option value="EVERY_FOUR_WEEKS">Four Weekly</option>
+                        <option value="CALENDAR_MONTH" selected>Monthly</option>
+                        <option value="QUARTERLY">Quarterly</option>
+                        <option value="EVERY_SIX_MONTHS">Every 6 months</option>
+                    </select>
+                    <span class="ds_select-arrow" aria-hidden="true"></span>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section data-step="landlords" class="form-section  fully-hidden">
+        <div class="repeating-container  js-landlords-container"></div>
+
+        <section data-step="letting-agent">
+            <h2>Letting agent</h2>
+
+            <div class="ds_question">
+                <fieldset id="letting-agent-query" data-validation="requiredRadio">
+                    <legend>Does the landlord have an agent working on their behalf?
+                    </legend>
+
+                    <div class="ds_form-group">
+                        <div class="ds_radio">
+                            <input id="letting-agent-yes" value="true" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-yes" />
+                            <label for="letting-agent-yes" class="ds_radio__label">Yes</label>
+
+                            <div class="ds_reveal-content">
+                                <div class="form-group">
+                                    <p>If an agent (or another person) acts on your Landlord’s behalf please give us all their contact details, including their address.</p>
+                                    <label class="ds_label" for="letting-agent-name"><span class="form--required"><span>star</span></span> Full name</label>
+                                    <input data-validation="requiredField" type="text" id="letting-agent-name" class="ds_input  no-validate" data-form="textinput-letting-agent-name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="ds_label" for="letting-agent-email">Email</label>
+                                    <input data-validation="validEmail" type="text" id="letting-agent-email" class="ds_input  no-validate" data-form="textinput-letting-agent-email">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="ds_label" for="letting-agent-phone">Phone number</label>
+                                    <input data-validation="validPhone" type="text" id="letting-agent-phone" class="ds_input  ds_input--fixed-20  no-validate" data-form="textinput-letting-agent-phone">
+                                </div>
+
+                                <h3 class="beta">Address</h3>
+                                {{ postcodeLookup('letting-agent', required=true) }}
+                            </div>
+                        </div>
+                        <div class="ds_radio">
+                            <input id="letting-agent-no" value="false" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-no" />
+                            <label for="letting-agent-no" class="ds_radio__label">No</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+    </section>
+
+    <section data-step="property-visit" class="form-section  fully-hidden">
+        <h2>Property visit</h2>
+
+        <p>To set the rent for your home, a Rent Officer may need to inspect your home. </p>
+
+        <p>If they do, the visit will take place during normal office hours. These are: Monday - Friday, between 9.30am and 3.30pm. </p>
+
+        <p>Please let us know the dates over the next month when you are <strong>not available</strong> for a visit:</p>
+
+        <div class="ds_question">
+            <label for="property-inspection-dates" class="ds_label  visaully-hidden">Dates I am not available</label>
+            <textarea id="property-inspection-dates" class="ds_input" rows="4" data-form="textarea-property-inspection-dates"></textarea>
+        </div>
+    </section>
+
+    <section data-step="summary" class="form-section  fully-hidden">
+
+        <section data-step="summary" class="fully-hidden form-step">
+
+            <h2>Summary</h2>
+
+            <div id="summary-container"></div>
+
+        </section>
+
+    </section>
+
+    <section data-step="declaration" class="fully-hidden form-step">
+        <h2>Declaration</h2>
+
+        <fieldset id="declaration-checkbox" data-validation="atLeastOneCheckbox" data-message="You must confirm the declaration to complete this form." class="no-validate">
+            <legend class="hidden">Form Declaration</legend>
+
+            <input id="form-declaration" class="fancy-checkbox" type="checkbox" data-form="checkbox-form-declaration"/>
+            <label for="form-declaration" class="fancy-checkbox">I apply to a Rent Officer for a determination of the open market rent for the property at <span class="js-declaration-address summary__user-input"></span>.<br><br>I confirm I have sent Part 3 of the rent increase notice to my Landlord to let them know that I am applying to a Rent Officer.<br><br>I apply to a Rent Officer for a decision on the amount of additional rent that can be charged as a result of improvements made to the let property.</label>
+        </fieldset>
+    </section>
+
+    <section data-step="download" class="form-section  fully-hidden">
+
+        <section data-step="form-download" class="fully-hidden form-step">
+
+            <h2>Apply</h2>
+
+            <p>To apply you'll need to download your finished form.</p>
+
+            <p>You need to complete the following challenge before you can download your application.</p>
+
+            <script src="https://www.google.com/recaptcha/api.js"></script>
+            <div id="recaptcha" class="g-recaptcha"
+            data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV"
+            data-callback="checkRecaptcha"
+            data-expired-callback="expireRecaptcha"></div>
+
+            <section class="document-section">
+
+                <div data-documenttype="PDF" class="js-document-container  document-info  document-info--limelight">
+
+                    <div class="document-info__body">
+                        <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                            <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--PDF" title="View this document" href="#">
+                                <span class="mg_file__icon">
+                                    <span class="mg_file__content">PDF</span>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="document-info__text">
+                        <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your application - PDF document</a></h3>
+
+                        <dl class="ds_metadata  ds_metadata--inline">
+                            <div class="ds_metadata__item">
+                                <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                                <dd class="ds_metadata__value"><b>PDF document (.pdf)</b></dd>
+                            </div>
+                        </dl>
+
+                        <div class="document-info__download">
+                            <a disabled="true" href="#" data-gtm="btn-download-pdf" class="ds_no-margin  ds_button  js-download-file">
+                                Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <p>You should also include:</p>
+
+            <ul>
+                <li>the Rent Increase Notice you got from your landlord telling you about your rent increase</li>
+                <li class="js-hide-if-no-inventory">a list of furniture you're charged for as part of the rent</li>
+                <li>your tenancy agreement</li>
+            </ul>
+
+            <p>You can email these, and your form, to: <a href="mailto:rss.dundee@gov.scot">rss.dundee@gov.scot</a>.</p>
+
+            <p>If you can't email, you can post them to:</p>
+
+            <address tranlate="no">Rent Service Scotland<br />
+            2nd Floor<br />
+            Endeavour House<br />
+            1 Greenmarket<br />
+            Dundee<br />
+            DD1 4QB</address>
+
+            <p>You should also fill in and give your landlord part 3 of your Rent Increase Notice. This tells your landlord you're going to apply to Rent Service Scotland.</p>
+
+            <h2>If anything changes</h2>
+
+            <p>You must inform Rent Service Scotland if any of the answers you've given in this form change.</p>
+
+            <p>You can contact Rent Service Scotland on: 0300 244 7000</p>
+
+        </section>
+    </section>
+</form>
+
+<form id="ra-document-download" action="/service/housing/rent-adjudication/form" method="POST" enctype="multipart/form-data" class="mta-form-download">
+    <input type="hidden" name="data" value="">
+    <input type="hidden" name="type" value="">
+</form>
+
+<nav id="page-nav" aria-label="Navigation buttons"></nav>
+
+<a id="go-to-summary" href="#!/summary/" class="js-validate-step  back-to-summary-button  ds_button  ds_button--secondary  ds_button--has-icon  fully-hidden">
+    Back to summary
+    <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron-right"></use></svg>
+</a>

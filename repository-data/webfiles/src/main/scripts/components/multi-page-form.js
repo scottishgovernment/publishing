@@ -2,11 +2,9 @@
 
 'use strict';
 
-import Handlebars from '../vendor/hbs/handlebars';
 import '../vendor/jquery.routes';
 import '../vendor/polyfills';
 import _ from '../vendor/lodash/dist/tinydash.es6';
-import $ from 'jquery';
 
 const MultiPageForm = function (settings) {
     this.settings = {};
@@ -37,107 +35,13 @@ const MultiPageForm = function (settings) {
     this.resetProgressToStep = resetProgressToStep;
 
     this.templates = {
-        sectionNav:
-        '{{#unless hideSectionNav}}' +
-        '<div class="grid grid--full"><div class="grid__item  large--ten-twelfths">' +
-        '<nav aria-label="sections in this form" class="section-nav">' +
-            '{{#groups}}' +
-
-                '{{#unless hideFromSectionNav}}' +
-                        '{{#unless current}}' +
-                            '<div class="section-nav__group  section-nav__link group" style="padding: 0;">' +
-                                '<a class="ds_no-margin  ds_button  ds_button--small  ds_button--secondary  ds_button--has-icon  {{#if iconLeft}}ds_button--has-icon--left{{/if}}" href="#!/{{sections.[0].slug}}/{{sections.[0].pages.[0].slug}}/">' +
-                                    '{{#if iconLeft}}' +
-                                        '<svg class="ds_icon">' +
-                                        '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/images/icons/icons.stack.svg#chevron-left">' +
-                                        '</use></svg>' +
-                                    '{{/if}}' +
-                                    '{{title}}' +
-                                    '{{#unless iconLeft}}' +
-                                        '<svg class="ds_icon">' +
-                                        '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/images/icons/icons.stack.svg#chevron-right">' +
-                                        '</use></svg>' +
-                                    '{{/unless}}' +
-                                '</a>' +
-                            '</div>' +
-                        '{{/unless}}' +
-                        '{{#if current}}' +
-                        '<div class="section-nav__group  group">' +
-                            '<ol class="section-nav__list">' +
-                                '{{#each sections}}' +
-                                    '{{#unless hideFromSectionNav}}' +
-                                    '<li class="section-nav__list-item  {{#if current}}section-nav__list-item--active{{/if}}">' +
-                                        '{{#each pages}}{{#unless hidden}}' +
-                                            '<a href="#!/{{../section}}/{{slug}}/" class="section-nav__item {{#if ../../current}}section-nav__item--current{{/if}}  js-validate-step">{{../../title}}</a>' +
-                                        '{{/unless}}{{/each}}' +
-                                    '</li>' +
-                                    '{{/unless}}' +
-                                '{{/each}}' +
-                            '</ol>' +
-                        '</div>' +
-                        '{{/if}}' +
-                '{{/unless}}' +
-            '{{/groups}}' +
-        '</nav>' +
-        '</div></div>' +
-        '{{/unless}}',
-        subsectionNav:
-            '{{#unless hideSubsectionNav}}' +
-                '<nav role="navigation" aria-label="Subsections in this section" class="ds_side-navigation  ds_no-margin--top" data-module="ds-side-navigation">' +
-                    '<input type="checkbox" class="fully-hidden  js-toggle-side-navigation" id="show-side-navigation" aria-controls="side-navigation-root">' +
-                    '<label class="ds_side-navigation__expand  ds_link" for="show-side-navigation"><span class="visually-hidden">Show all</span> Pages in this section <span class="ds_side-navigation__expand-indicator"></span></label>' +
-
-                    '<ul class="ds_side-navigation__list  ds_side-navigation__list--root" id="side-navigation-root">' +
-                        '{{#pages}}' +
-                        '{{#unless hidden}}' +
-                            '<li class="ds_side-navigation__item {{#if disabled}}ds_side-navigation__item--disabled{{/if}}">' +
-                                '{{#if disabled}}' +
-                                    '<span class="ds_side-navigation__link {{#if current}}ds_current{{/if}}">' +
-                                        '{{title}}' +
-                                    '</span>' +
-                                '{{else}}' +
-                                    '{{#if current}}' +
-                                    '<span class="ds_side-navigation__link  ds_current">{{title}}</span>' +
-                                    '{{else}}' +
-                                    '<a href="#!/{{section}}/{{slug}}/" class="ds_side-navigation__link  js-validate-step">' +
-                                        '{{title}}' +
-                                    '</a>' +
-                                    '{{/if}}' +
-                                '{{/if}}' +
-                            '</li>' +
-                        '{{/unless}}' +
-                    '{{/pages}}' +
-                    '</ul>' +
-                '</nav>' +
-            '{{/unless}}',
-
-        pageNav: `<div class="button-group">
-            {{#if prevStep}}
-                <a title="{{prevStep.title}}" id="button-back" href="#!/{{prevStep.section}}/{{prevStep.slug}}/" class="ds_button  ds_button--cancel  ds_button--has-icon  ds_button--has-icon--left  js-validate-step">
-                    <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron-left"></use></svg>
-                    Back
-                </a>
-            {{/if}}
-
-            {{#if nextStep}}
-                <a title="{{nextStep.title}}" id="button-next" href="#!/{{nextStep.section}}/{{nextStep.slug}}/" class="ds_button  ds_button--has-icon  js-validate-step" {{#if startPage}}data-gtm="btn-start"{{/if}}>
-                    {{#if startPage}}Start{{else}}Next{{/if}}
-
-                    <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron-right"></use></svg>
-                </a>
-            {{/if}}
-        </div>`
+        sectionNav: require('../templates/section-nav'),
+        subsectionNav: require('../templates/subsection-nav'),
+        pageNav: require('../templates/page-nav')
     };
 };
 
 function init() {
-    Handlebars.registerHelper('ifCond', function(v1, v2, options) {
-        if(v1 === v2) {
-            return options.fn(this);
-        }
-        return options.inverse(this);
-    });
-
     const form = this;
 
     form.initRouting();
@@ -508,7 +412,7 @@ function updateFormNav (navs) {
         if (this.settings.sectionTemplate) {
             sectionTemplate = this.settings.sectionTemplate;
         } else {
-            sectionTemplate = Handlebars.compile(this.templates.sectionNav);
+            sectionTemplate = this.templates.sectionNav;
         }
 
         const groups = [];
@@ -541,7 +445,7 @@ function updateFormNav (navs) {
             }
         });
 
-        const sectionHtml = sectionTemplate({
+        const sectionHtml = sectionTemplate.render({
             groups: groups,
             hideSectionNav: currentStep.hideSectionNav
         });
@@ -562,11 +466,10 @@ function updateFormNav (navs) {
         if (this.settings.subsectionTemplate) {
             subsectionTemplate = this.settings.subsectionTemplate;
         } else {
-            subsectionTemplate = Handlebars.compile(this.templates.subsectionNav);
+            subsectionTemplate = this.templates.subsectionNav;
         }
 
-        const subsectionHtml = subsectionTemplate(subsectionPages);
-        $('#subsection-progess-indicator').html(subsectionHtml);
+        $('#subsection-progess-indicator').html(subsectionTemplate.render(subsectionPages));
     }
 
     if (navsToUpdate.pageNav) {
@@ -587,15 +490,14 @@ function updatePageNav () {
     const nextStep = this.getNextStep();
 
     if (nextStep) { templateData.nextStep = nextStep; }
-
     if (prevStep) { templateData.prevStep = prevStep; }
 
     if (this.settings.pageNavTemplate) {
         pageNavTemplate = this.settings.pageNavTemplate;
     } else {
-        pageNavTemplate = Handlebars.compile(this.templates.pageNav);
+        pageNavTemplate = this.templates.pageNav;
     }
-    const pageNavHtml = pageNavTemplate(templateData);
+    const pageNavHtml = pageNavTemplate.render(templateData);
 
     $('#page-nav').html(pageNavHtml);
     $('#page-nav').trigger('change');

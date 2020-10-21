@@ -1,0 +1,26 @@
+{% if noDocuments %}
+{% else %}
+<p>You should also send:</p>
+
+<ul>
+    {% if form.includesReceipts %}<li>your copies of invoices or receipts, proving the cost of work you've done</li>{% endif %}
+    {% if form.includesBeforeAndAfterPictures %}<li>'before' and 'after' photos of the work you've done</li>{% endif %}
+</ul>
+{% endif %}
+
+<p>You can email {% if noDocuments %}your form{% else %}these, and your form,{% endif %} to: <a href="mailto:rss.dundee@gov.scot">rss.dundee@gov.scot</a>.</p>
+
+<p>If you can't email, you can post {% if noDocuments %}it{% else %}them{% endif %} to:</p>
+
+<address tranlate="no">Rent Service Scotland<br />
+    2nd Floor<br />
+    Endeavour House<br />
+    1 Greenmarket<br />
+    Dundee<br />
+    DD1 4QB</address>
+
+<h2>If anything changes</h2>
+
+<p>You must inform Rent Service Scotland if any of the answers you've given in this form change.</p>
+
+<p>You can contact Rent Service Scotland on: 0300 244 7000</p>

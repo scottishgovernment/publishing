@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    #REPEATING CONTAINER
+\*------------------------------------*/
+
+.repeating-container__remove {
+    display: none;
+}
+
+.repeating-container section:last-child:not(:first-child) .repeating-container__remove {
+    display: block;
+}

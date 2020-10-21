@@ -7,8 +7,8 @@
 import commonForms from '../tools/forms';
 import $ from 'jquery';
 
-const postcodeResultsTemplate = require('../templates/postcode-results.hbs');
-const addressTemplate = require('../templates/address.hbs');
+const postcodeResultsTemplate = require('../templates/postcode-results');
+const addressTemplate = require('../templates/address');
 
 const PostcodeLookup = function(settings){
     this.settings = settings || {};
@@ -80,7 +80,7 @@ function init() {
         self.findAddresses(input, select);
     }
 
-    $('body').on('click', self.settings.lookupId + ' .js-postcode-lookup .js-find-address-button', function (event) {
+    $('body').on('click', self.settings.lookupId + '.js-postcode-lookup .js-find-address-button', function (event) {
         event.preventDefault();
         submitSearch();
     });
@@ -118,14 +118,14 @@ function init() {
 function displayStaticAddress (index, results) {
     if (index > -1) {
         const result = results[index];
-        const address = addressTemplate(result);
+        const address = addressTemplate.render(result);
 
         this.addressDisplay.removeClass('fully-hidden no-validate').val(address).trigger('change');
         this.addressDisplay.height(this.addressDisplay[0].scrollHeight);
     }
 }
 
-function displayEditableAddress (index, results) {
+function displayEditableAddress(index, results) {
     const manualAddressLink = $(this.settings.lookupId + ' .js-address-manual-link');
     const postcode = results[0].postcode;
 
@@ -264,7 +264,7 @@ function findAddresses (input, select) {
                 self.infoNote.removeClass('fully-hidden').html(htmlString);
             } else {
                 // If there are results, put them into the dropdown menu
-                const options = postcodeResultsTemplate(data);
+                const options = postcodeResultsTemplate.render(data);
                 self.postcodeResults.removeClass('fully-hidden no-validate');
                 $(select).html(options);
 

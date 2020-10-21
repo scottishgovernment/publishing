@@ -1,32 +1,53 @@
 <#include "include/imports.ftl">
 
-    <#if document??>
-        <div class="cms-editable">
-            <@hst.manageContent hippobean=document />
+<#if document??>
+    <div class="cms-editable">
+        <@hst.manageContent hippobean=document />
 
-            <@hst.include ref="breadcrumbs"/>
+        <@hst.include ref="breadcrumbs"/>
 
-            <div class="ds_wrapper">
-                <main class="ds_layout  ds_layout--tn-article">
-                    <div class="ds_layout__header">
-                        <header class="ds_page-header">
-                            <h1 class="ds_page-header__title">${document.title}</h1>
-                        </header>
+        <div class="ds_wrapper">
+            <main id="main-content" class="ds_layout  mg_layout--paged-form">
+                <div class="ds_layout__header">
+                    <header class="ds_page-header">
+                        <h1 class="ds_page-header__title">${document.title}</h1>
+                    </header>
+                </div>
+
+                <div class="ds_layout__section-progress">
+                    <div id="section-progess-indicator"></div>
+                </div>
+
+                <div class="ds_layout__form-content">
+                    <div class="multi-page-form" name="${document.formtype}">
+                        <div class="ds_error-summary  fully-hidden  client-error" id="feedback-box" aria-labelledby="error-summary-title" role="alert" aria-live="assertive">
+                            <h2 class="ds_error-summary__title" id="error-summary-title">There is a problem</h2>
+
+                            <p>There were some errors found on this page:</p>
+
+                            <div class="form-errors">
+
+                            </div>
+                        </div>
+
+                        <script src="https://www.google.com/recaptcha/api.js"></script>
+                        <div id="form-container">
+                            <@hst.html hippohtml=document.content/>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="ds_layout__content">
-                        <@hst.html hippohtml=document.content/>
-                    </div>
-                </main>
-            </div>
+                <div class="ds_layout__subsection-progress">
+                    <div id="subsection-progess-indicator"></div>
+                </div>
+
+                <div class="ds_layout__feedback">
+
+                </div>
+            </main>
         </div>
-    </#if>
-
-    <@hst.headContribution category="resourcehints">
-    <#if nextlink??>
-        <link rel="prerender" href="${nextlink}"/>
-    </#if>
-</@hst.headContribution>
+    </div>
+</#if>
 
 <@hst.headContribution category="title">
 <#if document??>

@@ -1,0 +1,296 @@
+/*------------------------------------*\
+    #DOCUMENT INFO
+\*------------------------------------*/
+
+$document-info__border-color: $ds_colour__grey--light !default;
+$document-info__background-color: $ds_colour__grey--lighter !default;
+$document-info__preview__border: $ds_colour__grey--medium !default;
+$document-info__preview__background: $ds_colour__grey--light !default;
+$document-info__preview__background--focus: $ds_colour__blue--lighter !default;
+$document-info__text-margin: 16px;
+
+
+.document-info-cell {
+    overflow: hidden;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid $ds_colour__border;
+        padding-bottom: 31px; // 32px - border
+    }
+}
+
+
+.document-info {
+  clear: both;
+  margin: 32px 0;
+  overflow: hidden;
+  position: relative;
+
+  @extend .document-info-cell;
+
+  &__title {
+    font-weight: 400;
+    margin-top: 0;
+
+    a {
+      text-decoration: underline;
+    }
+
+    a:focus {
+      text-decoration: none !important;
+    }
+
+    &--upper {
+      display: block;
+    }
+
+    &--lower {
+      display: none;
+    }
+  }
+
+  &__text {
+      margin-left: 64px + $document-info__text-margin;
+  }
+
+  &__thumbnail {
+    float: left;
+    margin: 0 $document-info__text-margin 0 0;
+    position: relative;
+    width: 64px;
+
+    &--main {
+      padding-bottom: 48px;
+    }
+
+    &--pdf {
+      .document-info__thumbnail-link {
+        &:after {
+          content: 'PDF'
+        }
+      }
+    }
+
+    &--rtf {
+      .document-info__thumbnail-link {
+        &:after {
+          content: 'RTF'
+        }
+      }
+    }
+
+    &--xls,
+    &--xlsx {
+      .document-info__thumbnail-link {
+        &:after {
+          content: 'XLS'
+        }
+      }
+    }
+
+    &--doc,
+    &--docx {
+      .document-info__thumbnail-link {
+        &:after {
+          content: 'DOC'
+        }
+      }
+    }
+  }
+
+  &__thumbnail-link {
+    background-color: $document-info__preview__background;
+    border: 1px solid $document-info__preview__border;
+    display: block;
+    outline: none !important;
+    width: 100%;
+
+    // hide default external link icon
+    padding-right: 0 !important;
+    background-image: none !important;
+
+    &:after {
+      font-size: 26px;
+      font-weight: 300;
+      left: 0;
+      line-height: 0;
+      opacity: 0;
+      display: none;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 50%;
+
+      transition: opacity $transition-in-time;
+    }
+
+    &:focus,
+    &:hover {
+      .document-info__thumbnail-image {
+        opacity: 0.25;
+        transition-duration: $transition-in-time;
+      }
+
+      &:after {
+        opacity: 1;
+        display: block;
+      }
+    }
+  }
+
+  &__thumbnail-button {
+    bottom: 0;
+    font-size: 14px;
+    height: 48px;
+    left: 0;
+    position: absolute;
+    right: 0;
+
+    &:focus {
+      color: $ds_colour__button__background;
+    }
+    &:hover {
+      color: $ds_colour__button--hover__background;
+    }
+  }
+
+  &__thumbnail-image {
+    display: block;
+    width: 100%;
+
+    transition: opacity $transition-in-time;
+  }
+
+  &__file-details {
+    line-height: 32px;
+    margin-bottom: 24px;
+  }
+
+  &__page-count,
+  &__file-size {
+    margin: 0 0 16px;
+    padding: 0 8px;
+  }
+
+  &__page-count {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__file-size {
+    font-size: 26px;
+    font-weight: 300;
+  }
+
+  &__meta {
+    dd {
+      display: inline;
+      margin-left: 0;
+    }
+
+    dd:not(:first-of-type) {
+      border-left: 1px solid $ds_colour__text;
+      margin-left: 8px;
+      padding-left: 10px;
+    }
+  }
+
+  &__disclaimer {
+    color: $ds_colour__text--secondary;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  &__inline-title {
+    text-transform: uppercase;
+  }
+
+  &__download-wrapper {
+    display: none;
+  }
+
+  &__download {
+    > .ds_button {
+      max-width: 200px;
+      width: 100%;
+    }
+  }
+}
+
+.document-info .button {
+    width: 100%;
+}
+
+@include media-query(medium) {
+
+  .document-info {
+    margin-bottom: 32px;
+
+    /*
+     * alternative columnar display
+     */
+    &--columns {
+      text-align: left;
+
+      .document-info__title {
+        &--upper {
+          display: none;
+        }
+        &--lower {
+          display: block;
+        }
+      }
+
+      .document-info__thumbnail {
+        float: left;
+        padding-bottom: 0;
+        width: 64px;
+      }
+
+      .document-info__thumbnail-button {
+        display: none;
+      }
+
+      .document-info__text {
+        margin-left: 107px + $document-info__text-margin;
+      }
+
+      .document-info__page-count,
+      .document-info__file-size {
+        display: block;
+        padding: 0;
+      }
+
+      .document-info__footer {
+        clear: both;
+        display: table;
+        margin-top: 16px;
+      }
+
+      .document-info__download-wrapper {
+        display: block;
+        padding-right: 20px;
+        width: 185px;
+      }
+
+      .document-info__cell {
+        display: table-cell;
+        vertical-align: top;
+      }
+    }
+
+    &__download {
+        position: absolute;
+        right: 0;
+        top: 0;
+        > .ds_button {
+          max-width: unset;
+          width: auto;
+        }
+    }
+
+    &__text {
+        margin-right: 197px;
+    }
+  }
+}

@@ -1,0 +1,483 @@
+<div class="ds_accordion" data-module="ds-accordion">
+    <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-address" aria-labelledby="panel-property-address" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-address-heading" class="ds_accordion-item__title">
+                Address
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-address"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-address">
+             <table class="ds_table  summary-table">
+                <tbody>
+                    <tr data-summary-field="rpz-postcode-search rpz-postcode-results">
+                        <th>Address</th>
+                        <td>
+                            <div class="hide-if-empty"><a href="#!/address/address/rpz-postcode-search/" class="summary__link  summary__user-input">{{propertyAddress}}</a></div>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/address/" class="edit">edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-tenants" aria-labelledby="panel-property-tenants" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-tenants-heading" class="ds_accordion-item__title">
+                Tenants
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-tenants"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-tenants">
+             <table class="ds_table  summary-table">
+
+                {% if hasTenants %}
+                {% else %}
+                    <tr data-summary-field="tenant-1-name">
+                        <th>Tenants</th>
+                        <td>None specified</td>
+                        <td class="summary-table__edit"><a href="#!/tenants/tenant-1/" class="edit">edit</a></td>
+                    </tr>
+                {% endif %}
+
+                {% for key, tenant in tenans %}
+                <tr data-summary-field="tenant-{{loop.index}}-address-building tenant-{{loop.index}}-address-street tenant-{{loop.index}}-address-town tenant-{{loop.index}}-address-region tenant-{{loop.index}}-postcode-search tenant-{{loop.index}}-postcode-results tenant-{{loop.index}}-postcode tenant-{{loop.index}}-name tenant-{{loop.index}}-email tenant-{{loop.index}}-telephone tenant-{{loop.index}}-building-street">
+                    <th>Tenant {{loop.index}}</th>
+                    <td>
+                        <dl class="summary-list">
+                            <dt class="summary-list__label">Name</dt>
+                            <dd>
+                                <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-name/" class="summary__link  summary__user-input">{{tenant.name | notspecified | safe }}</a>
+                            </dd>
+
+                            <dt class="summary-list__label">Address</dt>
+                            <dd>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-address-building/" class="summary__link  summary__user-input">{{tenant.address.building}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-address-street/" class="summary__link  summary__user-input">{{tenant.address.street}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-address-town/" class="summary__link  summary__user-input">{{tenant.address.town}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-address-region/" class="summary__link  summary__user-input">{{tenant.address.region}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-postcode/" class="summary__link  summary__user-input">{{tenant.address.postcode}}</a></div>
+                            </dd>
+
+                            <dt class="summary-list__label">Email</dt>
+                            <dd>
+                                <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-email/" class="summary__link  summary__user-input">{{tenant.email | notspecified | safe }}</a>
+                            </dd>
+
+                            <dt class="summary-list__label">Telephone</dt>
+                            <dd>
+                                <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-telephone/" class="summary__link  summary__user-input">{{tenant.telephone | notspecified | safe }}</a>
+                            </dd>
+
+
+                        </dl>
+                    </td>
+                    <td class="summary-table__edit"><a class="edit" href="#!/tenants/tenant-{{loop.index}}/">edit</a></td>
+                </tr>
+                {% endfor %}
+
+                <tr data-summary-field="tenant-agent--query tenant-agent-postcode-search tenant-agent-postcode-results tenant-agent-address-building tenant-agent-address-street tenant-agent-address-town tenant-agent-address-region tenant-agent-postcode tenant-agent-name tenant-agent-email tenant-agent-telephone">
+                    <th>Tenant agent</th>
+
+                    <td>
+                        {% if hasTenantAgent == 'yes' %}
+                        <dl class="summary-list">
+                            <dt class="summary-list__label">Name</dt>
+                            <dd>
+                                <a href="#!/tenants/tenants-agent/tenant-agent-name/" class="summary__link  summary__user-input">{{tenantAgent.name | notspecified | safe }}</a>
+                            </dd>
+
+                            <dt class="summary-list__label">Address</dt>
+                            <dd>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenants-agent/tenant-agent-address-building/" class="summary__link  summary__user-input">{{tenantAgent.address.building}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenants-agent/tenant-agent-address-street/" class="summary__link  summary__user-input">{{tenantAgent.address.street}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenants-agent/tenant-agent-address-town/" class="summary__link  summary__user-input">{{tenantAgent.address.town}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenants-agent/tenant-agent-address-region/" class="summary__link  summary__user-input">{{tenantAgent.address.region}}</a></div>
+                                <div class="hide-if-empty"><a href="#!/tenants/tenants-agent/tenant-agent-postcode/" class="summary__link  summary__user-input">{{tenantAgent.address.postcode}}</a></div>
+                            </dd>
+
+                            <dt class="summary-list__label">Email</dt>
+                            <dd>
+                                <a href="#!/tenants/tenants-agent/tenant-agent-email/" class="summary__link  summary__user-input">{{email | notspecified | safe }}</a>
+                            </dd>
+
+                            <dt class="summary-list__label">Telephone</dt>
+                            <dd>
+                                <a href="#!/tenants/tenants-agent/tenant-agent-telephone/" class="summary__link  summary__user-input">{{telephone | notspecified | safe }}</a>
+                            </dd>
+                        </dl>
+                        {% endif %}
+                        {% if hasTenantAgent == 'no' %}
+                            <a href="#!/tenants/tenants-agent/tenant-agent--query/" class="summary__link  summary__user-input">None</a>
+                        {% endif %}
+                    </td>
+                    <td class="summary-table__edit"><a class="edit" href="#!/tenants/tenants-agent/">edit</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-property" aria-labelledby="panel-property-property" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-property-heading" class="ds_accordion-item__title">
+                Property
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-property"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-property">
+             <table class="ds_table  summary-table">
+                <tbody>
+                    <tr data-summary-field="property-building building-other property-building-link">
+                        <th>Type of home</th>
+                        <td>
+                            {% if propertyType %}
+                                <a href="#!/about-the-home/type/property-building/" class="summary__link  summary__user-input">{{propertyType_text}}</a>
+
+                                {% if propertyType == 'OTHER' %}
+                                    {% if buildingOther %}
+                                        (<a href="#!/about-the-home/type/building-other/" class="summary__link  summary__user-input">{{buildingOther}}</a>)
+                                    {% endif %}
+                                {% endif %}
+                            {% else %}
+                                <a href="#!/about-the-home/type/property-building/" class="summary__link  summary__user-input">Not specified</a>
+                            {% endif %}
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/about-the-home/type/" class="edit">edit</a></td>
+                    </tr>
+
+                    <tr data-summary-field="rooms-table-name-new">
+                        <th>Rooms</th>
+                        <td>
+                            <ul class="no-bullets">
+                            {% for room in rooms %}
+                                <li>{{room.name}} ({{room.quantity}})</li>
+                            {% endfor %}
+                            </ul>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/about-the-home/rooms/" class="edit">edit</a></td>
+                    </tr>
+
+                    <tr data-summary-field="shared-areas-details shared-areas-query">
+                        <th>Shared areas</th>
+
+                        <td>
+                            {% if sharedAreasQuery == 'yes' %}
+                                <a href="#!/about-the-home/shared-areas/shared-areas-details/" class="summary__link  summary__user-input">{{sharedAreas | notspecified | safe }}</a>
+                            {% else %}
+                                {% if sharedAreasQuery == 'no' %}
+                                    <a href="#!/about-the-home/shared-areas/shared-areas-query/" class="summary__link  summary__user-input">No shared areas</a>
+                                {% else %}
+                                    <a href="#!/about-the-home/shared-areas/shared-areas-query/" class="summary__link  summary__user-input">Not specified</a>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/about-the-home/shared-areas/" class="edit">edit</a></td>
+                    </tr>
+
+                    <tr data-summary-field="included-details included-query">
+                        <th>Outside space</th>
+                        <td>
+                            {% if includedQuery == 'yes' %}
+                                <a href="#!/about-the-home/outside-space/included-details/" class="summary__link  summary__user-input">{{included | notspecified | safe }}</a>
+                            {% else %}
+                                {% if includedQuery == 'no' %}
+                                    <a href="#!/about-the-home/outside-space/included-query/" class="summary__link  summary__user-input">No outside space</a>
+                                {% else %}
+                                    <a href="#!/about-the-home/outside-space/included-query/" class="summary__link  summary__user-input">Not specified</a>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+
+                        <td class="summary-table__edit"><a href="#!/about-the-home/outside-space/" class="edit">edit</a></td>
+                    </tr>
+
+                    <tr data-summary-field="property-heating heating-query">
+                        <th>Heating</th>
+                        <td>
+                            {% if heating %}
+                                <a href="#!/about-the-home/heating/property-heating/" class="summary__link  summary__user-input">{{heating_text}}</a>
+                            {% else %}
+                                <a href="#!/about-the-home/heating/property-heating/" class="summary__link  summary__user-input">Not specified</a>
+                            {% endif %}
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/about-the-home/heating/" class="edit">edit</a></td>
+                    </tr>
+
+                    <tr data-summary-field="property-double-glazing glazing-query">
+                        <th>Double glazing</th>
+                        <td>
+                            {% if doubleGlazing %}
+                                <a href="#!/about-the-home/double-glazing/property-double-glazing/" class="summary__link  summary__user-input">{{doubleGlazing_text}}</a>
+                            {% else %}
+                                <a href="#!/about-the-home/double-glazing/property-double-glazing/" class="summary__link  summary__user-input">Not specified</a>
+                            {% endif %}
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/about-the-home/double-glazing" class="edit">edit</a></td>
+                    </tr>
+
+                    <tr data-summary-field="services-details services-cost-details services-query">
+                        <th>Services</th>
+                        <td>
+                            {% if servicesQuery == 'yes' %}
+                            <dl>
+                                <dt>Services included in rent</dt>
+                                <dd><a href="#!/about-the-home/services/services-details/" class="summary__link  summary__user-input">{{servicesDetails | notspecified | safe }}</a></dd>
+
+                                <dt>How much is charged for services</dt>
+                                <dd><a href="#!/about-the-home/services/services-cost-details/" class="summary__link  summary__user-input">{{servicesCostDetails | notspecified | safe }}</a></dd>
+                            </dl>
+                            {% else %}
+                                {% if servicesQuery == 'no' %}
+                                    <a href="#!/about-the-home/services/services-query/" class="summary__link  summary__user-input">No services included in rent</a>
+                                {% else %}
+                                    <a href="#!/about-the-home/services/services-query/" class="summary__link  summary__user-input">Not specified</a>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/about-the-home/services/" class="edit">edit</a></td>
+                    </tr>
+
+                    <tr data-summary-field="furnished-query">
+                        <th>Furniture</th>
+                        <td>
+
+                            {% if furnished == 'no' %}
+                                <a href="#!/about-the-home/furniture/furnished-query/" class="summary__link  summary__user-input">Unfurnished</a>
+                            {% else %}
+                                {% if furnished == 'yes' %}
+                                    <a href="#!/about-the-home/furniture/furnished-query/" class="summary__link  summary__user-input">Furnished</a>
+                                {% else %}
+                                    <a href="#!/about-the-home/furniture/furnished-query/" class="summary__link  summary__user-input">Not specified</a>
+                                {% endif %}
+                            {% endif %}
+
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/about-the-home/furniture/" class="edit">edit</a></td>
+                    </tr>
+
+                    <tr data-summary-field="landlord-improvements-details tenant-improvements-details tenant-improvements-query landlord-improvements-query">
+                        <th>Improvements</th>
+                        <td>
+                            <dl>
+                                <dt>Improvements by tenant</dt>
+                                <dd>
+                                    {% if tenantImprovementsQuery == 'yes' %}
+                                        <a href="#!/about-the-home/improvements/tenant-improvements-details/" class="summary__link  summary__user-input">{{improvementsTenant | notspecified | safe }}</a>
+                                    {% else %}
+                                        {% if tenantImprovementsQuery == 'no' %}
+                                            <a href="#!/about-the-home/improvements/tenant-improvements-details/" class="summary__link  summary__user-input">None</a>
+                                        {% else %}
+                                            <a href="#!/about-the-home/improvements/tenant-improvements-details/" class="summary__link  summary__user-input">Not specified</a>
+                                        {% endif %}
+                                    {% endif %}
+                                </dd>
+
+                                <dt>Improvements by landlord</dt>
+                                <dd>
+                                    {% if landlordImprovementsQuery == 'yes' %}
+                                        <a href="#!/about-the-home/improvements/landlord-improvements-details/" class="summary__link  summary__user-input">{{improvementsLandlord | notspecified | safe }}</a>
+                                    {% else %}
+                                        {% if landlordImprovementsQuery == 'no' %}
+                                            <a href="#!/about-the-home/improvements/landlord-improvements-details/" class="summary__link  summary__user-input">None</a>
+                                        {% else %}
+                                            <a href="#!/about-the-home/improvements/landlord-improvements-details/" class="summary__link  summary__user-input">Not specified</a>
+                                        {% endif %}
+                                    {% endif %}
+                                </dd>
+                            </dt>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/about-the-home/improvements/" class="edit">edit</a></td>
+                    </tr>
+
+                    <tr data-summary-field="damages-details damages-query">
+                        <th>Damage</th>
+                        <td>
+                            {% if damagesQuery == 'yes' %}
+                                <a href="#!/about-the-home/damage/damages-details/" class="summary__link  summary__user-input">{{damage | notspecified | safe }}</a>
+                            {% else %}
+                                {% if damagesQuery == 'no' %}
+                                    <a href="#!/about-the-home/damage/damages-details/" class="summary__link  summary__user-input">None</a>
+                                {% else %}
+                                    <a href="#!/about-the-home/damage/damages-details/" class="summary__link  summary__user-input">Not specified</a>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/about-the-home/damage/" class="edit">edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-rent" aria-labelledby="panel-property-rent" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-rent-heading" class="ds_accordion-item__title">
+                Rent
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-rent"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-rent">
+             <table class="ds_table  summary-table">
+                <tbody>
+                    <tr data-summary-field="current-rent-amount current-payment-frequency">
+                        <th>Current rent</th>
+                        <td>
+                            <a href="#!/rent/current-rent/current-rent-amount/" class="summary__link  summary__user-input">{{currentRentAmount | currency | notspecified | safe}}</a>
+                            <a href="#!/rent/current-rent/current-payment-frequency/" class="summary__link  summary__user-input">{{currentRentFrequency_text}}</a>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/rent/current-rent/" class="edit">edit</a></td>
+                    </tr>
+
+                    <tr data-summary-field="new-rent-amount new-payment-frequency">
+                        <th>New rent</th>
+                        <td>
+                            <a href="#!/rent/new-rent/new-rent-amount/" class="summary__link  summary__user-input">{{newRentAmount | currency | notspecified | safe}}</a>
+                            <a href="#!/rent/new-rent/new-payment-frequency/" class="summary__link  summary__user-input">{{newRentFrequency_text}}</a>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/rent/new-rent/" class="edit">edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-landlords" aria-labelledby="panel-property-landlords" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-landlords-heading" class="ds_accordion-item__title">
+                Landlords
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-landlords"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-landlords">
+             <table class="ds_table  summary-table">
+                <tbody>
+                    {% if hasLandlords %}
+                    {% else %}
+                        <tr data-summary-field="landlord-1-name">
+                            <th>Landlords</th>
+                            <td></td>
+                            <td class="summary-table__edit"><a href="#!/landlords/landlord-1/" class="edit">edit</a></td>
+                        </tr>
+                    {% endif %}
+
+                    {% for key, landlord in landlords %}
+                    <tr data-summary-field="landlord-{{loop.index}}-address-building landlord-{{loop.index}}-address-street landlord-{{loop.index}}-address-town landlord-{{loop.index}}-address-region landlord-{{loop.index}}-postcode landlord-{{loop.index}}-postcode-search landlord-{{loop.index}}-postcode-results landlord-{{loop.index}}-name landlord-{{loop.index}}-email landlord-{{loop.index}}-telephone landlord-{{loop.index}}-building-street">
+                        <th>Landlord {{loop.index}}</th>
+                        <td>
+                            <dl class="summary-list">
+                                <dt class="summary-list__label">Name</dt>
+                                <dd>
+                                    <a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-name/" class="summary__link  summary__user-input">{{landlord.name | notspecified | safe }}</a>
+                                </dd>
+
+                                <dt class="summary-list__label">Address</dt>
+                                <dd>
+                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-building/" class="summary__link  summary__user-input">{{landlord.address.building}}</a></div>
+                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-street/" class="summary__link  summary__user-input">{{landlord.address.street}}</a></div>
+                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-town/" class="summary__link  summary__user-input">{{landlord.address.town}}</a></div>
+                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-region/" class="summary__link  summary__user-input">{{landlord.address.region}}</a></div>
+                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-postcode/" class="summary__link  summary__user-input">{{landlord.address.postcode}}</a></div>
+                                </dd>
+
+                                <dt class="summary-list__label">Email</dt>
+                                <dd>
+                                    <a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-email/" class="summary__link  summary__user-input">{{landlord.email | notspecified | safe }}</a>
+                                </dd>
+
+                                <dt class="summary-list__label">Telephone</dt>
+                                <dd>
+                                    <a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-telephone/" class="summary__link  summary__user-input">{{landlord.telephone | notspecified | safe }}</a>
+                                </dd>
+                            </dl>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/landlords/landlord-{{loop.index}}/" class="edit">edit</a></td>
+                    </tr>
+                    {% endfor %}
+
+                    <tr data-summary-field="letting-agent--query letting-agent-address-building letting-agent-address-street letting-agent-address-town letting-agent-address-region letting-agent-postcode letting-agent-postcode-search letting-agent-postcode-results letting-agent-name letting-agent-email letting-agent-telephone">
+                        <th>Letting agent</th>
+
+                        {% if hasLettingAgent == 'true' %}
+                        <td>
+                            <dl class="summary-list">
+                                <dt class="summary-list__label">Name</dt>
+                                <dd>
+                                    <a href="#!/landlords/letting-agent/letting-agent-name/" class="summary__link  summary__user-input">{{lettingAgent.name | notspecified | safe }}</a>
+                                </dd>
+
+                                <dt class="summary-list__label">Address</dt>
+                                <dd>
+                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-building/" class="summary__link  summary__user-input">{{lettingAgent.address.building}}</a></div>
+                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-street/" class="summary__link  summary__user-input">{{lettingAgent.address.street}}</a></div>
+                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-town/" class="summary__link  summary__user-input">{{lettingAgent.address.town}}</a></div>
+                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-region/" class="summary__link  summary__user-input">{{lettingAgent.address.region}}</a></div>
+                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-postcode/" class="summary__link  summary__user-input">{{lettingAgent.address.postcode}}</a></div>
+                                </dd>
+
+                                <dt class="summary-list__label">Email</dt>
+                                <dd>
+                                    <a href="#!/landlords/letting-agent/letting-agent-email/" class="summary__link  summary__user-input">{{lettingAgent.email | notspecified | safe }}</a>
+                                </dd>
+
+                                <dt class="summary-list__label">Telephone</dt>
+                                <dd>
+                                    <a href="#!/landlords/letting-agent/letting-agent-telephone/" class="summary__link  summary__user-input">{{lettingAgent.telephone | notspecified | safe }}</a>
+                                </dd>
+                            </dl>
+                        </td>
+                        {% endif %}
+                        {% if hasLettingAgent == 'false' %}
+                        <td><a href="#!/landlords/letting-agent/letting-agent--query/" class="summary__link  summary__user-input">None</a></td>
+                        {% endif %}
+                        {% if hasLettingAgent == null %}
+                        <td></td>
+                        {% endif %}
+                        <td class="summary-table__edit"><a class="edit" href="#!/landlords/letting-agent/">edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ds_accordion-item">
+        <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-visit" aria-labelledby="panel-property-visit" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-visit-heading" class="ds_accordion-item__title">
+                Visit
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-visit"><span class="visually-hidden">Show this section</span></label>
+        </div>
+
+        <div class="ds_accordion-item__body" id="accordion-item-visit">
+             <table class="ds_table  summary-table">
+                <tbody>
+                    <tr data-summary-field="property-inspection-dates">
+                        <th>Unavailable dates</th>
+                        <td>
+                            <a href="#!/property-visit/property-visit/property-inspection-dates/" class="summary__link  summary__user-input">{{notAvailableForInspection | notspecified | safe}}</a>
+                        </td>
+                        <td class="summary-table__edit"><a href="#!/property-visit/" class="edit">edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
