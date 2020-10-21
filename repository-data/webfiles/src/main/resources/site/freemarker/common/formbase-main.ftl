@@ -30,13 +30,9 @@
                             </div>
                         </div>
 
-
-
+                        <script src="https://www.google.com/recaptcha/api.js"></script>
                         <div id="form-container">
-                            <script src="https://www.google.com/recaptcha/api.js"></script>
-                            <section id="overview" data-step="overview" class="form-section">
-                                <@hst.html hippohtml=document.content/>
-                            </section>
+                            <@hst.html hippohtml=document.content/>
                         </div>
                     </div>
                 </div>

@@ -80,7 +80,7 @@ function init() {
         self.findAddresses(input, select);
     }
 
-    $('body').on('click', self.settings.lookupId + ' .js-postcode-lookup .js-find-address-button', function (event) {
+    $('body').on('click', self.settings.lookupId + '.js-postcode-lookup .js-find-address-button', function (event) {
         event.preventDefault();
         submitSearch();
     });
