@@ -258,3 +258,7 @@ definitions:
           hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide']
           hst:relativecontentpath: ${parent}/index
           hst:sitemapitemhandlerids: [trailing-slash]
+      /forbidden-staging:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/forbiddenstagingpage
+        hst:refId: forbidden-staging

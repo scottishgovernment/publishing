@@ -1,28 +1,32 @@
 package scot.mygov.publishing.valves;
 
+import java.io.IOException;
+import java.util.Calendar;
+
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.configuration.hosting.Mount;
+import org.hippoecm.hst.configuration.sitemap.HstSiteMap;
+import org.hippoecm.hst.configuration.sitemap.HstSiteMapItem;
 import org.hippoecm.hst.container.valves.AbstractOrderableValve;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.container.ContainerException;
 import org.hippoecm.hst.core.container.ValveContext;
 import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.repository.util.JcrUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.util.Calendar;
-
 public class PreviewValve extends AbstractOrderableValve {
 
     private static final Logger LOG = LoggerFactory.getLogger(PreviewValve.class);
+    public static final String FORBIDDEN_STAGING = "forbidden-staging";
     private static final String PREVIEW_KEY = "previewkey";
 
     @Override
@@ -31,7 +35,7 @@ public class PreviewValve extends AbstractOrderableValve {
         Mount resolvedMount = requestContext.getResolvedMount().getMount();
 
         try {
-            if (isPreviewMount(resolvedMount)) {
+            if (isPreviewMount(resolvedMount) && !FORBIDDEN_STAGING.equals(requestContext.getResolvedSiteMapItem().getHstSiteMapItem().getRefId())) {
                 doInvoke(context, requestContext, resolvedMount);
             }
         } catch (RepositoryException repositoryException) {
@@ -54,19 +58,36 @@ public class PreviewValve extends AbstractOrderableValve {
         //intercepting requests having the id in the url
         if (contentBean == null) {
             LOG.debug("Preview request doesn't contain content bean");
-            requestContext.getServletResponse().sendError(403);
+            redirectToUnauthorisedPage(requestContext);
             return;
         }
 
         if (StringUtils.isBlank(previewKey)) {
             LOG.debug("Preview request doesn't contain content bean");
-            requestContext.getServletResponse().sendError(403);
+            redirectToUnauthorisedPage(requestContext);
             return;
         }
 
         if (!hasValidStagingKey(contentBean, previewKey)) {
             LOG.debug("Preview key {} for document {} is invalid or preview link has expired.", previewKey, contentBean.getPath());
-            requestContext.getServletResponse().sendError(403);
+            redirectToUnauthorisedPage(requestContext);
+        }
+    }
+
+    private void redirectToUnauthorisedPage(HstRequestContext requestContext){
+        final ResolvedSiteMapItem resolvedSiteMapItem = requestContext.getResolvedSiteMapItem();
+        if (resolvedSiteMapItem == null) {
+            return;
+        }
+        final HstSiteMap siteMap = resolvedSiteMapItem.getHstSiteMapItem().getHstSiteMap();
+        final HstSiteMapItem unauthorisedPreviewPage = siteMap.getSiteMapItemByRefId(FORBIDDEN_STAGING);
+        if (unauthorisedPreviewPage != null) {
+            String forwardToURL = requestContext.getHstLinkCreator().create(unauthorisedPreviewPage, requestContext.getResolvedMount().getMount()).toUrlForm(requestContext,false);
+            try {
+                requestContext.getServletResponse().sendRedirect(forwardToURL);
+            } catch (IOException e) {
+                LOG.error("Error redirecting to "+ FORBIDDEN_STAGING +" page", e);
+            }
         }
     }
 
