@@ -61,8 +61,23 @@
         <#if document.prologue??>
             <@hst.html hippohtml=document.prologue/>
         </#if>
-
         <div class="ds_layout  ds_layout--category-list">
+            <#if document.popularpanelitem?hasContent>
+                <div class="ds_layout__content">
+                    <div class="popular">
+                        <h2 class="popular__title">Popular on mygov.scot:</h2>
+                        <ul class="popular__items">
+                            <#list document.popularpanelitem as items>
+                                <li class="popular__item">
+                                    <@hst.link var="link" hippobean=items.link/>
+                                    <svg class="popular__icon"></svg>
+                                    <a class="popular__link" href="${link}" data-popular="${items.title}">${items.title}</a>
+                                </li>
+                            </#list>
+                        </ul>
+                    </div>
+                </div>
+            </#if>
             <#if document.navigationType == "list">
             <div class="ds_layout__list">
             <#else>

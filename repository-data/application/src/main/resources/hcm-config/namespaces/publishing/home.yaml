@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4fe988fd-7ec7-4f15-ab5a-1c0b08ff98c9
+          jcr:uuid: 7475d53a-138e-4120-bdb5-b70a6ab363e4
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -56,12 +56,20 @@ definitions:
             hipposysedit:path: publishing:showSummaries
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /popularpanelitem:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:popularpanelitem
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:describedlink
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:home
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: a0ce6896-a22c-45ed-ae3e-d6d0dd088a97
+          jcr:uuid: 23c489cf-3737-4737-ba83-ac42e66c1c1f
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -93,6 +101,13 @@ definitions:
           /publishing:epilogue:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
+          /publishing:popularpanelitem:
+            jcr:primaryType: publishing:describedlink
+            publishing:description: ''
+            publishing:title: ''
+            /publishing:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -160,13 +175,16 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
-          /relateditems:
+          /popularpanelitem:
             jcr:primaryType: frontend:plugin
-            caption: Related items
-            field: relateditems
-            hint: ''
+            caption: Popular link
+            field: popularpanelitem
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: Add a popular link to the popular panel. The title will be the displayed
+              link text on the homepage
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /prologue:
             jcr:primaryType: frontend:plugin
             caption: Prologue
