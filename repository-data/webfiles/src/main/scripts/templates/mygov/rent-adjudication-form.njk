@@ -71,12 +71,9 @@
     <section data-step="about-the-home" class="form-section  fully-hidden">
         <section data-step="type">
             <h2>Type of home</h2>
-
-            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
-
             <div class="ds_question" id="property-building">
                 <fieldset aria-required="true" id="property-building-link" data-validation="requiredRadio">
-                    <legend><span class="form--required"><span>star</span></span> What type of home is being rented?
+                    <legend>What type of home is being rented? (required)
                     </legend>
                     <div class="ds_field-group ">
                         <div class="ds_radio">
@@ -105,10 +102,7 @@
                         </div>
                         <div class="ds_radio">
                             <input value="OTHER" id="building-other-query" name="property-building" class="ds_radio__input" type="radio" data-form="radio-property-building-OTHER"/>
-                            <label for="building-other-query" class="ds_radio__label">Other</label>
-
-
-                            <div class="ds_reveal-content">
+                            <label for="building-other-query" class="ds_radio__label">Other</label>                            <div class="ds_reveal-content">
                                 <label class="ds_label" for="building-other">Building type description</label><br />
                                 <input type="text" id="building-other" class="ds_input" data-form="textinput-building-other">
                             </div>
@@ -130,12 +124,9 @@
 
         <section data-step="shared-areas">
             <h2>Shared areas</h2>
-
-            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
-
             <div class="ds_question">
                 <fieldset id="shared-areas-query" aria-required="true" data-validation="requiredRadio">
-                    <legend><span class="form--required"><span>star</span></span> Do you share any part of the home, or an area outside, with other tenants?
+                    <legend><span class="form--required">Do you share any part of the home, or an area outside, with other tenants? (required)
                     </legend>
 
                     <div class="ds_field-group">
@@ -145,7 +136,7 @@
 
                             <div class="ds_reveal-content">
                                 <div class="ds_question">
-                                    <label class="ds_label" for="shared-areas-details"><span class="form--required"><span>star</span></span> Tell us what part(s) of your home is shared</label>
+                                    <label class="ds_label" for="shared-areas-details">Tell us what part(s) of your home is shared (required)</label>
                                     <textarea id="shared-areas-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-shared-areas-details"></textarea>
                                 </div>
                             </div>
@@ -161,12 +152,9 @@
 
         <section data-step="outside-space">
             <h2>Outside space</h2>
-
-            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
-
             <div class="ds_question">
                 <fieldset id="included-query" aria-required="true" data-validation="requiredRadio">
-                    <legend><span class="form--required"><span>star</span></span> Does the tenancy agreement with your landlord include the use of any outside space, such as a parking space, garden, other building or land?
+                    <legend>Does the tenancy agreement with your landlord include the use of any outside space, such as a parking space, garden, other building or land? (required)
                     </legend>
 
                     <div class="ds_field-group">
@@ -176,7 +164,7 @@
 
                             <div class="ds_reveal-content">
                                 <div class="ds_question">
-                                    <label class="ds_label" for="included-details"><span class="form--required"><span>star</span></span> Tell us what the outside space is</label>
+                                    <label class="ds_label" for="included-details">Tell us what the outside space is (required)</label>
                                     <textarea id="included-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-included-details"></textarea>
                                 </div>
                             </div>
@@ -192,12 +180,9 @@
 
         <section data-step="heating">
             <h2>Heating</h2>
-
-            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
-
             <div class="ds_question">
                 <fieldset id="heating-query" aria-required="true" data-validation="requiredRadio">
-                    <legend><span class="form--required"><span>star</span></span> What type of heating does the home have?</legend>
+                    <legend>What type of heating does the home have? (required)</legend>
 
                     <div class="ds_field-group">
                         <div class="ds_radio">
@@ -227,13 +212,10 @@
 
         <section data-step="glazing">
             <h2>Glazing</h2>
-
-            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
-
             <div class="ds_question">
                 <fieldset id="glazing-query" aria-required="true" data-validation="requiredRadio">
 
-                    <legend><span class="form--required"><span>star</span></span> What type of glazing does the home have?</legend>
+                    <legend>What type of glazing does the home have? (required)</legend>
 
                     <div class="ds_field-group">
                         <div class="ds_radio">
@@ -263,12 +245,9 @@
 
         <section data-step="services">
             <h2>Services</h2>
-
-            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
-
             <div class="ds_question">
                 <fieldset id="services-query" aria-required="true" data-validation="requiredRadio" >
-                    <legend><span class="form--required"><span>star</span></span> Do you pay your landlord for a service as part of your rent?
+                    <legend>Do you pay your landlord for a service as part of your rent? (required)
                     </legend>
                     <p>A service can include things like:</p>
                     <ul>
@@ -283,12 +262,12 @@
 
                             <div class="ds_reveal-content">
                                 <div class="ds_question">
-                                    <label class="ds_label" for="services-details"><span class="form--required"><span>star</span></span> What is the service?</label>
+                                    <label class="ds_label" for="services-details">What is the service? (required)</label>
                                     <textarea id="services-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-services-details"></textarea>
                                 </div>
 
                                 <div class="ds_question">
-                                    <label class="ds_label" for="services-cost-details"><span class="form--required"><span>star</span></span> Tell us how much your landlord charges for this service.</label>
+                                    <label class="ds_label" for="services-cost-details">Tell us how much your landlord charges for this service. (required)</label>
 
                                     <p>If your landlord hasn't given you a list telling you what you're charged, please let us know.</p>
 
@@ -307,12 +286,9 @@
 
         <section data-step="furniture">
             <h2>Furniture</h2>
-
-            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
-
             <div class="ds_question">
                 <fieldset id="furnished-query" aria-required="true" data-validation="requiredRadio">
-                    <legend><span class="form--required"><span>star</span></span> Are you charged for things in the home, such as white goods or furniture, as part of the rent?
+                    <legend>Are you charged for things in the home, such as white goods or furniture, as part of the rent? (required)
                     </legend>
 
                     <div class="ds_field-group">
@@ -343,12 +319,9 @@
 
         <section data-step="improvements">
             <h2>Improvements</h2>
-
-            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
-
             <div class="ds_question">
                 <fieldset id="tenant-improvements-query" aria-required="true" data-validation="requiredRadio">
-                    <legend><span class="form--required"><span>star</span></span> Have you, or a joint tenant, made any changes to the home? </legend>
+                    <legend>Have you, or a joint tenant, made any changes to the home?  (required)</legend>
 
                     <p>This can include:</p>
                     <ul>
@@ -363,7 +336,7 @@
 
                             <div class="ds_reveal-content">
                                 <div class="ds_question">
-                                    <label class="ds_label" for="tenant-improvements-details"><span class="form--required"><span>star</span></span> What have you added or changed?</label>
+                                    <label class="ds_label" for="tenant-improvements-details">What have you added or changed? (required)</label>
                                     <textarea id="tenant-improvements-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-tenant-improvements-details"></textarea>
                                 </div>
                             </div>
@@ -379,7 +352,7 @@
 
             <div class="ds_question">
                 <fieldset id="landlord-improvements-query" aria-required="true" data-validation="requiredRadio">
-                    <legend><span class="form--required"><span>star</span></span> Has the landlord done anything to improve the property since you moved in?</legend>
+                    <legend>Has the landlord done anything to improve the property since you moved in? (required)</legend>
                     <p>This can include work to make the property more modern.</p>
 
                     <div class="ds_field-group">
@@ -389,7 +362,7 @@
 
                             <div class="ds_reveal-content">
                                 <div class="ds_question">
-                                    <label class="ds_label" for="landlord-improvements-details"><span class="form--required"><span>star</span></span> What work has your landlord done to improve the property?</label>
+                                    <label class="ds_label" for="landlord-improvements-details">What work has your landlord done to improve the property? (required)</label>
                                     <textarea id="landlord-improvements-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-landlord-improvements-details"></textarea>
                                 </div>
                             </div>
@@ -405,12 +378,9 @@
 
         <section data-step="damage">
             <h2>Damage</h2>
-
-            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
-
             <div class="ds_question">
                 <fieldset id="damages-query" aria-required="true" data-validation="requiredRadio">
-                    <legend><span class="form--required"><span>star</span></span> Have you, or a previous tenant, damaged or caused defects to any of the following?
+                    <legend>Have you, or a previous tenant, damaged or caused defects to any of the following? (required)
                         <ul>
                             <li>the house</li>
                             <li>fixtures</li>
@@ -428,7 +398,7 @@
 
                             <div class="ds_reveal-content">
                                 <div class="ds_question">
-                                    <label class="ds_label" for="damages-details"><span class="form--required"><span>star</span></span> If yes, please give details.</label>
+                                    <label class="ds_label" for="damages-details">If yes, please give details. (required)</label>
                                     <textarea id="damages-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-damages-details"></textarea>
                                 </div>
                             </div>
@@ -447,18 +417,15 @@
     <section data-step="rent" class="form-section  fully-hidden">
         <section data-step="current-rent">
             <h2>Current rent</h2>
-
-            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
-
             <div class="ds_question">
-                <label class="ds_label" for="current-rent-amount"><span class="form--required"><span>star</span></span> How much is each rent payment?</label>
+                <label class="ds_label" for="current-rent-amount">How much is each rent payment? (required)</label>
                 <div class="ds_currency-wrapper">
                     <input data-validation="requiredField validCurrency" aria-required="true" type="text" id="current-rent-amount" class="ds_input  ds_input--fixed-10" placeholder="e.g. 750.00" data-form="textinput-current-rent-amount">
                 </div>
             </div>
 
             <div class="ds_question">
-                <label class="ds_label" for="current-payment-frequency"><span class="form--required"><span>star</span></span> How often do you pay rent?</label>
+                <label class="ds_label" for="current-payment-frequency">How often do you pay rent? (required)</label>
                 <div class="ds_select-wrapper">
                     <select class="ds_select" id="current-payment-frequency" data-validation="requiredDropdown" aria-required="true">
                         <option value="" disabled>Choose frequency:</option>
@@ -476,18 +443,15 @@
 
         <section data-step="new-rent">
             <h2>New rent</h2>
-
-            <p class="asterisk-note">All fields marked with an asterisk (<span class="form--required"><span>star</span></span>) must be filled in</p>
-
             <div class="ds_question">
-                <label class="ds_label" for="new-rent-amount"><span class="form--required"><span>star</span></span> How much does your landlord want to charge for rent after the increase?</label>
+                <label class="ds_label" for="new-rent-amount">How much does your landlord want to charge for rent after the increase? (required)</label>
                 <div class="ds_currency-wrapper">
                     <input data-validation="requiredField validCurrency" aria-required="true" type="text" id="new-rent-amount" class="ds_input  ds_input--fixed-10" placeholder="e.g. 750.00" data-form="textinput-new-rent-amount">
                 </div>
             </div>
 
             <div class="ds_question">
-                <label class="ds_label" for="new-payment-frequency"><span class="form--required"><span>star</span></span> How often would you need to pay the new rent charge?</label>
+                <label class="ds_label" for="new-payment-frequency">How often would you need to pay the new rent charge? (required)</label>
                 <div class="ds_select-wrapper">
                     <select class="ds_select" id="new-payment-frequency" data-validation="requiredDropdown" aria-required="true">
                         <option value="" disabled>Choose frequency:</option>
@@ -523,7 +487,7 @@
                             <div class="ds_reveal-content">
                                 <div class="form-group">
                                     <p>If an agent (or another person) acts on your Landlord’s behalf please give us all their contact details, including their address.</p>
-                                    <label class="ds_label" for="letting-agent-name"><span class="form--required"><span>star</span></span> Full name</label>
+                                    <label class="ds_label" for="letting-agent-name">Full name (required)</label>
                                     <input data-validation="requiredField" type="text" id="letting-agent-name" class="ds_input  no-validate" data-form="textinput-letting-agent-name">
                                 </div>
 

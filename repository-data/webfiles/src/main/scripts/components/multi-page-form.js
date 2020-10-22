@@ -5,6 +5,7 @@
 import '../vendor/jquery.routes';
 import '../vendor/polyfills';
 import _ from '../vendor/lodash/dist/tinydash.es6';
+import DSDatePicker from '@scottish-government/pattern-library/src/components/date-picker/date-picker';
 
 const MultiPageForm = function (settings) {
     this.settings = {};
@@ -470,6 +471,8 @@ function updateFormNav (navs) {
         }
 
         $('#subsection-progess-indicator').html(subsectionTemplate.render(subsectionPages));
+        const subsectionNav = new DS.components.SideNavigation(document.querySelector('#form-subnavigation'));
+        subsectionNav.init();
     }
 
     if (navsToUpdate.pageNav) {

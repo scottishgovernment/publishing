@@ -3,7 +3,7 @@
     <button class="js-remove-repeating-section  repeating-container__remove  ds_button  ds_button--cancel">Remove this {{slug}}</button>
 
     <div class="ds_question">
-        <label class="ds_label" for="{{slug}}-{{index}}-name">{% if requiredName %}<span class="form--required"><span>star</span></span>{% endif %} Full name</label>
+        <label class="ds_label" for="{{slug}}-{{index}}-name">Full name{% if requiredName %} (required){% endif %}</label>
         <input {% if requiredName %}data-validation="requiredField" aria-required="true"{% endif %} type="text" id="{{slug}}-{{index}}-name" class="js-dynamic-title-input  ds_input" data-form="textinput-{{slug}}-{{index}}-name">
     </div>
 
