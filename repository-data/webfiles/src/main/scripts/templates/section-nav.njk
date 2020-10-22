@@ -1,3 +1,5 @@
+{% set iconsFile = '/webfiles/latest/assets/images/icons/icons.stack.svg' %}
+
 {% if hideSectionNav %}
 {% else %}
 <nav aria-label="sections in this form" class="section-nav">
@@ -27,14 +29,14 @@
                     <a class="ds_no-margin  ds_button  ds_button--small  ds_button--secondary  ds_button--has-icon  {% if group.iconLeft %}ds_button--has-icon--left{% endif %}" href="#!/{{group.sections[0].slug}}/{{group.sections[0].pages[0].slug}}/">
                         {% if group.iconLeft %}
                             <svg class="ds_icon">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/images/icons/icons.stack.svg#chevron-left">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ iconsFile }}.svg#chevron-left">
                             </use></svg>
                         {% endif %}
                         {{group.title}}
                         {% if group.iconLeft %}
                         {% else %}
                             <svg class="ds_icon">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/images/icons/icons.stack.svg#chevron-right">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ iconsFile }}.svg#chevron-right">
                             </use></svg>
                         {% endif %}
                     </a>

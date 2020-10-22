@@ -483,8 +483,8 @@ const commonForms = {
      *  (either will have been filled when address chosen, or will trigger their own validations if empty)
      */
     requiredPostcodeLookup: function ($field) {
-        const manualAddress = $field.closest('.js-postcode-lookup').siblings('.address-manual');
-        const addressDropdown = $field.closest('.js-postcode-lookup').siblings('.postcode-results');
+        const manualAddress = $field.closest('.js-postcode-lookup').find('.address-manual');
+        const addressDropdown = $field.closest('.js-postcode-lookup').find('.postcode-results');
 
         let message = 'Please enter a postcode and click "Find address"';
 
