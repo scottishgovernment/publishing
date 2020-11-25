@@ -31,9 +31,14 @@
 
             <div class="ds_layout__content">
                 <section class="page-section">
+                    <@hst.html var="content" hippohtml=document.content/>
+                    <#if content?has_content>
                     <div class="ds_leader">
-                        <@hst.html hippohtml=document.content/>
+                        ${content}
                     </div>
+                    <#else>
+                        <p>${document.summary}</p>
+                    </#if>
 
                     <@hst.html hippohtml=document.notices/>
                 </section>
@@ -149,7 +154,9 @@
                         </div>
                         <!-- /end featured role -->
 
-                        <@hst.html hippohtml=document.organisationstructure/>
+                        <#if organisationstructure?has_content>
+                            ${organisationstructure}
+                        </#if>
                     </#if>
                 </section>
             </div>
