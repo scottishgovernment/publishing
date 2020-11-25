@@ -8,6 +8,9 @@ import org.slf4j.LoggerFactory;
 import javax.jcr.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * Rest resource to allow migrations to publish content.
@@ -15,6 +18,8 @@ import javax.ws.rs.core.MediaType;
 public class MigrationResource {
 
     private static final Logger LOG = LoggerFactory.getLogger(MigrationResource.class);
+
+    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
 
     Session daemonSession;
 
@@ -26,6 +31,7 @@ public class MigrationResource {
         this.daemonSession = daemonSession;
         this.credentialsSource = credentialsSource;
     }
+
 
     /**
      * Publish a ContentNode for a given site and path.
@@ -39,24 +45,45 @@ public class MigrationResource {
             @PathParam("site") String site,
             @QueryParam("path") String path,
             @QueryParam("publish") @DefaultValue("true") boolean publish,
-
+            @QueryParam("createdBy") String createdBy,
+            @QueryParam("lastModifiedBy") String lastModifiedBy,
+            @QueryParam("lastModified") String lastModified,
+            @QueryParam("created") String created,
             @HeaderParam("Authorization") String authHeader) {
         LOG.info("newPublishingDocument {}, {}, {}", contentNode.getName(), site, path);
 
         Session session = null;
         try {
             session = session(authHeader);
-            String location = documentUpdater.update(session, site, path, publish, contentNode);
+            String location = documentUpdater.update(
+                    session,
+                    site,
+                    path,
+                    publish,
+                    contentNode,
+                    createdBy,
+                    lastModifiedBy,
+                    getCalendar(created),
+                    getCalendar(lastModified));
             return new Result(location);
         } catch (ContentMigrationException e) {
             LOG.error("Failed to create items", e);
-            throw new WebApplicationException("Server error", 400);
+            throw new WebApplicationException("Client error", 400);
         } catch (RepositoryException e) {
             LOG.error("Invalid item", e);
-            throw new WebApplicationException("Client error", 500);
+            throw new WebApplicationException("Servver error", 500);
+        } catch (ParseException e) {
+            LOG.error("Invalid date time", e);
+            throw new WebApplicationException("Client error", 400);
         } finally  {
             logoutSafely(session);
         }
+    }
+
+    Calendar getCalendar(String str) throws ParseException {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(dateFormat.parse(str));
+        return cal;
     }
 
     /**

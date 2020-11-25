@@ -8,7 +8,9 @@ import org.onehippo.forge.content.pojo.model.ContentNode;
 
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.*;
+
+import java.util.Calendar;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -24,12 +26,12 @@ public class MigrationResourceTest {
         MigrationUserCredentialsSource credentialsSource = mock(MigrationUserCredentialsSource.class);
         MigrationResource sut = new MigrationResource(daemonSession, credentialsSource);
         sut.documentUpdater = mock(DocumentUpdater.class);
-        when(sut.documentUpdater.update(any(Session.class), anyString(), anyString(), eq(true), any(ContentNode.class)))
+        when(sut.documentUpdater.update(any(Session.class), anyString(), anyString(), eq(true), any(ContentNode.class), anyString(), anyString(), any(Calendar.class), any(Calendar.class)))
                 .thenThrow(new ContentMigrationException("invalid"));
         ContentNode node = mock(ContentNode.class);
         WebApplicationException ex = null;
         try {
-            sut.newPublishingDocument(node, "site", "path", true, "auth");
+            sut.newPublishingDocument(node, "site", "path", true, "createdby", "modifiedby", "2010-01-01 00:00.00", "2010-01-01 00:00.00", "auth");
         } catch (WebApplicationException e) {
             ex = e;
         } finally {
@@ -46,7 +48,7 @@ public class MigrationResourceTest {
         ContentNode node = mock(ContentNode.class);
         WebApplicationException ex = null;
         try {
-            sut.newPublishingDocument(node, "site", "path", true, "auth");
+            sut.newPublishingDocument(node, "site", "path", true, "createdby", "modifiedby", "2010-01-01 00:00.00", "2010-01-01 00:00.00", "auth");
         } catch (WebApplicationException e) {
             ex = e;
         } finally {
@@ -60,10 +62,10 @@ public class MigrationResourceTest {
         MigrationUserCredentialsSource credentialsSource = mock(MigrationUserCredentialsSource.class);
         MigrationResource sut = new MigrationResource(daemonSession, credentialsSource);
         sut.documentUpdater = mock(DocumentUpdater.class);
-        when(sut.documentUpdater.update(any(), anyString(), anyString(), eq(true), any())).thenReturn("path");
+        when(sut.documentUpdater.update(any(Session.class), anyString(), anyString(), eq(true), any(ContentNode.class), anyString(), anyString(), any(Calendar.class), any(Calendar.class))).thenReturn("path");
         ContentNode node = mock(ContentNode.class);
         WebApplicationException ex = null;
-        MigrationResource.Result actual = sut.newPublishingDocument(node, "site", "path", true, "auth");
+        MigrationResource.Result actual = sut.newPublishingDocument(node, "site", "path", true, "createdby", "modifiedby", "2010-01-01 00:00:00", "2010-01-01 00:00:00", "auth");
         Assert.assertEquals(actual.getPath(), "path");
     }
 
