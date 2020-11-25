@@ -1,14 +1,14 @@
 $ds_colour__icon--default: $ds_colour__text--secondary;
 $ds_colour__icon--image: $ds_colour__icon--default;
-$ds_colour__icon--word: $ds_colour__blue--base;
+$ds_colour__icon--word: $ds_colour__blue;
 $ds_colour__icon--pdf: $ds_colour__icon--default;
-$ds_colour__icon--excel: $ds_colour__green--base;
-$ds_colour__icon--ppt: red;//$ds_colour__orange--base;
+$ds_colour__icon--excel: $ds_colour__green;
+$ds_colour__icon--ppt: $ds_colour__orange;
 $ds_colour__icon--txt: $ds_colour__icon--default;
 $ds_colour__icon--rtf: $ds_colour__icon--default;
 $ds_colour__icon--xml: $ds_colour__icon--default;
 $ds_colour__icon--geo: $ds_colour__icon--default;
-$ds_colour__icon--csv: $ds_colour__green--base;
+$ds_colour__icon--csv: $ds_colour__green;
 
 $filetypegroups: (
     (gif png jpg jpeg) image $ds_colour__icon--image,

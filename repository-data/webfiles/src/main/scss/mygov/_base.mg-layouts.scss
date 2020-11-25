@@ -12,7 +12,18 @@ $mg-prefix: 'mg_';
     .#{$mg-prefix}layout {
         &--corp-org-hub {
             > .#{$pl-prefix}layout {
+                &__header {
+                    float: left;
+                    @include colwidth(8);
+                }
+
+                &__partner {
+                    float: left;
+                    @include colwidth(4);
+                }
+
                 &__content {
+                    clear: left;
                     @include colwidth(8);
                 }
             }
@@ -245,7 +256,7 @@ $mg-prefix: 'mg_';
             &--corp-org-hub {
                 grid-template-areas:
                     'h h h h h h h h p p p p'
-                    'c c c c c c c c . . . .'
+                    'c c c c c c c c p p p p'
                     's s s s s s s s s s s s'
                     'F F F F F F F F F F F F'
                     'o o o o o o o o o o o o'
@@ -295,7 +306,7 @@ $mg-prefix: 'mg_';
             &--corp-org-hub {
                 grid-template-areas:
                     'h h h h h h h h p p p p'
-                    'c c c c c c c c . . . .'
+                    'c c c c c c c c p p p p'
                     's s s s s s s s s s s s'
                     'F F F F F F F F F F F F'
                     'o o o o o o o o o o o o'
@@ -308,20 +319,63 @@ $mg-prefix: 'mg_';
 
 .ds_cols {
     @include layout();
-}
 
-.ds_cols--2 {
-    @include media-query(large) {
-        grid-template-columns: repeat(2, 1fr);
+    &--2 {
+        @include media-query(large) {
+            > * {
+                float: left;
+                @include colwidth(6);
+
+                &:nth-child(2n-1) {
+                    clear: left;
+                }
+            }
+        }
+    }
+
+    &--4 {
+        @include media-query(small) {
+            > * {
+                float: left;
+                @include colwidth(6);
+
+                &:nth-child(2n+1) {
+                    clear: left;
+                }
+            }
+        }
+
+        @include media-query(large) {
+            > * {
+                float: left;
+                @include colwidth(3);
+
+                &:nth-child(2n+1) {
+                    clear: none;
+                }
+
+                &:nth-child(4n+1) {
+                    clear: left;
+                }
+            }
+        }
     }
 }
 
-.ds_cols--4 {
-    @include media-query(small) {
-        grid-template-columns: repeat(2, 1fr);
+@supports(display: grid) {
+    .ds_cols--2 {
+        @include media-query(large) {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
-    @include media-query(large) {
-        grid-template-columns: repeat(4, 1fr);
+    .ds_cols--4 {
+        @include media-query(small) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include media-query(large) {
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
 }

@@ -1,0 +1,76 @@
+.#{$mg-prefix}org-person {
+    @include layout();
+    @include block-margins--bottom;
+
+    &__name {
+        margin-bottom: 0;
+    }
+
+    &__roles {
+        @include small-size;
+    }
+
+    &__image > img {
+        width: 100%;
+    }
+
+    @include media-query(small) {
+        &__image {
+            float: left;
+            @include colwidth(4);
+        }
+
+        &__heading {
+            float: left;
+            @include colwidth(8);
+        }
+
+        &__summary {
+            clear: left;
+        }
+    }
+
+    @include media-query(medium) {
+        &__summary {
+            clear: none;
+        }
+    }
+}
+
+@supports(display: grid) {
+    .#{$mg-prefix}org-person {
+        &__image {
+            grid-area: i;
+        }
+
+        &__heading {
+            grid-area: h;
+        }
+
+        &__summary {
+            grid-area: s;
+        }
+
+        grid-gap: 16px 32px;
+        grid-template-areas: 'i' 'h' 's';
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: auto 1fr;
+
+        @include media-query(small) {
+            grid-template-areas: 'i h' 's s';
+        }
+
+        @include media-query(medium) {
+            grid-template-areas:
+                'i i i i h h h h h h h h'
+                'i i i i s s s s s s s s';
+            grid-template-columns: repeat(12, 1fr);
+        }
+
+        @include media-query(large) {
+            grid-template-areas:
+                'i i i h h h h h h h h h'
+                'i i i s s s s s s s s s';
+        }
+    }
+}

@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 .section-nav {
-    border-bottom: 4px solid $ds_colour__blue--base;
+    border-bottom: 4px solid $ds_colour__blue;
     margin-bottom: 0px;
     padding-bottom: 0px;
 }
@@ -84,16 +84,16 @@
 .section-nav__item--current {
     background-color: $ds_colour__link--current__background;
     color: $ds_colour__link--current;
-    border-bottom: 4px solid $ds_colour__blue--base;
+    border-bottom: 4px solid $ds_colour__blue;
 }
 
 .section-nav__item--disabled {
-    color: $ds_colour__grey--base;
+    color: $ds_colour__grey;
     pointer-events: none;
 }
 
 span.section-nav__item {
-    color: $ds_colour__grey--base;
+    color: $ds_colour__grey;
 }
 
 

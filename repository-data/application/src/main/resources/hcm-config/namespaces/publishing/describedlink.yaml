@@ -72,7 +72,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Title
             field: title
-            hint: The title that will be used when linking to this ite,
+            hint: The title that will be used when linking to this site,
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

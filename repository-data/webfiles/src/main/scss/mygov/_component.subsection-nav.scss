@@ -70,18 +70,18 @@
   .subsection-nav__item--disabled,
   .subsection-nav__text--inactive {
       background-color: $ds_colour__grey--light;
-      color: $ds_colour__grey--base;
+      color: $ds_colour__grey;
       pointer-events: none;
   }
 
   .subsection-nav__item--disabled .subsection-nav__text,
   .subsection-nav__text--inactive {
-      color: $ds_colour__grey--base;
+      color: $ds_colour__grey;
   }
 
   .subsection-nav__item--disabled .subsection-nav__text:before,
   .subsection-nav__text--inactive:before {
-      background-color: $ds_colour__grey--base;
+      background-color: $ds_colour__grey;
       color: $ds_colour__grey--light;
   }
 
@@ -92,7 +92,7 @@
         counter-increment: li;
 
         .subsection-nav__text--inactive:before {
-          background-color: $ds_colour__grey--base;
+          background-color: $ds_colour__grey;
         }
 
         a:before,

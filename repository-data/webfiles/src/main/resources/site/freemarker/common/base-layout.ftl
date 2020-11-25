@@ -48,13 +48,16 @@
     <body>
         <@hst.include ref="googletagmanager"/>
         <@hst.include ref="preview-indicator"/>
+
+        <@hst.headContributions categoryIncludes="sensitive" xhtml=true/>
+
         <div class="ds_page">
             <div class="ds_page__top">
                 <@hst.include ref="notifications"/>
                 <@hst.include ref="siteheader"/>
             </div>
 
-            <div class="ds_page__main">
+            <div class="ds_page__middle">
                 <@hst.include ref="main"/>
             </div>
 
