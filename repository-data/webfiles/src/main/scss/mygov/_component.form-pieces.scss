@@ -1,4 +1,12 @@
+$multi-page-form-padding: 24px;
+
 .multi-page-form {
+    padding: $multi-page-form-padding;
+
+    .form-section--unpad {
+        margin: #{$multi-page-form-padding * -1};
+    }
+
     .remove {
         text-decoration: line-through;
     }

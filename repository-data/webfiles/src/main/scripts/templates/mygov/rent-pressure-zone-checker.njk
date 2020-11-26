@@ -1,0 +1,16 @@
+{% from "../macros.njk" import postcodeLookup %}
+
+<form id="ri-form" autocomplete="false">
+    <section id="overview" data-step="overview" class="form-section  form-section--unpad">
+    </section>
+
+    <section data-step="postcode" class="fully-hidden form-section">
+        <h2>Check if your property is in an RPZ</h2>
+
+        <p>Enter a postcode to find the property's address.</p>
+
+        {{ postcodeLookup('rpz-checker', required=true, readOnly=true, note=true) }}
+    </section>
+</form>
+
+<nav id="page-nav" aria-label="Navigation buttons"></nav>
