@@ -69,6 +69,25 @@
                     </#if>
                 </nav>
             </div>
+
+            <#if guide.relateditems?hasContent >
+                <aside class="ds_layout__sidebar">
+                    <aside class="ds_article-aside">
+                        <h2 class="gamma">Related content</h2>
+                        <ul class="ds_no-bullets">
+                            <#list guide.relateditems as item>
+                                <#list item.relatedItem as link>
+                                    <@hst.link var="url" hippobean=link/>
+                                    <li>
+                                        <a href="${url}" data-gtm="link-related-${link?index}">${link.title}</a>
+                                    </li>
+                                </#list>
+                            </#list>
+                        </ul>
+                    </aside>
+                </aside>
+            </#if>
+
         </main>
     </div>
 </div>
