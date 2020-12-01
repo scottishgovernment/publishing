@@ -9,9 +9,13 @@ import org.onehippo.forge.content.pojo.model.ContentNode;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.ws.rs.*;
+import javax.ws.rs.core.MultivaluedHashMap;
+import javax.ws.rs.core.UriInfo;
 
 import java.util.Calendar;
+import java.util.Collections;
 
+import static java.util.Collections.singletonList;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
@@ -26,12 +30,12 @@ public class MigrationResourceTest {
         MigrationUserCredentialsSource credentialsSource = mock(MigrationUserCredentialsSource.class);
         MigrationResource sut = new MigrationResource(daemonSession, credentialsSource);
         sut.documentUpdater = mock(DocumentUpdater.class);
-        when(sut.documentUpdater.update(any(Session.class), anyString(), anyString(), eq(true), any(ContentNode.class), anyString(), anyString(), any(Calendar.class), any(Calendar.class)))
+        when(sut.documentUpdater.update(any(Session.class), anyString(), anyString(), eq(true), any(ContentNode.class), any(ContentAuthorship.class)))
                 .thenThrow(new ContentMigrationException("invalid"));
         ContentNode node = mock(ContentNode.class);
         WebApplicationException ex = null;
         try {
-            sut.newPublishingDocument(node, "site", "path", true, "createdby", "modifiedby", "2010-01-01 00:00.00", "2010-01-01 00:00.00", "auth");
+            sut.newPublishingDocument(node, "site", "path", true, "", anyUriInfo());
         } catch (WebApplicationException e) {
             ex = e;
         } finally {
@@ -48,7 +52,7 @@ public class MigrationResourceTest {
         ContentNode node = mock(ContentNode.class);
         WebApplicationException ex = null;
         try {
-            sut.newPublishingDocument(node, "site", "path", true, "createdby", "modifiedby", "2010-01-01 00:00.00", "2010-01-01 00:00.00", "auth");
+            sut.newPublishingDocument(node, "site", "path", true, "auth", anyUriInfo());
         } catch (WebApplicationException e) {
             ex = e;
         } finally {
@@ -62,10 +66,10 @@ public class MigrationResourceTest {
         MigrationUserCredentialsSource credentialsSource = mock(MigrationUserCredentialsSource.class);
         MigrationResource sut = new MigrationResource(daemonSession, credentialsSource);
         sut.documentUpdater = mock(DocumentUpdater.class);
-        when(sut.documentUpdater.update(any(Session.class), anyString(), anyString(), eq(true), any(ContentNode.class), anyString(), anyString(), any(Calendar.class), any(Calendar.class))).thenReturn("path");
+        when(sut.documentUpdater.update(any(Session.class), anyString(), anyString(), eq(true), any(ContentNode.class), any(ContentAuthorship.class))).thenReturn("path");
         ContentNode node = mock(ContentNode.class);
         WebApplicationException ex = null;
-        MigrationResource.Result actual = sut.newPublishingDocument(node, "site", "path", true, "createdby", "modifiedby", "2010-01-01 00:00:00", "2010-01-01 00:00:00", "auth");
+        MigrationResource.Result actual = sut.newPublishingDocument(node, "site", "path", true, "auth", anyUriInfo());
         Assert.assertEquals(actual.getPath(), "path");
     }
 
@@ -82,4 +86,18 @@ public class MigrationResourceTest {
         Mockito.when(daemonSession.impersonate(any())).thenThrow(new RepositoryException("arg"));
         return daemonSession;
     }
+
+    UriInfo anyUriInfo() {
+        MultivaluedHashMap<String, String> map = new MultivaluedHashMap();
+        map.put("createdBy", singletonList("createdBy"));
+        map.put("created", singletonList("2010-01-01 00:00:00"));
+        map.put("lastModifiedBy", singletonList("lastModifiedBy"));
+        map.put("lastModified", singletonList("2010-01-01 00:00:00"));
+
+        UriInfo info = Mockito.mock(UriInfo.class);
+        when(info.getQueryParameters()).thenReturn(map);
+        return info;
+    }
+
+
 }
