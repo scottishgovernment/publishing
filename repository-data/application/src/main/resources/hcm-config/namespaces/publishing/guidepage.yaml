@@ -94,15 +94,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.overlayed.json: '{extraPlugins: ''warning-text,inset-text,accordion,callout''}'
-          /relateditems:
-            jcr:primaryType: frontend:plugin
-            caption: Related items
-            field: relateditems
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
