@@ -103,6 +103,10 @@
         <#if document.epilogue??>
             <@hst.html hippohtml=document.epilogue/>
         </#if>
+
+        <div class="ds_layout__feedback">
+            <#include '../common/feedback-wrapper.ftl'>
+        </div>
     </div>
 </div>
 </#if>

@@ -55,7 +55,8 @@ const feedbackForm = {
             freetext: '',
             category: document.querySelector('#page-category').value,
             errors: [],
-            contentItem: document.body.getAttribute('data-uuid')
+            contentItem: document.getElementById('documentUuid').value,
+            hippoContentItem: window.location.pathname
         };
 
         if (feedback.type === 'no') {
