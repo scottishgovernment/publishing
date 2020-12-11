@@ -374,7 +374,7 @@ const rentAdjudicationForm = {
     },
 
     validateStep: function () {
-        return commonHousing.validateStep(rentAdjudicationForm.form.currentStep);
+        return commonForms.validateStep(rentAdjudicationForm.form.currentStep);
     },
 
     prepareFormDataForPost: function (formData) {

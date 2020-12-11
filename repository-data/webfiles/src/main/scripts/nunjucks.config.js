@@ -29,6 +29,12 @@ module.exports = function (env) {
         return '£' + (number * 1).toFixed(2);
     });
 
+    env.addFilter('currencyFormatted', function (number) {
+        const baseParts = Number(number).toFixed(2).split('.');
+        const commaGroupedUnits = baseParts[0].split('').reverse().join('').match(/.{1,3}/g).join(',').split('').reverse().join('');
+        return `£${commaGroupedUnits}.${baseParts[1]}`;
+    });
+
     env.addFilter('getDisplayName', function (valueArray, value) {
         for (var i = 0, il = valueArray.length; i < il; i++) {
             if (valueArray[i].value.toString() === value.toString()) {
@@ -74,8 +80,12 @@ module.exports = function (env) {
         return html;
     });
 
+    env.addFilter('decimalToPercent', function (value) {
+        return `${value * 100}%`;
+    });
+
     // env.addExtension(...) etc
-    env.addExtension('compare', function () {
+    env.addExtension('zcompare', function () {
 
     });
 }

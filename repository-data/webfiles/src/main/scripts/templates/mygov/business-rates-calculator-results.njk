@@ -1,0 +1,114 @@
+{% macro propertyDetails(property, index=-1) %}
+    <div class="mg_leg_result">
+    <div class="indent">
+
+    {% if index >= 0 %}<button data-property-index={{index}} class="ds_button  ds_button--small  ds_button--cancel  ds_no-margin--top  js-remove-property">Remove this property</button>{% endif %}
+
+    {% if property.occupier %}<h3 class="brc-result__title">{{property.occupierName}}</h3>{% endif %}
+
+    <div class="address">
+    <h4>Address</h4>
+    <p>{{property.address}}</p>
+    </div>
+
+    <div class="block right">
+    <h4>Rateable value</h4>
+    <p>{{property.rv | currencyFormatted}}</p>
+
+    <h4>Liability before relief</h4>
+    <p>{{property.baseLiability | currencyFormatted}}</p>
+    </div>
+
+    <div class="relief right block">
+    <h3>Relief applied</h3>
+
+    {% if property.appliedRelief %}
+
+    <h4>{{property.appliedRelief.name}}</h4>
+    <p class="discount">{{property.appliedRelief.fraction | decimalToPercent}} discount</p>
+    <p>{{property.appliedRelief.amount | currencyFormatted}}</p>
+
+    {% endif %}
+
+    {% if property.universalRelief %}
+
+    <h4>{{property.universalRelief.name}}</h4>
+    <p class="discount">{{property.universalRelief.fraction | decimalToPercent}} discount</p>
+    <p>{{property.universalRelief.amount | currencyFormatted}}</p>
+
+    {% endif %}
+
+    </div>
+
+    <div class="liability block right">
+    <h4>Net liability</h4>
+    <p>The amount you might have to pay:</p>
+
+    <p class="large heavy">{{property.netLiability | currencyFormatted}}</p>
+    </div>
+
+    <p class="clear-results"><a href="#!/overview/" class="ds_button  ds_button--cancel  js-clear-results">Clear results and start again</a></p>
+
+    <div class="ds_inset-text"><div class="ds_inset-text__text">
+    <p>If you have more than one business property, it might affect your eligibility for the Small Business Bonus Scheme.</p>
+    <p>You can <a href="#!/property/" class="js-add-another">add additional properties</a>.</p>
+    </div></div>
+
+    <h4 class="gamma">Extra reliefs available</h4>
+
+    <p>You might be able to get extra reliefs. You can:</p>
+
+    <ul>
+        <li>find more information on <a href="https://www.mygov.scot/business-rates-relief/" target="_blank">business rates reliefs</a></li>
+        <li>contact your <a href="https://www.mygov.scot/find-your-local-council/" target="_blank">local council</a> for advice</p>
+    </ul>
+
+    </div>
+
+    <h2 class="emphasis">What to do next?</h2>
+
+    <div class="indent">
+
+    <p>The exact amount you'll pay can only be provided by your local council when it sends you your rates bill.</p>
+    <p>A rates bill will be issued when you notify the council of your move to the new premises.</p>
+    <a href="{{property.localAuthority.links.tax}}{% if property.localAuthority.links.tax %}{% else %}{{localAuthority.links.homepage}}{% endif %}" class="ds_button">
+    Contact {{property.localAuthority.name}} council
+    </a>
+
+    </div>
+    </div>
+{% endmacro %}
+
+{% if properties.length > 4 %}
+<div class="ds_accordion" data-module="ds-accordion">
+    <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+
+    {% for property in properties %}
+    <div class="ds_accordion-item">
+        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-{{loop.index}}" aria-labelledby="panel-{{loop.index}}-heading" />
+        <div class="ds_accordion-item__header">
+            <h3 id="panel-{{loop.index}}-heading" class="ds_accordion-item__title">
+                {% if property.occupwier %}{{property.occupierName}}{% else %}{{property.address}}{% endif %}
+            </h3>
+            <span class="ds_accordion-item__indicator"></span>
+            <label class="ds_accordion-item__label" for="panel-{{loop.index}}"><span class="visually-hidden">Show this section</span></label>
+        </div>
+        <div class="ds_accordion-item__body">
+            {{ propertyDetails(property, loop.index0)}}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% elif properties.length > 1 %}
+<div class="ds_tab-container  ds_tab-container--{{properties.length}}" data-module="ds-tabs">
+    {% for property in properties %}
+    <input class="ds_tab__radio" type="radio" checked="" name="tabs" id="tab{{loop.index}}" />
+    <div class="ds_tab__header"><label id="tab{{loop.index}}-label" aria-controls="tab{{loop.index}}-content" role="tab" class="ds_tab__label" for="tab{{loop.index}}" data-navigation="tab-{{loop.index}}">Property {{loop.index}}</label></div>
+    <div tabindex="0" id="tab{{loop.index}}-content" class="ds_tab__content" role="tabpanel" aria-labelledby="tab{{loop.index}}-label">
+        {{ propertyDetails(property, loop.index0)}}
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+    {{ propertyDetails(properties[0])}}
+{% endif %}

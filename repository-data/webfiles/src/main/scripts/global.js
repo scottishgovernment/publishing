@@ -6,16 +6,13 @@
 'use strict';
 
 import $ from 'jquery';
-import usertype from './usertype';
 import storage from './tools/storage';
 import gup from './tools/gup';
 import './components/tooltip';
 import NotificationBanner from './components/notification';
-import cookies from './components/cookies';
 import finders from './components/finders';
 
-import {initAll} from '../../../node_modules/@scottish-government/pattern-library/src/all';
-initAll();
+import '../../../node_modules/@scottish-government/pattern-library/src/all';
 
 const slugify = function(string) {
     return string
@@ -41,6 +38,7 @@ const global = {
         this.validateSearchForm();
         this.setInitialCookiePermissions();
         this.initNotifications();
+        this.initDesignSystemComponents();
 
         finders.init();
     },
@@ -48,6 +46,39 @@ const global = {
     initNotifications: function () {
         const notificationBanners = [].slice.call(document.querySelectorAll('[data-module="ds-notification"]'));
         notificationBanners.forEach(notificationBanner => new NotificationBanner(notificationBanner).init());
+    },
+
+    initDesignSystemComponents: function () {
+        const backToTopEl = document.querySelector('[data-module="ds-back-to-top"]');
+        if (backToTopEl) {
+            const backToTop = new window.DS.components.BackToTop(backToTopEl);
+            backToTop.init();
+        }
+
+        // this one is handled differently because it applies an event to the whole body and we only want that event once
+        const hidePageButtons = [].slice.call(document.querySelectorAll('.ds_hide-page'));
+        if (hidePageButtons.length) {
+            const hidePage = new window.DS.components.HidePage();
+            hidePage.init();
+        }
+
+        const mobileMenus = [].slice.call(document.querySelectorAll('[data-module="ds-mobile-navigation-menu"]'));
+        mobileMenus.forEach(mobileMenu =>  new window.DS.components.MobileMenu(mobileMenu).init());
+
+        const searchBoxes = [].slice.call(document.querySelectorAll('[data-module="ds-site-search"]'));
+        searchBoxes.forEach(searchBox => new window.DS.components.CollapsibleSearchBox(searchBox).init());
+
+        const sideNavigations = [].slice.call(document.querySelectorAll('[data-module="ds-side-navigation"]'));
+        sideNavigations.forEach(sideNavigation => new window.DS.components.SideNavigation(sideNavigation).init());
+
+        const tables = [].slice.call(document.querySelectorAll('table[data-smallscreen]'));
+        if (tables.length) {
+            const mobileTables = new window.DS.components.MobileTables();
+            mobileTables.init();
+        }
+
+        const tabSets = [].slice.call(document.querySelectorAll('[data-module="ds-tabs"]'));
+        tabSets.forEach(tabSet => new window.DS.components.Tabs(tabSet).init());
     },
 
     setInitialCookiePermissions: function () {

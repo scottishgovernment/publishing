@@ -1,0 +1,51 @@
+{% from "../macros.njk" import postcodeLookup %}
+
+<div id="brc-form" autocomplete="false">
+    <section id="overview" data-step="overview" class="form-section  form-section--unpad">
+        <a href="#!/property/" type="button" class="ds_button  ds_button--has-icon">
+            Next
+            <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron-right"></use></svg>
+        </a>
+    </section>
+
+    <section data-step="property" class="fully-hidden form-section">
+        <h2>Search for a property</h2>
+
+        <form id="postcode-form">
+            <div class="ds_question">
+                <label class="ds_label" for="postcode">Enter business postcode</label>
+
+                <div class="ds_input__wrapper">
+                    <input class="ds_input  ds_input--fixed-10  postcode-search" type="text" id="postcode" placeholder="e.g. EH7 4EL" data-form="textinput-postcode">
+                    <button id="find-by-postcode" class="js-find-address-button  ds_button">Find address</button>
+                </div>
+                <p><a href="#" id="dont-know-postcode" class="small  js-show-address-search">I do not know the postcode</a></p>
+            </div>
+        </form>
+
+        <form id="address-form" class="fully-hidden">
+            <fieldset>
+                <legend>Search by street and town</legend>
+                <div class="ds_question" id="street-and-town">
+                    <label class="ds_label" for="address">Street</label>
+                    <input placeholder="e.g. High Street" type="text" class="ds_input" id="address" data-form="textinput-address">
+
+                    <label class="ds_label" for="town">Town</label>
+                    <input placeholder="e.g. Edinburgh" type="text" class="ds_input" id="town" data-form="textinput-town">
+                </div>
+
+                <button style="margin-top: 0;" id="find-by-address" class="button--primary button button--medium">Find by street/town</button>
+            </fieldset>
+        </form>
+
+        <div id="property-select-wrapper"></div>
+        <div id="property-error-wrapper"></div>
+    </section>
+
+    <section data-step="result" class="fully-hidden form-section  form-section--unpad">
+        <h2 class="emphasis">Results</h2>
+        <div id="property-results"></div>
+    </section>
+</div>
+
+{# <nav id="page-nav" aria-label="Navigation buttons"></nav> #}

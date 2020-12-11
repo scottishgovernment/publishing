@@ -509,7 +509,7 @@ const modelTenancyForm = {
     },
 
     validateStep: function () {
-        return commonHousing.validateStep(modelTenancyForm.form.currentStep);
+        return commonForms.validateStep(modelTenancyForm.form.currentStep);
     },
 
     prepareFormDataForPost: function (formData) {

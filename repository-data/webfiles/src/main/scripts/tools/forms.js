@@ -818,6 +818,30 @@ const commonForms = {
         return pageNavData;
     },
 
+    validateStep: function (step) {
+        /* look for data-validation attributes in current step & PERFORM VALIDATION
+         * do not allow progress if invalid
+         */
+        const stepContainer = $(`section[data-step="${step.slug}"]`);
+        const fieldsThatNeedToBeValidated = stepContainer.find('[data-validation]:visible');
+
+        fieldsThatNeedToBeValidated.each(function (index, element) {
+            const validations = element.getAttribute('data-validation').split(' ');
+            const validationChecks = [];
+            for (let i = 0, il = validations.length; i < il; i++) {
+                if (commonForms[validations[i]]) {
+                    validationChecks.push(commonForms[validations[i]]);
+                }
+            }
+
+            commonForms.validateInput($(this), validationChecks);
+        });
+
+        const invalidFields = stepContainer.find('[aria-invalid="true"]:visible');
+
+        return invalidFields.length === 0;
+    },
+
     objectValues: function (object, emptyValue = []) {
         return object ? Object.values(object) : emptyValue;
     },

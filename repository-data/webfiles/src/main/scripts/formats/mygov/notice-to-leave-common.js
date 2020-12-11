@@ -341,7 +341,7 @@ const noticeToLeaveForm = {
     },
 
     validateStep: function () {
-        return commonHousing.validateStep(noticeToLeaveForm.form.currentStep);
+        return commonForms.validateStep(noticeToLeaveForm.form.currentStep);
     },
 
     prepareFormDataForPost: function (formData) {

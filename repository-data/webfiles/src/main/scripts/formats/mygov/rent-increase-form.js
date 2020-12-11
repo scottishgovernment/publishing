@@ -526,7 +526,7 @@ const rentIncreaseForm = {
     },
 
     validateStep: function () {
-        return commonHousing.validateStep(rentIncreaseForm.form.currentStep);
+        return commonForms.validateStep(rentIncreaseForm.form.currentStep);
     },
 
     prepareFormDataForPost: function (formData) {
@@ -613,7 +613,7 @@ const rentIncreaseForm = {
         const newRentPage = increaseSection.pages.find(page => page.slug === 'new-rent');
         if ($('#new-rent-amount').attr('data-maxvalue')) {
             $('#new-rent-amount').removeAttr('data-maxvalue');
-            commonHousing.validateStep(newRentPage);
+            commonForms.validateStep(newRentPage);
         }
 
         if (lastIncreaseDate && isRPZ) {

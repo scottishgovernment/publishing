@@ -208,7 +208,7 @@ const rentImprovementsForm = {
 
     validateStep: function () {
         console.error('validation is disabled'); return true;
-        return commonHousing.validateStep(rentImprovementsForm.form.currentStep);
+        return commonForms.validateStep(rentImprovementsForm.form.currentStep);
     },
 
     prepareFormDataForPost: function (formData) {

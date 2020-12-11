@@ -1,0 +1,233 @@
+$legacy-prefix: 'mg_leg_' !default;
+
+
+.#{$legacy-prefix}result {
+    position: relative;
+
+    .icon-repeat {
+        display: inline-block;
+        height: 19px;
+        margin-right: 6px;
+        position: relative;
+        top: 6px;
+        width: 19px;
+    }
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    .brc-result__title {
+        font-size: 26px;
+        font-weight: 300;
+        margin: -3px 0 33px 0;
+        text-transform: uppercase;
+
+    }
+
+    h4 {
+        font-size: $h3-size;
+        font-weight: 700;
+        margin: 1px 0 3px;
+    }
+
+    p.info {
+        // background: url(../images/icons/info_grey.png) no-repeat 0 0 transparent;
+        padding-left: 24px;
+        // @include image-2x(get2xImage('../images/icons/info_grey.png'), 22px, 22px);
+    }
+
+    .right {
+        text-align: right;
+    }
+
+    .block {
+        padding: 0 0 16px;
+
+        h4 {
+        padding: 16px 0 0;
+        }
+    }
+
+    .address {
+        border: 1px solid black;
+        border-width: 1px 0;
+        overflow: hidden;
+        padding: 16px 0 8px;
+    }
+
+    .relief {
+        background: $ds_colour__grey--lighter;
+        border: 2px solid black;
+        border-width: 2px 0;
+
+        &:before,
+        &:after {
+        background: $ds_colour__grey--lighter;
+        border: 2px solid black;
+        border-width: 2px 0;
+        bottom: -2px;
+        content: '';
+        top: -2px;
+        }
+
+        &.no-before:before {
+        content: none;
+        }
+
+        &.no-after:after {
+        content: none;
+        }
+
+        .discount {
+        font-size: $h2-size;
+        line-height: 24px;
+        text-transform: uppercase;
+        margin: -6px 0 10px;
+        }
+
+        .large {
+        font-size: 32px;
+        line-height: 32px;
+        margin: -4px 0 24px;
+        }
+    }
+
+    .liability {
+        background: $ds_colour__blue;
+        color: $ds_colour__white;
+        margin-bottom: 24;
+
+        &:before,
+        &:after {
+        background: $ds_colour__blue;
+        }
+
+        h4 {
+        font-size: $h2-size;
+        margin-bottom: 5px;
+        padding: 13px 0 0 0;
+        }
+
+        .large {
+        margin-top: -4px;
+        padding: 21px 0 39px;
+        }
+    }
+
+    .large {
+        font-size: $h1-size;
+    }
+
+    .heavy {
+        font-weight: 900;
+    }
+
+    p.clear-results {
+        margin-bottom: 48px;
+        position: relative;
+
+        a {
+        border: 1px solid $ds_colour__button;
+        border-width: 1px 0;
+        display: block;
+        line-height: 33px;
+        padding: 0 0 0 10px;
+        text-decoration: none;
+
+        span.glyphicon {
+            font-size: 1.2em;
+            left: 0;
+            margin: 0 0.5em;
+            position: absolute;
+            top: 9px;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $ds_colour__grey--lighter;
+        }
+
+        &:active {
+            background-color: $ds_colour__button;
+            color: $ds_colour__white;
+        }
+        }
+    }
+}
+
+@include media-query(medium) {
+    .#{$legacy-prefix}result {
+
+        .brc-result__title {
+            margin-bottom: 29px;
+        }
+
+        h4 {
+            font-size: $h3-size;
+        }
+
+        .removeProperty {
+            font-size: 14px;
+        }
+
+        .block {
+            padding: 15px 24px 16px;
+
+            h4 {
+                margin-bottom: 0;
+            }
+        }
+
+        .address {
+            h4 {
+            padding: 8px 0;
+            }
+        }
+
+        .relief {
+            &:before,
+            &:after {
+            content: none;
+            }
+
+            .large {
+            font-size: 40px;
+            line-height: 40px;
+            margin-bottom: 24px;
+            }
+
+            .discount {
+            font-size: $h2-size;
+            margin: 1px 0 0px;
+            }
+        }
+
+        .liability {
+            h4 {
+            font-size: $h2-size;
+            margin-bottom: 10px;
+            padding-top: 18px;
+            }
+        }
+
+        .large {
+            font-size: $h1-size;
+        }
+
+        p.clear-results {
+            a {
+            line-height: 40px;
+            padding: 0 0 0 25px;
+            }
+
+            span.glyphicon {
+            top: 9px
+            }
+        }
+
+        p + button {
+            margin-bottom: 24px;
+        }
+    }
+}

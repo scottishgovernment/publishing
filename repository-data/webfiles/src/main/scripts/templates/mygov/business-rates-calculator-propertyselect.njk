@@ -1,0 +1,32 @@
+<div id="property-list">
+    <div id="property-selection" class="result-count-{{searchResults.length}}" >
+        {% if showAsSelect %}
+            <label class="ds_label" for="property-select">Select the property</label>
+            <div class="ds_select-wrapper">
+                <select id="property-select" class="ds_select">
+                    {% for result in searchResults %}
+                    <option value="{{loop.index0}}">
+                    {% if result.occupier %}{{result.occupierName}}, {% endif %}{{result.address}}
+                    </option>
+                    {% endfor %}
+                </select>
+                <span class="ds_select-arrow" aria-hidden="true"></span>
+            </div>
+        {% else %}
+            {% for result in searchResults %}
+            <div class="ds_radio">
+                <input class="ds_radio__input" id="propertyList{{loop.index0}}" name="property-list" type="radio" data-form="radio-property-list">
+                <label class="ds_radio__label" for="propertyList{{loop.index0}}">{% if result.occupier %}{{result.occupierName}}, {% endif %}{{result.address | nl2br}}</label>
+            </div>
+            {% endfor %}
+        {% endif %}
+
+        <p><a href="https://www.saa.gov.uk/contact-us/feedback/" class="small">Is your property listed? Let the Assessor know.</a></p>
+    </div>
+
+    <a href="#!/result/" type="button" class="ds_button  ds_button--has-icon">
+        Next
+
+        <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron-right"></use></svg>
+    </a>
+</div>
