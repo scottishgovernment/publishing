@@ -31,12 +31,6 @@ $legacy-prefix: 'mg_leg_' !default;
         margin: 1px 0 3px;
     }
 
-    p.info {
-        // background: url(../images/icons/info_grey.png) no-repeat 0 0 transparent;
-        padding-left: 24px;
-        // @include image-2x(get2xImage('../images/icons/info_grey.png'), 22px, 22px);
-    }
-
     .right {
         text-align: right;
     }
@@ -161,10 +155,6 @@ $legacy-prefix: 'mg_leg_' !default;
 
         .brc-result__title {
             margin-bottom: 29px;
-        }
-
-        h4 {
-            font-size: $h3-size;
         }
 
         .removeProperty {
