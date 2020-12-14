@@ -45,11 +45,15 @@
     </script>
     </head>
 
-    <body>
+    <body <#if document?? && document.sensitive>class="ds_has-hide-page"</#if>>
         <@hst.include ref="googletagmanager"/>
         <@hst.include ref="preview-indicator"/>
 
-        <@hst.headContributions categoryIncludes="sensitive" xhtml=true/>
+        <#if document?? && document.sensitive>
+            <div class="visually-hidden  ds_hide-page">
+                <p>To leave the page quickly, press the escape key.</p>
+            </div>
+        </#if>
 
         <div class="ds_page">
             <div class="ds_page__top">
