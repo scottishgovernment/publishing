@@ -72,9 +72,9 @@ const businessRatesCalculator = {
         formObject: {},
         formEvents: {
             createResultsPage: () => {
+                businessRatesCalculator.setCurrentProperty();
+                businessRatesCalculator.updateOrAddProperty();
                 if (businessRatesCalculator.selectedProperties.length) {
-                    businessRatesCalculator.setCurrentProperty();
-                    businessRatesCalculator.updateOrAddProperty();
                     businessRatesCalculator.calculateResults();
                     businessRatesCalculator.showResults();
                 } else {
@@ -260,7 +260,9 @@ const businessRatesCalculator = {
         // do search
         this.promiseRequest(`${businessRatesCalculator.apiUrl}${searchTerm}`)
             .then(
-                (result) => {
+                (data) => {
+                    const result = JSON.parse(data.response);
+
                     if (result.properties && result.properties.length) {
                         businessRatesCalculator.searchResults = result.properties;
                         businessRatesCalculator.showSearchResults();
@@ -349,8 +351,8 @@ const businessRatesCalculator = {
 
     updateOrAddProperty: function () {
         let match = false;
-        for (let i = 0, il = this.selectedProperties.length; i < il; i++) {
 
+        for (let i = 0, il = this.selectedProperties.length; i < il; i++) {
             if (this.selectedProperties[i].address === this.currentProperty.address) {
                 match = true;
                 this.selectedProperties[i] = this.currentProperty;

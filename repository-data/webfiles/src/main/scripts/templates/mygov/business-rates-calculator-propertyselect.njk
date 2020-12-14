@@ -16,7 +16,7 @@
             {% for result in searchResults %}
             <div class="ds_radio">
                 <input class="ds_radio__input" id="propertyList{{loop.index0}}" name="property-list" type="radio" data-form="radio-property-list">
-                <label class="ds_radio__label" for="propertyList{{loop.index0}}">{% if result.occupier %}{{result.occupierName}}, {% endif %}{{result.address | nl2br}}</label>
+                <label class="ds_radio__label" for="propertyList{{loop.index0}}">{% if result.occupier %}{{result.occupierName}}, {% endif %}{{result.address | nl2br | safe}}</label>
             </div>
             {% endfor %}
         {% endif %}
