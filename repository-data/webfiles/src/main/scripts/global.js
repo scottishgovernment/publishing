@@ -6,6 +6,7 @@
 'use strict';
 
 import $ from 'jquery';
+import './usertype';
 import storage from './tools/storage';
 import gup from './tools/gup';
 import './components/tooltip';
