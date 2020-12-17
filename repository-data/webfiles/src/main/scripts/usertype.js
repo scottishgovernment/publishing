@@ -1,8 +1,10 @@
 (function() {
     function setUserType(userType) {
         window.dataLayer[0].userType = userType;
+        document.body.classList.add(`usertype-${userType}`);
     }
 
+    document.body.classList.add('has-usertype');
     window.dataLayer = window.dataLayer || [{}];
 
     var xhr = new XMLHttpRequest();
