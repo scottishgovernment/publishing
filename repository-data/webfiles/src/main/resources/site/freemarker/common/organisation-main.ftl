@@ -52,7 +52,7 @@
 
                         <ul class="ds_category-list  ds_cols  ds_cols--2">
                             <#list document.featuredservices as child>
-                                <@hst.link var="link" hippobean=child/>
+                                <@hst.link var="link" hippobean=child.link/>
                                 <li class="ds_category-item">
                                     <h2 class="ds_category-item__title">
                                         <a data-navigation="category-item-${child?index}" href="${link}" class="ds_category-item__link">${child.title}</a>
@@ -71,7 +71,7 @@
                     <section id="other-services" class="page-section  org-services">
                         <ul class="ds_category-list  ds_cols  ds_cols--2">
                             <#list services as child>
-                                <@hst.link var="link" hippobean=child/>
+                                <@hst.link var="link" hippobean=child.link/>
 
                                 <li class="ds_category-item">
                                     <h2 class="ds_category-item__title">
@@ -100,9 +100,9 @@
                                 <div class="ds_card__media">
                                     <img src="<@hst.link hippobean=child.image/>" alt="" class="ds_card__image" />
                                 </div>
-
+                                <@hst.link var="link" hippobean=child.link/>
                                 <div class="ds_card__content  ds_category-item">
-                                    <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="{{url}}">${child.link.title}</a></h2>
+                                    <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="${link}">${child.link.title}</a></h2>
                                 </div>
                             </div>
                         </#list>
