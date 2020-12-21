@@ -15,7 +15,8 @@
 
   <properties>
     <sonar.coverage.exclusions>
-      **/MigrationResource.java
+      **/MigrationResource.java,
+      **/HippoUtils.java
     </sonar.coverage.exclusions>
   </properties>
 
