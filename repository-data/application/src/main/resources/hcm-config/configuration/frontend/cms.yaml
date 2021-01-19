@@ -146,3 +146,15 @@ definitions:
       wicket.model: ${model.search}
     /hippo:configuration/hippo:frontend/cms/cms-advanced-search/workflowPlugin:
       workflow.categories: [collections, export]
+    /hippo:configuration/hippo:frontend/cms/cms-advanced-search/genericFilters:
+      document.type.excluded: ['publishing:analytics', 'resourcebundle:resourcebundle',
+        'robotstxt:robotstxt', 'publishing:organisation', 'publishing:notificationbanner',
+        'publishing:describedlink', 'publishing:contentcontact', 'publishing:mirror',
+        'selection:valuelist', 'urlrewriter:rule', 'urlrewriter:advancedrule', 'urlrewriter:xmlrule',
+        'hippo:deleted', 'hippogallery:stdAssetGallery', 'hippogallery:stdImageGallery',
+        'hippogallery:stdgalleryset', 'hippostd:document', 'hippostd:gallery', 'hippostd:space',
+        'hipposysedit:nodetype', 'hippotaxonomy:container', 'hippogallery:exampleImageSet',
+        'hippogallery:imageset', 'reporting:report', 'urlrewriter:ruleset', 'selection:basedocument',
+        'hippotaxonomy:taxonomy', 'hippostd:directory', 'urlrewriter:basedocument',
+        'hippo:document', 'hippogallery:exampleAssetSet', 'hippostd:folder', 'hippocollection:collection']
+      document.subtypes.included: true
