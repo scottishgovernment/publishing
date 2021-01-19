@@ -29,9 +29,7 @@ import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
+import javax.jcr.*;
 import java.text.MessageFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -57,8 +55,8 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
 
     //When required to add a new property in the CSV export add displayed label and corresponding property in the two lists below.
     //You might have to change #constructPropertiesList method below to add your property if it requires special handling.
-    private static final String[] headers = new String[]{"fact_checkers", "format" , "content_owner", "title", "created_by", "url", "review_date", "date_modified", "modified_by", "id", "state"};
-    private static final String[] documentProperties = new String[]{"publishing:factCheckers", "format" , "publishing:contentOwner", "hippo:name", HIPPOSTDPUBWF_CREATED_BY, "url", "publishing:reviewDate", HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE};
+    private static final String[] headers = new String[]{"fact_checkers", "format" , "content_owner", "title", "created_by", "url", "review_date", "date_modified", "modified_by", "id", "state", "life_events"};
+    private static final String[] documentProperties = new String[]{"publishing:factCheckers", "format" , "publishing:contentOwner", "hippo:name", HIPPOSTDPUBWF_CREATED_BY, "url", "publishing:reviewDate", HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents"};
 
     private final ResourceLink<String> exportCSVLink;
     private final ISearchContext searcher;
@@ -213,6 +211,13 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                                 props.add("");
                             }
                             break;
+                        case "publishing:lifeEvents":
+                            if (variant.hasProperty(property)) {
+                                props.add(extractLifeEvents(variant.getProperty(property)));
+                            } else {
+                                props.add("");
+                            }
+                            break;
                         default:
                             if (variant.hasProperty(property)) {
                                 props.add(variant.getProperty(property).getString());
@@ -248,6 +253,23 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
             }
         }
         return String.join(", ", contactEmails);
+    }
+
+    private String extractLifeEvents(final Property property){
+        String lifeEvents = null;
+
+        try {
+            Value[] values = property.getValues();
+            String[] results = new String[values.length];
+            for (int i = 0; i < values.length; i++) {
+                results[i] = values[i].getString();
+            }
+            lifeEvents = String.join(", ", results);
+        } catch (RepositoryException e) {
+            LOG.error("An exception occurred while trying to extra contact emails for one of the selected documents.", e);
+        }
+
+        return lifeEvents;
     }
 
     private String getNodeStateSummary(final Node handle) {
