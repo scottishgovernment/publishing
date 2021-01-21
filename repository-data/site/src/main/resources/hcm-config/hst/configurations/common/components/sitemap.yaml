@@ -1,7 +1,6 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:components/sitemap:
-      .meta:order-before: feedback
       jcr:primaryType: hst:component
       hst:componentclassname: scot.mygov.publishing.components.SitemapComponent
       hst:template: sitemap.ftl

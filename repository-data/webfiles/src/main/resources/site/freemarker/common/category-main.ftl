@@ -57,16 +57,13 @@
             </div>
         </div>
 
+
+
         <#if document.epilogue??>
             <@hst.html hippohtml=document.epilogue/>
         </#if>
-
-        <div class="ds_layout__feedback">
-            <#include 'feedback-wrapper.ftl'>
-        </div>
     </div>
 </div>
-
 </#if>
 
 <@hst.headContribution category="title">

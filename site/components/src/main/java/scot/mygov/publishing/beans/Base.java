@@ -8,11 +8,6 @@ import java.util.Calendar;
 @HippoEssentialsGenerated(internalName = "publishing:base")
 @Node(jcrType = "publishing:base")
 public class Base extends BaseDocument {
-
-    public String getUuid() {
-        return getSingleProperty("jcr:uuid");
-    }
-
     @HippoEssentialsGenerated(internalName = "publishing:summary")
     public String getSummary() {
         return getSingleProperty("publishing:summary");
