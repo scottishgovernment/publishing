@@ -74,6 +74,9 @@
                 </aside>
             </#if>
 
+            <div class="ds_layout__feedback">
+                <#include 'feedback-wrapper.ftl'>
+            </div>
         </main>
     </div>
 </div>
