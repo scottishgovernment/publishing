@@ -158,3 +158,5 @@ definitions:
         'hippotaxonomy:taxonomy', 'hippostd:directory', 'urlrewriter:basedocument',
         'hippo:document', 'hippogallery:exampleAssetSet', 'hippostd:folder', 'hippocollection:collection']
       document.subtypes.included: true
+    /hippo:configuration/hippo:frontend/cms/cms-static/advancedSearchController:
+      query.limit: '5000'
