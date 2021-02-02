@@ -88,7 +88,6 @@ definitions:
           publishing:navigationType: ''
           publishing:sequenceable: false
           publishing:reportingtags: []
-          publishing:pinned: false
           publishing:showSummaries: true
           /publishing:content:
             jcr:primaryType: hippostd:html
@@ -150,16 +149,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/publishing/valuelists/navigationtypes
-          /pinned:
-            jcr:primaryType: frontend:plugin
-            caption: Pinned?
-            field: pinned
-            hint: Should this item be 'pinned' in its category, causing it to be shown
-              at the top and with an element of promenance
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /cardimage:
             jcr:primaryType: frontend:plugin
             caption: Card image

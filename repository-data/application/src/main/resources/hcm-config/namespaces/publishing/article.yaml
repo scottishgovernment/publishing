@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: bd865521-2abc-4925-a19d-29fc47a141c9
+          jcr:uuid: f61861cf-e5d9-4951-a265-77550721b2ef
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -63,14 +63,13 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: 4cb6f959-c785-4823-b7ac-911a6c1ffd91
+          jcr:uuid: b660e9dd-9b12-4e17-b422-e92b0ef35b47
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
           publishing:authorNotes: ''
           publishing:metaDescription: ''
           publishing:reportingtags: []
-          publishing:pinned: false
           publishing:slug: ''
           publishing:sensitive: false
           publishing:audience: ''
@@ -126,16 +125,6 @@ definitions:
             hint: "Enter a summary of this page.  This summary will be used in places\
               \ where this page is listed on the live website, such as a category\
               \ page and in search results. \r\n\r\nIt must be between 3 and 255 characters."
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /pinned:
-            jcr:primaryType: frontend:plugin
-            caption: Pinned?
-            field: pinned
-            hint: Should this item be 'pinned' in its category, causing it to be shown
-              at the top and with an element of promenance
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -348,8 +337,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Last updated date
             field: lastUpdatedDate
-            hint: The 'Last updated' date displayed in the article heading.
-              If left blank no date will be displayed
+            hint: The 'Last updated' date displayed in the article heading. If left
+              blank no date will be displayed
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

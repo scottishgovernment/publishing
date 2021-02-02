@@ -99,7 +99,7 @@ public class ArticleComponentTest {
     }
 
     CategoryComponent.Wrapper wrap(HippoBean bean) {
-        return new CategoryComponent.Wrapper(bean, false);
+        return new CategoryComponent.Wrapper(bean);
     }
 
     HstRequest request(List<CategoryComponent.Wrapper> children, HippoBean bean) {

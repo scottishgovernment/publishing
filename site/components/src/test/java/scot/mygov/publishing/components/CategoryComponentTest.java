@@ -50,58 +50,6 @@ public class CategoryComponentTest {
     }
 
     @Test
-    public void getChildrenPutsPinnedItemsFirst() {
-        // ARRANGE
-        HippoFolderBean folder = mock(HippoFolderBean.class);
-        HippoBean basebean = mock(HippoFolderBean.class);
-
-        Base unpinned = article(false);
-        Base pinned = article(true);
-
-        List<HippoBean> children = new ArrayList<>();
-        Collections.addAll(children, unpinned, pinned);
-        when(folder.getChildBeans(any(Class.class))).thenReturn(children);
-
-        // ACT
-        List<CategoryComponent.Wrapper> actual = CategoryComponent.getChildren(folder);
-
-        // ASSERT -- these items should all have been excluded
-        assertSame(actual.get(0).getBean(), pinned);
-        assertEquals(actual.get(0).getPinned(), true);
-        assertSame(actual.get(1).getBean(), unpinned);
-        assertEquals(actual.get(1).getPinned(), false);
-    }
-
-    @Test
-    public void getChildrenSetsPinnedForMirrors() {
-        // ARRANGE
-        HippoFolderBean folder = mock(HippoFolderBean.class);
-        HippoBean basebean = mock(HippoFolderBean.class);
-
-        Base unpinned = article(false);
-        Base pinned = article(true);
-        Mirror unpinnedMirror = mirror(pinned, false);
-        Mirror pinnedMirror = mirror(unpinned, true);
-
-        List<HippoBean> children = new ArrayList<>();
-        Collections.addAll(children, pinnedMirror, unpinnedMirror);
-        when(folder.getChildBeans(any(Class.class))).thenReturn(children);
-
-        // here we are testing a couple of things:
-        // - the pinned status of the thing being mirrored is not relevant
-        // - the order is correct according to the mirrored pin status
-
-        // ACT
-        List<CategoryComponent.Wrapper> actual = CategoryComponent.getChildren(folder);
-
-        // ASSERT -- these items should all have been excluded
-        assertSame(actual.get(0).getBean(), unpinned);
-        assertEquals(actual.get(0).getPinned(), true);
-        assertSame(actual.get(1).getBean(), pinned);
-        assertEquals(actual.get(1).getPinned(), false);
-    }
-
-    @Test
     public void notAttributesSetIfNoContentBean() {
         // ARRANGE
         HstRequest request = mock(HstRequest.class);
@@ -159,15 +107,9 @@ public class CategoryComponentTest {
         return subfolderBean(name, indexBean);
     }
 
-    Base article(boolean pinned) {
-        Base base = mock(Base.class);
-        when(base.getPinned()).thenReturn(pinned);
-        return base;
-    }
 
-    Mirror mirror(Base mirrored, boolean pinned) {
+    Mirror mirror(Base mirrored) {
         Mirror mirror = mock(Mirror.class);
-        when(mirror.getPinned()).thenReturn(pinned);
         when(mirror.getDocument()).thenReturn(mirrored);
         return mirror;
     }

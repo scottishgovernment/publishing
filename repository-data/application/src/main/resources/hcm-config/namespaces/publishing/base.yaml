@@ -68,14 +68,165 @@ definitions:
             hipposysedit:path: publishing:reportingtags
             hipposysedit:primary: false
             hipposysedit:type: String
-          /pinned:
+          /relateditems:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:relateditems
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:relateditems
+          /cardimage:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:cardImage
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
+            hipposysedit:validators: [optional]
+          /urlAliases:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:urlAliases
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [urlalias-validator]
+          /sensitive:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:pinned
+            hipposysedit:path: publishing:sensitive
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /audiences:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:audience
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+          /serviceproviders:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:serviceproviders
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /contentOwner:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:contentOwner
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+          /factCheckers:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:factCheckers
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+          /lifeEvents:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:lifeEvents
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /userneed:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:userneed
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /reviewDate:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:reviewDate
+            hipposysedit:primary: false
+            hipposysedit:type: CalendarDate
+            hipposysedit:validators: [optional]
+          /lastUpdatedDate:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:lastUpdatedDate
+            hipposysedit:primary: false
+            hipposysedit:type: CalendarDate
+            hipposysedit:validators: [optional]
+        /hipposysedit:nodetype[2]:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 468cd6b1-0682-42c5-90cc-033dfa4b0bd9
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          /summary:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:summary
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators: [required, summary-words-validator, summary-minlength-validator]
+          /title:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required, title-words-validator, title-minlength-validator]
+          /metaDescription:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:metaDescription
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators: [required, summary-words-validator, summary-minlength-validator]
+          /seoTitle:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:seoTitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required, title-words-validator, title-minlength-validator]
+          /authorNotes:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:authorNotes
+            hipposysedit:primary: false
+            hipposysedit:type: Html
+          /reportingtags:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:reportingtags
+            hipposysedit:primary: false
+            hipposysedit:type: String
           /relateditems:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -196,12 +347,48 @@ definitions:
           publishing:authorNotes: ''
           publishing:metaDescription: ''
           publishing:reportingtags: []
-          publishing:pinned: false
           publishing:urlAliases: []
           publishing:sensitive: false
           publishing:audience: ''
           publishing:serviceproviders: []
           publishing:lifeEvents: []
+          publishing:userneed: ''
+          /publishing:cardimage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /publishing:contentOwner:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:factCheckers:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /hipposysedit:prototype[2]:
+          jcr:primaryType: nt:unstructured
+          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
+            'hippotranslation:translated', 'mix:referenceable']
+          jcr:uuid: e660b59a-6dae-42aa-8864-71116bb9a17c
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2019-09-03T14:51:07.552+01:00
+          hippostdpubwf:lastModificationDate: 2019-09-03T14:51:07.551+01:00
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          publishing:audience: ''
+          publishing:authorNotes: ''
+          publishing:lifeEvents: []
+          publishing:metaDescription: ''
+          publishing:reportingtags: []
+          publishing:sensitive: false
+          publishing:seoTitle: ''
+          publishing:serviceproviders: []
+          publishing:summary: ''
+          publishing:title: ''
+          publishing:urlAliases: []
           publishing:userneed: ''
           /publishing:cardimage:
             jcr:primaryType: hippogallerypicker:imagelink
@@ -253,16 +440,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
-          /pinned:
-            jcr:primaryType: frontend:plugin
-            caption: Pinned?
-            field: pinned
-            hint: Should this item be 'pinned' in its category, causing it to be shown
-              at the top and with an element of prominence
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /sensitive:
             jcr:primaryType: frontend:plugin
             caption: Sensitive content?
@@ -425,7 +602,7 @@ definitions:
             field: lastUpdatedDate
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: The 'Last updated' date displayed in the article heading.
-              If left blank no date will be displayed
+            hint: The 'Last updated' date displayed in the article heading. If left
+              blank no date will be displayed
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

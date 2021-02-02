@@ -5,7 +5,6 @@ import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
-import scot.mygov.publishing.beans.Base;
 import scot.mygov.publishing.beans.Mirror;
 
 import java.util.*;
@@ -80,25 +79,16 @@ public class CategoryComponent extends EssentialsContentComponent {
         return request.getRequestContext().getContentBean() != null;
     }
 
-    static List<Wrapper> getWrappedChildren(HippoFolderBean folder) {
-        return folder
-            .getChildBeans(HippoBean.class)
-            .stream()
-            .filter(CategoryComponent::notIndexFile)
-            .map(CategoryComponent::mapFolder)
-            .filter(Objects::nonNull)
-            .map(CategoryComponent::wrap)
-            .filter(Wrapper::containsNonNullBean)
-            .collect(toList());
-    }
-
     static List<Wrapper> getChildren(HippoFolderBean folder) {
-        Map<Boolean, List<Wrapper>> byWrapped = getWrappedChildren(folder)
-                .stream().collect(partitioningBy(Wrapper::getPinned));
-        List<Wrapper> all = new ArrayList<>();
-        all.addAll(byWrapped.get(true));
-        all.addAll(byWrapped.get(false));
-        return all;
+        return folder
+                .getChildBeans(HippoBean.class)
+                .stream()
+                .filter(CategoryComponent::notIndexFile)
+                .map(CategoryComponent::mapFolder)
+                .filter(Objects::nonNull)
+                .map(CategoryComponent::wrap)
+                .filter(Wrapper::containsNonNullBean)
+                .collect(toList());
     }
 
     static boolean notIndexFile(HippoBean bean) {
@@ -106,19 +96,7 @@ public class CategoryComponent extends EssentialsContentComponent {
     }
 
     static Wrapper wrap(HippoBean bean) {
-        return new Wrapper(mapMirror(bean), isPinned(bean));
-    }
-
-    static boolean isPinned(HippoBean bean) {
-        if (bean instanceof Base) {
-            return ((Base) bean).getPinned();
-        }
-
-        if (bean instanceof Mirror) {
-            return ((Mirror) bean).getPinned();
-        }
-
-        return false;
+        return new Wrapper(mapMirror(bean));
     }
 
     /**
@@ -149,19 +127,12 @@ public class CategoryComponent extends EssentialsContentComponent {
     public static class Wrapper {
         private HippoBean bean;
 
-        private boolean pinned;
-
-        Wrapper(HippoBean bean, boolean pinned) {
+        Wrapper(HippoBean bean) {
             this.bean = bean;
-            this.pinned = pinned;
         }
 
         public HippoBean getBean() {
             return bean;
-        }
-
-        public boolean getPinned() {
-            return pinned;
         }
 
         boolean containsNonNullBean() {

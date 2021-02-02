@@ -61,7 +61,6 @@ definitions:
           publishing:authorNotes: ''
           publishing:metaDescription: ''
           publishing:reportingtags: []
-          publishing:pinned: false
           publishing:slug: ''
           publishing:sensitive: false
           publishing:audience: ''
@@ -114,16 +113,6 @@ definitions:
             hint: "Enter a summary of this page.  This summary will be used in places\
               \ where this page is listed on the live website, such as a category\
               \ page and in search results. \r\n\r\nIt must be between 3 and 255 characters."
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /pinned:
-            jcr:primaryType: frontend:plugin
-            caption: Pinned?
-            field: pinned
-            hint: Should this item be 'pinned' in its category, causing it to be shown
-              at the top and with an element of promenance
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

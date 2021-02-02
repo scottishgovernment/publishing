@@ -25,14 +25,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
             hipposysedit:validators: [required]
-          /pinned:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:pinned
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -55,7 +47,6 @@ definitions:
           jcr:uuid: 1860c903-f5e1-4b5c-b3e5-19190f09c31c
           hippostdpubwf:lastModificationDate: 2020-03-09T16:53:05.915Z
           hippostdpubwf:creationDate: 2020-03-09T16:53:05.915Z
-          publishing:pinned: false
           publishing:title: ''
           /publishing:document:
             jcr:primaryType: hippo:mirror
@@ -83,16 +74,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               nodetypes: ['publishing:article', 'publishing:category', 'publishing:guide']
-          /pinned:
-            jcr:primaryType: frontend:plugin
-            caption: Pinned?
-            field: pinned
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            hint: Should the mirrored item be 'pinned' in its category, causing it
-              to be shown at the top and with an element of prominence
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /title:
             jcr:primaryType: frontend:plugin
             caption: Title

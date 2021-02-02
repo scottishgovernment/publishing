@@ -229,7 +229,6 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
-          publishing:pinned: false
           publishing:summary: ''
           publishing:seoTitle: ''
           publishing:title: ''
@@ -614,16 +613,6 @@ definitions:
             field: authorNotes
             hint: Enter any notes relevant to this content item.  This will not appear
               on the page itself.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /pinned:
-            jcr:primaryType: frontend:plugin
-            caption: Pinned?
-            field: pinned
-            hint: Should this item be 'pinned' in its category, causing it to be shown
-              at the top and with an element of prominence
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

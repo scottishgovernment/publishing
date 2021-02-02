@@ -5,12 +5,9 @@
     <#list children as child>
         <@hst.link var="link" hippobean=child.bean/>
         <li class="ds_card  ds_card--no-padding  ds_card--has-hover">
-            <div class="ds_category-item  ds_category-item--card <#if child.pinned>ds_category-item--pinned</#if>">
+            <div class="ds_category-item  ds_category-item--card">
                 <h2 class="ds_category-item__title">
                     <a data-navigation="category-item-${child?index + 1}" href="${link}" class="ds_category-item__link">
-                        <#if child.pinned>
-                            <svg class="ds_icon  ds_category-item__pinned-icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#star"></use></svg>
-                        </#if>
                         ${child.bean.title}
                     </a>
                 </h2>

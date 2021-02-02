@@ -24,7 +24,7 @@ public class FooterComponent extends CommonComponent  {
     List<HippoBean> getChildren(HippoFolderBean folder) {
         return folder == null
                 ? Collections.emptyList()
-                : CategoryComponent.getWrappedChildren(folder)
+                : CategoryComponent.getChildren(folder)
                     .stream().map(CategoryComponent.Wrapper::getBean).collect(toList());
     }
 }
