@@ -42,14 +42,10 @@
                 </div>
 
                 <div class="ds_layout__feedback">
-
+                    <#include 'feedback-wrapper.ftl'>
                 </div>
             </main>
         </div>
-    </div>
-
-    <div class="ds_layout__feedback">
-        <#include 'feedback-wrapper.ftl'>
     </div>
 </#if>
 
