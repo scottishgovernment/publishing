@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: 2870acc6-753e-4fa6-a0a8-d9c94db4610b
+          jcr:uuid: 3e3d549b-c55a-4473-88d0-effa411945c1
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -48,7 +48,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
-          jcr:uuid: 83c16b74-85a6-442c-bae1-be182489b6e0
+          jcr:uuid: 92ec5386-fdb3-4766-8beb-84dfa2b5df0e
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -231,3 +231,13 @@ definitions:
             plugin.class: org.onehippo.forge.ecmtagging.editor.TagSuggestPlugin
             wicket.id: ${cluster.id}.field
             wicket.model: ${wicket.model}
+          /lastUpdatedDate:
+            jcr:primaryType: frontend:plugin
+            caption: Last updated date
+            field: lastUpdatedDate
+            hint: The 'Last updated' date displayed in the article heading. If left
+              blank no date will be displayed
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
