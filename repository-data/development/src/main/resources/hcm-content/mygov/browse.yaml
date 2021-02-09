@@ -11,7 +11,7 @@
     jcr:uuid: 0dc5a7ac-c81f-4aae-960a-e569877b3248
     hippo:name: Mammals
     hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror, new-publishing-formbase]
+      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent]
     /index:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -139,7 +139,7 @@
       jcr:uuid: ee74d086-dfd7-4d31-87d2-4bccc41fcc8e
       hippo:name: Prototheria
       hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-        new-publishing-mirror, new-publishing-formbase]
+        new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent]
       /index:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -519,7 +519,7 @@
       jcr:uuid: d315066b-2e0b-41f7-a4c9-67474c2b2f4b
       hippo:name: Theriiformes
       hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-        new-publishing-mirror, new-publishing-formbase]
+        new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent]
       /index:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -659,7 +659,7 @@
         jcr:uuid: 80cbc8c3-c710-456c-8d38-be1869308737
         hippo:name: Ungulate
         hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-          new-publishing-mirror, new-publishing-formbase]
+          new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent]
         /index:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -1171,13 +1171,115 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /fairrent:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 7e3fa053-055f-4289-9899-5578aa091a59
+      hippo:versionHistory: 8315606f-ae4e-4ffe-9ae2-b862253e0d20
+      /fairrent[1]:
+        jcr:primaryType: publishing:fairrent
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: ab99a3c3-0f53-47e1-ab01-9fd924d46b63
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-02-08T15:00:40.115Z
+        hippostdpubwf:lastModificationDate: 2021-02-08T15:00:56.956Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: e8547b04-3d34-450c-a0c2-d93048eb0a31
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: sdfsdf
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: fairrent
+        publishing:serviceproviders: []
+        publishing:slug: fairrent
+        publishing:summary: w3www
+        publishing:title: fairrent
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>wwwww</p>
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:additionalContent:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>qqqqq</p>
+      /fairrent[2]:
+        jcr:primaryType: publishing:fairrent
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+        jcr:uuid: 268dea11-4046-4580-a1a0-1d198ffcf15b
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-02-08T15:00:40.115Z
+        hippostdpubwf:lastModificationDate: 2021-02-08T15:00:56.655Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: e8547b04-3d34-450c-a0c2-d93048eb0a31
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: sdfsdf
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: fairrent
+        publishing:serviceproviders: []
+        publishing:slug: fairrent
+        publishing:summary: w3www
+        publishing:title: fairrent
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>wwwww</p>
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:additionalContent:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>qqqqq</p>
+      /fairrent[3]:
+        jcr:primaryType: publishing:fairrent
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 489edc53-4e35-4ded-95e8-7f52e527faef
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-02-08T15:00:40.115Z
+        hippostdpubwf:lastModificationDate: 2021-02-08T15:00:56.655Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-02-08T15:01:03.398Z
+        hippotranslation:id: e8547b04-3d34-450c-a0c2-d93048eb0a31
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: sdfsdf
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: fairrent
+        publishing:serviceproviders: []
+        publishing:slug: fairrent
+        publishing:summary: w3www
+        publishing:title: fairrent
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>wwwww</p>
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:additionalContent:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>qqqqq</p>
   /reptiles:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
     jcr:uuid: 09021994-cc02-45cd-929a-add8230b9326
     hippo:name: Reptiles
     hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror, new-publishing-formbase]
+      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent]
     /index:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -2020,7 +2122,7 @@
     jcr:uuid: 8ec03b19-6fbe-4730-9f43-27e4e48eace5
     hippo:name: Beaky
     hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror, new-publishing-formbase]
+      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent]
     /index:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -2252,7 +2354,7 @@
     jcr:uuid: 13b7a691-4a6d-419b-8dd3-f3c02228d415
     hippo:name: Birds
     hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror, new-publishing-formbase]
+      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent]
     /index:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -2679,7 +2781,7 @@
     jcr:uuid: 99d2302d-1920-43c9-9c4c-cf5bab4d8634
     hippo:name: Flying
     hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror, new-publishing-formbase]
+      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent]
     /index:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
