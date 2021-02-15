@@ -23,7 +23,27 @@ const fairRentRegister = {
 
     listElement: document.getElementById('search-results-list'),
 
-    init: function() {
+    init: function () {
+        this.ancestors = [];
+
+        const breadcrumbs = [].slice.call(document.querySelectorAll('.ds_breadcrumbs__item'));
+        breadcrumbs.forEach(breadcrumb => {
+            const link = breadcrumb.querySelector('a');
+            if (link) {
+                this.ancestors.push({
+                    title: breadcrumb.innerText,
+                    url: link.href
+                });
+            } else {
+                this.ancestors.push({
+                    title: breadcrumb.innerText,
+                    url: window.location.pathname
+                });
+            }
+        });
+
+
+
         this.getParamsAndDisplaySection();
         this.attachEventHandlers();
 
@@ -66,8 +86,7 @@ const fairRentRegister = {
     },
 
     updateBreadcrumbs: function (additionalBreadcrumb) {
-        // ancestors is global, set in the page template
-        const breadcrumbsArray = ancestors.slice();
+        const breadcrumbsArray = this.ancestors.slice();
 
         if (additionalBreadcrumb) {
             breadcrumbsArray.push(additionalBreadcrumb);
@@ -129,7 +148,7 @@ const fairRentRegister = {
      * @param {object} searchParams
      * @param {boolean} append
      */
-    doSearch: function(searchParams = this.searchParams) {
+    doSearch: function (searchParams = this.searchParams) {
         // show fair rent section header (it might have been hidden)
         const fairRentHeader = document.getElementById('fair-rent-register-header');
         fairRentHeader.classList.remove('fully-hidden');

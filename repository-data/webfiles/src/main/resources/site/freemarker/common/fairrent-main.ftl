@@ -1,6 +1,7 @@
 <#include "include/imports.ftl">
 
 <#if document??>
+
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
 
@@ -17,23 +18,86 @@
             </#if>
 
             <div class="ds_layout__header">
-                <header class="ds_page-header">
-                    <h1 class="ds_page-header__title">${document.title}</h1>
-                    <#if document.lastUpdatedDate??>
-                        <div class="ds_category-header__meta">
-                            <small>Last updated: <b><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></b></small>
-                        </div>
-                    </#if>
-                </header>
+                <div id="fair-rent-register-header">
+                    <header class="ds_page-header">
+                        <h1 class="ds_page-header__title">${document.title}</h1>
+                        <#if document.lastUpdatedDate??>
+                            <div class="ds_category-header__meta">
+                                <small>Last updated: <b><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></b></small>
+                            </div>
+                        </#if>
+                    </header>
+                </div>
             </div>
 
             <div class="ds_layout__content">
-                <@hst.html hippohtml=document.content/>
 
-                SEARCH HERE
+                <style>
+                    @media print {
+                        #staging-notice,
+                        .ds_site-header__search,
+                        #site-footer,
+                        #notifications-wrapper,
+                        .header-bar,
+                        [aria-label="Breadcrumb"],
+                        .ds_layout__feedback
+                        {display: none;}
 
-                <@hst.html hippohtml=document.additionalContent/>
+                        .ds_layout__content {
+                            margin-top: 1em;
+                        }
 
+                        #page-content {
+                            display: block;
+                        }
+
+                        .ds_accordion-item__body {
+                            display: block !important;
+                            padding-bottom: 32px !important;
+                            padding-top: 24px !important;
+                            max-height: unset !important;
+                        }
+                    }
+                </style>
+
+                <section id="fair-rent-introduction" class="js-fair-rent-section  fully-hidden">
+                        <@hst.html hippohtml=document.content/>
+
+                        <div class="ds_site-header__search  ds_site-search">
+                            <form role="search" class="ds_site-search__form" method="GET" action="">
+                                <label class="ds_label  visually-hidden" for="site-search">Search</label>
+
+                                <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
+                                    <input name="query" id="fair-rent-search-box" class="ds_input" type="text" placeholder="Search the Fair Rent Register">
+
+                                    <button type="submit" class="ds_button  ds_button--icon-only  js-site-search-button">
+                                        <span class="visually-hidden">Search the Fair Rent Register</span>
+                                        <svg class="ds_icon" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#search"></use></svg>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <@hst.html hippohtml=document.additionalContent/>
+                    </section>
+
+                <section id="fair-rent-list" class="js-fair-rent-section  fully-hidden">
+                    <div class="ds_search-results">
+                        <h2 class="visually-hidden">Search results</h2>
+
+                        <div id="results-top"></div>
+
+                        <p id="result-count" class="ds_search-results__count  js-search-results-count"></p>
+
+                        <ol id="search-results-list" class="ds_search-results__list"></ol>
+
+                        <div id="pagination"></div>
+                    </div>
+                </section>
+
+                <section id="fair-rent-property" class="js-fair-rent-section  fully-hidden">
+
+                </section>
             </div>
 
             <#if document.relateditems?hasContent >
@@ -80,5 +144,5 @@
     </#if>
 </@hst.headContribution>
 
-<#assign scriptName="article">
+<#assign scriptName="fair-rent-register">
 <#include 'scripts.ftl'/>
