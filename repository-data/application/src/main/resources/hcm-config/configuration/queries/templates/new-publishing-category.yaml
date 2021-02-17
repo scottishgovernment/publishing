@@ -28,7 +28,7 @@ definitions:
             hippo:name: index
             /index[1]:
               jcr:primaryType: publishing:category
-              jcr:mixinTypes: ['mix:versionable', 'hippostd:taggable']
+              jcr:mixinTypes: ['mix:versionable', 'hippostd:taggable', 'hippotaxonomy:classifiable']
               jcr:uuid: 9b74a104-199d-4155-af9e-07b188619786
               hippo:availability: [preview]
               hippostd:state: unpublished

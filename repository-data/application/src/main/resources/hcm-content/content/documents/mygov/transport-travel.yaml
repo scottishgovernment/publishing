@@ -14,7 +14,8 @@
     hippo:versionHistory: 24fbc363-be32-4aa9-b4a6-babddf7d348b
     /index[1]:
       jcr:primaryType: publishing:category
-      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:versionable']
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+        'mix:versionable']
       jcr:uuid: 683f699f-e5ad-4ef5-bfcf-584fb2a44198
       hippo:availability: [preview]
       hippo:name: Driving, transport and travel
@@ -91,7 +92,8 @@
         jcr:primaryType: publishing:relateditems
     /index[2]:
       jcr:primaryType: publishing:category
-      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+        'mix:referenceable']
       jcr:uuid: 1b1822af-24b5-41bf-bfc1-14a38b32cc62
       hippo:availability: []
       hippo:name: Driving, transport and travel
@@ -168,7 +170,8 @@
         jcr:primaryType: publishing:relateditems
     /index[3]:
       jcr:primaryType: publishing:category
-      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+        'mix:referenceable']
       jcr:uuid: 0858f0da-04e4-431d-836c-33845c5c24b1
       hippo:availability: [live]
       hippo:name: Driving, transport and travel
@@ -577,7 +580,8 @@
       hippo:versionHistory: 20d7ef82-3c3b-40aa-8907-64ada247d0c9
       /index[1]:
         jcr:primaryType: publishing:category
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:versionable']
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:versionable']
         jcr:uuid: 73379050-4855-4d22-b19c-e386c77ae760
         hippo:availability: [preview]
         hippo:name: Parking and Blue Badges
@@ -615,7 +619,8 @@
           jcr:primaryType: publishing:relateditems
       /index[2]:
         jcr:primaryType: publishing:category
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
         jcr:uuid: ecefb5e0-8dd6-4a6c-a346-9a29c79f7fad
         hippo:availability: []
         hippo:name: Parking and Blue Badges
@@ -653,7 +658,8 @@
           jcr:primaryType: publishing:relateditems
       /index[3]:
         jcr:primaryType: publishing:category
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
         jcr:uuid: bcd25ba3-9df6-40ce-b655-ff4f1ed9559d
         hippo:availability: [live]
         hippo:name: Parking and Blue Badges
@@ -8223,7 +8229,8 @@
       hippo:versionHistory: 355dba45-e7cf-4dc0-a9a6-6671250d6d7b
       /index[1]:
         jcr:primaryType: publishing:category
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:versionable']
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:versionable']
         jcr:uuid: 23aa8be5-d65e-47e6-bf0e-edfc3e7d18ac
         hippo:availability: [preview]
         hippo:name: Public transport, bus passes and discounts
@@ -8259,7 +8266,8 @@
           jcr:primaryType: publishing:relateditems
       /index[2]:
         jcr:primaryType: publishing:category
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
         jcr:uuid: ae75611e-68af-49d1-b80a-9bb4ca2a029d
         hippo:availability: []
         hippo:name: Public transport, bus passes and discounts
@@ -8295,7 +8303,8 @@
           jcr:primaryType: publishing:relateditems
       /index[3]:
         jcr:primaryType: publishing:category
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
         jcr:uuid: f8372cf5-7ee8-466b-8b06-a1b0446cdd5e
         hippo:availability: [live]
         hippo:name: Public transport, bus passes and discounts
@@ -21926,7 +21935,8 @@
       hippo:versionHistory: 23754463-a659-45fc-bdc5-f1e8606fd469
       /index[1]:
         jcr:primaryType: publishing:category
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:versionable']
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:versionable']
         jcr:uuid: 77e2c92e-1d82-4a54-811e-37e5bf35bf42
         hippo:availability: [preview]
         hippo:name: 'Road safety: parking tickets, fines and bans'
@@ -21963,7 +21973,8 @@
           jcr:primaryType: publishing:relateditems
       /index[2]:
         jcr:primaryType: publishing:category
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
         jcr:uuid: ff6cd694-e74f-4689-8c27-0c80f5e9fa9e
         hippo:availability: []
         hippo:name: 'Road safety: parking tickets, fines and bans'
@@ -22000,7 +22011,8 @@
           jcr:primaryType: publishing:relateditems
       /index[3]:
         jcr:primaryType: publishing:category
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
         jcr:uuid: a9497a14-3e45-46d2-8a1e-2251019f7381
         hippo:availability: [live]
         hippo:name: 'Road safety: parking tickets, fines and bans'

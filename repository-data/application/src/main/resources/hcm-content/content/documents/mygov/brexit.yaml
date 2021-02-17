@@ -13,7 +13,8 @@
     hippo:versionHistory: aa64300a-070b-42d7-b381-af5557c2c19b
     /index[1]:
       jcr:primaryType: publishing:category
-      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:versionable']
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+        'mix:versionable']
       jcr:uuid: fe9f20a4-28d3-4985-bd52-cf215f43c330
       hippo:availability: [preview]
       hippo:name: Brexit
@@ -21,9 +22,10 @@
       hippostd:tags: []
       hippostdpubwf:createdBy: system
       hippostdpubwf:creationDate: 2020-08-17T16:42:24.019+01:00
-      hippostdpubwf:lastModificationDate: 2020-08-17T16:42:24.237+01:00
-      hippostdpubwf:lastModifiedBy: system
-      hippotranslation:id: 7b1bfa2f-b3b8-5b82-be09-e6737b2ffb6f
+      hippostdpubwf:lastModificationDate: 2020-09-10T18:34:17.540+03:00
+      hippostdpubwf:lastModifiedBy: social-security-editor
+      hippotaxonomy:keys: [social-security-directorate]
+      hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
       hippotranslation:locale: document-type-locale
       publishing:authorNotes: ''
       publishing:lifeEvents: brexit
@@ -49,7 +51,8 @@
         jcr:primaryType: publishing:relateditems
     /index[2]:
       jcr:primaryType: publishing:category
-      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+        'mix:referenceable']
       jcr:uuid: 31168100-1d2f-4c08-8937-bbbd1f98e1be
       hippo:availability: []
       hippo:name: Brexit
@@ -57,9 +60,10 @@
       hippostd:tags: []
       hippostdpubwf:createdBy: system
       hippostdpubwf:creationDate: 2020-08-17T16:42:24.019+01:00
-      hippostdpubwf:lastModificationDate: 2020-08-17T16:42:24.168+01:00
-      hippostdpubwf:lastModifiedBy: system
-      hippotranslation:id: 7b1bfa2f-b3b8-5b82-be09-e6737b2ffb6f
+      hippostdpubwf:lastModificationDate: 2020-09-14T10:41:12.745+02:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotaxonomy:keys: [social-security-directorate]
+      hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
       hippotranslation:locale: document-type-locale
       publishing:authorNotes: ''
       publishing:lifeEvents: brexit
@@ -85,7 +89,8 @@
         jcr:primaryType: publishing:relateditems
     /index[3]:
       jcr:primaryType: publishing:category
-      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+        'mix:referenceable']
       jcr:uuid: 46eec87d-23dc-4612-aee3-bc37bcb97239
       hippo:availability: [live]
       hippo:name: Brexit
@@ -93,10 +98,11 @@
       hippostd:tags: []
       hippostdpubwf:createdBy: system
       hippostdpubwf:creationDate: 2020-08-17T16:42:24.019+01:00
-      hippostdpubwf:lastModificationDate: 2020-08-17T16:42:24.237+01:00
-      hippostdpubwf:lastModifiedBy: system
-      hippostdpubwf:publicationDate: 2020-08-17T16:42:24.302+01:00
-      hippotranslation:id: 7b1bfa2f-b3b8-5b82-be09-e6737b2ffb6f
+      hippostdpubwf:lastModificationDate: 2020-09-10T18:34:17.540+03:00
+      hippostdpubwf:lastModifiedBy: social-security-editor
+      hippostdpubwf:publicationDate: 2020-09-10T18:34:20.270+03:00
+      hippotaxonomy:keys: [social-security-directorate]
+      hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
       hippotranslation:locale: document-type-locale
       publishing:authorNotes: ''
       publishing:lifeEvents: brexit

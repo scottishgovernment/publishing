@@ -13,8 +13,8 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
           jcr:uuid: ee247b17-f344-47f8-a72f-ead862d09f16
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated',
-            'hippostd:taggable']
+          hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
+            'hippotaxonomy:classifiable', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           /heroimage:
             jcr:primaryType: hipposysedit:field
@@ -78,7 +78,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           publishing:summary: ''
           publishing:title: ''
-          jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
+          jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable', 'hippotaxonomy:classifiable']
           jcr:uuid: 706ae1bb-4049-4a77-9b78-89be2f2aea8d
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:59.186+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:59.186+01:00
@@ -283,3 +283,12 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /classifiable:
+            jcr:primaryType: frontend:plugin
+            essentials-taxonomy-name: orgs
+            mixin: hippotaxonomy:classifiable
+            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              taxonomy.name: orgs

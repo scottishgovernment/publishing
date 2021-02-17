@@ -1,0 +1,55 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/social-security-content:
+      jcr:primaryType: hipposys:domain
+      /content-domain:
+        jcr:primaryType: hipposys:domainrule
+        /include-social-security-documents:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: hippotaxonomy:keys
+          hipposys:filter: false
+          hipposys:type: String
+          hipposys:value: social-security-directorate
+      /editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [social-security-editors]
+        hipposys:role: editor
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          operation: override
+          type: string
+          value: []
+      /include-non-variant-nodes:
+        jcr:primaryType: hipposys:domainrule
+        /include-non-variant-nodes:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: nodetype
+          hipposys:type: String
+          hipposys:value: hippostd:publishable
+        /exclude-value-lists:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: nodetype
+          hipposys:type: String
+          hipposys:value: selection:valuelist
+        /content-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content
+      /include-taxonomy-nodes:
+        jcr:primaryType: hipposys:domainrule
+        /include-non-variant-nodes:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: nodetype
+          hipposys:type: String
+          hipposys:value: hippotaxonomy:taxonomy
