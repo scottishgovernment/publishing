@@ -33,7 +33,6 @@ const global = {
     init: function() {
         let that = this;
 
-        this.initMourningBanner();
         this.initDecommissionedSiteNotice();
         this.initCookieNotice();
         this.validateSearchForm();
@@ -158,21 +157,6 @@ const global = {
             }
         });
         return inArray;
-    },
-
-    initMourningBanner : function () {
-        $.ajax({
-            type: 'GET',
-            url: '/banners.json'
-        })
-        .done(function(data) {
-            if (data.mourning.display === true) {
-                const bannerHtml = '<div id="mourning-banner" class="notification-mourning-banner">' +
-                        '<div class="wrapper"><div class="notification__main-content"></div></div>' +
-                        '</div>';
-                $('#notifications-wrapper').append(bannerHtml);
-            }
-        });
     },
 
     /**
