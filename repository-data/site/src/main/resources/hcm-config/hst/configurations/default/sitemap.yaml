@@ -9,3 +9,6 @@ definitions:
         hst:relativecontentpath: ${1}
     /hst:hst/hst:configurations/hst:default/hst:sitemap/login:
       .meta:delete: true
+    /hst:hst/hst:configurations/hst:default/hst:sitemap/_any_security.txt:
+      jcr:primaryType: hst:sitemapitem
+      hst:containerresource: true
