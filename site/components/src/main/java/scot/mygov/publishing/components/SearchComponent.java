@@ -53,8 +53,9 @@ public class SearchComponent extends EssentialsListComponent {
         constraints.add(excludeTypesConstraint());
 
         String term = param(request, "q");
-        if (!isBlank(term)) {
-            constraints.add(termConstraint(term));
+        String parsedTerm = SearchInputParsingUtils.parse(term, false);
+        if (!isBlank(parsedTerm)) {
+            constraints.add(termConstraint(parsedTerm));
         }
 
         return and(constraints.toArray(new Constraint[] {}));
@@ -78,8 +79,7 @@ public class SearchComponent extends EssentialsListComponent {
     }
 
     private Constraint termConstraint(String term) {
-        String parsedTerm = SearchInputParsingUtils.parse(term, false);
-        return or(fieldConstraints(parsedTerm));
+        return or(fieldConstraints(term));
     }
 
     private Constraint [] fieldConstraints(String term) {
