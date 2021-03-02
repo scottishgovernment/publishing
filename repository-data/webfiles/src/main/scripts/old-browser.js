@@ -12,7 +12,7 @@ var browser = {
     },
     navigator: navigator.appVersion,
     getVersion: function() {
-        var version = 10; // we assume a sane browser
+        var version = 11; // we assume a sane browser
         if (navigator.appVersion.indexOf('MSIE') !== -1) {
             // bah, IE again, lets downgrade version number
             version = parseFloat(navigator.appVersion.split('MSIE')[1]);
@@ -22,7 +22,7 @@ var browser = {
 };
 
 var isSupportedBrowser = function () {
-    return (!(browser.isIe() && browser.getVersion() <= 9));
+    return (!(browser.isIe() && browser.getVersion() <= 11));
 };
 
 var addEvent = function (evnt, elem, func) {
