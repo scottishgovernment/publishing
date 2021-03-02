@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: f294b419-8639-4ba9-9126-f3c50eb4fcc9
+          jcr:uuid: a829b7c2-c7ba-40ee-a0ad-383d8932f098
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -40,20 +40,21 @@ definitions:
             hipposysedit:path: publishing:closeable
             hipposysedit:primary: false
             hipposysedit:type: Boolean
-          /dynamicdropdown:
+          /string:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:bannertype
+            hipposysedit:path: publishing:id
             hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:notificationbanner
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: d2241619-d9b2-49c8-b9e4-12008cbd6715
+          jcr:uuid: b4e2ac07-d42f-49a7-b71c-66b6d6e5112b
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -62,8 +63,8 @@ definitions:
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          publishing:closeable: false
-          publishing:bannertype: ''
+          publishing:closeable: true
+          publishing:id: ''
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -81,6 +82,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /id:
+            jcr:primaryType: frontend:plugin
+            caption: Banner id
+            field: string
+            hint: Enter a unique id for this banner.  This will be used to track interactions
+              with this banner.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /content:
             jcr:primaryType: frontend:plugin
             caption: Content
@@ -108,13 +119,3 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /bannertype:
-            jcr:primaryType: frontend:plugin
-            caption: Banner Type
-            field: dynamicdropdown
-            hint: Choose what type of banner to appear on the site
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/publishing/valuelists/bannertypes
