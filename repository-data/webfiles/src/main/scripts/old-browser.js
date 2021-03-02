@@ -22,7 +22,7 @@ var browser = {
 };
 
 var isSupportedBrowser = function () {
-    return (!(browser.isIe() && browser.getVersion() <= 11));
+    return (!(browser.isIe() && browser.getVersion() < 11));
 };
 
 var addEvent = function (evnt, elem, func) {
