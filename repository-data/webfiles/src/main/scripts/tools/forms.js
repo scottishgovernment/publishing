@@ -119,7 +119,7 @@ const commonForms = {
      * @returns {boolean} whether the field value is valid
      */
     requiredField: function ($field, customMessage) {
-        const trimmedValue = $.trim($field.val());
+        const trimmedValue = $field.val().trim();
         const fieldName = commonForms.getLabelText($field);
 
         const valid = trimmedValue !== '';
@@ -140,7 +140,7 @@ const commonForms = {
     },
 
     regexMatch: function ($field) {
-        const trimmedValue = $.trim($field.val()),
+        const trimmedValue = $field.val().trim(),
             regex = new RegExp($field.attr('pattern')),
             message = $field.data('errormessage'),
             fieldName = commonForms.getLabelText($field);
@@ -182,7 +182,7 @@ const commonForms = {
     },
 
     numericOnly: function ($field, min, max) {
-        const trimmedValue = $.trim($field.val());
+        const trimmedValue = $field.val().trim();
         min = min || 1;
         max = max || 9999;
         const valid = trimmedValue === '' || ($field.val() >= min && $field.val() <= max);
@@ -231,7 +231,7 @@ const commonForms = {
 
     validPostcode: function ($field) {
         let message = 'Please enter a valid postcode, for example EH6 6QQ';
-        let trimmedValue = $.trim($field.val());
+        let trimmedValue = $field.val().trim();
 
         let postcodeRegExp = new RegExp('^[A-Z]{1,2}[0-9R][0-9A-Z]?[0-9][ABD-HJLNP-UW-Z]{2}$');
         let postcodeValue = trimmedValue.toUpperCase().replace(/\s+/g, '');
@@ -246,7 +246,7 @@ const commonForms = {
 
     validEmail: function ($field) {
         const message = 'Please enter a valid email address, for example jane.smith@gov.scot';
-        const trimmedValue = $.trim($field.val());
+        const trimmedValue = $field.val().trim();
 
         const regex = /^[^@ ]+@[^@ ]+\.[^@ ]+$/;
 
@@ -292,7 +292,7 @@ const commonForms = {
     },
 
     validPhone: function ($field) {
-        const trimmedValue = $.trim($field.val()).replace(/\s+/g, '');
+        const trimmedValue = $field.val().trim().replace(/\s+/g, '');
         const message = 'Use only numbers 0-9 and the "+" character. Phone numbers should be less than 20 characters long.';
 
         // A regular expression matching only up to 20 numbers and possibly a '+' character at the beginning
@@ -317,7 +317,7 @@ const commonForms = {
     },
 
     dateRegex: function ($field) {
-        const trimmedValue = $.trim($field.val());
+        const trimmedValue = $field.val().trim();
         const fieldName = $(`label[for="${$field.attr('id')}"]`).text();
         const message = 'Please enter the date as DD/MM/YYYY';
 
@@ -338,7 +338,7 @@ const commonForms = {
     },
 
     futureDate: function ($field) {
-        const trimmedValue = $.trim($field.val());
+        const trimmedValue = $field.val().trim();
         const fieldName = commonForms.getLabelText($field);
         const message = 'This date must be in the future';
         let valid = false;
@@ -365,7 +365,7 @@ const commonForms = {
 
     afterDate: function ($field) {
         const minDate = commonForms.stringToDate($field.attr('data-mindate'));
-        const trimmedValue = $.trim($field.val());
+        const trimmedValue = $field.val().trim();
         const fieldName = commonForms.getLabelText($field);
         const message = `This date must be after ${commonForms.leadingZeroes(minDate.getDate(), 2)}/${commonForms.leadingZeroes((minDate.getMonth() + 1), 2)}/${minDate.getFullYear()}`;
         let valid = false;
@@ -391,7 +391,7 @@ const commonForms = {
     },
 
     pastDate: function ($field) {
-        const trimmedValue = $.trim($field.val());
+        const trimmedValue = $field.val().trim();
         const fieldName = commonForms.getLabelText($field);
         const message = 'This date must be in the past';
         let valid = false;
@@ -436,7 +436,7 @@ const commonForms = {
     },
 
     validCurrency: function ($field) {
-        const trimmedValue = $.trim($field.val());
+        const trimmedValue = $field.val().trim();
         const fieldName = commonForms.getLabelText($field);
         const message = 'Please enter a currency amount with no more than two decimal places, e.g. 150.00';
 
@@ -461,8 +461,8 @@ const commonForms = {
      */
     requiredBuildingOrStreet: function ($field) {
         const message = 'Please enter an address, including building or street';
-        const building = $.trim($field.find('.building').val());
-        const street = $.trim($field.find('.street').val());
+        const building = $field.find('.building').val().trim();
+        const street = $field.find('.street').val().trim();
 
         let valid = false;
         const buildingOrStreet = building || street;
@@ -603,6 +603,8 @@ const commonForms = {
             fieldId = field[0].id;
         }
 
+        if (!fieldId) { return; }
+
         // update error display
         let question;
         if (document.getElementById(fieldId) && document.getElementById(fieldId).closest('.ds_question')) {
@@ -647,12 +649,12 @@ const commonForms = {
     /**
      * Adds or removes error messages to main error container (at top of page)
      */
-    toggleFormErrors: function (field, valid, errorClass, fieldName, message) {
+    toggleFormErrors: function (field, valid, errorClass, fieldName = '', message = '') {
         const className = `.${field.attr('id')}-errors`;
         const errorName = className + ' .' + errorClass;
         if (!valid) {
             if ($(errorName).length === 0) {
-                $(className).append(`<p class="error ${errorClass}"><a class="form-nav" href="#${field.attr('id')}">${$.trim(fieldName)}: <span class="underline">${$.trim(message)}</span></a></p>`);
+                $(className).append(`<p class="error ${errorClass}"><a class="form-nav" href="#${field.attr('id')}">${fieldName.trim()}: <span class="underline">${message.trim()}</span></a></p>`);
             } else {
                 $(errorName).removeClass('error-grey');
             }

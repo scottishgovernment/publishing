@@ -72,7 +72,7 @@ function init() {
         const select = $(self.settings.lookupId + ' select')[0];
 
         if (!input) {
-            $(self.settings.lookupId + ' .postcode-search').focus();
+            $(self.settings.lookupId + ' .postcode-search')[0].focus();
             return;
         }
 

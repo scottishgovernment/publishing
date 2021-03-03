@@ -69,13 +69,13 @@ const commonHousing = {
         const invalidFields = $('[aria-invalid="true"]:not(.no-validate)');
 
         const stopProgressToDownload = function(){
-            $('.client-error h2').focus();
+            $('.client-error h2')[0].focus();
             return false;
         };
 
         if (invalidFields.length > 0) {
             $('.client-error').removeClass('fully-hidden').attr('aria-hidden', 'false');
-            $('.client-error h2').focus();
+            $('.client-error h2')[0].focus();
             $('#button-next').on('click', stopProgressToDownload);
 
             // Copy error message(s) into the corresponding table row
@@ -84,7 +84,7 @@ const commonHousing = {
 
                 $(this).find('.form--required').remove();
 
-                errorItem.innerText = $.trim($(this).text());
+                errorItem.innerText = $(this).text().trim();
                 return errorItem;
             };
 

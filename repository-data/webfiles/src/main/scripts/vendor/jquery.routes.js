@@ -272,7 +272,7 @@
 		}
 	});
 
-	$.expr[':'].hasRoute = function(elem, index, match) {
+	$.expr.pseudos.hasRoute = function (elem, index, match) {
 		return $(elem).has('a[href$=' + location.hash + ']').length > 0;
 	};
 
@@ -324,7 +324,7 @@
 	}
 
 	// Listen for hash change event
-	$(window).bind('hashchange', function() {
+	$(window).on('hashchange', function() {
 		$.routes.load(location.hash);
 	});
 

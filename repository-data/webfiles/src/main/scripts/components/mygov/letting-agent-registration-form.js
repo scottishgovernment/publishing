@@ -121,7 +121,7 @@ lettingAgentRegistrationForm.init = function() {
             url: '/service/form/letting/',
             contentType: 'application/json',
             data: JSON.stringify(postData),
-            success: function() {
+            done: function() {
                 commonForms.track({
                     'event': 'formSubmitted',
                     'formId': 'letting-agent-registration-form',
@@ -137,7 +137,7 @@ lettingAgentRegistrationForm.init = function() {
                 window.enquiry = '#feedback-box';
                 window.scrollTo(0, $('#feedback-box').offset().top - 10);
             },
-            error: function() {
+            fail: function() {
                 commonForms.track({
                     'event': 'formSubmitted',
                     'formId': 'letting-agent-registration-form',

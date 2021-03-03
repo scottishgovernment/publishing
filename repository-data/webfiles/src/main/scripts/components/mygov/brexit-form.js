@@ -132,7 +132,7 @@ brexitForm.init = function () {
             url: '/service/form/brexit/',
             contentType:'application/json',
             data: JSON.stringify(postData),
-            success: function () {
+            done: function () {
                 success = true;
 
                 $('.server-success').removeClass('fully-hidden');
@@ -141,7 +141,7 @@ brexitForm.init = function () {
                 window.enquiry = '#feedback-box';
                 window.scrollTo(0, $('#feedback-box').offset().top - 10);
             },
-            error: function ( ) {
+            fail: function ( ) {
                 $('.server-error').removeClass('fully-hidden');
                 $('.server-success').addClass('fully-hidden');
                 window.enquiry = '#feedback-box';

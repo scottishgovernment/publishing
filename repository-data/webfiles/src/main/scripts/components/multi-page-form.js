@@ -68,14 +68,14 @@ function initRouting() {
             const row = table.find('tbody tr:nth-child(' + (parseInt(this.tableindex, 10) + 1) + ')');
 
             // switch the row to edit mode
-            row.find('.js-edit-button').click();
+            row.find('.js-edit-button').trigger('click');
 
             // if this matches on name, it's a radio
             const radio = row.find($('[name="' + this.field + '-' + this.tableindex + '"]:checked'));
             if (radio.length > 0) {
-                radio.focus();
+                radio[0].focus();
             } else {
-                row.find(('[id="' + this.field + '-' + this.tableindex + '"]')).focus();
+                row.find(('[id="' + this.field + '-' + this.tableindex + '"]'))[0].focus();
             }
         } else {
             window.$.routes.find('section').routeTo({
@@ -109,9 +109,9 @@ function initRouting() {
             // if this matches on name, it's a radio
             const radio = $('[name="' + this.field + '"]:checked');
             if (radio.length > 0) {
-                radio.focus();
+                radio[0].focus();
             } else {
-                $('#' + this.field).focus();
+                $('#' + this.field)[0].focus();
             }
         } else {
             window.$.routes.find('section').routeTo({
@@ -361,7 +361,10 @@ function goToStep (step) {
         }
     }
 
-    $(`section[data-step="${step.slug}"]`).focus();
+    let stepElToFocus = document.querySelector(`section[data-step="${step.slug}"]`);
+    if (stepElToFocus) {
+        stepElToFocus.focus();
+    }
 
     if ($('#section-progess-indicator').length > 0) {
         const formTopOffset = $('#section-progess-indicator').offset().top;

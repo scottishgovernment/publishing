@@ -228,7 +228,7 @@ const modelTenancyForm = {
 
         $('body').on('click', '.js-edit-term', function(event){
             event.preventDefault();
-            $(this).parent().siblings('.js-term-content').attr('disabled', false).removeClass('remove').focus();
+            $(this).parent().siblings('.js-term-content').attr('disabled', false).removeClass('remove')[0].focus();
             $(this).siblings('.js-reset-term, .js-save-term').removeClass('fully-hidden');
             $(this).addClass('fully-hidden');
         });
