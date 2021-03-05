@@ -11,9 +11,9 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: daffe1b7-8f0e-4ef4-93fa-31f140e1cae5
+          jcr:uuid: 1aadaece-0ff1-4fc3-9a41-a3e182b2d931
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
+          hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           /content:
@@ -46,8 +46,8 @@ definitions:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:fairrent
-          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
-          jcr:uuid: 1dcc728a-335d-4f24-8b9c-4416b4614963
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 3c0f64ff-5750-4a58-909a-28bfd30bbab5
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -120,13 +120,6 @@ definitions:
               \ where this page is listed on the live website, such as a category\
               \ page and in search results. \r\n\r\nIt must be between 3 and 255 characters."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /taggable:
-            jcr:primaryType: frontend:plugin
-            mixin: hippostd:taggable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

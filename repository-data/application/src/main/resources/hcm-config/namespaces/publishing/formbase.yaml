@@ -7,13 +7,13 @@ definitions:
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 2547cb3a-300c-470f-81a9-727d6bbd658f
+        jcr:uuid: b1a49c22-4ce5-4226-960e-4909c13a60c5
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: 3e3d549b-c55a-4473-88d0-effa411945c1
+          jcr:uuid: 43dbd62e-194c-4c09-94c3-97ddf58a45af
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
+          hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           /content:
@@ -47,8 +47,8 @@ definitions:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:formbase
-          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
-          jcr:uuid: 92ec5386-fdb3-4766-8beb-84dfa2b5df0e
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 39d945a4-a3dd-45f0-b3a0-215a9b14c418
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -119,13 +119,6 @@ definitions:
               \ where this page is listed on the live website, such as a category\
               \ page and in search results. \r\n\r\nIt must be between 3 and 255 characters."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /taggable:
-            jcr:primaryType: frontend:plugin
-            mixin: hippostd:taggable
-            plugin.class: org.hippoecm.frontend.editor.plugins.mixin.MixinLoaderPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
