@@ -122,8 +122,6 @@
                         <div class="mg_org-person">
                             <div class="mg_org-person__image">
                                 <#if document.featuredroleimage??>
-                                <img src="<@hst.link hippobean = document.featuredroleimage />" alt="">
-
                                     <img alt="${document.featuredrolename}" class="person__image"
                                     src="<@hst.link hippobean=document.featuredroleimage.columnimagefour/>"
                                     srcset="<@hst.link hippobean=document.featuredroleimage.columnimagefour/> 208w,

@@ -5,6 +5,8 @@
 <'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 
+[publishing:FeaturedRole] > hippogallery:imageset, hippogallery:relaxed
+
 [publishing:ImageCard] > hippogallery:imageset, hippogallery:relaxed
 
 [publishing:ImageDefault] > hippogallery:imageset, hippogallery:relaxed
@@ -39,13 +41,13 @@
 [publishing:documentcoverpage] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
+[publishing:fairrent] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
 [publishing:featureditem] > hippo:compound, hippostd:relaxed
   orderable
 
 [publishing:formbase] > hippostd:relaxed, hippotranslation:translated, publishing:base
-  orderable
-
-[publishing:fairrent] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
 [publishing:guide] > hippostd:relaxed, hippotranslation:translated, publishing:base

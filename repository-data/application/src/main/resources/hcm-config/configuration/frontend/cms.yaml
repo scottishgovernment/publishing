@@ -160,3 +160,67 @@ definitions:
       document.subtypes.included: true
     /hippo:configuration/hippo:frontend/cms/cms-static/advancedSearchController:
       query.limit: '5000'
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:columnimagefour:
+      jcr:primaryType: frontend:pluginconfig
+      height: 208
+      upscaling: false
+      width: 208
+      compression: 1.0
+      cropping: false
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:columnimagefourdbl:
+      jcr:primaryType: frontend:pluginconfig
+      height: 416
+      upscaling: false
+      width: 416
+      compression: 1.0
+      cropping: false
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:columnimagefourmedium:
+      jcr:primaryType: frontend:pluginconfig
+      height: 224
+      upscaling: false
+      width: 224
+      compression: 1.0
+      cropping: false
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:columnimagefourmediumdbl:
+      jcr:primaryType: frontend:pluginconfig
+      height: 448
+      upscaling: false
+      width: 448
+      compression: 1.0
+      cropping: false
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:columnimagethreelarge:
+      jcr:primaryType: frontend:pluginconfig
+      height: 208
+      upscaling: false
+      width: 208
+      compression: 1.0
+      cropping: false
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:columnimagethreelargedbl:
+      jcr:primaryType: frontend:pluginconfig
+      height: 416
+      upscaling: false
+      width: 416
+      compression: 1.0
+      cropping: false
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:columnimagethreexl:
+      jcr:primaryType: frontend:pluginconfig
+      height: 256
+      upscaling: false
+      width: 256
+      compression: 1.0
+      cropping: false
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:columnimagethreexldbl:
+      jcr:primaryType: frontend:pluginconfig
+      height: 512
+      upscaling: false
+      width: 512
+      compression: 1.0
+      cropping: false
+      optimize: quality

@@ -4,6 +4,9 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
+import java.util.Calendar;
+import java.util.List;
+import scot.mygov.publishing.beans.DescribedLink;
 
 @HippoEssentialsGenerated(internalName = "publishing:home")
 @Node(jcrType = "publishing:home")
@@ -31,5 +34,56 @@ public class Home extends Base {
     @HippoEssentialsGenerated(internalName = "publishing:cardImage")
     public ImageCard getCardImage() {
         return getLinkedBean("publishing:cardImage", ImageCard.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:showSummaries")
+    public Boolean getShowSummaries() {
+        return getSingleProperty("publishing:showSummaries");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:urlAliases")
+    public String[] getUrlAliases() {
+        return getMultipleProperty("publishing:urlAliases");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:sensitive")
+    public Boolean getSensitive() {
+        return getSingleProperty("publishing:sensitive");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:audience")
+    public String getAudience() {
+        return getSingleProperty("publishing:audience");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:serviceproviders")
+    public String[] getServiceproviders() {
+        return getMultipleProperty("publishing:serviceproviders");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:lifeEvents")
+    public String[] getLifeEvents() {
+        return getMultipleProperty("publishing:lifeEvents");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:userneed")
+    public String getUserneed() {
+        return getSingleProperty("publishing:userneed");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:reviewDate")
+    public Calendar getReviewDate() {
+        return getSingleProperty("publishing:reviewDate");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:lastUpdatedDate")
+    public Calendar getLastUpdatedDate() {
+        return getSingleProperty("publishing:lastUpdatedDate");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:popularpanelitem")
+    public List<DescribedLink> getPopularpanelitem() {
+        return getChildBeansByName("publishing:popularpanelitem",
+                DescribedLink.class);
     }
 }

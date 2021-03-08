@@ -28,4 +28,9 @@ public class NotificationBanner extends BaseDocument {
     public List<HippoBean> getExcluded() {
         return getLinkedBeans("publishing:excluded", HippoBean.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "publishing:id")
+    public String getId() {
+        return getSingleProperty("publishing:id");
+    }
 }
