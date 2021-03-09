@@ -60,12 +60,6 @@
 </div>
 </#if>
 
-<@hst.headContribution category="title">
-    <#if document??>
-        <title>${document.title}</title>
-    </#if>
-</@hst.headContribution>
-
 <@hst.headContribution category="meta">
     <#if document??>
         <meta name="description" content="${document.metaDescription?html}"/>

@@ -8,7 +8,16 @@
         <!-- dataLayer code MUST be higher than google tag manager code -->
         <@hst.headContributions categoryIncludes="googleTagManager"/>
         <@hst.headContributions categoryIncludes="resourcehints"/>
-        <@hst.headContributions categoryIncludes="title"/>
+
+        <#if document??>
+            <#if document.titleTag??>
+                <title>${document.titleTag}</title>
+            <#else>
+                <title>${document.title} - ${siteTitle}</title>
+            </#if>
+        <#else>
+            <title>404 - Page not found</title>
+        </#if>
         <@hst.headContributions categoryIncludes="schema"/>
         <@hst.headContributions categoryIncludes="meta"/>
 

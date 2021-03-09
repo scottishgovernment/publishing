@@ -41,12 +41,18 @@ definitions:
           hst:renderpath: webfile:/freemarker/mygov/home-main.ftl
       /hst:workspace:
         jcr:primaryType: hst:workspace
+        jcr:mixinTypes: ['dxphst:mergeable']
+        dxphst:treehash: 732E79FA946D32A9B4465FF61A6AAC7D
         /hst:channel:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:channel
           hst:name: Mygov
           hst:type: website
           hst:channelinfoclass: scot.mygov.publishing.channels.WebsiteInfo
+          hst:lastmodifiedby: admin
+          hst:defaultdevice: default
+          hst:devices: []
+          hst:lastmodified: 2021-03-08T15:12:18.829Z
         /hst:containers:
           jcr:primaryType: hst:containercomponentfolder
         /hst:pages:

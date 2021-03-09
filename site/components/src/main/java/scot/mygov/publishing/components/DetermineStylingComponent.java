@@ -25,5 +25,6 @@ public class DetermineStylingComponent extends EssentialsContentComponent {
         }
 
         request.setAttribute("css", css);
+        request.setAttribute("siteTitle", info.getSiteTitle());
     }
 }

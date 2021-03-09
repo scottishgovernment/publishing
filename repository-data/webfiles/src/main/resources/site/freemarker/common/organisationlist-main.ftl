@@ -117,12 +117,6 @@
 </div>
 </#if>
 
-<@hst.headContribution category="title">
-    <#if document??>
-    <title>${document.title} - A Trading Nation</title>
-    </#if>
-</@hst.headContribution>
-
 <@hst.headContribution category="meta">
     <#if document??>
     <meta name="description" content=""/>

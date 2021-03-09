@@ -12,4 +12,7 @@ public interface WebsiteInfo extends ChannelInfo {
 
     @Parameter(name = "feedbackEnabled", required = true, displayName = "Feedback enabled?")
     Boolean isFeedbackEnabled();
+
+    @Parameter(name = "siteTitle", required = true, displayName = "Site tite")
+    String getSiteTitle();
 }
