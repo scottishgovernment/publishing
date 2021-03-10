@@ -5,15 +5,6 @@ CKEDITOR.plugins.add('ds_la-finder', {
     init: function (editor) {
         CKEDITOR.dialog.add('dsLAFinderDialog', this.path + 'dialogs/ds_la-finder.js');
 
-        if (document.getElementById('dsLAFinderStyles') === null) {
-            let link = document.createElement('link');
-            link.id = 'dsLAFinderStyles';
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = this.path + 'ds_la-finder.css';
-            document.body.appendChild(link);
-        }
-
         editor.widgets.add('ds_la-finder', {
             button: 'LA finder',
             pathName: 'finder',

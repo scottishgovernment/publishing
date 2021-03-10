@@ -47,14 +47,6 @@
         },
 
         onLoad: function () {
-            if (document.getElementById('contactDetailsStyles') === null) {
-                let link = document.createElement('link');
-                link.id = 'contactDetailsStyles';
-                link.rel = 'stylesheet';
-                link.type = 'text/css';
-                link.href = this.path + 'ds_contact-details.css';
-                document.body.appendChild(link);
-            }
         }
     });
 

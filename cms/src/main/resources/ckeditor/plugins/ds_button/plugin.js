@@ -14,15 +14,6 @@ CKEDITOR.plugins.add( 'ds_button', {
             }
         });
 
-        if (document.getElementById('buttonStyles') === null) {
-            let link = document.createElement('link');
-            link.id = 'buttonStyles';
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = this.path + 'ds_button.css';
-            document.body.appendChild(link);
-        }
-
         CKEDITOR.dialog.add( 'dsButtonDialog', this.path + 'dialogs/ds_button.js' );
     }
 });

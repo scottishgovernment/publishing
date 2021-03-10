@@ -198,66 +198,211 @@
     transition: background-color 0.2s;
     margin-top: 32px;
     margin-bottom: 32px;
-  }
+}
 
-  .ds_reversed .ds_button {
+.ds_reversed .ds_button {
     background-color: #ffffff;
     color: #0065bd;
-  }
+}
 
-  .ds_reversed .ds_button:focus,
-  .ds_reversed .ds_button:hover:focus {
+.ds_reversed .ds_button:focus,
+.ds_reversed .ds_button:hover:focus {
     background-color: #fdd522;
-  }
+}
 
-  .ds_reversed .ds_button:hover {
+.ds_reversed .ds_button:hover {
     background-color: #d9effc;
-  }
+}
 
-  .ds_reversed .ds_button--secondary {
+.ds_reversed .ds_button--secondary {
     background-color: transparent;
     border-color: currentColor;
     color: #ffffff;
-  }
+}
 
-  .ds_reversed .ds_button--secondary:hover:not(:focus) {
+.ds_reversed .ds_button--secondary:hover:not(:focus) {
     background-color: rgba(0, 101, 189, 0.3);
     color: #ffffff;
-  }
+}
 
-  .ds_button--secondary {
+.ds_button--secondary {
     background-color: transparent;
     color: #0065bd;
     outline: 2px solid currentColor;
     outline-offset: -2px;
-  }
+}
 
-  .ds_button--secondary:hover:not(:focus) {
+.ds_button--secondary:hover:not(:focus) {
     background-color: #d9effc;
     color: #00437e;
-  }
+}
 
-  .ds_button--cancel {
+.ds_button--cancel {
     background-color: transparent;
     color: #333333;
     outline: 2px solid currentColor;
     outline-offset: -2px;
-  }
+}
 
-  .ds_button--cancel:hover:not(:focus) {
+.ds_button--cancel:hover:not(:focus) {
     background-color: #ebebeb;
     color: #333333;
-  }
+}
 
-  .ds_button--fixed {
+.ds_button--fixed {
     width: 200px;
-  }
+}
 
-  .ds_button--fixed.ds_button--small {
+.ds_button--fixed.ds_button--small {
     width: 160px;
-  }
+}
 
-  .ds_button--max {
+.ds_button--max {
     max-width: 480px;
     width: 100%;
-  }
+}
+
+/*------------------------------------*\
+    #LA FINDER
+\*------------------------------------*/
+
+.form-box {
+    background: #eee;
+    pointer-events: none;
+    padding: 1em;
+}
+
+.form-box a.ds_button {
+    display: none;
+}
+
+.form-box select {
+    height: 40px;
+}
+
+.form-box label {
+    font-weight: bold;
+}
+
+
+
+/* dialog */
+#links-table-title {
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+#links-table {
+    width: 100%;
+}
+
+#links-table td:first-child,
+#links-table th:first-child {
+    padding-left: 0;
+}
+
+#links-table td,
+#links-table th {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+#links-table td:last-child,
+#links-table th:last-child {
+    padding-right: 0;
+}
+
+#links-table .js-remove {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAAe0lEQVRIx+2UuRHAIAwEV41RDV1RK4MjB2B+LjOXSrcjHh1cXWVyWLduuBmMJxI6KCMQ8eNpIonURBmBRCKOpnob66h+dbp5CdM2LGPqpi3M17iNKVEHmBx1hClRBxgZSHQ00WWLnl/0IUUrIlpaWYzIgk0WtcLwv/qRHuzZlgUHzwIXAAAAAElFTkSuQmCC);
+}
+
+#links-table .js-move-up {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAAV0lEQVRIx+3QMQoAIAxD0YCDx+6pPJ8OIop0MRVxyF8Lj1BAKfVLBrvDVNQ41ZkwNZkQNZiCEqEmk5F5amUAsNTOkJTHUJS5zEodbPKYQR19KREXpdSDGnXxQv2vdUCxAAAAAElFTkSuQmCC);
+}
+
+#links-table .js-move-down {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAAXUlEQVRIie3MSwrAIBCD4YEuPLan6vl8IKXVZjFMBDf5swx8Zkqpk12BB5TttgSf1J7sZ0obojrTPyc1oD/1MG4IUwEGUUFmpQhmpijmS5HMTFHMS9HMoLYwSqkdVSbMQv13hsVRAAAAAElFTkSuQmCC);
+}
+
+#links-table .js-remove,
+#links-table .js-move-down,
+#links-table .js-move-up {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    height: 28px;
+    margin-top: -1px;
+    width: 28px;
+}
+
+#links-table [data-name][disabled],
+#links-table [data-name][disabled] {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.js-add-link {
+    padding-left: 0.5em !important;
+    padding-right: 0.5em !important;
+}
+
+
+/*------------------------------------*\
+    #CONTACT DETAILS
+\*------------------------------------*/
+
+.ds_contact-details__title {
+    display: inline-block;
+    padding-top: 8px;
+    position: relative;
+}
+
+.ds_contact-details__title::after {
+    background-color: #0065bd;
+    content: '';
+    height: 4px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.ds_contact-details__item,
+.ds_contact-details__title {
+    margin-bottom: 24px;
+}
+
+.ds_contact-details__list dd {
+    margin-left: 0;
+}
+
+.ds_contact-details__list dt {
+    font-weight: 700;
+}
+
+.ds_contact-details__social {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+.ds_contact-details__social-item {
+    margin-bottom: 8px;
+    padding-left: 32px;
+    position: relative;
+}
+
+.ds_contact-details__social-icon {
+    height: 24px;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    width: 24px;
+}
+
+@media (min-width: 768px) {
+    .ds_contact-details__social-icon {
+        top: 4px;
+    }
+}
