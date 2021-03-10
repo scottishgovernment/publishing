@@ -11,7 +11,7 @@ import storage from './tools/storage';
 import gup from './tools/gup';
 import './components/tooltip';
 import NotificationBanner from './components/notification';
-import finders from './components/finders';
+import finders from './components/content-select';
 
 import '../../../node_modules/@scottish-government/pattern-library/src/all';
 
@@ -54,6 +54,41 @@ const global = {
             const backToTop = new window.DS.components.BackToTop(backToTopEl);
             backToTop.init();
         }
+
+        // need to preprocess accordion items to group them
+        const accordionItems = [].slice.call(document.querySelectorAll('.ds_accordion-item'));
+        const groups = [];
+        let groupItems = [];
+        accordionItems.forEach(accordionItem => {
+            if(accordionItem.parentNode.classList.contains('ds_accordion')) {
+                return;
+            }
+            groupItems.push(accordionItem);
+            if (!(accordionItem.nextElementSibling && accordionItem.nextElementSibling.classList.contains('ds_accordion-item'))) {
+                groups.push(groupItems);
+                groupItems = [];
+            }
+        });
+        groups.forEach(groupItems => {
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('ds_accordion');
+            wrapper.dataset.module = 'ds-accordion';
+
+            if (groupItems.length > 1) {
+                const openAllButton = document.createElement('button');
+                openAllButton.setAttribute('class', 'ds_link  ds_accordion__open-all  js-open-all');
+                openAllButton.innerHTML = 'Open all <span class="visually-hidden">sections</span>';
+                wrapper.appendChild(openAllButton);
+            }
+
+            groupItems[0].parentNode.insertBefore(wrapper, groupItems[0]);
+            groupItems.forEach(item => {
+                wrapper.appendChild(item);
+            });
+        });
+
+        const accordions = [].slice.call(document.querySelectorAll('[data-module="ds-accordion"]'));
+        accordions.forEach(accordion => new window.DS.components.Accordion(accordion).init());
 
         // this one is handled differently because it applies an event to the whole body and we only want that event once
         const hidePageButtons = [].slice.call(document.querySelectorAll('.ds_hide-page'));

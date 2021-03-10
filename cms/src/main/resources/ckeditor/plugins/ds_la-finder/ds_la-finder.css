@@ -1,0 +1,81 @@
+/*------------------------------------*\
+    #WARNING TEXT
+\*------------------------------------*/
+
+.form-box {
+    background: #eee;
+    pointer-events: none;
+    padding: 1em;
+}
+
+.form-box a.ds_button {
+    display: none;
+}
+
+.form-box select {
+    height: 40px;
+}
+
+.form-box label {
+    font-weight: bold;
+}
+
+
+
+/* dialog */
+#links-table-title {
+    font-weight: bold;
+    margin: 1em 0;
+}
+#links-table {
+    width: 100%;
+}
+#links-table td:first-child,
+#links-table th:first-child {
+    padding-left :0;
+}
+#links-table td,
+#links-table th {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+}
+#links-table td:last-child,
+#links-table th:last-child {
+    padding-right :0;
+}
+
+#links-table .js-remove {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAAe0lEQVRIx+2UuRHAIAwEV41RDV1RK4MjB2B+LjOXSrcjHh1cXWVyWLduuBmMJxI6KCMQ8eNpIonURBmBRCKOpnob66h+dbp5CdM2LGPqpi3M17iNKVEHmBx1hClRBxgZSHQ00WWLnl/0IUUrIlpaWYzIgk0WtcLwv/qRHuzZlgUHzwIXAAAAAElFTkSuQmCC);
+}
+
+#links-table .js-move-up {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAAV0lEQVRIx+3QMQoAIAxD0YCDx+6pPJ8OIop0MRVxyF8Lj1BAKfVLBrvDVNQ41ZkwNZkQNZiCEqEmk5F5amUAsNTOkJTHUJS5zEodbPKYQR19KREXpdSDGnXxQv2vdUCxAAAAAElFTkSuQmCC);
+}
+
+#links-table .js-move-down {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAQAAABLCVATAAAAXUlEQVRIie3MSwrAIBCD4YEuPLan6vl8IKXVZjFMBDf5swx8Zkqpk12BB5TttgSf1J7sZ0obojrTPyc1oD/1MG4IUwEGUUFmpQhmpijmS5HMTFHMS9HMoLYwSqkdVSbMQv13hsVRAAAAAElFTkSuQmCC);
+}
+
+#links-table .js-remove,
+#links-table .js-move-down,
+#links-table .js-move-up {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    height: 28px;
+    margin-top: -1px;
+    width: 28px;
+}
+
+#links-table [data-name][disabled],
+#links-table [data-name][disabled] {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.js-add-link {
+    padding-left: 0.5em !important;
+    padding-right: 0.5em !important;
+}
