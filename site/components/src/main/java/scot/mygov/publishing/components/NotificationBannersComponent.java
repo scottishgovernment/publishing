@@ -28,7 +28,7 @@ public class NotificationBannersComponent extends BaseHstComponent {
         request.setAttribute("notificationbanners", banners);
     }
 
-    MourningBanner getMourningBanner(HippoFolder folder) {
+    static MourningBanner getMourningBanner(HippoFolder folder) {
         List<MourningBanner> mourningBanners = folder.getDocuments(MourningBanner.class);
         return mourningBanners.isEmpty() ? null : mourningBanners.get(0);
     }

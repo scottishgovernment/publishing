@@ -10,6 +10,7 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
+import scot.mygov.publishing.beans.MourningBanner;
 import scot.mygov.publishing.beans.NotificationBanner;
 
 import java.util.ArrayList;
@@ -52,6 +53,23 @@ public class NotificationBannersComponentTest {
     }
 
     @Test
+    public void addsMourningBannerIfPresent() {
+
+        // ARRANGE
+        NotificationBannersComponent sut = new NotificationBannersComponent();
+        HippoBean contentBean = mock(HippoBean.class);
+        MourningBanner mourningBanner = mock(MourningBanner.class);
+        HstRequest request = requestWithMourningBanner(mourningBanner,  contentBean);
+        HstResponse response = anyResponse();
+
+        // ACT
+        sut.doBeforeRender(request, response);
+
+        // ASSERT
+        Mockito.verify(request).setAttribute("mourningbanner", mourningBanner);
+    }
+
+    @Test
     public void showBannerDefaultsToTrueForNoContentBean() {
         assertTrue(NotificationBannersComponent.showBanner(anyBanner(), null));
     }
@@ -73,6 +91,19 @@ public class NotificationBannersComponentTest {
         when(context.getSiteContentBaseBean()).thenReturn(contentBaseBean);
         when(contentBaseBean.getBean("site-furniture/banners", HippoFolder.class)).thenReturn(folder);
         when(folder.getDocuments((NotificationBanner.class))).thenReturn(banners);
+        return request;
+    }
+
+    HstRequest requestWithMourningBanner(MourningBanner banner, HippoBean contentBean) {
+        HstRequest request = mock(HstRequest.class);
+        HstRequestContext context = mock(HstRequestContext.class);
+        HippoBean contentBaseBean = mock(HippoBean.class);
+        HippoFolder folder = mock(HippoFolder.class);
+        when(request.getRequestContext()).thenReturn(context);
+        when(context.getContentBean()).thenReturn(contentBean);
+        when(context.getSiteContentBaseBean()).thenReturn(contentBaseBean);
+        when(contentBaseBean.getBean("site-furniture/banners", HippoFolder.class)).thenReturn(folder);
+        when(folder.getDocuments((MourningBanner.class))).thenReturn(Collections.singletonList(banner));
         return request;
     }
 
