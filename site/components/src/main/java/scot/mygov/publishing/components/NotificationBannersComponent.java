@@ -47,9 +47,6 @@ public class NotificationBannersComponent extends BaseHstComponent {
     }
 
     static boolean showBanner(NotificationBanner banner, HippoBean contentBean)  {
-        if (contentBean == null) {
-        }
-
         return banner.getExcluded()
                 .stream()
                 .noneMatch(b -> b.isSelf(contentBean));
