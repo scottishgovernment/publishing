@@ -62,7 +62,7 @@
             <@hst.html hippohtml=document.prologue/>
         </#if>
         <div class="ds_layout  ds_layout--category-list">
-            <#if document.popularpanelitem?hasContent>
+            <#if document.popularpanelitem?has_content>
                 <div class="ds_layout__content">
                     <div class="popular">
                         <h2 class="popular__title">Popular on mygov.scot:</h2>

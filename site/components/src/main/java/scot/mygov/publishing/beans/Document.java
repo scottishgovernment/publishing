@@ -24,4 +24,13 @@ public class Document extends BaseDocument {
         return getSingleProperty("publishing:title");
     }
 
+    @HippoEssentialsGenerated(internalName = "publishing:size")
+    public long getSize() {
+        return getSingleProperty("publishing:size");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:pageCount")
+    public long getPageCount() {
+        return getSingleProperty("publishing:pageCount");
+    }
 }

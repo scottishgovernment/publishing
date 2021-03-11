@@ -18,4 +18,9 @@ public class Featureditem extends HippoCompound {
     public HippoGalleryImageSet getImage() {
         return getLinkedBean("publishing:image", HippoGalleryImageSet.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "publishing:summary")
+    public String getSummary() {
+        return getSingleProperty("publishing:summary");
+    }
 }

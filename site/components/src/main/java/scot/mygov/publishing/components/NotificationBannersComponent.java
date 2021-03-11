@@ -9,13 +9,11 @@ import org.hippoecm.hst.core.component.HstResponse;
 import java.util.List;
 
 import org.hippoecm.hst.core.request.HstRequestContext;
+import scot.mygov.publishing.beans.MourningBanner;
 import scot.mygov.publishing.beans.NotificationBanner;
 
 import static java.util.stream.Collectors.toList;
 
-/**
- * Created by z445543 on 24/06/2020.
- */
 public class NotificationBannersComponent extends BaseHstComponent {
 
     @Override
@@ -25,7 +23,14 @@ public class NotificationBannersComponent extends BaseHstComponent {
         HippoBean contentBean = request.getRequestContext().getContentBean();
 
         List<NotificationBanner> banners = getIncludedBanners(bannersFolder, contentBean);
+        MourningBanner mourningBanner = getMourningBanner(bannersFolder);
+        request.setAttribute("mourningbanner", mourningBanner);
         request.setAttribute("notificationbanners", banners);
+    }
+
+    MourningBanner getMourningBanner(HippoFolder folder) {
+        List<MourningBanner> mourningBanners = folder.getDocuments(MourningBanner.class);
+        return mourningBanners.isEmpty() ? null : mourningBanners.get(0);
     }
 
     static HippoFolder folder(HstRequest request, String path) {
@@ -43,7 +48,6 @@ public class NotificationBannersComponent extends BaseHstComponent {
 
     static boolean showBanner(NotificationBanner banner, HippoBean contentBean)  {
         if (contentBean == null) {
-            return true;
         }
 
         return banner.getExcluded()

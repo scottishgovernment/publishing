@@ -46,6 +46,24 @@
                     <div id="subsection-progess-indicator"></div>
                 </div>
 
+                <#if document.relateditems?has_content >
+                    <aside class="ds_layout__sidebar">
+                        <aside class="ds_article-aside">
+                            <h2 class="gamma">Related content</h2>
+                            <ul class="ds_no-bullets">
+                                <#list document.relateditems as item>
+                                    <#list item.relatedItem as link>
+                                        <@hst.link var="url" hippobean=link/>
+                                        <li>
+                                            <a href="${url}" data-gtm="link-related-${link?index}">${link.title}</a>
+                                        </li>
+                                    </#list>
+                                </#list>
+                            </ul>
+                        </aside>
+                    </aside>
+                </#if>
+
                 <div class="ds_layout__feedback">
                     <#include 'feedback-wrapper.ftl'>
                 </div>

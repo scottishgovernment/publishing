@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: 43dbd62e-194c-4c09-94c3-97ddf58a45af
+          jcr:uuid: bfed976e-fd36-416f-a5ea-7ab26436822b
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -48,7 +48,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 39d945a4-a3dd-45f0-b3a0-215a9b14c418
+          jcr:uuid: 3a05d715-e8bd-4a6e-bed7-ea1adb7bfa2f
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -216,6 +216,15 @@ definitions:
               /schema.meta.fields:
                 jcr:primaryType: frontend:pluginconfig
                 totalHits: response.totalHits
+          /lifeEvents:
+            jcr:primaryType: frontend:plugin
+            caption: Life events
+            field: lifeEvents
+            hint: Life events migrated from Rubric
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /tagsuggest:
             jcr:primaryType: frontend:plugin
             engine: ${engine}

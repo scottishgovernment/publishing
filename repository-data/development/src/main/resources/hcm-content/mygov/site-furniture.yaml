@@ -126,7 +126,7 @@
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
     jcr:uuid: e6941ecc-051e-4bf4-bcb6-c6c76c392fcd
-    hippostd:foldertype: [new-notification-banner]
+    hippostd:foldertype: [new-notification-banner, new-mourning-banner]
     /coronavirus-banner:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -249,6 +249,54 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+    /mourning:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 84b525fa-5ae6-476f-80b7-54de4eb23692
+      hippo:versionHistory: 77f7ad18-1268-475f-bfa6-c88ae02eb1d5
+      /mourning[1]:
+        jcr:primaryType: publishing:mourningbanner
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 68905f88-6ed5-4e3b-9406-148c71f39724
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-03-10T11:40:54.534Z
+        hippostdpubwf:lastModificationDate: 2021-03-10T11:40:54.535Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f4591d3d-d710-4079-a2d6-152cf95e4bcc
+        hippotranslation:locale: document-type-locale
+        publishing:html: <p>some content</p>
+      /mourning[2]:
+        jcr:primaryType: publishing:mourningbanner
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: dc92378e-8c20-4714-8a9f-848ff370ee5f
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-03-10T11:40:54.534Z
+        hippostdpubwf:lastModificationDate: 2021-03-10T11:41:00.243Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f4591d3d-d710-4079-a2d6-152cf95e4bcc
+        hippotranslation:locale: document-type-locale
+        publishing:html: <p>some content</p>
+      /mourning[3]:
+        jcr:primaryType: publishing:mourningbanner
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 64fbcce5-5a06-4348-bc92-9b4740bdcf66
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-03-10T11:40:54.534Z
+        hippostdpubwf:lastModificationDate: 2021-03-10T11:41:00.243Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-03-10T11:41:04.071Z
+        hippotranslation:id: f4591d3d-d710-4079-a2d6-152cf95e4bcc
+        hippotranslation:locale: document-type-locale
+        publishing:html: <p>some content</p>
   /sectors:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']

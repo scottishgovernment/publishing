@@ -103,7 +103,11 @@
                                 <@hst.link var="link" hippobean=child.link/>
                                 <div class="ds_card__content  ds_category-item">
                                     <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="${link}">${child.link.title}</a></h2>
+                                    <div class="ds_category-item__summary">
+                                        ${child.summary}
+                                    </div>
                                 </div>
+
                             </div>
                         </#list>
                     </div>

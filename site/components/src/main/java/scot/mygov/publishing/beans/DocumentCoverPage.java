@@ -1,6 +1,7 @@
 package scot.mygov.publishing.beans;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import java.util.List;
 import java.util.Calendar;
@@ -9,6 +10,12 @@ import scot.mygov.publishing.beans.Relateditems;
 @HippoEssentialsGenerated(internalName = "publishing:documentcoverpage")
 @Node(jcrType = "publishing:documentcoverpage")
 public class DocumentCoverPage extends Base {
+
+    @HippoEssentialsGenerated(internalName = "publishing:content")
+    public HippoHtml getContent() {
+        return getHippoHtml("publishing:content");
+    }
+
     @HippoEssentialsGenerated(internalName = "publishing:documents")
     public List<Document> getDocuments() {
         return getChildBeansByName("publishing:documents", Document.class);

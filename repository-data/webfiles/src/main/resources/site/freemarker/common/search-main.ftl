@@ -16,6 +16,9 @@
             </div>
 
             <div class="ds_layout__content">
+
+                <@hst.html hippohtml=document.content/>
+
                 <#include 'include/search.ftl'/>
 
                 <#--  <nav id="suggestions" class="ds_search-suggestions" aria-label="Alternative search suggestions">
