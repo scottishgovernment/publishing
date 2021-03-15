@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: bfed976e-fd36-416f-a5ea-7ab26436822b
+          jcr:uuid: 0a96c839-6aa5-40b7-bba2-e2de1220255d
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -48,7 +48,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 3a05d715-e8bd-4a6e-bed7-ea1adb7bfa2f
+          jcr:uuid: 196588a2-ba02-4d06-92d9-c60fccf95207
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -133,15 +133,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.overlayed.json: '{extraPlugins: ''ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',extraAllowedContent:''div[data-module]''}'
-          /relateditems:
-            jcr:primaryType: frontend:plugin
-            caption: Related items
-            field: relateditems
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title

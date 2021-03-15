@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: a829b7c2-c7ba-40ee-a0ad-383d8932f098
+          jcr:uuid: 86412e17-78e3-4ee3-b2a1-6264fca33af6
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -49,12 +49,20 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
+          /notes:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:authorNotes
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:notificationbanner
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: b4e2ac07-d42f-49a7-b71c-66b6d6e5112b
+          jcr:uuid: 57143be5-983b-4e1f-a4eb-df78767d9380
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -71,6 +79,9 @@ definitions:
           /publishing:excluded:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:authorNotes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -116,6 +127,16 @@ definitions:
             field: closeable
             hint: Select if the banner can be closed by user
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /authorNotes:
+            jcr:primaryType: frontend:plugin
+            caption: Author notes
+            field: notes
+            hint: Enter any notes relevant to this content item. This will not appear
+              on the page itself.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

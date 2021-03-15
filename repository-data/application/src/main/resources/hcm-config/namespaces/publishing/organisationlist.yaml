@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 35e649e5-ef19-4cb9-9325-2b7aa96efb4e
+          jcr:uuid: 282bb180-e04a-4bc4-8b56-680f7f55f263
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -42,6 +42,30 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
+          /html:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:html
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+          /metaDescription:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:metaDescription
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+          /seoTitle:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:seoTitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -54,11 +78,16 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           publishing:title: ''
-          jcr:uuid: 9e807a8c-b10f-4d1f-81e2-0e49d9fa265a
+          jcr:uuid: 6d6585c5-6df6-4763-8944-3334d4d67012
           hippostdpubwf:lastModificationDate: 2020-07-01T10:45:12.712+01:00
           hippostdpubwf:creationDate: 2020-07-01T10:45:12.712+01:00
           publishing:summary: ''
+          publishing:metaDescription: ''
+          publishing:seoTitle: ''
           /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:html:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
       /editor:templates:
@@ -97,5 +126,37 @@ definitions:
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /seoTitle:
+            jcr:primaryType: frontend:plugin
+            caption: SEO title
+            field: seoTitle
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: "This title will be used by search engines when indexing the content\
+              \ to add it to search results. \r\n\r\nIt must be between 3 and 60 characters."
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /metaDescription:
+            jcr:primaryType: frontend:plugin
+            caption: Meta description
+            field: metaDescription
+            hint: "Describe what content this page covers. Search engines will use\r\
+              \nthis content when displaying links to the site in the search listings.\r\
+              \n\r\nThe description must be between 3 and 255 characters."
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '255'
+          /html:
+            jcr:primaryType: frontend:plugin
+            caption: Author notes
+            field: html
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: Enter any notes relevant to this content item.  This will not appear
+              on the page itself.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

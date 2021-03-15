@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 0e51bd4a-78b7-41d4-944c-8709c86b9c16
+          jcr:uuid: 7ba928ca-b5e9-4bef-b182-eb5d109dd855
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -24,21 +24,14 @@ definitions:
             hipposysedit:path: publishing:html
             hipposysedit:primary: false
             hipposysedit:type: Html
-        /hipposysedit:nodetype[2]:
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 9af12943-1f69-46a0-acbd-81df21fbac68
-          hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
-            'hippotranslation:translated']
-          /html:
+          /authorNotes:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:html
+            hipposysedit:path: publishing:authorNotes
             hipposysedit:primary: false
-            hipposysedit:type: Html
+            hipposysedit:type: hippostd:html
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -51,23 +44,12 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           publishing:html: ''
-          jcr:uuid: fc9abf63-cb2a-4b18-858a-86f45134ed7e
+          jcr:uuid: 82b76b3d-44e2-42cd-8017-bb81d911327b
           hippostdpubwf:lastModificationDate: 2021-03-10T10:06:38.743Z
           hippostdpubwf:creationDate: 2021-03-10T10:06:38.744Z
-        /hipposysedit:prototype[2]:
-          jcr:primaryType: nt:unstructured
-          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
-            'hippotranslation:translated', 'mix:referenceable']
-          jcr:uuid: adf67187-ee22-4426-964b-23024ca8ee77
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2021-03-10T10:06:38.744Z
-          hippostdpubwf:lastModificationDate: 2021-03-10T10:06:38.743Z
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          publishing:html: ''
+          /publishing:authorNotes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -86,5 +68,15 @@ definitions:
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /authorNotes:
+            jcr:primaryType: frontend:plugin
+            caption: Author notes
+            field: authorNotes
+            hint: Enter any notes relevant to this content item. This will not appear
+              on the page itself.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
