@@ -29,10 +29,8 @@ class ContentSelect {
     }
 
     showButton() {
-        console.log('showButton');
         const selectedLinkElement = this.contentSelect.querySelector('#dd-' + this.selectEl.querySelector('option:checked').dataset.id);
         const linkElements = [].slice.call(this.contentSelect.querySelectorAll('a'));
-        console.log(selectedLinkElement,this.selectEl.querySelector('option:checked').dataset.id)
 
         linkElements.forEach((linkElement) => {
             linkElement.classList.add('fully-hidden');
@@ -61,7 +59,6 @@ class ContentSelect {
 
 const contentSelects = {
     init: () => {
-        console.log('1111111111111')
         const contentSelectEls = [].slice.call(document.querySelectorAll('.js-contentselect'));
         contentSelectEls.forEach(contentSelect => new ContentSelect(contentSelect).init());
     }
