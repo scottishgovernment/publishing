@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: ede95adb-46a4-4f35-b585-dbd57e15fae7
+          jcr:uuid: a1395e8d-28b0-4a96-8f3a-2c22f95448c9
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -41,6 +41,14 @@ definitions:
             hipposysedit:path: publishing:serviceproviders
             hipposysedit:primary: false
             hipposysedit:type: String
+          /logo:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:logo
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -54,7 +62,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: 78a7d348-ebf5-4b34-9bcd-808855f4bd8d
+          jcr:uuid: e317f037-c4a4-47c0-8e03-5dec3fc34cb1
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -69,6 +77,12 @@ definitions:
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:logo:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -124,6 +138,15 @@ definitions:
             hint: 'TODO: tooltip needs to be provided for this'
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /logo:
+            jcr:primaryType: frontend:plugin
+            caption: Logo
+            field: logo
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: Brand / org logo to use for this content
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /cardImage:
@@ -315,8 +338,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Last updated date
             field: lastUpdatedDate
-            hint: The 'Last updated' date displayed in the article heading.
-              If left blank no date will be displayed
+            hint: The 'Last updated' date displayed in the article heading. If left
+              blank no date will be displayed
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

@@ -27,6 +27,12 @@
                 </header>
             </div>
 
+            <#if document.logo??>
+                <div class="ds_layout__partner  mg_partner-logo">
+                    <img alt="" src="<@hst.link hippobean=document.logo/>" />
+                </div>
+            </#if>
+
             <div class="ds_layout__content">
                 <@hst.html hippohtml=document.content/>
 

@@ -1,5 +1,6 @@
 package scot.mygov.publishing.beans;
 
+import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import java.util.Calendar;
@@ -64,4 +65,10 @@ public class Guide extends Base {
         return getChildBeansByName("publishing:relateditems",
                 Relateditems.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "publishing:logo")
+    public HippoGalleryImageSet getLogo() {
+        return getLinkedBean("publishing:logo", HippoGalleryImageSet.class);
+    }
+
 }
