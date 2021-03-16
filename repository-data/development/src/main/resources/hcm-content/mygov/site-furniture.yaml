@@ -1627,3 +1627,89 @@
     jcr:mixinTypes: ['mix:versionable']
     jcr:uuid: 80a8e9a8-dc28-441c-8b10-c5a8a19192b8
     hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
+  /status:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 0fac8bba-1d93-4c81-a18b-d12024bea0b0
+    hippostd:foldertype: [new-document, new-folder]
+    /404:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 5099d0c3-d314-4186-9032-5e2d92e7ed64
+      hippo:versionHistory: a70ed358-41bc-489e-8ef5-75d30a0223a5
+      /404[1]:
+        jcr:primaryType: publishing:status
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: ed18dd66-e882-46f1-99a2-4bad52988950
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-03-16T08:47:12.597Z
+        hippostdpubwf:lastModificationDate: 2021-03-16T09:18:37.354Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ad9d5cda-c171-4fcc-a471-b4cf92c4ff75
+        hippotranslation:locale: document-type-locale
+        publishing:title: 404 - Not Found
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Sorry, but the page you were trying to view doesn't exist. This could be the result of either:</p>
+
+            <ul>
+             <li>a mistyped address</li>
+             <li>an out of date links</li>
+            </ul>
+
+            <p>&nbsp;</p>
+      /404[2]:
+        jcr:primaryType: publishing:status
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: d964d666-f42c-4286-9385-d422604531f4
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-03-16T08:47:12.597Z
+        hippostdpubwf:lastModificationDate: 2021-03-16T09:18:37.307Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ad9d5cda-c171-4fcc-a471-b4cf92c4ff75
+        hippotranslation:locale: document-type-locale
+        publishing:title: 404 - Not Found
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Sorry, but the page you were trying to view doesn't exist. This could be the result of either:</p>
+
+            <ul>
+             <li>a mistyped address</li>
+             <li>an out of date links</li>
+            </ul>
+
+            <p>&nbsp;</p>
+      /404[3]:
+        jcr:primaryType: publishing:status
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 30e7c076-bc32-4820-93d1-43379e381fe6
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-03-16T08:47:12.597Z
+        hippostdpubwf:lastModificationDate: 2021-03-16T09:18:37.307Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-03-16T09:18:39.999Z
+        hippotranslation:id: ad9d5cda-c171-4fcc-a471-b4cf92c4ff75
+        hippotranslation:locale: document-type-locale
+        publishing:title: 404 - Not Found
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>Sorry, but the page you were trying to view doesn't exist. This could be the result of either:</p>
+
+            <ul>
+             <li>a mistyped address</li>
+             <li>an out of date links</li>
+            </ul>
+
+            <p>&nbsp;</p>

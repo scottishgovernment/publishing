@@ -54,7 +54,7 @@
     </script>
     </head>
 
-    <body <#if document?? && document.sensitive>class="ds_has-hide-page"</#if>>
+    <body <#if document?? && document.sensitive?? &&document.sensitive>class="ds_has-hide-page"</#if>>
         <@hst.include ref="googletagmanager"/>
         <@hst.include ref="preview-indicator"/>
 
