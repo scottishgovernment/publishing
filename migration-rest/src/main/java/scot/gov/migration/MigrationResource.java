@@ -1,5 +1,12 @@
 package scot.gov.migration;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.hwpf.HWPFDocument;
+import org.apache.poi.ooxml.POIXMLDocument;
+import org.apache.poi.ooxml.POIXMLProperties;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.onehippo.forge.content.exim.core.ContentMigrationException;
 import org.onehippo.forge.content.pojo.model.ContentNode;
 import org.slf4j.Logger;
@@ -10,15 +17,13 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import java.io.*;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import static java.io.File.createTempFile;
 import static org.apache.commons.lang3.StringUtils.substringAfter;
 import static org.onehippo.repository.util.JcrConstants.*;
 
@@ -119,7 +124,7 @@ public class MigrationResource {
     void upload(Session session, DocumentRequest request) throws RepositoryException, IOException {
 
         Node handle = session.getNode(request.getPath());
-        Binary binary = session.getValueFactory().createBinary(new URL(request.getUrl()).openStream());
+        Binary binary = getCleanedBinary(session, new URL(request.getUrl()), request.getContentType());
         hippoUtils.apply(handle.getNodes(),
                     variant -> uploadDocumentsAndCreateThumbnailsForVariant(session, variant, request, binary));
 
@@ -134,6 +139,71 @@ public class MigrationResource {
         Node rewritesFolder = session.getNode(request.getRewritesFolder());
         createRewriteRule(rewritesFolder, oldUrl, newUrl);
         session.save();
+    }
+
+    Binary getCleanedBinary(Session session, URL url, String mimetype) throws IOException, RepositoryException {
+        File tmp = createTempFile("MigrationResource", "FileUpload");
+        try {
+            FileOutputStream out = new FileOutputStream(tmp);
+
+            if (isDocx(mimetype) || isXlsx(mimetype)) {
+                POIXMLDocument poiDoc = getDoc(url, mimetype);
+                POIXMLProperties.CoreProperties coreProps = poiDoc.getProperties().getCoreProperties();
+                coreProps.setCreator("");
+                coreProps.setLastModifiedByUser("");
+                poiDoc.write(out);
+            } else if (isXls(mimetype)) {
+                HSSFWorkbook xls = getOldExcel(url);
+                xls.getSummaryInformation().setAuthor("");
+                xls.getSummaryInformation().setLastAuthor("");
+            } else if (isDoc(mimetype)) {
+                HWPFDocument word = getOldDoc(url);
+                word.getSummaryInformation().setAuthor("");
+                word.getSummaryInformation().setLastAuthor("");
+            }
+
+            InputStream in = new FileInputStream(tmp);
+            return session.getValueFactory().createBinary(in);
+
+        } finally {
+            FileUtils.deleteQuietly(tmp);
+        }
+    }
+
+    POIXMLDocument getDoc(URL url, String mimetype) throws RepositoryException, IOException {
+        if (isXlsx(mimetype)) {
+            return new XSSFWorkbook(url.openStream());
+        }
+
+        if (isDocx(mimetype)) {
+            return new XWPFDocument(url.openStream());
+        }
+
+        return null;
+    }
+
+    HWPFDocument getOldDoc(URL url) throws RepositoryException, IOException {
+        return new HWPFDocument(url.openStream());
+    }
+
+    HSSFWorkbook getOldExcel(URL url) throws RepositoryException, IOException {
+        return new HSSFWorkbook(url.openStream());
+    }
+
+    boolean isXlsx(String mimetype) {
+        return "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet".equals(mimetype);
+    }
+
+    boolean isXls(String mimetype) {
+        return "application/msexcel".equals(mimetype);
+    }
+
+    boolean isDoc(String mimetype) {
+        return "application/msword".equals(mimetype);
+    }
+
+    boolean isDocx(String mimetype) {
+        return "application/vnd.openxmlformats-officedocument.wordprocessingml.document".equals(mimetype);
     }
 
     void uploadDocumentsAndCreateThumbnailsForVariant(
