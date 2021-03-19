@@ -262,6 +262,23 @@
     width: 100%;
 }
 
+/* editor style overrides */
+.cke_wysiwyg_div.cke_editable a.ds_button,
+.hippo-richtext a.ds_button {
+    color: #fff;
+    text-decoration: none;
+}
+
+.cke_wysiwyg_div.cke_editable a.ds_button--secondary,
+.hippo-richtext a.ds_button--secondary {
+    color: #0065bd;
+}
+
+.cke_wysiwyg_div.cke_editable a.ds_button--cancel,
+.hippo-richtext a.ds_button--cancel {
+    color: #333333;
+}
+
 /*------------------------------------*\
     #LA FINDER
 \*------------------------------------*/

@@ -1,6 +1,5 @@
 CKEDITOR.dialog.add('dsContactDetailsDialog', function (editor) {
     function isOptionalButValidEmailAddress() {
-        alert(this.getValue())
         if (this.getValue() !== '') {
             // this is not a super strong regex, but checks for a correct format
             const expression = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,8}/,

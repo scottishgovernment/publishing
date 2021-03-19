@@ -12,7 +12,7 @@ const accordionPlugin = function () {
             });
 
             editor.widgets.add('ds_accordion', {
-                button: 'Add accordion item',
+                button: 'Accordion item',
                 template: () =>
                     `<div class="ds_accordion-item">
                     <input type="checkbox" class="ds_accordion-item__control visually-hidden" id="panel-${editor.accordionPanelIdString}" aria-labelledby="panel-${editor.accordionPanelIdString}-heading">

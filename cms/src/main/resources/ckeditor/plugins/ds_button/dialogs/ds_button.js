@@ -11,17 +11,21 @@ CKEDITOR.dialog.add('dsButtonDialog', function (editor) {
                         type: 'text',
                         id: 'button-text',
                         label: 'Button text',
-                        'default': 'Button',
+
+                        default: 'Button',
                         validate: CKEDITOR.dialog.validate.notEmpty("Button text field cannot be empty."),
-                        setup: function (element, preview) {
-                            this.preview_button = preview;
-                            this.setValue(element.getText());
+                        setup: function (element) {
+                            if (!!element.getText()) {
+                                this.setValue(element.getText());
+                            } else {
+                                let selectedText = editor.getSelection().getSelectedText();
+                                if (selectedText) {
+                                    this.setValue(selectedText);
+                                }
+                            }
                         },
                         commit: function (element) {
                             element.setText(this.getValue());
-                        },
-                        onChange: function () {
-                            this.preview_button.setText(this.getValue());
                         }
                     },
                     {
@@ -55,6 +59,15 @@ CKEDITOR.dialog.add('dsButtonDialog', function (editor) {
                         label: 'Type',
                         items: [ [ 'Primary' ], [ 'Secondary' ], [ 'Cancel' ] ],
                         'default': 'Primary',
+                        setup: function (element) {
+                            if (element.hasClass('ds_button--secondary')) {
+                                this.setValue('Secondary');
+                            } else if (element.hasClass('ds_button--cancel')) {
+                                this.setValue('Cancel');
+                            } else {
+                                this.setValue('Primary');
+                            }
+                        },
                         commit: function (element) {
                             element.$.classList.remove('ds_button--secondary', 'ds_button--cancel');
                             if (this.getValue() === 'Secondary') {
@@ -69,8 +82,17 @@ CKEDITOR.dialog.add('dsButtonDialog', function (editor) {
                         type: 'select',
                         id: 'button-width',
                         label: 'Width',
-                        items: [ [ 'Flexible' ], [ 'Fixed' ], [ 'Max' ] ],
-                        'default': 'Flexible',
+                        items: [ [ 'Fixed' ], [ 'Flexible' ], [ 'Max' ] ],
+                        'default': 'Fixed',
+                        setup: function (element) {
+                            if (element.hasClass('ds_button--fixed')) {
+                                this.setValue('Fixed');
+                            } else if (element.hasClass('ds_button--max')) {
+                                this.setValue('Max');
+                            } else {
+                                this.setValue('Flexible');
+                            }
+                        },
                         commit: function (element) {
                             element.$.classList.remove('ds_button--fixed', 'ds_button--max');
                             if (this.getValue() === 'Fixed') {
@@ -86,18 +108,24 @@ CKEDITOR.dialog.add('dsButtonDialog', function (editor) {
         ],
 
         onShow: function () {
+            var element;
             var selection = editor.getSelection();
-            var element = selection.getStartElement();
+
+            if (window.buttonClickElement) {
+                element = window.buttonClickElement;
+            } else {
+                element = selection.getStartElement();
+            }
 
             if (!element || !element.hasClass('ds_button')) {
                 element = editor.document.createElement('a');
                 element.setAttribute('class', 'ds_button');
-                element.setText('Button');
                 this.insertMode = true;
             } else
                 this.insertMode = false;
 
             this.element = element;
+            this.setupContent(this.element);
         },
 
         onOk: function () {

@@ -3,6 +3,7 @@ CKEDITOR.plugins.add('ds_la-finder', {
     icons: 'ds_la-finder',
 
     init: function (editor) {
+        CKEDITOR.dtd.$removeEmpty.span = false;
         CKEDITOR.dialog.add('dsLAFinderDialog', this.path + 'dialogs/ds_la-finder.js');
 
         editor.widgets.add('ds_la-finder', {
@@ -21,7 +22,34 @@ CKEDITOR.plugins.add('ds_la-finder', {
                 </div>
             </div>`,
 
-            allowedContent: 'div[data-type];option[selected,disabled,value,data-id];select(!ds_select);label(!ds_label);span(!ds_select-arrow)[aria-hidden]',
+            allowedContent: {
+                'select': {
+                    classes: '!ds_select',
+                    attributes: 'id'
+                },
+                'option': {
+                    attributes: 'data-id, disabled, selected'
+                },
+                'span': {
+                    attributes: 'aria-hidden',
+                    classes: 'ds_select-arrow'
+                },
+                'a': {
+                    attributes: '!href, style, id, aria-hidden',
+                    classes: 'ds_button, ds_button--max, fully-hidden'
+                },
+                'div': {
+                    attributes: 'data-type, data-module',
+                    classes: 'js-contentselect, dd, finder-hero, form-box, ds_select-wrapper, ds_input--fluid-two-thirds, ds_contact-details'
+                },
+                'label': {
+                    attributes: '!for',
+                    classes: 'ds_label'
+                },
+                'dl': {
+                    classes: ''
+                }
+            },
 
             parts: {
                 wrapper: '.js-contentselect',
