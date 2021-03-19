@@ -20,6 +20,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Calendar;
 
+import static org.apache.commons.lang3.StringUtils.endsWith;
+
 public class PreviewValve extends AbstractOrderableValve {
 
     private static final Logger LOG = LoggerFactory.getLogger(PreviewValve.class);
@@ -50,7 +52,6 @@ public class PreviewValve extends AbstractOrderableValve {
         HippoBean contentBean = requestContext.getContentBean();
         //fetching the previewkey
         String previewKey = getPreviewKey(valveContext, resolvedMount);
-
         //intercepting requests having the id in the url
         if (contentBean == null) {
             LOG.debug("Preview request doesn't contain content bean");
@@ -71,7 +72,12 @@ public class PreviewValve extends AbstractOrderableValve {
     }
 
     boolean isPreviewMount(Mount resolvedMount) {
-        return "preview".equals(resolvedMount.getType()) && resolvedMount.getAlias().endsWith("-staging");
+        if (resolvedMount == null) {
+            LOG.debug("resolved mount is null");
+            return false;
+        }
+
+        return "preview".equals(resolvedMount.getType()) && endsWith(resolvedMount.getAlias(), "-staging");
     }
 
     boolean hasValidStagingKey(HippoBean contentBean, String previewKey) throws RepositoryException {
