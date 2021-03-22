@@ -6,9 +6,6 @@ import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import scot.mygov.publishing.HippoUtils;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
@@ -23,10 +20,6 @@ import static org.apache.commons.lang3.StringUtils.*;
  * - hideSearch - whether to hide the search form
  */
 public class SiteHeaderComponent extends BaseHstComponent {
-
-    private static final Logger LOG = LoggerFactory.getLogger(SiteHeaderComponent.class);
-
-    private HippoUtils hippoUtils = new HippoUtils();
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
