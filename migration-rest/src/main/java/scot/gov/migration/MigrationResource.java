@@ -17,7 +17,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
-import java.io.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -170,7 +170,7 @@ public class MigrationResource {
         }
     }
 
-    POIXMLDocument getDoc(URL url, String mimetype) throws RepositoryException, IOException {
+    POIXMLDocument getDoc(URL url, String mimetype) throws IOException {
         if (isXlsx(mimetype)) {
             return new XSSFWorkbook(url.openStream());
         }
@@ -182,11 +182,11 @@ public class MigrationResource {
         return null;
     }
 
-    HWPFDocument getOldDoc(URL url) throws RepositoryException, IOException {
+    HWPFDocument getOldDoc(URL url) throws IOException {
         return new HWPFDocument(url.openStream());
     }
 
-    HSSFWorkbook getOldExcel(URL url) throws RepositoryException, IOException {
+    HSSFWorkbook getOldExcel(URL url) throws IOException {
         return new HSSFWorkbook(url.openStream());
     }
 
