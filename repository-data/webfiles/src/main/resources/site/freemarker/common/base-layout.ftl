@@ -58,6 +58,8 @@
         <@hst.include ref="googletagmanager"/>
         <@hst.include ref="preview-indicator"/>
 
+        <span id="page-top"></span>
+
         <#if document?? && document.sensitive>
             <div class="visually-hidden  ds_hide-page">
                 <p>To leave the page quickly, press the escape key.</p>
@@ -74,7 +76,9 @@
                 <@hst.include ref="main"/>
             </div>
 
-            <div class="ds_page__footer">
+            <#include "back-to-top.ftl">
+
+            <div class="ds_page__bottom">
                 <@hst.include ref="footer"/>
             </div>
         </div>
