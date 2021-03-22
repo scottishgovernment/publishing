@@ -13,7 +13,7 @@
                 </a>
             </div>
 
-            <#if hideSearch??>
+            <#if hideSearch>
             <#else>
             <div class="ds_site-header__search">
                 <div class="ds_site-search" data-module="ds-site-search">
@@ -35,7 +35,7 @@
             </#if>
         </div>
 
-        <#if hideSearch??>
+        <#if hideSearch>
         <#else>
         <nav data-module="ds-mobile-navigation-menu">
             <button class="js-toggle-menu  ds_mobile-navigation__button" aria-expanded="false" aria-controls="mobile-navigation-menu">
