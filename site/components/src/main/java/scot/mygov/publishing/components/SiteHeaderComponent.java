@@ -2,16 +2,10 @@ package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
-import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.request.HstRequestContext;
 
-import javax.jcr.Node;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-
-import static org.apache.commons.lang3.StringUtils.*;
+import static org.apache.commons.lang3.StringUtils.equalsAny;
 
 /**
  * Set fields required to suppress the header search on some formats.
@@ -24,22 +18,13 @@ public class SiteHeaderComponent extends BaseHstComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-
-        setHideSearch(request);
-    }
-
-    /**
-     * set hideSearch based on the page component from the resolved sitemap item
-     */
-    void setHideSearch(HstRequest request) {
         HstComponentConfiguration componentConfig = request
                 .getRequestContext()
                 .getResolvedSiteMapItem()
                 .getHstComponentConfiguration();
         String formatName = componentConfig.getName();
-
-        if ("home".equals(formatName) || "search".equals(formatName)) {
-            request.setAttribute("hideSearch", true);
-        }
+        // hide search for home or search pages
+        request.setAttribute("hideSearch", equalsAny(formatName, "home", "search"));
     }
+
 }
