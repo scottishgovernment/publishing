@@ -40,7 +40,7 @@ CKEDITOR.plugins.add('ds_la-finder', {
                 },
                 'div': {
                     attributes: 'data-type, data-module',
-                    classes: 'js-contentselect, dd, finder-hero, form-box, ds_select-wrapper, ds_input--fluid-two-thirds, ds_contact-details'
+                    classes: 'js-contentselect, dd, finder-hero, form-box, ds_select-wrapper, ds_input--fluid-two-thirds'
                 },
                 'label': {
                     attributes: '!for',

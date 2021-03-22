@@ -51,7 +51,7 @@ const accordionPlugin = function () {
                                     command.disable();
                                 }
                             });
-                        }, 100);
+                        }, 120);
                     });
 
                     this.editables.content.$.addEventListener('focus', () => {
@@ -59,6 +59,26 @@ const accordionPlugin = function () {
                             Object.values(editor.commands).forEach(command => {
                                 if (command.name === 'ds_accordion') {
                                     command.disable();
+                                }
+                            });
+                        }, 120);
+                    });
+
+                    this.editables.content.$.addEventListener('blur', () => {
+                        window.setTimeout(() => {
+                            Object.values(editor.commands).forEach(command => {
+                                if (command.name === 'ds_accordion') {
+                                    command.enable();
+                                }
+                            });
+                        }, 100);
+                    });
+
+                    this.editables.title.$.addEventListener('blur', () => {
+                        window.setTimeout(() => {
+                            Object.values(editor.commands).forEach(command => {
+                                if (command.name.substring(0, 3) === 'ds_') {
+                                    command.enable();
                                 }
                             });
                         }, 100);
@@ -89,9 +109,6 @@ const accordionPlugin = function () {
 
                         // inset text support
                         'div(!ds_inset-text);div(!ds_inset-text__text)'
-
-                        // todo: contact details support
-                        // todo: LA finder support
                     ].join(';'),
 
                 upcast: function (element) {
