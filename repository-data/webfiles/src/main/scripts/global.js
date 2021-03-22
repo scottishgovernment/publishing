@@ -6,41 +6,49 @@
 'use strict';
 
 import $ from 'jquery';
-import './usertype';
 import storage from './tools/storage';
-import gup from './tools/gup';
-import './components/tooltip';
 import NotificationBanner from './components/notification';
 import finders from './components/content-select';
 
 import '../../../node_modules/@scottish-government/pattern-library/src/all';
 
-const slugify = function(string) {
-    return string
-        // Make lower-case
-        .toLowerCase()
-        // Remove misc punctuation
-        .replace(/['"’‘”“`]/g, '')
-        // Replace non-word characters with dashes
-        .replace(/[\W|_]+/g, '-')
-        // Remove starting and trailing dashes
-        .replace(/^-+|-+$/g, '');
-};
-
 const global = {
     notes: [],
 
     init: function() {
-        let that = this;
-
-        this.initDecommissionedSiteNotice();
         this.initCookieNotice();
         this.validateSearchForm();
         this.setInitialCookiePermissions();
         this.initNotifications();
         this.initDesignSystemComponents();
+        this.addTracking();
+
 
         finders.init();
+    },
+
+    addTracking: function () {
+        if (window.DS.tracking) {
+            window.DS.tracking.add.backtotop = function (scope = document) {
+                const backToTops = [].slice.call(scope.querySelectorAll('.ds_back-to-top__button'));
+                backToTops.forEach(backToTop => {
+                    if (!backToTop.classList.contains('js-has-tracking-event')) {
+                        backToTop.addEventListener('click', () => {
+                            window.dataLayer = window.dataLayer || [];
+                            window.dataLayer.push({
+                                event: 'backToTop',
+                                scrollDepthAbs: window.scrollY,
+                                scrollDepthRel: +(window.scrollY / window.innerHeight).toFixed(3)
+                            });
+                        });
+                        backToTop.classList.add('js-has-tracking-event');
+                    }
+                });
+                window.DS.tracking.add.backToTop(scope);
+            };
+
+            window.DS.tracking.init();
+        }
     },
 
     initNotifications: function () {
@@ -89,6 +97,12 @@ const global = {
 
         const accordions = [].slice.call(document.querySelectorAll('[data-module="ds-accordion"]'));
         accordions.forEach(accordion => new window.DS.components.Accordion(accordion).init());
+
+        const cookieNotificationEl = document.querySelector('[data-module="ds-cookie-notification"]');
+        if (cookieNotificationEl) {
+            const cookieNotification = new window.DS.components.CookieNotification(cookieNotificationEl);
+            cookieNotification.init();
+        }
 
         // this one is handled differently because it applies an event to the whole body and we only want that event once
         const hidePageButtons = [].slice.call(document.querySelectorAll('.ds_hide-page'));
@@ -181,41 +195,6 @@ const global = {
             document.querySelector('.js-initial-cookie-content').classList.add('fully-hidden');
             document.querySelector('.js-confirm-cookie-content').classList.remove('fully-hidden');
         });
-    },
-
-    inArrayOfObjects: function(array, property){
-        let inArray = false;
-        array.map(function(i){
-            if (i.selector === property) {
-                inArray = true;
-                return inArray;
-            }
-        });
-        return inArray;
-    },
-
-    /**
-     * Examine headers to see if this page comes from a decommissioned site
-     **/
-    initDecommissionedSiteNotice: function() {
-        const that = this;
-        const decommissionedUrl = gup('via');
-        if (decommissionedUrl) {
-            const link = document.createElement('a');
-            link.href = decommissionedUrl;
-            $('#decomissioned-site-host').text(link.hostname);
-
-            const notice = $('#decommissioned-site-notice');
-            notice.removeClass('fully-hidden');
-            this.notes.push(notice);
-
-            // bind a click handler to the close button
-            notice.on('click', '.close-notification', function(event) {
-                event.preventDefault();
-                that.repositionContent(event);
-                notice.addClass('fully-hidden');
-            });
-        }
     }
 };
 
