@@ -6,6 +6,7 @@
 'use strict';
 
 import $ from 'jquery';
+import './usertype';
 import storage from './tools/storage';
 import NotificationBanner from './components/notification';
 import finders from './components/content-select';
@@ -22,7 +23,6 @@ const global = {
         this.initNotifications();
         this.initDesignSystemComponents();
         this.addTracking();
-
 
         finders.init();
     },
