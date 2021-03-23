@@ -69,6 +69,7 @@
             <#elseif services??>
                 <div class="ds_layout__services">
                     <section id="other-services" class="page-section  org-services">
+                        <h2>Services</h2>
                         <ul class="ds_category-list  ds_cols  ds_cols--2">
                             <#list services as child>
                                 <@hst.link var="link" hippobean=child.link/>
