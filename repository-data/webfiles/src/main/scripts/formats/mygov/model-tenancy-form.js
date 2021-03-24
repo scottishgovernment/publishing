@@ -425,10 +425,10 @@ const modelTenancyForm = {
     },
 
     setupDatePickers: function () {
-        const startDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {minDate: new Date()});
-        const hmoDatePicker = new DSDatePicker(document.getElementById('hmo-expiry-date-picker'), {minDate: new Date()});
-        const firstPaymentDatePicker = new DSDatePicker(document.getElementById('first-payment-date-picker'), {minDate: new Date()});
-        const firstPaymentEndDatePicker = new DSDatePicker(document.getElementById('first-payment-end-date-picker'), {minDate: new Date()});
+        const startDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
+        const hmoDatePicker = new DSDatePicker(document.getElementById('hmo-expiry-date-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
+        const firstPaymentDatePicker = new DSDatePicker(document.getElementById('first-payment-date-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
+        const firstPaymentEndDatePicker = new DSDatePicker(document.getElementById('first-payment-end-date-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
 
         startDatePicker.init();
         hmoDatePicker.init();

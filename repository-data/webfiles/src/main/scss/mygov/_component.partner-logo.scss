@@ -1,0 +1,20 @@
+.mg_partner-logo {
+    align-self: start;
+    justify-self: center;
+
+    > img {
+        margin-bottom: 32px;
+        max-width: 100%;
+        max-height: 200px;
+    }
+}
+
+@include media-query(medium) {
+    .mg_partner-logo {
+        justify-self: right;
+
+        > img {
+            margin-top: 32px;
+        }
+    }
+}

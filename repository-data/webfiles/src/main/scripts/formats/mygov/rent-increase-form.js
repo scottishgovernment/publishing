@@ -235,8 +235,8 @@ const rentIncreaseForm = {
     },
 
     setupDatePickers: function () {
-        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {maxDate: new Date(TODAY)});
-        const lastIncreaseDatePicker = new DSDatePicker(document.getElementById('last-increase-date-picker'), {maxDate: new Date(TODAY)});
+        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {maxDate: new Date(TODAY), imagePath: '/webfiles/latest/assets/images/icons/'});
+        const lastIncreaseDatePicker = new DSDatePicker(document.getElementById('last-increase-date-picker'), {maxDate: new Date(TODAY), imagePath: '/webfiles/latest/assets/images/icons/'});
 
         tenancyStartDatePicker.init();
         lastIncreaseDatePicker.init();
@@ -429,7 +429,7 @@ const rentIncreaseForm = {
         const html = dateOfIncreaseTemplate.render(templateData);
         document.querySelector('#date-of-increase-content-container').innerHTML = html;
 
-        const rentIncreaseDatePicker = new DSDatePicker(document.getElementById('rent-increase-date-picker'), {minDate: earliestDateForNextIncrease});
+        const rentIncreaseDatePicker = new DSDatePicker(document.getElementById('rent-increase-date-picker'), {minDate: earliestDateForNextIncrease, imagePath: '/webfiles/latest/assets/images/icons/'});
         rentIncreaseDatePicker.init();
 
         // validate this date field
@@ -514,7 +514,7 @@ const rentIncreaseForm = {
 
         if (!isNaN(rentIncreaseForm.notificationDate.getTime())){
             document.getElementById('date-increase-notification-alert').innerHTML = html;
-            const rentIncreaseSendDatePicker = new DSDatePicker(document.getElementById('rent-increase-send-date-picker'), {minDate: new Date(TODAY), maxDate: rentIncreaseForm.notificationDate});
+            const rentIncreaseSendDatePicker = new DSDatePicker(document.getElementById('rent-increase-send-date-picker'), {minDate: new Date(TODAY), maxDate: rentIncreaseForm.notificationDate, imagePath: '/webfiles/latest/assets/images/icons/'});
             rentIncreaseSendDatePicker.init();
 
             // bind change event

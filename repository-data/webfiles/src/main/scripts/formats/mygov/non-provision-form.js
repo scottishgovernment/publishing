@@ -481,8 +481,8 @@ const nonProvisionForm = {
         const newDate = new Date();
         const minChangedDate = new Date(newDate.setDate(newDate.getDate() - 27));
 
-        const changedDatePicker = new DSDatePicker(document.getElementById('changed-terms-date-picker'), {minDate: minChangedDate, maxDate: new Date()});
-        const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date-picker'), {minDate: new Date()});
+        const changedDatePicker = new DSDatePicker(document.getElementById('changed-terms-date-picker'), {minDate: minChangedDate, maxDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
+        const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
 
         changedDatePicker.init();
         noticeDatePicker.init();
