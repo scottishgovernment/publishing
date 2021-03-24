@@ -15,8 +15,7 @@
                             <label class="ds_label  visually-hidden" for="site-search">Search</label>
 
                             <div class="ds_input__wrapper  ds_input__wrapper--has-icon  ds_no-margin">
-                                <input name="q" required="" role="combobox" id="site-search" class="ds_input  ds_site-search__input" type="text" placeholder="Search mygov.scot" autocomplete="off" aria-owns="autocomplete-results" aria-autocomplete="list" aria-haspopup="true" aria-expanded="false" aria-activedescendant="" data-form="textinput-search">
-                                <div id="autocomplete-status" role="status" aria-live="polite" class="hidden"></div>
+                                <input name="q" required="" id="site-search" class="ds_input  ds_site-search__input" type="text" placeholder="Search mygov.scot" autocomplete="off">
                                 <input type="hidden" value="sitesearch" name="cat">
 
                                 <button type="submit" class="ds_button  ds_button--icon-only  js-site-search-button">

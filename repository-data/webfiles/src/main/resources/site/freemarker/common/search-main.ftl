@@ -10,7 +10,7 @@
 
             <div class="ds_layout__header">
                 <header class="ds_page-header">
-                    <h1 class="hidden">${document.title}</h1>
+                    <h1>${document.title}</h1>
                 </header>
             </div>
 
@@ -19,9 +19,6 @@
                 <@hst.html hippohtml=document.content/>
 
                 <section id="search-results" class="ds_search-results">
-
-                    <h2 class="visually-hidden">${document.title}</h2>
-
                     <@hst.include ref="results"/>
                 </section>
             </div>
