@@ -516,7 +516,7 @@ describe('business-rates-calculator', function () {
                 brc.calculateResults();
 
                 if (brc.ratesCalculatorData.universalRelief) {
-                    expect(brc.selectedProperties[0].netLiability).toEqual(6214.04);
+                    expect(brc.selectedProperties[0].netLiability).toEqual(6078.58);
                 } else {
                     expect(brc.selectedProperties[0].netLiability).toEqual(6247.5);
                 }
