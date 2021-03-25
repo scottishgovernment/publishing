@@ -105,27 +105,26 @@ const businessRatesCalculator = {
 
 
         // taken from provided spreadsheet
-        this.ratesCalculatorData = {
-            'sbbs_100_rv_threshold': 15000,
-            'sbbs_100_percentage_relief': 1,
-            'sbbs_25_rv_threshold': 18000,
-            'sbbs_25_percentage_relief': 0.25,
-            'poundage': 0.49,
-            'large_business_supplement_threshold': 51000,
-            'large_business_supplement': 0.026,
-            'financial_year': '2019-2020',
-            'sbbs_combined_threshold': 35000,
-            'universalRelief': 0.016
-        };
+        this.ratesCalculatorData = {};
 
-        const newFiscalYeardate = new Date(2020, 3, 1);
+        this.ratesCalculatorData.sbbs_100_rv_threshold = 15000;
+        this.ratesCalculatorData.sbbs_100_percentage_relief = 1;
+        this.ratesCalculatorData.sbbs_25_rv_threshold = 18000;
+        this.ratesCalculatorData.sbbs_25_percentage_relief = 0.25;
+        this.ratesCalculatorData.sbbs_combined_threshold = 35000;
+        this.ratesCalculatorData.universalRelief = 0.016;
+        this.ratesCalculatorData.financial_year = '2020-2021';
+        this.ratesCalculatorData.poundage = 0.498;
+        this.ratesCalculatorData.intermediate_business_supplement_threshold = 51000;
+        this.ratesCalculatorData.intermediate_business_supplement = 0.013;
+        this.ratesCalculatorData.large_business_supplement_threshold = 95000;
+        this.ratesCalculatorData.large_business_supplement = 0.026;
+
+        const newFiscalYeardate = new Date(2021, 3, 1);
         if (today > newFiscalYeardate) {
-            this.ratesCalculatorData.financial_year = '2020-2021';
-            this.ratesCalculatorData.poundage = 0.498;
-            this.ratesCalculatorData.intermediate_business_supplement_threshold = 51000;
-            this.ratesCalculatorData.intermediate_business_supplement = 0.013;
-            this.ratesCalculatorData.large_business_supplement_threshold = 95000;
-            this.ratesCalculatorData.large_business_supplement = 0.026;
+            this.ratesCalculatorData.financial_year = '2021-2022';
+            this.ratesCalculatorData.poundage = 0.490;
+            this.ratesCalculatorData.universalRelief = false;
         }
 
         // adjust this to use different value types, e.dg. current rateable value or proposed rateable value
@@ -412,13 +411,14 @@ const businessRatesCalculator = {
             }
 
             // on top of any other reliefs, add the coronavirus special
-            property.universalRelief = {
-                name: 'Universal 1.6% relief',
-                fraction: 0.016,
-                amount: property.baseLiability * this.ratesCalculatorData.universalRelief
-            };
-
-            property.netLiability = Math.max(property.netLiability - property.universalRelief.amount.toFixed(2), 0);
+            if (this.ratesCalculatorData.universalRelief) {
+                property.universalRelief = {
+                    name: 'Universal 1.6% relief',
+                    fraction: 0.016,
+                    amount: property.baseLiability * this.ratesCalculatorData.universalRelief
+                };
+                property.netLiability = Math.max(property.netLiability - property.universalRelief.amount.toFixed(2), 0);
+            }
         }
     },
 
