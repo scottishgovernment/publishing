@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8"/>
   <title>Bad request (400)</title>
-  <link rel="stylesheet" href="/webfiles/latest/assets/css/main.css">
+  <link rel="stylesheet" href="/webfiles/latest/assets/mygov/css/main.css">
   <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900,400italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
