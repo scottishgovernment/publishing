@@ -436,11 +436,11 @@ const rentAdjudicationForm = {
     }
 };
 
-$('.js-download-file').on('click', function (event) {
+$('.multi-page-form').on('click', '.js-download-file', function (event) {
     event.preventDefault();
     const documentDownloadForm = $('#ra-document-download');
     documentDownloadForm.find('input[name="type"]').val($(this).closest('.document-info').attr('data-documenttype'));
-    documentDownloadForm.submit();
+    documentDownloadForm.trigger('submit');
 });
 
 $('#ra-document-download').on('submit', function(){

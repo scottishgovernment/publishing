@@ -233,11 +233,11 @@ const rentImprovementsForm = {
     }
 };
 
-$('.js-download-file').on('click', function (event) {
+$('.multi-page-form').on('click', '.js-download-file', function (event) {
     event.preventDefault();
     const documentDownloadForm = $('#r-imp-document-download');
     documentDownloadForm.find('input[name="type"]').val($(this).closest('.document-info').attr('data-documenttype'));
-    documentDownloadForm.submit();
+    documentDownloadForm.trigger('submit');
 });
 
 $('#r-imp-document-download').on('submit', function(){
