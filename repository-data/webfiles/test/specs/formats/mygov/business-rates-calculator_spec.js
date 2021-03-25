@@ -2,49 +2,72 @@
 
 'use strict';
 
-jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
+jasmine.getFixtures().fixturesPath = 'base/test/frontend/fixtures';
 
-import brc from '../../../../src/main/scripts/formats/mygov/business-rates-calculator';
-import Handlebars from '../../../../src/main/scripts/vendor/hbs/handlebars';
+import brc from '../../../src/scripts/mygov/format.business-rates-calculator';
+import Handlebars from '../../../src/scripts/vendor/hbs/handlebars';
 
 describe('business-rates-calculator', function () {
 
     beforeEach(function () {
+        const dateToUse = new Date(2021, 9, 1);
+
         window.ga = jasmine.createSpy('ga');
         loadFixtures('business-rates-calculator.html');
-        brc.init();
+        brc.init(dateToUse);
+
         $('body').addClass('business-rates-calculator');
 
         // need a non-https api URL to test against
         brc.apiUrl = '/address/?search=';
 
-        // pull this out to a fixture?
         this.properties = [
-            {'rv': '2050', 'address': '(8)\nROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR', 'occupier': [
-                {'name': 'THOMAS JOHNSTONE\nCARTSIDE AVENUE\nINCHINNON\nRENFREW\nPA4 9RU'}
-            ]},
-            {'rv': '8500', 'address': 'GLENORA GUEST HOUSE,14\nROSEBERY CRESCENT\nEDINBURGH\nEH12 5JY', 'occupier': [
-                {'name': 'MS WENDY PHILLIPS'}
-            ]},
-            {'rv': '8200', 'address': 'MY EDINBURGH LIFE,13\nROSEBERY CRESCENT\nEDINBURGH\nEH12 5JY', 'occupier': [
-                {'name': 'MR P CANNELL\nMIDDLERIG PROPERTIES\n12 MERCHISTON GARDENS\nEDINBURGH\nEH10 5DD'}
-            ]},
-            {'rv': '6400', 'address': '1A ROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR', 'occupier': [
-                {'name': 'BERNISDALE HOMES'}
-            ]},
-            {'rv': '1200', 'address': '(05)\n3 ROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR', 'occupier': [
-                {'name': 'CLARE CAMPBELL\n21A DOUGLAS CRESCENT\nEDINBURGH\nEH12 5BA'}
-            ]},
-            {'rv': '22100', 'address': '5 ROSEBERY CRESCENT\nEDINBURGH\nEH12 5JP', 'occupier': [
-                {'name': 'LEVY & MCNALLY PER PALACE RESIDENTIAL LETS\n11 BELLEVUE CRESCENT\nEDINBURGH\nEH3 6ND'}
-            ]},
-            {'rv': '650', 'address': '6/1 ROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR', 'occupier': [
-                {'name': 'J.F. WILLIAMS\nPO BOX 3\nELLON\nABERDEEN\nAB41 9EA'}
-            ]},
-            {'rv': '6600', 'address': '15 ROSEBERY CRESCENT\nEDINBURGH\nEH12 5JY', 'occupier': [
-                {'name': 'TARA ROKPA EDINBURGH\n15 ROSEBERY CRESCENT\nEDINBURGH'}
-            ]}
-        ];
+            {
+                rv: 10000,
+                address: 'Example 1',
+                occupier: [
+                    {
+                        name: 'Example 1'
+                    }
+                ]
+            },
+            {
+                rv: 17000,
+                address: 'Example 2',
+                occupier: [
+                    {
+                        name: 'Example 2'
+                    }
+                ]
+            },
+            {
+                rv: 34000,
+                address: 'Example 3',
+                occupier: [
+                    {
+                        name: 'Example 3'
+                    }
+                ]
+            },
+            {
+                rv: 55000,
+                address: 'Example 4',
+                occupier: [
+                    {
+                        name: 'Example 4'
+                    }
+                ]
+            },
+            {
+                rv: 100000,
+                address: 'Example 5',
+                occupier: [
+                    {
+                        name: 'Example 5'
+                    }
+                ]
+            }
+        ]
     });
 
     describe('the wizard', function () {
@@ -341,7 +364,7 @@ describe('business-rates-calculator', function () {
 
             it('should show a list of properties', function () {
                 // there are eight properties in the sample set
-                expect($('#property-list').find('option').length).toEqual(8);
+                expect($('#property-list').find('option').length).toEqual(5);
             });
 
             it('should set brc.currentProperty on submit of the results list', function () {
@@ -461,87 +484,66 @@ describe('business-rates-calculator', function () {
 
         describe('the results themselves', function () {
 
-            it('should calculate results correctly: case 1', function () {
+            it('should calculate results correctly: example 1', function () {
                 // provide a dummy for selectedProperties
-                brc.selectedProperties = [
-                    {
-                        'rv': '11000',
-                        'address': '(8)\nROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR',
-                        'occupier': [
-                            {'name': 'THOMAS JOHNSTONE\nCARTSIDE AVENUE\nINCHINNON\nRENFREW\nPA4 9RU'}
-                        ],
-                        'newBuild': false,
-                        'vacant': 'moreThanOneYear'
-                    }
-                ];
+                brc.selectedProperties = [];
+                brc.selectedProperties.push(this.properties[0]);
 
                 brc.calculateResults();
 
                 expect(brc.selectedProperties[0].netLiability).toEqual(0);
             });
 
-            it('should calculate results correctly: case 2', function () {
+            it('should calculate results correctly: example 2', function () {
                 // provide a dummy for selectedProperties
-                brc.selectedProperties = [
-                    {
-                        'rv': '11000',
-                        'address': '(8)\nROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR',
-                        'occupier': [
-                            {'name': 'THOMAS JOHNSTONE\nCARTSIDE AVENUE\nINCHINNON\nRENFREW\nPA4 9RU'}
-                        ],
-                        'newBuild': true,
-                        'vacant': 'moreThanOneYear'
-                    }
-                ];
+                brc.selectedProperties = [];
+                brc.selectedProperties.push(this.properties[1]);
 
                 brc.calculateResults();
 
-                expect(brc.selectedProperties[0].netLiability).toEqual(0);
+                expect(brc.selectedProperties[0].netLiability).toEqual(6247.5);
             });
 
-            it('should calculate results correctly: case 3', function () {
+            it('should calculate results correctly: example 3', function () {
                 // provide a dummy for selectedProperties
-                brc.selectedProperties = [
-                    {
-                        'rv': '17000',
-                        'address': '(8)\nROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR',
-                        'occupier': [
-                            {'name': 'THOMAS JOHNSTONE\nCARTSIDE AVENUE\nINCHINNON\nRENFREW\nPA4 9RU'}
-                        ],
-                        'newBuild': false,
-                        'vacant': 'no'
-                    }
-                ];
+                brc.selectedProperties = [];
+                brc.selectedProperties.push(this.properties[2]);
 
                 brc.calculateResults();
 
                 if (brc.ratesCalculatorData.universalRelief) {
-                    expect(brc.selectedProperties[0].netLiability).toEqual(6078.58);
+                    expect(brc.selectedProperties[0].netLiability).toEqual(16660);
                 } else {
-                    expect(brc.selectedProperties[0].netLiability).toEqual(6247.5);
+                    expect(brc.selectedProperties[0].netLiability).toEqual(16660);
                 }
             });
 
-            it('should calculate results correctly: case 4 SBBS and Empty Property', function () {
+            it('should calculate results correctly: example 4', function () {
                 // provide a dummy for selectedProperties
-                brc.selectedProperties = [
-                    {
-                        'rv': '9000',
-                        'address': '(8)\nROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR',
-                        'occupier': [
-                            {'name': 'THOMAS JOHNSTONE\nCARTSIDE AVENUE\nINCHINNON\nRENFREW\nPA4 9RU'}
-                        ],
-                        'newBuild': false,
-                        'vacant': 'no'
-                    }
-                ];
+                brc.selectedProperties = [];
+                brc.selectedProperties.push(this.properties[3]);
 
                 brc.calculateResults();
 
-                // expect SBBS to be present and a reduced fraction
-                var appliedRelief = brc.selectedProperties[0].appliedRelief;
+                if (brc.ratesCalculatorData.universalRelief) {
+                    expect(brc.selectedProperties[0].netLiability).toEqual(27665);
+                } else {
+                    expect(brc.selectedProperties[0].netLiability).toEqual(27665);
+                }
+            });
 
-                expect(appliedRelief.name.toLowerCase()).toEqual('small business bonus scheme');
+            it('should calculate results correctly: example 5', function () {
+                // provide a dummy for selectedProperties
+                brc.selectedProperties = [];
+                brc.selectedProperties.push(this.properties[4]);
+
+                brc.calculateResults();
+
+                if (brc.ratesCalculatorData.universalRelief) {
+                    expect(brc.selectedProperties[0].netLiability).toEqual(51600);
+                } else {
+                    expect(brc.selectedProperties[0].netLiability).toEqual(51600);
+                }
             });
         });
 
@@ -852,81 +854,12 @@ describe('business-rates-calculator', function () {
             });
 
             it('should return a "Property X" title and remove button if there are multiple properties', function () {
-                expect(helpers.propertyResultTitle(0, {properties: this.properties})).toEqual('<h3 class="brc-result__title">Property 8</h3><a href="#" class="remove-property  ds_button  ds_button--cancel  ds_button--small  ds_button--has-icon" data-property-index="0">Remove property<svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#close-21"></use></svg></a>');
+                expect(helpers.propertyResultTitle(0, {properties: this.properties})).toEqual('<h3 class="brc-result__title">Property 5</h3><a href="#" class="remove-property  ds_button  ds_button--cancel  ds_button--small  ds_button--has-icon" data-property-index="0">Remove property<svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#close-21"></use></svg></a>');
             });
 
             it('should return just the title if there is just one property', function () {
                 expect(helpers.propertyResultTitle(0, {properties: [this.properties[0]]})).toEqual('<h3 class="brc-result__title">Property 1</h3>');
             });
-        });
-    });
-});
-
-describe('business rates calculator: new values', function () {
-    beforeEach(function () {
-        const dateToUse = new Date(2020, 9, 1);
-
-        window.ga = jasmine.createSpy('ga');
-        loadFixtures('business-rates-calculator.html');
-        brc.init(dateToUse);
-        $('body').addClass('business-rates-calculator');
-
-        // need a non-https api URL to test against
-        brc.apiUrl = '/address/?search=';
-
-        // from provided worked examples
-        this.properties = [
-            {
-                'rv': '10000', 'address': '(8)\nROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR', 'occupier': [
-                    { 'name': 'THOMAS JOHNSTONE\nCARTSIDE AVENUE\nINCHINNON\nRENFREW\nPA4 9RU' }
-                ],
-                expectedLiability: 0,
-                expectedLiabilityWithUniversalRelief: 0
-            },
-            {
-                'rv': '17000', 'address': '(8)\nROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR', 'occupier': [
-                    { 'name': 'THOMAS JOHNSTONE\nCARTSIDE AVENUE\nINCHINNON\nRENFREW\nPA4 9RU' }
-                ],
-                expectedLiability: 6349.5,
-                expectedLiabilityWithUniversalRelief: 6214.04
-            },
-            {
-                'rv': '34000', 'address': '(8)\nROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR', 'occupier': [
-                    { 'name': 'THOMAS JOHNSTONE\nCARTSIDE AVENUE\nINCHINNON\nRENFREW\nPA4 9RU' }
-                ],
-                expectedLiability: 16932,
-                expectedLiabilityWithUniversalRelief: 16661.09
-            },
-            {
-                'rv': '55000', 'address': '(8)\nROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR', 'occupier': [
-                    { 'name': 'THOMAS JOHNSTONE\nCARTSIDE AVENUE\nINCHINNON\nRENFREW\nPA4 9RU' }
-                ],
-                expectedLiability: 28105,
-                expectedLiabilityWithUniversalRelief: 27655.32
-            },
-            {
-                'rv': '100000', 'address': '(8)\nROSEBERY CRESCENT LANE\nEDINBURGH\nEH12 5JR', 'occupier': [
-                    { 'name': 'THOMAS JOHNSTONE\nCARTSIDE AVENUE\nINCHINNON\nRENFREW\nPA4 9RU' }
-                ],
-                expectedLiability: 52400,
-                expectedLiabilityWithUniversalRelief: 51561.6
-            }
-        ];
-    });
-
-    it('should correctly calculate net liabilities with the updated values', function () {
-        this.properties.forEach(function (property) {
-            // provide a dummy for selectedProperties
-            brc.selectedProperties = [
-                property
-            ];
-            brc.calculateResults();
-
-            if (brc.ratesCalculatorData.universalRelief) {
-                expect(brc.selectedProperties[0].netLiability).toEqual(property.expectedLiabilityWithUniversalRelief);
-            } else {
-                expect(brc.selectedProperties[0].netLiability).toEqual(property.expectedLiability);
-            }
         });
     });
 });
