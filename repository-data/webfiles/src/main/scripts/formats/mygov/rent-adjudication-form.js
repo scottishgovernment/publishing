@@ -438,19 +438,17 @@ const rentAdjudicationForm = {
 
 $('.multi-page-form').on('click', '.js-download-file', function (event) {
     event.preventDefault();
+
     const documentDownloadForm = $('#ra-document-download');
     documentDownloadForm.find('input[name="type"]').val($(this).closest('.document-info').attr('data-documenttype'));
-    documentDownloadForm.trigger('submit');
-});
 
-$('#ra-document-download').on('submit', function(){
     // make a copy of the form data to manipulate before posting
     const formData = JSON.parse(JSON.stringify(rentAdjudicationForm.form.settings.formObject));
     const data = rentAdjudicationForm.prepareFormDataForPost(formData);
     data.recaptcha = grecaptcha.getResponse();
 
     // analytics tracking
-    const downloadType = $(this).find('input[name=type]').val();
+    const downloadType = documentDownloadForm.find('input[name=type]').val();
 
     commonForms.track({
         'event': 'formSubmitted',
@@ -461,8 +459,8 @@ $('#ra-document-download').on('submit', function(){
     });
 
     // Set hidden data field to have value of JSON data
-    $(this).find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
-
+    documentDownloadForm.find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
+    documentDownloadForm.trigger('submit');
     expireRecaptcha();
 });
 

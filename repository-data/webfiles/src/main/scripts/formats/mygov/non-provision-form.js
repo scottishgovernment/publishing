@@ -630,10 +630,7 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
 
     const documentDownloadForm = $('#non-provision-document-download');
     documentDownloadForm.find('input[name="type"]').val($(this).closest('.document-info').attr('data-documenttype'));
-    documentDownloadForm.trigger('submit');
-});
 
-$('#non-provision-document-download').on('submit', function() {
     // make sure the notice period end date is up to date
     calcNoticeEnd();
 
@@ -643,7 +640,7 @@ $('#non-provision-document-download').on('submit', function() {
     data.recaptcha = grecaptcha.getResponse();
 
     // analytics tracking
-    const downloadType = $(this).find('input[name=type]').val();
+    const downloadType = documentDownloadForm.find('input[name=type]').val();
 
     commonForms.track({
         'event': 'formSubmitted',
@@ -652,7 +649,8 @@ $('#non-provision-document-download').on('submit', function() {
     });
 
     // Set hidden data field to have value of JSON data
-    $(this).find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
+    documentDownloadForm.find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
+    documentDownloadForm.trigger('submit');
     expireRecaptcha();
 });
 

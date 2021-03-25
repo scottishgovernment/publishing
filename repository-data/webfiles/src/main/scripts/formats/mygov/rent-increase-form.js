@@ -701,20 +701,18 @@ const rentIncreaseForm = {
 
 $('.multi-page-form').on('click', '.js-download-file', function (event) {
     event.preventDefault();
+
     const documentDownloadForm = $('#document-download');
     documentDownloadForm.find('input[name="type"]').val($(this).closest('.document-info').attr('data-documenttype'));
-    documentDownloadForm.trigger('submit');
-});
 
-$('#document-download').on('submit', function () {
     // make a copy of the form data to manipulate before posting
     const formData = JSON.parse(JSON.stringify(rentIncreaseForm.form.settings.formObject));
     const data = rentIncreaseForm.prepareFormDataForPost(formData);
     data.recaptcha = grecaptcha.getResponse();
 
     // Set hidden data field to have value of JSON data
-    $(this).find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
-
+    documentDownloadForm.find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
+    documentDownloadForm.trigger('submit');
     expireRecaptcha();
 });
 
