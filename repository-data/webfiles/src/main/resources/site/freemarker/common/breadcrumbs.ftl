@@ -8,7 +8,7 @@
             <#list breadcrumbs as item>
                 <li class="ds_breadcrumbs__item">
                     <@hst.link var="link" link=item.link/>
-                    <a data-navigation="breadcrumb-${item?index + 1}" class="ds_breadcrumbs__link" href="${link}">
+                    <a class="ds_breadcrumbs__link" href="${link}">
                     <#if item?index == 0>
                         Home
                     <#else>

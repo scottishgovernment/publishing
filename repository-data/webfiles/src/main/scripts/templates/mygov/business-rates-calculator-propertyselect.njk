@@ -1,5 +1,5 @@
 <div id="property-list">
-    <div id="property-selection" class="result-count-{{searchResults.length}}" >
+    <div id="property-selection" class="result-count-{{searchResults.length}}">
         {% if showAsSelect %}
             <label class="ds_label" for="property-select">Select the property</label>
             <div class="ds_select-wrapper">
@@ -15,7 +15,7 @@
         {% else %}
             {% for result in searchResults %}
             <div class="ds_radio">
-                <input class="ds_radio__input" id="propertyList{{loop.index0}}" name="property-list" type="radio" data-form="radio-property-list">
+                <input class="ds_radio__input" id="propertyList{{loop.index0}}" name="property-list" type="radio">
                 <label class="ds_radio__label" for="propertyList{{loop.index0}}">{% if result.occupier %}{{result.occupierName}}, {% endif %}{{result.address | nl2br | safe}}</label>
             </div>
             {% endfor %}

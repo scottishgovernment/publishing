@@ -44,12 +44,12 @@
                         .ds_layout__feedback
                         {display: none;}
 
-                        .ds_layout__content {
-                            margin-top: 1em;
-                        }
-
                         #page-content {
                             display: block;
+                        }
+
+                        .ds_layout__content {
+                            margin-top: 1em;
                         }
 
                         .ds_accordion-item__body {
@@ -57,6 +57,10 @@
                             padding-bottom: 32px !important;
                             padding-top: 24px !important;
                             max-height: unset !important;
+                        }
+
+                        .ds_accordion-item__indicator {
+                            display: none;
                         }
                     }
                 </style>

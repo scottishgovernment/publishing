@@ -67,7 +67,7 @@
 
 
                         <div class="document-info__text">
-                            <h2 class="gamma  document-info__title"><a class="no-icon" href="${documentinline}" data-navigation="pdf-open" onclick="saAutomatedLink(this, &quot;download&quot;); return false;">${doc.title}</a></h2>
+                            <h2 class="gamma  document-info__title"><a class="no-icon" href="${documentinline}" onclick="saAutomatedLink(this, &quot;download&quot;); return false;">${doc.title}</a></h2>
                             <dl class="ds_metadata  ds_metadata--inline">
                                 <div class="ds_metadata__item">
                                     <dt class="ds_metadata__key  visually-hidden">File type</dt>
@@ -80,7 +80,7 @@
                                 </div>
                             </dl>
                             <div class="document-info__download">
-                                <a href="${documentdownload}" class="ds_button    ds_no-margin" data-button="button-download-pdf" onclick="saAutomatedLink(this, &quot;download&quot;); return false;">
+                                <a href="${documentdownload}" class="ds_button  ds_no-margin" onclick="saAutomatedLink(this, &quot;download&quot;); return false;">
                                     Download <span class="visually-hidden">${filenameExtension}</span>
                                 </a>
                             </div>

@@ -7,7 +7,7 @@
         <li class="ds_card  ds_card--no-padding  ds_card--has-hover">
             <div class="ds_category-item  ds_category-item--card">
                 <h2 class="ds_category-item__title">
-                    <a data-navigation="category-item-${child?index + 1}" href="${link}" class="ds_category-item__link">
+                    <a href="${link}" class="ds_category-item__link">
                         ${child.bean.title}
                     </a>
                 </h2>

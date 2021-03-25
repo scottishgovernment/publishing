@@ -35,7 +35,10 @@ const commonItems = {
         'rent-improvements-form':       path.resolve(__dirname, './formats/mygov/rent-improvements-form.js'),
         'rent-increase-form':           path.resolve(__dirname, './formats/mygov/rent-increase-form.js'),
         'rent-pressure-zone-checker':   path.resolve(__dirname, './formats/mygov/rent-pressure-zone-checker.js'),
-        'subtenant-notice-to-leave-form':   path.resolve(__dirname, './formats/mygov/subtenant-notice-to-leave-form.js')
+        'subtenant-notice-to-leave-form': path.resolve(__dirname, './formats/mygov/subtenant-notice-to-leave-form.js'),
+
+        // simple analytics additional
+        'simple-analytics':             path.resolve(__dirname, './vendor/simple-analytics.js')
     },
 
     externals: {

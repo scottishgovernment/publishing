@@ -1,5 +1,5 @@
 <div class="ds_accordion" data-module="ds-accordion">
-    <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+    <button  type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
 
     <div class="ds_accordion-item">
         <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-property" aria-labelledby="panel-property-heading" />
@@ -101,7 +101,7 @@
                 <tr data-summary-field="letting-agent-query letting-agent-name letting-agent-postcode-search letting-agent-postcode-results letting-agent-building-street letting-agent-address-town">
                     <th>Letting agent</th>
                     <td>
-                        {% if hasLettingAgent == "true" %}
+                        {% if hasLettingAgent == "yes" %}
                             <dl class="summary-list">
                                 <dt class="summary-list__label">Name</dt>
                                 <dd><a href="#!/managing-the-property/letting-agent/letting-agent-name/" class="summary__link  summary__user-input">{{landlordsAgent.name}}</a></dd>
@@ -118,14 +118,14 @@
 
 
                         {% endif %}
-                        {% if hasLettingAgent == false %}
+                        {% if hasLettingAgent == "no" %}
                             <a href="#!/managing-the-property/letting-agent/letting-agent-query/" class="summary__link  summary__user-input">None</a>
                         {% endif %}
                     </td>
                     <td class="summary-table__edit"><a href="#!/managing-the-property/letting-agent/" class="edit">edit</a></td>
                 </tr>
 
-                {% if hasLettingAgent == false %}
+                {% if hasLettingAgent == "no" %}
                     {% for key, landlord in landlords %}
                     <tr data-summary-field="landlord-{{loop.index}}-name landlord-{{loop.index}}-postcode-search landlord-{{loop.index}}-postcode-results landlord-{{loop.index}}-building-street landlord-{{loop.index}}-address-town">
                         <th>Landlord {{loop.index}}</th>

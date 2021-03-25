@@ -24,13 +24,13 @@
 
                 <div class="ds_field-group">
                     <div class="ds_radio">
-                        <input id="letting-agent-yes" value="yes" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-yes" />
+                        <input id="letting-agent-yes" value="yes" name="letting-agent-query" class="ds_radio__input" type="radio"  />
                         <label for="letting-agent-yes" class="ds_radio__label">Yes</label>
 
                         <div class="ds_reveal-content">
                             <div class="ds_question">
                                 <label class="ds_label" for="letting-agent-name">Letting agent's full name</label>
-                                <input type="text" id="letting-agent-name" data-validation="requiredField" class="ds_input" data-form="textinput-letting-agent-name">
+                                <input type="text" id="letting-agent-name" data-validation="requiredField" class="ds_input">
                             </div>
 
                             <h3>Letting agent's address</h3>
@@ -39,12 +39,12 @@
 
                             <div class="ds_question">
                                 <label class="ds_label" for="letting-agent-phone">Phone number</label>
-                                <input data-validation="validPhone" type="text" id="letting-agent-phone" class="ds_input  ds_input--fixed-20" data-form="textinput-letting-agent-phone">
+                                <input data-validation="validPhone" type="text" id="letting-agent-phone" class="ds_input  ds_input--fixed-20">
                             </div>
                         </div>
                     </div>
                     <div class="ds_radio">
-                        <input id="letting-agent-no" value="no" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-no" />
+                        <input id="letting-agent-no" value="no" name="letting-agent-query" class="ds_radio__input" type="radio"  />
                         <label for="letting-agent-no" class="ds_radio__label">No</label>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
         <div class="js-tenant-names-container">
             <div class="ds_question">
                 <label class="ds_label" for="tenant-1-name">Tenant 1: Full name</label>
-                <input class="ds_input" type="text" id="tenant-1-name" data-validation="requiredField" data-form="textinput-tenant-1-name">
+                <input class="ds_input" type="text" id="tenant-1-name" data-validation="requiredField">
             </div>
         </div>
 
@@ -79,7 +79,7 @@
         <div class="js-subtenant-names-container">
             <div class="ds_question">
                 <label class="ds_label" for="subtenant-1-name">Subtenant 1: Full name</label>
-                <input type="text" id="subtenant-1-name" class="ds_input" data-validation="requiredField" data-form="textinput-subtenant-1-name">
+                <input type="text" id="subtenant-1-name" class="ds_input" data-validation="requiredField">
             </div>
         </div>
 
@@ -97,93 +97,93 @@
                     <legend>Choose the reason why your {% if subtenants %}sub{% endif %}tenant needs to leave</legend>
                     <div class="ds_field-group">
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_SELL" id="LANDLORD_TO_SELL" type="checkbox" data-form="checkbox-LANDLORD_TO_SELL" />
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_SELL" id="LANDLORD_TO_SELL" type="checkbox"  />
                             <label class="ds_checkbox__label" for="LANDLORD_TO_SELL">You want to sell the property you're renting out (6 months)</label>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input class="ds_checkbox__input" data-group="reasons" value="LENDER_TO_SELL" id="LENDER_TO_SELL" type="checkbox" data-form="checkbox-LENDER_TO_SELL" />
+                            <input class="ds_checkbox__input" data-group="reasons" value="LENDER_TO_SELL" id="LENDER_TO_SELL" type="checkbox"  />
                             <label class="ds_checkbox__label" for="LENDER_TO_SELL">The mortgage lender has repossessed your property and is selling it (6 months)</label>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_REFURBISH" id="LANDLORD_TO_REFURBISH" type="checkbox" data-form="checkbox-LANDLORD_TO_REFURBISH" />
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_REFURBISH" id="LANDLORD_TO_REFURBISH" type="checkbox"  />
                             <label class="ds_checkbox__label" for="LANDLORD_TO_REFURBISH">You want to carry out work to the property which means no one will be able to live there while the work is carried out (6 months)</label>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_LIVE" id="LANDLORD_TO_LIVE" type="checkbox" data-form="checkbox-LANDLORD_TO_LIVE" />
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_LIVE" id="LANDLORD_TO_LIVE" type="checkbox"  />
                             <label class="ds_checkbox__label" for="LANDLORD_TO_LIVE">You want to live in the property (3 months)</label>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_FAMILY_MEMBER_TO_LIVE" id="LANDLORD_FAMILY_MEMBER_TO_LIVE" type="checkbox" data-form="checkbox-LANDLORD_FAMILY_MEMBER_TO_LIVE" />
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_FAMILY_MEMBER_TO_LIVE" id="LANDLORD_FAMILY_MEMBER_TO_LIVE" type="checkbox"  />
                             <label class="ds_checkbox__label" for="LANDLORD_FAMILY_MEMBER_TO_LIVE">Someone in your family is going to move into the property (3 months)</label>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_NON_RESIDENTIAL_PURPOSE" id="LANDLORD_NON_RESIDENTIAL_PURPOSE" type="checkbox" data-form="checkbox-LANDLORD_NON_RESIDENTIAL_PURPOSE" />
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_NON_RESIDENTIAL_PURPOSE" id="LANDLORD_NON_RESIDENTIAL_PURPOSE" type="checkbox"  />
                             <label class="ds_checkbox__label" for="LANDLORD_NON_RESIDENTIAL_PURPOSE">You no longer want to use the property as a place where someone lives, such as if you want to use it as a business or an office (6 months)</label>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input class="ds_checkbox__input" data-group="reasons" value="RELIGIOUS" id="RELIGIOUS" type="checkbox" data-form="checkbox-RELIGIOUS" />
+                            <input class="ds_checkbox__input" data-group="reasons" value="RELIGIOUS" id="RELIGIOUS" type="checkbox"  />
                             <label class="ds_checkbox__label" for="RELIGIOUS">You need your property for a religious purpose, such as a priest or imam is going to live there (6 months)</label>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_REGISTRATION_REVOKED" id="LANDLORD_REGISTRATION_REVOKED" type="checkbox" data-form="checkbox-LANDLORD_REGISTRATION_REVOKED" />
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_REGISTRATION_REVOKED" id="LANDLORD_REGISTRATION_REVOKED" type="checkbox"  />
                             <label class="ds_checkbox__label" for="LANDLORD_REGISTRATION_REVOKED">You have had your registration refused or revoked (3 months)</label>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_HMO_REFUSED" id="LANDLORD_HMO_REFUSED" type="checkbox" data-form="checkbox-LANDLORD_HMO_REFUSED" />
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_HMO_REFUSED" id="LANDLORD_HMO_REFUSED" type="checkbox"  />
                             <label class="ds_checkbox__label" for="LANDLORD_HMO_REFUSED">Your House in Multiple Occupation (HMO) licence has been revoked by your local council or renewal has been refused (3 months)</label>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_OVERCROWDING_NOTICE" id="LANDLORD_OVERCROWDING_NOTICE" type="checkbox" data-form="checkbox-LANDLORD_OVERCROWDING_NOTICE" />
+                            <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_OVERCROWDING_NOTICE" id="LANDLORD_OVERCROWDING_NOTICE" type="checkbox"  />
                             <label class="ds_checkbox__label" for="LANDLORD_OVERCROWDING_NOTICE">An overcrowding statutory notice has been served on you (6 months)</label>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input class="ds_checkbox__input" data-group="reasons" value="YOU_CEASE_TO_BE_EMPLOYEE" id="YOU_CEASE_TO_BE_EMPLOYEE" type="checkbox" data-form="checkbox-YOU_CEASE_TO_BE_EMPLOYEE" />
+                            <input class="ds_checkbox__input" data-group="reasons" value="YOU_CEASE_TO_BE_EMPLOYEE" id="YOU_CEASE_TO_BE_EMPLOYEE" type="checkbox"  />
                             <label class="ds_checkbox__label" for="YOU_CEASE_TO_BE_EMPLOYEE">Your {% if subtenants %}sub{% endif %}tenant has stopped being employed by you, or you thought they were going to be employed by you but this is no longer the case (6 months)</label>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input class="ds_checkbox__input" data-group="reasons" value="YOU_NO_LONGER_NEED_SUPPORTED_ACC" id="YOU_NO_LONGER_NEED_SUPPORTED_ACC" type="checkbox" data-form="checkbox-YOU_NO_LONGER_NEED_SUPPORTED_ACC" />
+                            <input class="ds_checkbox__input" data-group="reasons" value="YOU_NO_LONGER_NEED_SUPPORTED_ACC" id="YOU_NO_LONGER_NEED_SUPPORTED_ACC" type="checkbox"  />
                             <label class="ds_checkbox__label" for="YOU_NO_LONGER_NEED_SUPPORTED_ACC">Your property provides supported accommodation but your {% if subtenants %}sub{% endif %}tenant no longer needs help (6 months)</label>
                         </div>
 
                         {% if tenants %}
                             <div class="ds_checkbox  ds_checkbox--small">
-                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_NO_LONGER_OCCUPY" id="YOU_NO_LONGER_OCCUPY" type="checkbox" data-form="checkbox-YOU_NO_LONGER_OCCUPY" />
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_NO_LONGER_OCCUPY" id="YOU_NO_LONGER_OCCUPY" type="checkbox"  />
                                 <label class="ds_checkbox__label" for="YOU_NO_LONGER_OCCUPY">Your tenant is no longer living in your property (28 days)</label>
                             </div>
 
                             <div class="ds_checkbox  ds_checkbox--small">
-                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_BREACHED_TERMS" id="YOU_BREACHED_TERMS" type="checkbox" data-form="checkbox-YOU_BREACHED_TERMS" />
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_BREACHED_TERMS" id="YOU_BREACHED_TERMS" type="checkbox"  />
                                 <label class="ds_checkbox__label" for="YOU_BREACHED_TERMS">Your tenant has breached a term(s) of their tenancy agreement (6 months)</label>
                             </div>
 
                             <div class="ds_checkbox  ds_checkbox--small">
-                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_RENT_ARREARS" id="YOU_RENT_ARREARS" type="checkbox" data-form="checkbox-YOU_RENT_ARREARS" />
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_RENT_ARREARS" id="YOU_RENT_ARREARS" type="checkbox"  />
                                 <label class="ds_checkbox__label" for="YOU_RENT_ARREARS">Your tenant is in rent arrears for at least three consecutive months (6 months)</label>
                             </div>
 
                             <div class="ds_checkbox  ds_checkbox--small">
-                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_CRIMINAL_CONVICTION" id="YOU_CRIMINAL_CONVICTION" type="checkbox" data-form="checkbox-YOU_CRIMINAL_CONVICTION" />
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_CRIMINAL_CONVICTION" id="YOU_CRIMINAL_CONVICTION" type="checkbox"  />
                                 <label class="ds_checkbox__label" for="YOU_CRIMINAL_CONVICTION">Your tenant has a criminal conviction - this ground only applies to <a href="#">certain crimes</a> (3 months)</label>
                             </div>
 
                             <div class="ds_checkbox  ds_checkbox--small">
-                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_ANTISOCIAL_BEHAVIOUR" id="YOU_ANTISOCIAL_BEHAVIOUR" type="checkbox" data-form="checkbox-YOU_ANTISOCIAL_BEHAVIOUR" />
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_ANTISOCIAL_BEHAVIOUR" id="YOU_ANTISOCIAL_BEHAVIOUR" type="checkbox"  />
                                 <label class="ds_checkbox__label" for="YOU_ANTISOCIAL_BEHAVIOUR">Your tenant has been involved in antisocial behaviour - this ground only applies to <a href="#">certain antisocial behaviour</a> (3 months)</label>
                             </div>
 
                             <div class="ds_checkbox  ds_checkbox--small">
-                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL" id="YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL" type="checkbox" data-form="checkbox-YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL" />
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL" id="YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL" type="checkbox"  />
                                 <label class="ds_checkbox__label" for="YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL">Your tenant has been with someone at the property who has a criminal conviction or has engaged in antisocial behaviour - <a href="#">only applies to certain crimes or antisocial behaviour</a> (3 months)</label>
                             </div>
                         {% endif %}
@@ -203,7 +203,7 @@
 
             <div class="ds_question">
                 <label class="ds_label" for="eviction-details">Details</label>
-                <textarea id="eviction-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true" data-form="textarea-eviction-details"></textarea>
+                <textarea id="eviction-details" class="ds_input" rows="4" data-validation="requiredField" aria-required="true"></textarea>
             </div>
 
             <h2>Evidence</h2>
@@ -217,7 +217,7 @@
 
             <div class="ds_question">
                 <label class="ds_label" for="supporting-evidence">Supporting evidence</label>
-                <textarea id="supporting-evidence" class="ds_input" rows="4" data-form="textarea-supporting-evidence"></textarea>
+                <textarea id="supporting-evidence" class="ds_input" rows="4"></textarea>
             </div>
         </section>
 
@@ -236,7 +236,7 @@
 
                     <div class="field-group">
                         <div class="ds_radio">
-                            <input class="ds_radio__input" id="end-notice-help-yes" value="yes" name="end-notice-help-query" type="radio" data-form="radio-end-notice-help-query-yes" />
+                            <input class="ds_radio__input" id="end-notice-help-yes" value="yes" name="end-notice-help-query" type="radio"  />
                             <label class="ds_radio__label" for="end-notice-help-yes">Yes</label>
 
                             <div class="ds_reveal-content">
@@ -248,7 +248,7 @@
                                     </div>
                                     <div id="tenancy-start-date-with-help-picker" data-module="ds-datepicker" class="ds_datepicker">
                                         <div class="ds_input__wrapper">
-                                            <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex pastDate requiredField" type="text" id="tenancy-start-date-with-help" placeholder="e.g. 01/12/2020" data-form="textinput-tenancy-start-date-with-help"/>
+                                            <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex pastDate requiredField" type="text" id="tenancy-start-date-with-help" placeholder="e.g. 01/12/2020" />
                                         </div>
                                     </div>
                                 </div>
@@ -261,7 +261,7 @@
                                     </div>
                                     <div id="notice-date-picker" data-module="ds-datepicker" class="ds_datepicker">
                                         <div class="ds_input__wrapper">
-                                            <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex futureDate requiredField" type="text" id="notice-date" placeholder="e.g. 01/12/2020" data-form="textinput-notice-date"/>
+                                            <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex futureDate requiredField" type="text" id="notice-date" placeholder="e.g. 01/12/2020" />
                                         </div>
                                     </div>
                                 </div>
@@ -274,17 +274,17 @@
                                         </legend>
                                         <div class="ds_field-group  ds_field-group--inline">
                                             <div class="ds_radio  ds_radio--small">
-                                                <input class="ds_radio__input  js-end-date-input" id="giving-notice-hand" value="hand" name="givingNoticeQuery" type="radio" data-form="givingNoticeQuery-hand" />
+                                                <input class="ds_radio__input  js-end-date-input" id="giving-notice-hand" value="hand" name="givingNoticeQuery" type="radio"  />
                                                 <label class="ds_radio__label" for="giving-notice-hand">By hand</label>
                                             </div>
 
                                             <div class="ds_radio  ds_radio--small">
-                                                <input class="ds_radio__input  js-end-date-input" id="giving-notice-email" value="email" name="givingNoticeQuery" type="radio" data-form="givingNoticeQuery-email" />
+                                                <input class="ds_radio__input  js-end-date-input" id="giving-notice-email" value="email" name="givingNoticeQuery" type="radio"  />
                                                 <label class="ds_radio__label" for="giving-notice-email">By email</label>
                                             </div>
 
                                             <div class="ds_radio  ds_radio--small">
-                                                <input class="ds_radio__input  js-end-date-input" id="giving-notice-post" value="post" name="givingNoticeQuery" type="radio" data-form="givingNoticeQuery-post" />
+                                                <input class="ds_radio__input  js-end-date-input" id="giving-notice-post" value="post" name="givingNoticeQuery" type="radio"  />
                                                 <label class="ds_radio__label" for="giving-notice-post">By post</label>
                                             </div>
                                         </div>
@@ -299,7 +299,7 @@
                                         <p class="ds_hint-text">Use DD/MM/YYYY format.</p>
                                         <div id="notice-period-end-date-with-help-picker" data-module="ds-datepicker" class="ds_datepicker">
                                             <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
-                                                <input class="ds_input  ds_input--fixed-10" data-validation="dateRegex afterDate requiredField" type="text" id="notice-period-end-date-with-help" placeholder="e.g. 01/12/2020" data-form="textinput-notice-period-end-date-with-help"/>
+                                                <input class="ds_input  ds_input--fixed-10" data-validation="dateRegex afterDate requiredField" type="text" id="notice-period-end-date-with-help" placeholder="e.g. 01/12/2020" />
                                             </div>
                                         </div>
                                     </div>
@@ -307,7 +307,7 @@
                             </div>
                         </div>
                         <div class="ds_radio">
-                            <input class="ds_radio__input" id="end-notice-help-no" value="no" name="end-notice-help-query" type="radio" data-form="radio-end-notice-help-query-no" />
+                            <input class="ds_radio__input" id="end-notice-help-no" value="no" name="end-notice-help-query" type="radio"  />
                             <label class="ds_radio__label" for="end-notice-help-no">No</label>
 
                             <div class="ds_reveal-content">
@@ -319,7 +319,7 @@
                                     </div>
                                     <div id="tenancy-start-date-picker" data-module="ds-datepicker" class="ds_datepicker">
                                         <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
-                                            <input class="ds_input  ds_input--fixed-10" data-validation="dateRegex pastDate requiredField" type="text" id="tenancy-start-date" placeholder="e.g. 01/12/2020" data-form="textinput-tenancy-start-date"/>
+                                            <input class="ds_input  ds_input--fixed-10" data-validation="dateRegex pastDate requiredField" type="text" id="tenancy-start-date" placeholder="e.g. 01/12/2020" />
                                         </div>
                                     </div>
                                 </div>
@@ -332,7 +332,7 @@
                                     </div>
                                     <div id="notice-period-end-date-picker" data-module="ds-datepicker" class="ds_datepicker">
                                         <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
-                                            <input class="ds_input  ds_input--fixed-10" data-validation="dateRegex futureDate requiredField" type="text" id="notice-period-end-date" placeholder="e.g. 01/12/2020" data-form="textinput-notice-period-end-date"/>
+                                            <input class="ds_input  ds_input--fixed-10" data-validation="dateRegex futureDate requiredField" type="text" id="notice-period-end-date" placeholder="e.g. 01/12/2020" />
                                         </div>
                                     </div>
                                 </div>

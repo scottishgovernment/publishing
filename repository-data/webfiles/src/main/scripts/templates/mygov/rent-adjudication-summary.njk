@@ -1,5 +1,5 @@
 <div class="ds_accordion" data-module="ds-accordion">
-    <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+    <button  type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
 
     <div class="ds_accordion-item">
         <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-address" aria-labelledby="panel-property-address" />
@@ -414,7 +414,7 @@
                     <tr data-summary-field="letting-agent--query letting-agent-address-building letting-agent-address-street letting-agent-address-town letting-agent-address-region letting-agent-postcode letting-agent-postcode-search letting-agent-postcode-results letting-agent-name letting-agent-email letting-agent-telephone">
                         <th>Letting agent</th>
 
-                        {% if hasLettingAgent == 'true' %}
+                        {% if hasLettingAgent == 'yes' %}
                         <td>
                             <dl class="summary-list">
                                 <dt class="summary-list__label">Name</dt>
@@ -443,7 +443,7 @@
                             </dl>
                         </td>
                         {% endif %}
-                        {% if hasLettingAgent == 'false' %}
+                        {% if hasLettingAgent == 'no' %}
                         <td><a href="#!/landlords/letting-agent/letting-agent--query/" class="summary__link  summary__user-input">None</a></td>
                         {% endif %}
                         {% if hasLettingAgent == null %}

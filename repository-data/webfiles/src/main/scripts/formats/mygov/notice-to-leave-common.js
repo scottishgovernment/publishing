@@ -285,7 +285,7 @@ const noticeToLeaveForm = {
                 const newTenantField = document.createElement('div');
                 newTenantField.classList.add('ds_question');
                 newTenantField.innerHTML = `<label class="ds_label" for="tenant-${newNumber}-name">Tenant ${newNumber}: Full name</label>
-            <input class="ds_input" type="text" id="tenant-${newNumber}-name" data-form="textinput-tenant-${newNumber}-name">`;
+            <input class="ds_input" type="text" id="tenant-${newNumber}-name">`;
 
                 tenantNamesContainer.appendChild(newTenantField);
 
@@ -308,7 +308,7 @@ const noticeToLeaveForm = {
                 const newSubtenantField = document.createElement('div');
                 newSubtenantField.classList.add('ds_question');
                 newSubtenantField.innerHTML = `<label class="ds_label" for="subtenant-${newNumber}-name">Subtenant ${newNumber}: Full name</label>
-            <input class="ds_input" type="text" id="subtenant-${newNumber}-name" data-form="textinput-subtenant-${newNumber}-name">`;
+            <input class="ds_input" type="text" id="subtenant-${newNumber}-name">`;
 
                 subtenantNamesContainer.appendChild(newSubtenantField);
 

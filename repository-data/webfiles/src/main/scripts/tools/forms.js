@@ -637,9 +637,9 @@ const commonForms = {
                 }
             }
 
-            Object.entries(field.errors).forEach(error => {
-                errorContainer.append(`<p class="${error[0]}">${error[1]}</p>`);
-            });
+            for (let key in field.errors) {
+                errorContainer.append(`<p class="${key}">${field.errors[key]}</p>`);
+            }
         } else {
             question.classList.remove('ds_question--error');
             field.removeAttr('aria-invalid');

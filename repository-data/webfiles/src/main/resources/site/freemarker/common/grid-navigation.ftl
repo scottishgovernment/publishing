@@ -6,7 +6,7 @@
         <@hst.link var="link" hippobean=child.bean/>
         <li class="ds_category-item">
             <h2 class="ds_category-item__title">
-                <a data-navigation="category-item-${child?index + 1}" href="${link}" class="ds_category-item__link">
+                <a href="${link}" class="ds_category-item__link">
                     ${child.bean.title}
                 </a>
             </h2>

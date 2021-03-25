@@ -10,7 +10,7 @@ $mg-prefix: 'mg_';
 
 @include media-query(medium) {
     .#{$mg-prefix}layout {
-        &--corp-org-hub {
+        &--org-hub {
             > .#{$pl-prefix}layout {
                 &__header {
                     float: left;
@@ -51,16 +51,12 @@ $mg-prefix: 'mg_';
                 }
             }
         }
-
-        &--org-hub {
-
-        }
     }
 }
 
 @include media-query(large) {
     .#{$mg-prefix}layout {
-        &--corp-org-hub {
+        &--org-hub {
             > .#{$pl-prefix}layout {
                 &__contact {
                     float: left;
@@ -178,8 +174,8 @@ $mg-prefix: 'mg_';
                 'f f';
         }
 
-        &--corp-org-hub {
-            grid-gap: 28px 30px;
+        &--org-hub {
+            grid-gap: 32px;
             grid-template-areas:
                 'h h'
                 'p p'
@@ -212,7 +208,7 @@ $mg-prefix: 'mg_';
                     'f f f f f f';
             }
 
-            &--corp-org-hub {
+            &--org-hub {
                 grid-template-areas:
                     'h h h h h h'
                     'p p p p p p'
@@ -223,14 +219,6 @@ $mg-prefix: 'mg_';
                     'A A A A A A'
                     'B B B B B B'
                     'f f f f f f';
-            }
-
-            &--org-hub {
-                grid-template-areas:
-                    'h h h h h h'
-                    'p p p p p p'
-                    'c c c c c c'
-                    'f f f f f f'
             }
 
             &--org-list {
@@ -253,7 +241,7 @@ $mg-prefix: 'mg_';
                     'f f f f f f f f f . . .';
             }
 
-            &--corp-org-hub {
+            &--org-hub {
                 grid-template-areas:
                     'h h h h h h h h p p p p'
                     'c c c c c c c c p p p p'
@@ -261,14 +249,7 @@ $mg-prefix: 'mg_';
                     'F F F F F F F F F F F F'
                     'o o o o o o o o o o o o'
                     'A A A A A A A A B B B B'
-                    'f f f f f f f f f f f f';
-            }
-
-            &--org-hub {
-                grid-template-areas:
-                    'h h h h h h h h p p p p'
-                    'c c c c c c c c p p p p'
-                    'f f f f f f f f . . . .'
+                    'f f f f f f f f . . . .';
             }
 
             &--org-list {
@@ -303,7 +284,7 @@ $mg-prefix: 'mg_';
 
     @include media-query(xlarge) {
         .#{$mg-prefix}layout {
-            &--corp-org-hub {
+            &--org-hub {
                 grid-template-areas:
                     'h h h h h h h h p p p p'
                     'c c c c c c c c p p p p'

@@ -5,7 +5,7 @@
 
     <nav id="pagination" class="ds_pagination" aria-label="Search pages">
         <div class="ds_pagination__load-more">
-            <button data-search="pagination-more" class="ds_button">Load more</button>
+            <button class="ds_button">Load more</button>
         </div>
 
         <ul class="ds_pagination__list">
@@ -19,14 +19,14 @@
                             <@hst.param name="page" value="${pageable.previousPage}"/>
                         </@hst.renderURL>
                         <li class="ds_pagination__item">
-                            <a data-search="pagination-prev" class="ds_pagination__link  ds_pagination__link--text" href="${pageUrlPrevious}"><@fmt.message key="page.previous" var="prev"/>${prev?html}</a>
+                            <a class="ds_pagination__link  ds_pagination__link--text" href="${pageUrlPrevious}"><@fmt.message key="page.previous" var="prev"/>${prev?html}</a>
                         </li>
                     </#if>
                     <#if pageable.currentPage == pageNr>
                         <li class="ds_pagination__item" aria-current="page">
                             <span class="ds_pagination__link  ds_current">${pageNr}</span>
                         </li>
-                    <#else >
+                    <#else>
                         <li class="ds_pagination__item ">
                             <a data-search="pagination-${pageNr}" class="ds_pagination__link" href="${pageUrl}">${pageNr}</a>
                         </li>
@@ -37,7 +37,7 @@
                             <@hst.param name="page" value="${pageable.nextPage}"/>
                         </@hst.renderURL>
                         <li class="ds_pagination__item ">
-                            <a data-search="pagination-next" class="ds_pagination__link  ds_pagination__link--text" href="${pageUrlNext}"><@fmt.message key="page.next" var="next"/>${next?html}</a>
+                            <a class="ds_pagination__link  ds_pagination__link--text" href="${pageUrlNext}"><@fmt.message key="page.next" var="next"/>${next?html}</a>
                         </li>
                     </#if>
                 </#list>

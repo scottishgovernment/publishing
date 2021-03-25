@@ -418,7 +418,7 @@ const nonProvisionForm = {
 
             $('.js-tenant-names-container').append(
                 `<div class="ds_question"><label class="ds_label" for="tenant-${newNumber}-name">Tenant ${newNumber}: Full name</label>
-                <input type="text" id="tenant-${newNumber}-name" class="ds_input" data-form="textinput-tenant-${newNumber}-name"></div>`);
+                <input type="text" id="tenant-${newNumber}-name" class="ds_input"></div>`);
 
             nonProvisionForm.form.mapField(`tenantNames.tenant${newNumber}`, `#tenant-${newNumber}-name`);
             tenantNames[`tenant${newNumber}`] = null;
@@ -594,7 +594,7 @@ const nonProvisionForm = {
         formData.tenantNames = commonForms.objectValues(formData.tenantNames).filter(value => !!value);
 
         // 4. Remove landlord or letting agent data
-        if (formData.hasLettingAgent === 'true') {
+        if (formData.hasLettingAgent === 'yes') {
             formData.landlords = [];
         } else {
             formData.landlordsAgent = {};

@@ -26,7 +26,7 @@
                 <div class="js-tenant-names-container">
                     <div class="ds_question">
                         <label class="ds_label" for="tenant-1-name">Tenant 1: Full name</label>
-                        <input class="ds_input" type="text" id="tenant-1-name" data-validation="requiredField" data-form="textinput-tenant-1-name">
+                        <input class="ds_input" type="text" id="tenant-1-name" data-validation="requiredField">
                     </div>
                 </div>
 
@@ -46,7 +46,7 @@
 
                     <div class="ds_field-group">
                         <div class="ds_radio">
-                            <input id="agent-yes" value="true" name="tenants-agent-query" class="ds_radio__input" type="radio" data-form="radio-tenants-agent-query-true"/>
+                            <input id="agent-yes" value="true" name="tenants-agent-query" class="ds_radio__input" type="radio" />
                             <label for="agent-yes" class="ds_radio__label">Yes</label>
 
                             <div class="ds_reveal-content">
@@ -54,7 +54,7 @@
 
                                 <div class="ds_question">
                                     <label class="ds_label" for="tenants-agent-name">Full name</label>
-                                    <input type="text" id="tenants-agent-name" class="ds_input" data-validation="requiredField" data-form="textinput-tenants-agent-name">
+                                    <input type="text" id="tenants-agent-name" class="ds_input" data-validation="requiredField">
                                 </div>
 
                                 {{ postcodeLookup('tenants-agent', required=true, note=true) }}
@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="ds_radio">
-                            <input id="agent-no" value="false" name="tenants-agent-query" class="ds_radio__input" type="radio" data-form="radio-tenants-agent-query-false"/>
+                            <input id="agent-no" value="false" name="tenants-agent-query" class="ds_radio__input" type="radio" />
                             <label for="agent-no" class="ds_radio__label">No</label>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
 
                     <div class="ds_field-group">
                         <div class="ds_radio">
-                            <input id="letting-agent-yes" value="true" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="letting-agent-query-true">
+                            <input id="letting-agent-yes" value="yes" name="letting-agent-query" class="ds_radio__input" type="radio">
                             <label for="letting-agent-yes" class="ds_radio__label">Yes</label>
 
                             <div data-panel="letting-agent-yes" class="ds_reveal-content">
@@ -88,7 +88,7 @@
 
                                 <div class="ds_question">
                                     <label class="ds_label" for="letting-agent-name">Full name</label>
-                                    <input type="text" id="letting-agent-name" class="ds_input" data-validation="requiredField" data-form="textinput-letting-agent-name">
+                                    <input type="text" id="letting-agent-name" class="ds_input" data-validation="requiredField">
                                 </div>
 
                                 {{ postcodeLookup('letting-agent', required=true, note=true) }}
@@ -96,7 +96,7 @@
                         </div>
 
                         <div class="ds_radio">
-                            <input id="letting-agent-no" value="false" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="letting-agent-query-false">
+                            <input id="letting-agent-no" value="no" name="letting-agent-query" class="ds_radio__input" type="radio">
                             <label for="letting-agent-no" class="ds_radio__label">No</label>
                         </div>
                     </div>
@@ -120,37 +120,37 @@
 
                     <div class="ds_field-group">
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input type="checkbox" id="missing-tenancy" class="ds_checkbox__input" name="whatsMissing" data-form="checkbox-whatsMissing">
+                            <input type="checkbox" id="missing-tenancy" class="ds_checkbox__input" name="whatsMissing">
                             <label class="ds_checkbox__label" for="missing-tenancy">all the terms of your tenancy</label>
 
                             <div class="ds_reveal-content">
                                 <div class="ds_question">
                                     <label class="ds_label" for="missing-tenancy-details">Give details of what your landlord hasn't given you:</label>
-                                    <textarea id="missing-tenancy-details" data-validation="requiredField" class="ds_input" data-form="textarea-missing-tenancy-details"></textarea>
+                                    <textarea id="missing-tenancy-details" data-validation="requiredField" class="ds_input"></textarea>
                                 </div>
                             </div>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input type="checkbox" id="missing-new-terms" class="ds_checkbox__input" name="whatsMissing" data-form="checkbox-whatsMissing">
+                            <input type="checkbox" id="missing-new-terms" class="ds_checkbox__input" name="whatsMissing">
                             <label class="ds_checkbox__label" for="missing-new-terms">new tenancy terms if your landlord has changed something about your tenancy</label>
 
                             <div class="ds_reveal-content">
                                 <div class="ds_question">
                                     <label class="ds_label" for="missing-new-terms-details">Give details of what your landlord hasn't given you:</label>
-                                    <textarea id="missing-new-terms-details" data-validation="requiredField" class="ds_input" data-form="textarea-missing-new-terms-details"></textarea>
+                                    <textarea id="missing-new-terms-details" data-validation="requiredField" class="ds_input"></textarea>
                                 </div>
                             </div>
                         </div>
 
                         <div class="ds_checkbox  ds_checkbox--small">
-                            <input type="checkbox" id="missing-notes" class="ds_checkbox__input" name="whatsMissing" data-form="checkbox-whatsMissing">
+                            <input type="checkbox" id="missing-notes" class="ds_checkbox__input" name="whatsMissing">
                             <label class="ds_checkbox__label" for="missing-notes">either the 'Easy Read Notes for the Scottish Government Model Tenancy Agreement', or the 'Private Residential Tenancy Statutory Terms Supporting Notes'</label>
 
                             <div class="ds_reveal-content">
                                 <div class="ds_question">
                                     <label class="ds_label" for="missing-notes-details">Give details of what your landlord hasn't given you:</label>
-                                    <textarea id="missing-notes-details" data-validation="requiredField" class="ds_input" data-form="textarea-missing-notes-details"></textarea>
+                                    <textarea id="missing-notes-details" data-validation="requiredField" class="ds_input"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +170,7 @@
 
                     <div class="ds_field-group">
                         <div class="ds_radio">
-                            <input id="changed-terms-yes" value="true" name="changed-terms-query" class="ds_radio__input" type="radio" data-form="radio-changed-terms-query-true"/>
+                            <input id="changed-terms-yes" value="true" name="changed-terms-query" class="ds_radio__input" type="radio" />
                             <label for="changed-terms-yes" class="ds_radio__label">Yes</label>
 
                             <div class="ds_reveal-content">
@@ -182,7 +182,7 @@
 
                                     <div id="changed-terms-date-picker" data-module="ds-datepicker" class="ds_datepicker">
                                         <div class="ds_input__wrapper">
-                                            <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex requiredField" type="text" id="changed-terms-date" placeholder="e.g. 01/12/2020" data-form="textinput-changed-terms-date-picker" />
+                                            <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex requiredField" type="text" id="changed-terms-date" placeholder="e.g. 01/12/2020"  />
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@
                         </div>
 
                         <div class="ds_radio">
-                            <input id="changed-terms-no" value="false" name="changed-terms-query" class="ds_radio__input" type="radio" data-form="radio-changed-terms-query-false"/>
+                            <input id="changed-terms-no" value="false" name="changed-terms-query" class="ds_radio__input" type="radio" />
                             <label for="changed-terms-no" class="ds_radio__label">No</label>
                         </div>
                     </div>
@@ -209,11 +209,11 @@
 
                     <div class="ds_field-group">
                         <div class="ds_radio">
-                            <input id="payment-order-yes" value="true" name="payment-order-query" class="ds_radio__input" type="radio" data-form="radio-payment-order-query-true"/>
+                            <input id="payment-order-yes" value="true" name="payment-order-query" class="ds_radio__input" type="radio" />
                             <label for="payment-order-yes" class="ds_radio__label">Yes</label>
                         </div>
                         <div class="ds_radio">
-                            <input id="payment-order-no" value="false" name="payment-order-query" class="ds_radio__input" type="radio" data-form="radio-payment-order-query-false"/>
+                            <input id="payment-order-no" value="false" name="payment-order-query" class="ds_radio__input" type="radio" />
                             <label for="payment-order-no" class="ds_radio__label">No</label>
                         </div>
                     </div>
@@ -233,17 +233,17 @@
                     <legend>How are you going to give your landlord this notice?</legend>
                     <div class="ds_field-group">
                         <div class="ds_radio">
-                            <input class="ds_radio__input" id="hand-delivered" value="hand-delivered" name="communication-query" type="radio" data-form="radio-communication-query-hand-delivered"/>
+                            <input class="ds_radio__input" id="hand-delivered" value="hand-delivered" name="communication-query" type="radio" />
                             <label class="ds_radio__label" for="hand-delivered">By hand</label>
                         </div>
 
                         <div class="ds_radio">
-                            <input class="ds_radio__input" id="recorded-delivery" value="recorded-delivery" name="communication-query" type="radio" data-form="radio-communication-query-recorded-delivery"/>
+                            <input class="ds_radio__input" id="recorded-delivery" value="recorded-delivery" name="communication-query" type="radio" />
                             <label class="ds_radio__label" for="recorded-delivery">Sent by recorded delivery post</label>
                         </div>
 
                         <div class="ds_radio">
-                            <input class="ds_radio__input" id="email" value="email" name="communication-query" type="radio" data-form="radio-communication-query-email"/>
+                            <input class="ds_radio__input" id="email" value="email" name="communication-query" type="radio" />
                             <label class="ds_radio__label" for="email">By email</label>
                         </div>
                     </div>
@@ -263,7 +263,7 @@
 
                 <div id="notice-date-picker" data-module="ds-datepicker" class="ds_datepicker">
                     <div class="ds_input__wrapper">
-                        <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex requiredField" type="text" id="notice-date" placeholder="e.g. 15/12/2019" data-form="textinput-notice-date-picker" />
+                        <input class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex requiredField" type="text" id="notice-date" placeholder="e.g. 15/12/2019"  />
                     </div>
                 </div>
             </div>

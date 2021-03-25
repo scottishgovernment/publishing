@@ -4,7 +4,7 @@
         <label class="ds_label" for="{{name}}-postcode-search">Postcode</label>
 
         <div class="ds_input__wrapper">
-            <input class="ds_input  ds_input--fixed-10  postcode-search" data-validation="{% if required %}requiredPostcodeLookup{% else %}validPostcode{% endif %}" type="text" id="{{name}}-postcode-search" data-form="textinput-{{name}}-postcode-search" />
+            <input class="ds_input  ds_input--fixed-10  postcode-search" data-validation="{% if required %}requiredPostcodeLookup{% else %}validPostcode{% endif %}" type="text" id="{{name}}-postcode-search" />
             <button class="js-find-address-button  ds_button">Find address</button>
         </div>
 
@@ -15,7 +15,7 @@
     </div>
 
     <div class="ds_question  postcode-results  fully-hidden">
-        <label for="{{name}}-postcode-results"  class="ds_label">Select an address</label>
+        <label for="{{name}}-postcode-results" class="ds_label">Select an address</label>
 
         <div class="ds_select-wrapper">
         <select class="ds_select" id="{{name}}-postcode-results" data-validation="{% if required %}requiredDropdown{% endif %} {% if readOnly %}{% if required %}noAddressNotListed{% endif %}{% endif %}{% if noRPZAllowed %}requiredNonRPZAddress{% endif %}{% if onlyRPZAllowed %}requiredRPZAddress{% endif %}"></select>
@@ -29,30 +29,30 @@
     {% endif %}
 
     {% if readOnly %}
-        <textarea class="address-display  ds_input  fully-hidden" id="{{name}}-property-address" disabled="true" title="Property address" data-form="textarea-{{name}}-property-address"></textarea>
+        <textarea class="address-display  ds_input  fully-hidden" id="{{name}}-property-address" disabled="true" title="Property address"></textarea>
     {% else %}
         <div id="{{name}}-manual-address" class="address-manual  fully-hidden">
             {% if required %}<div class="ds_question  no-validate" data-validation="requiredBuildingOrStreet" id="{{name}}-building-street">{% endif %}
                 <label class="ds_label" for="{{name}}-address-building">Building</label>
-                <input type="text" id="{{name}}-address-building" class="ds_input  building" data-form="textinput-{{name}}-address-building">
+                <input type="text" id="{{name}}-address-building" class="ds_input  building">
 
                 <label class="ds_label" for="{{name}}-address-street">Street address</label>
-                <input type="text" id="{{name}}-address-street" class="ds_input  street" data-form="textinput-{{name}}-address-street">
+                <input type="text" id="{{name}}-address-street" class="ds_input  street">
             {% if required %}</div>{% endif %}
 
             <div class="ds_question">
                 <label class="ds_label" for="{{name}}-address-town">Town or city</label>
-                <input type="text" id="{{name}}-address-town" class="ds_input  town {% if required %}no-validate" data-validation="requiredField{% endif %}" data-form="textinput-{{name}}-address-town">
+                <input type="text" id="{{name}}-address-town" class="ds_input  town {% if required %}no-validate" data-validation="requiredField{% endif %}">
             </div>
 
             <div class="ds_question">
                 <label class="ds_label" for="{{name}}-address-region">Region or province</label>
-                <input type="text" id="{{name}}-address-region" class="ds_input  region" data-form="textinput-{{name}}-address-region">
+                <input type="text" id="{{name}}-address-region" class="ds_input  region">
             </div>
 
             <div class="ds_question">
                 <label class="ds_label" for="{{name}}-postcode">Postcode</label>
-                <input type="text" id="{{name}}-postcode" class="ds_input  uppercase  ds_input--fixed-10  postcode" data-form="textinput-{{name}}-postcode">
+                <input type="text" id="{{name}}-postcode" class="ds_input  uppercase  ds_input--fixed-10  postcode">
             </div>
         </div>
     {% endif %}

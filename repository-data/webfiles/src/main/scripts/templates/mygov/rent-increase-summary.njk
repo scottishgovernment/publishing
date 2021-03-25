@@ -1,5 +1,5 @@
 <div class="ds_accordion" data-module="ds-accordion">
-    <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+    <button  type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
 
     <div class="ds_accordion-item">
         <input type="checkbox" checked class="visually-hidden  ds_accordion-item__control" id="panel-tenancy" aria-labelledby="panel-tenancy-heading" />
@@ -53,7 +53,7 @@
             <label class="ds_accordion-item__label" for="panel-giving-notice"><span class="visually-hidden">Show this section</span></label>
         </div>
 
-        <div class="ds_accordion-item__body" id="accordion-item-property">
+        <div class="ds_accordion-item__body" id="accordion-item-giving-notice">
             <table class="ds_table  summary-table">
                 <tbody>
                     <tr>
@@ -103,18 +103,18 @@
             <label class="ds_accordion-item__label" for="panel-increase"><span class="visually-hidden">Show this section</span></label>
         </div>
 
-        <div class="ds_accordion-item__body" id="accordion-item-property">
+        <div class="ds_accordion-item__body" id="accordion-item-increase">
             <table class="ds_table  summary-table">
                 <tbody>
-                    {# {{#compare improvementsQuery 'yes'}}
+                    {% if (improvementsQuery == 'yes') %}
                     <tr>
                         <th>Improvements</th>
                         <td>
-                            <div class="hide-if-empty"><a href="#!/increase/improvements/improvements-increase/" class="summary__link  summary__user-input">{{{notspecified (currency improvementsIncrease)}}}</a></div>
+                            <div class="hide-if-empty"><a href="#!/increase/improvements/improvements-increase/" class="summary__link  summary__user-input">{{improvementsIncrease | currency | notspecified | safe}}</a></div>
                         </td>
                         <td class="summary-table__edit"><a href="#!/increase/improvements/" class="edit">edit</a></td>
                     </tr>
-                    {{/compare}} #}
+                    {% endif %}
                     <tr>
                         <th>New rent</th>
                         <td>

@@ -55,7 +55,7 @@
                                 <@hst.link var="link" hippobean=child.link/>
                                 <li class="ds_category-item">
                                     <h2 class="ds_category-item__title">
-                                        <a data-navigation="category-item-${child?index}" href="${link}" class="ds_category-item__link">${child.title}</a>
+                                        <a href="${link}" class="ds_category-item__link">${child.title}</a>
                                     </h2>
 
                                     <div class="ds_category-item__summary  ds_stack">
@@ -76,7 +76,7 @@
 
                                 <li class="ds_category-item">
                                     <h2 class="ds_category-item__title">
-                                        <a data-navigation="category-item-${child?index}" href="${link}" class="ds_category-item__link">${child.title}</a>
+                                        <a href="${link}" class="ds_category-item__link">${child.title}</a>
                                     </h2>
 
                                     <div class="ds_category-item__summary">
@@ -196,7 +196,7 @@
                         <#if document.email?has_content>
                             <div class="ds_contact-details__item">
                                 <dt>Email</dt>
-                                <dd><a href="mailto:${document.email}" data-navigation="contact-details">${document.email}</a></dd>
+                                <dd><a href="mailto:${document.email}">${document.email}</a></dd>
                             </div>
                         </#if>
                         <#if document.address?has_content>
@@ -229,7 +229,7 @@
                             <dt class="visually-hidden">Social media</dt>
                             <#if document.facebook?has_content>
                                 <dd class="ds_contact-details__social-item">
-                                    <a class="ds_contact-details__social-link" href="${document.facebook}" data-navigation="contact-details">
+                                    <a class="ds_contact-details__social-link" href="${document.facebook}">
                                         <svg class="ds_contact-details__social-icon  ds_icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#facebook"></use></svg>
                                         Facebook
                                     </a>
@@ -237,7 +237,7 @@
                             </#if>
                             <#if document.twitter?has_content>
                                 <dd class="ds_contact-details__social-item">
-                                    <a class="ds_contact-details__social-link" href="http://twitter.com/${document.twitter}" data-navigation="contact-details">
+                                    <a class="ds_contact-details__social-link" href="http://twitter.com/${document.twitter}">
                                         <svg class="ds_contact-details__social-icon  ds_icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#twitter"></use></svg>
                                         ${document.twitter}
                                     </a>
@@ -245,7 +245,7 @@
                             </#if>
                             <#if document.flickr?has_content>
                                 <dd class="ds_contact-details__social-item">
-                                    <a class="ds_contact-details__social-link" href="${document.flickr}" data-navigation="contact-details">
+                                    <a class="ds_contact-details__social-link" href="${document.flickr}">
                                         <svg class="ds_contact-details__social-icon  ds_icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#flickr"></use></svg>
                                         Flickr
                                     </a>
@@ -253,7 +253,7 @@
                             </#if>
                             <#if document.youtube?has_content>
                                 <dd class="ds_contact-details__social-item">
-                                    <a class="ds_contact-details__social-link" href="${document.youtube}" data-navigation="contact-details">
+                                    <a class="ds_contact-details__social-link" href="${document.youtube}">
                                         <svg class="ds_contact-details__social-icon  ds_icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#youtube"></use></svg>
                                         YouTube
                                     </a>
@@ -261,7 +261,7 @@
                             </#if>
                             <#if document.blog?has_content>
                                 <dd class="ds_contact-details__social-item">
-                                    <a class="ds_contact-details__social-link" href="${document.blog}" data-navigation="contact-details">
+                                    <a class="ds_contact-details__social-link" href="${document.blog}">
                                         <svg class="ds_contact-details__social-icon  ds_icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#blog"></use></svg>
                                         Blog
                                     </a>

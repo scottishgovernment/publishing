@@ -225,7 +225,7 @@ const rentIncreaseForm = {
             const question = document.createElement('div');
             question.classList.add('ds_question');
             question.innerHTML = `<label class="ds_label" for="tenant-${newNumber}-name">Tenant ${newNumber}: Full name</label>
-            <input type="text" id="tenant-${newNumber}-name" class="ds_input" data-form="textinput-tenant-${newNumber}-name">`;
+            <input type="text" id="tenant-${newNumber}-name" class="ds_input">`;
 
             document.querySelector('.js-tenant-names-container').appendChild(question);
 
@@ -508,7 +508,7 @@ const rentIncreaseForm = {
             </div>
             <div id="rent-increase-send-date-picker" data-module="ds-datepicker" class="ds_datepicker">
                 <div class="ds_input__wrapper">
-                    <input data-mindate="${templateData.today}" data-maxDate="${templateData.notificationDate}" class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex beforeDate requiredField" type="text" id="rent-increase-send-date" placeholder="e.g. ${templateData.today}" value="${rentIncreaseForm.notificationSendDate}" data-form="textinput-rent-increase-send-date">
+                    <input data-mindate="${templateData.today}" data-maxDate="${templateData.notificationDate}" class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex beforeDate requiredField" type="text" id="rent-increase-send-date" placeholder="e.g. ${templateData.today}" value="${rentIncreaseForm.notificationSendDate}">
                 </div>
             </div>`;
 

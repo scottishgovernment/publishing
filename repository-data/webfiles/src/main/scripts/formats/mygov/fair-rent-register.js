@@ -99,7 +99,7 @@ const fairRentRegister = {
             let breadcrumbItem;
             if (i !== il - 1) {
                 breadcrumbItem = `<li class="ds_breadcrumbs__item" id="${breadcrumbsArray[i].id}">
-                    <a data-navigation="breadcrumb-${i + 1}" class="ds_breadcrumbs__link" href="${breadcrumbsArray[i].url}">
+                    <a class="ds_breadcrumbs__link" href="${breadcrumbsArray[i].url}">
                         ${breadcrumbsArray[i].title}
                     </a>
                 </li>`;
@@ -193,7 +193,7 @@ const fairRentRegister = {
                     <label class="ds_label  visually-hidden" for="site-search">Search</label>
 
                     <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
-                        <input name="query" id="fair-rent-search-box" class="ds_input  ds_site-search__input" type="text" placeholder="Search the Fair Rent Register" value="${decodeURIComponent(query).replace(/[+]/g, ' ')}" data-form="textinput-fair-rent-search-box">
+                        <input name="query" id="fair-rent-search-box" class="ds_input  ds_site-search__input" type="text" placeholder="Search the Fair Rent Register" value="${decodeURIComponent(query).replace(/[+]/g, ' ')}">
 
                         <button type="submit" class="ds_button  ds_button--icon-only  js-site-search-button">
                             <span class="visually-hidden">Search the Fair Rent Register</span>

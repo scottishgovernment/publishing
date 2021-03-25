@@ -28,22 +28,22 @@
                 <legend>Does a letting agent manage the property?</legend>
                 <div class="field-group">
                     <div class="ds_radio">
-                        <input id="letting-agent-yes" value="yes" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-yes"/>
+                        <input id="letting-agent-yes" value="yes" name="letting-agent-query" class="ds_radio__input" type="radio" />
                         <label for="letting-agent-yes" class="ds_radio__label">Yes</label>
 
                         <div class="ds_reveal-content">
                             <div class="ds_question">
                                 <label class="ds_label" for="letting-agent-name">Full name</label>
-                                <input type="text" id="letting-agent-name" data-validation="requiredField" class="ds_input" data-form="textinput-letting-agent-name">
+                                <input type="text" id="letting-agent-name" data-validation="requiredField" class="ds_input">
 
                             <div class="ds_question">
                                 <label class="ds_label" for="letting-agent-email">Email</label>
-                                <input data-validation="validEmail" type="text" data-validation="requiredField" id="letting-agent-email" class="ds_input" data-form="textinput-letting-agent-email">
+                                <input data-validation="validEmail" type="text" data-validation="requiredField" id="letting-agent-email" class="ds_input">
                             </div>
 
                             <div class="ds_question">
                                 <label class="ds_label" for="letting-agent-phone">Phone number</label>
-                                <input data-validation="validPhone" type="text" data-validation="requiredField" id="letting-agent-phone" class="ds_input  ds_input--fixed-20" data-form="textinput-letting-agent-phone">
+                                <input data-validation="validPhone" type="text" data-validation="requiredField" id="letting-agent-phone" class="ds_input  ds_input--fixed-20">
                             </div>
 
                             <h3 class="beta">Address</h3>
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="ds_radio">
-                        <input id="letting-agent-no" value="no" name="letting-agent-query" class="ds_radio__input" type="radio" data-form="radio-letting-agent-query-no"/>
+                        <input id="letting-agent-no" value="no" name="letting-agent-query" class="ds_radio__input" type="radio" />
                         <label for="letting-agent-no" class="ds_radio__label">No</label>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
 
     <section data-step="improvements" class="form-section  fully-hidden">
 
-        <section data-step="property-improvements"  class="form-step  fully-hidden">
+        <section data-step="property-improvements" class="form-step  fully-hidden">
             <h2>Property improvements</h2>
 
             <div class="form-group">
@@ -86,12 +86,12 @@
 
                 <p>You can't claim for your own labour, only what you paid someone else to do.</p>
 
-                <textarea id="improvements-details" class="ds_input" rows="10" data-validation="requiredField" data-form="textarea-improvements-details"></textarea>
+                <textarea id="improvements-details" class="ds_input" rows="10" data-validation="requiredField"></textarea>
             </div>
 
         </section>
 
-        <section data-step="proof-of-work"  class="form-step  fully-hidden">
+        <section data-step="proof-of-work" class="form-step  fully-hidden">
             <h2>Proof of work</h2>
 
             <p>For a Rent Officer to be able to decide how much extra rent you can charge, you should send some proof of the work you've done. </p>
@@ -102,12 +102,12 @@
 
                     <div class="field-group">
                         <div class="ds_checkbox">
-                            <input type="checkbox" id="documents-receipts" class="ds_checkbox__input" name="improvements-documents" data-form="checkbox-documents-receipts">
+                            <input type="checkbox" id="documents-receipts" class="ds_checkbox__input" name="improvements-documents">
                             <label class="ds_checkbox__label" for="documents-receipts">copies of invoices or receipts, proving the cost of work</label>
                         </div>
 
                         <div class="ds_checkbox">
-                            <input type="checkbox" id="documents-photos" class="ds_checkbox__input" name="improvements-documents" data-form="checkbox-documents-photos">
+                            <input type="checkbox" id="documents-photos" class="ds_checkbox__input" name="improvements-documents">
                             <label class="ds_checkbox__label" for="documents-photos">'before' and 'after' photos of the work you've done</label>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
             <p class="ds_hint-text">Only put the amount you want to charge for work you've done.</p>
 
             <div class="ds_currency-wrapper">
-                <input data-validation="requiredField validCurrency" aria-required="true" type="text" id="rent-increase-amount" class="ds_input  ds_input--fixed-10" placeholder="e.g. 50.00" data-form="textinput-rent-increase-amount">
+                <input data-validation="requiredField validCurrency" aria-required="true" type="text" id="rent-increase-amount" class="ds_input  ds_input--fixed-10" placeholder="e.g. 50.00">
             </div>
         </div>
 
@@ -167,7 +167,7 @@
                 <legend class="visually-hidden">Form Declaration</legend>
 
                 <div class="ds_checkbox">
-                    <input id="form-declaration" class="ds_checkbox__input" type="checkbox" data-form="checkbox-form-declaration"/>
+                    <input id="form-declaration" class="ds_checkbox__input" type="checkbox" />
                     <label for="form-declaration" class="ds_checkbox__label">I apply to a Rent Officer to decide how much extra rent can be charged for improvements made at <span class="js-declaration-address summary__user-input"></span>.</label>
                 </div>
             </fieldset>

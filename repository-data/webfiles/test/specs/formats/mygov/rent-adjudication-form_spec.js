@@ -68,7 +68,7 @@ describe("Rent adjudication form", function() {
                 }
             });
 
-            formData.hasLettingAgent = 'false';
+            formData.hasLettingAgent = 'no';
 
             formDataForPost = rentAdjudicationForm.prepareFormDataForPost(formData);
 

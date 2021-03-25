@@ -81,7 +81,7 @@
 
 {% if properties.length > 4 %}
 <div class="ds_accordion" data-module="ds-accordion">
-    <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+    <button  type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
 
     {% for property in properties %}
     <div class="ds_accordion-item">
@@ -103,7 +103,7 @@
 <div class="ds_tab-container  ds_tab-container--{{properties.length}}" data-module="ds-tabs">
     {% for property in properties %}
     <input class="ds_tab__radio" type="radio" checked="" name="tabs" id="tab{{loop.index}}" />
-    <div class="ds_tab__header"><label id="tab{{loop.index}}-label" aria-controls="tab{{loop.index}}-content" role="tab" class="ds_tab__label" for="tab{{loop.index}}" data-navigation="tab-{{loop.index}}">Property {{loop.index}}</label></div>
+    <div class="ds_tab__header"><label id="tab{{loop.index}}-label" aria-controls="tab{{loop.index}}-content" role="tab" class="ds_tab__label" for="tab{{loop.index}}">Property {{loop.index}}</label></div>
     <div tabindex="0" id="tab{{loop.index}}-content" class="ds_tab__content" role="tabpanel" aria-labelledby="tab{{loop.index}}-label">
         {{ propertyDetails(property, loop.index0)}}
     </div>

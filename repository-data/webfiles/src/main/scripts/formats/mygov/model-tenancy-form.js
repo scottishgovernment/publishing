@@ -633,7 +633,7 @@ const modelTenancyForm = {
         formData.rentPaymentSchedule = scheduleString;
 
         // 7. Remove letting agent details if user has said there is none
-        if (formData.hasLettingAgent === 'letting-agent-no'){
+        if (formData.hasLettingAgent === 'no'){
             formData.lettingAgent = null;
         }
         return formData;

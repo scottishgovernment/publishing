@@ -4,72 +4,70 @@
 
 'use strict';
 
+const formObject = {
+    propertyAddress: null,
+    tenants: { 'tenant-1': {} },
+    tenantAgent: {
+        name: null,
+        email: null,
+        telephone: null,
+        address: {
+            building: null,
+            street: null,
+            town: null,
+            region: null,
+            postcode: null
+        }
+    },
+    'propertyType': null,
+    'rooms': [{
+        name: 'Living rooms',
+        quantity: 1
+    },{
+        name: 'Bedrooms',
+        quantity: 1
+    },{
+        name: 'Kitchens',
+        quantity: 1
+    },{
+        name: 'Bathrooms',
+        quantity: 1
+    },{
+        name: 'WC',
+        quantity: 0
+    }],
+    'sharedAreas': null,
+    'included': null,
+    'heating': null,
+    'doubleGlazing': null,
+    'servicesDetails': null,
+    'servicesCostDetails': null,
+    'furnished': null,
+    'noInventory': null,
+    'improvementsTenant': null,
+    'improvementsLandlord': null,
+    'damage': null,
+    'currentRentAmount': null,
+    'currentRentFrequency': null,
+    'newRentAmount': null,
+    'newRentFrequency': null,
 
-const formObject = {"propertyAddress":null,"tenants":{"tenant-1":{"name":"Jonathan Sutcliffe","email":"jonathan.a.sutcliffe@gmail.com","telephone":"01578750763","address":{"street":"Over Hartside","town":"Oxton","region":"Berwickshire"}}},"tenantAgent":{"name":"Jonathan Sutcliffe","email":"jonathan.a.sutcliffe@gmail.com","telephone":"01578750763","address":{"building":null,"street":"Over Hartside","town":"Oxton","region":"Berwickshire","postcode":null}},"propertyType":"BUNGALOW","rooms":[{"name":"Living rooms","quantity":1,"quantity_options_nodisplay":[{"displayName":0,"value":0},{"displayName":1,"value":1},{"displayName":2,"value":2},{"displayName":3,"value":3},{"displayName":4,"value":4},{"displayName":5,"value":5},{"displayName":6,"value":6},{"displayName":7,"value":7}],"slug_nodisplay":"quantity"},{"name":"Bedrooms","quantity":1,"quantity_options_nodisplay":[{"displayName":0,"value":0},{"displayName":1,"value":1},{"displayName":2,"value":2},{"displayName":3,"value":3},{"displayName":4,"value":4},{"displayName":5,"value":5},{"displayName":6,"value":6},{"displayName":7,"value":7}],"slug_nodisplay":"quantity"},{"name":"Kitchens","quantity":1,"quantity_options_nodisplay":[{"displayName":0,"value":0},{"displayName":1,"value":1},{"displayName":2,"value":2},{"displayName":3,"value":3},{"displayName":4,"value":4},{"displayName":5,"value":5},{"displayName":6,"value":6},{"displayName":7,"value":7}],"slug_nodisplay":"quantity"},{"name":"Bathrooms","quantity":1,"quantity_options_nodisplay":[{"displayName":0,"value":0},{"displayName":1,"value":1},{"displayName":2,"value":2},{"displayName":3,"value":3},{"displayName":4,"value":4},{"displayName":5,"value":5},{"displayName":6,"value":6},{"displayName":7,"value":7}],"slug_nodisplay":"quantity"},{"name":"WC","quantity":0,"quantity_options_nodisplay":[{"displayName":0,"value":0},{"displayName":1,"value":1},{"displayName":2,"value":2},{"displayName":3,"value":3},{"displayName":4,"value":4},{"displayName":5,"value":5},{"displayName":6,"value":6},{"displayName":7,"value":7}],"slug_nodisplay":"quantity"}],"sharedAreas":"eerwewrewrrew","included":"sssss","heating":"Part central heating","doubleGlazing":"Partial double glazing","servicesDetails":null,"servicesCostDetails":null,"furnished":"yes","noInventory":true,"improvementsTenant":"werewerw","improvementsLandlord":"werwewer","damage":"erwwerewewrewr","currentRentAmount":"234324","currentRentFrequency":"WEEKLY","newRentAmount":"23443","newRentFrequency":"CALENDAR_MONTH","landlords":{"landlord-1":{"name":"Jonathan Sutcliffe","email":"jonathan.a.sutcliffe@gmail.com","telephone":"01578750763","address":{"building":"qew"}}},"hasLettingAgent":"true","lettingAgent":{"name":"Jonathan Sutcliffe","email":"jonathan.a.sutcliffe@gmail.com","telephone":"01578750763","address":{"building":null,"street":"Over Hartside","town":"Oxton","region":"Berwickshire","postcode":null}},"notAvailableForInspection":"23324","hasTenantAgent":"yes","hasTenantAgent_text":"Yes","propertyType_text":"Bungalow","sharedAreasQuery":"yes","sharedAreasQuery_text":"Yes","includedQuery":"yes","includedQuery_text":"Yes","heating_text":"Part central heating","doubleGlazing_text":"Some double glazing","furnished_text":"Yes","tenantImprovementsQuery":"yes","tenantImprovementsQuery_text":"Yes","landlordImprovementsQuery":"yes","landlordImprovementsQuery_text":"Yes","damagesQuery":"yes","damagesQuery_text":"Yes","currentRentFrequency_text":"Weekly","newRentFrequency_text":"Monthly","hasLettingAgent_text":"Yes"}
-// const formObject = {
-//     propertyAddress: null,
-//     tenants: { 'tenant-1': {} },
-//     tenantAgent: {
-//         name: null,
-//         email: null,
-//         telephone: null,
-//         address: {
-//             building: null,
-//             street: null,
-//             town: null,
-//             region: null,
-//             postcode: null
-//         }
-//     },
-//     'propertyType': null,
-//     'rooms': [{
-//         name: 'Living rooms',
-//         quantity: 1
-//     },{
-//         name: 'Bedrooms',
-//         quantity: 1
-//     },{
-//         name: 'Kitchens',
-//         quantity: 1
-//     },{
-//         name: 'Bathrooms',
-//         quantity: 1
-//     },{
-//         name: 'WC',
-//         quantity: 0
-//     }],
-//     'sharedAreas': null,
-//     'included': null,
-//     'heating': null,
-//     'doubleGlazing': null,
-//     'servicesDetails': null,
-//     'servicesCostDetails': null,
-//     'furnished': null,
-//     'noInventory': null,
-//     'improvementsTenant': null,
-//     'improvementsLandlord': null,
-//     'damage': null,
-//     'currentRentAmount': null,
-//     'currentRentFrequency': null,
-//     'newRentAmount': null,
-//     'newRentFrequency': null,
-
-//     landlords: { 'landlord-1': {} },
-//     'hasLettingAgent': null,
-//     lettingAgent: {
-//         name: null,
-//         email: null,
-//         telephone: null,
-//         address: {
-//             building: null,
-//             street: null,
-//             town: null,
-//             region: null,
-//             postcode: null
-//         }
-//     },
-//     'notAvailableForInspection': null
-// };
+    landlords: { 'landlord-1': {} },
+    'hasLettingAgent': null,
+    lettingAgent: {
+        name: null,
+        email: null,
+        telephone: null,
+        address: {
+            building: null,
+            street: null,
+            town: null,
+            region: null,
+            postcode: null
+        }
+    },
+    'notAvailableForInspection': null
+};
 
 const formMapping = {
     'propertyAddress': '#rpz-property-address',
@@ -393,7 +391,7 @@ const rentAdjudicationForm = {
         formDataForPost.landlords = commonForms.objectValues(formData.landlords);
 
         // 3. Remove letting/tenant agent details if no letting/tenant agent
-        if (formData.hasLettingAgent === 'false'){
+        if (formData.hasLettingAgent === 'no'){
             formDataForPost.lettingAgent = {};
         }
 
