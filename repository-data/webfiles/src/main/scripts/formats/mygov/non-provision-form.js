@@ -252,9 +252,9 @@ const formMapping = {
     'section11Details': '#missing-notes-details',
     'section16Failure': '[name="payment-order-query"]',
     'hasChangedTerms': '[name="changed-terms-query"]',
-    'changedTermsDate': '#changed-terms-date',
+    'changedTermsDate': '#changed-terms-date-picker',
     'communicationMethod': '[name="communication-query"]',
-    'noticeDate': '#notice-date'
+    'noticeDate': '#notice-date-picker'
 };
 
 import $ from 'jquery';
@@ -326,6 +326,7 @@ const nonProvisionForm = {
 
                 commonHousing.validateSummary();
                 commonHousing.summaryAccordion(document.getElementById('summary-container'));
+                window.DS.tracking.init(summaryContainer);
             },
             updateNoticeEndDate: function () {
                 calcNoticeEnd();
@@ -408,21 +409,31 @@ const nonProvisionForm = {
         });
     },
 
-    setupAddTenantNames: function(){
-        $('.js-add-tenant').on('click', function (event) {
-            event.preventDefault();
+    setupAddTenantNames: function () {
+        const addTenantButton = document.querySelector('.js-add-tenant');
+        if (addTenantButton) {
+            addTenantButton.addEventListener('click', event => {
+                event.preventDefault();
 
-            const tenantNames = nonProvisionForm.form.settings.formObject.tenantNames;
-            const currentNumberOfTenants = commonForms.objectKeys(tenantNames).length;
-            const newNumber = currentNumberOfTenants + 1;
+                const tenantNames = nonProvisionForm.form.settings.formObject.tenantNames;
+                const currentNumberOfTenants = commonForms.objectKeys(tenantNames).length;
+                const newNumber = currentNumberOfTenants + 1;
 
-            $('.js-tenant-names-container').append(
-                `<div class="ds_question"><label class="ds_label" for="tenant-${newNumber}-name">Tenant ${newNumber}: Full name</label>
-                <input type="text" id="tenant-${newNumber}-name" class="ds_input"></div>`);
+                const tenantNamesContainer = document.querySelector('.js-tenant-names-container');
+                const newQuestion = document.createElement('div');
 
-            nonProvisionForm.form.mapField(`tenantNames.tenant${newNumber}`, `#tenant-${newNumber}-name`);
-            tenantNames[`tenant${newNumber}`] = null;
-        });
+                newQuestion.classList.add('ds_question');
+                newQuestion.innerHTML = `<label class="ds_label" for="tenant-${newNumber}-name">Tenant ${newNumber}: Full name</label>
+                <input type="text" id="tenant-${newNumber}-name" class="ds_input">`;
+
+                tenantNamesContainer.appendChild(newQuestion);
+
+                nonProvisionForm.form.mapField(`tenantNames.tenant${newNumber}`, `#tenant-${newNumber}-name`);
+                tenantNames[`tenant${newNumber}`] = null;
+
+                window.DS.tracking.init(newQuestion);
+            });
+        }
     },
 
     setupAddLandlords: function () {

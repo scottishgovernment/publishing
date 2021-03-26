@@ -61,16 +61,18 @@ const rentImprovementsForm = {
         formObject: formObject,
         formEvents: {
             updateSummary: function () {
+                const summaryContainer = document.querySelector('#summary-container');
                 const summaryObject = JSON.parse(JSON.stringify(rentImprovementsForm.form.settings.formObject));
 
                 summaryObject.hasTenants = Object.values(summaryObject.tenants)[0].name;
                 summaryObject.hasLandlords = Object.values(summaryObject.landlords)[0].name;
 
                 const html = summaryTemplate.render(summaryObject);
-                document.querySelector('#summary-container').innerHTML = html;
+                summaryContainer.innerHTML = html;
 
                 commonHousing.validateSummary();
-                commonHousing.summaryAccordion(document.getElementById('summary-container'));
+                commonHousing.summaryAccordion(summaryContainer);
+                window.DS.tracking.init(summaryContainer);
             },
             insertPropertyAddress: function() {
                 const propertySpan = $('.js-declaration-address');
@@ -207,7 +209,6 @@ const rentImprovementsForm = {
     },
 
     validateStep: function () {
-        console.error('validation is disabled'); return true;
         return commonForms.validateStep(rentImprovementsForm.form.currentStep);
     },
 

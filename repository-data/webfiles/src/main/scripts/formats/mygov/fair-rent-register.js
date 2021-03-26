@@ -111,6 +111,8 @@ const fairRentRegister = {
             }
             breadcrumbsListElement.innerHTML = breadcrumbsListElement.innerHTML + breadcrumbItem;
         }
+
+        window.DS.tracking.init(breadcrumbsListElement);
     },
 
     /**
@@ -128,6 +130,8 @@ const fairRentRegister = {
         // show target section
         const targetSection = document.querySelector(`#fair-rent-${sectionName}`);
         targetSection.classList.remove('fully-hidden');
+
+        window.DS.tracking.init(targetSection);
     },
 
     /**
@@ -180,6 +184,7 @@ const fairRentRegister = {
     renderList: function(result, total, query) {
         this.listElement.innerHTML = '';
         this.listElement.start = result.index + 1;
+        this.listElement.setAttribute('data-total', total);
 
         if (total === 0) {
             const itemHTML = `
@@ -402,7 +407,7 @@ const fairRentRegister = {
         ${item.propertyDetails.sfac.sfaC1Text.replace(/(\r\n|\n|\r)/gm, '<br>')}
         </p>
 
-        <div class="ds_accordion">
+        <div class="ds_accordion" data-module="ds-accordion">
             <div class="ds_accordion-item">
                 <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-1" aria-labelledby="panel-1-heading">
                 <div class="ds_accordion-item__header">
@@ -579,6 +584,12 @@ const fairRentRegister = {
         --></div>`;
 
         itemElement.innerHTML = itemHTML;
+
+        // init accordion
+        if (window.DS) {
+            const accordions = [].slice.call(itemElement.querySelectorAll('[data-module="ds-accordion"]'));
+            accordions.forEach(accordion => new window.DS.components.Accordion(accordion).init());
+        }
     }
 };
 

@@ -9,7 +9,7 @@
     {% endif %}
 
     {% if nextStep %}
-        <a title="{{nextStep.title}}" id="button-next" href="#!/{{nextStep.section}}/{{nextStep.slug}}/" class="ds_button  ds_button--has-icon  js-validate-step" {% if startPage %}data-gtm="btn-start"{% endif %}>
+        <a title="{{nextStep.title}}" id="button-next" href="#!/{{nextStep.section}}/{{nextStep.slug}}/" class="ds_button  ds_button--has-icon  js-validate-step" {% if startPage %}data-button="button-start"{% endif %}>
             {% if startPage %}Start{% else %}Next{% endif %}
 
             <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="{{ iconsFile }}#chevron-right"></use></svg>

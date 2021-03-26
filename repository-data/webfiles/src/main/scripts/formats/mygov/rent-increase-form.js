@@ -122,12 +122,14 @@ const rentIncreaseForm = {
         formObject: formObject,
         formEvents: {
             updateSummary: function () {
+                const summaryContainer = document.querySelector('#summary-container');
                 const summaryObject = JSON.parse(JSON.stringify(rentIncreaseForm.form.settings.formObject));
                 summaryObject.hasLandlords = Object.values(summaryObject.landlords)[0].name;
                 const html = summaryTemplate.render(summaryObject);
 
-                document.querySelector('#summary-container').innerHTML = html;
-                commonHousing.summaryAccordion(document.getElementById('summary-container'));
+                summaryContainer.innerHTML = html;
+                commonHousing.summaryAccordion(summaryContainer);
+                window.DS.tracking.init(summaryContainer);
             },
             updateDateOfIncrease: function () {
                 rentIncreaseForm.setupDateOfIncrease();
@@ -215,23 +217,29 @@ const rentIncreaseForm = {
     },
 
     setupAddTenantNames: function () {
-        document.querySelector('.js-add-tenant').addEventListener('click', function (event) {
-            event.preventDefault();
+        const addTenantButton = document.querySelector('.js-add-tenant');
+        if (addTenantButton) {
+            addTenantButton.addEventListener('click', event => {
+                event.preventDefault();
 
-            const tenantNames = rentIncreaseForm.form.settings.formObject.tenantNames;
-            const currentNumberOfTenants = commonForms.objectKeys(tenantNames).length;
-            const newNumber = currentNumberOfTenants + 1;
+                const tenantNames = rentIncreaseForm.form.settings.formObject.tenantNames;
+                const currentNumberOfTenants = commonForms.objectKeys(tenantNames).length;
+                const newNumber = currentNumberOfTenants + 1;
 
-            const question = document.createElement('div');
-            question.classList.add('ds_question');
-            question.innerHTML = `<label class="ds_label" for="tenant-${newNumber}-name">Tenant ${newNumber}: Full name</label>
-            <input type="text" id="tenant-${newNumber}-name" class="ds_input">`;
+                const tenantNamesContainer = document.querySelector('.js-tenant-names-container');
+                const newQuestion = document.createElement('div');
 
-            document.querySelector('.js-tenant-names-container').appendChild(question);
+                newQuestion.classList.add('ds_question');
+                newQuestion.innerHTML = `<label class="ds_label" for="tenant-${newNumber}-name">Tenant ${newNumber}: Full name</label>
+                <input type="text" id="tenant-${newNumber}-name" class="ds_input">`;
 
-            rentIncreaseForm.form.mapField(`tenantNames.tenant${newNumber}`, `#tenant-${newNumber}-name`);
-            tenantNames[`tenant${newNumber}`] = null;
-        });
+                tenantNamesContainer.appendChild(newQuestion);
+
+                rentIncreaseForm.form.mapField(`tenantNames.tenant${newNumber}`, `#tenant-${newNumber}-name`);
+                tenantNames[`tenant${newNumber}`] = null;
+                window.DS.tracking.init(newQuestion);
+            });
+        }
     },
 
     setupDatePickers: function () {

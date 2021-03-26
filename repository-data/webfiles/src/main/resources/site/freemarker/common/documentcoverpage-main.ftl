@@ -8,23 +8,19 @@
     <@hst.include ref="breadcrumbs"/>
 
     <div class="ds_wrapper">
-        <main class="ds_layout  ds_layout--article">
-
-            <#if document.sensitive>
-                <div class="ds_hide-page">
-                    <a href="http://bbc.co.uk/weather" data-altlink="https://www.google.co.uk" class="ds_hide-page__button  ds_button  js-hide-page"><strong>Hide this page</strong> <span class="visually-hidden  js-enabled-text">Or press escape key to hide this page</span></a>
-                    <p class="ds_hide-page__text  js-enabled-text">(Or press Esc key)</p>
-                </div>
-            </#if>
+        <main id="main-content" class="ds_layout  ds_layout--article">
 
             <div class="ds_layout__header">
                 <header class="ds_page-header">
                     <h1 class="ds_page-header__title">${document.title}</h1>
-                    <#if document.lastUpdatedDate??>
-                        <div class="ds_category-header__meta">
-                            <small>Last updated: <b><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></b></small>
-                        </div>
-                    </#if>
+                    <dl class="ds_page-header__metadata  ds_metadata">
+                        <#if document.lastUpdatedDate??>
+                            <div class="ds_metadata__item">
+                                <dt class="ds_metadata__key">Last updated</dt>
+                                <dd><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></dd>
+                            </div>
+                        </#if>
+                    </dl>
                 </header>
             </div>
 

@@ -20,7 +20,7 @@
 
             <div class="ds_field-group">
                 <div class="ds_radio  ds_radio--small">
-                    <input type="radio" class="ds_radio__input" id="needsmetyes" name="feedbacktype" data-gtm="fdbk-yes" value="yes">
+                    <input type="radio" class="ds_radio__input" id="needsmetyes" name="needsmet" value="yes">
                     <label class="ds_radio__label" for="needsmetyes">Yes</label>
 
                     <div class="ds_reveal-content">
@@ -28,15 +28,15 @@
                             <label class="ds_label" for="comments-yes">Your comments</label><br>
                             <textarea rows="5" maxlength="250" class="ds_input" id="comments-yes"></textarea>
 
-                            <p><strong>Note:</strong> Your feedback will help us make improvements on this site. Please do not provide any <a class="external" href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/key-definitions/what-is-personal-data/">personal information</a></p>
+                            <p><strong>Note:</strong> Your feedback will help us make improvements on this site. Please do not provide any <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/key-definitions/what-is-personal-data/">personal information</a></p>
                         </div>
 
-                        <button type="submit" class="ds_button  ds_no-margin" data-gtm="fdbk-send">Send feedback</button>
+                        <button type="submit" class="ds_button  ds_no-margin">Send feedback</button>
                     </div>
                 </div>
 
                 <div class="ds_radio  ds_radio--small">
-                    <input type="radio" class="ds_radio__input" id="needsmetno" name="feedbacktype" data-gtm="fdbk-no" value="no">
+                    <input type="radio" class="ds_radio__input" id="needsmetno" name="needsmet" value="no">
                     <label class="ds_radio__label" for="needsmetno">No</label>
 
                     <div class="ds_reveal-content">
@@ -61,15 +61,15 @@
                             <label class="ds_label" for="comments-no">Your comments</label><br>
                             <textarea rows="5" maxlength="250" class="ds_input" id="comments-no"></textarea>
 
-                            <p><strong>Note:</strong> Your feedback will help us make improvements on this site. Please do not provide any <a class="external" href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/key-definitions/what-is-personal-data/">personal information</a></p>
+                            <p><strong>Note:</strong> Your feedback will help us make improvements on this site. Please do not provide any <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/key-definitions/what-is-personal-data/">personal information</a></p>
                         </div>
 
-                        <button type="submit" class="ds_button  ds_no-margin" data-gtm="fdbk-send">Send feedback</button>
+                        <button type="submit" class="ds_button  ds_no-margin">Send feedback</button>
                     </div>
                 </div>
 
                 <div class="ds_radio  ds_radio--small">
-                    <input type="radio" class="ds_radio__input" id="needsmetyesbut" name="feedbacktype" data-gtm="fdbk-yesbut" value="yesbut">
+                    <input type="radio" class="ds_radio__input" id="needsmetyesbut" name="needsmet" value="yesbut">
                     <label class="ds_radio__label" for="needsmetyesbut">Yes, but</label>
 
                     <div class="ds_reveal-content">
@@ -93,10 +93,10 @@
                             <label class="ds_label" for="comments-yesbut">Your comments</label><br>
                             <textarea rows="5" maxlength="250" class="ds_input" id="comments-yesbut"></textarea>
 
-                            <p><strong>Note:</strong> Your feedback will help us make improvements on this site. Please do not provide any <a class="external" href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/key-definitions/what-is-personal-data/">personal information</a></p>
+                            <p><strong>Note:</strong> Your feedback will help us make improvements on this site. Please do not provide any <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/key-definitions/what-is-personal-data/">personal information</a></p>
                         </div>
 
-                        <button type="submit" class="ds_button  ds_no-margin" data-gtm="fdbk-send">Send feedback</button>
+                        <button type="submit" class="ds_button  ds_no-margin">Send feedback</button>
                     </div>
                 </div>
             </div>

@@ -11,11 +11,14 @@
                 <div class="ds_layout__header">
                     <header class="ds_page-header">
                         <h1 class="ds_page-header__title">${document.title}</h1>
-                        <#if document.lastUpdatedDate??>
-                            <div class="ds_category-header__meta">
-                                <small>Last updated: <b><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></b></small>
-                            </div>
-                        </#if>
+                        <dl class="ds_page-header__metadata  ds_metadata">
+                            <#if document.lastUpdatedDate??>
+                                <div class="ds_metadata__item">
+                                    <dt class="ds_metadata__key">Last updated</dt>
+                                    <dd><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></dd>
+                                </div>
+                            </#if>
+                        </dl>
                     </header>
                 </div>
 
@@ -55,7 +58,7 @@
                                     <#list item.relatedItem as link>
                                         <@hst.link var="url" hippobean=link/>
                                         <li>
-                                            <a href="${url}" data-gtm="link-related-${link?index}">${link.title}</a>
+                                            <a href="${url}">${link.title}</a>
                                         </li>
                                     </#list>
                                 </#list>

@@ -8,7 +8,7 @@
             <div role="heading" class="visually-hidden">Information</div>
 
             <div class="ds_notification__text">
-                <p>We use <a href="/cookies/">cookies</a> to collect anonymous data to help us improve your site browsing
+                <p>We use <a href="${cookieprefslink}">cookies</a> to collect anonymous data to help us improve your site browsing
                     experience.</p>
                 <p>Click 'Accept all cookies' to agree to all cookies that collect anonymous data.
                     To only allow the cookies that make the site work, click 'Use essential cookies only.' Visit 'Set cookie preferences' to control specific cookies.</p>
@@ -31,7 +31,7 @@
             <div class="ds_notification__text">
                 <p>
                     Your cookie preferences have been saved.
-                    Your cookie settings have been saved.
+
                     <#if cookieprefslink??>
                         You can <a href="${cookieprefslink}">change your cookie settings</a> at any time.
                     </#if>

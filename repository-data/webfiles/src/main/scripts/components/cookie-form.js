@@ -69,13 +69,13 @@ const cookieForm = {
             });
 
             document.querySelector('#cookie-success-message').classList.remove('fully-hidden');
-            document.querySelector('#cookie-success-message').style.top = '35px';
+            document.querySelector('#cookie-success-message').style.top = '32px';
 
             // hide cookie notice
             const cookieNotice = document.querySelector('#cookie-notice');
             cookieNotice.classList.add('notification--confirmed');
-            cookieNotice.querySelector('.js-initial-cookie-content').classList.add('fully-hidden');
-            cookieNotice.querySelector('.js-confirm-cookie-content').classList.remove('fully-hidden');
+            cookieNotice.parentNode.querySelector('.js-initial-cookie-content').classList.add('fully-hidden');
+            cookieNotice.parentNode.querySelector('.js-confirm-cookie-content').classList.remove('fully-hidden');
         });
 
     }

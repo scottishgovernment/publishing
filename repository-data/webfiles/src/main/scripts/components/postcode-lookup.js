@@ -220,6 +220,7 @@ function findAddresses (input, select) {
     const self = this;
 
     const field = $(this.settings.lookupId).find('.postcode-search');
+    field[0].classList.remove('no-validate');
 
     const valid = commonForms.validateInput(field, [commonForms.validPostcode]);
     if (!valid) {
@@ -227,7 +228,7 @@ function findAddresses (input, select) {
     }
 
     commonForms.toggleFormErrors(field, valid, 'invalid-required-postcode', 'Postcode lookup', '');
-    commonForms.toggleCurrentErrors(field, valid, 'invalid-required-postcode', 'Please enter a postcode and click "Find addressaaa"');
+    commonForms.toggleCurrentErrors(field, valid, 'invalid-required-postcode', 'Please enter a postcode and click "Find address"');
 
     $.ajax(`/service/housing/postcode/address-lookup?postcode=${input}`)
         .done(function(data){
@@ -269,7 +270,11 @@ function findAddresses (input, select) {
                 $(select).html(options);
 
                 self.addressesAtPostcode = data.results;
+
+                field[0].classList.add('no-validate');
             }
+
+            window.DS.tracking.init(document.querySelector(self.settings.lookupId));
         })
         .fail(function(response){
             self.clearAddresses();

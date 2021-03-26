@@ -23,7 +23,7 @@ const commonHousing = {
          * do not allow progress if invalid
          */
         const stepContainer = $(`section[data-step="${step.slug}"]`);
-        const fieldsThatNeedToBeValidated = stepContainer.find('[data-validation]:visible');
+        const fieldsThatNeedToBeValidated = stepContainer.find('[data-validation]:visible:not(.no-validate)');
 
         fieldsThatNeedToBeValidated.each(function (index, element) {
             const validations = element.getAttribute('data-validation').split(' ');

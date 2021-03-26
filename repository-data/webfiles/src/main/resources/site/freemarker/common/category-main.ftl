@@ -4,67 +4,69 @@
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
 
-    <div class="category-upper">
-        <@hst.include ref="breadcrumbs"/>
+    <main id="main-content">
 
-        <div class="ds_wrapper">
-            <div class="ds_category-header">
-                <header class="ds_category-header__header">
-                    <h1 class="ds_category-header__title">${document.title}</h1>
-                    <div class="ds_category-header__summary">
-                        <p>${document.summary}</p>
-                    </div>
-                </header>
-                      <div class="ds_category-header__media-container">
-                        <#if document.heroImage??>
-                            <img class="ds_category-header__media" alt=""
-                                src="<@hst.link hippobean=document.heroImage/>" />
-                        </#if>
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
+        <div class="category-upper">
+            <@hst.include ref="breadcrumbs"/>
 
-<div class="category-lower">
-    <div class="ds_wrapper">
-        <#if document.prologue??>
-            <@hst.html hippohtml=document.prologue/>
-        </#if>
-
-
-
-        <div class="ds_layout  ds_layout--category-list">
-            <#if document.navigationType == "list">
-            <div class="ds_layout__list">
-            <#else>
-            <div class="ds_layout__grid">
-            </#if>
-                <div class="ds_category-list-container">
-                    <#if document.navigationType == "image-card">
-                        <#include 'card-navigation--image.ftl'/>
-                    </#if>
-                    <#if document.navigationType == "card">
-                        <#include 'card-navigation.ftl'/>
-                    </#if>
-                    <#if document.navigationType == "grid">
-                        <#include 'grid-navigation.ftl'/>
-                    </#if>
-                    <#if document.navigationType == "list">
-                        <#include 'list-navigation.ftl'/>
+            <div class="ds_wrapper">
+                <div class="ds_category-header">
+                    <header class="ds_category-header__header">
+                        <h1 class="ds_category-header__title">${document.title}</h1>
+                        <div class="ds_category-header__summary">
+                            <p>${document.summary}</p>
+                        </div>
+                    </header>
+                    <#if document.heroImage??>
+                        <div class="ds_category-header__media-container">
+                                <img class="ds_category-header__media" alt=""
+                                    src="<@hst.link hippobean=document.heroImage/>" />
+                        </div>
                     </#if>
                 </div>
             </div>
         </div>
 
-        <#if document.epilogue??>
-            <@hst.html hippohtml=document.epilogue/>
-        </#if>
+        <div class="category-lower">
+            <div class="ds_wrapper">
+                <#if document.prologue??>
+                    <@hst.html hippohtml=document.prologue/>
+                </#if>
 
-        <div class="ds_layout__feedback">
-            <#include 'feedback-wrapper.ftl'>
+                <div class="ds_layout  ds_layout--category-list">
+                    <#if document.navigationType == "list">
+                    <div class="ds_layout__list">
+                    <#else>
+                    <div class="ds_layout__grid">
+                    </#if>
+                        <div class="ds_category-list-container">
+                            <#if document.navigationType == "image-card">
+                                <#include 'card-navigation--image.ftl'/>
+                            </#if>
+                            <#if document.navigationType == "card">
+                                <#include 'card-navigation.ftl'/>
+                            </#if>
+                            <#if document.navigationType == "grid">
+                                <#include 'grid-navigation.ftl'/>
+                            </#if>
+                            <#if document.navigationType == "list">
+                                <#include 'list-navigation.ftl'/>
+                            </#if>
+                        </div>
+                    </div>
+                </div>
+
+                <#if document.epilogue??>
+                    <@hst.html hippohtml=document.epilogue/>
+                </#if>
+
+                <div class="ds_layout__feedback">
+                    <#include 'feedback-wrapper.ftl'>
+                </div>
+            </div>
         </div>
-    </div>
+
+    </main>
 </div>
 
 </#if>

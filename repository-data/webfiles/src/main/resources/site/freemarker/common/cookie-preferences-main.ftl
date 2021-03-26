@@ -7,7 +7,7 @@
     <@hst.include ref="breadcrumbs"/>
 
     <div class="ds_wrapper">
-        <main class="ds_layout  ds_layout--article">
+        <main id="main-content" class="ds_layout  ds_layout--article">
             <div class="ds_layout__header">
                 <header class="ds_page-header">
                     <h1 class="ds_page-header__title">${document.title}</h1>
@@ -33,12 +33,12 @@
                                 <div class="ds_field-group  ds_field-group--inline">
                                     <div class="ds_radio">
                                         <input id="preferences-yes" value="true" name="cookie-preferences" class="ds_radio__input" type="radio" checked="true">
-                                        <label for="preferences-yes" class="ds_label  ds_radio__label">On</label>
+                                        <label for="preferences-yes" class="ds_radio__label">On</label>
                                     </div>
 
                                     <div class="ds_radio">
                                         <input id="preferences-no" value="false" name="cookie-preferences" class="ds_radio__input" type="radio">
-                                        <label for="preferences-no" class="ds_label  ds_radio__label">Off</label>
+                                        <label for="preferences-no" class="ds_radio__label">Off</label>
                                     </div>
                                 </div>
                             </div>
@@ -49,12 +49,12 @@
                                 <div class="ds_field-group  ds_field-group--inline">
                                     <div class="ds_radio">
                                         <input id="statistics-yes" value="true" name="cookie-statistics" class="ds_radio__input" type="radio" checked="true">
-                                        <label for="statistics-yes" class="ds_label  ds_radio__label">On</label>
+                                        <label for="statistics-yes" class="ds_radio__label">On</label>
                                     </div>
 
                                     <div class="ds_radio">
                                         <input id="statistics-no" value="false" name="cookie-statistics" class="ds_radio__input" type="radio">
-                                        <label for="statistics-no" class="ds_label  ds_radio__label">Off</label>
+                                        <label for="statistics-no" class="ds_radio__label">Off</label>
                                     </div>
                                 </div>
                             </div>

@@ -53,11 +53,16 @@ const modelTenancyForm = {
         formObject: formObject,
         formEvents: {
             updateSummary1: function () {
+                const summaryContainer = document.querySelector('#summary-container-1');
                 const html = summaryOneTemplate.render(modelTenancyForm.form.settings.formObject);
-                document.querySelector('#summary-container-1').innerHTML = html;
-                commonHousing.summaryAccordion(document.getElementById('summary-container-1'));
+                summaryContainer.innerHTML = html;
+                commonHousing.summaryAccordion(summaryContainer);
+                window.DS.tracking.init(summaryContainer);
             },
             updateSummary2: function () {
+                const summaryContainer2 = document.querySelector('#summary-container-2');
+                const summaryContainer2Excluded = document.querySelector('#summary-container-2-excluded');
+            
                 const summaryObject = JSON.parse(JSON.stringify(modelTenancyForm.form.settings.formObject));
 
                 summaryObject.hasTenants = Object.values(summaryObject.tenants)[0].name;
@@ -67,20 +72,25 @@ const modelTenancyForm = {
 
                 const extraTermsHtml = summaryTwoTemplate.render(summaryObject);
                 const excludedHtml = summaryTwoExcludedTemplate.render(summaryObject);
-                document.querySelector('#summary-container-2').innerHTML = mandatoryHtml + extraTermsHtml;
-                document.querySelector('#summary-container-2-excluded').innerHTML = excludedHtml;
-                commonHousing.summaryAccordion(document.getElementById('summary-container-2'));
-                commonHousing.summaryAccordion(document.getElementById('summary-container-2-excluded'));
+                summaryContainer2.innerHTML = mandatoryHtml + mandatoryEditableHtml + extraTermsHtml;
+                summaryContainer2Excluded.innerHTML = excludedHtml;
+                commonHousing.summaryAccordion(summaryContainer2);
+                commonHousing.summaryAccordion(summaryContainer2Excluded);
+
+                window.DS.tracking.init(summaryContainer2);
+                window.DS.tracking.init(summaryContainer2Excluded);
             },
             updateMandatoryTerms: function () {
+                const mandatoryTermsContainer = document.querySelector('#mandatory-terms-container');
                 const summaryObject = JSON.parse(JSON.stringify(modelTenancyForm.form.settings.formObject));
 
                 summaryObject.hasTenants = Object.values(summaryObject.tenants)[0].name;
                 summaryObject.hasLandlords = Object.values(summaryObject.landlords)[0].name;
                 const html = mandatoryTemplate.render(summaryObject);
 
-                document.querySelector('#mandatory-terms-container').innerHTML = html + '</div>';
-                commonHousing.summaryAccordion(document.getElementById('mandatory-terms-container'));
+                mandatoryTermsContainer.innerHTML = html + '</div>';
+                commonHousing.summaryAccordion(mandatoryTermsContainer);
+                window.DS.tracking.init(mandatoryTermsContainer);
             }
         },
         modifiers: [{

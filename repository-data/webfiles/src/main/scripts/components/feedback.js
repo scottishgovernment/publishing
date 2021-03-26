@@ -3,7 +3,6 @@
  Contains functionality for on page feedback
  */
 
-
 'use strict';
 
 const feedbackForm = {
@@ -27,7 +26,28 @@ const feedbackForm = {
 
         if (this.formElement) {
             this.attachEventHandlers();
+            this.addTracking();
         }
+    },
+
+    addTracking: function () {
+        // additional tracking for radio buttons
+        const radios = [].slice.call(this.formElement.querySelectorAll('.ds_radio__input'));
+        radios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                // update datalayer
+                const type = document.querySelector('[name=feedbacktype]:checked').value;
+                this.updateDataLayer(type, 'feedbackRadio');
+            });
+        });
+
+        const selects = [].slice.call(this.formElement.querySelectorAll('.ds_select'));
+        selects.forEach(select => {
+            select.addEventListener('change', () => {
+                const type = document.querySelector('[name=feedbacktype]:checked').value;
+                this.updateDataLayer(type, 'feedbackSelect');
+            });
+        });
     },
 
     attachEventHandlers: function () {
@@ -48,30 +68,29 @@ const feedbackForm = {
         // remove any error messages
         this.removeErrorMessages();
 
+        const type = document.querySelector('[name=feedbacktype]:checked').value;
+
         const feedback = {
             slug: document.location.pathname,
-            type: document.querySelector('[name=feedbacktype]:checked').value,
-            reason: '',
-            freetext: '',
+            type: type,
+            reason: this.getFeedbackReason(type),
+            freetext: this.getFeedbackFreeText(type),
             category: document.querySelector('#page-category').value,
             errors: [],
-            contentItem: document.getElementById('documentUuid').value,
-            hippoContentItem: window.location.pathname
+            contentItem: document.body.getAttribute('data-uuid')
         };
 
-        if (feedback.type === 'no') {
-            feedback.reason = this.fields.no.reason.value;
-            feedback.freetext = this.fields.no.comments.value;
-        } else if (feedback.type === 'yesbut') {
-            feedback.reason = this.fields.yesbut.reason.value;
-            feedback.freetext = this.fields.yesbut.comments.value;
-        } else {
-            feedback.reason = '';
-            feedback.freetext = this.fields.yes.comments.value || '';
-        }
+        const errorSummaryEl = document.getElementById('feedbackErrorSummary');
+        const errorSummaryContentEl = errorSummaryEl.querySelector('.ds_error-summary__content');
+        errorSummaryContentEl.innerHTML = '';
 
         if (!this.validateFeedback(feedback)) {
             //error
+
+            const errorSummaryContentList = document.createElement('ul');
+            errorSummaryContentList.classList.add('ds_error-summary__list');
+            errorSummaryContentEl.appendChild(errorSummaryContentList);
+
             feedback.errors.forEach(function (error) {
                 const fieldElement = error.field.nodeName === 'SELECT' ? error.field.parentNode : error.field;
                 fieldElement.classList.add('ds_input--error');
@@ -79,21 +98,38 @@ const feedbackForm = {
                 const questionElement = error.field.closest('.ds_question');
                 questionElement.classList.add('ds_question--error');
 
-                let messageElement = questionElement.querySelector('.ds_question__message');
+                let messageElement = questionElement.querySelector('.ds_question__error-message');
                 if (!messageElement) {
                     messageElement = document.createElement('p');
-                    messageElement.classList.add('ds_question__message', 'ds_question__message--error');
+                    messageElement.classList.add('ds_question__error-message');
                 }
 
                 messageElement.innerHTML = error.message;
 
                 fieldElement.insertAdjacentElement('beforebegin', messageElement);
+
+                // summary item
+                const summaryItem = document.createElement('li');
+                const summaryLink = document.createElement('a');
+                summaryItem.appendChild(summaryLink);
+                errorSummaryContentList.appendChild(summaryItem);
+
+                summaryLink.innerText = `${error.message}`;
+                summaryLink.href = `#${error.field.id}`;
             });
 
-            // scroll to first error
-            feedback.errors[0].field.focus();
-            feedback.errors[0].field.closest('.ds_question').scrollIntoView();
+            // error summary
+            errorSummaryEl.classList.remove('fully-hidden');
+
+            // scroll to error summary error
+            errorSummaryEl.focus();
+            errorSummaryEl.scrollIntoView();
         } else {
+            errorSummaryEl.classList.add('fully-hidden');
+
+            // update datalayer
+            this.updateDataLayer(feedback.type, 'feedbackSubmit');
+
             // submit feedback
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '/feedback/', true);
@@ -103,7 +139,8 @@ const feedbackForm = {
 
             const that = this;
 
-            xhr.onreadystatechange = function () { // Call a function when the state changes.
+            xhr.onreadystatechange = function () {
+                // Call a function when the state changes.
                 if (this.readyState === XMLHttpRequest.DONE && this.status === 201) {
                     // show success message
                     document.getElementById('feedbackThanks').classList.remove('fully-hidden');
@@ -111,13 +148,6 @@ const feedbackForm = {
                     // hide form
                     that.formElement.classList.add('fully-hidden');
 
-                    // update datalayer
-                    window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({
-                        'type': feedback.type,
-                        'reason': feedback.reason,
-                        'event': 'feedbackSubmit'
-                    });
                 } else if (this.status >= 400) {
                     that.errorSummary.querySelector('.ds_error-summary__content').innerHTML = '<p>Sorry, we have a problem at our side. Please try again later.</p>';
                     that.errorSummary.classList.remove('fully-hidden');
@@ -127,6 +157,44 @@ const feedbackForm = {
 
             xhr.send(JSON.stringify(feedback));
         }
+    },
+
+    updateDataLayer: function (type, event) {
+        // update datalayer
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'type': type,
+            'reason': this.getFeedbackReason(type),
+            'event': event
+        });
+    },
+
+    getFeedbackReason: function (type) {
+        let reason = '';
+
+        if (type === 'no') {
+            reason = this.fields.no.reason.value;
+        } else if (type === 'yesbut') {
+            reason = this.fields.yesbut.reason.value;
+        } else {
+            reason = '';
+        }
+
+        return reason;
+    },
+
+    getFeedbackFreeText: function (type) {
+        let freeText = '';
+
+        if (type === 'no') {
+            freeText = this.fields.no.comments.value;
+        } else if (type === 'yesbut') {
+            freeText = this.fields.yesbut.comments.value;
+        } else {
+            freeText = this.fields.yes.comments.value || '';
+        }
+
+        return freeText;
     },
 
     removeErrorMessages: function () {
@@ -140,7 +208,7 @@ const feedbackForm = {
             inputElement.classList.remove('ds_question--error');
         });
 
-        [].slice.call(this.formElement.querySelectorAll('.ds_question__message--error')).forEach(function (message) {
+        [].slice.call(this.formElement.querySelectorAll('.ds_question__error-message')).forEach(function (message) {
             message.parentNode.removeChild(message);
         });
     },

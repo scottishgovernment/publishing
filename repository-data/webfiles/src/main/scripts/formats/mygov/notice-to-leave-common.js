@@ -94,10 +94,13 @@ const noticeToLeaveForm = {
                 summaryObject.subtenantNames = commonForms.objectValues(summaryObject.subtenantNames).filter(item => item);
                 summaryObject.hasLandlords = Object.values(summaryObject.landlords)[0].name;
 
+                const summaryContainer = document.querySelector('#summary-container');
                 const html = summaryTemplate.render(summaryObject);
-                document.querySelector('#summary-container').innerHTML = html;
+                summaryContainer.innerHTML = html;
 
                 commonHousing.validateSummary();
+                commonHousing.summaryAccordion(summaryContainer);
+                window.DS.tracking.init(summaryContainer);
             }
         },
         modifiers: [{
@@ -155,6 +158,13 @@ const noticeToLeaveForm = {
         this.setupEndDateCalculation();
         commonForms.setupRecaptcha();
         feedback.init();
+
+        // notice period update, MGS-6072
+        if (new Date() > new Date('10/01/2020') && document.querySelector('.js-period')) {
+            document.querySelector('[for="YOU_CRIMINAL_CONVICTION"] .js-period').innerText = '(28 days)';
+            document.querySelector('[for="YOU_ANTISOCIAL_BEHAVIOUR"] .js-period').innerText = '(28 days)';
+            document.querySelector('[for="YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL"] .js-period').innerText = '(28 days)';
+        }
     },
 
     setupConditionalSections: function () {
@@ -271,51 +281,55 @@ const noticeToLeaveForm = {
     },
 
     setupAddTenantNames: function () {
-        const addTenantButton = document.querySelector('.js-add-tenant');
-        if (addTenantButton) {
-            addTenantButton.addEventListener('click', (event) => {
+        const addTenantButtons = [].slice.call(document.querySelectorAll('.js-add-tenant'));
+        addTenantButtons.forEach(addTenantButton => {
+            addTenantButton.addEventListener('click', event => {
                 event.preventDefault();
 
-                const tenantNamesContainer = document.querySelector('.js-tenant-names-container');
-
                 const tenantNames = noticeToLeaveForm.form.settings.formObject.tenantNames;
-                const currentNumberOfTenants = tenantNamesContainer.querySelectorAll('.ds_question').length;
+                const currentNumberOfTenants = commonForms.objectKeys(tenantNames).length;
                 const newNumber = currentNumberOfTenants + 1;
 
-                const newTenantField = document.createElement('div');
-                newTenantField.classList.add('ds_question');
-                newTenantField.innerHTML = `<label class="ds_label" for="tenant-${newNumber}-name">Tenant ${newNumber}: Full name</label>
-            <input class="ds_input" type="text" id="tenant-${newNumber}-name">`;
+                const tenantNamesContainer = document.querySelector('.js-tenant-names-container');
+                const newQuestion = document.createElement('div');
 
-                tenantNamesContainer.appendChild(newTenantField);
+                newQuestion.classList.add('ds_question');
+                newQuestion.innerHTML = `<label class="ds_label" for="tenant-${newNumber}-name">Tenant ${newNumber}: Full name</label>
+                <input type="text" id="tenant-${newNumber}-name" class="ds_input">`;
+
+                tenantNamesContainer.appendChild(newQuestion);
 
                 noticeToLeaveForm.form.mapField(`tenantNames.tenant${newNumber}`, `#tenant-${newNumber}-name`);
                 tenantNames[`tenant${newNumber}`] = null;
-            });
-        }
 
-        const addSubtenantButton = document.querySelector('.js-add-subtenant');
-        if (addSubtenantButton) {
-            addSubtenantButton.addEventListener('click', (event) => {
+                window.DS.tracking.init(newQuestion);
+            });
+        });
+
+        const addSubTenantButtons = [].slice.call(document.querySelectorAll('.js-add-subtenant'));
+        addSubTenantButtons.forEach(addSubTenantButton => {
+            addSubTenantButton.addEventListener('click', event => {
                 event.preventDefault();
 
-                const subtenantNamesContainer = document.querySelector('.js-subtenant-names-container');
-
                 const subtenantNames = noticeToLeaveForm.form.settings.formObject.subtenantNames;
-                const currentNumberOfSubtenants = subtenantNamesContainer.querySelectorAll('.ds_question').length;
+                const currentNumberOfSubtenants = commonForms.objectKeys(subtenantNames).length;
                 const newNumber = currentNumberOfSubtenants + 1;
 
-                const newSubtenantField = document.createElement('div');
-                newSubtenantField.classList.add('ds_question');
-                newSubtenantField.innerHTML = `<label class="ds_label" for="subtenant-${newNumber}-name">Subtenant ${newNumber}: Full name</label>
-            <input class="ds_input" type="text" id="subtenant-${newNumber}-name">`;
+                const subtenantNamesContainer = document.querySelector('.js-subtenant-names-container');
+                const newQuestion = document.createElement('div');
 
-                subtenantNamesContainer.appendChild(newSubtenantField);
+                newQuestion.classList.add('ds_question');
+                newQuestion.innerHTML = `<label class="ds_label" for="subtenant-${newNumber}-name">Subtenant ${newNumber}: Full name</label>
+                <input type="text" id="subtenant-${newNumber}-name" class="ds_input">`;
+
+                subtenantNamesContainer.appendChild(newQuestion);
 
                 noticeToLeaveForm.form.mapField(`subtenantNames.subtenant${newNumber}`, `#subtenant-${newNumber}-name`);
                 subtenantNames[`subtenant${newNumber}`] = null;
+
+                window.DS.tracking.init(newQuestion);
             });
-        }
+        });
     },
 
     setupValidations: function () {
@@ -406,18 +420,19 @@ const noticeToLeaveForm = {
 
         let earliestTribunalDate = new Date(noticeDate.getTime());
         earliestTribunalDate.setHours(0, 0, 0, 0);
-        if (endOfNoticeData.type === 'months') {
-            this.addMonths(earliestTribunalDate, endOfNoticeData.number);
-        } else {
-            earliestTribunalDate.setDate(earliestTribunalDate.getDate() + endOfNoticeData.number);
-        }
 
-        // advance the end of notice by one day (it is the following day)
+        // always advance the end of notice by one day (it is the following day)
         earliestTribunalDate.setDate(earliestTribunalDate.getDate() + 1);
 
         // if email or post add 2 days
         if (endOfNoticeData.hasAddition) {
             earliestTribunalDate.setDate(earliestTribunalDate.getDate() + 2);
+        }
+
+        if (endOfNoticeData.type === 'months') {
+            this.addMonths(earliestTribunalDate, endOfNoticeData.number);
+        } else {
+            earliestTribunalDate.setDate(earliestTribunalDate.getDate() + endOfNoticeData.number);
         }
 
         let endDateOfNoticePeriod = new Date(earliestTribunalDate.getTime());
@@ -484,6 +499,12 @@ const noticeToLeaveForm = {
             YOU_ANTISOCIAL_BEHAVIOUR: '3m',
             YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL: '3m'
         };
+
+        if (new Date() > new Date('10/01/2020')) {
+            evictionGroundsWithPeriodsCOVID.YOU_CRIMINAL_CONVICTION = '28d';
+            evictionGroundsWithPeriodsCOVID.YOU_ANTISOCIAL_BEHAVIOUR = '28d';
+            evictionGroundsWithPeriodsCOVID.YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL = '28d';
+        }
 
         const evictionGroundsUsed = noticeToLeaveForm.form.settings.formObject.reasons;
 

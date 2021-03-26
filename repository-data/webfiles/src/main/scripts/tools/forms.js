@@ -483,8 +483,8 @@ const commonForms = {
      *  (either will have been filled when address chosen, or will trigger their own validations if empty)
      */
     requiredPostcodeLookup: function ($field) {
-        const manualAddress = $field.closest('.js-postcode-lookup').find('.address-manual');
-        const addressDropdown = $field.closest('.js-postcode-lookup').find('.postcode-results');
+        const manualAddress = $field.closest('.js-postcode-lookup').siblings('.address-manual');
+        const addressDropdown = $field.closest('.js-postcode-lookup').siblings('.postcode-results');
 
         let message = 'Please enter a postcode and click "Find address"';
 
@@ -629,7 +629,8 @@ const commonForms = {
             // add an error container
             if (field.attr('type') !== 'hidden') {
                 field[0].setAttribute('aria-describedby', `${fieldId}-errors`);
-                errorContainer = $(`<div class="ds_question__message" id="${fieldId}-errors" data-field="${fieldId}"></div>`);
+                errorContainer = $(`<div class="ds_question__error-message" id="${fieldId}-errors" data-field="${fieldId}"></div>`);
+
                 if (field.find('legend').length) {
                     errorContainer.insertAfter(field.closest('.ds_question').find('legend')[0]);
                 } else {
@@ -643,6 +644,10 @@ const commonForms = {
         } else {
             question.classList.remove('ds_question--error');
             field.removeAttr('aria-invalid');
+        }
+
+        if (errorContainer) {
+            window.DS.tracking.init(errorContainer[0]);
         }
     },
 

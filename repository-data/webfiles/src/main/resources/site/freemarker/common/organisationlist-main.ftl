@@ -7,7 +7,7 @@
     <@hst.include ref="breadcrumbs"/>
 
     <div class="ds_wrapper">
-    <main class="ds_layout  mg_layout--org-list">
+        <main id="main-content" class="ds_layout  mg_layout--org-list">
             <div class="ds_layout__header">
                 <header class="ds_page-header">
                     <h1 class="ds_page-header__title">${document.title}</h1>

@@ -8,7 +8,7 @@
 
 var browser = {
     isIe: function () {
-        return navigator.appVersion.indexOf('MSIE') != -1;
+        return navigator.appVersion.indexOf('MSIE') !== -1;
     },
     navigator: navigator.appVersion,
     getVersion: function() {

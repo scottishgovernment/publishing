@@ -390,6 +390,8 @@ function goToStep (step) {
             console.log('Cannot find form event "' + step.triggerEvent + '"');
         }
     }
+
+    window.DS.tracking.init();
 }
 
 /**
@@ -409,7 +411,7 @@ function updateFormNav (navs) {
         return;
     }
 
-    if (navsToUpdate.sectionNav && !this.settings.noSectionNav) {
+    if (navsToUpdate.sectionNav) {
         let sectionTemplate;
 
         if (this.settings.sectionTemplate) {
@@ -455,7 +457,7 @@ function updateFormNav (navs) {
         $('#section-progess-indicator').html(sectionHtml);
     }
 
-    if (navsToUpdate.subsectionNav && !this.settings.noSubsectionNav) {
+    if (navsToUpdate.subsectionNav) {
         const subsectionPages = {
             pages: flattenedSections.filter(function (page) {
                 return page.section === currentStep.section;
@@ -504,8 +506,11 @@ function updatePageNav () {
     }
     const pageNavHtml = pageNavTemplate.render(templateData);
 
-    $('#page-nav').html(pageNavHtml);
-    $('#page-nav').trigger('change');
+    const pageNavElement = document.getElementById('page-nav');
+
+    $(pageNavElement).html(pageNavHtml);
+    $(pageNavElement).trigger('change');
+    window.DS.tracking.init(pageNavElement);
 }
 
 function updatePageLabelWithCurrentStep () {
@@ -773,7 +778,8 @@ function setupStepValidation () {
     if (typeof form.validateStep === 'function') {
         $('body').on('click', '.js-validate-step', function (event) {
             // clear all errors before checking for new/remaining ones
-            $('.form-errors').html('');
+            [].slice.call(document.querySelectorAll('.form-errors')).forEach(formError => formError.innerHTML = '');
+            const errorSummary = document.querySelector('.ds_error-summary');
 
             // only perform validation on nav if we are progressing forward in the form
             // todo: AND it's a form people can't skip forward in
@@ -791,7 +797,8 @@ function setupStepValidation () {
             const navigatingForward = targetIndex > currentIndex || targetIndex === -1;
 
             if (!navigatingForward) {
-                $('.client-error').addClass('fully-hidden').attr('aria-hidden', 'true');
+                errorSummary.classList.add('fully-hidden');
+                errorSummary.setAttribute('aria-hidden', 'true');
                 return;
             }
 
@@ -812,10 +819,15 @@ function setupStepValidation () {
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push(details);
 
-                $('.client-error').removeClass('fully-hidden').attr('aria-hidden', 'false');
-                $('.client-error h2').focus();
+                if (errorSummary) {
+                    errorSummary.classList.remove('fully-hidden');
+                    errorSummary.setAttribute('aria-hidden', 'false');
+                    errorSummary.scrollIntoView();
+                    window.DS.tracking.init(errorSummary);
+                }
             } else {
-                $('.client-error').addClass('fully-hidden').attr('aria-hidden', 'true');
+                errorSummary.classList.add('fully-hidden');
+                errorSummary.setAttribute('aria-hidden', 'true');
             }
             return stepIsValid;
         });

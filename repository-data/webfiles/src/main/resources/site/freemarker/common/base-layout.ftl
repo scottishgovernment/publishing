@@ -56,6 +56,9 @@
 
     <body <#if document?? && document.sensitive?? &&document.sensitive>class="ds_has-hide-page"</#if>>
         <@hst.include ref="googletagmanager"/>
+
+        <#include "skip-links.ftl">
+
         <@hst.include ref="preview-indicator"/>
 
         <span id="page-top"></span>

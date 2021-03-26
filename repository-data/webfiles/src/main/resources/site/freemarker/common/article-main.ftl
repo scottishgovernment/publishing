@@ -1,35 +1,36 @@
 <#include "include/imports.ftl">
 
 <#if document??>
+
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
 
     <@hst.include ref="breadcrumbs"/>
 
     <div class="ds_wrapper">
-        <main class="ds_layout  ds_layout--article">
+        <main id="main-content" class="ds_layout  ds_layout--article">
 
             <#if document.sensitive>
-                <div class="ds_hide-page">
-                    <a href="http://bbc.co.uk/weather" data-altlink="https://www.google.co.uk" class="ds_hide-page__button  ds_button  js-hide-page"><strong>Hide this page</strong> <span class="visually-hidden  js-enabled-text">Or press escape key to hide this page</span></a>
-                    <p class="ds_hide-page__text  js-enabled-text">(Or press Esc key)</p>
-                </div>
+                <#include "hide-this-page.ftl">
             </#if>
 
             <div class="ds_layout__header">
                 <header class="ds_page-header">
                     <h1 class="ds_page-header__title">${document.title}</h1>
-                    <#if document.lastUpdatedDate??>
-                    <div class="ds_category-header__meta">
-                        <small>Last updated: <b><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></b></small>
-                    </div>
-                    </#if>
+                    <dl class="ds_page-header__metadata  ds_metadata">
+                        <#if document.lastUpdatedDate??>
+                            <div class="ds_metadata__item">
+                                <dt class="ds_metadata__key">Last updated</dt>
+                                <dd><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></dd>
+                            </div>
+                        </#if>
+                    </dl>
                 </header>
             </div>
 
             <#if document.logo??>
                 <div class="ds_layout__partner  mg_partner-logo">
-                    <img alt="" src="<@hst.link hippobean=document.logo/>" />
+                    <img alt="" data-navigation="org-logo" src="<@hst.link hippobean=document.logo/>" />
                 </div>
             </#if>
 
@@ -63,7 +64,7 @@
             </div>
 
             <#if document.relateditems?has_content >
-                <aside class="ds_layout__sidebar">
+                <div class="ds_layout__sidebar">
                     <aside class="ds_article-aside">
                         <h2 class="gamma">Related content</h2>
                         <ul class="ds_no-bullets">
@@ -71,13 +72,24 @@
                                 <#list item.relatedItem as link>
                                     <@hst.link var="url" hippobean=link/>
                                     <li>
-                                        <a href="${url}" data-gtm="link-related-${link?index}">${link.title}</a>
+                                        <a href="${url}">${link.title}</a>
                                     </li>
                                 </#list>
                             </#list>
                         </ul>
                     </aside>
-                </aside>
+
+                    <#if document.sensitive>
+                        <aside class="ds_article-aside" id="stay-safe-online">
+                            <h3>Stay safe online &hellip;</h3>
+                            <ul class="ds_no-bullets">
+                                <li>
+                                    <a href="/staying-safe-online/deleting-your-browser-history/" data-navigation="staysafe-yes">Deleting your history and staying safe online</a>
+                                </li>
+                            </ul>
+                        </aside>
+                    </#if>
+                </div>
             </#if>
 
             <div class="ds_layout__feedback">

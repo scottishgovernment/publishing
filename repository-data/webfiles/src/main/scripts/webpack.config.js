@@ -3,26 +3,19 @@
 const path = require('path');
 
 const commonItems = {
-    mode: 'production',
+    mode: 'development',
 
     entry: {
         'global':                       path.resolve(__dirname, './global.js'),
 
         // format-specific entry points
-        'accordion':                    path.resolve(__dirname, './formats/accordion.js'),
         'article':                      path.resolve(__dirname, './formats/article.js'),
         'category':                     path.resolve(__dirname, './formats/category.js'),
         'default':                      path.resolve(__dirname, './formats/default-format.js'),
-        'document-landing':             path.resolve(__dirname, './formats/document-landing.js'),
         'guide':                        path.resolve(__dirname, './formats/guide.js'),
         'home':                         path.resolve(__dirname, './formats/home.js'),
         'organisation':                 path.resolve(__dirname, './formats/organisation.js'),
-        'organisation-corporate':       path.resolve(__dirname, './formats/organisation-corporate.js'),
         'organisation-list':            path.resolve(__dirname, './formats/organisation-list.js'),
-        //'search':                     path.resolve(__dirname, './formats/search.js'),
-        'signpost':                     path.resolve(__dirname, './formats/signpost.js'),
-        'site-item':                    path.resolve(__dirname, './formats/site-item.js'),
-        'status':                       path.resolve(__dirname, './formats/status.js'),
 
         // mygov-specific formats
         'business-rates-calculator':    path.resolve(__dirname, './formats/mygov/business-rates-calculator.js'),
