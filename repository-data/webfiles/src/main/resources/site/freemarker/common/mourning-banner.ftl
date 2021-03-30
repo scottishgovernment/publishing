@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#if mourningbanner??>
     <div id="mourning-banner" class="ds_notification  ds_reversed" data-module="ds-notification">
         <div class="ds_wrapper">

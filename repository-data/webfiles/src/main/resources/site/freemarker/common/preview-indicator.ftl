@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 <@hst.setBundle basename="preview.indicator"/>
 
@@ -12,7 +13,7 @@
     width: 60%;
     border-radius: 3px;
     text-decoration: underline">
-        <span><@fmt.message key="indicator.content" var="content"/>${content?html}</span><br/>
-        <span><@fmt.message key="indicator.disclaimer" var="disclaimer"/>${disclaimer?html}</span>
+        <span><@fmt.message key="indicator.content" var="content"/>${content}</span><br/>
+        <span><@fmt.message key="indicator.disclaimer" var="disclaimer"/>${disclaimer}</span>
     </div>
 </#if>

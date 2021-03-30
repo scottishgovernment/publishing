@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 
 <#-- @ftlvariable name="pageable" type="org.onehippo.cms7.essentials.components.paging.Pageable" -->
@@ -28,6 +29,6 @@
 
 <@hst.headContribution category="meta">
     <#if document??>
-    <meta name="description" content="${document.metaDescription?html}"/>
+    <meta name="description" content="${document.metaDescription}"/>
     </#if>
 </@hst.headContribution>

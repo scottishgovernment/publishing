@@ -62,7 +62,7 @@
 
 <@hst.headContribution category="meta">
     <#if document??>
-        <meta name="description" content="${document.metaDescription?html}"/>
+        <meta name="description" content="${document.metaDescription}"/>
     </#if>
 </@hst.headContribution>
 

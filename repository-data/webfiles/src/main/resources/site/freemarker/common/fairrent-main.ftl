@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
@@ -135,7 +136,7 @@
 
 <@hst.headContribution category="meta">
     <#if document??>
-    <meta name="description" content="${document.metaDescription?html}"/>
+    <meta name="description" content="${document.metaDescription}"/>
     </#if>
 </@hst.headContribution>
 

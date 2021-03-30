@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include 'include/search.ftl'/>
 
 <p class="ds_search-results__count js-search-results-count"><b>${pageable.total}</b> results</p>
@@ -17,11 +18,11 @@
             </dl>  -->
 
                 <h2 class="gamma  ds_search-result__title">
-                    <a class="ds_search-result__link" href="${link}" data-search="search-result-${position}/${pageable.total}">${item.title?html}</a>
+                    <a class="ds_search-result__link" href="${link}" data-search="search-result-${position}/${pageable.total}">${item.title}</a>
                 </h2>
             </header>
 
-            <p class="ds_search-result__summary">${item.summary?html}</p>
+            <p class="ds_search-result__summary">${item.summary}</p>
         </li>
     </#list>
 </ol>

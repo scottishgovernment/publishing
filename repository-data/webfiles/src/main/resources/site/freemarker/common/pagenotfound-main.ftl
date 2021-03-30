@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 <div class="cms-editable">
     <div class="ds_wrapper">

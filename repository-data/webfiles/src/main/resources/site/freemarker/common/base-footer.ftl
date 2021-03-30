@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 
 <footer class="ds_site-footer  ds_reversed">

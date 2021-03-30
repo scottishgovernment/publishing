@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 
 <ol class="ds_category-list  ds_category-list--grid  ds_category-list--narrow">

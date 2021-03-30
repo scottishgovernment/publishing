@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 
 <#if document??>
@@ -44,7 +45,7 @@
                                 <@hst.link var="prevlink" hippobean=prev/>
                                 <a  title="Previous section" href="${prevlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--left">
                                     <span class="ds_sequential-nav__text" data-label="previous">
-                                        ${prev.title?html}
+                                        ${prev.title}
                                     </span>
                                 </a>
                             </div>
@@ -54,7 +55,7 @@
                                 <@hst.link var="nextlink" hippobean=next/>
                                 <a  title="Next section" href="${nextlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--right">
                                     <span class="ds_sequential-nav__text" data-label="next">
-                                        ${next.title?html}
+                                        ${next.title}
                                     </span>
                                 </a>
                             </div>
@@ -108,7 +109,7 @@
 
 <@hst.headContribution category="meta">
     <#if document??>
-        <meta name="description" content="${document.metaDescription?html}"/>
+        <meta name="description" content="${document.metaDescription}"/>
     </#if>
 </@hst.headContribution>
 

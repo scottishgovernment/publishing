@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 
 <#-- @ftlvariable name="breadcrumb" type="org.onehippo.forge.breadcrumb.om.Breadcrumb" -->
@@ -12,14 +13,14 @@
                     <#if item?index == 0>
                         Home
                     <#else>
-                        ${item.title?html}
+                        ${item.title}
                     </#if>
                     </a>
                 </li>
             </#list>
 
             <li class="ds_breadcrumbs__item" aria-current="page">
-                ${documentBreadcrumbItem.title?html}
+                ${documentBreadcrumbItem.title}
             </li>
         </ol>
     </nav>
@@ -42,7 +43,7 @@
                 "position": ${item?index + 1},
                 "item": {
                     "@id": "${link}",
-                    "name": "${item.title?html}"
+                    "name": "${item.title?js_string}"
                 }
             },
             </#list>
@@ -52,7 +53,7 @@
                 "item": {
                     <@hst.link var="link" link=documentBreadcrumbItem.link/>
                     "@id": "${link}",
-                    "name": "${documentBreadcrumbItem.title?html}"
+                    "name": "${documentBreadcrumbItem.title?js_string}"
                 }
             }
         ]
