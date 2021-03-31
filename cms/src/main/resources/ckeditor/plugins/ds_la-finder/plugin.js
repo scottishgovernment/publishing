@@ -6,16 +6,21 @@ CKEDITOR.plugins.add('ds_la-finder', {
         CKEDITOR.dtd.$removeEmpty.span = false;
         CKEDITOR.dialog.add('dsLAFinderDialog', this.path + 'dialogs/ds_la-finder.js');
 
+        editor.on('beforeCommandExec', function () {
+            editor.contentSelectIdString = parseInt(Math.random() * 1000000, 10);
+        });
+
         editor.widgets.add('ds_la-finder', {
             button: 'LA finder',
             pathName: 'finder',
             mask: true,
             dialog: 'dsLAFinderDialog',
 
-            template: `<div data-type="button" class="js-contentselect  form-box">
-                <label class="ds_label">Select your council</label>
+            template: () =>
+                `<div data-type="button" class="js-contentselect  form-box">
+                <label for="content-select-${editor.contentSelectIdString}" class="ds_label">Select your council</label>
                 <div class="ds_input--fluid-two-thirds ds_select-wrapper">
-                <select class="ds_select">
+                <select for="content-select-${editor.contentSelectIdString}" class="ds_select">
                 <option selected="selected" disabled="disabled" value="">Choose your council</option>
                 </select>
                 <span aria-hidden="true" class="ds_select-arrow">&nbsp;</span>
