@@ -1,0 +1,16 @@
+.address-manual {
+    margin-left: 40px;
+    margin-top: 16px;
+    padding-left: 16px;
+    position: relative;
+}
+
+.address-manual::before {
+    background-color: #b3b3b3;
+    bottom: 0;
+    content: '';
+    left: -22px;
+    position: absolute;
+    top: 0;
+    width: 4px;
+}

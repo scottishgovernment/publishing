@@ -32,17 +32,21 @@
         <textarea class="address-display  ds_input  fully-hidden" id="{{name}}-property-address" disabled="true" title="Property address"></textarea>
     {% else %}
         <div id="{{name}}-manual-address" class="address-manual  fully-hidden">
-            {% if required %}<div class="ds_question  no-validate" data-validation="requiredBuildingOrStreet" id="{{name}}-building-street">{% endif %}
-                <label class="ds_label" for="{{name}}-address-building">Building</label>
-                <input type="text" id="{{name}}-address-building" class="ds_input  building">
+            <div id="{{name}}-building-street" class="building-street">
+                <div class="ds_question">
+                    <label class="ds_label" for="{{name}}-address-building">Building</label>
+                    <input type="text" id="{{name}}-address-building" class="ds_input  building" {% if required %}data-validation="requiredBuildingOrStreet"{% endif %}>
+                </div>
 
-                <label class="ds_label" for="{{name}}-address-street">Street address</label>
-                <input type="text" id="{{name}}-address-street" class="ds_input  street">
-            {% if required %}</div>{% endif %}
+                <div class="ds_question">
+                    <label class="ds_label" for="{{name}}-address-street">Street address</label>
+                    <input type="text" id="{{name}}-address-street" class="ds_input  street">
+                </div>
+            </div>
 
             <div class="ds_question">
                 <label class="ds_label" for="{{name}}-address-town">Town or city</label>
-                <input type="text" id="{{name}}-address-town" class="ds_input  town {% if required %}no-validate" data-validation="requiredField{% endif %}">
+                <input type="text" id="{{name}}-address-town" class="ds_input  town" {% if required %}data-validation="requiredField"{% endif %}>
             </div>
 
             <div class="ds_question">
@@ -52,7 +56,7 @@
 
             <div class="ds_question">
                 <label class="ds_label" for="{{name}}-postcode">Postcode</label>
-                <input type="text" id="{{name}}-postcode" class="ds_input  uppercase  ds_input--fixed-10  postcode">
+                <input type="text" id="{{name}}-postcode" class="ds_input  uppercase  ds_input--fixed-10  postcode" {% if required %}data-validation="requiredField"{% endif %}>
             </div>
         </div>
     {% endif %}

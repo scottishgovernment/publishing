@@ -111,29 +111,23 @@ const commonHousing = {
     },
 
     // Address manual fill section show/hide
-    setManualLinkSections: function () {
+    setManualLinkSections: function(){
         $('body').on('click', '.js-address-manual-link', function (event) {
             event.preventDefault();
 
-            const manualAddress = $(this).closest('.js-postcode-lookup').find('.address-manual');
-            const buildingOrStreet = $(this).parent().parent().find('.town, .input-wrapper');
-            const postcodeDropdown = $(this).parent().parent().find('.postcode-results select');
+            const lookup = $(this).closest('.js-postcode-lookup');
+            const manualAddress = lookup.find('.address-manual');
+            const postcodeSearch = lookup.find('.postcode-search');
+            const postcodeSeachQuestion = postcodeSearch.closest('.ds_question');
 
-            manualAddress.toggleClass('fully-hidden');
+            manualAddress.removeClass('fully-hidden');
+            postcodeSearch.addClass('no-validate');
 
-            // set which fields should not be validated on summary page
-            if (manualAddress.hasClass('fully-hidden')) {
-                buildingOrStreet.addClass('no-validate');
-                postcodeDropdown.removeClass('no-validate');
-            } else {
-                buildingOrStreet.removeClass('no-validate');
-                postcodeDropdown.addClass('no-validate');
-            }
-
-            // remove validation errors from lookup when opening manual entry
-            const nearestLookup = $(this).parent().parent().find('.postcode-search');
-            nearestLookup.removeClass('ds_input--error');
-            nearestLookup.siblings('.current-errors').html('');
+            // remove errors from postcode field
+            postcodeSeachQuestion.removeClass('ds_question--error');
+            postcodeSeachQuestion.find('.ds_question__error-message').remove();
+            postcodeSearch.removeClass('ds_input--error');
+            postcodeSearch.removeAttr('aria-invalid');
         });
     },
 

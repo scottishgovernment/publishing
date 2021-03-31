@@ -268,20 +268,23 @@
                             </div>
                         </div>
 
-
                         <p><a href="#letting-agent-manual-address" class="js-address-manual-link">Enter the address manually</a></p>
 
                         <div id="letting-agent-manual-address" class="address-manual  fully-hidden">
-                            <div class="input-wrapper no-validate" data-validation="requiredBuildingOrStreet" id="letting-agent-building-street">
-                                <label for="letting-agent-address-building">Building</label>
-                                <input type="text" id="letting-agent-address-building" class="grey  form-control  building ">
+                            <div id="letting-agent-building-street" class="building-street">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="letting-agent-address-building">Building</label>
+                                    <input type="text" id="letting-agent-address-building" class="ds_input  building">
+                                </div>
 
-                                <label for="letting-agent-address-street">Street address</label>
-                                <input type="text" id="letting-agent-address-street" class="grey  form-control  street ">
+                                <div class="ds_question">
+                                    <label class="ds_label" for="letting-agent-address-street">Street address</label>
+                                    <input type="text" id="letting-agent-address-street" class="ds_input  street">
+                                </div>
                             </div>
 
                             <label for="letting-agent-address-town">Town or city</label>
-                            <input type="text" id="letting-agent-address-town" class="grey  form-control  town  no-validate" data-validation="requiredField">
+                            <input type="text" id="letting-agent-address-town" class="grey  form-control  town" data-validation="requiredField">
 
                             <label for="letting-agent-address-region">Region or province</label>
                             <input type="text" id="letting-agent-address-region" class="grey  form-control  region ">

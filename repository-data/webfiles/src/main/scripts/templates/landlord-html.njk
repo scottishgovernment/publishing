@@ -67,12 +67,16 @@
             <div class="postcode-info-note  ds_inset-text  fully-hidden"></div>
 
             <div class="address-manual  fully-hidden">
-                <div class="ds_question" {% if addressrequired %}data-validation="requiredBuildingOrStreet" id="landlord-{{index}}-building-street"{% endif %}>
-                    <label class="ds_label" for="landlord-{{index}}-building">Building</label>
-                    <input type="text" id="landlord-{{index}}-address-building" class="ds_input  building">
+                <div id="landlord-{{index}}-building-street" class="building-street">
+                    <div class="ds_question">
+                        <label class="ds_label" for="landlord-{{index}}-address-building">Building</label>
+                        <input type="text" id="landlord-{{index}}-address-building" class="ds_input  building" {% if addressrequired %}data-validation="requiredBuildingOrStreet"{% endif %}>
+                    </div>
 
-                    <label class="ds_label" for="landlord-{{index}}-street">Street address</label>
-                    <input type="text" id="landlord-{{index}}-address-street" class="ds_input  street">
+                    <div class="ds_question">
+                        <label class="ds_label" for="landlord-{{index}}-address-street">Street address</label>
+                        <input type="text" id="landlord-{{index}}-address-street" class="ds_input  street">
+                    </div>
                 </div>
 
                 <div class="ds_question">
@@ -87,7 +91,7 @@
 
                 <div class="ds_question">
                 <label class="ds_label" for="landlord-{{index}}-postcode">Postcode</label>
-                <input type="text" id="landlord-{{index}}-postcode" class="ds_input ds_input--fixed-10 postcode">
+                <input type="text" id="landlord-{{index}}-postcode" class="ds_input ds_input--fixed-10 postcode" {% if addressrequired %}data-validation="requiredField"{% endif %}>
                 </div>
             </div>
         </div>

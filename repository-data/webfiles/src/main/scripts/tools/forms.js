@@ -125,12 +125,12 @@ const commonForms = {
         const valid = trimmedValue !== '';
 
         let message = 'This field is required';
-        if (customMessage) {
+        if ($field[0].dataset.message || customMessage) {
             message = '';
             if (fieldName) {
                 message += `<strong>${fieldName}</strong> <br>`;
             }
-            message += `${customMessage}`;
+            message += `${$field[0].dataset.message || customMessage}`;
         }
 
         commonForms.toggleFormErrors($field, valid, 'invalid-required', fieldName, message);
@@ -459,21 +459,19 @@ const commonForms = {
     /**
      *  Requires an address to have either building or street address.
      */
-    requiredBuildingOrStreet: function ($field) {
+     requiredBuildingOrStreet: function ($field) {
         const message = 'Please enter an address, including building or street';
-        const building = $field.find('.building').val().trim();
-        const street = $field.find('.street').val().trim();
 
-        let valid = false;
-        const buildingOrStreet = building || street;
+        const parentQuestion = $field.closest('.building-street');
 
-        if (buildingOrStreet) {
-            valid = true;
-        }
+        const buildingEl = parentQuestion.find('.building');
+        const streetEl = parentQuestion.find('.street');
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-required-address', 'Address', message);
-        commonForms.toggleCurrentErrors($field.find('.building'), valid, 'invalid-required-address', message);
-        commonForms.toggleCurrentErrors($field.find('.street'), valid, 'invalid-required-address', message);
+        let valid = !!(buildingEl.val().trim() || streetEl.val().trim());
+
+        commonForms.toggleFormErrors(buildingEl, valid, 'invalid-required-address', 'Address', message);
+        commonForms.toggleCurrentErrors(buildingEl, valid, 'invalid-required-address', message);
+        commonForms.toggleCurrentErrors(streetEl, valid, 'invalid-required-address', message);
 
         return valid;
     },
@@ -683,13 +681,6 @@ const commonForms = {
     validateInput: function ($field, validationChecks, highlightField = true) {
         commonForms.appendErrorContainer($field);
         let valid = true;
-        let question;
-
-        if ($field.hasClass('ds_question')) {
-            question = $field;
-        } else {
-            question = $field.closest('.ds_question');
-        }
 
         for (let i = 0; i < validationChecks.length; i++) {
             if (validationChecks[i]($field) === false) {
@@ -767,19 +758,25 @@ const commonForms = {
         }
     },
 
-    // Legacy function - used in Brexit form & letting agent registration form
     requiredCheckbox: function ($field) {
-        const valid = $field.prop('checked'),
-            className = `.${$field.attr('id')}-errors`,
-            message = $field.data('errormessage');
+        const valid = $field.prop('checked');
 
-        if (!valid) {
-            if ($(className + ' .requiredCheckbox').length === 0) {
-                $(className).append(`<li class="error requiredCheckbox">${message}</li>`);
-            }
-        } else {
-            $(`${className} .requiredCheckbox`).remove();
+        let fieldName = commonForms.getLabelText($field);
+        if ($field[0].dataset.label) {
+            fieldName = $field[0].dataset.label;
         }
+
+        let message = 'This field is required';
+        if ($field[0].dataset.message) {
+            message = '';
+            if (fieldName) {
+                message += `<strong>${fieldName}</strong> <br>`;
+            }
+            message += `${$field[0].dataset.message}`;
+        }
+
+        commonForms.toggleFormErrors($field, valid, 'invalid-required', fieldName, message);
+        commonForms.toggleCurrentErrors($field, valid, 'invalid-required', message);
 
         return valid;
     },

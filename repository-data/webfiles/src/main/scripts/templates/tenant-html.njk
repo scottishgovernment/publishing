@@ -56,13 +56,17 @@
             </p>
 
             <div class="address-manual  fully-hidden">
-                {% if addressrequired %}<div class="ds_question" data-validation="requiredBuildingOrStreet" id="tenant-{{index}}-building-street">{% endif %}
-                    <label class="ds_label" for="{{slug}}-{{index}}-address-building">Building</label>
-                    <input type="text" id="{{slug}}-{{index}}-address-building" class="ds_input  building">
+                <div id="tenant-{{index}}-building-street" class="building-street">
+                    <div class="ds_question">
+                        <label class="ds_label" for="{{slug}}-{{index}}-address-building">Building</label>
+                        <input type="text" id="{{slug}}-{{index}}-address-building" class="ds_input  building" {% if addressrequired %}data-validation="requiredBuildingOrStreet"{% endif %}>
+                    </div>
 
-                    <label class="ds_label" for="{{slug}}-{{index}}-address-street">Street address</label>
-                    <input type="text" id="{{slug}}-{{index}}-address-street" class="ds_input  street">
-                {% if addressrequired %}</div>{% endif %}
+                    <div class="ds_question">
+                        <label class="ds_label" for="{{slug}}-{{index}}-address-street">Street address</label>
+                        <input type="text" id="{{slug}}-{{index}}-address-street" class="ds_input  street">
+                    </div>
+                </div>
 
                 <div class="ds_question">
                     <label class="ds_label" for="{{slug}}-{{index}}-address-town">Town or city</label>
@@ -76,7 +80,7 @@
 
                 <div class="ds_question">
                     <label class="ds_label" for="{{slug}}-{{index}}-postcode">Postcode</label>
-                    <input type="text" id="{{slug}}-{{index}}-postcode" class="ds_input uppercase ds_input--fixed-10 postcode">
+                    <input type="text" id="{{slug}}-{{index}}-postcode" class="ds_input uppercase ds_input--fixed-10 postcode" {% if addressrequired %}data-validation="requiredField"{% endif %}>
                 </div>
             </div>
         </div>

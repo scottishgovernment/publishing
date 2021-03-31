@@ -1,0 +1,197 @@
+{% from "../macros.njk" import postcodeLookup %}
+{% set iconsFile = '/webfiles/latest/assets/images/icons/icons.stack.svg' %}
+
+<form id="overseas-travel-form" autocomplete="false">
+
+    <section id="overview" data-step="overview" class="form-section  fully-hidden">
+
+    </section>
+
+    <section data-step="personal" class="form-section  fully-hidden">
+        <h2 class="labelled">Your details</h2>
+
+        <div class="ds_question">
+            <label class="ds_label" for="name">Full name</label>
+            <input id="name" type="text" class="ds_input  ds_input--fixed-20" data-validation="requiredField">
+        </div>
+
+        <div class="date-entry  ds_question">
+            <label class="ds_label" for="dob">Date of birth</label>
+            <div class="ds_hint-text">
+                <p>Use DD/MM/YYYY format.</p>
+            </div>
+            <div id="dob-picker" data-module="ds-datepicker" class="ds_datepicker">
+                <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
+                    <input class="ds_input  ds_input--fixed-10" data-validation="dateRegex requiredField" type="text" id="dob" placeholder="e.g. 01/12/1990"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="ds_question">
+            <label class="ds_label" for="nationality">Nationality</label>
+            <input id="nationality" type="text" class="ds_input  ds_input--fixed-20" data-validation="requiredField">
+        </div>
+
+        <fieldset>
+            <legend>Home address</legend>
+
+            {{ postcodeLookup('home', required=true) }}
+        </fieldset>
+
+        <div class="ds_question">
+            <label class="ds_label" for="passportNumber">Passport number, or travel document reference number</label>
+            <input id="passportNumber" type="text" class="ds_input  ds_input--fixed-20" data-validation="requiredField">
+        </div>
+
+        <div class="ds_question">
+            <label class="ds_label" for="destinationCountry">Country you're travelling to</label>
+            <input id="destinationCountry" type="text" class="ds_input  ds_input--fixed-20" data-validation="requiredField">
+        </div>
+    </section>
+
+    <section data-step="travel" class="form-section  fully-hidden">
+        <h2 class="labelled">Your reason for travelling</h2>
+
+        <div class="ds_question">
+            <fieldset data-validation="requiredRadio" id="travel-reason">
+                <legend>I declare that my reason travelling abroad is for:</legend>
+                <div class="ds_field-group">
+                    <div class="ds_radio">
+                        <input class="ds_radio__input" name="travel-reason" value="WORK" id="reason-work" type="radio" />
+                        <label class="ds_radio__label" for="reason-work">work</label>
+                    </div>
+
+                    <div class="ds_radio">
+                        <input class="ds_radio__input" name="travel-reason" value="VOLUNTEERING" id="reason-volunteering" type="radio" />
+                        <label class="ds_radio__label" for="reason-volunteering">volunteering</label>
+                    </div>
+
+                    <div class="ds_radio">
+                        <input class="ds_radio__input" name="travel-reason" value="EDUCATION" id="reason-education" type="radio" />
+                        <label class="ds_radio__label" for="reason-education">education</label>
+                    </div>
+
+                    <div class="ds_radio">
+                        <input class="ds_radio__input" name="travel-reason" value="MEDICAL" id="reason-medical" type="radio" />
+                        <label class="ds_radio__label" for="reason-medical">medical treatment</label>
+                    </div>
+
+                    <div class="ds_radio">
+                        <input class="ds_radio__input" name="travel-reason" value="WEDDING" id="reason-wedding" type="radio" />
+                        <label class="ds_radio__label" for="reason-wedding">a wedding or registration of a civil partnership</label>
+                    </div>
+
+                    <div class="ds_radio">
+                        <input class="ds_radio__input" name="travel-reason" value="FUNERAL" id="reason-funeral" type="radio" />
+                        <label class="ds_radio__label" for="reason-funeral">a funeral</label>
+                    </div>
+
+                    <div class="ds_radio">
+                        <input class="ds_radio__input" name="travel-reason" value="LEGAL" id="reason-legal" type="radio" />
+                        <label class="ds_radio__label" for="reason-legal">legal reasons</label>
+                    </div>
+
+                    <div class="ds_radio">
+                        <input class="ds_radio__input" name="travel-reason" value="OTHER" id="reason-other" type="radio" />
+                        <label class="ds_radio__label" for="reason-other">other</label>
+
+                        <div class="ds_reveal-content">
+                            <div class="ds_question">
+                                <label class="ds_label" for="otherReason">If you have another reason for travelling abroad, enter the reason:</label>
+                                <textarea rows="3" id="otherReason" class="ds_input" data-validation="requiredField"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ds_warning-text">
+                    <strong class="ds_warning-text__icon" aria-hidden="true">!</strong>
+                    <strong class="visually-hidden">Warning</strong>
+                    <div class="ds_warning-text__text">You should not be travelling for any reason that is not on the <a href="https://www.gov.scot/publications/coronavirus-covid-19-guidance-on-travel-and-transport/#exceptions">list of legal reasons to travel</a>.</div>
+                </div>
+            </fieldset>
+        </div>
+
+    </section>
+
+    <section data-step="declaration" class="form-section  fully-hidden">
+        <h2 class="labelled">Declaration</h2>
+
+        <div class="ds_question">
+            <div class="ds_checkbox">
+                <input class="ds_checkbox__input" id="education" type="checkbox" data-validation="requiredCheckbox" data-label="Confirmation" />
+                <label class="ds_checkbox__label" for="education">I confirm that the details I have provided are true. I understand that if I provide false or misleading information, I may be issued with a fixed penalty notice, not be allowed to travel or arrested</label>
+            </div>
+        </div>
+
+        <div class="ds_question">
+            <label class="ds_label" for="signature">Signature</label>
+            <div class="ds_hint-text">
+                <p>If completing electronically, write your full name.</p>
+            </div>
+            <input id="signature" type="text" class="ds_input" data-validation="requiredField">
+        </div>
+
+        <div class="date-entry  ds_question">
+            <label class="ds_label" for="signedDate">Date</label>
+            <div class="ds_hint-text">
+                <p>Use DD/MM/YYYY format.</p>
+            </div>
+            <div id="signedDate-picker" data-module="ds-datepicker" class="ds_datepicker">
+                <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
+                    <input class="ds_input  ds_input--fixed-10" data-validation="dateRegex requiredField" type="text" id="signedDate" placeholder="e.g. 01/12/2021"/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section data-step="download" class="form-section  fully-hidden">
+        <h2 class="labelled  no-suffix">Download</h2>
+
+        <p>You need to complete the following challenge before you can download your declaration form.</p>
+
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <div id="recaptcha" class="g-recaptcha"
+        data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV"
+        data-callback="checkRecaptcha"
+        data-expired-callback="expireRecaptcha"></div>
+
+        <section class="document-section">
+            <div data-documenttype="PDF" class="js-document-container  document-info  document-info--limelight">
+                <div class="document-info__body">
+                    <div class="document-info__thumbnail  document-info__thumbnail--pdf">
+                        <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--PDF" title="View this document" href="#">
+                            <span class="mg_file__icon">
+                                <span class="mg_file__content">PDF</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="document-info__text">
+                    <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your declaration form - PDF document</a></h3>
+
+                    <dl class="ds_metadata  ds_metadata--inline">
+                        <div class="ds_metadata__item">
+                            <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                            <dd class="ds_metadata__value"><b>PDF document (.pdf)</b></dd>
+                        </div>
+                    </dl>
+
+                    <div class="document-info__download">
+                        <a disabled="true" href="#" class="ds_no-margin  ds_button  js-download-file">
+                            Download <span class="visually-hidden">PDF</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</form>
+
+<form id="travel-declaration-download" action="/service/housing/foreigntraveldeclaration/form" method="POST" enctype="multipart/form-data" class="form-download">
+    <input type="hidden" name="data" value="">
+    <input type="hidden" name="type" value="">
+</form>
+
+<nav id="page-nav" aria-label="Navigation buttons"></nav>

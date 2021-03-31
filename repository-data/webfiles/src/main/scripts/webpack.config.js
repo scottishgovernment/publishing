@@ -24,6 +24,7 @@ const commonItems = {
         'model-tenancy-form':           path.resolve(__dirname, './formats/mygov/model-tenancy-form.js'),
         'non-provision-form':           path.resolve(__dirname, './formats/mygov/non-provision-form.js'),
         'notice-to-leave-form':         path.resolve(__dirname, './formats/mygov/notice-to-leave-form.js'),
+        'overseas-travel-declaration-form': path.resolve(__dirname, './formats/mygov/overseas-travel-declaration-form.js'),
         'rent-adjudication-form':       path.resolve(__dirname, './formats/mygov/rent-adjudication-form.js'),
         'rent-improvements-form':       path.resolve(__dirname, './formats/mygov/rent-improvements-form.js'),
         'rent-increase-form':           path.resolve(__dirname, './formats/mygov/rent-increase-form.js'),
