@@ -3,7 +3,6 @@ package scot.mygov.publishing.beans;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoResourceBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publishing:document")
 @Node(jcrType = "publishing:document")
