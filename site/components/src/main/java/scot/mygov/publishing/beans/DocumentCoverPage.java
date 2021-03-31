@@ -6,11 +6,11 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import java.util.List;
 import java.util.Calendar;
 import scot.mygov.publishing.beans.Relateditems;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 
 @HippoEssentialsGenerated(internalName = "publishing:documentcoverpage")
 @Node(jcrType = "publishing:documentcoverpage")
 public class DocumentCoverPage extends Base {
-
     @HippoEssentialsGenerated(internalName = "publishing:content")
     public HippoHtml getContent() {
         return getHippoHtml("publishing:content");
@@ -70,5 +70,15 @@ public class DocumentCoverPage extends Base {
     public List<Relateditems> getRelateditems() {
         return getChildBeansByName("publishing:relateditems",
                 Relateditems.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:contentOwner")
+    public HippoBean getContentOwner() {
+        return getLinkedBean("publishing:contentOwner", HippoBean.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:factCheckers")
+    public List<HippoBean> getFactCheckers() {
+        return getLinkedBeans("publishing:factCheckers", HippoBean.class);
     }
 }

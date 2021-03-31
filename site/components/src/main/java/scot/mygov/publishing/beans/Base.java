@@ -5,6 +5,7 @@ import org.hippoecm.hst.content.beans.Node;
 import java.util.Calendar;
 import java.util.List;
 import scot.mygov.publishing.beans.Relateditems;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 
 @HippoEssentialsGenerated(internalName = "publishing:base")
 @Node(jcrType = "publishing:base")
@@ -41,11 +42,6 @@ public class Base extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "publishing:reportingtags")
     public String[] getReportingtags() {
         return getMultipleProperty("publishing:reportingtags");
-    }
-
-    @HippoEssentialsGenerated(internalName = "hippostd:tags")
-    public String[] getTags() {
-        return getMultipleProperty("hippostd:tags");
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:cardImage")
@@ -97,5 +93,15 @@ public class Base extends BaseDocument {
     public List<Relateditems> getRelateditems() {
         return getChildBeansByName("publishing:relateditems",
                 Relateditems.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:contentOwner")
+    public HippoBean getContentOwner() {
+        return getLinkedBean("publishing:contentOwner", HippoBean.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:factCheckers")
+    public List<HippoBean> getFactCheckers() {
+        return getLinkedBeans("publishing:factCheckers", HippoBean.class);
     }
 }

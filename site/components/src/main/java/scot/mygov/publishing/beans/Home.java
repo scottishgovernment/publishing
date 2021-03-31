@@ -7,6 +7,7 @@ import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import java.util.Calendar;
 import java.util.List;
 import scot.mygov.publishing.beans.DescribedLink;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 
 @HippoEssentialsGenerated(internalName = "publishing:home")
 @Node(jcrType = "publishing:home")
@@ -85,5 +86,15 @@ public class Home extends Base {
     public List<DescribedLink> getPopularpanelitem() {
         return getChildBeansByName("publishing:popularpanelitem",
                 DescribedLink.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:contentOwner")
+    public HippoBean getContentOwner() {
+        return getLinkedBean("publishing:contentOwner", HippoBean.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:factCheckers")
+    public List<HippoBean> getFactCheckers() {
+        return getLinkedBeans("publishing:factCheckers", HippoBean.class);
     }
 }

@@ -6,6 +6,7 @@ import java.util.Calendar;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import java.util.List;
 import scot.mygov.publishing.beans.Relateditems;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 
 @HippoEssentialsGenerated(internalName = "publishing:guidepage")
 @Node(jcrType = "publishing:guidepage")
@@ -59,5 +60,15 @@ public class GuidePage extends Base {
     public List<Relateditems> getRelateditems() {
         return getChildBeansByName("publishing:relateditems",
                 Relateditems.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:contentOwner")
+    public HippoBean getContentOwner() {
+        return getLinkedBean("publishing:contentOwner", HippoBean.class);
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:factCheckers")
+    public List<HippoBean> getFactCheckers() {
+        return getLinkedBeans("publishing:factCheckers", HippoBean.class);
     }
 }

@@ -8,17 +8,6 @@ import java.util.List;
 @HippoEssentialsGenerated(internalName = "publishing:document")
 @Node(jcrType = "publishing:document")
 public class Document extends BaseDocument {
-    @HippoEssentialsGenerated(internalName = "govscot:document")
-    public HippoResourceBean getDocument() {
-        return getBean("publishing:document", HippoResourceBean.class);
-    }
-
-    @HippoEssentialsGenerated(internalName = "publishing:thumbnails")
-    public List<HippoResourceBean> getThumbnails() {
-        return getChildBeansByName("publishing:thumbnails",
-                HippoResourceBean.class);
-    }
-
     @HippoEssentialsGenerated(internalName = "publishing:title")
     public String getTitle() {
         return getSingleProperty("publishing:title");
@@ -32,5 +21,10 @@ public class Document extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "publishing:pageCount")
     public long getPageCount() {
         return getSingleProperty("publishing:pageCount");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:document")
+    public HippoResourceBean getDocument() {
+        return getBean("publishing:document", HippoResourceBean.class);
     }
 }

@@ -64,6 +64,8 @@
                         </fieldset>
                     </form>
                 </div>
+
+                <@hst.html hippohtml=document.additionalContent/>
             </div>
         </main>
     </div>

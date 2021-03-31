@@ -21,4 +21,19 @@ public class Organisationlist extends BaseDocument {
     public HippoHtml getContent() {
         return getHippoHtml("publishing:content");
     }
+
+    @HippoEssentialsGenerated(internalName = "publishing:metaDescription")
+    public String getMetaDescription() {
+        return getSingleProperty("publishing:metaDescription");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:seoTitle")
+    public String getSeoTitle() {
+        return getSingleProperty("publishing:seoTitle");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:html")
+    public HippoHtml getHtml() {
+        return getHippoHtml("publishing:html");
+    }
 }
