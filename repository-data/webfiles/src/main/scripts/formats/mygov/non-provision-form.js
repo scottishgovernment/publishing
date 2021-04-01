@@ -515,18 +515,15 @@ const nonProvisionForm = {
         });
 
         // On click of error playback link, scroll to above field so label is visible
-        $('body').on('click', '.client-error a', function(){
-            const currentStep = nonProvisionForm.form.currentStep.slug;
-            let targetElement = $(this.hash);
+        $('body').on('click', '.client-error a', function (event) {
+            const targetElement = document.querySelector(this.hash);
+            const question = targetElement.closest('.ds_question');
 
-            // if on summary page, link to section in table
-            if (currentStep === 'summary'){
-                const elementId = this.hash.slice(1);
-                targetElement = $(`[data-summary-field*=${elementId}`);
+            const elementToScrollTo = question || targetElement;
+            if (elementToScrollTo) {
+                elementToScrollTo.scrollIntoView();
+                event.preventDefault();
             }
-
-            const elementTop = targetElement.offset().top;
-            $('html, body').animate({ scrollTop: elementTop - 60 }, 500);
         });
     },
 

@@ -265,7 +265,17 @@ const rentIncreaseForm = {
             }
         });
 
-        return;
+        // On click of error playback link, scroll to above field so label is visible
+        $('body').on('click', '.client-error a', function (event) {
+            const targetElement = document.querySelector(this.hash);
+            const question = targetElement.closest('.ds_question');
+
+            const elementToScrollTo = question || targetElement;
+            if (elementToScrollTo) {
+                elementToScrollTo.scrollIntoView();
+                event.preventDefault();
+            }
+        });
     },
 
     rpzComplete: function (rpzData) {
