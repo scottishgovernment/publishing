@@ -20,7 +20,7 @@
 
             <div class="ds_field-group">
                 <div class="ds_radio  ds_radio--small">
-                    <input type="radio" class="ds_radio__input" id="needsmetyes" name="needsmet" value="yes">
+                    <input type="radio" class="ds_radio__input" id="needsmetyes" name="feedbacktype" value="yes">
                     <label class="ds_radio__label" for="needsmetyes">Yes</label>
 
                     <div class="ds_reveal-content">
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="ds_radio  ds_radio--small">
-                    <input type="radio" class="ds_radio__input" id="needsmetno" name="needsmet" value="no">
+                    <input type="radio" class="ds_radio__input" id="needsmetno" name="feedbacktype" value="no">
                     <label class="ds_radio__label" for="needsmetno">No</label>
 
                     <div class="ds_reveal-content">
@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="ds_radio  ds_radio--small">
-                    <input type="radio" class="ds_radio__input" id="needsmetyesbut" name="needsmet" value="yesbut">
+                    <input type="radio" class="ds_radio__input" id="needsmetyesbut" name="feedbacktype" value="yesbut">
                     <label class="ds_radio__label" for="needsmetyesbut">Yes, but</label>
 
                     <div class="ds_reveal-content">
