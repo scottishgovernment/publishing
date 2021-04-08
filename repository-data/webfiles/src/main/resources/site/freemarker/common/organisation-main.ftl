@@ -32,11 +32,10 @@
 
             <div class="ds_layout__content">
                 <section class="page-section">
-                    <@hst.html var="content" hippohtml=document.content/>
-                    <#if content?has_content>
-                    <div class="ds_leader">
-                        ${content}
-                    </div>
+                    <#if document.content?has_content>
+                        <div class="ds_leader">
+                            <@hst.html hippohtml=document.content/>
+                        </div>
                     <#else>
                         <p>${document.summary}</p>
                     </#if>
@@ -67,13 +66,13 @@
                         </ul>
                     </section>
                 </div>
-            <#elseif services??>
+            <#elseif services?has_content>
                 <div class="ds_layout__services">
                     <section id="other-services" class="page-section  org-services">
                         <h2>Services</h2>
                         <ul class="ds_category-list  ds_cols  ds_cols--2">
                             <#list services as child>
-                                <@hst.link var="link" hippobean=child.link/>
+                                <@hst.link var="link" hippobean=child/>
 
                                 <li class="ds_category-item">
                                     <h2 class="ds_category-item__title">
