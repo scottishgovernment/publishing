@@ -18,7 +18,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 import java.io.*;
-import java.net.URL;
+import java.net.URL;:q
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -168,8 +168,6 @@ public class MigrationResource {
                 HWPFDocument word = getOldDoc(url);
                 word.getSummaryInformation().setAuthor("");
                 word.getSummaryInformation().setLastAuthor("");
-            } else {
-                Binary binary = session.getValueFactory().createBinary(url.openStream());
             }
 
             InputStream in = new FileInputStream(tmp);
