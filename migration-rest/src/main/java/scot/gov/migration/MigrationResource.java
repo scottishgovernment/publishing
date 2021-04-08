@@ -124,9 +124,9 @@ public class MigrationResource {
     void upload(Session session, DocumentRequest request) throws RepositoryException, IOException {
 
         Node handle = session.getNode(request.getPath());
-        Binary binary = getCleanedBinary(session, new URL(request.getUrl()), request.getContentType());
+        Binary binary = getBinary(session, new URL(request.getUrl()), request.getContentType());
         hippoUtils.apply(handle.getNodes(),
-                    variant -> uploadDocumentsAndCreateThumbnailsForVariant(session, variant, request, binary));
+                variant -> uploadDocumentsAndCreateThumbnailsForVariant(session, variant, request, binary));
 
         String filenameIn = request.getFilename().replace(" ", "%20").toLowerCase();
         String oldUrl = "/" + request.getSlug() + "/" + filenameIn;
@@ -139,6 +139,14 @@ public class MigrationResource {
         Node rewritesFolder = session.getNode(request.getRewritesFolder());
         createRewriteRule(rewritesFolder, oldUrl, newUrl);
         session.save();
+    }
+
+    Binary getBinary(Session session, URL url, String mimetype) throws IOException, RepositoryException {
+        if (isPdf(mimetype)) {
+            return session.getValueFactory().createBinary(url.openStream());
+        }
+
+        return getCleanedBinary(session, url, mimetype);
     }
 
     Binary getCleanedBinary(Session session, URL url, String mimetype) throws IOException, RepositoryException {
@@ -160,6 +168,8 @@ public class MigrationResource {
                 HWPFDocument word = getOldDoc(url);
                 word.getSummaryInformation().setAuthor("");
                 word.getSummaryInformation().setLastAuthor("");
+            } else {
+                Binary binary = session.getValueFactory().createBinary(url.openStream());
             }
 
             InputStream in = new FileInputStream(tmp);
@@ -204,6 +214,10 @@ public class MigrationResource {
 
     boolean isDocx(String mimetype) {
         return "application/vnd.openxmlformats-officedocument.wordprocessingml.document".equals(mimetype);
+    }
+
+    boolean isPdf(String mimetype) {
+        return "application/pdf".equals(mimetype);
     }
 
     void uploadDocumentsAndCreateThumbnailsForVariant(
