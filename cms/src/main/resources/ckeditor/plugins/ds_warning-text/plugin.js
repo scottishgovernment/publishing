@@ -8,7 +8,7 @@ CKEDITOR.plugins.add('ds_warning-text', {
             pathName: 'warning',
 
             template: `<div class="ds_warning-text">
-                <strong class="ds_warning-text__icon" aria-hidden="true">!</strong>
+                <strong class="ds_warning-text__icon" aria-hidden="true"></strong>
                 <strong class="visually-hidden">Warning</strong>
                 <div class="ds_warning-text__text">
 

@@ -11,7 +11,7 @@
 
             <button class="ds_notification__close  js-close-notification" type="button">
                 <span class="visually-hidden">Close this notification</span>
-                <svg class="ds_icon" role="img"><use xlink:href="${iconspath}#close-21"></use></svg>
+                <svg class="ds_icon" role="img"><use xlink:href="${iconspath}#close"></use></svg>
             </button>
         </div>
     </div>

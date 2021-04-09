@@ -854,7 +854,7 @@ describe('business-rates-calculator', function () {
             });
 
             it('should return a "Property X" title and remove button if there are multiple properties', function () {
-                expect(helpers.propertyResultTitle(0, {properties: this.properties})).toEqual('<h3 class="brc-result__title">Property 5</h3><a href="#" class="remove-property  ds_button  ds_button--cancel  ds_button--small  ds_button--has-icon" data-property-index="0">Remove property<svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#close-21"></use></svg></a>');
+                expect(helpers.propertyResultTitle(0, {properties: this.properties})).toEqual('<h3 class="brc-result__title">Property 5</h3><a href="#" class="remove-property  ds_button  ds_button--cancel  ds_button--small  ds_button--has-icon" data-property-index="0">Remove property<svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#close"></use></svg></a>');
             });
 
             it('should return just the title if there is just one property', function () {

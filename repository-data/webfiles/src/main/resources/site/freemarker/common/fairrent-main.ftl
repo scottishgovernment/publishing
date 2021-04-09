@@ -20,7 +20,7 @@
                             <#if document.lastUpdatedDate??>
                                 <div class="ds_metadata__item">
                                     <dt class="ds_metadata__key">Last updated</dt>
-                                    <dd><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></dd>
+                                    <dd class="ds_metadata__value"><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></dd>
                                 </div>
                             </#if>
                         </dl>

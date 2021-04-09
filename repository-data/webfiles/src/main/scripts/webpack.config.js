@@ -3,7 +3,7 @@
 const path = require('path');
 
 const commonItems = {
-    mode: 'development',
+    mode: 'production',
 
     entry: {
         'global':                       path.resolve(__dirname, './global.js'),

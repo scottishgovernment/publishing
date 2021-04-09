@@ -42,7 +42,7 @@
                 <span class="ds_site-header__control-text">Search</span>
 
                 <svg class="ds_icon  ds_site-header__control-icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#search"></use></svg>
-                <svg class="ds_icon  ds_site-header__control-icon--close  ds_site-header__control-icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#close-21"></use></svg>
+                <svg class="ds_icon  ds_site-header__control-icon--close  ds_site-header__control-icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#close"></use></svg>
             </button>
 
             <div class="ds_mobile-navigation" id="mobile-navigation-menu" data-offsetselector=".ds_site-header">
