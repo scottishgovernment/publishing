@@ -7,8 +7,6 @@ import java.util.Calendar;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import java.util.List;
 import scot.mygov.publishing.beans.DescribedLink;
-import scot.mygov.publishing.beans.ImageDefault;
-import scot.mygov.publishing.beans.Featureditem;
 
 @HippoEssentialsGenerated(internalName = "publishing:organisation")
 @Node(jcrType = "publishing:organisation")
@@ -157,26 +155,5 @@ public class Organisation extends Base {
     public List<DescribedLink> getFeaturedservices() {
         return getChildBeansByName("publishing:featuredservices",
                 DescribedLink.class);
-    }
-
-    @HippoEssentialsGenerated(internalName = "publishing:notices")
-    public HippoHtml getNotices() {
-        return getHippoHtml("publishing:notices");
-    }
-
-    @HippoEssentialsGenerated(internalName = "publishing:featuredroleimage")
-    public ImageDefault getFeaturedroleimage() {
-        return getLinkedBean("publishing:featuredroleimage", ImageDefault.class);
-    }
-
-    @HippoEssentialsGenerated(internalName = "publishing:organisationstructure")
-    public HippoHtml getOrganisationstructure() {
-        return getHippoHtml("publishing:organisationstructure");
-    }
-
-    @HippoEssentialsGenerated(internalName = "publishing:featureditem")
-    public List<Featureditem> getFeatureditem() {
-        return getChildBeansByName("publishing:featureditem",
-                Featureditem.class);
     }
 }

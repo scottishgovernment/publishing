@@ -152,13 +152,13 @@
                             </header>
 
                             <div class="mg_org-person__summary  large--seven-twelfths">
-                                ${document.featuredroledescription}
+                                ${document.featuredroledescription?no_esc}
                             </div>
                         </div>
                         <!-- /end featured role -->
 
                         <#if organisationstructure?has_content>
-                            ${organisationstructure}
+                            <@hst.html hippohtml=document.organisationstructure/>
                         </#if>
                     </#if>
                 </section>
@@ -180,7 +180,7 @@
                             <div class="ds_contact-details__item">
                                 <dt>Phone</dt>
                                 <dd>
-                                    ${document.phone}
+                                    ${document.phone?no_esc}
                                     <a href="https://www.gov.uk/call-charges">Find out about call charges</a>
                                 </dd>
                             </div>
@@ -204,7 +204,7 @@
                                 <dt>Address</dt>
                                 <dd translate="no">
                                     <address>
-                                        ${document.address}
+                                        ${document.address?no_esc}
                                     </address>
                                 </dd>
                             </div>
