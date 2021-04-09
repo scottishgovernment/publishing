@@ -81,6 +81,15 @@
     <meta name="description" content="${document.metaDescription}"/>
 </#if>
 </@hst.headContribution>
+<script>
+window.renderCaptcha = function () {
+    grecaptcha.render(
+        document.getElementById('recaptcha')
+    );
+}
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=renderCaptcha&render=explicit" async defer></script>
 
 <#assign scriptName="${document.formtype}">
 <#include 'scripts.ftl'/>

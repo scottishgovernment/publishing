@@ -72,7 +72,7 @@ const modelTenancyForm = {
 
                 const extraTermsHtml = summaryTwoTemplate.render(summaryObject);
                 const excludedHtml = summaryTwoExcludedTemplate.render(summaryObject);
-                summaryContainer2.innerHTML = mandatoryHtml + mandatoryEditableHtml + extraTermsHtml;
+                summaryContainer2.innerHTML = mandatoryHtml + extraTermsHtml;
                 summaryContainer2Excluded.innerHTML = excludedHtml;
                 commonHousing.summaryAccordion(summaryContainer2);
                 commonHousing.summaryAccordion(summaryContainer2Excluded);

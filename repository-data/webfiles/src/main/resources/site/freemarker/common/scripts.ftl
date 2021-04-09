@@ -42,10 +42,6 @@
 </@hst.headContribution>
 
 <@hst.headContribution category="footerScripts">
-    <script async defer src="https://sa.mygov.scot/app.js"></script>
-</@hst.headContribution>
-
-<@hst.headContribution category="footerScripts">
     <script type="module" src='<@hst.webfile path="assets/scripts/simple-analytics.js"/>'></script>
 </@hst.headContribution>
 
