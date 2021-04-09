@@ -7,9 +7,10 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 @HippoEssentialsGenerated(internalName = "publishing:mourningbanner")
 @Node(jcrType = "publishing:mourningbanner")
 public class MourningBanner extends BaseDocument {
-    @HippoEssentialsGenerated(internalName = "publishing:html")
-    public String getHtml() {
-        return getSingleProperty("publishing:html");
+
+    @HippoEssentialsGenerated(internalName = "publishing:content")
+    public HippoHtml getContent() {
+        return getHippoHtml("publishing:content");
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:authorNotes")
