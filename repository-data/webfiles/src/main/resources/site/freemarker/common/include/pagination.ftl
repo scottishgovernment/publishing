@@ -28,7 +28,7 @@
                         </li>
                     <#else>
                         <li class="ds_pagination__item ">
-                            <a data-search="pagination-${pageNr}" class="ds_pagination__link" href="${pageUrl}">${pageNr}</a>
+                            <a class="ds_pagination__link" href="${pageUrl}">${pageNr}</a>
                         </li>
                     </#if>
 

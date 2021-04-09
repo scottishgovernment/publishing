@@ -3,7 +3,7 @@
 
 <p class="ds_search-results__count js-search-results-count"><b>${pageable.total}</b> results</p>
 
-<ol id="search-results-list" class="ds_search-results__list" data-search-term="crofting">
+<ol id="search-results-list" class="ds_search-results__list" data-total="${pageable.total}">
     <#list pageable.items as item>
         <@hst.manageContent hippobean=item/>
         <@hst.link var="link" hippobean=item/>
@@ -18,7 +18,7 @@
             </dl>  -->
 
                 <h2 class="gamma  ds_search-result__title">
-                    <a class="ds_search-result__link" href="${link}" data-search="search-result-${position}/${pageable.total}">${item.title}</a>
+                    <a class="ds_search-result__link" href="${link}">${item.title}</a>
                 </h2>
             </header>
 
