@@ -77,7 +77,8 @@ const feedbackForm = {
             freetext: this.getFeedbackFreeText(type),
             category: document.querySelector('#page-category').value,
             errors: [],
-            contentItem: document.body.getAttribute('data-uuid')
+            hippoContentItem: window.location.pathname,
+            contentItem: document.getElementById('documentUuid').value
         };
 
         const errorSummaryEl = document.getElementById('feedbackErrorSummary');
