@@ -81,7 +81,4 @@ const cookieForm = {
     }
 };
 
-// self-initialize
-cookieForm.init();
-
 export default cookieForm;

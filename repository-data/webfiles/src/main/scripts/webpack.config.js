@@ -11,6 +11,7 @@ const commonItems = {
         // format-specific entry points
         'article':                      path.resolve(__dirname, './formats/article.js'),
         'category':                     path.resolve(__dirname, './formats/category.js'),
+        'cookie-preferences':           path.resolve(__dirname, './formats/cookie-preferences.js'),
         'default':                      path.resolve(__dirname, './formats/default-format.js'),
         'guide':                        path.resolve(__dirname, './formats/guide.js'),
         'home':                         path.resolve(__dirname, './formats/home.js'),

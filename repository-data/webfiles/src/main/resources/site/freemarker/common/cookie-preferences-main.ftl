@@ -8,7 +8,7 @@
     <@hst.include ref="breadcrumbs"/>
 
     <div class="ds_wrapper">
-        <main id="main-content" class="ds_layout  ds_layout--article">
+        <main id="main-content" class="ds_layout  ds_layout--article zzzzz">
             <div class="ds_layout__header">
                 <header class="ds_page-header">
                     <h1 class="ds_page-header__title">${document.title}</h1>
@@ -60,7 +60,11 @@
                                 </div>
                             </div>
 
-                            <button class="ds_button  ds_no-margin" type="submit">Save cookie preferences</button>
+                            <div id="cookie-success-message" class="form-message  form-message--success  fully-hidden">
+                                <p><b>Your cookie preferences have been saved.</b></p>
+                            </div>
+
+                            <button class="ds_button  ds_no-margin--bottom" type="submit">Save cookie preferences</button>
                         </fieldset>
                     </form>
                 </div>
@@ -78,4 +82,5 @@
     </#if>
 </@hst.headContribution>
 
+<#assign scriptName="cookie-preferences">
 <#include 'scripts.ftl'/>
