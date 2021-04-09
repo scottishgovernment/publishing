@@ -31,7 +31,7 @@
 
             <#if document.logo??>
                 <div class="ds_layout__partner  mg_partner-logo">
-                    <img alt="" data-navigation="org-logo" src="<@hst.link hippobean=document.logo/>" />
+                    <img alt="" src="<@hst.link hippobean=document.logo/>" />
                 </div>
             </#if>
 

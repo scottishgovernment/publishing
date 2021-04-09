@@ -111,7 +111,7 @@
                                 <#list item.relatedItem as link>
                                     <@hst.link var="url" hippobean=link/>
                                     <li>
-                                        <a href="${url}" data-gtm="link-related-${link?index}">${link.title}</a>
+                                        <a href="${url}">${link.title}</a>
                                     </li>
                                 </#list>
                             </#list>
