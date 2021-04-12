@@ -1,3 +1,5 @@
+{% set iconsFile = '/webfiles/latest/assets/images/icons/icons.stack.svg' %}
+
 <div id="property-list">
     <div id="property-selection" class="result-count-{{searchResults.length}}">
         {% if showAsSelect %}
@@ -27,6 +29,6 @@
     <a href="#!/result/" type="button" class="ds_button  ds_button--has-icon">
         Next
 
-        <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#chevron_right"></use></svg>
+        <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="{{ iconsFile }}#chevron_right"></use></svg>
     </a>
 </div>
