@@ -315,7 +315,7 @@ const businessRatesCalculator = {
         }
 
         resultsData.searchResults.forEach(result => {
-            if (result.occupier) {
+            if (result.occupier.length) {
                 result.occupierName = result.occupier[0].name.split('\n')[0];
             }
         });

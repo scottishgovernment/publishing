@@ -96,6 +96,12 @@ const global = {
         });
 
         const accordions = [].slice.call(document.querySelectorAll('[data-module="ds-accordion"]'));
+
+        // filter out some we don't want to process yet
+        accordions.filter(accordion => {
+            return !accordion.closest('.multi-page-form');
+        });
+
         accordions.forEach(accordion => new window.DS.components.Accordion(accordion).init());
 
         const cookieNotificationEl = document.querySelector('[data-module="ds-cookie-notification"]');
