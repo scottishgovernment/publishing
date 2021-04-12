@@ -81,11 +81,14 @@
     <meta name="description" content="${document.metaDescription}"/>
 </#if>
 </@hst.headContribution>
+
 <script>
 window.renderCaptcha = function () {
-    grecaptcha.render(
-        document.getElementById('recaptcha')
-    );
+    if (document.getElementById('recaptcha')) {
+        grecaptcha.render(
+            document.getElementById('recaptcha')
+        );
+    }
 }
 </script>
 
