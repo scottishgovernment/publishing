@@ -14,6 +14,11 @@ public class NotificationBanner extends BaseDocument {
         return getSingleProperty("publishing:closeable");
     }
 
+    @HippoEssentialsGenerated(internalName = "publishing:closeable")
+    public Boolean getPriority() {
+        return getSingleProperty("publishing:priority");
+    }
+
     @HippoEssentialsGenerated(internalName = "publishing:content")
     public HippoHtml getContent() {
         return getHippoHtml("publishing:content");

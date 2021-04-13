@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: 86412e17-78e3-4ee3-b2a1-6264fca33af6
+          jcr:uuid: 0fe0dac2-5bc3-4a63-bc76-773582cea67c
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -57,12 +57,21 @@ definitions:
             hipposysedit:path: publishing:authorNotes
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /priority:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:priority
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:notificationbanner
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 57143be5-983b-4e1f-a4eb-df78767d9380
+          jcr:uuid: 438f13ec-fcec-40bc-9bf5-96a9fb658589
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -73,6 +82,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           publishing:closeable: true
           publishing:id: ''
+          publishing:priority: false
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -126,6 +136,15 @@ definitions:
             caption: Closeable
             field: closeable
             hint: Select if the banner can be closed by user
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /priority:
+            jcr:primaryType: frontend:plugin
+            caption: Priority notification
+            field: priority
+            hint: Priority notifications are displayed with the ! icon.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
