@@ -10,6 +10,7 @@ import './usertype';
 import storage from './tools/storage';
 import NotificationBanner from './components/notification';
 import finders from './components/content-select';
+import './vendor/polyfills';
 
 import '../../../node_modules/@scottish-government/pattern-library/src/all';
 

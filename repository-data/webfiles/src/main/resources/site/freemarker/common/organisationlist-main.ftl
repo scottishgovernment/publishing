@@ -56,18 +56,6 @@
                                 </li>
                             </ul>
                         </#list>
-
-                        <script>
-                            document.querySelectorAll('.sector__link').forEach(function(link) {
-                                link.addEventListener('focus', function () {
-                        link.parentNode.parentNode.classList.add('sector--has-focus');
-                                });
-
-                                link.addEventListener('blur', function () {
-                        link.parentNode.parentNode.classList.remove('sector--has-focus');
-                                });
-                            });
-                        </script>
                     </div>
 
                     <input class="ds_tab__radio" type="radio" name="tabs" id="tab2" />

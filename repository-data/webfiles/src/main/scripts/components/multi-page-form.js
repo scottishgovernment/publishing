@@ -3,7 +3,6 @@
 'use strict';
 
 import '../vendor/jquery.routes';
-import '../vendor/polyfills';
 import _ from '../vendor/lodash/dist/tinydash.es6';
 
 const MultiPageForm = function (settings) {

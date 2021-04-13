@@ -197,6 +197,8 @@ const rentAdjudicationForm = {
         formTemplateContainer.innerHTML = formTemplate.render({tenants: true});
         formTemplateContainer.querySelector('#overview').innerHTML = formTemplateContainer.querySelector('#overview').innerHTML + overviewContent;
 
+        commonForms.appendCaptchaScript();
+
         feedback.init();
         rentAdjudicationForm.form.validateStep = rentAdjudicationForm.validateStep;
         rentAdjudicationForm.form.init();

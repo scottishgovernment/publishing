@@ -6,7 +6,17 @@
 'use strict';
 
 const orgListPage = {
-    init: function () { }
+    init: function () {
+        document.querySelectorAll('.sector__link').forEach(function(link) {
+            link.addEventListener('focus', function () {
+                link.parentNode.parentNode.classList.add('sector--has-focus');
+            });
+
+            link.addEventListener('blur', function () {
+                link.parentNode.parentNode.classList.remove('sector--has-focus');
+            });
+        });
+    }
 };
 
 window.format = orgListPage;

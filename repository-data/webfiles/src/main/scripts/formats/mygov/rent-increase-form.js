@@ -163,6 +163,8 @@ const rentIncreaseForm = {
         formTemplateContainer.innerHTML = formTemplate.render();
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
+        commonForms.appendCaptchaScript();
+
         rentIncreaseForm.form.init();
         commonHousing.setManualLinkSections();
         this.setupRepeatingSections();

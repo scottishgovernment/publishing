@@ -126,6 +126,8 @@ const noticeToLeaveForm = {
         formTemplateContainer.innerHTML = formTemplate.render({tenants: true});
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
+        commonForms.appendCaptchaScript();
+
         this.formType = formType;
         noticeToLeaveForm.form.settings.formObject.formType = this.formType;
 

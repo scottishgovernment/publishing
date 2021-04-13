@@ -42,6 +42,12 @@ const commonForms = {
         return `${commonForms.leadingZeroes(date.getDate(), 2)}/${commonForms.leadingZeroes(date.getMonth() + 1, 2)}/${date.getFullYear()}`;
     },
 
+    appendCaptchaScript: function () {
+        const captchaScript = document.createElement('script');
+        captchaScript.src = "https://www.google.com/recaptcha/api.js";
+        document.body.appendChild(captchaScript);
+    },
+
     setupRecaptcha: function () {
         let recaptchaSuccess = false;
 

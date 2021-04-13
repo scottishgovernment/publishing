@@ -111,6 +111,8 @@ const rentImprovementsForm = {
         formTemplateContainer.innerHTML = formTemplate.render();
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
+        commonForms.appendCaptchaScript();
+
         feedback.init();
         rentImprovementsForm.form.validateStep = rentImprovementsForm.validateStep;
         rentImprovementsForm.form.init();

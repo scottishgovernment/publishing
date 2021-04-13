@@ -62,6 +62,8 @@ const rpzChecker = {
         formTemplateContainer.innerHTML = formTemplate.render();
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
+        commonForms.appendCaptchaScript();
+
         this.form.init();
 
         feedback.init();

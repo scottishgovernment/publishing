@@ -39,7 +39,6 @@
                             </div>
                         </div>
 
-                        <script src="https://www.google.com/recaptcha/api.js"></script>
                         <div id="form-container">
                             <@hst.html hippohtml=document.content/>
                         </div>
@@ -82,17 +81,9 @@
 </#if>
 </@hst.headContribution>
 
-<script>
-window.renderCaptcha = function () {
-    if (document.getElementById('recaptcha')) {
-        grecaptcha.render(
-            document.getElementById('recaptcha')
-        );
-    }
-}
-</script>
 
-<script src="https://www.google.com/recaptcha/api.js?onload=renderCaptcha&render=explicit" async defer></script>
+
+
 
 <#assign scriptName="${document.formtype}">
 <#include 'scripts.ftl'/>

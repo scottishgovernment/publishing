@@ -350,6 +350,8 @@ const nonProvisionForm = {
         formTemplateContainer.innerHTML = formTemplate.render({tenants: true});
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
+        commonForms.appendCaptchaScript();
+
         feedback.init();
         commonHousing.setManualLinkSections();
         this.setupAddTenantNames();
