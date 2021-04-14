@@ -4,8 +4,8 @@
 
 import MultiPageForm from '../../components/multi-page-form';
 import feedback from '../../components/feedback';
-import Promise from '../../vendor/promise-polyfill';
 
+const PolyPromise = require('../../vendor/promise-polyfill').default;
 const formTemplate = require('../../templates/mygov/business-rates-calculator');
 const propertySelectTemplate = require('../../templates/mygov/business-rates-calculator-propertyselect');
 const propertyResultsTemplate = require('../../templates/mygov/business-rates-calculator-results');
@@ -526,7 +526,7 @@ const businessRatesCalculator = {
     promiseRequest: (url, method = 'GET') => {
         const request = new XMLHttpRequest();
 
-        return new Promise((resolve, reject) => {
+        return new PolyPromise((resolve, reject) => {
             request.onreadystatechange = () => {
                 if (request.readyState !== 4) {
                     return;
