@@ -1,6 +1,10 @@
 <#include "./include/imports.ftl">
 
 <@hst.headContribution category="footerScripts">
+<script src="<@hst.link path='/assets/scripts/vendor/svgxuse.min.js'/>"></script>
+</@hst.headContribution>
+
+<@hst.headContribution category="footerScripts">
 <script type="module" src='<@hst.webfile path="assets/scripts/global.js"/>'></script>
 </@hst.headContribution>
 

@@ -49,6 +49,11 @@ $mg-prefix: 'mg_';
                 &__feedback {
                     @include colwidth(9);
                 }
+
+                &__sidebar {
+                    clear: both;
+                    @include colwidth(9);
+                }
             }
         }
     }
@@ -88,6 +93,10 @@ $mg-prefix: 'mg_';
                 }
 
                 &__feedback {
+                    @include colwidth(7);
+                }
+
+                &__sidebar {
                     @include colwidth(7);
                 }
             }
