@@ -1,9 +1,10 @@
-// RPZ CHECKER
+// BUSINESS RATES CALCULATOR
 
 'use strict';
 
 import MultiPageForm from '../../components/multi-page-form';
 import feedback from '../../components/feedback';
+import Promise from '../../vendor/promise-polyfill';
 
 const formTemplate = require('../../templates/mygov/business-rates-calculator');
 const propertySelectTemplate = require('../../templates/mygov/business-rates-calculator-propertyselect');
