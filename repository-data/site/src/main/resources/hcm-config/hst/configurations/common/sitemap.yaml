@@ -65,7 +65,6 @@ definitions:
       /_any_:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/pagenotfound
-        hst:relativecontentpath: site-furniture/status/404
       /sitemap.xml:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:components/sitemap
@@ -90,13 +89,13 @@ definitions:
         hst:sitemapitemhandlerids: [trailing-slash]
         /_default_:
           jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/article
           hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
             'publishing:formbase', 'publishing:fairrent']
           hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
             'hst:pages/formbase', 'hst:pages/fairrent']
           hst:relativecontentpath: ${parent}/${1}
           hst:sitemapitemhandlerids: [trailing-slash]
+          hst:componentconfigurationid: hst:pages/article
           /_default_:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/article
