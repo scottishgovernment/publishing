@@ -248,7 +248,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Sensitive content?
             field: sensitive
-            hint: 'TODO: tooltip needs to be provided for this'
+            hint: 'Should the Hide this page feature be enabled on this page?'
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
