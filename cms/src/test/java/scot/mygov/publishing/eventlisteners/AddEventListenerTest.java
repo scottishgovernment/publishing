@@ -49,8 +49,11 @@ public class AddEventListenerTest {
         // ARRANGE
         Session session = mock(Session.class);
         Node article = articleNode();
+        Node migrationsNode = migrationsNode();
         when(article.getName()).thenReturn("name");
         when(session.getNode("path")).thenReturn(article);
+        when(session.getNode("/content/migrations")).thenReturn(migrationsNode);
+
         AddEventListener sut = new AddEventListener(session);
         HippoEvent event = eventWithAction("add").result("path");
 
@@ -252,4 +255,11 @@ public class AddEventListenerTest {
         return article;
     }
 
+    Node migrationsNode() throws RepositoryException {
+        Node node = mock(Node.class);
+        Property p = mock(Property.class);
+        when(p.getBoolean()).thenReturn(false);
+        when(node.getProperty("running")).thenReturn(p);
+        return node;
+    }
 }

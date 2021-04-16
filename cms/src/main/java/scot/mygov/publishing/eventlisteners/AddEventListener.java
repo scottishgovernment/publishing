@@ -53,6 +53,7 @@ public class AddEventListener {
 
     @Subscribe
     public void handleEvent(HippoEvent event) {
+
         try {
             doHandleEvent(event);
         } catch (RepositoryException e) {
@@ -72,14 +73,12 @@ public class AddEventListener {
 
         if (isGuide(node)) {
             Node index = node.getNode(INDEX).getNode(INDEX);
-            index.setProperty(SLUG, node.getName());
-            session.save();
+            setSlug(index, node.getName());
             return;
         }
 
         if (requiresSlug(node)) {
-            node.setProperty(SLUG, node.getName());
-            session.save();
+            setSlug(node, node.getName());
             return;
         }
 
@@ -151,6 +150,25 @@ public class AddEventListener {
     boolean isUnder(Node node, String path) throws RepositoryException {
         return node.getPath().startsWith(path);
     }
+
+    void setSlug(Node node, String slug) throws RepositoryException {
+        if (isMygovMigrationRunning()) {
+            // do not set the slug when the mygov migration is running
+            return;
+        }
+
+        node.setProperty(SLUG, slug);
+        session.save();
+    }
+
+    /**
+     * We do not want to set the slug while the mygvo migration is running.
+     */
+    private boolean isMygovMigrationRunning() throws RepositoryException {
+        Node migrations = session.getNode("/content/migrations");
+        return migrations.hasProperty("mygovMigrationRunning") && migrations.getProperty("mygovMigrationRunning").getBoolean();
+    }
+
 
     boolean canCreateChildCategories(Node folder) throws RepositoryException {
         return categoryDepth(folder) < MAX_LEVELS;
