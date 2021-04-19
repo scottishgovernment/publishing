@@ -29,7 +29,6 @@
 
 <div id="pagination">
     <#if cparam.showPagination??>
-        <#assign gtmslug = relativeContentPath />
         <#include "include/pagination.ftl">
     </#if>
 </div>
