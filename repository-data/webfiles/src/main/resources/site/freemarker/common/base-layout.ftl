@@ -64,7 +64,7 @@
 
         <span id="page-top"></span>
 
-        <#if document?? && document.sensitive>
+        <#if document?? && document.sensitive?? &&document.sensitive>
             <div class="visually-hidden  ds_hide-page">
                 <p>To leave the page quickly, press the escape key.</p>
             </div>
