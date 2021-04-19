@@ -28,7 +28,7 @@
 </div>
 
 <@hst.headContribution category="meta">
-    <#if document??>
+    <#if document?? && document.metaDescription??>
     <meta name="description" content="${document.metaDescription}"/>
     </#if>
 </@hst.headContribution>
