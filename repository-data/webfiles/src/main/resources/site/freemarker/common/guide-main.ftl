@@ -100,7 +100,7 @@
                         </ul>
                     </aside>
 
-                    <#if document.sensitive>
+                    <#if guide.sensitive?? && guide.sensitive>
                         <aside class="ds_article-aside" id="stay-safe-online">
                             <h3>Stay safe online &hellip;</h3>
                             <ul class="ds_no-bullets">
