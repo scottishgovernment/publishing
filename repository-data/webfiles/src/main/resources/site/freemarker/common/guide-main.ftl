@@ -9,7 +9,7 @@
 
     <div class="ds_wrapper">
         <main id="main-content" class="ds_layout  ds_layout--guide">
-            <#if guide.sensitive>
+            <#if guide.sensitive?? && guide.sensitive>
                 <#include "hide-this-page.ftl">
             </#if>
 
