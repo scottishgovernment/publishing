@@ -90,6 +90,8 @@
         <#include "breakpoint-tests.ftl">
 
         <@hst.headContributions categoryIncludes="footerScripts" xhtml=true/>
+
         <script async defer src="https://sa.mygov.scot/app.js"></script>
+        <noscript><img src="https://sa.mygov.scot/image.gif" alt=""></noscript>
     </body>
 </html>

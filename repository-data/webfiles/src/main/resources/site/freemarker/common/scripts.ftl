@@ -52,7 +52,3 @@
 <@hst.headContribution category="footerScripts">
     <script nomodule="true" src='<@hst.webfile path="assets/scripts/simple-analytics.es5.js"/>'></script>
 </@hst.headContribution>
-
-<@hst.headContribution category="footerScripts">
-    <noscript><img src="https://sa.mygov.scot/image.gif" alt=""></noscript>
-</@hst.headContribution>
