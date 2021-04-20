@@ -149,7 +149,7 @@ definitions:
             jcr:primaryType: hst:virtualhost
             /publishing:
               jcr:primaryType: hst:virtualhost
-              /blue:
+              /blu:
                 jcr:primaryType: hst:virtualhost
                 /hst:root:
                   jcr:primaryType: hst:mount
@@ -166,7 +166,7 @@ definitions:
             jcr:primaryType: hst:virtualhost
             /publishing:
               jcr:primaryType: hst:virtualhost
-              /green:
+              /grn:
                 jcr:primaryType: hst:virtualhost
                 /hst:root:
                   jcr:primaryType: hst:mount
@@ -183,9 +183,7 @@ definitions:
             jcr:primaryType: hst:virtualhost
             /publishing:
               jcr:primaryType: hst:virtualhost
-              /digital:
-                jcr:primaryType: hst:virtualhost
-                /hst:root:
-                  jcr:primaryType: hst:mount
-                  hst:ismapped: false
-                  hst:namedpipeline: WebApplicationInvokingPipeline
+              /hst:root:
+                jcr:primaryType: hst:mount
+                hst:ismapped: false
+                hst:namedpipeline: WebApplicationInvokingPipeline
