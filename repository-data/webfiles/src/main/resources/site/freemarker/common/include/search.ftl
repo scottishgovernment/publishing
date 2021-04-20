@@ -1,9 +1,10 @@
+<#ftl output_format="HTML">
 <#include "imports.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#assign term = ''/>
 <#if hstRequestContext.servletRequest.getParameter("q")??>
-    <#assign term = hstRequestContext.servletRequest.getParameter("q")?j_string />
+    <#assign term = hstRequestContext.servletRequest.getParameter("q") />
 </#if>
 
 <div class="ds_site-search">
