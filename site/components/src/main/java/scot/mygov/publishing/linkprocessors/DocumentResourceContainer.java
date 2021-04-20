@@ -60,6 +60,10 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
         String path = "/content/documents" + pathInfo.substring(0, lastSlash);
 
         try {
+            if (!session.nodeExists(path)) {
+                return super.resolveToResourceNode(session, pathInfo);
+            }
+
             Node handle = session.getNode(path);
             Node publishedVariant = getVariant(handle);
             return findNodeWithFilename(publishedVariant, name);
