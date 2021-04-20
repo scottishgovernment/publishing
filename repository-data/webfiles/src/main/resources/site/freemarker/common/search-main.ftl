@@ -32,3 +32,5 @@
     <meta name="description" content="${document.metaDescription}"/>
     </#if>
 </@hst.headContribution>
+
+<#include 'scripts.ftl'/>
