@@ -9,4 +9,5 @@ definitions:
         $now, './hippostd:holder', $holder, './publishing:title', $localName, './publishing:seoTitle',
         $localName]
       jcr:language: xpath
-      jcr:statement: //element(*,hipposysedit:namespacefolder)/element(*,mix:referenceable)/element(*,hipposysedit:templatetype)/hipposysedit:prototypes/element(hipposysedit:prototype,publishing:article)
+      jcr:statement: //element(*,hipposysedit:namespacefolder)/element(*,mix:referenceable)/element(*,hipposysedit:templatetype)/hipposysedit:prototypes/element(hipposysedit:prototype,publishing:article)[jcr:primaryType
+        = 'publishing:article']
