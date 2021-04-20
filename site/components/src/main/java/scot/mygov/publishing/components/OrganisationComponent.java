@@ -33,7 +33,7 @@ public class OrganisationComponent extends EssentialsContentComponent {
 
         HippoBean siteBean = request.getRequestContext().getSiteContentBaseBean();
         Organisation org = (Organisation) request.getRequestContext().getContentBean();
-        String serviceProvider = org.getServiceProvider();
+        String serviceProvider = org.getServiceprovider();
         try {
             HstQuery query = hippoUtils.createQuery(siteBean)
                     .ofTypes(Base.class)

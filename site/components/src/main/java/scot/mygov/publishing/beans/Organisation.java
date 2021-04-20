@@ -11,11 +11,6 @@ import scot.mygov.publishing.beans.DescribedLink;
 @HippoEssentialsGenerated(internalName = "publishing:organisation")
 @Node(jcrType = "publishing:organisation")
 public class Organisation extends Base {
-    @HippoEssentialsGenerated(internalName = "publishing:serviceprovider")
-    public String getServiceProvider() {
-        return getSingleProperty("publishing:serviceprovider");
-    }
-
     @HippoEssentialsGenerated(internalName = "publishing:sector")
     public String getSector() {
         return getSingleProperty("publishing:sector");
@@ -119,6 +114,11 @@ public class Organisation extends Base {
     @HippoEssentialsGenerated(internalName = "publishing:audience")
     public String getAudience() {
         return getSingleProperty("publishing:audience");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:serviceprovider")
+    public String getServiceprovider() {
+        return getSingleProperty("publishing:serviceprovider");
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:serviceproviders")
