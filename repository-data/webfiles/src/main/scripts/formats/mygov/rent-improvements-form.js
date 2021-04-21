@@ -108,7 +108,9 @@ const rentImprovementsForm = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
-        formTemplateContainer.innerHTML = formTemplate.render();
+        formTemplateContainer.innerHTML = formTemplate.render({
+            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+        });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
         commonForms.appendCaptchaScript();

@@ -95,7 +95,9 @@ const businessRatesCalculator = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
-        formTemplateContainer.innerHTML = formTemplate.render();
+        formTemplateContainer.innerHTML = formTemplate.render({
+            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+        });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent + formTemplateContainer.querySelector('#overview').innerHTML;
 
         this.selectedProperties = [];
@@ -321,6 +323,7 @@ const businessRatesCalculator = {
             }
         });
 
+        resultsData.iconsFile = window.BR.webfile('/assets/images/icons/icons.stack.svg');
         document.querySelector('#property-select-wrapper').innerHTML = propertySelectTemplate.render(resultsData);
 
         // preselect the first item if we have one property result

@@ -347,7 +347,10 @@ const nonProvisionForm = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
-        formTemplateContainer.innerHTML = formTemplate.render({tenants: true});
+        formTemplateContainer.innerHTML = formTemplate.render({
+            tenants: true,
+            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+        });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
         commonForms.appendCaptchaScript();
@@ -494,8 +497,8 @@ const nonProvisionForm = {
         const newDate = new Date();
         const minChangedDate = new Date(newDate.setDate(newDate.getDate() - 27));
 
-        const changedDatePicker = new DSDatePicker(document.getElementById('changed-terms-date-picker'), {minDate: minChangedDate, maxDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
-        const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
+        const changedDatePicker = new DSDatePicker(document.getElementById('changed-terms-date-picker'), {minDate: minChangedDate, maxDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
+        const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
 
         changedDatePicker.init();
         noticeDatePicker.init();

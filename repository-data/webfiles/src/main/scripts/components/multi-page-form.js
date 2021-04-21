@@ -450,6 +450,7 @@ function updateFormNav (navs) {
         });
 
         const sectionHtml = sectionTemplate.render({
+            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg'),
             groups: groups,
             hideSectionNav: currentStep.hideSectionNav
         });
@@ -503,6 +504,8 @@ function updatePageNav () {
     } else {
         pageNavTemplate = this.templates.pageNav;
     }
+
+    templateData.iconsFile = window.BR.webfile('/assets/images/icons/icons.stack.svg');
     const pageNavHtml = pageNavTemplate.render(templateData);
 
     const pageNavElement = document.getElementById('page-nav');

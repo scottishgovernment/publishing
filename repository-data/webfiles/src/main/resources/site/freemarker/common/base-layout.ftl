@@ -37,7 +37,12 @@
     <meta name="msapplication-TileColor" content="#0065bd">
     <meta name="theme-color" content="#ffffff">
 
-
+    <script>
+        BR = window.BR || {};
+        BR.webfile = (path) => {
+            return '<@hst.webfile path="/"/>' + path;
+        };
+    </script>
 
     <#if document??>
         <@hst.link var="canonicalLink" hippobean=document canonical=true fullyQualified=true/>
@@ -54,6 +59,9 @@
         document.documentElement.setAttribute('class', (htmlClass ? htmlClass + ' ' : '') + 'js-enabled');
     </script>
     </head>
+
+
+
 
     <body <#if document?? && document.sensitive?? &&document.sensitive>class="ds_has-hide-page"</#if>>
         <@hst.include ref="googletagmanager"/>

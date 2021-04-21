@@ -160,7 +160,9 @@ const rentIncreaseForm = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
-        formTemplateContainer.innerHTML = formTemplate.render();
+        formTemplateContainer.innerHTML = formTemplate.render({
+            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+        });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
         commonForms.appendCaptchaScript();
@@ -245,8 +247,8 @@ const rentIncreaseForm = {
     },
 
     setupDatePickers: function () {
-        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {maxDate: new Date(TODAY), imagePath: '/webfiles/latest/assets/images/icons/'});
-        const lastIncreaseDatePicker = new DSDatePicker(document.getElementById('last-increase-date-picker'), {maxDate: new Date(TODAY), imagePath: '/webfiles/latest/assets/images/icons/'});
+        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {maxDate: new Date(TODAY), imagePath: BR.webfile('/assets/images/icons/')});
+        const lastIncreaseDatePicker = new DSDatePicker(document.getElementById('last-increase-date-picker'), {maxDate: new Date(TODAY), imagePath: BR.webfile('/assets/images/icons/')});
 
         tenancyStartDatePicker.init();
         lastIncreaseDatePicker.init();
@@ -449,7 +451,7 @@ const rentIncreaseForm = {
         const html = dateOfIncreaseTemplate.render(templateData);
         document.querySelector('#date-of-increase-content-container').innerHTML = html;
 
-        const rentIncreaseDatePicker = new DSDatePicker(document.getElementById('rent-increase-date-picker'), {minDate: earliestDateForNextIncrease, imagePath: '/webfiles/latest/assets/images/icons/'});
+        const rentIncreaseDatePicker = new DSDatePicker(document.getElementById('rent-increase-date-picker'), {minDate: earliestDateForNextIncrease, imagePath: BR.webfile('/assets/images/icons/')});
         rentIncreaseDatePicker.init();
 
         // validate this date field
@@ -534,7 +536,7 @@ const rentIncreaseForm = {
 
         if (!isNaN(rentIncreaseForm.notificationDate.getTime())){
             document.getElementById('date-increase-notification-alert').innerHTML = html;
-            const rentIncreaseSendDatePicker = new DSDatePicker(document.getElementById('rent-increase-send-date-picker'), {minDate: new Date(TODAY), maxDate: rentIncreaseForm.notificationDate, imagePath: '/webfiles/latest/assets/images/icons/'});
+            const rentIncreaseSendDatePicker = new DSDatePicker(document.getElementById('rent-increase-send-date-picker'), {minDate: new Date(TODAY), maxDate: rentIncreaseForm.notificationDate, imagePath: BR.webfile('/assets/images/icons/')});
             rentIncreaseSendDatePicker.init();
 
             // bind change event

@@ -123,7 +123,10 @@ const noticeToLeaveForm = {
         }
         const overviewContent = formTemplateContainer.innerHTML;
 
-        formTemplateContainer.innerHTML = formTemplate.render({tenants: true});
+        formTemplateContainer.innerHTML = formTemplate.render({
+            tenants: true,
+            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+        });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
         commonForms.appendCaptchaScript();
@@ -198,11 +201,11 @@ const noticeToLeaveForm = {
     },
 
     setupDatePickers: function () {
-        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), { maxDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/' });
-        const tenancyStartWithHelpDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-with-help-picker'), {maxDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
-        const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
-        const tribunalDatePicker = new DSDatePicker(document.getElementById('notice-period-end-date-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
-        const tribunalWithHelpDatePicker = new DSDatePicker(document.getElementById('notice-period-end-date-with-help-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
+        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), { maxDate: new Date(), imagePath: BR.webfile('/assets/images/icons/') });
+        const tenancyStartWithHelpDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-with-help-picker'), {maxDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
+        const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
+        const tribunalDatePicker = new DSDatePicker(document.getElementById('notice-period-end-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
+        const tribunalWithHelpDatePicker = new DSDatePicker(document.getElementById('notice-period-end-date-with-help-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
 
         tenancyStartDatePicker.init();
         tenancyStartWithHelpDatePicker.init();

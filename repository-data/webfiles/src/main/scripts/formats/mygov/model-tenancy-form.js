@@ -3,7 +3,6 @@
 /* global require grecaptcha expireRecaptcha */
 
 'use strict';
-
 const formObject = {'propertyType':null, 'propertyInRpz': false, 'buildingOther':null,'furnishingType':'','propertyAddress':null,'hmoProperty':'','hmo24ContactNumber':null,'hmoRegistrationExpiryDate':null,'hmoRenewalApplicationSubmitted':false,'tenancyStartDate':null,'rentAmount':null,'rentPaymentFrequency':null,'rentPaymentScheduleObject':{},'rentPaymentSchedule': null,'rentPayableInAdvance':null,'rentPaymentMethod':null,'firstPaymentAmount':null,'firstPaymentDate':null,'firstPaymentPeriodEnd':null,'servicesIncludedInRent':[],includedAreasOrFacilities:[],sharedFacilities:[],excludedAreasFacilities:[],'communicationsAgreement':'','depositAmount':null,'tenancyDepositSchemeAdministrator':null,'services':null,'facilities':[],'landlords':{'landlord-1':{}},'lettingAgent':{'name':null,'address':{'addressLine1':null,'addressLine2':null,'addressLine3':null,'postcode':null},'telephone':null,'registrationNumber':null},'agent':{'name':null,'address':{'addressLine1':null,'addressLine2':null,'addressLine3':null,'postcode':null},'telephone':null},'factor':{'name':null,'address':{'addressLine1':null,'addressLine2':null,'addressLine3':null,'postcode':null},'telephone':null,'registrationNumber':null},'tenants':{'tenant-1':{}},'optionalTerms':{'contentsAndConditions':null,'localAuthorityTaxesAndCharges':null,'utilities':null,'commonParts':null,'alterations':null,'privateGarden':null,'roof':null,'binsAndRecycling':null,'storage':null,'dangerousSubstances':null,'pets':null,'smoking':null,'liquidPetroleumGas':null},'additionalTerms':{'additional-term-1':{}}};
 
 import $ from 'jquery';
@@ -112,7 +111,10 @@ const modelTenancyForm = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
-        formTemplateContainer.innerHTML = formTemplate.render({tenants: true});
+        formTemplateContainer.innerHTML = formTemplate.render({
+            tenants: true,
+            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+        });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
         commonForms.appendCaptchaScript();
@@ -437,10 +439,10 @@ const modelTenancyForm = {
     },
 
     setupDatePickers: function () {
-        const startDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
-        const hmoDatePicker = new DSDatePicker(document.getElementById('hmo-expiry-date-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
-        const firstPaymentDatePicker = new DSDatePicker(document.getElementById('first-payment-date-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
-        const firstPaymentEndDatePicker = new DSDatePicker(document.getElementById('first-payment-end-date-picker'), {minDate: new Date(), imagePath: '/webfiles/latest/assets/images/icons/'});
+        const startDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
+        const hmoDatePicker = new DSDatePicker(document.getElementById('hmo-expiry-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
+        const firstPaymentDatePicker = new DSDatePicker(document.getElementById('first-payment-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
+        const firstPaymentEndDatePicker = new DSDatePicker(document.getElementById('first-payment-end-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
 
         startDatePicker.init();
         hmoDatePicker.init();

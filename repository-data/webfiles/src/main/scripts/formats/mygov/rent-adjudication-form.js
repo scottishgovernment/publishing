@@ -194,7 +194,10 @@ const rentAdjudicationForm = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
-        formTemplateContainer.innerHTML = formTemplate.render({tenants: true});
+        formTemplateContainer.innerHTML = formTemplate.render({
+            tenants: true,
+            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+        });
         formTemplateContainer.querySelector('#overview').innerHTML = formTemplateContainer.querySelector('#overview').innerHTML + overviewContent;
 
         commonForms.appendCaptchaScript();
