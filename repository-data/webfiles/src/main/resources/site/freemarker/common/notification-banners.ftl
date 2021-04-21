@@ -7,7 +7,7 @@
                 <div class="ds_notification__content  <#if banner.closeable>ds_notification__content--has-close</#if>">
                     <div role="heading" class="visually-hidden">Information</div>
 
-                    <#if banner.priority??>
+                    <#if banner.priority?? && banner.priority>
                         <span class="ds_notification__icon ds_notification__icon--inverse ds_notification__icon--colour" aria-hidden="true">
                             <svg class="ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#priority_high"></use></svg>
                         </span>
