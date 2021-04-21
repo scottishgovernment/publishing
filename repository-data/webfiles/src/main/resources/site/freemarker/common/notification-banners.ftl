@@ -2,7 +2,7 @@
     <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
     <#list notificationbanners as banner>
 
-        <div <#if banner.id??>id="${banner.id}"</#if> class="ds_notification  ds_reversed" data-module="ds-notification">
+        <div <#if banner.id??>id="${banner.id}"</#if> class="ds_notification  ds_reversed  fully-hidden-if-js  <#if banner.priority??>priority-banner</#if>" data-module="ds-notification">
             <div class="ds_wrapper">
                 <div class="ds_notification__content  <#if banner.closeable>ds_notification__content--has-close</#if>">
                     <div role="heading" class="visually-hidden">Information</div>

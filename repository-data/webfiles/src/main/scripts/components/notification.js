@@ -16,14 +16,16 @@ class Notification {
 
         let expiry = 365;
 
-        if (this.notification.id === 'importantBanner' ||
+        if (this.notification.classList.contains('priority-banner') ||
             this.notification.id === 'staging-notice') {
             expiry = 1;
         }
 
         if (this.notificationClose) {
             if (!storage.getCookie(`banner-${this.notification.id}`)) {
-                this.notification.classList.remove('fully-hidden');
+                this.notification.classList.remove('fully-hidden-if-js');
+            } else {
+                this.notification.classList.add('fully-hidden-if-js');
             }
 
             this.notificationClose.addEventListener('click', () => {
