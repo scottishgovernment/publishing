@@ -59,6 +59,11 @@ public class Base extends BaseDocument {
         return getSingleProperty("publishing:sensitive");
     }
 
+    @HippoEssentialsGenerated(internalName = "publishing:showInParent")
+    public Boolean getShowInParent() {
+        return getSingleProperty("publishing:showInParent");
+    }
+
     @HippoEssentialsGenerated(internalName = "publishing:audience")
     public String getAudience() {
         return getSingleProperty("publishing:audience");

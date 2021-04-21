@@ -5,6 +5,7 @@ import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
+import scot.mygov.publishing.beans.Article;
 import scot.mygov.publishing.beans.Mirror;
 
 import java.util.*;
@@ -86,9 +87,14 @@ public class CategoryComponent extends EssentialsContentComponent {
                 .filter(CategoryComponent::notIndexFile)
                 .map(CategoryComponent::mapFolder)
                 .filter(Objects::nonNull)
+                .filter(CategoryComponent::includeInParent)
                 .map(CategoryComponent::wrap)
                 .filter(Wrapper::containsNonNullBean)
                 .collect(toList());
+    }
+
+    static boolean includeInParent(HippoBean bean) {
+        return bean instanceof Article ? ((Article)bean).getShowInParent() : true;
     }
 
     static boolean notIndexFile(HippoBean bean) {
