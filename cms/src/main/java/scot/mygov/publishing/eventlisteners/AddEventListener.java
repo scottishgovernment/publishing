@@ -152,23 +152,9 @@ public class AddEventListener {
     }
 
     void setSlug(Node node, String slug) throws RepositoryException {
-        if (isMygovMigrationRunning()) {
-            // do not set the slug when the mygov migration is running
-            return;
-        }
-
         node.setProperty(SLUG, slug);
         session.save();
     }
-
-    /**
-     * We do not want to set the slug while the mygvo migration is running.
-     */
-    private boolean isMygovMigrationRunning() throws RepositoryException {
-        Node migrations = session.getNode("/content/migrations");
-        return migrations.hasProperty("mygovMigrationRunning") && migrations.getProperty("mygovMigrationRunning").getBoolean();
-    }
-
 
     boolean canCreateChildCategories(Node folder) throws RepositoryException {
         return categoryDepth(folder) < MAX_LEVELS;
