@@ -35,13 +35,8 @@ export default class EditableTable {
         this.renderTable();
 
         this.settings.tableContainer.addEventListener('click', (event) => {
-            event.preventDefault();
-        });
-
-        this.settings.tableContainer.addEventListener('click', (event) => {
-            event.preventDefault();
-
             if (event.target.classList.contains('js-edit-button')) {
+                event.preventDefault();
                 const row = event.target.closest('tr');
 
                 row.classList.add('editable-table__edit-row');
@@ -53,10 +48,12 @@ export default class EditableTable {
             }
 
             if (event.target.classList.contains('js-cancel-button')) {
+                event.preventDefault();
                 editableTable.renderTable();
             }
 
             if (event.target.classList.contains('js-remove-button')) {
+                event.preventDefault();
                 const row = event.target.closest('tr');
                 var index = parseInt(row.dataset.index, 10);
                 editableTable.removeEntry(index, row);
@@ -66,6 +63,7 @@ export default class EditableTable {
             }
 
             if (event.target.classList.contains('js-save-button')) {
+                event.preventDefault();
                 var row = event.target.closest('tr');
                 var index = parseInt(row.dataset.index, 10);
                 var inputs = row.querySelectorAll('.js-value');
@@ -77,6 +75,7 @@ export default class EditableTable {
             }
 
             if (event.target.classList.contains('js-show-add-form')) {
+                event.preventDefault();
                 const table = editableTable.settings.tableContainer.querySelector('.editable-table');
                 table.classList.add('editable-table--adding');
 
@@ -87,6 +86,7 @@ export default class EditableTable {
             }
 
             if (event.target.classList.contains('js-add-button')) {
+                event.preventDefault();
                 editableTable.settings.data = editableTable.settings.data || [];
 
                 // creates a new entry
@@ -101,6 +101,7 @@ export default class EditableTable {
             }
 
             if (event.target.classList.contains('js-cancel-add-button')) {
+                event.preventDefault();
                 editableTable.renderTable();
             }
         });
@@ -150,7 +151,7 @@ export default class EditableTable {
 
             // determine the value
             if (field.classList.contains('js-radio-group')) {
-                value = field.querySelector(':checked').val();
+                value = field.querySelector(':checked').value;
             } else if (field.tagName === 'INPUT') {
                 if (field.getAttribute('type') === 'checkbox') {
                     value = field.value;
