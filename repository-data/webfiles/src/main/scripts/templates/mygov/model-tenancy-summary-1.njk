@@ -258,7 +258,7 @@
                 <tr>
                     <th>Letting agent</th>
                     <td>
-                        {% if (hasLettingAgent == 'yes') %}
+                        {% if (hasLettingAgent == 'letting-agent-yes') %}
                             <dl class="summary-list">
 
                                 <dt class="summary-list__label">Name</dt>
@@ -282,14 +282,14 @@
                                 <dt class="summary-list__label">Registration number</dt>
                                 <dd><a href="#!/managing-the-property/letting-agent/letting-agent-registration/" class="summary__link  summary__user-input">{{lettingAgent.registrationNumber}}</a></dd>
 
-                                <dt>Services provided by the letting agent</dt>
+                                <dt>Services provided by the letting agent:</dt>
                                 <dd>
-                                    {% if servicesProvidedByLettingAgent %}
+                                    {% if servicesProvidedByLettingAgent.length %}
                                         <ul class="no-bullets">
                                             {% for service in servicesProvidedByLettingAgent %}
                                                 <li>
                                                     <a href="#!/managing-the-property/letting-agent/letting-agent-services-table/{{loop.index0}}/name/" class="summary__link  summary__user-input">{{service.name}}</a>
-                                                    {% if (lettingAgentIsFirstContact == 'YES') %}<a href="#!/managing-the-property/letting-agent/letting-agent-services-table/{{loop.index0}}/lettingAgentIsFirstContact/" class="summary__link  summary__user-input">(first point of contact)</a>{% endif %}
+                                                    {% if (service.lettingAgentIsFirstContact == 'YES') %}<a href="#!/managing-the-property/letting-agent/letting-agent-services-table/{{loop.index0}}/lettingAgentIsFirstContact/" class="summary__link  summary__user-input">(first point of contact)</a>{% endif %}
                                                 </li>
                                             {% endfor %}
                                         </ul>
@@ -298,9 +298,9 @@
                                     {% endif %}
                                 </dd>
 
-                                <dt>Other services that the letting agent is the first point of contact for</dt>
+                                <dt>Other services that the letting agent is the first point of contact for:</dt>
                                 <dd>
-                                    {% if servicesLettingAgentIsFirstContactFor %}
+                                    {% if servicesLettingAgentIsFirstContactFor.length %}
                                         <ul class="no-bullets">
                                             {% for service in servicesLettingAgentIsFirstContactFor %}
                                                 <li>

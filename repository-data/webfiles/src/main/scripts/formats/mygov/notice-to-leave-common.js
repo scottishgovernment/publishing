@@ -123,10 +123,17 @@ const noticeToLeaveForm = {
         }
         const overviewContent = formTemplateContainer.innerHTML;
 
-        formTemplateContainer.innerHTML = formTemplate.render({
-            tenants: true,
+        const formTemplateData = {
             iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
-        });
+        };
+
+        if (formType === 'tenants') {
+            formTemplateData.tenants = true;
+        } else {
+            formTemplateData.subtenants = true;
+        }
+
+        formTemplateContainer.innerHTML = formTemplate.render(formTemplateData);
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
         commonForms.appendCaptchaScript();
