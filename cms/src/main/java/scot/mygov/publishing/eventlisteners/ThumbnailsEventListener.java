@@ -109,7 +109,6 @@ public class ThumbnailsEventListener {
         for (Integer size : sortedKeys) {
             createThumbnail(document, filename, size, thumbnails.get(size));
         }
-        document.setProperty("publishing:size", data.getSize());
         setPageCount(document, data, mimeType);
     }
 
