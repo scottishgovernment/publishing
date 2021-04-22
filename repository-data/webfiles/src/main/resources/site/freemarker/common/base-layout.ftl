@@ -39,7 +39,7 @@
 
     <script>
         BR = window.BR || {};
-        BR.webfile = (path) => {
+        BR.webfile = function(path) {
             return '<@hst.webfile path="/"/>' + path;
         };
     </script>
