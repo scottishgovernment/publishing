@@ -43,7 +43,7 @@
                 "position": ${item?index + 1},
                 "item": {
                     "@id": "${link}",
-                    "name": "${item.title?js_string}"
+                    "name": "${item.title?json_string}"
                 }
             },
             </#list>
@@ -53,7 +53,7 @@
                 "item": {
                     <@hst.link var="link" link=documentBreadcrumbItem.link/>
                     "@id": "${link}",
-                    "name": "${documentBreadcrumbItem.title?js_string}"
+                    "name": "${documentBreadcrumbItem.title?json_string}"
                 }
             }
         ]
