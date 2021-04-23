@@ -127,7 +127,7 @@ const noticeToLeaveForm = {
             iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
         };
 
-        if (formType === 'tenants') {
+        if (formType === 'tenant') {
             formTemplateData.tenants = true;
         } else {
             formTemplateData.subtenants = true;
