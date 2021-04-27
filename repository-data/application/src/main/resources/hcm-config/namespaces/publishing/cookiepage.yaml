@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 23d33740-7f35-46c8-8652-71b2bd41b349
+          jcr:uuid: b5a9b64f-5230-4e2b-bd98-537fa4aa36d8
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:article', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -40,9 +40,10 @@ definitions:
           publishing:title: ''
           publishing:slug: ''
           publishing:metaDescription: ''
-          jcr:uuid: a25908b2-84bf-4304-833f-f549e8246958
+          jcr:uuid: c5483820-0b09-42c5-97bd-f411122059fb
           hippostdpubwf:lastModificationDate: 2021-03-31T09:44:42.933+01:00
           hippostdpubwf:creationDate: 2021-03-31T09:44:42.933+01:00
+          publishing:showFeedback: true
           /publishing:logo:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -191,6 +192,15 @@ definitions:
             field: lastUpdatedDate
             hint: The 'Last updated' date displayed in the article heading. If left
               blank no date will be displayed
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showFeedback:
+            jcr:primaryType: frontend:plugin
+            caption: Show feedback?
+            field: showFeedback
+            hint: Should this page include the ability to leave user feedback?
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

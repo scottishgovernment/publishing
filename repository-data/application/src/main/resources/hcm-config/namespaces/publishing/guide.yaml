@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a1395e8d-28b0-4a96-8f3a-2c22f95448c9
+          jcr:uuid: 5047a701-1c23-4729-8da5-19dba80694df
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -62,7 +62,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: e317f037-c4a4-47c0-8e03-5dec3fc34cb1
+          jcr:uuid: 4e298012-059b-4a1a-89db-da4ca31a7ee5
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -74,6 +74,7 @@ definitions:
           publishing:audience: ''
           publishing:serviceproviders: []
           publishing:userneed: ''
+          publishing:showFeedback: true
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -135,7 +136,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Sensitive content?
             field: sensitive
-            hint: 'Should the Hide this page feature be enabled on this page?'
+            hint: Should the Hide this page feature be enabled on this page?
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -340,6 +341,15 @@ definitions:
             field: lastUpdatedDate
             hint: The 'Last updated' date displayed in the article heading. If left
               blank no date will be displayed
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showFeedback:
+            jcr:primaryType: frontend:plugin
+            caption: Show feedback?
+            field: showFeedback
+            hint: Should this page include the ability to leave user feedback?
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: 1aadaece-0ff1-4fc3-9a41-a3e182b2d931
+          jcr:uuid: a0af3623-3458-4a5f-8dd1-819ec3fda551
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -47,7 +47,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:fairrent
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 3c0f64ff-5750-4a58-909a-28bfd30bbab5
+          jcr:uuid: a6325c2a-611b-4928-a7bb-9c03a6996622
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -66,6 +66,7 @@ definitions:
           publishing:slug: ''
           publishing:summary: ''
           publishing:title: ''
+          publishing:showFeedback: true
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -230,6 +231,15 @@ definitions:
             field: lastUpdatedDate
             hint: The 'Last updated' date displayed in the article heading. If left
               blank no date will be displayed
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showFeedback:
+            jcr:primaryType: frontend:plugin
+            caption: Show feedback?
+            field: showFeedback
+            hint: Should this page include the ability to leave user feedback?
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

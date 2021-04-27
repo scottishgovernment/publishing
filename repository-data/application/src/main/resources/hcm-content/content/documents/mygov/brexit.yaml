@@ -122,9 +122,10 @@
         jcr:primaryType: publishing:relateditems
   /fishers-after-brexit-test:
     jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 4117a673-2785-4e7a-89b6-a5e90e132355
     hippo:name: Fishers after Brexit (test)
+    hippo:versionHistory: f7eed1de-97c0-4ab0-816e-ced42bf77806
     /fishers-after-brexit-test[1]:
       jcr:primaryType: publishing:article
       jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -197,6 +198,66 @@
       hippostdpubwf:creationDate: 2020-08-17T16:42:24.529+01:00
       hippostdpubwf:lastModificationDate: 2020-08-17T16:42:24.632+01:00
       hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: b08032df-91f3-489b-abb2-039a00d71221
+      hippotranslation:locale: document-type-locale
+      publishing:audience: people
+      publishing:authorNotes: ''
+      publishing:metaDescription: Test test test
+      publishing:mygovid: MYGOV-2802
+      publishing:relatedmygovids: ''
+      publishing:reportingtags: []
+      publishing:sensitive: false
+      publishing:seoTitle: Fishers after Brexit (test)
+      publishing:serviceproviders: [aberdeen-city-council]
+      publishing:slug: fishers-after-brexit-test
+      publishing:summary: Test test test
+      publishing:title: Fishers after Brexit (test)
+      publishing:urlAliases:
+        type: double
+        value: []
+      publishing:userneed: ''
+      /publishing:factCheckers:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: bcbf76e6-521a-40d1-9de3-3312ee1e7ca4
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <p>The UK left the European Union on 31 January 2020. We&#39;re now in a <a href="https://www.gov.uk/transition">transition period</a> that&#39;s likely to last until the end of December 2020. This means the UK is currently still following EU rules, including the Common Fisheries Policy. </p>
+          <p>In January 2021 the transition period will end and our new relationship with the EU will begin. There will be effects on some areas of life in Scotland. This may include changes to the fishing industry.</p>
+          <div class="info-note note">The UK is now in the Brexit transition period. This means many of the details about what Brexit will mean are not yet known. This page gives the latest facts, but it will be updated as more details are confirmed. Please keep checking back for new information.</div>
+
+          <p>The EU has different fishing requirements for &#39;third countries&#39; (countries not in the EU). If the transition period ends before an EU trade deal has been agreed (a &#39;no deal&#39; situation), Scottish fisheries will have to follow these requirements. </p>
+          <p><a href="https://www2.gov.scot/Topics/marine/EUExit">The Scottish Government has created information booklets</a> that explain the new requirements you will have to follow if you:</p>
+          <ul>
+          <li>fish in UK waters and land in the EU</li>
+          <li>export non-UK &#39;third country&#39; fish to the EU</li>
+          <li>fish in UK waters, land in the UK and send your catch to the EU</li>
+          </ul>
+          <h1 id="more-information">More information</h1>
+          <p>More details about fisheries in Scotland will be added to this page as new information on Brexit is available.</p>
+          <p>Meanwhile, you can get more information about the impact of Brexit on Scottish fisheries from:</p>
+          <ul>
+          <li><a href="https://www2.gov.scot/Topics/marine">Marine Scotland</a></li>
+          <li><a href="https://www2.gov.scot/Topics/marine/Compliance/resources/fisheriesoffices">Your nearest Marine Scotland Fishery Office</a></li>
+          <li><a href="https://www.gov.uk/guidance/the-fisheries-sector-and-preparing-for-eu-exit">The fisheries sector and preparing for Brexit on GOV.UK</a></li>
+          </ul>
+          <p><em>The UK is now in the Brexit transition period. This means many of the details about what Brexit will mean are not yet known. This page gives the latest facts, but it will be updated as more details are confirmed. Please keep checking back for new information.</em></p>
+      /publishing:relateditems:
+        jcr:primaryType: publishing:relateditems
+    /fishers-after-brexit-test[3]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+        'mix:referenceable']
+      jcr:uuid: 8713ab9a-2f83-46ce-8258-6fd1b7b233ac
+      hippo:availability: [live]
+      hippo:name: Fishers after Brexit (test)
+      hippostd:state: published
+      hippostd:tags: []
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2020-08-17T16:42:24.529+01:00
+      hippostdpubwf:lastModificationDate: 2020-08-17T16:42:24.632+01:00
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2021-04-27T08:36:19.909+01:00
       hippotranslation:id: b08032df-91f3-489b-abb2-039a00d71221
       hippotranslation:locale: document-type-locale
       publishing:audience: people

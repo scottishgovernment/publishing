@@ -116,16 +116,17 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: a01f7156-e0b2-422f-ab05-c09b4ee6d352
     hippo:name: VisitScotland
-    hippo:versionHistory: 05de9a5e-985e-440a-b7f6-33821dde435d
+    hippo:versionHistory: 477b4e3f-5ef5-42fa-b40b-69ef683a0ac8
     /visitscotland[1]:
       jcr:primaryType: publishing:organisation
       jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
       jcr:uuid: 1d89ac4e-fb05-4b52-92ba-a98b15b2093b
       hippo:availability: []
+      hippostd:retainable: false
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-10-01T08:21:07.935+01:00
-      hippostdpubwf:lastModificationDate: 2020-10-01T08:21:07.935+01:00
+      hippostdpubwf:lastModificationDate: 2021-04-27T08:35:55.144+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 7cc31b08-35ff-4850-a328-022b189df908
       hippotranslation:locale: document-type-locale
@@ -149,6 +150,7 @@
       publishing:seoTitle: VisitScotland
       publishing:serviceprovider: visitscotland
       publishing:serviceproviders: []
+      publishing:showFeedback: true
       publishing:summary: Provides information and helpful advice on travel, accommodation
         and things to see and do in Scotland.
       publishing:title: VisitScotland
@@ -181,10 +183,11 @@
       jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
       jcr:uuid: deeb9ed9-177c-47fc-9fbb-3ffe57a9bb9c
       hippo:availability: [preview]
+      hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-10-01T08:21:07.935+01:00
-      hippostdpubwf:lastModificationDate: 2020-10-01T08:25:17.252+01:00
+      hippostdpubwf:lastModificationDate: 2021-04-27T08:36:00.744+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 7cc31b08-35ff-4850-a328-022b189df908
       hippotranslation:locale: document-type-locale
@@ -208,6 +211,7 @@
       publishing:seoTitle: VisitScotland
       publishing:serviceprovider: visitscotland
       publishing:serviceproviders: []
+      publishing:showFeedback: true
       publishing:summary: Provides information and helpful advice on travel, accommodation
         and things to see and do in Scotland.
       publishing:title: VisitScotland
@@ -240,12 +244,13 @@
       jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
       jcr:uuid: b8d6a613-a933-49e8-91d5-222b32617c43
       hippo:availability: [live]
+      hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-10-01T08:21:07.935+01:00
-      hippostdpubwf:lastModificationDate: 2020-10-01T08:25:17.252+01:00
+      hippostdpubwf:lastModificationDate: 2021-04-27T08:36:00.744+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2020-10-01T08:25:20.288+01:00
+      hippostdpubwf:publicationDate: 2021-04-27T08:36:03.323+01:00
       hippotranslation:id: 7cc31b08-35ff-4850-a328-022b189df908
       hippotranslation:locale: document-type-locale
       publishing:address: ''
@@ -268,6 +273,7 @@
       publishing:seoTitle: VisitScotland
       publishing:serviceprovider: visitscotland
       publishing:serviceproviders: []
+      publishing:showFeedback: true
       publishing:summary: Provides information and helpful advice on travel, accommodation
         and things to see and do in Scotland.
       publishing:title: VisitScotland

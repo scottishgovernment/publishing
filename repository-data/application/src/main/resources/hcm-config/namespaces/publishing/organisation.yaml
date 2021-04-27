@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 91e77af2-0799-48e7-b6ec-cd799f8767cc
+          jcr:uuid: c8e19ebc-135f-4a56-9850-d2a9d4d369f0
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -235,7 +235,7 @@ definitions:
           publishing:authorNotes: ''
           publishing:serviceproviders: []
           publishing:metaDescription: ''
-          jcr:uuid: f1ae5cb3-9ee1-41fa-a8cb-66a04ed720ef
+          jcr:uuid: 0b4de1b4-9616-487e-99c9-203dd15147c2
           hippostdpubwf:lastModificationDate: 2020-06-30T08:47:27.466+01:00
           hippostdpubwf:creationDate: 2020-06-30T08:47:27.466+01:00
           publishing:serviceprovider: ''
@@ -256,6 +256,7 @@ definitions:
           publishing:featuredservicestitle: Our services
           publishing:organisationtitle: ''
           publishing:featureditemstitle: ''
+          publishing:showFeedback: true
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -613,6 +614,15 @@ definitions:
             field: authorNotes
             hint: Enter any notes relevant to this content item.  This will not appear
               on the page itself.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showFeedback:
+            jcr:primaryType: frontend:plugin
+            caption: Show feedback?
+            field: showFeedback
+            hint: Should this page include the ability to leave user feedback?
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

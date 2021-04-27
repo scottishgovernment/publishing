@@ -113,9 +113,7 @@
                 </div>
             </#if>
 
-            <div class="ds_layout__feedback">
-                <#include 'feedback-wrapper.ftl'>
-            </div>
+            <#include 'feedback-wrapper.ftl'>
         </main>
     </div>
 </div>

@@ -9,16 +9,17 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 373da643-2b22-44a2-931b-716ed4a42c2d
     hippo:name: Rabbit welfare
-    hippo:versionHistory: e58e93d0-35d8-46c1-9569-e39978478591
+    hippo:versionHistory: f5630be9-2b15-4da7-9399-f2821be3ff55
     /rabbit-welfare[1]:
       jcr:primaryType: publishing:documentcoverpage
       jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
       jcr:uuid: 015d3313-8bd5-4efd-8bb1-d7dd0680ea4e
       hippo:availability: []
+      hippostd:retainable: false
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-10-06T14:12:33.496+01:00
-      hippostdpubwf:lastModificationDate: 2020-10-06T14:12:59.318+01:00
+      hippostdpubwf:lastModificationDate: 2021-04-27T08:35:22.305+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 8d730743-a98b-42ec-a7f6-ae116be63473
       hippotranslation:locale: document-type-locale
@@ -27,13 +28,15 @@
       publishing:reportingtags: []
       publishing:seoTitle: Rabbit welfare
       publishing:serviceproviders: []
+      publishing:showFeedback: true
       publishing:slug: rabbit-welfare
       publishing:summary: Rabbit welfare
-      publishing:title: Rabbit welfare
+      publishing:title: Rabbit welfare Rabbit welfare Rabbit welfare Rabbit welfare
+        Rabbit welfare Rabbit welfare Rabbit welfare Rabbit welfare
       /publishing:documents:
         jcr:primaryType: publishing:document
         publishing:hash: 8410872f7e026a337352d4c6109a8bb5
-        publishing:pageCount: 48
+        publishing:pageCount: 0
         publishing:size: 2056077
         publishing:title: Rabbit welfare
         /publishing:document:
@@ -84,15 +87,19 @@
             resource: /content/documents/mygov/document-cover-pages/rabbit-welfare/rabbit-welfare[1]/documents/thumbnails[4]/rabbit-welfare.pdf_330.png
           jcr:lastModified: 2020-10-06T14:12:52.835+01:00
           jcr:mimeType: image/png
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
     /rabbit-welfare[2]:
       jcr:primaryType: publishing:documentcoverpage
       jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
       jcr:uuid: 770144e6-f348-445b-b077-de3f2adb54c1
       hippo:availability: [preview]
+      hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-10-06T14:12:33.496+01:00
-      hippostdpubwf:lastModificationDate: 2020-10-06T14:12:59.136+01:00
+      hippostdpubwf:lastModificationDate: 2021-04-27T08:35:26.351+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 8d730743-a98b-42ec-a7f6-ae116be63473
       hippotranslation:locale: document-type-locale
@@ -101,13 +108,15 @@
       publishing:reportingtags: []
       publishing:seoTitle: Rabbit welfare
       publishing:serviceproviders: []
+      publishing:showFeedback: true
       publishing:slug: rabbit-welfare
       publishing:summary: Rabbit welfare
-      publishing:title: Rabbit welfare
+      publishing:title: Rabbit welfare Rabbit welfare Rabbit welfare Rabbit welfare
+        Rabbit welfare Rabbit welfare Rabbit welfare Rabbit welfare
       /publishing:documents:
         jcr:primaryType: publishing:document
         publishing:hash: 8410872f7e026a337352d4c6109a8bb5
-        publishing:pageCount: 48
+        publishing:pageCount: 0
         publishing:size: 2056077
         publishing:title: Rabbit welfare
         /publishing:document:
@@ -158,17 +167,21 @@
             resource: /content/documents/mygov/document-cover-pages/rabbit-welfare/rabbit-welfare[2]/documents/thumbnails[4]/rabbit-welfare.pdf_330.png
           jcr:lastModified: 2020-10-06T14:12:52.835+01:00
           jcr:mimeType: image/png
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
     /rabbit-welfare[3]:
       jcr:primaryType: publishing:documentcoverpage
       jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
       jcr:uuid: 2f9ea730-a041-4d64-b5ac-0ad9db3de588
       hippo:availability: [live]
+      hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2020-10-06T14:12:33.496+01:00
-      hippostdpubwf:lastModificationDate: 2020-10-06T14:12:59.136+01:00
+      hippostdpubwf:lastModificationDate: 2021-04-27T08:35:26.351+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2020-10-06T14:13:01.982+01:00
+      hippostdpubwf:publicationDate: 2021-04-27T08:36:14.662+01:00
       hippotranslation:id: 8d730743-a98b-42ec-a7f6-ae116be63473
       hippotranslation:locale: document-type-locale
       publishing:authorNotes: ''
@@ -176,13 +189,15 @@
       publishing:reportingtags: []
       publishing:seoTitle: Rabbit welfare
       publishing:serviceproviders: []
+      publishing:showFeedback: true
       publishing:slug: rabbit-welfare
       publishing:summary: Rabbit welfare
-      publishing:title: Rabbit welfare
+      publishing:title: Rabbit welfare Rabbit welfare Rabbit welfare Rabbit welfare
+        Rabbit welfare Rabbit welfare Rabbit welfare Rabbit welfare
       /publishing:documents:
         jcr:primaryType: publishing:document
         publishing:hash: 8410872f7e026a337352d4c6109a8bb5
-        publishing:pageCount: 48
+        publishing:pageCount: 0
         publishing:size: 2056077
         publishing:title: Rabbit welfare
         /publishing:document:
@@ -233,3 +248,6 @@
             resource: /content/documents/mygov/document-cover-pages/rabbit-welfare/rabbit-welfare[3]/documents/thumbnails[4]/rabbit-welfare.pdf_330.png
           jcr:lastModified: 2020-10-06T14:12:52.835+01:00
           jcr:mimeType: image/png
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''

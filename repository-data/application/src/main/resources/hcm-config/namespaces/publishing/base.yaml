@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: bbf77a4e-f193-49bb-9985-0f60a42fd250
+          jcr:uuid: a384796b-3b61-4b25-96a5-17f71e3eae90
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -176,7 +176,14 @@ definitions:
             hipposysedit:path: publishing:showInParent
             hipposysedit:primary: false
             hipposysedit:type: Boolean
-            hipposysedit:validators: [required]
+          /showFeedback:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:showFeedback
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -190,7 +197,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           publishing:summary: ''
           publishing:title: ''
-          jcr:uuid: c6481f4d-e61c-4810-9106-b954b34d70ca
+          jcr:uuid: 593cecd6-6709-49ec-98ea-ab8d80ab1b9d
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:07.551+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:07.552+01:00
           publishing:seoTitle: ''
@@ -204,6 +211,7 @@ definitions:
           publishing:lifeEvents: []
           publishing:userneed: ''
           publishing:showInParent: true
+          publishing:showFeedback: true
           /publishing:cardimage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -426,6 +434,15 @@ definitions:
             field: showInParent
             hint: Should this item be shown in it's parent page?  Unchecking this
               will cause this page to not be shown its it paren folder or guide.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showFeedback:
+            jcr:primaryType: frontend:plugin
+            caption: Show feedback?
+            field: showFeedback
+            hint: Should this page include the ability to leave user feedback?
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

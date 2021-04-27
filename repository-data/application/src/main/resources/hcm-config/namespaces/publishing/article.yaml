@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5f8521c7-0aea-44db-9839-caaf4ffef9a6
+          jcr:uuid: 023fd064-73dc-4d19-9185-35e500f192a8
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -71,7 +71,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: e622293b-97c2-4c81-b49e-c505f29716cf
+          jcr:uuid: b11ca068-9325-4116-840f-6014f0b80f6f
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -84,6 +84,7 @@ definitions:
           publishing:serviceproviders: []
           publishing:userneed: ''
           publishing:showInParent: true
+          publishing:showFeedback: true
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -373,6 +374,15 @@ definitions:
             field: showInParent
             hint: Should this item be shown in it's parent page?  Unchecking this
               will cause this page to not be shown its it paren folder or guide.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showFeedback:
+            jcr:primaryType: frontend:plugin
+            caption: Show feedback?
+            field: showFeedback
+            hint: Should this page include the ability to leave user feedback?
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

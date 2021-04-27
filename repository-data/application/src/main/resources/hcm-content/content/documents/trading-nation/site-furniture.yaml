@@ -14,27 +14,34 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 97268329-0352-444b-9e4c-83cb90aacc3e
       hippo:name: privacy
-      hippo:versionHistory: 1ad70809-be49-4690-887b-5471fb313e2e
+      hippo:versionHistory: e818a72c-5948-4297-a2a2-dede72ee5aee
       /privacy[1]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: b546ea4a-fc13-4e22-bbb0-70b1c13b2add
         hippo:availability: []
+        hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2019-12-04T11:13:50.692Z
-        hippostdpubwf:lastModificationDate: 2019-12-04T11:13:50.692Z
-        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:43:35.224+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: dd3279dc-d40a-4bfe-b942-e1d1a5ccc794
         hippotranslation:locale: document-type-locale
+        publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:metaDescription: ''
+        publishing:metaDescription: Privacy
         publishing:permalink: /privacy/
         publishing:reportingtags: []
+        publishing:sensitive: false
         publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
         publishing:slug: privacy
-        publishing:summary: ''
+        publishing:summary: Privacy
         publishing:title: Privacy
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |
@@ -62,26 +69,42 @@
             <h2>The 'hide this page' button</h2>
             <p>The 'hide this page' button appears on certain pages where vulnerable visitors might worry about someone knowing they've visited these pages.</p>
             <p>The button redirects users to the mygov.scot homepage.</p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /privacy[2]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
         jcr:uuid: 99efcab5-b858-4676-9c0c-e3a87d6b9341
         hippo:availability: [preview]
+        hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2019-12-04T11:13:50.692Z
-        hippostdpubwf:lastModificationDate: 2019-12-04T11:13:50.862Z
-        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:43:52.015+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: dd3279dc-d40a-4bfe-b942-e1d1a5ccc794
         hippotranslation:locale: document-type-locale
+        publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:metaDescription: ''
+        publishing:metaDescription: Privacy
         publishing:permalink: /privacy/
         publishing:reportingtags: []
+        publishing:sensitive: false
         publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
         publishing:slug: privacy
-        publishing:summary: ''
+        publishing:summary: Privacy
         publishing:title: Privacy
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |
@@ -109,27 +132,43 @@
             <h2>The 'hide this page' button</h2>
             <p>The 'hide this page' button appears on certain pages where vulnerable visitors might worry about someone knowing they've visited these pages.</p>
             <p>The button redirects users to the mygov.scot homepage.</p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /privacy[3]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: bcf08738-c19a-46ca-8772-1747086e74ac
         hippo:availability: [live]
+        hippostd:retainable: false
         hippostd:state: published
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2019-12-04T11:13:50.692Z
-        hippostdpubwf:lastModificationDate: 2019-12-04T11:13:50.862Z
-        hippostdpubwf:lastModifiedBy: system
-        hippostdpubwf:publicationDate: 2019-12-04T11:13:51.002Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:43:52.015+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-04-27T10:57:33.468+01:00
         hippotranslation:id: dd3279dc-d40a-4bfe-b942-e1d1a5ccc794
         hippotranslation:locale: document-type-locale
+        publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:metaDescription: ''
+        publishing:metaDescription: Privacy
         publishing:permalink: /privacy/
         publishing:reportingtags: []
+        publishing:sensitive: false
         publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
         publishing:slug: privacy
-        publishing:summary: ''
+        publishing:summary: Privacy
         publishing:title: Privacy
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |
@@ -157,32 +196,48 @@
             <h2>The 'hide this page' button</h2>
             <p>The 'hide this page' button appears on certain pages where vulnerable visitors might worry about someone knowing they've visited these pages.</p>
             <p>The button redirects users to the mygov.scot homepage.</p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
     /accessibility:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 19fd4baa-4c90-4d74-b9c5-d3c909e731ac
       hippo:name: accessibility
-      hippo:versionHistory: acc1b3b7-3f60-42db-b539-c261ed20d6ca
+      hippo:versionHistory: 28f8a1c7-68e8-4505-accc-1ad7496a8146
       /accessibility[1]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: d1b61de9-2b65-4f69-a219-3285b106f753
         hippo:availability: []
+        hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2019-12-04T11:13:51.819Z
-        hippostdpubwf:lastModificationDate: 2019-12-04T11:13:51.819Z
-        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:43:56.554+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 15a11b93-8df3-45d1-8871-e0bde77f4566
         hippotranslation:locale: document-type-locale
+        publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:metaDescription: ''
+        publishing:metaDescription: Accessibility
         publishing:permalink: /accessibility/
         publishing:reportingtags: []
+        publishing:sensitive: false
         publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
         publishing:slug: accessibility
-        publishing:summary: ''
+        publishing:summary: Accessibility
         publishing:title: Accessibility
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |
@@ -198,26 +253,42 @@
             </ul>
             <h2>Feedback</h2>
             <p>If you have any trouble using mygov.scot, please <a href="https://www.mygov.scot/give-feedback/">contact us</a> and let us know.</p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /accessibility[2]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
         jcr:uuid: 06af3ea0-2f07-4572-bba9-4f42949cb9fd
         hippo:availability: [preview]
+        hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2019-12-04T11:13:51.819Z
-        hippostdpubwf:lastModificationDate: 2019-12-04T11:13:52.006Z
-        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:12.101+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 15a11b93-8df3-45d1-8871-e0bde77f4566
         hippotranslation:locale: document-type-locale
+        publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:metaDescription: ''
+        publishing:metaDescription: Accessibility
         publishing:permalink: /accessibility/
         publishing:reportingtags: []
+        publishing:sensitive: false
         publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
         publishing:slug: accessibility
-        publishing:summary: ''
+        publishing:summary: Accessibility
         publishing:title: Accessibility
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |
@@ -233,27 +304,43 @@
             </ul>
             <h2>Feedback</h2>
             <p>If you have any trouble using mygov.scot, please <a href="https://www.mygov.scot/give-feedback/">contact us</a> and let us know.</p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /accessibility[3]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: a3241c8a-eaf2-435a-9612-0161bba2a651
         hippo:availability: [live]
+        hippostd:retainable: false
         hippostd:state: published
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2019-12-04T11:13:51.819Z
-        hippostdpubwf:lastModificationDate: 2019-12-04T11:13:52.006Z
-        hippostdpubwf:lastModifiedBy: system
-        hippostdpubwf:publicationDate: 2019-12-04T11:13:52.123Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:12.101+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-04-27T10:57:30.516+01:00
         hippotranslation:id: 15a11b93-8df3-45d1-8871-e0bde77f4566
         hippotranslation:locale: document-type-locale
+        publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:metaDescription: ''
+        publishing:metaDescription: Accessibility
         publishing:permalink: /accessibility/
         publishing:reportingtags: []
+        publishing:sensitive: false
         publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
         publishing:slug: accessibility
-        publishing:summary: ''
+        publishing:summary: Accessibility
         publishing:title: Accessibility
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |
@@ -269,32 +356,48 @@
             </ul>
             <h2>Feedback</h2>
             <p>If you have any trouble using mygov.scot, please <a href="https://www.mygov.scot/give-feedback/">contact us</a> and let us know.</p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
     /contact:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 9ad2110a-5d63-4579-a2fe-3c26b686ad79
       hippo:name: contact
-      hippo:versionHistory: ee4e222f-5a7a-4053-95ab-3fa7fcdaf045
+      hippo:versionHistory: b8a7df1a-392a-4d14-8c9c-26a8e2343f26
       /contact[1]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: 85cd1dd3-6cc3-4c45-8de5-fcea6426dbe3
         hippo:availability: []
+        hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2019-12-04T11:13:52.324Z
-        hippostdpubwf:lastModificationDate: 2019-12-06T12:36:04.928Z
-        hippostdpubwf:lastModifiedBy: jonathan.sutcliffe@gov.scot
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:36.358+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: f000a7e0-5619-415f-8491-2e9765727333
         hippotranslation:locale: document-type-locale
+        publishing:audience: ''
         publishing:authorNotes: ''
         publishing:metaDescription: How to contact us about A Trading Nation.
         publishing:permalink: /contact/
         publishing:reportingtags: []
+        publishing:sensitive: false
         publishing:seoTitle: Contact
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
         publishing:slug: contact
         publishing:summary: How to contact us about A Trading Nation.
         publishing:title: Contact
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |-
@@ -334,26 +437,42 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /contact[2]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
         jcr:uuid: f30b90e5-2e6d-400b-9c5d-8e25243e3353
         hippo:availability: [preview]
+        hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2019-12-04T11:13:52.324Z
-        hippostdpubwf:lastModificationDate: 2019-12-06T12:35:38.562Z
-        hippostdpubwf:lastModifiedBy: jonathan.sutcliffe@gov.scot
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:41.451+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: f000a7e0-5619-415f-8491-2e9765727333
         hippotranslation:locale: document-type-locale
+        publishing:audience: ''
         publishing:authorNotes: ''
         publishing:metaDescription: How to contact us about A Trading Nation.
         publishing:permalink: /contact/
         publishing:reportingtags: []
+        publishing:sensitive: false
         publishing:seoTitle: Contact
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
         publishing:slug: contact
         publishing:summary: How to contact us about A Trading Nation.
         publishing:title: Contact
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |-
@@ -393,27 +512,43 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /contact[3]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: 69a7e9f7-7d8b-4429-857b-89672e0ac225
         hippo:availability: [live]
+        hippostd:retainable: false
         hippostd:state: published
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2019-12-04T11:13:52.324Z
-        hippostdpubwf:lastModificationDate: 2019-12-06T12:35:38.562Z
-        hippostdpubwf:lastModifiedBy: jonathan.sutcliffe@gov.scot
-        hippostdpubwf:publicationDate: 2019-12-06T12:36:11.960Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:41.451+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-04-27T10:57:30.424+01:00
         hippotranslation:id: f000a7e0-5619-415f-8491-2e9765727333
         hippotranslation:locale: document-type-locale
+        publishing:audience: ''
         publishing:authorNotes: ''
         publishing:metaDescription: How to contact us about A Trading Nation.
         publishing:permalink: /contact/
         publishing:reportingtags: []
+        publishing:sensitive: false
         publishing:seoTitle: Contact
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
         publishing:slug: contact
         publishing:summary: How to contact us about A Trading Nation.
         publishing:title: Contact
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |-
@@ -453,32 +588,48 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
     /cookies:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 092153dd-d691-41b2-a679-98ba4c685447
       hippo:name: cookies
-      hippo:versionHistory: 6e4f239a-97d1-44e2-a135-82944bb50f1b
+      hippo:versionHistory: e3261fef-73c9-42c6-9447-18e86db2f1f6
       /cookies[1]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: 5c94187a-23e3-4bd6-8b8e-198047c592ba
         hippo:availability: []
+        hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2019-12-04T11:13:52.890Z
-        hippostdpubwf:lastModificationDate: 2019-12-04T11:13:52.890Z
-        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:43.882+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 18a460ea-28dd-4f80-a172-c2fe1a215a54
         hippotranslation:locale: document-type-locale
+        publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:metaDescription: ''
+        publishing:metaDescription: Cookies
         publishing:permalink: /cookies/
         publishing:reportingtags: []
+        publishing:sensitive: false
         publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
         publishing:slug: cookies
-        publishing:summary: ''
+        publishing:summary: Cookies
         publishing:title: Cookies
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: "<html>\n <head></head>\n <body>\n  <h2>Why we use cookies</h2>\
@@ -501,26 +652,42 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /cookies[2]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
         jcr:uuid: 22508692-6d7e-4b9e-a9d7-539d9862fd15
         hippo:availability: [preview]
+        hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2019-12-04T11:13:52.890Z
-        hippostdpubwf:lastModificationDate: 2019-12-04T11:13:53.048Z
-        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:57.634+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 18a460ea-28dd-4f80-a172-c2fe1a215a54
         hippotranslation:locale: document-type-locale
+        publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:metaDescription: ''
+        publishing:metaDescription: Cookies
         publishing:permalink: /cookies/
         publishing:reportingtags: []
+        publishing:sensitive: false
         publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
         publishing:slug: cookies
-        publishing:summary: ''
+        publishing:summary: Cookies
         publishing:title: Cookies
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: "<html>\n <head></head>\n <body>\n  <h2>Why we use cookies</h2>\
@@ -543,27 +710,43 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /cookies[3]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
         jcr:uuid: a5c194e4-3f65-48a9-a1ec-f0ea61c59a46
         hippo:availability: [live]
+        hippostd:retainable: false
         hippostd:state: published
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2019-12-04T11:13:52.890Z
-        hippostdpubwf:lastModificationDate: 2019-12-04T11:13:53.048Z
-        hippostdpubwf:lastModifiedBy: system
-        hippostdpubwf:publicationDate: 2019-12-04T11:13:53.180Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:57.634+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-04-27T10:44:59.369+01:00
         hippotranslation:id: 18a460ea-28dd-4f80-a172-c2fe1a215a54
         hippotranslation:locale: document-type-locale
+        publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:metaDescription: ''
+        publishing:metaDescription: Cookies
         publishing:permalink: /cookies/
         publishing:reportingtags: []
+        publishing:sensitive: false
         publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
         publishing:slug: cookies
-        publishing:summary: ''
+        publishing:summary: Cookies
         publishing:title: Cookies
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: "<html>\n <head></head>\n <body>\n  <h2>Why we use cookies</h2>\
@@ -586,6 +769,15 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
   /cookie-details:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -829,8 +1021,7 @@
           </div>
   /banners:
     jcr:primaryType: hippostd:folder
-    jcr:mixinTypes: ['hippo:named', 'mix:lockable',
-      'mix:referenceable', 'mix:versionable']
+    jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:referenceable', 'mix:versionable']
     jcr:uuid: de560ccd-19c8-41ad-9a50-6ad57bef275e
     hippo:name: banners
     hippostd:foldertype: [new-notification-banner]

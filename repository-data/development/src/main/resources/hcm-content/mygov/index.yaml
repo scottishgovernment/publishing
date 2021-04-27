@@ -3,16 +3,17 @@
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 006de33e-39bb-48be-81ad-2cfda0c12f21
-  hippo:versionHistory: d617827a-8a62-4985-b981-54fc30b163be
+  hippo:versionHistory: 852bc7a2-bcce-4dcb-8543-f056ee388f81
   /index[1]:
     jcr:primaryType: publishing:home
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: ad7b5371-ccb1-4297-b86f-bea04e0f8b02
     hippo:availability: []
+    hippostd:retainable: false
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-09-30T08:32:42.313+01:00
-    hippostdpubwf:lastModificationDate: 2020-09-30T15:35:14.274+01:00
+    hippostdpubwf:lastModificationDate: 2021-04-27T08:51:56.594+01:00
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 1ac63381-45ac-4631-9716-9c765cabb404
     hippotranslation:locale: document-type-locale
@@ -22,6 +23,7 @@
     publishing:navigationType: card
     publishing:reportingtags: []
     publishing:seoTitle: Access to public services in Scotland
+    publishing:showFeedback: true
     publishing:showSummaries: false
     publishing:summary: mygov.scot is the place for people in Scotland to access public
       services that are easy to find and simple to use.
@@ -46,10 +48,11 @@
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
     jcr:uuid: 809dd0ba-44d2-46bb-a5b8-9a51b0d95754
     hippo:availability: [preview]
+    hippostd:retainable: false
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-09-30T08:32:42.313+01:00
-    hippostdpubwf:lastModificationDate: 2020-09-30T15:35:14.247+01:00
+    hippostdpubwf:lastModificationDate: 2021-04-27T08:52:00.463+01:00
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 1ac63381-45ac-4631-9716-9c765cabb404
     hippotranslation:locale: document-type-locale
@@ -59,6 +62,7 @@
     publishing:navigationType: card
     publishing:reportingtags: []
     publishing:seoTitle: Access to public services in Scotland
+    publishing:showFeedback: true
     publishing:showSummaries: false
     publishing:summary: mygov.scot is the place for people in Scotland to access public
       services that are easy to find and simple to use.
@@ -83,12 +87,13 @@
     jcr:mixinTypes: ['mix:referenceable']
     jcr:uuid: 159ebcdb-2b45-4f0a-a500-03754aa05a73
     hippo:availability: [live]
+    hippostd:retainable: false
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-09-30T08:32:42.313+01:00
-    hippostdpubwf:lastModificationDate: 2020-09-30T15:35:14.247+01:00
+    hippostdpubwf:lastModificationDate: 2021-04-27T08:52:00.463+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2020-09-30T15:35:17.367+01:00
+    hippostdpubwf:publicationDate: 2021-04-27T08:52:03.282+01:00
     hippotranslation:id: 1ac63381-45ac-4631-9716-9c765cabb404
     hippotranslation:locale: document-type-locale
     publishing:authorNotes: ''
@@ -97,6 +102,7 @@
     publishing:navigationType: card
     publishing:reportingtags: []
     publishing:seoTitle: Access to public services in Scotland
+    publishing:showFeedback: true
     publishing:showSummaries: false
     publishing:summary: mygov.scot is the place for people in Scotland to access public
       services that are easy to find and simple to use.

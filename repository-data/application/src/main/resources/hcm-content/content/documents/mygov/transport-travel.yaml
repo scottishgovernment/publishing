@@ -249,7 +249,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: b50d00ce-6315-424e-a05a-674768306f43
     hippo:name: Driving licences, tests, car tax and registration
-    hippo:versionHistory: 0da9cab1-421a-4ea7-ae1f-b8df6a5c17e9
+    hippo:versionHistory: 894a8154-7f39-4e41-9cc4-a4a944059956
     /driving-licences-tests-car-tax-and-registration[1]:
       jcr:primaryType: publishing:article
       jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -477,9 +477,9 @@
         Check MOT history, theory test, SORN]
       hippostdpubwf:createdBy: system
       hippostdpubwf:creationDate: 2020-08-17T16:42:36.986+01:00
-      hippostdpubwf:lastModificationDate: 2020-08-17T16:42:37.114+01:00
-      hippostdpubwf:lastModifiedBy: system
-      hippostdpubwf:publicationDate: 2020-08-17T16:42:37.245+01:00
+      hippostdpubwf:lastModificationDate: 2020-09-04T14:16:04.579+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-04-27T08:36:14.439+01:00
       hippotranslation:id: 0a2abf31-0e4b-4dcc-8c6e-b557e4274168
       hippotranslation:locale: document-type-locale
       publishing:audience: people
@@ -556,12 +556,16 @@
           <p>Includes vehicle log books (V5C), private registration plates and taking your vehicle off the road (SORN). </p>
       /publishing:relateditems:
         jcr:primaryType: publishing:relateditems
+        publishing:title: ''
         /publishing:relatedItem[1]:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 14711b89-b9d3-4ff8-8db2-96b2822c86f3
         /publishing:relatedItem[2]:
           jcr:primaryType: hippo:mirror
           hippo:docbase: d74d19c7-9e21-43d6-a878-7cfcc054fb8d
+      /publishing:contentOwner:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
   /park-permit:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
@@ -699,9 +703,10 @@
         new-publishing-mirror]
       /index:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: de2d75c9-7c83-4316-a7b7-b9ccae456429
         hippo:name: Parking appeals (fact check section)
+        hippo:versionHistory: ee50d815-bc07-4bba-9388-70b9ee4cc61d
         /index[1]:
           jcr:primaryType: publishing:guide
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:versionable']
@@ -774,11 +779,49 @@
             hippo:docbase: 07aaa774-3962-4b63-8f0f-a4fb0fe5dfe1
           /publishing:relateditems:
             jcr:primaryType: publishing:relateditems
+        /index[3]:
+          jcr:primaryType: publishing:guide
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: b2eef012-f8e1-46e1-b950-4dbe384c20d5
+          hippo:availability: [live]
+          hippo:name: Parking appeals (fact check section)
+          hippostd:state: published
+          hippostd:tags: []
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:43.165+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:43.322+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:16.900+01:00
+          hippotranslation:id: 3b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
+          hippotranslation:locale: document-type-locale
+          publishing:audience: people
+          publishing:authorNotes: ''
+          publishing:metaDescription: Parking appeal check.
+          publishing:mygovid: MYGOV-2792
+          publishing:navigationType: list
+          publishing:relatedmygovids: ''
+          publishing:reportingtags: []
+          publishing:sensitive: false
+          publishing:seoTitle: Parking appeals (fact check section)
+          publishing:sequenceable: true
+          publishing:serviceproviders: [scottish-government, scottish-public-services-ombudsman]
+          publishing:slug: parking-appeals-fact-check-section
+          publishing:summary: Parking appeal check.
+          publishing:title: Parking appeals (fact check section)
+          publishing:urlAliases:
+            type: double
+            value: []
+          /publishing:factCheckers:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: 07aaa774-3962-4b63-8f0f-a4fb0fe5dfe1
+          /publishing:relateditems:
+            jcr:primaryType: publishing:relateditems
       /when-to-appeal:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 110f8aec-0f80-40fd-a6dd-a43d0f0d017f
         hippo:name: When to appeal
+        hippo:versionHistory: 4610c81a-7291-4663-96e7-d76105f4906a
         /when-to-appeal[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -938,11 +981,92 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+        /when-to-appeal[3]:
+          jcr:primaryType: publishing:guidepage
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: be0a0d85-fef7-45c8-aa8c-8c9a7b5bfaa4
+          hippo:availability: [live]
+          hippo:name: When to appeal
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:43.422+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:43.519+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:15.653+01:00
+          hippotranslation:id: 6267a633-28c3-4844-a2b0-fbad920fb266
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: summary for When to appeal
+          publishing:reportingtags: []
+          publishing:seoTitle: When to appeal
+          publishing:slug: when-to-appeal
+          publishing:summary: summary for When to appeal
+          publishing:title: When to appeal
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: "<html>\n <head></head>\n <body>\n  <p>You have a right\
+              \ to challenge a <a href=\"index\">'Penalty Charge Notice'</a> (a type\
+              \ of parking ticket) or Bus Lane Enforcement Charge Notice you think\
+              \ has been wrongly issued. </p> \n  <p>The <a href=\"challenge-a-parking-ticket\"\
+              >initial challenge</a> should be sent to the council that issued the\
+              \ Notice. </p> \n  <h2 id=\"timescales\">Timescales</h2> \n  <p>If you\
+              \ make the challenge within 14 days, you may only have to pay 50% of\
+              \ the penalty charge if your challenge is rejected.</p> \n  <blockquote>\
+              \ \n   <p>The council can still decide to charge you the full price.</p>\
+              \ \n  </blockquote> \n  <p>The initial challenge must be received by\
+              \ the council within 28 days of when the ticket was issued. If the council\
+              \ do not receive it within 28 days, they will send a 'Notice to Owner'\
+              \ to the registered keeper of the vehicle.</p> \n  <p>At this stage\
+              \ you may make a formal challenge or representation.</p> \n  <p>If the\
+              \ council rejects your formal challenge, you'll be sent a 'Notice of\
+              \ Rejection'. You can <a href=\"how-to-appeal\">appeal this rejection</a>.</p>\
+              \ \n  <div class=\"info-note note\">\n    There's no fee for an appeal\
+              \ but the council or the person appealing may have to pay expenses.\
+              \ This is when the appeal or the decision being appealed against is\
+              \ 'wholly unreasonable' \n  </div> \n  <h2 id=\"legal-grounds-for-appeal\"\
+              >Legal grounds for appeal</h2> \n  <p>The following grounds for appeal\
+              \ are found in <a href=\"http://www.legislation.gov.uk/ukpga/1991/40/schedule/6/enacted\"\
+              >schedule 6, section 2</a> of the Road Traffic Act 1991.</p> \n  <p>Using\
+              \ these grounds, you might want to appeal because:</p> \n  <ul> \n \
+              \  <li>you did not own the vehicle when it got the ticket</li> \n  \
+              \ <li>it did not happen e.g. your parking time had not run out </li>\
+              \ \n   <li>the vehicle was stolen or taken without your permission</li>\
+              \ \n   <li>the signs or road markings were not correct</li> \n   <li>the\
+              \ penalty was more than it should have been</li> \n   <li>your car was\
+              \ towed away incorrectly and you want a refund on the recovery fee </li>\
+              \ \n   <li>you're a car hire firm, the vehicle was hired out at the\
+              \ time and the driver signed a 'liability agreement' for any penalty\
+              \ charge notice </li> \n   <li>the council did not follow the <a href=\"\
+              http://www.legislation.gov.uk/uksi/1999/614/body/made\">Local Authorities'\
+              \ Traffic Orders (Procedure) (Scotland) Regulations 1999</a> </li> \n\
+              \  </ul> \n  <blockquote> \n   <p>The way you appeal is different if\
+              \ you get a <a href=\"challenge-a-parking-ticket\">parking</a>, bus\
+              \ lane or car towing Fixed Penalty Notice from the police.</p> \n  </blockquote>\
+              \ \n </body>\n</html>"
+            /index:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: 471490a1-2767-4770-aaa7-2ca2c40d10d7
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /challenge-a-parking-ticket:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: bd72d8f8-819a-48ef-b568-8da38f6b8076
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /how-to-appeal:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: 8bccab95-e0f9-4450-bae5-94507725e757
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
       /how-to-appeal:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 360c2359-1959-44a8-8fac-4614a17725dc
         hippo:name: How to appeal
+        hippo:versionHistory: 6bf4f73e-a891-49e7-9157-a6ff4616974c
         /how-to-appeal[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -1102,11 +1226,92 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+        /how-to-appeal[3]:
+          jcr:primaryType: publishing:guidepage
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: bdbff4a0-807f-4b8b-ba03-6ec86b42593a
+          hippo:availability: [live]
+          hippo:name: How to appeal
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:43.601+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:43.679+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:16.419+01:00
+          hippotranslation:id: a09e9267-470b-45e7-bde8-09f9e8eb6bd3
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: summary for How to appeal
+          publishing:reportingtags: []
+          publishing:seoTitle: How to appeal
+          publishing:slug: how-to-appeal
+          publishing:summary: summary for How to appeal
+          publishing:title: How to appeal
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: "<html>\n <head></head>\n <body>\n  <p>The 'Notice of\
+              \ Rejection' from the council will tell you what you need to appeal.</p>\
+              \ \n  <p>You can:</p> \n  <ul> \n   <li><a href=\"https://foam.appealparkingorbuslanefine.gov.scot/your_appeal#/\"\
+              >Register and appeal online</a> </li> \n   <li>Request a postal appeal\
+              \ form by phone - 0330 123 5582 giving your name and address</li> \n\
+              \  </ul> \n  <p>Send the completed form and any evidence to the address\
+              \ below within 28 days.</p> \n  <blockquote> \n   <p>If the form arrives\
+              \ after 28 days you must give a reason why it's late. It may not be\
+              \ accepted.</p> \n  </blockquote> \n  <p><strong>Parking and Bus Lane\
+              \ Tribunal for Scotland (PBLTS)</strong><br>The Stamp Office<br>10 Waterloo\
+              \ Place<br>Edinburgh<br>EH1 3EG<br>General enquiries: 0330 123 5581<br>Email:\
+              \ <a href=\"mailto:info@appealparkingorbuslanefine.gov.scot\">info@appealparkingorbuslanefine.gov.scot</a></p>\
+              \ \n  <p>You can check the status of your online appeal by <a href=\"\
+              https://foam.appealparkingorbuslanefine.gov.scot/\">signing into the\
+              \ PBLTS website</a>.</p> \n  <blockquote> \n   <p>Use the account details\
+              \ you registered the appeal with.</p> \n  </blockquote> \n  <p>If there\
+              \ are any changes to your online appeal you will be notified by email.</p>\
+              \ \n  <p>For postal appeals you can phone 0330 123 5581 to check the\
+              \ status of your appeal.</p> \n  <h3 id=\"if-someone-else-was-driving\"\
+              >If someone else was driving</h3> \n  <p>The appeal must be completed\
+              \ by the person who received the 'Notice of Rejection' from the local\
+              \ council. This is usually the owner.</p> \n  <p>If someone else was\
+              \ driving when the ticket was issued, they can <a href=\"challenge-a-parking-ticket\"\
+              >appeal the ticket</a> for the owner. They must have the owner's permission\
+              \ to appeal. </p> \n  <blockquote> \n   <p>The owner will be asked to\
+              \ pay the ticket if the appeal is rejected.</p> \n  </blockquote> \n\
+              \  <h2 id=\"evidence\">Evidence</h2> \n  <p>Any evidence for your case\
+              \ should be included with your Notice of Appeal.</p> \n  <p>In an online\
+              \ appeal you can add:</p> \n  <ul> \n   <li>text</li> \n   <li>witness\
+              \ statements</li> \n   <li>scanned documents</li> \n   <li>photographs</li>\
+              \ \n   <li>maps</li> \n   <li>videos</li> \n  </ul> \n  <p>In a postal\
+              \ appeal you must send copies of the evidence with the appeal form.</p>\
+              \ \n  <h3 id=\"evidence-could-be-\">Evidence could be:</h3> \n  <ul>\
+              \ \n   <li>a pay and display ticket </li> \n   <li>a disabled person's\
+              \ <a href=\"index\">Blue Badge</a> </li> \n   <li>photos that show signs\
+              \ or road markings</li> \n   <li>witness statements that have the witness'\
+              \ name, address and signature</li> \n   <li>documents relating to the\
+              \ sale of the vehicle </li> \n   <li>delivery documents for loading\
+              \ or unloading</li> \n   <li>a garage bill for a breakdown</li> \n \
+              \ </ul> \n  <h3 id=\"don-t-send-your-\">Don't send your:</h3> \n  <ul>\
+              \ \n   <li>'Penalty Charge Notice' or 'Bus Lane Enforcement Charge Notice'</li>\
+              \ \n   <li>appeal to the local council </li> \n   <li>'Notice of Rejection'</li>\
+              \ \n  </ul> \n  <p>The local council will send these as part of its\
+              \ own evidence. You should keep your copies to bring if there's a hearing.</p>\
+              \ \n </body>\n</html>"
+            /challenge-a-parking-ticket:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: bd72d8f8-819a-48ef-b568-8da38f6b8076
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /index:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: 2e652eb8-37fe-4868-8a67-8f19f6c46012
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
       /how-the-decision-is-made:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 93492613-e9be-4423-b577-28102e19e413
         hippo:name: How the decision is made
+        hippo:versionHistory: 38cf71f9-f4fd-4a70-8d4d-d9d2096275f0
         /how-the-decision-is-made[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -1270,11 +1475,94 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+        /how-the-decision-is-made[3]:
+          jcr:primaryType: publishing:guidepage
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: 6d0fae87-6e3e-4b8f-a533-087dc89638d4
+          hippo:availability: [live]
+          hippo:name: How the decision is made
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:43.765+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:43.857+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:18.949+01:00
+          hippotranslation:id: b670530c-eeeb-42e3-a1a4-5ede7e6a6d52
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: summary for How the decision is made
+          publishing:reportingtags: []
+          publishing:seoTitle: How the decision is made
+          publishing:slug: how-the-decision-is-made
+          publishing:summary: summary for How the decision is made
+          publishing:title: How the decision is made
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: "<html>\n <head></head>\n <body>\n  <p>Once you've <a\
+              \ href=\"how-to-appeal\">submitted your Notice of Appeal</a>, the council\
+              \ will be told about your appeal. If the council:</p> \n  <ul> \n  \
+              \ <li>accepts your appeal - you don't need to pay the ticket, any online\
+              \ cases will be closed and any organised hearings will be cancelled\
+              \ </li> \n   <li>does not accept your appeal - an independent adjudicator\
+              \ (a lawyer) will decide your case</li> \n  </ul> \n  <p>You can choose\
+              \ to have:</p> \n  <ul> \n   <li><a href=\"https://foam.appealparkingorbuslanefine.gov.scot/your_appeal#/\"\
+              >an 'e-decision' by appealing online</a> </li> \n   <li>a postal decision\
+              \ if appealing by post</li> \n   <li>a telephone or personal hearing</li>\
+              \ \n  </ul> \n  <p>Telephone and personal hearings may take longer to\
+              \ arrange as they are subject to the availability of adjudicators and\
+              \ venues.</p> \n  <blockquote> \n   <p>Adjudicators can not consider\
+              \ whether the incident happened for a 'good reason' or why it happened.\
+              \ They can only consider the <a href=\"when-to-appeal\">legal grounds\
+              \ of appeal</a> and nothing else. </p> \n  </blockquote> \n  <h2 id=\"\
+              e-decision-online-appeal-decision-\">E-decision (online appeal decision)</h2>\
+              \ \n  <p>If you choose an e-decision you will get email notifications\
+              \ for any changes in your appeal.</p> \n  <p>You can <a href=\"https://foam.appealparkingorbuslanefine.gov.scot/auth#/sign_in\"\
+              >sign in to the PBLTS website</a> using the details you registered the\
+              \ appeal with to see what changes have been made, or to check the status\
+              \ of your appeal.</p> \n  <p>You will be notified of your e-decision\
+              \ by email.</p> \n  <h2 id=\"postal-decision\">Postal decision</h2>\
+              \ \n  <p>If you choose a postal decision, you'll get a written decision\
+              \ sent to you or you'll be asked for more evidence.</p> \n  <p>If you\
+              \ wish to put in more evidence, it must be received well before the\
+              \ date you're given.</p> \n  <h2 id=\"personal-or-telephone-hearings\"\
+              >Personal or telephone hearings</h2> \n  <p>You'll tell the adjudicator\
+              \ about your case if you choose a personal or telephone hearing.</p>\
+              \ \n  <blockquote> \n   <p>The adjudicator looks at the facts and evidence\
+              \ to decide the case at the end of the hearing.</p> \n  </blockquote>\
+              \ \n  <p>Personal and telephone hearings last around 30 minutes.</p>\
+              \ \n  <p>Personal hearings are held in the area where the incident took\
+              \ place. You can ask the tribunal whether your hearing can take place\
+              \ closer to where you live. </p> \n  <p>If you want someone to attend\
+              \ the personal hearing in your place you must:</p> \n  <ul> \n   <li>let\
+              \ the tribunal know in advance</li> \n   <li>give the person a written\
+              \ letter that says you want them to attend for you and has your signature\
+              \ on it</li> \n  </ul> \n  <p>You'll be given 28 days' notice of the\
+              \ date and venue for the personal hearing.</p> \n  <p>Contact the tribunal\
+              \ in advance to ask:</p> \n  <ul> \n   <li>for a different date or venue\
+              \ </li> \n   <li>for special access requirements </li> \n   <li>to switch\
+              \ to an e-decision, postal decision, telephone hearing or personal hearing.</li>\
+              \ \n  </ul> \n  <blockquote> \n   <p>Someone from the council that gave\
+              \ you the ticket is allowed to attend a personal or telephone hearing.\
+              \ You'll be told before the hearing if someone will attend. </p> \n\
+              \  </blockquote> \n </body>\n</html>"
+            /how-to-appeal:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: 8bccab95-e0f9-4450-bae5-94507725e757
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+            /when-to-appeal:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: c08e5261-465f-446c-8ce7-1bfcf101b70f
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
       /after-the-decision:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 06ba67f9-53cc-439e-978a-c4a53de9ed13
         hippo:name: After the decision
+        hippo:versionHistory: afe55900-23eb-423d-a5f1-af6e944861aa
         /after-the-decision[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -1593,6 +1881,313 @@
           hippostdpubwf:creationDate: 2020-08-17T16:42:43.944+01:00
           hippostdpubwf:lastModificationDate: 2020-08-17T16:42:44.018+01:00
           hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: 4362d036-7064-4331-9285-b20fcf31fdbf
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: summary for After the decision
+          publishing:reportingtags: []
+          publishing:seoTitle: After the decision
+          publishing:slug: after-the-decision
+          publishing:summary: summary for After the decision
+          publishing:title: After the decision
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: " \n  <h3 id=\"e-decisions\">E-decisions</h3> \n  <p>The\
+              \ tribunal will send you an email telling you that a decision has been\
+              \ made. You will need to <a href=\"https://foam.appealparkingorbuslanefine.gov.scot/\"\
+              >sign in to the Parking and Bus Lane Tribunal for Scotland (PBLTS) website</a>\
+              \ to see the decision.</p> \n  <h3 id=\"postal-decisions\">Postal decisions</h3>\
+              \ \n  <p>The tribunal will send you a written decision about your appeal.\
+              \ </p> \n  <p>The decision will be:</p> \n  <ul> \n   <li>appeal won</li>\
+              \ \n   <li>appeal lost </li> \n  </ul> \n  <h3 id=\"appeal-won\">Appeal\
+              \ won</h3> \n  <p>This means you do not need to pay the ticket or your\
+              \ recovery fee may be refunded in car towing cases.</p> \n  <h3 id=\"\
+              appeal-lost\">Appeal lost</h3> \n  <p>You'll need to pay the ticket\
+              \ within 28 days of receiving the decision.</p> \n  <p>In car towing\
+              \ cases, this means your recovery fee will not be refunded.</p> \n \
+              \ <p>If you do not pay within 28 days, the council will:</p> \n  <ul>\
+              \ \n   <li>give you a 'Charge Certificate'</li> \n   <li>increase your\
+              \ penalty by 50% and you must pay it within 14 days</li> \n  </ul> \n\
+              \  <div class=\"info-note caution\">\n   If you do not pay the Charge\
+              \ Certificate within 14 days, the council can take legal action to get\
+              \ the money.\n  </div> \n  <p>Your ticket won't be 'paid' until the\
+              \ council receives the money. If you're paying by post you'll have to\
+              \ think about how long it'll take to arrive.</p> \n  <h2 id=\"can-i-take-any-further-action-\"\
+              >Can I take any further action?</h2> \n  <p>You cannot make another\
+              \ appeal about the decision, but you can complain to the local council\
+              \ about how they handled your appeal. </p> \n  <h3 id=\"how-to-complain\"\
+              >How to complain</h3> \n  <p>You can contact the local council that\
+              \ issued the parking ticket or bus lane fine to make a complaint.</p>\
+              \ \n  <div class=\"dd  finder-hero  form-box\">\n   <label for=\"council-select-429156\"\
+              >Select your council</label>\n   <div class=\"create-select__arrow\"\
+              >\n    <select class=\"create-select\" id=\"council-select-429156\"\
+              ><option selected value=\"\" disabled>Visit your local council's website\
+              \ to make a complaint...</option><option data-id=\"aberdeen-city-council\"\
+              >Aberdeen City Council</option><option data-id=\"aberdeenshire-council\"\
+              >Aberdeenshire Council</option><option data-id=\"angus-council\">Angus\
+              \ Council</option><option data-id=\"argyll-and-bute-council\">Argyll\
+              \ and Bute Council</option><option data-id=\"clackmannanshire-council\"\
+              >Clackmannanshire Council</option><option data-id=\"comhairle-nan-eilean-siar-western-isles-council\"\
+              >Comhairle nan Eilean Siar (Western Isles Council)</option><option data-id=\"\
+              dumfries-and-galloway-council\">Dumfries and Galloway Council</option><option\
+              \ data-id=\"dundee-city-council\">Dundee City Council</option><option\
+              \ data-id=\"east-ayrshire-council\">East Ayrshire Council</option><option\
+              \ data-id=\"east-dunbartonshire-council\">East Dunbartonshire Council</option><option\
+              \ data-id=\"east-lothian-council\">East Lothian Council</option><option\
+              \ data-id=\"east-renfrewshire-council\">East Renfrewshire Council</option><option\
+              \ data-id=\"edinburgh-council\">Edinburgh Council</option><option data-id=\"\
+              falkirk-council\">Falkirk Council</option><option data-id=\"fife-council\"\
+              >Fife Council</option><option data-id=\"glasgow-city-council\">Glasgow\
+              \ City Council</option><option data-id=\"the-highland-council\">The\
+              \ Highland Council</option><option data-id=\"inverclyde-council\">Inverclyde\
+              \ Council</option><option data-id=\"midlothian-council\">Midlothian\
+              \ Council</option><option data-id=\"moray-council\">Moray Council</option><option\
+              \ data-id=\"north-ayrshire-council\">North Ayrshire Council</option><option\
+              \ data-id=\"north-lanarkshire-council\">North Lanarkshire Council</option><option\
+              \ data-id=\"orkney-islands-council\">Orkney Islands Council</option><option\
+              \ data-id=\"perth-kinross-council\">Perth &amp; Kinross Council</option><option\
+              \ data-id=\"renfrewshire-council\">Renfrewshire Council</option><option\
+              \ data-id=\"scottish-borders-council\">Scottish Borders Council</option><option\
+              \ data-id=\"south-ayrshire-council\">South Ayrshire Council</option><option\
+              \ data-id=\"south-lanarkshire-council\">South Lanarkshire Council</option><option\
+              \ data-id=\"shetland-council\">Shetland Council</option><option data-id=\"\
+              stirling-council\">Stirling Council</option><option data-id=\"west-dunbartonshire-council\"\
+              >West Dunbartonshire Council</option><option data-id=\"west-lothian-council\"\
+              >West Lothian Council</option></select>\n   </div>\n   <a id=\"dd-aberdeen-city-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.aberdeencity.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Aberdeen City Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-aberdeenshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.aberdeenshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Aberdeenshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-angus-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.angus.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Angus Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-argyll-and-bute-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.argyll-bute.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Argyll and Bute Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-clackmannanshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.clacksweb.org.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Clackmannanshire Council</span>\n \
+              \   <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-comhairle-nan-eilean-siar-western-isles-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.cne-siar.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Comhairle nan Eilean Siar (Western\
+              \ Isles Council)</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-dumfries-and-galloway-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.dumgal.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Dumfries and Galloway Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-dundee-city-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.dundeecity.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Dundee City Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-east-ayrshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.east-ayrshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Ayrshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-east-dunbartonshire-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.eastdunbarton.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Dunbartonshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-east-lothian-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.eastlothian.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Lothian Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-east-renfrewshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.eastrenfrewshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Renfrewshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-edinburgh-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.edinburgh.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Edinburgh Council</span>\n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              >\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-falkirk-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.falkirk.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Falkirk Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-fife-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.fifedirect.org.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Fife Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-glasgow-city-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.glasgow.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Glasgow City Council</span>\n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              >\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-the-highland-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.highland.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit The Highland Council</span>\n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              >\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-inverclyde-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.inverclyde.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Inverclyde Council</span>\n \
+              \   <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-midlothian-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.midlothian.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Midlothian Council</span>\n \
+              \   <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-moray-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.moray.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Moray Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-north-ayrshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.north-ayrshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit North Ayrshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-north-lanarkshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.northlanarkshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit North Lanarkshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-orkney-islands-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.orkney.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Orkney Islands Council</span>\n   \
+              \ <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-perth-kinross-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.pkc.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"><span\
+              \ class=\"link-text\">Visit Perth &amp; Kinross Council</span>\n   \
+              \ <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-renfrewshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.renfrewshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Renfrewshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-scottish-borders-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.scotborders.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Scottish Borders Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-south-ayrshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.south-ayrshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit South Ayrshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-south-lanarkshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.southlanarkshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit South Lanarkshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-shetland-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.shetland.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Shetland Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-stirling-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://my.stirling.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Stirling Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-west-dunbartonshire-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.west-dunbarton.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit West Dunbartonshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-west-lothian-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.westlothian.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit West Lothian Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n  </div> \n  <p>If you're still unhappy after\
+              \ going through a council's complaints process, you can make a complaint\
+              \ to the Scottish Public Services Ombudsman (SPSO). </p> \n  <blockquote>\
+              \ \n   <p>Whatever the outcome of your complaint to the SPSO, the SPSO\
+              \ cannot tell a council to change the result of your appeal.</p> \n\
+              \  </blockquote> \n  <p>You can contact the SPSO by:</p> \n  <ul> \n\
+              \   <li><a href=\"https://www.spso.org.uk/contact-us\">going to the\
+              \ SPSO website</a></li> \n   <li>phoning 0800 377 7330</li> \n   <li>sending\
+              \ a letter to the SPSO address</li> \n  </ul> \n  <p>The Freepost SPSO\
+              \ address is 'Freepost SPSO'. This is all you need to write on the envelope.\
+              \ You don't need to use a stamp.</p> \n  <p>If you would like to visit\
+              \ the SPSO office in person, you must first phone SPSO on 0800 377 7330\
+              \ to arrange a time. The office address is:</p> \n  <p>Scottish Public\
+              \ Services Ombudsman<br> Bridgeside House<br> 99 McDonald Road<br> Edinburgh<br>\
+              \ EH7 4NS</p> \n  <h2 id=\"what-else-you-can-do-if-you-ve-lost-an-appeal\"\
+              >What else you can do if you've lost an appeal</h2> \n  <p>Other things\
+              \ you can do include asking for:</p> \n  <ul> \n   <li>a review of the\
+              \ adjudicator's decision</li> \n   <li>the decision to be reviewed in\
+              \ a court case called a 'Judicial Review'</li> \n  </ul> \n  <h3 id=\"\
+              review-of-adjudicator-s-decision\">Review of adjudicator's decision</h3>\
+              \ \n  <p>For example, a review of the adjudicator's decision can take\
+              \ place when:</p> \n  <ul> \n   <li>the decision was wrongly made due\
+              \ to an administrative error</li> \n   <li>you had 'good' reason for\
+              \ not attending your hearing or getting someone else to attend for you,\
+              \ e.g. you were taken into hospital on the day</li> \n   <li>new evidence\
+              \ became available after the decision which you could not have known\
+              \ about </li> \n  </ul> \n  <h3 id=\"ask-for-the-decision-to-be-reviewed-in-a-judicial-review\"\
+              >Ask for the decision to be reviewed in a Judicial Review</h3> \n  <p>You\
+              \ need legal advice if you want the decision to be reviewed in a 'Judicial\
+              \ Review'. </p> \n  <p>A 'Judicial Review' is when a judge considers\
+              \ whether a decision or action made by a public body was lawful. They\
+              \ look at the way a decision has been made, rather than the rights and\
+              \ wrongs of the judgement reached.</p> \n  <h2 id=\"if-you-can-t-afford-to-pay-a-parking-ticket-or-bus-lane-fine\"\
+              >If you can't afford to pay a parking ticket or bus lane fine</h2> \n\
+              \  <p>If you can not afford to pay your parking or bus lane fine, <a\
+              \ href=\"http://www.cas.org.uk/bureaux\">Citizens Advice Scotland</a>\
+              \ can give you advice on money, debt and the law.</p> \n  "
+        /after-the-decision[3]:
+          jcr:primaryType: publishing:guidepage
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: b0b7d7d2-f60d-4f64-9a3a-8837a4aaa71b
+          hippo:availability: [live]
+          hippo:name: After the decision
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:43.944+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:44.018+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:16.797+01:00
           hippotranslation:id: 4362d036-7064-4331-9285-b20fcf31fdbf
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
@@ -15915,9 +16510,10 @@
         new-publishing-mirror]
       /index:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 29550316-02fe-46a9-8221-247f91d51342
         hippo:name: Transport help (temp version)
+        hippo:versionHistory: 71f2c358-a6cc-45c3-ac86-e87b7076f001
         /index[1]:
           jcr:primaryType: publishing:guide
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:versionable']
@@ -15986,11 +16582,47 @@
           publishing:userneed: transport
           /publishing:relateditems:
             jcr:primaryType: publishing:relateditems
+        /index[3]:
+          jcr:primaryType: publishing:guide
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: a414c860-8757-4c3b-9d0a-2c421cc92840
+          hippo:availability: [live]
+          hippo:name: Transport help (temp version)
+          hippostd:state: published
+          hippostd:tags: []
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:55.730+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:55.867+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:17.500+01:00
+          hippotranslation:id: 7b1bfa2c-b3b8-4f61-be09-e6737b2ffb6f
+          hippotranslation:locale: document-type-locale
+          publishing:audience: people
+          publishing:authorNotes: ''
+          publishing:metaDescription: 'Temporary item: making changes to a live item'
+          publishing:mygovid: MYGOV-2183
+          publishing:navigationType: list
+          publishing:relatedmygovids: ''
+          publishing:reportingtags: []
+          publishing:sensitive: false
+          publishing:seoTitle: Transport help (temp version)
+          publishing:sequenceable: true
+          publishing:serviceproviders: [scottish-government]
+          publishing:slug: transport-help-temp-version
+          publishing:summary: 'Temporary item: making changes to a live item'
+          publishing:title: Transport help (temp version)
+          publishing:urlAliases:
+            type: double
+            value: []
+          publishing:userneed: transport
+          /publishing:relateditems:
+            jcr:primaryType: publishing:relateditems
       /planning-your-journey:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 917244bb-1968-4578-877d-e0e888b8b0a5
         hippo:name: Planning your journey
+        hippo:versionHistory: c3ccea0d-e0ac-4136-828b-50d147b69028
         /planning-your-journey[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -16096,11 +16728,65 @@
               \ journey, you can use the <a href=\"https://greatbritishpublictoiletmap.rca.ac.uk/\"\
               >RCA online toilet map</a> and <a href=\"http://changingplaces.uktoiletmap.org/\"\
               >Changing Places toilet map.</a></p> \n  "
+        /planning-your-journey[3]:
+          jcr:primaryType: publishing:guidepage
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: 942120a5-2ac6-479b-aceb-ecfd90f1e10d
+          hippo:availability: [live]
+          hippo:name: Planning your journey
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:55.943+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:56.008+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:17.195+01:00
+          hippotranslation:id: 99f1f9e8-23d9-40d9-827a-889452b16f5f
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: summary for Planning your journey
+          publishing:reportingtags: []
+          publishing:seoTitle: Planning your journey
+          publishing:slug: planning-your-journey
+          publishing:summary: summary for Planning your journey
+          publishing:title: Planning your journey
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: " \n  <p>If you're travelling somewhere and you don't\
+              \ know how to get there, you should plan your journey in advance.</p>\
+              \ \n  <p><a href=\"http://www.travelinescotland.com/\">Traveline Scotland</a>\
+              \ lets you plan journeys using public transport between any two locations\
+              \ in Scotland. It includes information on travelling by:</p> \n  <ul>\
+              \ \n   <li>bus and coach</li> \n   <li>tram</li> \n   <li>rail and subway</li>\
+              \ \n   <li>ferry</li> \n   <li>plane</li> \n  </ul> \n  <p>The <a href=\"\
+              http://www.travelinescotland.com/\">Traveline Scotland</a> website lets\
+              \ you:</p> \n  <ul> \n   <li>choose which modes of transport you do\
+              \ (or don't) want to take</li> \n   <li>set a maximum walking distance\
+              \ and walking speed, in case you have trouble walking for a certain\
+              \ period of time</li> \n   <li>see your journey on a map with aerial\
+              \ and street views</li> \n   <li>get information on any disruptions\
+              \ to your journey (like traffic delays or planned works)</li> \n   <li>print\
+              \ off or email your journey plans, so you can keep them with you on\
+              \ your journey</li> \n  </ul> \n  <p>There's also a Traveline Scotland\
+              \ mobile app which lets you plan journeys while you're out.</p> \n \
+              \ <blockquote> \n   <p>If you're planning on travelling by car instead\
+              \ of public transport, you can get traffic information on <a href=\"\
+              https://trafficscotland.org/\">Traffic Scotland.</a></p> \n  </blockquote>\
+              \ \n  <h2 id=\"planning-for-accessibility\">Planning for accessibility</h2>\
+              \ \n  <p>If you're planning a longer journey, you can search on the\
+              \ <a href=\"https://www.visitscotland.com/\">VisitScotland</a> website\
+              \ for accessible accommodation and visitor attractions.</p> \n  <p>The\
+              \ website also gives details of VisitScotland iCentres, which you van\
+              \ visit to get help to plan journeys.</p> \n  <p>If you need to make\
+              \ sure there'll be toilets or Changing Places toilets available on your\
+              \ journey, you can use the <a href=\"https://greatbritishpublictoiletmap.rca.ac.uk/\"\
+              >RCA online toilet map</a> and <a href=\"http://changingplaces.uktoiletmap.org/\"\
+              >Changing Places toilet map.</a></p> \n  "
       /buses-coaches-and-trams:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 27b79297-77bf-4d68-a3a0-656ca851f46b
         hippo:name: Buses, coaches and trams
+        hippo:versionHistory: b37a5eb8-c485-4ddb-8878-04920a43a492
         /buses-coaches-and-trams[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -16312,11 +16998,118 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+        /buses-coaches-and-trams[3]:
+          jcr:primaryType: publishing:guidepage
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: 7b66143f-157f-4b62-ad67-4a7a4400c8c9
+          hippo:availability: [live]
+          hippo:name: Buses, coaches and trams
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:56.088+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:56.163+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:15.262+01:00
+          hippotranslation:id: ba672add-1878-4ef3-bace-045d70f225e2
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: summary for Buses, coaches and trams
+          publishing:reportingtags: []
+          publishing:seoTitle: Buses, coaches and trams
+          publishing:slug: buses-coaches-and-trams
+          publishing:summary: summary for Buses, coaches and trams
+          publishing:title: Buses, coaches and trams
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: "<html>\n <head></head>\n <body>\n  <h2 id=\"national-entitlement-card-bus-pass-\"\
+              >National Entitlement Card (bus pass)</h2> \n  <p>If you're over 60\
+              \ or have a disability, you can travel for free on:</p> \n  <ul> \n\
+              \   <li>nearly all local bus services</li> \n   <li>nearly all longer\
+              \ journeys between Scottish cities - you can check timetables, including\
+              \ <a href=\"http://www.citylink.co.uk/timetables.php\">Citylink</a>\
+              \ and <a href=\"https://uk.megabus.com/Default.aspx\">Megabus</a>, for\
+              \ times and routes of services between cities</li> \n  </ul> \n  <p>The\
+              \ only bus services you can't get free travel on are:</p> \n  <ul> \n\
+              \   <li>premium fare night buses – these normally run between midnight\
+              \ and 5am and charge more than the usual fare - premium fare night buses\
+              \ are marked on bus timetables</li> \n   <li>private sightseeing buses,\
+              \ such as the 'City Sightseeing' tour buses running in cities like Edinburgh,\
+              \ Glasgow and Inverness</li> \n   <li>a very small number of other 'premium'\
+              \ services (like premium airport buses) that don't accept the National\
+              \ Entitlement Card - these are marked on bus timetables</li> \n  </ul>\
+              \ \n  <p>If you're unsure whether a bus will accept your National Entitlement\
+              \ Card, check before you travel.</p> \n  <h3 id=\"how-to-use-your-card\"\
+              >How to use your card</h3> \n  <ul> \n   <li>Find out how to use your\
+              \ <a href=\"using-your-card\">older persons bus card</a> </li> \n  \
+              \ <li>Find out how to use your <a href=\"using-your-card\">disabled\
+              \ persons bus card</a></li> \n  </ul> \n  <h3 id=\"how-to-apply\">How\
+              \ to apply</h3> \n  <p>Application forms are available from council\
+              \ information offices, libraries, local travel centres or Post Offices\
+              \ – depending on where you live in Scotland. Visit <a href=\"https://www.transport.gov.scot/concessionary-travel/\"\
+              >Transport Scotland</a> for details on how to apply and who to contact\
+              \ from your local council. </p> \n  <p>When applying, you'll need:</p>\
+              \ \n  <ul> \n   <li>a completed application form</li> \n   <li>a recent\
+              \ photograph</li> \n   <li>proof of age or disability</li> \n   <li>proof\
+              \ of your current address</li> \n  </ul> \n  <h3 id=\"renewing-your-card\"\
+              >Renewing your card</h3> \n  <p>If you have a National Entitlement Card\
+              \ because you're over 60 your card won't expire and won't need to be\
+              \ renewed.</p> \n  <p>If you have a National Entitlement Card because\
+              \ you're disabled, it might have an expiry date on it. If your card\
+              \ runs out in 4-6 weeks and you haven't heard from your local council\
+              \ or Transport Scotland about renewing it, contact <a href=\"https://www.transport.gov.scot/concessionary-travel/\"\
+              >Transport Scotland</a> and let them know your card is expiring soon.</p>\
+              \ \n  <h2 id=\"companion-cards\">Companion cards</h2> \n  <p>You can\
+              \ get a companion card for a companion to travel with you, if you meet\
+              \ certain eligibility criteria. <a href=\"https://www.transport.gov.scot/concessionary-travel/\"\
+              >Transport Scotland</a> has details of the eligibility criteria and\
+              \ the application process.</p> \n  <h2 id=\"travelling-on-buses\">Travelling\
+              \ on buses</h2> \n  <p>All of Scotland's buses are wheelchair accessible.\
+              \ This means they're designed to provide easy access and space for wheelchair\
+              \ users and buggies. </p> \n  <p>If a wheelchair user wants to board\
+              \ the bus, buggy users might be asked to move or fold their buggy up.</p>\
+              \ \n  <p>The ramps on all buses must be in full working order at all\
+              \ times. The law says every bus driver and conductor must provide reasonable\
+              \ assistance to disabled people to board and get off the bus.</p> \n\
+              \  <p>Some buses have 'next stop' indicators which tell you what the\
+              \ next stop is on a screen and with a voice announcement. If a bus doesn't\
+              \ have this, you can use the Scot Talk app, or ask the driver to tell\
+              \ you when you have reached your stop.</p> \n  <p>If you want to get\
+              \ off at the next stop, the stop request button lets you tell the driver.\
+              \ They're usually on grab rails and at chest height.</p> \n  <p>Assistance\
+              \ dogs are allowed on all buses and there's no limit to on how many\
+              \ are allowed on at any time, as long as it's safe.</p> \n  <h2 id=\"\
+              coaches\">Coaches</h2> \n  <p>There are two long-distance coach operators\
+              \ operating in Scotland who offer assistance to passengers.</p> \n \
+              \ <p>They may be able to make sure a wheelchair space is available,\
+              \ or make sure staff help with putting luggage on the coach.</p> \n\
+              \  <p>You should contact the operator at least 36 hours before you travel\
+              \ so they can understand what you need, and tell you what assistance\
+              \ they can give you at each stage of your journey. You can find contact\
+              \ details on their websites:</p> \n  <ul> \n   <li><a href=\"http://www.citylink.co.uk/assistedtravel.php\"\
+              >Scottish Citylink</a></li> \n   <li><a href=\"http://www.nationalexpress.com/help-and-advice/about-us/disabled-travellers.aspx#3\"\
+              >National Express</a></li> \n  </ul> \n  <p>If you're able to, book\
+              \ your coach travel in advance. This will give the transport provider\
+              \ more time to meet your needs.</p> \n  <h2 id=\"trams\">Trams</h2>\
+              \ \n  <p>If you hold a Scottish National Entitlement Card, issued by\
+              \ the City of Edinburgh Council, you can travel for free on Edinburgh\
+              \ trams. Scottish National Entitlement Cards that were not issued by\
+              \ Edinburgh Council are not valid on tram services, unless you are blind\
+              \ or visually impaired.</p> \n  <blockquote> \n   <p>Visit the <a href=\"\
+              http://edinburghtrams.com/tickets/scottish-concession-cards\">Transport\
+              \ for Edinburgh website</a> for further information on travelling by\
+              \ tram in Edinburgh.</p> \n  </blockquote> \n </body>\n</html>"
+            /using-your-card:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: e425c4a7-93ed-4fef-b478-75ccd151d90e
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
       /community-transport:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: e6ba483a-d526-4a02-bdd1-92e03135f81b
         hippo:name: Community transport
+        hippo:versionHistory: 84e729d4-1fb4-4c76-aad3-c10d45d68037
         /community-transport[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -16874,11 +17667,291 @@
               \ so you can do it on your own in the future.</p> \n  <p>To find out\
               \ about travel mentoring schemes in your area, contact your local council.</p>\
               \ \n  "
+        /community-transport[3]:
+          jcr:primaryType: publishing:guidepage
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: 115c499a-6256-405e-b751-dadca1fe9367
+          hippo:availability: [live]
+          hippo:name: Community transport
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:56.281+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:56.411+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:19.432+01:00
+          hippotranslation:id: 6dbff0de-6e3b-47e9-a5ff-f8b2b82b29a2
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: summary for Community transport
+          publishing:reportingtags: []
+          publishing:seoTitle: Community transport
+          publishing:slug: community-transport
+          publishing:summary: summary for Community transport
+          publishing:title: Community transport
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: " \n  <p>If you aren't able to get a bus and need you\
+              \ help with transport – to get to a doctor's appointment, for example\
+              \ – community transport options may be available to you.</p> \n  <p>Visit\
+              \ <a href=\"http://www.ctonline.org.uk/search/scotland/\">Community\
+              \ Transport Online</a> to search for help in your area. Or:</p> \n \
+              \ <ul> \n   <li>the <a href=\"http://www.redcross.org.uk/What-we-do/Health-and-social-care/Independent-living/Transport-support\"\
+              >British Red Cross Transport Service</a> can give you a driver, vehicle\
+              \ and assistance to get to hospital appointments – it also supplies\
+              \ wheelchairs</li> \n   <li>the <a href=\"http://www.scottishambulance.com/WhatWeDo/pts.aspx\"\
+              >Scottish Ambulance Service Patient Transport Service</a> can provide\
+              \ you with an ambulance if you need help getting to a health appointment\
+              \ – or for admission to and discharge from hospital – if you have a\
+              \ medical need or limited mobility</li> \n  </ul> \n  <h2 id=\"dial-a-bus\"\
+              >Dial-a-Bus</h2> \n  <p>Dial-a-Bus schemes are designed to help people\
+              \ who have difficulty using standard buses.</p> \n  <p>A Dial-a-Bus\
+              \ may be useful because:</p> \n  <ul> \n   <li>they're wheelchair-accessible,\
+              \ with low floor ramp access at the front of the vehicle</li> \n   <li>you'll\
+              \ be picked up and dropped off as near as possible to your home and\
+              \ destination</li> \n   <li>the driver can assist you on and off the\
+              \ bus</li> \n   <li>they can take you to and from train stations</li>\
+              \ \n  </ul> \n  <h2 id=\"dial-a-ride\">Dial-a-Ride</h2> \n  <p>Dial-a-Ride\
+              \ provides a door-to-door transport service for people with limited\
+              \ mobility who are unable to use ordinary bus services.</p> \n  <p>The\
+              \ vehicles are specially built to carry wheelchair users and other passengers\
+              \ safely and comfortably.</p> \n  <p>Contact your local council to see\
+              \ if there's a Dial-a-Ride or Dial-a-Bus scheme in your area and if\
+              \ you're eligible.</p> \n  <div class=\"dd  finder-hero  form-box\"\
+              >\n   <label for=\"council-select-429474\">Find out more about Dial-a-Ride\
+              \ in your area</label>\n   <div class=\"create-select__arrow\">\n  \
+              \  <select class=\"create-select\" id=\"council-select-429474\"><option\
+              \ selected value=\"\" disabled>Choose your local council</option><option\
+              \ data-id=\"aberdeen-city-council\">Aberdeen City Council</option><option\
+              \ data-id=\"aberdeenshire-council\">Aberdeenshire Council</option><option\
+              \ data-id=\"angus-council\">Angus Council</option><option data-id=\"\
+              argyll-and-bute-council\">Argyll and Bute Council</option><option data-id=\"\
+              clackmannanshire-council\">Clackmannanshire Council</option><option\
+              \ data-id=\"comhairle-nan-eilean-siar-western-isles-council\">Comhairle\
+              \ nan Eilean Siar (Western Isles Council)</option><option data-id=\"\
+              dumfries-and-galloway-council\">Dumfries and Galloway Council</option><option\
+              \ data-id=\"dundee-city-council\">Dundee City Council</option><option\
+              \ data-id=\"east-ayrshire-council\">East Ayrshire Council</option><option\
+              \ data-id=\"east-dunbartonshire-council\">East Dunbartonshire Council</option><option\
+              \ data-id=\"east-lothian-council\">East Lothian Council</option><option\
+              \ data-id=\"east-renfrewshire-council\">East Renfrewshire Council</option><option\
+              \ data-id=\"edinburgh-council\">Edinburgh Council</option><option data-id=\"\
+              falkirk-council\">Falkirk Council</option><option data-id=\"fife-council\"\
+              >Fife Council</option><option data-id=\"glasgow-city-council\">Glasgow\
+              \ City Council</option><option data-id=\"the-highland-council\">The\
+              \ Highland Council</option><option data-id=\"inverclyde-council\">Inverclyde\
+              \ Council</option><option data-id=\"midlothian-council\">Midlothian\
+              \ Council</option><option data-id=\"moray-council\">Moray Council</option><option\
+              \ data-id=\"north-ayrshire-council\">North Ayrshire Council</option><option\
+              \ data-id=\"north-lanarkshire-council\">North Lanarkshire Council</option><option\
+              \ data-id=\"orkney-islands-council\">Orkney Islands Council</option><option\
+              \ data-id=\"perth-kinross-council\">Perth &amp; Kinross Council</option><option\
+              \ data-id=\"renfrewshire-council\">Renfrewshire Council</option><option\
+              \ data-id=\"scottish-borders-council\">Scottish Borders Council</option><option\
+              \ data-id=\"south-ayrshire-council\">South Ayrshire Council</option><option\
+              \ data-id=\"south-lanarkshire-council\">South Lanarkshire Council</option><option\
+              \ data-id=\"shetland-council\">Shetland Council</option><option data-id=\"\
+              stirling-council\">Stirling Council</option><option data-id=\"west-dunbartonshire-council\"\
+              >West Dunbartonshire Council</option><option data-id=\"west-lothian-council\"\
+              >West Lothian Council</option></select>\n   </div>\n   <a id=\"dd-aberdeen-city-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.aberdeencity.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Aberdeen City Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-aberdeenshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.aberdeenshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Aberdeenshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-angus-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.angus.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Angus Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-argyll-and-bute-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.argyll-bute.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Argyll and Bute Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-clackmannanshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.clacksweb.org.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Clackmannanshire Council</span>\n \
+              \   <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-comhairle-nan-eilean-siar-western-isles-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.cne-siar.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Comhairle nan Eilean Siar (Western\
+              \ Isles Council)</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-dumfries-and-galloway-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.dumgal.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Dumfries and Galloway Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-dundee-city-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.dundeecity.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Dundee City Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-east-ayrshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.east-ayrshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Ayrshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-east-dunbartonshire-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.eastdunbarton.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Dunbartonshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-east-lothian-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.eastlothian.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Lothian Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-east-renfrewshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.eastrenfrewshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Renfrewshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-edinburgh-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.edinburgh.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Edinburgh Council</span>\n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              >\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-falkirk-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.falkirk.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Falkirk Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-fife-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.fifedirect.org.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Fife Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-glasgow-city-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.glasgow.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Glasgow City Council</span>\n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              >\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-the-highland-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.highland.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit The Highland Council</span>\n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              >\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-inverclyde-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.inverclyde.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Inverclyde Council</span>\n \
+              \   <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-midlothian-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.midlothian.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Midlothian Council</span>\n \
+              \   <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-moray-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.moray.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Moray Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-north-ayrshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.north-ayrshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit North Ayrshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-north-lanarkshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.northlanarkshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit North Lanarkshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-orkney-islands-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.orkney.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Orkney Islands Council</span>\n   \
+              \ <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-perth-kinross-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.pkc.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"><span\
+              \ class=\"link-text\">Visit Perth &amp; Kinross Council</span>\n   \
+              \ <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-renfrewshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.renfrewshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Renfrewshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-scottish-borders-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.scotborders.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Scottish Borders Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-south-ayrshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.south-ayrshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit South Ayrshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-south-lanarkshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.southlanarkshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit South Lanarkshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-shetland-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.shetland.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Shetland Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-stirling-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://my.stirling.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Stirling Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-west-dunbartonshire-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.west-dunbarton.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit West Dunbartonshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-west-lothian-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.westlothian.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit West Lothian Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n  </div> \n  <h2 id=\"assisted-transport\"\
+              >Assisted transport</h2> \n  <p>If you're a disabled person and you\
+              \ aren't used to travelling, your local council may offer mentoring\
+              \ support.</p> \n  <p>This means you might be able to get a mentor to\
+              \ come along with you for some journeys to help you see how to travel\
+              \ so you can do it on your own in the future.</p> \n  <p>To find out\
+              \ about travel mentoring schemes in your area, contact your local council.</p>\
+              \ \n  "
       /trains-and-the-subway:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 649e15cc-dafc-43ce-9e37-b0329bafebfb
         hippo:name: Trains and the subway
+        hippo:versionHistory: 12ecd4ad-6094-4442-8349-6c2391577cf9
         /trains-and-the-subway[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -17026,11 +18099,86 @@
               \ \n  </ul> \n  <p>Further <a href=\"http://www.spt.co.uk/subway/maps-stations/\"\
               >information on mobility and access</a> is available via the STP website.</p>\
               \ \n  "
+        /trains-and-the-subway[3]:
+          jcr:primaryType: publishing:guidepage
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: c69c1fae-3da6-4109-b7f9-7d8dfca96bfd
+          hippo:availability: [live]
+          hippo:name: Trains and the subway
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:56.492+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:56.578+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:19.323+01:00
+          hippotranslation:id: 7606676f-8f0f-4e94-9caf-eac52a712f85
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: summary for Trains and the subway
+          publishing:reportingtags: []
+          publishing:seoTitle: Trains and the subway
+          publishing:slug: trains-and-the-subway
+          publishing:summary: summary for Trains and the subway
+          publishing:title: Trains and the subway
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: " \n  <h2 id=\"concessionary-train-travel\">Concessionary\
+              \ train travel</h2> \n  <p>Some local councils offer over-60 and disabled\
+              \ people free or discounted train travel. Visit the <a href=\"http://www.nationalrail.co.uk/times_fares/46512.aspx\"\
+              >National Rail Enquiries</a> website to check if this is available in\
+              \ your area. </p> \n  <blockquote> \n   <p>Only holders of National\
+              \ Entitlement Cards can get concessionary train travel. Visit <a href=\"\
+              https://www.transport.gov.scot/concessionary-travel/\">Transport Scotland</a>\
+              \ to find out how to apply. </p> \n  </blockquote> \n  <h2 id=\"senior-railcard\"\
+              >Senior Railcard</h2> \n  <p>With a Senior Railcard, anyone aged 60\
+              \ or over can save a third on standard and first class train fares throughout\
+              \ Great Britain. </p> \n  <p>You can buy a Senior Railcard at mainline\
+              \ train stations or <a href=\"http://www.senior-railcard.co.uk/\">online</a>.</p>\
+              \ \n  <h2 id=\"disabled-persons-railcard\">Disabled Persons Railcard</h2>\
+              \ \n  <p>If you have a disability that makes travelling by train difficult,\
+              \ you might qualify for the Disabled Persons Railcard. You'll get a\
+              \ third off most train fares throughout Great Britain. If you're travelling\
+              \ with an adult companion, they can get the same discount.</p> \n  <p>You\
+              \ can buy a Disabled Persons Railcard at mainline train stations or\
+              \ <a href=\"http://www.disabledpersons-railcard.co.uk/\">online</a>.</p>\
+              \ \n  <h2 id=\"rail-travel-assistance-for-disabled-passengers\">Rail\
+              \ travel assistance for disabled passengers</h2> \n  <p>Train companies\
+              \ usually arrange for staff to meet you at your departure station, accompany\
+              \ you to the train and see you safely on board. </p> \n  <p>Similar\
+              \ arrangements can be made at your destination station and other stations\
+              \ if you need to change trains. For example, ramps can be provided for\
+              \ wheelchair users.</p> \n  <p>For further information, visit the <a\
+              \ href=\"http://www.scotrail.co.uk/plan-your-journey/accessible-travel\"\
+              >ScotRail</a> website.</p> \n  <h2 id=\"using-the-train\">Using the\
+              \ train</h2> \n  <p>Most train stations are accessible, but check before\
+              \ you travel to make sure the route suits your needs. You can look at\
+              \ all the facilities at every rail station on the <a href=\"http://www.nationalrail.co.uk/stations_destinations/default.aspx\"\
+              >National Rail website.</a></p> \n  <p>If you want to use a station\
+              \ that isn't accessible to you, ScotRail will book you a free taxi between\
+              \ that station and the nearest or most convenient accessible one for\
+              \ your journey.</p> \n  <p>This is part of the Passenger Assistance\
+              \ service provided by the rail industry for anyone who wants extra help\
+              \ while travelling. To use the service, it's best to book in advance.\
+              \ Look at the <a href=\"https://www.scotrail.co.uk/plan-your-journey/accessible-travel\"\
+              >ScotRail website</a> for more information on what's available and how\
+              \ to book.</p> \n  <blockquote> \n   <p>All rail staff get disability\
+              \ awareness training and will help customers where it's safe to do so,\
+              \ even if you haven't booked Passenger Assistance.</p> \n  </blockquote>\
+              \ \n  <h2 id=\"the-subway-glasgow-\">The Subway (Glasgow)</h2> \n  <p>The\
+              \ Subway in Glasgow has a number of accessibility features.</p> \n \
+              \ <ul> \n   <li>Wheelchairs are allowed in the subway, but only if they're\
+              \ folded (because of the small size of the trains).</li> \n   <li>Guide\
+              \ dogs and hearing dogs are welcome.</li> \n   <li>Ticket offices have\
+              \ amplification equipment for customers with hearing problems.</li>\
+              \ \n  </ul> \n  <p>Further <a href=\"http://www.spt.co.uk/subway/maps-stations/\"\
+              >information on mobility and access</a> is available via the STP website.</p>\
+              \ \n  "
       /cars-and-taxis:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: d7759a43-eac8-49c5-9c66-7648fb4cc886
         hippo:name: Cars and taxis
+        hippo:versionHistory: d48faa20-af68-4279-b953-7e413861bc40
         /cars-and-taxis[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -17628,11 +18776,311 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
+        /cars-and-taxis[3]:
+          jcr:primaryType: publishing:guidepage
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: 43f3b5f4-45d0-4511-8922-c884a8388cf7
+          hippo:availability: [live]
+          hippo:name: Cars and taxis
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:56.727+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:56.821+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:19.625+01:00
+          hippotranslation:id: 161c4c27-3157-4aa2-b3d9-c474f5401196
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: summary for Cars and taxis
+          publishing:reportingtags: []
+          publishing:seoTitle: Cars and taxis
+          publishing:slug: cars-and-taxis
+          publishing:summary: summary for Cars and taxis
+          publishing:title: Cars and taxis
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: "<html>\n <head></head>\n <body>\n  <p>Visit GOV.uk\
+              \ to find out <a href=\"https://www.gov.uk/driving-medical-conditions\"\
+              >what you need to do if you're driving and have a medical condition\
+              \ or disability</a>.</p> \n  <h2 id=\"help-with-parking\">Help with\
+              \ parking</h2> \n  <p>The <a href=\"index\">Blue Badge scheme</a> provides\
+              \ parking concessions for disabled people travelling either as drivers\
+              \ or passengers.</p> \n  <p>This means you can park closer to where\
+              \ you need to go. You'll be exempt from certain parking restrictions,\
+              \ like being allowed to park:</p> \n  <ul> \n   <li>free at on-street\
+              \ parking meters and in Pay and Display bays</li> \n   <li>up to three\
+              \ hours on single and double yellow lines</li> \n  </ul> \n  <h2 id=\"\
+              getting-changes-to-the-roads\">Getting changes to the roads</h2> \n\
+              \  <p>You can get changes to the roads in your local area to make it\
+              \ more accessible:</p> \n  <ul> \n   <li><p>You can report access problems\
+              \ to your council. This can include the pavement not being easily accessible,\
+              \ broken street lights or roadworks not being properly safeguarded.</p>\
+              \ </li> \n   <li><p>You may be able to get part of the kerb and footway\
+              \ in your street lowered for easier access, but you must talk to your\
+              \ council first.</p> </li> \n   <li><p>If you have a Blue Badge, you\
+              \ may be able to get a disabled person's parking space outside your\
+              \ home. The space won't just be for you though – anyone with a Blue\
+              \ Badge can park there.</p> </li> \n  </ul> \n  <h2 id=\"help-to-buy-a-car\"\
+              >Help to buy a car</h2> \n  <p>The <a href=\"http://www.motability.co.uk/\"\
+              >Motability Scheme</a> can help you with leasing or buying a car, powered\
+              \ wheelchair or scooter – to be used by you or someone caring for you.\
+              \ </p> \n  <p>You can get this if you're on the higher rate mobility\
+              \ component of <a href=\"https://www.gov.uk/dla-disability-living-allowance-benefit\"\
+              >Disability Living Allowance</a> or War Pensioners' Mobility Supplement.</p>\
+              \ \n  <h2 id=\"taxis\">Taxis</h2> \n  <p>Taxis and private hire cars\
+              \ won't always be accessible. Some will be wheelchair accessible, while\
+              \ others won't. You can contact a taxi company and ask to book a car\
+              \ which is right for your needs.</p> \n  <p>To find a taxi service in\
+              \ your area, contact your local council. They can provide a list of\
+              \ licensed taxi and private hire car operators.</p> \n  <p>If a taxi\
+              \ or private hire car is wheelchair accessible, the driver must be able\
+              \ to carry your wheelchair, at no extra charge, unless they can't for\
+              \ medical reasons. You can ask to see their medical exemption certificate.</p>\
+              \ \n  <p>There's no extra charge for carrying an assistance dog. A driver\
+              \ can only refuse to carry an assistance dog if they have a medical\
+              \ exemption certificate – you can ask to see this. </p> \n  <h3 id=\"\
+              taxi-cards\">Taxi Cards</h3> \n  <p>Taxi Card schemes offer reduced\
+              \ fare taxi and train travel to those who can't use buses because of\
+              \ severe physical disability or infirmity.</p> \n  <p>Contact your <a\
+              \ href=\"/find-your-local-council/\">local council</a> to see if there's\
+              \ a Taxi Card scheme in your area and if you're eligible.</p> \n  <div\
+              \ class=\"dd  finder-hero  form-box\"> \n   <label for=\"council-select-301658\"\
+              >Find out more about the Taxi Card scheme in your area</label> \n  \
+              \ <div class=\"create-select__arrow\"> \n    <select class=\"create-select\"\
+              \ id=\"council-select-301658\"><option selected value=\"\" disabled>Choose\
+              \ your local council</option><option data-id=\"aberdeen-city-council\"\
+              >Aberdeen City Council</option><option data-id=\"aberdeenshire-council\"\
+              >Aberdeenshire Council</option><option data-id=\"angus-council\">Angus\
+              \ Council</option><option data-id=\"argyll-and-bute-council\">Argyll\
+              \ and Bute Council</option><option data-id=\"clackmannanshire-council\"\
+              >Clackmannanshire Council</option><option data-id=\"comhairle-nan-eilean-siar-western-isles-council\"\
+              >Comhairle nan Eilean Siar (Western Isles Council)</option><option data-id=\"\
+              dumfries-and-galloway-council\">Dumfries and Galloway Council</option><option\
+              \ data-id=\"dundee-city-council\">Dundee City Council</option><option\
+              \ data-id=\"east-ayrshire-council\">East Ayrshire Council</option><option\
+              \ data-id=\"east-dunbartonshire-council\">East Dunbartonshire Council</option><option\
+              \ data-id=\"east-lothian-council\">East Lothian Council</option><option\
+              \ data-id=\"east-renfrewshire-council\">East Renfrewshire Council</option><option\
+              \ data-id=\"edinburgh-council\">Edinburgh Council</option><option data-id=\"\
+              falkirk-council\">Falkirk Council</option><option data-id=\"fife-council\"\
+              >Fife Council</option><option data-id=\"glasgow-city-council\">Glasgow\
+              \ City Council</option><option data-id=\"the-highland-council\">The\
+              \ Highland Council</option><option data-id=\"inverclyde-council\">Inverclyde\
+              \ Council</option><option data-id=\"midlothian-council\">Midlothian\
+              \ Council</option><option data-id=\"moray-council\">Moray Council</option><option\
+              \ data-id=\"north-ayrshire-council\">North Ayrshire Council</option><option\
+              \ data-id=\"north-lanarkshire-council\">North Lanarkshire Council</option><option\
+              \ data-id=\"orkney-islands-council\">Orkney Islands Council</option><option\
+              \ data-id=\"perth-kinross-council\">Perth &amp; Kinross Council</option><option\
+              \ data-id=\"renfrewshire-council\">Renfrewshire Council</option><option\
+              \ data-id=\"scottish-borders-council\">Scottish Borders Council</option><option\
+              \ data-id=\"south-ayrshire-council\">South Ayrshire Council</option><option\
+              \ data-id=\"south-lanarkshire-council\">South Lanarkshire Council</option><option\
+              \ data-id=\"shetland-council\">Shetland Council</option><option data-id=\"\
+              stirling-council\">Stirling Council</option><option data-id=\"west-dunbartonshire-council\"\
+              >West Dunbartonshire Council</option><option data-id=\"west-lothian-council\"\
+              >West Lothian Council</option></select> \n   </div> \n   <a id=\"dd-aberdeen-city-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.aberdeencity.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Aberdeen City Council</span>\
+              \ \n    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"\
+              0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-aberdeenshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.aberdeenshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Aberdeenshire Council</span>\
+              \ \n    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"\
+              0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-angus-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.angus.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Angus Council</span> \n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-argyll-and-bute-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.argyll-bute.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Argyll and Bute Council</span>\
+              \ \n    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"\
+              0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-clackmannanshire-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.clacksweb.org.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Clackmannanshire Council</span>\
+              \ \n    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"\
+              0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-comhairle-nan-eilean-siar-western-isles-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.cne-siar.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Comhairle nan Eilean Siar (Western\
+              \ Isles Council)</span> \n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-dumfries-and-galloway-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.dumgal.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Dumfries and Galloway Council</span>\
+              \ \n    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"\
+              0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-dundee-city-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.dundeecity.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Dundee City Council</span> \n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-east-ayrshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.east-ayrshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Ayrshire Council</span>\
+              \ \n    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"\
+              0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-east-dunbartonshire-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.eastdunbarton.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Dunbartonshire Council</span>\
+              \ \n    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"\
+              0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-east-lothian-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.eastlothian.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Lothian Council</span> \n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-east-renfrewshire-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.eastrenfrewshire.gov.uk/\" data-gtm=\"link-la\"\
+              \ aria-hidden=\"true\"><span class=\"link-text\">Visit East Renfrewshire\
+              \ Council</span> \n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-edinburgh-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.edinburgh.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Edinburgh Council</span> \n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              > \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-falkirk-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.falkirk.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Falkirk Council</span> \n    <svg class=\"\
+              svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"> \n     <use\
+              \ xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-fife-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.fifedirect.org.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Fife Council</span> \n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-glasgow-city-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.glasgow.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Glasgow City Council</span> \n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              > \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-the-highland-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.highland.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit The Highland Council</span> \n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              > \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-inverclyde-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.inverclyde.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Inverclyde Council</span> \n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-midlothian-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.midlothian.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Midlothian Council</span> \n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-moray-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.moray.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Moray Council</span> \n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-north-ayrshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.north-ayrshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit North Ayrshire Council</span>\
+              \ \n    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"\
+              0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-north-lanarkshire-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.northlanarkshire.gov.uk/\" data-gtm=\"link-la\"\
+              \ aria-hidden=\"true\"><span class=\"link-text\">Visit North Lanarkshire\
+              \ Council</span> \n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-orkney-islands-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.orkney.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Orkney Islands Council</span> \n  \
+              \  <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-perth-kinross-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.pkc.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"><span\
+              \ class=\"link-text\">Visit Perth &amp; Kinross Council</span> \n  \
+              \  <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-renfrewshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.renfrewshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Renfrewshire Council</span> \n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-scottish-borders-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.scotborders.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Scottish Borders Council</span>\
+              \ \n    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"\
+              0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-south-ayrshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.south-ayrshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit South Ayrshire Council</span>\
+              \ \n    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"\
+              0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-south-lanarkshire-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"https://www.southlanarkshire.gov.uk/\" data-gtm=\"link-la\"\
+              \ aria-hidden=\"true\"><span class=\"link-text\">Visit South Lanarkshire\
+              \ Council</span> \n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-shetland-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.shetland.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Shetland Council</span> \n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              > \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-stirling-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://my.stirling.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Stirling Council</span> \n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              > \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-west-dunbartonshire-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.west-dunbarton.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit West Dunbartonshire Council</span>\
+              \ \n    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"\
+              0 0 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n   <a id=\"dd-west-lothian-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.westlothian.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit West Lothian Council</span> \n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\"> \n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use> \n    </svg></a> \n  </div> \n </body>\n</html>"
+            /index:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: 2e652eb8-37fe-4868-8a67-8f19f6c46012
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
       /ferries:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: c6aeab12-c078-41b5-b225-751870e02757
         hippo:name: Ferries
+        hippo:versionHistory: 042dae73-6f72-447a-b6c9-52e82695d755
         /ferries[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -17710,11 +19158,51 @@
               \ <p>Most ferry companies offer discounts to disabled passengers, but\
               \ you may need to bring proof (like a Blue Badge) so staff can check\
               \ you're entitled to it.</p> \n  </blockquote> \n  "
+        /ferries[3]:
+          jcr:primaryType: publishing:guidepage
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: 549fd64e-27a5-4110-b000-5fc7d83bbe31
+          hippo:availability: [live]
+          hippo:name: Ferries
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:56.910+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:56.976+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:18.720+01:00
+          hippotranslation:id: e778e51e-8f11-4e33-843a-746c569f6736
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: summary for Ferries
+          publishing:reportingtags: []
+          publishing:seoTitle: Ferries
+          publishing:slug: ferries
+          publishing:summary: summary for Ferries
+          publishing:title: Ferries
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: " \n  <p>Most ferry companies operating within, to and\
+              \ from Scotland use ships which are accessible to people with all disabilities,\
+              \ including those who use wheelchairs.</p> \n  <p>Ferry companies aren't\
+              \ allowed to refuse a person to travel because of their disability,\
+              \ unless they have to for safety reasons. </p> \n  <p>The law says ferry\
+              \ companies and port operators must give disabled people assistance\
+              \ free of charge, from their arrival at the port terminal until they\
+              \ leave their destination port. This assistance doesn't include personal\
+              \ care, though.</p> \n  <p>If you're going to need assistance on a ferry,\
+              \ you should give the ferry company as much notice as possible (at least\
+              \ 48 hours), so they know what your needs are.</p> \n  <p>Visit Traveline\
+              \ Scotland to view <a href=\"http://www.travelinescotland.com/cms/content/FerryLinks.xhtml\"\
+              >contact details for ferry operators</a>.</p> \n  <blockquote> \n  \
+              \ <p>Most ferry companies offer discounts to disabled passengers, but\
+              \ you may need to bring proof (like a Blue Badge) so staff can check\
+              \ you're entitled to it.</p> \n  </blockquote> \n  "
       /planes:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 22e65265-cd8c-45a1-b46a-a47c8b2b5b3d
         hippo:name: Planes
+        hippo:versionHistory: d7c10f18-78a8-4e21-8d2f-072564f92e7f
         /planes[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -17806,11 +19294,58 @@
               \ about available facilities online. You can look up details by using\
               \ the <a href=\"https://www.caa.co.uk/Passengers/PRM/Passengers-with-disabilities-and-reduced-mobility/\"\
               >Civil Aviation Authority website.</a></p> \n  "
+        /planes[3]:
+          jcr:primaryType: publishing:guidepage
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: bf014f02-f0af-4d05-acb3-45cd12d364c6
+          hippo:availability: [live]
+          hippo:name: Planes
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:57.060+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:57.153+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:17.643+01:00
+          hippotranslation:id: 6ada8107-d8a6-42eb-843e-f6e3ad4cafa7
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: summary for Planes
+          publishing:reportingtags: []
+          publishing:seoTitle: Planes
+          publishing:slug: planes
+          publishing:summary: summary for Planes
+          publishing:title: Planes
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: " \n  <p>If you are flying, you should tell the airline\
+              \ or travel agent when you're booking that you or your travelling companion\
+              \ has a disability.</p> \n  <p>Most airlines say that people with a\
+              \ permanent or stable condition don't need medical clearance in order\
+              \ to fly, but you should check when you book what medical information\
+              \ the airline needs.</p> \n  <p>If you use a wheelchair or mobility\
+              \ equipment, it's important to let your airline know this when you book.\
+              \ Depending on the size of the plane and the kind of wheelchair you\
+              \ use, you might need to change boarding times or transfer to one of\
+              \ the airline's wheelchairs when you check in.</p> \n  <blockquote>\
+              \ \n   <p>You can't take your wheelchair into the passenger cabin of\
+              \ a plane - it will be stored in the hold.</p> \n  </blockquote> \n\
+              \  <p>Airports and airlines should provide anyone with a disability\
+              \ who asks for it with things like:</p> \n  <ul> \n   <li>help to reach\
+              \ check-in and find your way around the airport</li> \n   <li>an explanation\
+              \ of emergency procedures and the layout of the cabin</li> \n   <li>help\
+              \ with getting on and off the plane</li> \n   <li>help with stowing\
+              \ and retrieving baggage on the plane</li> \n   <li>an on-board wheelchair\
+              \ (not always available)</li> \n   <li>someone to meet you as you leave\
+              \ the plane </li> \n  </ul> \n  <p>Scottish airports publish information\
+              \ about available facilities online. You can look up details by using\
+              \ the <a href=\"https://www.caa.co.uk/Passengers/PRM/Passengers-with-disabilities-and-reduced-mobility/\"\
+              >Civil Aviation Authority website.</a></p> \n  "
       /roads-and-pavements:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 44510dbe-2035-4be0-ae4e-c4b13b20d42f
         hippo:name: Roads and pavements
+        hippo:versionHistory: 8b751832-254d-4655-a678-453f2a2d4775
         /roads-and-pavements[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -18073,6 +19608,257 @@
           hippostdpubwf:creationDate: 2020-08-17T16:42:57.216+01:00
           hippostdpubwf:lastModificationDate: 2020-08-17T16:42:57.291+01:00
           hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: 07fcbcae-313d-4220-830c-9be68ecc23e2
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: summary for Roads and pavements
+          publishing:reportingtags: []
+          publishing:seoTitle: Roads and pavements
+          publishing:slug: roads-and-pavements
+          publishing:summary: summary for Roads and pavements
+          publishing:title: Roads and pavements
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: " \n  <p>Local councils are responsible for the maintenance\
+              \ of most roads and pavements in your area. If you've a problem or question\
+              \ regarding a specific road or pavement – <a href=\"/find-your-local-council/\"\
+              >contact your local council</a> in the first instance. </p> \n  <p>They'll\
+              \ be able to tell you what they can do and who manages the road if they\
+              \ don't.</p> \n  <div class=\"dd  finder-hero  form-box\">\n   <label\
+              \ for=\"council-select-732984\">Contact your council about roads and\
+              \ pavements in your area</label>\n   <div class=\"create-select__arrow\"\
+              >\n    <select class=\"create-select\" id=\"council-select-732984\"\
+              ><option selected value=\"\" disabled>Choose your local council</option><option\
+              \ data-id=\"aberdeen-city-council\">Aberdeen City Council</option><option\
+              \ data-id=\"aberdeenshire-council\">Aberdeenshire Council</option><option\
+              \ data-id=\"angus-council\">Angus Council</option><option data-id=\"\
+              argyll-and-bute-council\">Argyll and Bute Council</option><option data-id=\"\
+              clackmannanshire-council\">Clackmannanshire Council</option><option\
+              \ data-id=\"comhairle-nan-eilean-siar-western-isles-council\">Comhairle\
+              \ nan Eilean Siar (Western Isles Council)</option><option data-id=\"\
+              dumfries-and-galloway-council\">Dumfries and Galloway Council</option><option\
+              \ data-id=\"dundee-city-council\">Dundee City Council</option><option\
+              \ data-id=\"east-ayrshire-council\">East Ayrshire Council</option><option\
+              \ data-id=\"east-dunbartonshire-council\">East Dunbartonshire Council</option><option\
+              \ data-id=\"east-lothian-council\">East Lothian Council</option><option\
+              \ data-id=\"east-renfrewshire-council\">East Renfrewshire Council</option><option\
+              \ data-id=\"edinburgh-council\">Edinburgh Council</option><option data-id=\"\
+              falkirk-council\">Falkirk Council</option><option data-id=\"fife-council\"\
+              >Fife Council</option><option data-id=\"glasgow-city-council\">Glasgow\
+              \ City Council</option><option data-id=\"the-highland-council\">The\
+              \ Highland Council</option><option data-id=\"inverclyde-council\">Inverclyde\
+              \ Council</option><option data-id=\"midlothian-council\">Midlothian\
+              \ Council</option><option data-id=\"moray-council\">Moray Council</option><option\
+              \ data-id=\"north-ayrshire-council\">North Ayrshire Council</option><option\
+              \ data-id=\"north-lanarkshire-council\">North Lanarkshire Council</option><option\
+              \ data-id=\"orkney-islands-council\">Orkney Islands Council</option><option\
+              \ data-id=\"perth-kinross-council\">Perth &amp; Kinross Council</option><option\
+              \ data-id=\"renfrewshire-council\">Renfrewshire Council</option><option\
+              \ data-id=\"scottish-borders-council\">Scottish Borders Council</option><option\
+              \ data-id=\"south-ayrshire-council\">South Ayrshire Council</option><option\
+              \ data-id=\"south-lanarkshire-council\">South Lanarkshire Council</option><option\
+              \ data-id=\"shetland-council\">Shetland Council</option><option data-id=\"\
+              stirling-council\">Stirling Council</option><option data-id=\"west-dunbartonshire-council\"\
+              >West Dunbartonshire Council</option><option data-id=\"west-lothian-council\"\
+              >West Lothian Council</option></select>\n   </div>\n   <a id=\"dd-aberdeen-city-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.aberdeencity.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Aberdeen City Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-aberdeenshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.aberdeenshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Aberdeenshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-angus-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.angus.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Angus Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-argyll-and-bute-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.argyll-bute.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Argyll and Bute Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-clackmannanshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.clacksweb.org.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Clackmannanshire Council</span>\n \
+              \   <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-comhairle-nan-eilean-siar-western-isles-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.cne-siar.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Comhairle nan Eilean Siar (Western\
+              \ Isles Council)</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-dumfries-and-galloway-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.dumgal.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Dumfries and Galloway Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-dundee-city-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.dundeecity.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Dundee City Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-east-ayrshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.east-ayrshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Ayrshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-east-dunbartonshire-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.eastdunbarton.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Dunbartonshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-east-lothian-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.eastlothian.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Lothian Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-east-renfrewshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.eastrenfrewshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit East Renfrewshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-edinburgh-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.edinburgh.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Edinburgh Council</span>\n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              >\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-falkirk-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.falkirk.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Falkirk Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-fife-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.fifedirect.org.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Fife Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-glasgow-city-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.glasgow.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Glasgow City Council</span>\n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              >\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-the-highland-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.highland.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit The Highland Council</span>\n    <svg\
+              \ class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16 16\"\
+              >\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-inverclyde-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.inverclyde.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Inverclyde Council</span>\n \
+              \   <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-midlothian-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.midlothian.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Midlothian Council</span>\n \
+              \   <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-moray-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.moray.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Moray Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-north-ayrshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.north-ayrshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit North Ayrshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-north-lanarkshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.northlanarkshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit North Lanarkshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-orkney-islands-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.orkney.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"\
+              ><span class=\"link-text\">Visit Orkney Islands Council</span>\n   \
+              \ <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-perth-kinross-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.pkc.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"true\"><span\
+              \ class=\"link-text\">Visit Perth &amp; Kinross Council</span>\n   \
+              \ <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0 16\
+              \ 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-renfrewshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.renfrewshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Renfrewshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-scottish-borders-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.scotborders.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit Scottish Borders Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-south-ayrshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.south-ayrshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit South Ayrshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-south-lanarkshire-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              https://www.southlanarkshire.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit South Lanarkshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-shetland-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://www.shetland.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Shetland Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-stirling-council\" class=\"hidden\
+              \ hidden--hard button button--primary button--external\" href=\"http://my.stirling.gov.uk/\"\
+              \ data-gtm=\"link-la\" aria-hidden=\"true\"><span class=\"link-text\"\
+              >Visit Stirling Council</span>\n    <svg class=\"svg-icon  svg-icon--external-link\"\
+              \ viewbox=\"0 0 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-west-dunbartonshire-council\"\
+              \ class=\"hidden hidden--hard button button--primary button--external\"\
+              \ href=\"http://www.west-dunbarton.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit West Dunbartonshire Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n   <a id=\"dd-west-lothian-council\" class=\"\
+              hidden hidden--hard button button--primary button--external\" href=\"\
+              http://www.westlothian.gov.uk/\" data-gtm=\"link-la\" aria-hidden=\"\
+              true\"><span class=\"link-text\">Visit West Lothian Council</span>\n\
+              \    <svg class=\"svg-icon  svg-icon--external-link\" viewbox=\"0 0\
+              \ 16 16\">\n     <use xlink:href=\"/assets/images/icons/svg/sprite.stack.svg#external-17\"\
+              ></use>\n    </svg></a>\n  </div> \n  "
+        /roads-and-pavements[3]:
+          jcr:primaryType: publishing:guidepage
+          jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+          jcr:uuid: 4066474e-db6e-49f0-a85b-05b4c29c9b71
+          hippo:availability: [live]
+          hippo:name: Roads and pavements
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T16:42:57.216+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T16:42:57.291+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:17.890+01:00
           hippotranslation:id: 07fcbcae-313d-4220-830c-9be68ecc23e2
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
@@ -22541,7 +24327,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: c08e5261-465f-446c-8ce7-1bfcf101b70f
         hippo:name: When to appeal
-        hippo:versionHistory: 666334d9-2e18-4f9b-9871-7a11a7d88383
+        hippo:versionHistory: 4fb0cd9d-da61-4caf-a6c0-732f75ad4a4e
         /when-to-appeal[1]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -22710,9 +24496,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: system
           hippostdpubwf:creationDate: 2020-08-17T16:43:01.251+01:00
-          hippostdpubwf:lastModificationDate: 2020-08-17T16:43:01.339+01:00
-          hippostdpubwf:lastModifiedBy: system
-          hippostdpubwf:publicationDate: 2020-08-17T16:43:01.392+01:00
+          hippostdpubwf:lastModificationDate: 2020-09-04T14:45:02.773+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2021-04-27T08:36:15.833+01:00
           hippotranslation:id: 59499f76-c99d-48ad-896d-fdf50e0ab4a7
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
