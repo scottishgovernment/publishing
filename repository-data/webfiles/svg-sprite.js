@@ -26,7 +26,7 @@ const config = {
 
 const spritePaths = [
     'node_modules/@scottish-government/pattern-library/src/images/icons/svg/',
-    'src/main/resources/site/assets/images/icons/svg/'
+    'src/main/resources/images/icons/svg/'
 ];
 
 const spriter = new SVGSpriter(config);
