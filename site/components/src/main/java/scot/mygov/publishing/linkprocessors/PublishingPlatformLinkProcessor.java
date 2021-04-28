@@ -13,6 +13,8 @@ import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import static org.apache.jackrabbit.util.Text.escapeIllegalJcrChars;
+
 /**
  * Link processor used to implement our URL guidelines. Aticles are served at their unique slug, categoeries at their
  * natural url.
@@ -216,7 +218,7 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
 
     String slugLookupPath(String siteName, String mountType, String path) {
         StringBuilder b = mountLookupPath(siteName, mountType);
-        appendSlugAsLetterslugLetterPath(b, path);
+        appendSlugAsLetterPath(b, path);
         return b.toString();
     }
 
@@ -229,16 +231,12 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
                 .append('/');
     }
 
-    StringBuilder appendSlugAsLetterslugLetterPath(StringBuilder b, String slug) {
+    StringBuilder appendSlugAsLetterPath(StringBuilder b, String slug) {
         for(char c : slug.toCharArray()) {
-            b.append(escapeSlash(c));
+            b.append(escapeIllegalJcrChars(Character.toString(c)));
             b.append('/');
         }
         return b;
-    }
-
-    private Character escapeSlash(char c) {
-        return c == '/' ? '\\' : c;
     }
 
     String siteName(HstLink link) {
