@@ -81,4 +81,9 @@ public class FormBase extends Base {
     public List<HippoBean> getFactCheckers() {
         return getLinkedBeans("publishing:factCheckers", HippoBean.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "publishing:showFeedback")
+    public Boolean getShowFeedback() {
+        return getSingleProperty("publishing:showFeedback");
+    }
 }

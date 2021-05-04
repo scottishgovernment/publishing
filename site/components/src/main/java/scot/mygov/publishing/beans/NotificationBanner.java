@@ -14,11 +14,6 @@ public class NotificationBanner extends BaseDocument {
         return getSingleProperty("publishing:closeable");
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:closeable")
-    public Boolean getPriority() {
-        return getSingleProperty("publishing:priority");
-    }
-
     @HippoEssentialsGenerated(internalName = "publishing:content")
     public HippoHtml getContent() {
         return getHippoHtml("publishing:content");
@@ -37,5 +32,10 @@ public class NotificationBanner extends BaseDocument {
     @HippoEssentialsGenerated(internalName = "publishing:authorNotes")
     public HippoHtml getAuthorNotes() {
         return getHippoHtml("publishing:authorNotes");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:priority")
+    public Boolean getPriority() {
+        return getSingleProperty("publishing:priority");
     }
 }

@@ -71,4 +71,8 @@ public class Guide extends Base {
         return getLinkedBean("publishing:logo", HippoGalleryImageSet.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "publishing:showFeedback")
+    public Boolean getShowFeedback() {
+        return getSingleProperty("publishing:showFeedback");
+    }
 }
