@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 8c1ddbca-06fc-4c4d-afde-70e367b6d8d3
+          jcr:uuid: 67c3629c-737b-4e18-b981-fdcb01846620
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -59,7 +59,7 @@ definitions:
           publishing:title: ''
           publishing:reportingtags: []
           publishing:metaDescription: ''
-          jcr:uuid: b7c19ede-620c-4295-88b1-5ae6ed7d0230
+          jcr:uuid: 2557eaa9-2388-4160-887b-87d591a9cba3
           hippostdpubwf:lastModificationDate: 2020-08-04T08:51:01.604+01:00
           hippostdpubwf:creationDate: 2020-08-04T08:51:01.604+01:00
           publishing:serviceproviders: []
@@ -262,6 +262,16 @@ definitions:
             caption: Show feedback?
             field: showFeedback
             hint: Should this page include the ability to leave user feedback?
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /urlAliases:
+            jcr:primaryType: frontend:plugin
+            caption: URL Aliases
+            field: urlAliases
+            hint: You can add additional urls that this page should be available at.  All
+              of them will redirect to the official URL of this page.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
