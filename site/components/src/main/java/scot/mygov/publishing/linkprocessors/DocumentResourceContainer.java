@@ -13,7 +13,12 @@ import org.slf4j.LoggerFactory;
 
 import scot.mygov.publishing.HippoUtils;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
 import static org.apache.commons.lang.StringUtils.equalsIgnoreCase;
+import static org.apache.commons.lang.StringUtils.substring;
 
 public class DocumentResourceContainer extends AbstractResourceContainer {
 
@@ -31,22 +36,13 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
     }
 
     /**
-     * Clean up urls for document cover page documents and thumbnails.
+     * Add filenames to document and thumbnail urls
      */
     @Override
     public String resolveToPathInfo(Node resourceContainerNode, Node resourceNode, Mount mount) {
-
         try {
-            String pathInfo = resourceContainerNode.getPath();
-
-            if (pathInfo == null) {
-                return pathInfo;
-            }
-
             String filename = resourceNode.getProperty(HIPPO_FILENAME).getString();
-            String path = resourceContainerNode.getParent().getParent().getPath();
-            path = StringUtils.substringAfter(path, "/content/documents");
-            return path + "/" + filename;
+            return new StringBuilder(resourceNode.getPath()).append('/').append(filename).toString();
         } catch (RepositoryException e) {
             LOG.error("Exception processing a container resource link for a publishing:document node type.", e);
             return null;
@@ -55,46 +51,7 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
 
     @Override
     public Node resolveToResourceNode(Session session, String pathInfo) {
-        int lastSlash = pathInfo.lastIndexOf('/');
-        String name = pathInfo.substring(lastSlash + 1);
-        String path = "/content/documents" + pathInfo.substring(0, lastSlash);
-
-        try {
-            if (!session.nodeExists(path)) {
-                return super.resolveToResourceNode(session, pathInfo);
-            }
-
-            Node handle = session.getNode(path);
-            Node publishedVariant = getVariant(handle);
-            return findNodeWithFilename(publishedVariant, name);
-        } catch (RepositoryException e) {
-            LOG.error("Exception processing a container resource link for a publishing:document node type.", e);
-        }
-
-        return super.resolveToResourceNode(session, pathInfo);
-    }
-
-    Node getVariant(Node handle) throws RepositoryException {
-        Node publishedVariant = hippoUtils.getPublishedVariant(handle);
-        return publishedVariant != null ? publishedVariant : handle.getNodes().nextNode();
-    }
-
-    Node findNodeWithFilename(Node coverPage, String name) throws RepositoryException {
-
-        // find either a document or a thumbnail
-        NodeIterator nodeIterator = coverPage.getNodes("publishing:documents*");
-        while (nodeIterator.hasNext()) {
-            Node documentNode = nodeIterator.nextNode();
-            Node resourceWithfilename = hippoUtils.find(documentNode.getNodes(), child -> hasFilename(child, name));
-            if (resourceWithfilename != null) {
-                return resourceWithfilename;
-            }
-        }
-        return null;
-    }
-
-    boolean hasFilename(Node node, String filename) throws RepositoryException {
-        String nodeFileName = node.getProperty(HIPPO_FILENAME).getString();
-        return equalsIgnoreCase(filename, nodeFileName);
+        String path = StringUtils.substringBeforeLast(pathInfo, "/");
+        return super.resolveToResourceNode(session, path);
     }
 }
