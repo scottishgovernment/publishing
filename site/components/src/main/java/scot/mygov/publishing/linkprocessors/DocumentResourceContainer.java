@@ -1,7 +1,6 @@
 package scot.mygov.publishing.linkprocessors;
 
 import javax.jcr.Node;
-import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
@@ -11,15 +10,6 @@ import org.hippoecm.hst.core.linking.AbstractResourceContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import scot.mygov.publishing.HippoUtils;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-
-import static org.apache.commons.lang.StringUtils.equalsIgnoreCase;
-import static org.apache.commons.lang.StringUtils.substring;
-
 public class DocumentResourceContainer extends AbstractResourceContainer {
 
     private static final Logger LOG = LoggerFactory.getLogger(DocumentResourceContainer.class);
@@ -27,8 +17,6 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
     private static final String PUBLISHING_DOCUMENT = "publishing:document";
 
     private static final String HIPPO_FILENAME = "hippo:filename";
-
-    private HippoUtils hippoUtils = new HippoUtils();
 
     @Override
     public String getNodeType() {
