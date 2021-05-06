@@ -43,7 +43,7 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
                 return pathInfo;
             }
 
-            if (resourceNode.getName().equals("publishing:thumbnails")) {
+            if ("publishing:thumbnails".equals(resourceNode.getName())) {
                 return resourceNode.getPath();
             }
 
