@@ -36,11 +36,15 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
     @Override
     public String resolveToPathInfo(Node resourceContainerNode, Node resourceNode, Mount mount) {
 
+
         try {
             String pathInfo = resourceContainerNode.getPath();
-
             if (pathInfo == null) {
                 return pathInfo;
+            }
+
+            if (resourceNode.getName().equals("publishing:thumbnails")) {
+                return resourceNode.getPath();
             }
 
             String filename = resourceNode.getProperty(HIPPO_FILENAME).getString();
@@ -55,11 +59,15 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
 
     @Override
     public Node resolveToResourceNode(Session session, String pathInfo) {
-        int lastSlash = pathInfo.lastIndexOf('/');
-        String name = pathInfo.substring(lastSlash + 1);
-        String path = "/content/documents" + pathInfo.substring(0, lastSlash);
 
         try {
+            if (StringUtils.endsWith(pathInfo, "/publishing:thumbnails")) {
+                return session.getNode("pathInfo");
+            }
+            int lastSlash = pathInfo.lastIndexOf('/');
+            String name = pathInfo.substring(lastSlash + 1);
+            String path = "/content/documents" + pathInfo.substring(0, lastSlash);
+
             if (!session.nodeExists(path)) {
                 return super.resolveToResourceNode(session, pathInfo);
             }
