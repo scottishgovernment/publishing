@@ -1,0 +1,22 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/preview-plugin:
+      jcr:primaryType: hipposys:domain
+      /preview-plugin:
+        jcr:primaryType: hipposys:domainrule
+        /preview-node:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:primaryType
+          hipposys:type: Name
+          hipposys:value: staging:preview
+      /read-preview-user:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [economic-action-plan-authors, economic-action-plan-editors, mygov-authors,
+            mygov-editors, trading-nation-authors, trading-nation-editors, orgs-social-security-editors,
+            cms-admin, user-admin, orgs-social-security-authors]
+        hipposys:role: author

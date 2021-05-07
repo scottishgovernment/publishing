@@ -1,12 +1,12 @@
 package scot.mygov.publishing.beans;
 
 import org.hippoecm.hst.content.beans.Node;
-import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import java.util.Calendar;
-import org.hippoecm.hst.content.beans.standard.HippoHtml;
-import java.util.List;
-import scot.mygov.publishing.beans.Relateditems;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+
+import java.util.Calendar;
+import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publishing:guidepage")
 @Node(jcrType = "publishing:guidepage")
@@ -82,3 +82,4 @@ public class GuidePage extends Base {
         return getSingleProperty("publishing:showFeedback");
     }
 }
+

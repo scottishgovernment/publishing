@@ -1,0 +1,10 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/orgs-disclosure-editors:
+      jcr:primaryType: hipposys:group
+      hipposys:securityprovider: internal
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [social-security-editor]

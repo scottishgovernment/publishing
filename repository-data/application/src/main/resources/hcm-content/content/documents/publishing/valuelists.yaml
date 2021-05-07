@@ -1008,3 +1008,23 @@
         jcr:primaryType: selection:listitem
         selection:key: overseas-travel-declaration-form
         selection:label: Overseas Travel Declaration form
+  /organisationtags:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 285f39b9-a102-4cf9-a89e-4f8bf5ae35f9
+    hippo:name: organisationTags
+    /organisationtags:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 4e59efcc-4802-4c20-83f2-3e75b465740b
+      hippo:availability: [live, preview]
+      hippotranslation:id: 080d1562-fe7c-484a-98ce-9538932ad849
+      hippotranslation:locale: en_UK
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: orgs-social-security-editors
+        selection:label: social-security
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: orgs-social-security-authors
+        selection:label: social-security

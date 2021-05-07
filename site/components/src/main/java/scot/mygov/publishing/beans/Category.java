@@ -1,13 +1,13 @@
 package scot.mygov.publishing.beans;
 
-import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
+
 import java.util.Calendar;
 import java.util.List;
-import scot.mygov.publishing.beans.Relateditems;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 
 @HippoEssentialsGenerated(internalName = "publishing:category")
 @Node(jcrType = "publishing:category")
@@ -38,14 +38,13 @@ public class Category extends Base {
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:cardImage")
-    public ImageCard getCardImage() {
-        return getLinkedBean("publishing:cardImage", ImageCard.class);
-    }
+    public ImageCard getCardImage() { return getLinkedBean("publishing:cardImage", ImageCard.class); }
 
     @HippoEssentialsGenerated(internalName = "publishing:showSummaries")
-    public Boolean getShowSummaries() {
-        return getSingleProperty("publishing:showSummaries");
-    }
+    public Boolean getShowSummaries() { return getSingleProperty("publishing:showSummaries"); }
+
+    @HippoEssentialsGenerated(internalName = "publishing:organisationtags")
+    public String[] getOrganisationtags() { return getMultipleProperty("publishing:organisationtags"); }
 
     @HippoEssentialsGenerated(internalName = "publishing:urlAliases")
     public String[] getUrlAliases() {
@@ -99,7 +98,6 @@ public class Category extends Base {
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:factCheckers")
-    public List<HippoBean> getFactCheckers() {
-        return getLinkedBeans("publishing:factCheckers", HippoBean.class);
+    public List<HippoBean> getFactCheckers() { return getLinkedBeans("publishing:factCheckers", HippoBean.class); }
 
 }

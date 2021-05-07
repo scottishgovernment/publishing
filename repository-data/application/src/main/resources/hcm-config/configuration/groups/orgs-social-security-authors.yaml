@@ -1,16 +1,11 @@
 definitions:
   config:
-    /hippo:configuration/hippo:groups/social-security-editors:
+    /hippo:configuration/hippo:groups/orgs-social-security-authors:
       jcr:primaryType: hipposys:group
-      hipposys:members:
-        .meta:category: system
-        .meta:add-new-system-values: true
-        type: string
-        value: [social-security-editor]
       hipposys:securityprovider: internal
       hipposys:userroles:
         .meta:category: system
         .meta:add-new-system-values: true
         type: string
         value: [xm.cms.user, xm.content.user, xm.channel.user, xm.report.user, xm.dashboard.user,
-          xm.channel.webmaster]
+          xm.channel.viewer]

@@ -65,9 +65,14 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-09-30T09:18:33.567+01:00
+<<<<<<< HEAD
         hippostdpubwf:lastModificationDate: 2021-04-27T08:32:52.528+01:00
+=======
+        hippostdpubwf:lastModificationDate: 2021-04-01T10:57:06.888+01:00
+>>>>>>> MGS-6061 Added organisation tag field and validation to all relevant document types; Added organisation ValueList and social secruity permissions
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
         hippotranslation:locale: document-type-locale
@@ -204,6 +209,7 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T09:22:02.773+01:00
           hippostdpubwf:lastModificationDate: 2021-04-27T08:33:05.109+01:00
@@ -787,9 +793,14 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-09-30T09:29:57.322+01:00
+<<<<<<< HEAD
             hippostdpubwf:lastModificationDate: 2021-04-27T08:33:42.470+01:00
+=======
+            hippostdpubwf:lastModificationDate: 2021-02-22T14:36:54.265Z
+>>>>>>> MGS-6061 Added organisation tag field and validation to all relevant document types; Added organisation ValueList and social secruity permissions
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
             hippotranslation:locale: document-type-locale
@@ -880,9 +891,14 @@
             hippo:availability: []
             hippostd:retainable: false
             hippostd:state: draft
+            hippostd:transferable: false
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-09-30T09:30:43.609+01:00
+<<<<<<< HEAD
             hippostdpubwf:lastModificationDate: 2021-04-27T11:07:58.681+01:00
+=======
+            hippostdpubwf:lastModificationDate: 2021-02-22T14:30:37.964Z
+>>>>>>> MGS-6061 Added organisation tag field and validation to all relevant document types; Added organisation ValueList and social secruity permissions
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 7d87dd0e-40ae-471a-b891-455443cc1db5
             hippotranslation:locale: document-type-locale
@@ -1341,9 +1357,10 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-02-08T15:00:40.115Z
-        hippostdpubwf:lastModificationDate: 2021-02-08T15:00:56.956Z
+        hippostdpubwf:lastModificationDate: 2021-04-01T10:56:53.937+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: e8547b04-3d34-450c-a0c2-d93048eb0a31
         hippotranslation:locale: document-type-locale
@@ -1431,6 +1448,275 @@
         /publishing:additionalContent:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>qqqqq</p>
+    /asvdhjasvfdhs:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 86bf1b6d-c71d-4553-b682-cb577ede21aa
+      hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
+        new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent]
+      /index:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 7f56cb6c-7d55-4a51-8082-3134a3ad9b63
+        hippo:name: asvdhjasvfdhs
+        /index:
+          jcr:primaryType: publishing:category
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:versionable']
+          jcr:uuid: 536f233e-73e7-4131-9a6f-adedcc725017
+          hippo:availability: [preview]
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: social-security-editor
+          hippostdpubwf:creationDate: 2021-03-31T15:22:56.970+01:00
+          hippostdpubwf:lastModificationDate: 2021-03-31T15:22:56.970+01:00
+          hippostdpubwf:lastModifiedBy: social-security-editor
+          hippotaxonomy:keys: [social-security-directorate]
+          hippotranslation:id: 94902730-62fb-4d0e-9c69-8f641a816d1b
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: ''
+          publishing:navigationType: list
+          publishing:reportingtags: []
+          publishing:seoTitle: asvdhjasvfdhs
+          publishing:sequenceable: true
+          publishing:summary: ''
+          publishing:title: asvdhjasvfdhs
+          /publishing:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:epilogue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:prologue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+    /sbsakjflas:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 120fbd00-4a85-4a57-b3c0-f942e67a808c
+      hippostd:foldertype: [new-publishing-article, new-publishing-category]
+      /index:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: af8b6b9c-95a3-46c4-bbb8-9cda6dba94bc
+        hippo:name: sbsakjflas
+        /index[1]:
+          jcr:primaryType: publishing:category
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:versionable']
+          jcr:uuid: b93cd0fa-1b53-4e06-9a4a-03cf082a051f
+          hippo:availability: [preview]
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: social-security-editor
+          hippostdpubwf:creationDate: 2021-03-31T15:42:13.830+01:00
+          hippostdpubwf:lastModificationDate: 2021-03-31T15:42:13.830+01:00
+          hippostdpubwf:lastModifiedBy: social-security-editor
+          hippotranslation:id: 3202c888-9d9e-48a1-bff5-5231622e871c
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: ''
+          publishing:navigationType: grid
+          publishing:reportingtags: []
+          publishing:seoTitle: sbsakjflas
+          publishing:sequenceable: true
+          publishing:summary: ''
+          publishing:title: sbsakjflas
+          /publishing:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:epilogue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:prologue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /index[2]:
+          jcr:primaryType: publishing:category
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 42efece2-2f12-4290-a65c-57a4f80fe26f
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:tags: ['', '', '']
+          hippostd:transferable: false
+          hippostdpubwf:createdBy: social-security-editor
+          hippostdpubwf:creationDate: 2021-03-31T15:42:13.830+01:00
+          hippostdpubwf:lastModificationDate: 2021-04-01T10:57:28.328+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotaxonomy:keys: [social-security, scottish-gov]
+          hippotranslation:id: 3202c888-9d9e-48a1-bff5-5231622e871c
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: ''
+          publishing:navigationType: grid
+          publishing:reportingtags: []
+          publishing:seoTitle: sbsakjflas
+          publishing:sequenceable: true
+          publishing:showSummaries: false
+          publishing:summary: ''
+          publishing:title: sbsakjflas
+          /publishing:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:epilogue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:prologue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+    /gfuh:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: e78707b6-14d0-4297-9566-e8aa7f470847
+      hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
+        new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent]
+      /index:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: e1895138-3eca-419c-ad4f-621cc303a20f
+        hippo:name: gfuh
+        /index:
+          jcr:primaryType: publishing:category
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:versionable']
+          jcr:uuid: b497d917-47da-4e94-b9d6-016b79879ad6
+          hippo:availability: [preview]
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: social-security-editor
+          hippostdpubwf:creationDate: 2021-03-31T16:21:03.822+01:00
+          hippostdpubwf:lastModificationDate: 2021-03-31T16:21:03.822+01:00
+          hippostdpubwf:lastModifiedBy: social-security-editor
+          hippotranslation:id: 4380e821-09cd-4199-a9c8-373dba81529d
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: ''
+          publishing:navigationType: list
+          publishing:reportingtags: []
+          publishing:seoTitle: gfuh
+          publishing:sequenceable: true
+          publishing:summary: ''
+          publishing:title: gfuh
+          /publishing:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:epilogue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:prologue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+    /fyufyfy:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 2f721942-0c46-443f-9e9c-54df5affa47a
+      hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
+        new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent]
+      /index:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: b494fe3b-445c-4e9f-aa78-ab9671a6c5f9
+        hippo:name: fyufyfy
+        /index:
+          jcr:primaryType: publishing:category
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:versionable']
+          jcr:uuid: dac94a19-5ef0-48a5-a74c-e94d882c68a3
+          hippo:availability: [preview]
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: social-security-editor
+          hippostdpubwf:creationDate: 2021-03-31T16:32:17.322+01:00
+          hippostdpubwf:lastModificationDate: 2021-03-31T16:32:17.323+01:00
+          hippostdpubwf:lastModifiedBy: social-security-editor
+          hippotranslation:id: cfe8e555-eb08-469f-8bf8-fe02ad554138
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: ''
+          publishing:navigationType: list
+          publishing:reportingtags: []
+          publishing:seoTitle: fyufyfy
+          publishing:sequenceable: true
+          publishing:summary: ''
+          publishing:title: fyufyfy
+          /publishing:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:epilogue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:prologue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+    /sgldsgfj:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: fc57e666-f247-41c1-9b11-145db77efda3
+      hippostd:foldertype: [new-publishing-article, new-publishing-category]
+      /index:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: f2434e89-0a33-4ff9-a483-7c9ea324fad6
+        hippo:name: sgldsgfj
+        /index:
+          jcr:primaryType: publishing:category
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:versionable']
+          jcr:uuid: 4c245518-56c6-438c-bbfc-11219e306925
+          hippo:availability: [preview]
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: social-security-editor
+          hippostdpubwf:creationDate: 2021-04-02T11:51:51.240+01:00
+          hippostdpubwf:lastModificationDate: 2021-04-02T11:51:51.240+01:00
+          hippostdpubwf:lastModifiedBy: social-security-editor
+          hippotranslation:id: d0fcde13-6360-4ed9-9ca8-dc74259acf47
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: ''
+          publishing:navigationType: grid
+          publishing:reportingtags: []
+          publishing:seoTitle: sgldsgfj
+          publishing:sequenceable: true
+          publishing:summary: ''
+          publishing:title: sgldsgfj
+          /publishing:heroImage:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:epilogue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:prologue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
   /reptiles:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
@@ -1528,9 +1814,14 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
+        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-09-30T09:33:49.773+01:00
+<<<<<<< HEAD
         hippostdpubwf:lastModificationDate: 2021-04-27T08:34:27.379+01:00
+=======
+        hippostdpubwf:lastModificationDate: 2021-03-15T11:25:46.512Z
+>>>>>>> MGS-6061 Added organisation tag field and validation to all relevant document types; Added organisation ValueList and social secruity permissions
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
         hippotranslation:locale: document-type-locale
@@ -1694,7 +1985,7 @@
         hippo:versionHistory: 3dfcdb8d-90b3-42f2-ae93-ae5e47cddffd
         /wart-snakes[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: e7ef23be-1ad3-4b03-adbe-e00ecdeb2156
           hippo:availability: []
           hippostd:retainable: false
@@ -1727,7 +2018,8 @@
               <p>These snakes are ambush predators, lurking at the bottom of rivers, streams and estuaries, and waiting for fish to approach, which they grip with their coils. The rough scales allow them to hold the fish despite the mucus coating. Adults grow to between 60&nbsp;cm and 2.43&nbsp;m in length.</p>
         /wart-snakes[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 52e007d7-b491-4baa-900b-2a744dccdf13
           hippo:availability: [preview]
           hippostd:retainable: false
@@ -1760,7 +2052,7 @@
               <p>These snakes are ambush predators, lurking at the bottom of rivers, streams and estuaries, and waiting for fish to approach, which they grip with their coils. The rough scales allow them to hold the fish despite the mucus coating. Adults grow to between 60&nbsp;cm and 2.43&nbsp;m in length.</p>
         /wart-snakes[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 7769d002-6086-410c-b21d-c1b32a03fe45
           hippo:availability: [live]
           hippostd:retainable: false
@@ -1800,7 +2092,7 @@
         hippo:versionHistory: ed9df249-6a50-4260-aeed-2a764a969426
         /pythons[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: c083a3b9-6ac2-450a-8439-5caeeb297a74
           hippo:availability: []
           hippostd:retainable: false
@@ -1874,7 +2166,8 @@
               <p>&nbsp;</p>
         /pythons[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: 3f920859-50c7-4262-a17a-02cf4125824e
           hippo:availability: [preview]
           hippostd:retainable: false
@@ -1948,7 +2241,7 @@
               <p>&nbsp;</p>
         /pythons[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 77587ce0-6084-4a23-816c-046a40639081
           hippo:availability: [live]
           hippostd:retainable: false
@@ -2029,7 +2322,7 @@
         hippo:versionHistory: 0f1500ac-96c1-4496-a152-92d2700b0b77
         /milk-snake[1]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 644c6ed2-2e86-4bba-a751-5f42a5fb3757
           hippo:availability: []
           hippostd:retainable: false
@@ -2074,7 +2367,8 @@
               href="https://en.wikipedia.org/wiki/Milk_snake#cite_note-3">[3]</a></sup></p>
         /milk-snake[2]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:referenceable',
+            'mix:versionable']
           jcr:uuid: de2a1c35-3366-408a-b019-a9c612a619d2
           hippo:availability: [preview]
           hippostd:retainable: false
@@ -2119,7 +2413,7 @@
               href="https://en.wikipedia.org/wiki/Milk_snake#cite_note-3">[3]</a></sup></p>
         /milk-snake[3]:
           jcr:primaryType: publishing:guidepage
-          jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 4e97c61b-659d-4296-8322-c99684d156c9
           hippo:availability: [live]
           hippostd:retainable: false
@@ -3301,3 +3595,48 @@
         /publishing:document:
           jcr:primaryType: hippo:mirror
           hippo:docbase: 4c8a9b31-1424-441a-9c6d-e4a96c8eb3b2
+  /xvbjckxbvcjd:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 122cd627-3e8b-4f63-bceb-5d9b5b7c0eab
+    hippostd:foldertype: [new-publishing-article, new-publishing-category]
+    /index:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 287ce1cb-f7ec-4c08-9dd5-307c1fae099f
+      hippo:name: xvbjckxbvcjd
+      /index:
+        jcr:primaryType: publishing:category
+        jcr:mixinTypes: ['hippostd:taggable', 'hippotaxonomy:classifiable', 'mix:versionable']
+        jcr:uuid: 2759d690-7180-41ff-bbdc-aa80f85b8d5e
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: social-security-editor
+        hippostdpubwf:creationDate: 2021-03-31T15:46:49.408+01:00
+        hippostdpubwf:lastModificationDate: 2021-03-31T15:46:49.408+01:00
+        hippostdpubwf:lastModifiedBy: social-security-editor
+        hippotranslation:id: 6588dddb-0051-4789-b1f4-6f53237f8496
+        hippotranslation:locale: document-type-locale
+        publishing:authorNotes: ''
+        publishing:metaDescription: ''
+        publishing:navigationType: grid
+        publishing:reportingtags: []
+        publishing:seoTitle: xvbjckxbvcjd
+        publishing:sequenceable: true
+        publishing:summary: ''
+        publishing:title: xvbjckxbvcjd
+        /publishing:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:epilogue:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:prologue:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''

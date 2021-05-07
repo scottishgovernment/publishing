@@ -1,11 +1,11 @@
 package scot.mygov.publishing.beans;
 
+import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
-import org.hippoecm.hst.content.beans.Node;
+
 import java.util.Calendar;
 import java.util.List;
-import scot.mygov.publishing.beans.Relateditems;
 
 @HippoEssentialsGenerated(internalName = "publishing:guide")
 @Node(jcrType = "publishing:guide")
