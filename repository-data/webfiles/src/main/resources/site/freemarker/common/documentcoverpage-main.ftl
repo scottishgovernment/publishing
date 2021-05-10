@@ -57,7 +57,7 @@
                                                 sizes="(min-width: 768px) 165px, 107px" />
                                     </a>
                                 <#else>
-                                    <a data-title="${mainDocument.title}" title="View this document" href="${documentinline}" class="file-icon--large file-icon file-icon--${filenameExtension}"></a>
+                                    <a data-title="${doc.title}" title="View this document" href="${documentinline}" class="file-icon--large file-icon file-icon--${filenameExtension}"></a>
                                 </#if>
                             </div>
                         </div>
