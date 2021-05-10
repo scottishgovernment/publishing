@@ -6,9 +6,6 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import java.util.Calendar;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import java.util.List;
-import scot.mygov.publishing.beans.DescribedLink;
-import scot.mygov.publishing.beans.ImageDefault;
-import scot.mygov.publishing.beans.Featureditem;
 
 @HippoEssentialsGenerated(internalName = "publishing:organisation")
 @Node(jcrType = "publishing:organisation")
