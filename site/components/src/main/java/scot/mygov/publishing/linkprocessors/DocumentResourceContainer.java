@@ -62,7 +62,7 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
 
         try {
             if (StringUtils.endsWith(pathInfo, "/publishing:thumbnails")) {
-                return session.getNode("pathInfo");
+                return session.getNode(pathInfo);
             }
             int lastSlash = pathInfo.lastIndexOf('/');
             String name = pathInfo.substring(lastSlash + 1);

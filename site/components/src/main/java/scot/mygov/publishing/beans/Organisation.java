@@ -33,6 +33,11 @@ public class Organisation extends Base {
         return getSingleProperty("publishing:featuredroledescription");
     }
 
+    @HippoEssentialsGenerated(internalName = "publishing:featuredroleimage")
+    public HippoGalleryImageSet getFeaturedroleimage() {
+        return getLinkedBean("publishing:featuredroleimage", HippoGalleryImageSet.class);
+    }
+
     @HippoEssentialsGenerated(internalName = "publishing:fax")
     public String getFax() {
         return getSingleProperty("publishing:fax");
@@ -172,11 +177,6 @@ public class Organisation extends Base {
     @HippoEssentialsGenerated(internalName = "publishing:notices")
     public HippoHtml getNotices() {
         return getHippoHtml("publishing:notices");
-    }
-
-    @HippoEssentialsGenerated(internalName = "publishing:featuredroleimage")
-    public ImageDefault getFeaturedroleimage() {
-        return getLinkedBean("publishing:featuredroleimage", ImageDefault.class);
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:organisationstructure")
