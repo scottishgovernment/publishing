@@ -8,9 +8,13 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 
 public class DetermineStylingComponent extends EssentialsContentComponent {
 
+    @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+        determineStyling(request);
+    }
 
+    static void determineStyling(HstRequest request) {
         Mount mount = request.getRequestContext().getResolvedMount().getMount();
         WebsiteInfo info = mount.getChannelInfo();
 
