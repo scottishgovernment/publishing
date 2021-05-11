@@ -427,7 +427,7 @@
                                 </dd>
 
                                 <dt class="summary-list__label">Guarantor</dt>
-                                {% if (hasGuarantor == 'guarantor-yes') %}
+                                {% if (tenant.hasGuarantor == 'guarantor-yes') %}
                                     <dd>
                                         <div class="hide-if-empty"><a href="#!/tenants/tenant-{{loop.index}}/guarantor-{{loop.index}}-name/" class="summary__link  summary__user-input">{{tenant.guarantor.name}}</a></div>
                                         <div class="hide-if-empty"><a href="#!/tenants/tenant-{{loop.index}}/guarantor-{{loop.index}}-address-building/" class="summary__link  summary__user-input">{{tenant.guarantor.address.building}}</a></div>

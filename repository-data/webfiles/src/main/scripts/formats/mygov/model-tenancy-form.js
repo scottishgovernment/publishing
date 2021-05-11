@@ -360,7 +360,7 @@ const modelTenancyForm = {
                     fieldMappings['tenants[\'tenant-' + number + '\'].address.region'] = `#tenant-${number}-address-region`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].address.postcode'] = `#tenant-${number}-postcode`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.name'] = `#guarantor-${number}-name`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].hasGuarantor'] = `[name="guarantor${number}Query"]`;
+                    fieldMappings['tenants[\'tenant-' + number + '\'].hasGuarantor'] = `[name="guarantor-${number}-query"]`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.building'] = `#guarantor-${number}-address-building`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.street'] = `#guarantor-${number}-address-street`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.town'] = `#guarantor-${number}-address-town`;
