@@ -68,7 +68,7 @@
                             <dl class="ds_metadata  ds_metadata--inline">
                                 <div class="ds_metadata__item">
                                     <dt class="ds_metadata__key  visually-hidden">File type</dt>
-                                    <dd class="ds_metadata__value"><b><#if doc.pageCount != 0 >${doc.pageCount} page </#if>${filenameExtension}</b></dd>
+                                    <dd class="ds_metadata__value"><b><#if doc.pageCount?? && doc.pageCount != 0 >${doc.pageCount} page </#if>${filenameExtension}</b></dd>
                                 </div>
 
                                 <div class="ds_metadata__item">
