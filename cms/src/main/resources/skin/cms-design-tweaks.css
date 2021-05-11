@@ -178,6 +178,75 @@
 
 
 /*------------------------------------*\
+    #TABLE IN CKEDITOR
+\*------------------------------------*/
+
+.ds_table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.ds_table tbody,
+.ds_table thead,
+.ds_table tfoot {
+    border: 1px solid #b3b3b3;
+}
+
+.ds_table th {
+    background-color: #ebebeb;
+    font-weight: bold;
+    position: relative;
+    text-align: left;
+}
+
+.ds_table th,
+.ds_table td {
+    vertical-align: top;
+}
+
+.ds_table th[colspan] {
+    border: 1px solid #b3b3b3;
+}
+
+.ds_table th:not(:first-child)::before {
+    border-left: 1px solid #b3b3b3;
+    bottom: 8px;
+    content: '';
+    left: -1px;
+    position: absolute;
+    top: 8px;
+}
+
+.ds_table tr>* {
+    padding: 8px 16px 8px 8px;
+}
+
+.ds_table tr {
+    border-bottom: 1px solid #ebebeb;
+}
+
+.ds_table tr:last-child {
+    border-bottom-color: #b3b3b3;
+}
+
+.ds_table thead>tr:last-child {
+    border-bottom-width: 0;
+}
+
+.ds_table tbody>tr>td {
+    background-color: #ffffff;
+}
+
+.ds_table caption {
+    font-weight: 700;
+    text-align: left;
+}
+
+
+
+
+/*------------------------------------*\
     #BUTTON PLUGIN
 \*------------------------------------*/
 
