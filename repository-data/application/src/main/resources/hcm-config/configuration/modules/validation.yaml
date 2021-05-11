@@ -25,3 +25,6 @@ definitions:
       /urlalias-validator:
         jcr:primaryType: hipposys:moduleconfig
         hipposys:className: scot.mygov.publishing.validation.UrlAliasValidator
+      /organisationtag-validator:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.OrganisationTagValidator
