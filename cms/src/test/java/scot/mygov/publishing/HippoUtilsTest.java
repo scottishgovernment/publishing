@@ -5,10 +5,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 import scot.mygov.publishing.test.TestUtil;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.Property;
-import javax.jcr.RepositoryException;
+import javax.jcr.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -39,6 +36,25 @@ public class HippoUtilsTest {
 
         // ASSERT
         assertSame(actual, publishedNode);
+    }
+
+    @Test
+    public void findDraftVariant() throws RepositoryException {
+        // ARRANGE
+        List<Node> children = new ArrayList<>();
+        Node draftNode = draftNode();
+        Collections.addAll(children, unpublishedNode(), draftNode);
+        NodeIterator nodeIterator = TestUtil.iterator(children);
+
+        Node handle = mock(Node.class);
+        when(handle.getName()).thenReturn("name");
+        when(handle.getNodes("name")).thenReturn(nodeIterator);
+
+        // ACT
+        Node actual = new HippoUtils().getDraftVariant(handle);
+
+        // ASSERT
+        assertSame(actual, draftNode);
     }
 
     @Test
@@ -121,6 +137,10 @@ public class HippoUtilsTest {
 
     Node publishedNode() throws RepositoryException {
         return nodeOfState(HippoStdNodeType.PUBLISHED);
+    }
+
+    Node draftNode() throws RepositoryException {
+        return nodeOfState(HippoStdNodeType.DRAFT);
     }
 
     Node nodeOfState(String state) throws RepositoryException {

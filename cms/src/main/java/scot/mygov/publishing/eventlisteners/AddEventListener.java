@@ -2,14 +2,14 @@ package scot.mygov.publishing.eventlisteners;
 
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.cms7.services.eventbus.Subscribe;
+import org.onehippo.forge.selection.hst.contentbean.ValueList;
+import org.onehippo.forge.selection.hst.contentbean.ValueListItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.mygov.publishing.HippoUtils;
 
 import javax.jcr.*;
-
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
 import static scot.mygov.publishing.eventlisteners.SlugLookups.SLUG;
@@ -41,13 +41,16 @@ public class AddEventListener {
 
     private static final String NEW_FAIRRENT = "new-publishing-fairrent";
 
+    protected HippoUtils hippoUtils;
+
     Set<String> orgFormats = new HashSet<>();
 
     Session session;
 
-    AddEventListener(Session session) {
+    AddEventListener(Session session, HippoUtils hippoUtils) {
 
         this.session = session;
+        this.hippoUtils = hippoUtils;
         Collections.addAll(orgFormats, "publishing:organisation", "publishing:organisationlist");
     }
 
@@ -74,25 +77,45 @@ public class AddEventListener {
         if (isGuide(node)) {
             Node index = node.getNode(INDEX).getNode(INDEX);
             setSlug(index, node.getName());
+            addRequiredOrganisations(index);
+            session.save();
             return;
         }
 
         if (requiresSlug(node)) {
             setSlug(node, node.getName());
+            if (hasOrganisationsTags(node)) {
+                addRequiredOrganisations(node);
+            }
+            session.save();
             return;
         }
 
         if (isCategory(node)) {
             setActionsDependingOnDepth(node);
             setNavigationStyle(node);
+            Node category = node.getNode(INDEX).getNode(INDEX);
+            addRequiredOrganisations(category);
             session.save();
+            return;
         }
+
+        if (hasOrganisationsTags(node)) {
+            addRequiredOrganisations(node);
+            session.save();
+            return;
+        }
+
     }
 
     boolean isGuide(Node node) throws RepositoryException {
         return isFolder(node)
                 && isUnder(node, "/content/documents/")
                 && hasFolderAction(node, "new-publishing-guide-page");
+    }
+
+    boolean hasOrganisationsTags(Node node) throws RepositoryException {
+        return node.hasProperty("publishing:organisationtags");
     }
 
     boolean isCategory(Node node) throws RepositoryException {
@@ -147,13 +170,59 @@ public class AddEventListener {
         return node.hasProperty(SLUG);
     }
 
+    void addRequiredOrganisations(Node node) throws RepositoryException {
+        // Build a list of groups for the user who created the content document
+        // that have a corresponding organisation tag for per-attribute permissions
+        Node groups = session.getNode("/hippo:configuration/hippo:groups/");
+        List<String> orgGroups = new ArrayList<>();
+        NodeIterator groupsNodes = groups.getNodes();
+        String username = node.getProperty("hippostdpubwf:createdBy").getValue().getString();
+        while (groupsNodes.hasNext()) {
+            Node  group = groupsNodes.nextNode();
+            String groupName = group.getName();
+            if (groupName.contains("orgs-")) {
+                getUsersOrgGroups(username, groupName, orgGroups);
+            }
+        }
+
+        // get and set a list of tags valid for the user creating the content document
+        Set<String> applicableTags = new HashSet<>();
+        ValueList orgs = hippoUtils.getValueList(session, "/content/documents/publishing/valuelists/organisationtags");
+        List<ValueListItem> orgMapping = orgs.getItems();
+        for (String group : orgGroups) {
+            for (ValueListItem item : orgMapping) {
+                if (item.getKey().equals(group)) {
+                    applicableTags.add(item.getLabel());
+                    break;
+                }
+            }
+        }
+
+        String[] set = new String[applicableTags.size()];
+        set = applicableTags.toArray(set);
+        node.setProperty("publishing:organisationtags", set);
+    }
+
+
+    void getUsersOrgGroups(String username, String groupName, List<String> groups) throws RepositoryException {
+        Node group = session.getNode(String.format("/hippo:configuration/hippo:groups/%s/", groupName));
+        if (group.hasProperty("hipposys:members")) {
+            List<Value> values = Arrays.asList(group.getProperty("hipposys:members").getValues());
+            for (Value value : values) {
+                if (value.getString().equals(username)) {
+                    groups.add(groupName);
+                    break;
+                }
+            }
+        }
+    }
+
     boolean isUnder(Node node, String path) throws RepositoryException {
         return node.getPath().startsWith(path);
     }
 
     void setSlug(Node node, String slug) throws RepositoryException {
         node.setProperty(SLUG, slug);
-        session.save();
     }
 
     boolean canCreateChildCategories(Node folder) throws RepositoryException {

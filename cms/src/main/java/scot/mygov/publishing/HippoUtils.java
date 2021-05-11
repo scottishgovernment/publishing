@@ -1,7 +1,11 @@
 package scot.mygov.publishing;
 
+import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
+import org.hippoecm.hst.content.beans.manager.ObjectConverter;
+import org.hippoecm.hst.site.HstServices;
 import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.util.JcrUtils;
+import org.onehippo.forge.selection.hst.contentbean.ValueList;
 
 import javax.jcr.*;
 import java.util.Collections;
@@ -59,6 +63,15 @@ public class HippoUtils {
             if (predicate.test(node)) {
                 consumer.accept(node);
             }
+        }
+    }
+
+    public ValueList getValueList(Session session, String name) throws RepositoryException {
+        try {
+            ObjectConverter converter = HstServices.getComponentManager().getComponent(ObjectConverter.class);
+            return (ValueList) converter.getObject(session, name);
+        } catch (ObjectBeanManagerException e) {
+            throw new RepositoryException("Issues retrieving the ValueList", e);
         }
     }
 

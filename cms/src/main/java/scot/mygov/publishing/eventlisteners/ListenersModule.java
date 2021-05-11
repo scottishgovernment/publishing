@@ -2,6 +2,7 @@ package scot.mygov.publishing.eventlisteners;
 
 import org.onehippo.cms7.services.eventbus.HippoEventListenerRegistry;
 import org.onehippo.repository.modules.DaemonModule;
+import scot.mygov.publishing.HippoUtils;
 
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
@@ -22,7 +23,7 @@ public class ListenersModule implements DaemonModule {
     @Override
     public void initialize(Session session) throws RepositoryException {
         slugMaintainenceListener = new SlugMaintenanceListener(session);
-        folderTypesEventListener = new AddEventListener(session);
+        folderTypesEventListener = new AddEventListener(session, new HippoUtils());
         updateMirrorNameEventListener = new MirrorEventListener(session);
         thumbnailsEventListener = new ThumbnailsEventListener(session);
 

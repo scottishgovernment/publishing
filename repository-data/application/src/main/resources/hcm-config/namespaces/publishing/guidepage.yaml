@@ -25,6 +25,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             hipposysedit:validators: [required]
+          /organisationtags:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:organisationtags
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [organisationtag-validator]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -46,6 +55,7 @@ definitions:
           publishing:metaDescription: ''
           publishing:reportingtags: []
           publishing:showFeedback: true
+          publishing:organisationtags: []
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -184,6 +194,16 @@ definitions:
             caption: Show feedback?
             field: showFeedback
             hint: Should this page include the ability to leave user feedback?
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /organisationtags:
+            jcr:primaryType: frontend:plugin
+            caption: Organisation tags
+            field: organisationtags
+            hint: List of organisations able to edit and publish the content in this
+              document
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
