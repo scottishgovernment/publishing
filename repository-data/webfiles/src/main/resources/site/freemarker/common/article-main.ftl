@@ -11,7 +11,7 @@
     <div class="ds_wrapper">
         <main id="main-content" class="ds_layout  ds_layout--article">
 
-            <#if document.sensitive>
+            <#if document.sensitive?? && document.sensitive>
                 <#include "hide-this-page.ftl">
             </#if>
 
@@ -107,7 +107,7 @@
 </@hst.headContribution>
 
 <@hst.headContribution category="meta">
-    <#if document??>
+    <#if document?? && document.metaDescription??>
         <meta name="description" content="${document.metaDescription}"/>
     </#if>
 </@hst.headContribution>
