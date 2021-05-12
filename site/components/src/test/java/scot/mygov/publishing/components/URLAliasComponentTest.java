@@ -88,6 +88,7 @@ public class URLAliasComponentTest {
         QueryResult queryResult = mock(QueryResult.class);
         Mount mount = mountWithType("live");
         ResolvedMount resolvedMount = mock(ResolvedMount.class);
+        when(request.getPathInfo()).thenReturn("");
         when(request.getRequestContext()).thenReturn(context);
         when(context.getSession()).thenReturn(session);
         when(session.getWorkspace()).thenReturn(workspace);
@@ -109,6 +110,7 @@ public class URLAliasComponentTest {
         Query query = mock(Query.class);
         Mount mount = mountWithType("live");
         ResolvedMount resolvedMount = mock(ResolvedMount.class);
+        when(request.getPathInfo()).thenReturn("");
         when(request.getRequestContext()).thenReturn(context);
         when(context.getSession()).thenReturn(session);
         when(session.getWorkspace()).thenReturn(workspace);

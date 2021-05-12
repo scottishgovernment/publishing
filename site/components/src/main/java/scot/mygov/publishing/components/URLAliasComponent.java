@@ -80,6 +80,9 @@ public class URLAliasComponent extends BaseHstComponent {
         // url aliases do not contain a trailing slash so remove one if it is present
         String path = StringUtils.stripEnd(request.getPathInfo(), "/");
 
+        // escape single quotes
+        path = path.replaceAll("'", "''");
+
         return String.format(
                 xpathTemplate,
                 mount.getContentPath(),
