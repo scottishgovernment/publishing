@@ -19,7 +19,7 @@ CKEDITOR.plugins.add('ds_warning-text', {
                 content: {
                     selector: '.ds_warning-text__text',
                     pathName: 'inner',
-                    allowedContent: 'p br ul ol li strong em; a[href]'
+                    allowedContent: 'p br ul ol li strong em; a[href]; a[data-uuid]'
                 },
             },
 
