@@ -466,7 +466,6 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{extraPlugins: ''ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',extraAllowedContent:''div[data-module];address[translate]'',format_tags:''h1;h2;h3;h4;p;pre;address''}'
           /fax:
             jcr:primaryType: frontend:plugin
             caption: Fax
