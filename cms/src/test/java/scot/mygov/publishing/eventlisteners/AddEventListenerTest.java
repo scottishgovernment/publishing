@@ -25,6 +25,7 @@ public class AddEventListenerTest {
         when(session.getNode(any())).thenThrow(new RepositoryException());
         AddEventListener sut = new AddEventListener(session, hippoUtils);
         HippoEvent event = new HippoEvent("app");
+        event.set("action", "add");
 
         // ACT
         sut.handleEvent(event);
@@ -256,12 +257,36 @@ public class AddEventListenerTest {
         verify(index).setProperty("publishing:navigationType", "grid");
     }
 
+    @Test
+    public void setsActionsForGuide() throws RepositoryException {
+        Session session = mock(Session.class);
+        HippoUtils hippoUtils = mock(HippoUtils.class);
+        Node index = mock(Node.class);
+        Node folder = folderNode(index);
+        Value [] values = new Value[] { new StringValue("new-publishing-guide-page")};
+        Property folderTypeProperty = folderTypeProperty(values);
+        when(folder.getProperty("hippostd:foldertype")).thenReturn(folderTypeProperty);
+
+        AddEventListener sut = new AddEventListener(session, hippoUtils);
+        organisationTags(session, index, sut);
+        HippoEvent event = eventWithAction("add").result("path");
+        when(session.getNode(event.result())).thenReturn(folder);
+
+        sut.handleEvent(event);
+
+
+    }
+
     String [] allActions() {
         return new String [] {"new-publishing-article", "new-publishing-category", "new-publishing-guide", "new-publishing-mirror", "new-publishing-formbase", "new-publishing-fairrent"};
     }
 
     String [] actionsWithoutAddCategory() {
         return new String [] {"new-publishing-article", "new-publishing-guide", "new-publishing-mirror", "new-publishing-formbase", "new-publishing-fairrent"};
+    }
+
+    String [] actionsForGuide() {
+        return new String [] {"new-publishing-guide-page"};
     }
 
     HippoEvent eventWithAction(String action) {
@@ -325,4 +350,58 @@ public class AddEventListenerTest {
                 session, "/content/documents/publishing/valuelists/organisationtags")).thenReturn(valueList);
         when(valueList.getItems()).thenReturn(null);
     }
+
+    //    Node groups = mock(Node.class);
+//    Property property = mock(Property.class);
+//    Value value = mock(Value.class);
+//    NodeIterator iterator = mock(NodeIterator.class);
+//
+//    when(node.getProperty("hippostdpubwf:createdBy")).thenReturn(property);
+//    when(property.getValue()).thenReturn(value);
+//    when(value.getString()).thenReturn("user");
+//    when(session.getNode("/hippo:configuration/hippo:groups/")).thenReturn(groups);
+//    when(groups.getNodes()).thenReturn(iterator);
+//    when(iterator.hasNext()).thenReturn(false, true);
+//    Node nextNode = mock(Node.class);
+//    when(iterator.nextNode()).thenReturn(nextNode);
+//    when(nextNode.getName()).thenReturn("orgs-test");
+//    Node group = mock(Node.class);
+//    when(session.getNode(String.format("/hippo:configuration/hippo:groups/%s/", "orgs-test"))).thenReturn(group);
+//    when(group.hasProperty("hipposys:members")).thenReturn(false);
+//    Property membersProperty = mock(Property.class);
+//    when(group.getProperty("hipposys:members")).thenReturn(membersProperty);
+//
+//    when(value.getString()).thenReturn("user");
+//    ValueList valueList = mock(ValueList.class);
+//    when(eventListener.hippoUtils.getValueList(
+//            session, "/content/documents/publishing/valuelists/organisationtags")).thenReturn(valueList);
+//    when(valueList.getItems()).thenReturn(null);
+
+//    Node groups = mock(Node.class);
+//    when(session.getNode("/hippo:configuration/hippo:groups/")).thenReturn(groups);
+//    NodeIterator iterator = mock(NodeIterator.class);
+//    when(groups.getNodes()).thenReturn(iterator);
+//    when(iterator.hasNext()).thenReturn(true);
+//    Node nextNode = mock(Node.class);
+//    when(iterator.nextNode()).thenReturn(nextNode);
+//    when(nextNode.getName()).thenReturn("orgs-test");
+//    Node group = mock(Node.class);
+//    when(session.getNode(String.format("/hippo:configuration/hippo:groups/%s/", "orgs-test"))).thenReturn(group);
+//    when(group.hasProperty("hipposys:members")).thenReturn(false);
+//    List<Value> values = mock(List.class);
+//    Property membersProperty = mock(Property.class);
+//    when(group.getProperty("hipposys:members")).thenReturn(membersProperty);
+//    String[] strings = {new String()};
+//    Value[] arrayValues = (Value[]) strings;
+//    when(membersProperty.getValues()).thenReturn(arrayValues);
+//    when(Arrays.asList(arrayValues)).thenReturn(values);
+//    Value value = mock(Value.class);
+//    Property property = mock(Property.class);
+//    when(node.getProperty("hippostdpubwf:createdBy")).thenReturn(property);
+//    when(property.getValue()).thenReturn(value);
+//    when(value.getString()).thenReturn("user");
+//    ValueList valueList = mock(ValueList.class);
+//    when(eventListener.hippoUtils.getValueList(
+//            session, "/content/documents/publishing/valuelists/organisationtags")).thenReturn(valueList);
+//    when(valueList.getItems()).thenReturn(null);
 }
