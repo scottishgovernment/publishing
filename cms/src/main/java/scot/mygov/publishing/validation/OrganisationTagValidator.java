@@ -40,7 +40,7 @@ public class OrganisationTagValidator implements Validator<String> {
                     : Optional.of(violation);
 
         } catch (RepositoryException e) {
-            LOG.error("Failed to validate the organisation tag {} from the ValueList", value);
+            LOG.error("Failed to validate the organisation tag {} from the ValueList", value, e);
             return Optional.of(context.createViolation("Failed to validate the organisation tag"));
         }
 

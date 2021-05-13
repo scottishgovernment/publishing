@@ -25,6 +25,7 @@ public class AddEventListenerTest {
         when(session.getNode(any())).thenThrow(new RepositoryException());
         AddEventListener sut = new AddEventListener(session, hippoUtils);
         HippoEvent event = new HippoEvent("app");
+        event.set("action", "add");
 
         // ACT
         sut.handleEvent(event);
@@ -256,12 +257,48 @@ public class AddEventListenerTest {
         verify(index).setProperty("publishing:navigationType", "grid");
     }
 
+    @Test
+    public void setsActionsForGuide() throws RepositoryException {
+        Session session = mock(Session.class);
+        HippoUtils hippoUtils = mock(HippoUtils.class);
+        Node index = mock(Node.class);
+        Node folder = folderNode(index);
+        Value [] values = new Value[] { new StringValue("new-publishing-guide-page")};
+        Property folderTypeProperty = folderTypeProperty(values);
+        when(folder.getProperty("hippostd:foldertype")).thenReturn(folderTypeProperty);
+
+        AddEventListener sut = new AddEventListener(session, hippoUtils);
+        organisationTags(session, index, sut);
+        HippoEvent event = eventWithAction("add").result("path");
+        when(session.getNode(event.result())).thenReturn(folder);
+
+        sut.handleEvent(event);
+
+    }
+
+    @Test
+    public void setsOrganisationsWhenRequired() throws RepositoryException {
+        Session session = mock(Session.class);
+        HippoUtils hippoUtils = mock(HippoUtils.class);
+        Node index = mock(Node.class);
+        AddEventListener sut = new AddEventListener(session, hippoUtils);
+        organisationTags(session, index, sut);
+        HippoEvent event = eventWithAction("add").result("path");
+        when(session.getNode(event.result())).thenReturn(index);
+        when(index.hasProperty("publishing:organisationtags")).thenReturn(true);
+        sut.handleEvent(event);
+    }
+
     String [] allActions() {
         return new String [] {"new-publishing-article", "new-publishing-category", "new-publishing-guide", "new-publishing-mirror", "new-publishing-formbase", "new-publishing-fairrent"};
     }
 
     String [] actionsWithoutAddCategory() {
         return new String [] {"new-publishing-article", "new-publishing-guide", "new-publishing-mirror", "new-publishing-formbase", "new-publishing-fairrent"};
+    }
+
+    String [] actionsForGuide() {
+        return new String [] {"new-publishing-guide-page"};
     }
 
     HippoEvent eventWithAction(String action) {
@@ -325,4 +362,5 @@ public class AddEventListenerTest {
                 session, "/content/documents/publishing/valuelists/organisationtags")).thenReturn(valueList);
         when(valueList.getItems()).thenReturn(null);
     }
+
 }
