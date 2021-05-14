@@ -9,6 +9,7 @@ import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.onehippo.cms7.essentials.components.EssentialsListComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
+import scot.mygov.publishing.beans.Base;
 
 import java.util.*;
 
@@ -51,7 +52,6 @@ public class SearchComponent extends EssentialsListComponent {
     Constraint whereConstraint(HstRequest request) {
         List<Constraint> constraints = new ArrayList<>();
         constraints.add(excludeTypesConstraint());
-
         String term = param(request, "q");
         String parsedTerm = SearchInputParsingUtils.parse(term, false);
         if (!isBlank(parsedTerm)) {
@@ -70,7 +70,13 @@ public class SearchComponent extends EssentialsListComponent {
                 notType("publishing:category"),
                 notType("publishing:organisationlist"),
                 notType("publishing:contentcontact"),
-                notType("publishing:sector")
+                notType("publishing:sector"),
+                notType("publishing:status"),
+                notType("publishing:search"),
+                notType("publishing:cookiepage"),
+                notType("publishing:analytics"),
+                notType("publishing:facebookverification"),
+                notType("robotstxt:robotstxt")
         );
     }
 
