@@ -3,16 +3,26 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
 import org.hippoecm.hst.configuration.hosting.Mount;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scot.mygov.publishing.HippoUtils;
+import scot.mygov.publishing.beans.Base;
+import scot.mygov.publishing.beans.Guide;
+import scot.mygov.publishing.beans.GuidePage;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static org.apache.commons.lang3.StringUtils.*;
 
@@ -39,6 +49,48 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
         setGtmName(request);
         setGtmId(request);
         setMountDependentAttributes(request);
+
+
+        // set the document to use to populate meta data in the gtm data layer.
+        //
+        // for guide pages, the guide should be used, and the super ste of reporting tags
+        // from the guide and guide page.
+        HippoBean document = request.getRequestContext().getContentBean();
+        Set<String> reportingTags = new HashSet<>();
+        addReportingTags(document, reportingTags);
+
+        // for a guide, also add the reporting tags for the first page
+        if (document instanceof Guide) {
+            addReportingTags(getFirstGuidePage(request), reportingTags);
+        }
+
+        // if this is a guide page, use the guide as the document used to populate the data layer
+        if (document instanceof GuidePage) {
+            document = getGuide(document);
+            addReportingTags(document, reportingTags);
+        }
+
+        request.setAttribute("reportingTags", reportingTags);
+        request.setAttribute("document", document);
+    }
+
+    HippoBean getFirstGuidePage(HstRequest request) {
+        HippoFolderBean folder = CategoryComponent.getChildrenFolder(request);
+        List<CategoryComponent.Wrapper> children = GuideComponent.getChildren(folder);
+        return children.get(0).getBean();
+    }
+
+    HippoBean getGuide(HippoBean document) {
+        HippoFolderBean folder = (HippoFolderBean) document.getParentBean();
+        return folder.getBean("index");
+
+    }
+
+    void addReportingTags(HippoBean bean, Set<String> reportingTags) {
+        if (bean instanceof Base) {
+            Base base = (Base) bean;
+            Collections.addAll(reportingTags, base.getReportingtags());
+        }
     }
 
     /**

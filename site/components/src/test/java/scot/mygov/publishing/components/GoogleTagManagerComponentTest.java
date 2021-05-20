@@ -2,6 +2,7 @@ package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
 import org.hippoecm.hst.configuration.hosting.Mount;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -10,6 +11,7 @@ import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.repository.HippoStdNodeType;
 import org.junit.Test;
 import scot.mygov.publishing.TestUtil;
+import scot.mygov.publishing.beans.Base;
 
 import javax.jcr.Node;
 import javax.jcr.Property;
