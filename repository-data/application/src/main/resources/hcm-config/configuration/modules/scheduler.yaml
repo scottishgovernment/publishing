@@ -12,8 +12,8 @@ definitions:
           jcr:primaryType: hipposched:crontrigger
           jcr:mixinTypes: ['mix:lockable']
           jcr:uuid: ba851e5f-b012-43e4-8877-c41fe545e669
-          hipposched:cronExpression: 0 0 0 ? * * *
+          hipposched:cronExpression: 0 0 2 ? * * *
           hipposched:enabled: true
-          hipposched:nextFireTime: 2021-05-26T00:00:00+01:00
+          hipposched:nextFireTime: 2021-05-26T02:00:00+01:00
     /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/FormDataCleanup:
       hipposched:enabled: false
