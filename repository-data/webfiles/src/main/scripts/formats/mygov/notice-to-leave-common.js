@@ -269,7 +269,7 @@ const noticeToLeaveForm = {
                 slug: 'landlord',
                 stepTitle: 'Landlord',
                 requiredName: true,
-                suppressedFields: ['email', 'phone', 'registrationNumber'],
+                suppressedFields: ['email', 'registrationNumber'],
                 fieldMappings: function(number) {
                     const fieldMappings = {};
 
