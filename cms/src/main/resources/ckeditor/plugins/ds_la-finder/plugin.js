@@ -36,11 +36,11 @@ CKEDITOR.plugins.add('ds_la-finder', {
                     attributes: 'data-id, disabled, selected'
                 },
                 'span': {
-                    attributes: 'aria-hidden',
-                    classes: 'ds_select-arrow'
+                    attributes: '!aria-hidden',
+                    classes: '!ds_select-arrow'
                 },
                 'a': {
-                    attributes: '!href, style, id, aria-hidden',
+                    attributes: '!href, id, aria-hidden',
                     classes: 'ds_button, ds_button--max, fully-hidden'
                 },
                 'div': {

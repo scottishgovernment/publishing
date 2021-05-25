@@ -1,4 +1,4 @@
 definitions:
   config:
     /hippo:namespaces/hippostd/html/editor:templates/_default_:
-      ckeditor.config.overlayed.json: '{extraPlugins: ''dialogadvtab2,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',extraAllowedContent:''table[data-smallscreen];div[data-module];address[translate]'',format_tags:''h1;h2;h3;h4;p;pre;address''}'
+      ckeditor.config.overlayed.json: '{disallowedContent: ''*[style]{*}'',extraPlugins: ''dialogadvtab2,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',extraAllowedContent:''table[data-smallscreen];div[data-module];address[translate];'',format_tags:''h1;h2;h3;h4;p;pre;address''}'

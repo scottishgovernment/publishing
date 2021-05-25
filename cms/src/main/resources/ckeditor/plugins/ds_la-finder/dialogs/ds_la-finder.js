@@ -226,7 +226,7 @@
             for (let i = 0; i < indicesToRemove.length; i++) {
                 window.laFinderDialog._.focusList.splice(indicesToRemove[i], 1);
             }
-        }
+        };
     }
 
     function itemTemplate(item, index, total) {

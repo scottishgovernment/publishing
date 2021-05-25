@@ -3,6 +3,7 @@ CKEDITOR.plugins.add('ds_warning-text', {
     icons: 'ds_warning-text',
 
     init: function (editor) {
+        CKEDITOR.dtd.$removeEmpty.strong = false;
         editor.widgets.add('ds_warning-text', {
             button: 'Warning text',
             pathName: 'warning',
@@ -19,7 +20,7 @@ CKEDITOR.plugins.add('ds_warning-text', {
                 content: {
                     selector: '.ds_warning-text__text',
                     pathName: 'inner',
-                    allowedContent: 'p br ul ol li strong em; a[href]; a[data-uuid]'
+                    allowedContent: 'p br ul ol li strong em; a[!href]; a[!data-uuid]'
                 },
             },
 
