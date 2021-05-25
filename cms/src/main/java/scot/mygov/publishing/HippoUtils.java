@@ -8,9 +8,9 @@ import org.hippoecm.repository.util.JcrUtils;
 import org.onehippo.forge.selection.hst.contentbean.ValueList;
 
 import javax.jcr.*;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryResult;
+import java.util.*;
 
 public class HippoUtils {
 
@@ -73,6 +73,32 @@ public class HippoUtils {
         } catch (ObjectBeanManagerException e) {
             throw new RepositoryException("Issues retrieving the ValueList", e);
         }
+    }
+    public long executeXpathQuery(Session session, String query, ThrowingConsumer consumer) throws RepositoryException {
+        return executeQuery(session, query, Query.XPATH, node -> true, consumer);
+    }
+
+    public long executeQuery(
+            Session session,
+            String query,
+            String queryType,
+            ThrowingPredicate predicate,
+            ThrowingConsumer consumer) throws RepositoryException {
+        Query queryObj = session
+                .getWorkspace()
+                .getQueryManager()
+                .createQuery(query, queryType);
+        queryObj.setLimit(10000);
+        QueryResult result = queryObj.execute();
+        NodeIterator nodeIt = result.getNodes();
+        Collection<Node> nodes = new LinkedList<>();
+        while (nodeIt.hasNext()) {
+            Node node = nodeIt.nextNode();
+            if (predicate.test(node)) {
+                consumer.accept(node);
+            }
+        }
+        return nodes.size();
     }
 
     @FunctionalInterface

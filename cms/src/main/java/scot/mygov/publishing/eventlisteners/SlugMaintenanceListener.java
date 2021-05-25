@@ -4,9 +4,11 @@ import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.onehippo.repository.events.HippoWorkflowEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.mygov.publishing.HippoUtils;
 
 import javax.jcr.*;
 
+import static org.apache.commons.lang3.StringUtils.substringAfter;
 import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
 import static scot.mygov.publishing.eventlisteners.SlugLookups.SLUG;
 
@@ -24,6 +26,8 @@ public class SlugMaintenanceListener {
     Session session;
 
     SlugLookups slugLookups;
+
+    HippoUtils hippoUtils = new HippoUtils();
 
     public SlugMaintenanceListener(Session session) {
         this.session = session;
@@ -44,6 +48,11 @@ public class SlugMaintenanceListener {
 
     void doHandleEvent(HippoWorkflowEvent event) throws RepositoryException {
         Node subject = session.getNode(event.subjectPath());
+
+        if (isFolderRename(event, subject)) {
+            updateLookupsInFolder(event);
+            return;
+        }
 
         if (!requiresSlug(subject)) {
             return;
@@ -68,6 +77,34 @@ public class SlugMaintenanceListener {
 
             default:
         }
+    }
+
+    boolean isFolderRename(HippoWorkflowEvent event, Node subject) throws RepositoryException {
+        if (!"rename".equals(event.action())) {
+            return false;
+        }
+
+        return subject.isNodeType("hippostd:folder");
+    }
+
+    void updateLookupsInFolder(HippoWorkflowEvent event) throws RepositoryException {
+        String sitename = event.subjectPath().split("/")[3];
+        String relpath = substringAfter(event.subjectPath(), sitename);
+        String oldName = event.arguments().get(0).toString();
+        String newName = event.arguments().get(1).toString();
+        String xpath = String.format(
+                "/jcr:root/content/urls/%s//element(*, nt:unstructured)[jcr:like(@publishing:path, '%s/%s/%%')]",
+                sitename,
+                relpath,
+                oldName);
+        hippoUtils.executeXpathQuery(session, xpath, node -> fixPublishingPath(node, oldName, newName));
+        session.save();
+    }
+
+    void fixPublishingPath(Node node, String oldName, String newName) throws RepositoryException {
+        String path = node.getProperty("publishing:path").getString();
+        String newPath = path.replace(oldName, newName);
+        node.setProperty("publishing:path", newPath);
     }
 
     boolean requiresSlug(Node subject) throws RepositoryException {
