@@ -75,4 +75,10 @@ public class Guide extends Base {
     public Boolean getShowFeedback() {
         return getSingleProperty("publishing:showFeedback");
     }
+
+    @HippoEssentialsGenerated(internalName = "publishing:showInParent")
+    public Boolean getShowInParent() {
+        return getSingleProperty("publishing:showInParent");
+    }
+
 }

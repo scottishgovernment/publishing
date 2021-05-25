@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5047a701-1c23-4729-8da5-19dba80694df
+          jcr:uuid: c306a0af-98ee-468c-be5d-fb1c15132c2e
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -71,7 +71,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: 4e298012-059b-4a1a-89db-da4ca31a7ee5
+          jcr:uuid: c8c7e76e-7b7e-4f9c-a741-bd8cdadfb730
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -85,6 +85,7 @@ definitions:
           publishing:serviceproviders: []
           publishing:userneed: ''
           publishing:showFeedback: true
+          publishing:showInParent: true
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -364,11 +365,22 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /showInParent:
+            jcr:primaryType: frontend:plugin
+            caption: Show in parent?
+            field: showInParent
+            hint: Should this item be shown in it's parent page?  Unchecking this
+              will cause this page to not be shown its it paren folder or guide.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /organisationtags:
             jcr:primaryType: frontend:plugin
             caption: Organisation tags
             field: organisationtags
-            hint: List of organisations able to edit and publish the content in this document
+            hint: List of organisations able to edit and publish the content in this
+              document
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

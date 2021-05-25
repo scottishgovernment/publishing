@@ -6,6 +6,7 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import scot.mygov.publishing.beans.Article;
+import scot.mygov.publishing.beans.Guide;
 import scot.mygov.publishing.beans.Mirror;
 
 import java.util.*;
@@ -94,7 +95,15 @@ public class CategoryComponent extends EssentialsContentComponent {
     }
 
     static boolean includeInParent(HippoBean bean) {
-        return bean instanceof Article ? ((Article)bean).getShowInParent() : true;
+        if (bean instanceof Article) {
+            return ((Article)bean).getShowInParent();
+        }
+
+        if (bean instanceof Guide) {
+            return ((Guide)bean).getShowInParent();
+        }
+
+        return  true;
     }
 
     static boolean notIndexFile(HippoBean bean) {
