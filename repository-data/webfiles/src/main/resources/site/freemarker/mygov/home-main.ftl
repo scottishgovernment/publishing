@@ -13,7 +13,7 @@
                     <header class="ds_category-header__header">
                         <h1 class="ds_category-header__title">Access to public services in Scotland</h1>
                         <div class="ds_site-search" data-module="ds-site-search">
-                            <form role="search" class="ds_site-search__form" method="GET" action="/search/">
+                            <form role="search" class="ds_site-search__form" method="GET" action="<@hst.link path='/search/'/>">
                                 <label class="ds_label  visually-hidden" for="site-search">Search</label>
 
                                 <div class="ds_input__wrapper  ds_input__wrapper--has-icon  ds_no-margin">
