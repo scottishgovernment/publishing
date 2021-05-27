@@ -388,7 +388,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: d5dbe0f4-b808-4606-a0e3-1209a3649886
       hippo:name: About
-      hippo:versionHistory: cbbb2d6e-c821-485b-90e7-606746ccce60
+      hippo:versionHistory: e27613ac-a6a2-411d-9e98-ce05f0d83a6d
       /about[1]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -396,11 +396,12 @@
         jcr:uuid: 4474b596-8b0c-4bf6-9da0-7c27a461d743
         hippo:availability: []
         hippo:name: About
+        hippostd:retainable: false
         hippostd:state: draft
         hippostd:tags: []
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:39.165+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:06.249+01:00
+        hippostdpubwf:lastModificationDate: 2021-05-27T09:26:50.322+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 1d703c5b-f0e0-4fde-b705-86d6897c5d2b
         hippotranslation:locale: document-type-locale
@@ -413,6 +414,8 @@
         publishing:sensitive: false
         publishing:seoTitle: About
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: true
         publishing:slug: about-mygovscot
         publishing:summary: About mygov.scot.
         publishing:title: About
@@ -469,6 +472,12 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
       /about[2]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -476,11 +485,12 @@
         jcr:uuid: 33ee0ac2-30e8-442b-a804-1e586797c0c7
         hippo:availability: [preview]
         hippo:name: About
+        hippostd:retainable: false
         hippostd:state: unpublished
         hippostd:tags: []
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:39.165+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:06.221+01:00
+        hippostdpubwf:lastModificationDate: 2021-05-27T09:26:59.476+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 1d703c5b-f0e0-4fde-b705-86d6897c5d2b
         hippotranslation:locale: document-type-locale
@@ -493,6 +503,8 @@
         publishing:sensitive: false
         publishing:seoTitle: About
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: true
         publishing:slug: about-mygovscot
         publishing:summary: About mygov.scot.
         publishing:title: About
@@ -549,6 +561,12 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
       /about[3]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -556,13 +574,14 @@
         jcr:uuid: 6aed7899-e19e-4bc1-8466-bd1c338c07ec
         hippo:availability: [live]
         hippo:name: About
+        hippostd:retainable: false
         hippostd:state: published
         hippostd:tags: []
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:39.165+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:06.221+01:00
+        hippostdpubwf:lastModificationDate: 2021-05-27T09:26:59.476+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2020-10-01T09:33:08.643+01:00
+        hippostdpubwf:publicationDate: 2021-05-27T09:27:26.337+01:00
         hippotranslation:id: 1d703c5b-f0e0-4fde-b705-86d6897c5d2b
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
@@ -574,6 +593,8 @@
         publishing:sensitive: false
         publishing:seoTitle: About
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: true
         publishing:slug: about-mygovscot
         publishing:summary: About mygov.scot.
         publishing:title: About
@@ -630,12 +651,18 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
     /accessibility:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: c64f1c2f-b17e-43b9-b7d4-5b91fb7bb11f
       hippo:name: Accessibility
-      hippo:versionHistory: 28a9fbbe-f763-4aba-ae44-52bee7d36729
+      hippo:versionHistory: cc0bd358-57ab-4bab-9c3c-4276b4aa416c
       /accessibility[1]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -643,11 +670,12 @@
         jcr:uuid: 764901cb-2f08-4d01-a8fa-2095bb4a02cd
         hippo:availability: []
         hippo:name: Accessibility
+        hippostd:retainable: false
         hippostd:state: draft
         hippostd:tags: []
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:39.845+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:29.512+01:00
+        hippostdpubwf:lastModificationDate: 2021-05-27T09:27:03.342+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: f4e5a19c-9125-486b-9971-a350246044bf
         hippotranslation:locale: document-type-locale
@@ -661,6 +689,8 @@
         publishing:sensitive: false
         publishing:seoTitle: Accessibility
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: true
         publishing:slug: accessibility
         publishing:summary: Website accessibility on mygov.scot
         publishing:title: Accessibility
@@ -719,6 +749,12 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
       /accessibility[2]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -726,11 +762,12 @@
         jcr:uuid: 0ce74d5e-df0e-4647-a59e-35234bf64121
         hippo:availability: [preview]
         hippo:name: Accessibility
+        hippostd:retainable: false
         hippostd:state: unpublished
         hippostd:tags: []
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:39.845+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:29.465+01:00
+        hippostdpubwf:lastModificationDate: 2021-05-27T09:27:06.890+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: f4e5a19c-9125-486b-9971-a350246044bf
         hippotranslation:locale: document-type-locale
@@ -744,6 +781,8 @@
         publishing:sensitive: false
         publishing:seoTitle: Accessibility
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: true
         publishing:slug: accessibility
         publishing:summary: Website accessibility on mygov.scot
         publishing:title: Accessibility
@@ -802,6 +841,12 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
       /accessibility[3]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -809,13 +854,14 @@
         jcr:uuid: 3b0f0530-de6b-4e50-bcb3-1d5429435c8a
         hippo:availability: [live]
         hippo:name: Accessibility
+        hippostd:retainable: false
         hippostd:state: published
         hippostd:tags: []
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:39.845+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:29.465+01:00
+        hippostdpubwf:lastModificationDate: 2021-05-27T09:27:06.890+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2020-10-01T09:33:31.459+01:00
+        hippostdpubwf:publicationDate: 2021-05-27T09:27:26.262+01:00
         hippotranslation:id: f4e5a19c-9125-486b-9971-a350246044bf
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
@@ -828,6 +874,8 @@
         publishing:sensitive: false
         publishing:seoTitle: Accessibility
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: true
         publishing:slug: accessibility
         publishing:summary: Website accessibility on mygov.scot
         publishing:title: Accessibility
@@ -886,12 +934,18 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
     /cookies:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: caf08bcd-4f67-4c88-a87b-6adc08160986
       hippo:name: Cookies
-      hippo:versionHistory: 86e28bf7-6b8e-4e5e-804d-e1f6f376bc3d
+      hippo:versionHistory: ceab17f9-d9a1-49f3-867a-a7d70a529c76
       /cookies[1]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -899,11 +953,12 @@
         jcr:uuid: 835e4fe4-56d7-4366-b948-24196fa0a9bc
         hippo:availability: []
         hippo:name: Cookies
+        hippostd:retainable: false
         hippostd:state: draft
         hippostd:tags: []
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:40.238+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:34.213+01:00
+        hippostdpubwf:lastModificationDate: 2021-05-27T09:27:09.651+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 79da858c-d7a7-442f-9caa-ae31a14aa96d
         hippotranslation:locale: document-type-locale
@@ -916,6 +971,8 @@
         publishing:sensitive: false
         publishing:seoTitle: Cookies
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: true
         publishing:slug: cookies
         publishing:summary: Cookie information for mygov.scot.
         publishing:title: Cookies
@@ -990,6 +1047,12 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
       /cookies[2]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -997,11 +1060,12 @@
         jcr:uuid: f6b6d13f-a902-42a1-a42c-f112114f35a3
         hippo:availability: [preview]
         hippo:name: Cookies
+        hippostd:retainable: false
         hippostd:state: unpublished
         hippostd:tags: []
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:40.238+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:35.247+01:00
+        hippostdpubwf:lastModificationDate: 2021-05-27T09:27:13.646+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 79da858c-d7a7-442f-9caa-ae31a14aa96d
         hippotranslation:locale: document-type-locale
@@ -1014,6 +1078,8 @@
         publishing:sensitive: false
         publishing:seoTitle: Cookies
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: true
         publishing:slug: cookies
         publishing:summary: Cookie information for mygov.scot.
         publishing:title: Cookies
@@ -1088,6 +1154,12 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
       /cookies[3]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -1095,13 +1167,14 @@
         jcr:uuid: 309dea94-ed72-4561-9f17-9a9616a3e5d3
         hippo:availability: [live]
         hippo:name: Cookies
+        hippostd:retainable: false
         hippostd:state: published
         hippostd:tags: []
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:40.238+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:35.247+01:00
+        hippostdpubwf:lastModificationDate: 2021-05-27T09:27:13.646+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2020-10-01T09:33:37.150+01:00
+        hippostdpubwf:publicationDate: 2021-05-27T09:27:26.404+01:00
         hippotranslation:id: 79da858c-d7a7-442f-9caa-ae31a14aa96d
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
@@ -1113,6 +1186,8 @@
         publishing:sensitive: false
         publishing:seoTitle: Cookies
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: true
         publishing:slug: cookies
         publishing:summary: Cookie information for mygov.scot.
         publishing:title: Cookies
@@ -1187,12 +1262,18 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
     /privacy:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 8c60d6d8-8da8-483a-ab7d-247fc81d6c39
       hippo:name: Privacy
-      hippo:versionHistory: 9111525b-b476-48dd-b3f5-0a45f24e835b
+      hippo:versionHistory: 5cc11ce4-27cc-4b1a-8b0f-fa2407be35f6
       /privacy[1]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -1200,12 +1281,13 @@
         jcr:uuid: 3d55581f-4d91-4d5a-a457-6493cf8222e8
         hippo:availability: []
         hippo:name: Privacy
+        hippostd:retainable: false
         hippostd:state: draft
         hippostd:tags: [data, data security, privacy, privacy policy, cookies, personal
             data]
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:41.089+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:38.725+01:00
+        hippostdpubwf:lastModificationDate: 2021-05-27T09:27:16.682+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: f0db4015-8a93-4555-b2d2-c325f41ff315
         hippotranslation:locale: document-type-locale
@@ -1219,6 +1301,8 @@
         publishing:sensitive: false
         publishing:seoTitle: Privacy
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: true
         publishing:slug: privacy
         publishing:summary: Read our privacy statement.
         publishing:title: Privacy
@@ -1340,6 +1424,12 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
       /privacy[2]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -1347,12 +1437,13 @@
         jcr:uuid: 9fe92f5d-4094-4c86-b4c7-ce5551c51716
         hippo:availability: [preview]
         hippo:name: Privacy
+        hippostd:retainable: false
         hippostd:state: unpublished
         hippostd:tags: [data, data security, privacy, privacy policy, cookies, personal
             data]
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:41.089+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:39.769+01:00
+        hippostdpubwf:lastModificationDate: 2021-05-27T09:27:20.063+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: f0db4015-8a93-4555-b2d2-c325f41ff315
         hippotranslation:locale: document-type-locale
@@ -1366,6 +1457,8 @@
         publishing:sensitive: false
         publishing:seoTitle: Privacy
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: true
         publishing:slug: privacy
         publishing:summary: Read our privacy statement.
         publishing:title: Privacy
@@ -1487,6 +1580,12 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
       /privacy[3]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
@@ -1494,14 +1593,15 @@
         jcr:uuid: 4602b33a-70cb-4952-aae6-a5475466cfdf
         hippo:availability: [live]
         hippo:name: Privacy
+        hippostd:retainable: false
         hippostd:state: published
         hippostd:tags: [data, data security, privacy, privacy policy, cookies, personal
             data]
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:36:41.089+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T09:33:39.769+01:00
+        hippostdpubwf:lastModificationDate: 2021-05-27T09:27:20.063+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2020-10-01T09:33:41.494+01:00
+        hippostdpubwf:publicationDate: 2021-05-27T09:27:26.160+01:00
         hippotranslation:id: f0db4015-8a93-4555-b2d2-c325f41ff315
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
@@ -1514,6 +1614,8 @@
         publishing:sensitive: false
         publishing:seoTitle: Privacy
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: true
         publishing:slug: privacy
         publishing:summary: Read our privacy statement.
         publishing:title: Privacy
@@ -1635,6 +1737,12 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
   /hero-panel-site-items:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
