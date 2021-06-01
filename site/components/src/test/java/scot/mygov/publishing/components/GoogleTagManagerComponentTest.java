@@ -3,6 +3,7 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -11,13 +12,16 @@ import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.repository.HippoStdNodeType;
 import org.junit.Test;
 import scot.mygov.publishing.TestUtil;
+import scot.mygov.publishing.beans.Article;
 import scot.mygov.publishing.beans.Base;
+import scot.mygov.publishing.beans.Guide;
+import scot.mygov.publishing.beans.GuidePage;
 
 import javax.jcr.Node;
 import javax.jcr.Property;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-import java.util.Collections;
+import java.util.*;
 
 import static org.mockito.Mockito.*;
 
@@ -97,15 +101,88 @@ public class GoogleTagManagerComponentTest {
         verify(request).setAttribute("gtmEnv", "");
     }
 
+    @Test
+    public void setsReportingTagsAsExceptedForArticle() throws RepositoryException {
+
+        // ARRANGE
+        GoogleTagManagerComponent sut = new GoogleTagManagerComponent();
+
+        Article article = mock(Article.class);
+        when(article.getReportingtags()).thenReturn(new String [] {"tag1"});
+
+        HstRequestContext context = context(article);
+        HstRequest request = request("expectedGtmName", "expectedGtmId", "expectedContainerId", "expectedGtmAuth", "expectedGtmEnv", context);
+        HstResponse response = mock(HstResponse.class);
+
+        // ACT
+        sut.doBeforeRender(request, response);
+
+        // ASSERT
+        verify(request).setAttribute("reportingTags", Collections.singleton("tag1"));
+    }
+
+
+    @Test
+    public void setsReportingTagsAsExceptedForGuide() throws RepositoryException {
+
+        // ARRANGE
+        GoogleTagManagerComponent sut = new GoogleTagManagerComponent();
+
+        Guide guide = mock(Guide.class);
+        GuidePage guidepage = mock(GuidePage.class);
+        when(guide.getReportingtags()).thenReturn(new String [] {"tag1"});
+        when(guidepage.getReportingtags()).thenReturn(new String [] {"tag2"});
+
+        HippoFolderBean folder = mock(HippoFolderBean.class);
+        when(guide.getParentBean()).thenReturn(folder);
+
+        List<HippoBean> children = new ArrayList<>();
+        children.add(guide);
+        children.add(guidepage);
+        when(folder.getChildBeans(HippoBean.class)).thenReturn(children);
+
+        HstRequestContext context = context(guide);
+        HippoBean baseBean = mock(HippoBean.class);
+        when(context.getSiteContentBaseBean()).thenReturn(baseBean);
+
+        HstRequest request = request("expectedGtmName", "expectedGtmId", "expectedContainerId", "expectedGtmAuth", "expectedGtmEnv", context);
+        HstResponse response = mock(HstResponse.class);
+
+        // ACT
+        sut.doBeforeRender(request, response);
+
+        // ASSERT
+        Set<String> expected = new HashSet<>();
+        Collections.addAll(expected, "tag1", "tag2");
+        verify(request).setAttribute("reportingTags", expected);
+    }
+
     HstRequest request(String configName, String pathInfo, String containerId, String auth, String env) throws RepositoryException {
         Session session = sessionWithValues(containerId, auth, env);
-        return request(configName, pathInfo, session);
+        HstRequestContext context = context(null);
+        return request(configName, pathInfo, session, context);
+    }
+
+    HstRequest request(String configName, String pathInfo, String containerId, String auth, String env, HstRequestContext context) throws RepositoryException {
+        Session session = sessionWithValues(containerId, auth, env);
+        return request(configName, pathInfo, session, context);
+    }
+
+
+    HstRequestContext context(HippoBean bean) throws RepositoryException {
+        HstRequestContext context = mock(HstRequestContext.class);
+        when(context.getContentBean()).thenReturn(bean);
+        return context;
     }
 
     HstRequest request(String configName, String pathInfo, Session session) throws RepositoryException {
+        HstRequestContext context = context(null);
+        return request(configName, pathInfo, session, context);
+
+    }
+    HstRequest request(String configName, String pathInfo, Session session, HstRequestContext context) throws RepositoryException {
         HstRequest request = mock(HstRequest.class);
 
-        HstRequestContext context = mock(HstRequestContext.class);
         when(context.getSession()).thenReturn(session);
         when(request.getRequestContext()).thenReturn(context);
 
