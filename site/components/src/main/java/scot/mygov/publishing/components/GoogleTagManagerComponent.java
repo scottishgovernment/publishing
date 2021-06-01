@@ -56,22 +56,24 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
         // for guide pages, the guide should be used, and the super ste of reporting tags
         // from the guide and guide page.
         HippoBean document = request.getRequestContext().getContentBean();
-        Set<String> reportingTags = new HashSet<>();
-        addReportingTags(document, reportingTags);
-
-        // for a guide, also add the reporting tags for the first page
-        if (document instanceof Guide) {
-            addReportingTags(getFirstGuidePage(request), reportingTags);
-        }
-
-        // if this is a guide page, use the guide as the document used to populate the data layer
-        if (document instanceof GuidePage) {
-            document = getGuide(document);
+        if (document != null) {
+            Set<String> reportingTags = new HashSet<>();
             addReportingTags(document, reportingTags);
-        }
 
-        request.setAttribute("reportingTags", reportingTags);
-        request.setAttribute("document", document);
+            // for a guide, also add the reporting tags for the first page
+            if (document instanceof Guide) {
+                addReportingTags(getFirstGuidePage(request), reportingTags);
+            }
+
+            // if this is a guide page, use the guide as the document used to populate the data layer
+            if (document instanceof GuidePage) {
+                document = getGuide(document);
+                addReportingTags(document, reportingTags);
+            }
+
+            request.setAttribute("reportingTags", reportingTags);
+            request.setAttribute("document", document);
+        }
     }
 
     HippoBean getFirstGuidePage(HstRequest request) {
