@@ -535,9 +535,9 @@ const noticeToLeaveForm = {
         // if email or post add 2 days
         retData.hasAddition = noticeMethod !== 'hand';
 
-        // find shortest eviction grounds
-        let shortestEvictionPeriod = 9999;
-        let shortestGround;
+        // find longest eviction grounds
+        let longestEvictionPeriod = 0;
+        let longestGround;
         evictionGroundsUsed.forEach(ground => {
             const definitions = {
                 '6m': 168,
@@ -545,14 +545,13 @@ const noticeToLeaveForm = {
                 '28d': 28
             };
 
-            if (definitions[evictionGroundsWithPeriodsCOVID[ground.id]] < shortestEvictionPeriod) {
-                shortestEvictionPeriod = definitions[evictionGroundsWithPeriodsCOVID[ground.id]];
-                shortestGround = ground;
+            if (definitions[evictionGroundsWithPeriodsCOVID[ground.id]] > longestEvictionPeriod) {
+                longestEvictionPeriod = definitions[evictionGroundsWithPeriodsCOVID[ground.id]];
+                longestGround = ground;
             }
-
         });
 
-        const period = evictionGroundsWithPeriodsCOVID[shortestGround.id];
+        const period = evictionGroundsWithPeriodsCOVID[longestGround.id];
 
         if (period.match('m')) {
             endDate.setMonth(endDate.getMonth() + parseInt(period, 10));
