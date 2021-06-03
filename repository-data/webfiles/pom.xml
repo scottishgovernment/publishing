@@ -105,20 +105,6 @@
           </execution>
 
           <execution>
-            <id>EAP</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>compile</goal>
-            </goals>
-            <configuration>
-              <inputPath>src/main/scss/economicactionplan</inputPath>
-              <outputPath>src/main/resources/site/assets/economicactionplan/css/</outputPath>
-              <outputStyle>compressed</outputStyle>
-              <generateSourceMap>false</generateSourceMap>
-            </configuration>
-          </execution>
-
-          <execution>
             <id>Trading Nation</id>
             <phase>generate-resources</phase>
             <goals>

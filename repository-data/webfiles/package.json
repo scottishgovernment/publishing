@@ -11,7 +11,7 @@
     "postshrinkwrap": "node_modules/.bin/sealant @scottish-government/mygov-assets",
     "sass": "npm run sass_mygov; npm run sass_eap; npm run sass_tn",
     "sass_mygov": "node_modules/.bin/node-sass ./src/main/scss/mygov/main.scss ./src/main/resources/site/assets/mygov/css/main.css --style compressed --cache-location target/.sass-cache",
-    "sass_eap": "node_modules/.bin/node-sass ./src/main/scss/economicactionplan/main.scss ./src/main/resources/site/assets/economicactionplan/css/main.css --style compressed --cache-location target/.sass-cache",
+    "sass_eap": "node_modules/.bin/node-sass --style compressed --cache-location target/.sass-cache",
     "sass_tn": "node_modules/.bin/node-sass ./src/main/scss/tradingnation/main.scss ./src/main/resources/site/assets/tradingnation/css/main.css --style compressed --cache-location target/.sass-cache",
     "svgsprite": "node svg-sprite",
     "test": "karma start ./test/karma.conf.js",

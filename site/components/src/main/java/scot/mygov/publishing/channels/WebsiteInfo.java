@@ -7,7 +7,7 @@ import org.hippoecm.hst.core.parameters.Parameter;
 public interface WebsiteInfo extends ChannelInfo {
 
     @Parameter(name = "style", required = true, displayName = "Style")
-    @DropDownList({"mygov", "economicactionplan", "tradingnation"})
+    @DropDownList({"mygov", "tradingnation"})
     String getStyle();
 
     @Parameter(name = "feedbackEnabled", required = true, displayName = "Feedback enabled?")
