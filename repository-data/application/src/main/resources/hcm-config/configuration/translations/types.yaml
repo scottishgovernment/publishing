@@ -2,12 +2,16 @@ definitions:
   config:
     /hippo:configuration/hippo:translations/hippo:types/publishing:ImageCard:
       jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:name: Image card
+        jcr:primaryType: hipposys:resourcebundle
     /hippo:configuration/hippo:translations/hippo:types/publishing:article:
       jcr:primaryType: hipposys:resourcebundles
       /en:
         jcr:primaryType: hipposys:resourcebundle
         publishing:tags: Keywords
         publishing:tagssupport: Keyword suggestions
+        jcr:name: Article
       /nl:
         jcr:primaryType: hipposys:resourcebundle
         publishing:tags: Trefwoorden
@@ -23,6 +27,7 @@ definitions:
     /hippo:configuration/hippo:translations/hippo:types/publishing:guide:
       jcr:primaryType: hipposys:resourcebundles
       /en:
+        jcr:name: Guide
         jcr:primaryType: hipposys:resourcebundle
         publishing:tags: Keywords
         publishing:tagssupport: Keyword suggestions
@@ -41,6 +46,7 @@ definitions:
     /hippo:configuration/hippo:translations/hippo:types/publishing:guidepage:
       jcr:primaryType: hipposys:resourcebundles
       /en:
+        jcr:name: Guide page
         jcr:primaryType: hipposys:resourcebundle
         publishing:tags: Keywords
         publishing:tagssupport: Keyword suggestions
@@ -59,6 +65,7 @@ definitions:
     /hippo:configuration/hippo:translations/hippo:types/publishing:documentcoverpage:
       jcr:primaryType: hipposys:resourcebundles
       /en:
+        jcr:name: Document cover page
         jcr:primaryType: hipposys:resourcebundle
         publishing:tags: Keywords
         publishing:tagssupport: Keyword suggestions
@@ -77,6 +84,7 @@ definitions:
     /hippo:configuration/hippo:translations/hippo:types/publishing:formbase:
       jcr:primaryType: hipposys:resourcebundles
       /en:
+        jcr:name: Form base
         jcr:primaryType: hipposys:resourcebundle
         publishing:tags: Keywords
         publishing:tagssupport: Keyword suggestions
@@ -95,6 +103,7 @@ definitions:
     /hippo:configuration/hippo:translations/hippo:types/publishing:fairrent:
       jcr:primaryType: hipposys:resourcebundles
       /en:
+        jcr:name: Fair rent
         jcr:primaryType: hipposys:resourcebundle
         publishing:tags: Keywords
         publishing:tagssupport: Keyword suggestions
@@ -113,6 +122,7 @@ definitions:
     /hippo:configuration/hippo:translations/hippo:types/publishing:organisation:
       jcr:primaryType: hipposys:resourcebundles
       /en:
+        jcr:name: Organisation
         jcr:primaryType: hipposys:resourcebundle
         publishing:tags: Keywords
         publishing:tagssupport: Keyword suggestions
@@ -130,3 +140,6 @@ definitions:
         publishing:tagssupport: Suggestions de mots-clés
     /hippo:configuration/hippo:translations/hippo:types/publishing:FeaturedRole:
       jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:name: Featured role
+        jcr:primaryType: hipposys:resourcebundle
