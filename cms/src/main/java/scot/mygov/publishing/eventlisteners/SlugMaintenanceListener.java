@@ -80,6 +80,7 @@ public class SlugMaintenanceListener {
     }
 
     boolean isFolderRename(HippoWorkflowEvent event, Node subject) throws RepositoryException {
+        LOG.info("isFolderRename {}", event.interaction());
         if (!"rename".equals(event.action())) {
             return false;
         }
@@ -97,13 +98,13 @@ public class SlugMaintenanceListener {
                 sitename,
                 relpath,
                 oldName);
-        hippoUtils.executeXpathQuery(session, xpath, node -> fixPublishingPath(node, oldName, newName));
+        hippoUtils.executeXpathQuery(session, xpath, node -> fixPublishingPath(node, relpath, oldName, newName));
         session.save();
     }
 
-    void fixPublishingPath(Node node, String oldName, String newName) throws RepositoryException {
+    void fixPublishingPath(Node node, String relpath, String oldName, String newName) throws RepositoryException {
         String path = node.getProperty("publishing:path").getString();
-        String newPath = path.replace(oldName, newName);
+        String newPath = path.replace(relpath + "/" + oldName, relpath + "/" + newName);
         node.setProperty("publishing:path", newPath);
     }
 
