@@ -82,4 +82,7 @@ class PublishingLink implements HstLink {
         link.setNotFound(b);
     }
 
+    @Override
+    public boolean representsIndex() { return link.representsIndex(); }
+
 }
