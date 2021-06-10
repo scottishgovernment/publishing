@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 1dc96b26-22bc-43d2-b671-421ce71ff346
+          jcr:uuid: d6ddab4a-713f-4ae4-a9bc-55597c5615cf
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -59,7 +59,7 @@ definitions:
           publishing:title: ''
           publishing:reportingtags: []
           publishing:metaDescription: ''
-          jcr:uuid: f241339f-e699-45bd-bbd9-4124cd54cc6f
+          jcr:uuid: 234e9342-acbb-4703-85c9-559200136ca5
           hippostdpubwf:lastModificationDate: 2020-08-04T08:51:01.604+01:00
           hippostdpubwf:creationDate: 2020-08-04T08:51:01.604+01:00
           publishing:serviceproviders: []
@@ -253,6 +253,16 @@ definitions:
             caption: Review date
             field: reviewDate
             hint: The date on which this content item should next be reviewed
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /lastUpdatedDate:
+            jcr:primaryType: frontend:plugin
+            caption: Last updated date
+            field: lastUpdatedDate
+            hint: The 'Last updated' date displayed in the article heading. If left
+              blank no date will be displayed
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
