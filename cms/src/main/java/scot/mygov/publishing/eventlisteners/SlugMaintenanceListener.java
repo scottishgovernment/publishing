@@ -80,7 +80,6 @@ public class SlugMaintenanceListener {
     }
 
     boolean isFolderRename(HippoWorkflowEvent event, Node subject) throws RepositoryException {
-        LOG.info("isFolderRename {}", event.interaction());
         if (!"rename".equals(event.action())) {
             return false;
         }
