@@ -12,7 +12,11 @@ definitions:
     /hippo:configuration/hippo:domains/content/author:
       hipposys:groups: [useradmin, author]
     /hippo:configuration/hippo:domains/content/readonly:
-      hipposys:groups: [cmsadmin, useradmin]
+      hipposys:groups:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [cmsadmin, useradmin, orgs-social-security-authors, orgs-social-security-editors]
     /hippo:configuration/hippo:domains/content/content-domain/exclude-trading-nation-banners-folder:
       jcr:primaryType: hipposys:facetrule
       hipposys:equals: false
