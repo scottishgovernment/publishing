@@ -1,0 +1,10 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/preview-documents/modify:
+      jcr:primaryType: hipposys:authrole
+      hipposys:groups:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [author, editor, mygov-author, mygov-editor, orgs-social-security-authors, orgs-social-security-editors]
+      hipposys:role: modify
