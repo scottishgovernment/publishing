@@ -20,7 +20,7 @@ CKEDITOR.plugins.add('ds_la-finder', {
                 `<div data-type="button" class="js-contentselect  form-box">
                 <label for="content-select-${editor.contentSelectIdString}" class="ds_label">Select your council</label>
                 <div class="ds_input--fluid-two-thirds ds_select-wrapper">
-                <select for="content-select-${editor.contentSelectIdString}" class="ds_select">
+                <select id="content-select-${editor.contentSelectIdString}" class="ds_select">
                 <option selected="selected" disabled="disabled" value="">Choose your council</option>
                 </select>
                 <span aria-hidden="true" class="ds_select-arrow">&nbsp;</span>
