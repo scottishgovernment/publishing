@@ -51,7 +51,7 @@
                     <div class="ds_mobile-navigation__block">
                         <div class="ds_site-search" data-module="ds-site-search">
                             <form role="search" class="ds_site-search__form" method="GET" action="<@hst.link path='/search/'/>">
-                                <label class="ds_label  visually-hidden" for="site-search">Search</label>
+                                <label class="ds_label  visually-hidden" for="site-search-mobile">Search</label>
 
                                 <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
                                     <input name="q" required="" id="site-search-mobile" class="ds_input  ds_site-search__input" type="text" placeholder="Search mygov.scot" autocomplete="off">
