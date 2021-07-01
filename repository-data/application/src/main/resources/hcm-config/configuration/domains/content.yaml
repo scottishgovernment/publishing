@@ -24,13 +24,6 @@ definitions:
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/trading-nation/site-furniture/banners
-    /hippo:configuration/hippo:domains/content/content-domain/exclude-eap-banners-folder:
-      jcr:primaryType: hipposys:facetrule
-      hipposys:equals: false
-      hipposys:facet: jcr:path
-      hipposys:filter: false
-      hipposys:type: Reference
-      hipposys:value: /content/documents/economic-action-plan/site-furniture/banners
     /hippo:configuration/hippo:domains/content/content-domain/exclude-mygov-banners-folder:
       jcr:primaryType: hipposys:facetrule
       hipposys:equals: false
