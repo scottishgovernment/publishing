@@ -1,0 +1,45 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/ddat:
+      jcr:primaryType: hst:configuration
+      hst:inheritsfrom: [../common]
+      /hst:abstractpages:
+        jcr:primaryType: hst:pages
+      /hst:catalog:
+        jcr:primaryType: hst:catalog
+      /hst:components:
+        jcr:primaryType: hst:components
+      /hst:pages:
+        jcr:primaryType: hst:pages
+      /hst:prototypepages:
+        jcr:primaryType: hst:pages
+      /hst:sitemap:
+        jcr:primaryType: hst:sitemap
+      /hst:sitemenus:
+        jcr:primaryType: hst:sitemenus
+      /hst:templates:
+        jcr:primaryType: hst:templates
+      /hst:workspace:
+        jcr:primaryType: hst:workspace
+        jcr:mixinTypes: ['dxphst:mergeable']
+        dxphst:treehash: 6B9D67D8DB088B0B2470CB2CB702B0A2
+        /hst:channel:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:channel
+          hst:name: DDaT
+          hst:type: website
+          hst:channelinfoclass: scot.mygov.publishing.channels.WebsiteInfo
+          hst:lastmodifiedby: admin
+          hst:defaultdevice: default
+          hst:devices: []
+          hst:lastmodified: 2021-03-08T15:12:18.829Z
+        /hst:containers:
+          jcr:primaryType: hst:containercomponentfolder
+        /hst:pages:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:pages
+        /hst:sitemap:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:sitemap
+        /hst:sitemenus:
+          jcr:primaryType: hst:sitemenus

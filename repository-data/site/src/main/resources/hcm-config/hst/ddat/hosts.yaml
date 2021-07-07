@@ -1,0 +1,122 @@
+definitions:
+  config:
+    /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/ddat:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:mount
+      hst:mountpoint: /hst:publishing/hst:sites/ddat
+      hst:locale: en_GB
+    /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/ddat-preview:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:mount
+      hst:alias: ddat-staging
+      hst:mountpoint: /hst:publishing/hst:sites/ddat
+      hst:type: preview
+      preview-cookie-httponly: 'false'
+      preview-cookie-secure: 'false'
+      hst:locale: en_GB
+    /hst:hst/hst:hosts/lcl/scot/gov/jobs/digital:
+      /lcl:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/ddat
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/ddat/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/dev/scot/gov/jobs/digital:
+      /dev:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/ddat
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/ddat/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/int/scot/gov/jobs/digital:
+      /int:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/ddat
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/ddat/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/exp/scot/gov/jobs/digital:
+      /exp:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/ddat
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/ddat/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/uat/scot/gov/jobs/digital:
+      /uat:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/ddat
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/ddat/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/per/scot/gov/jobs/digital:
+      /per:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/ddat
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/ddat/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/tst/scot/gov/jobs/digital:
+      /tst:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/ddat
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/ddat/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/blu/scot/gov/jobs/digital:
+      /blu:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/ddat
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/ddat/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/grn/scot/gov/jobs/digital:
+      /grn:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/ddat
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/ddat/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/live/scot/gov/jobs/digital:
+      /live:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/ddat
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/ddat/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/origin/scot/gov/jobs/digital:
+      /origin:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/ddat
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/ddat/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/production/scot/gov/jobs/digital:
+      /hst:root:
+        jcr:primaryType: hst:mount
+        hst:mountpoint: /hst:publishing/hst:sites/ddat
+        hst:schemeagnostic: true
+        publishing:gtm: /content/documents/ddat/administration/analytics/live
+        hst:locale: en_GB
