@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "./include/imports.ftl">
 
+<#if document??>
 <@hst.headContribution category="googleTagManager">
 
 <!-- Google Tag Manager (GTM) -->
@@ -26,6 +27,7 @@
     });
 </script>
 </@hst.headContribution>
+</#if>
 
 <@hst.headContribution category="googleTagManager">
 <script id="gtm-script">
