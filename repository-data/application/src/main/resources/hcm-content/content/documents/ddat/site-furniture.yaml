@@ -1,0 +1,1145 @@
+/content/documents/ddat/site-furniture:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['mix:versionable']
+  jcr:uuid: cf7110ea-1ba7-49c9-9643-17d0ed48ec6e
+  hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror]
+  /footer:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: e4e40c14-6cb4-440b-a73a-033691e95fd5
+    hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
+    /privacy:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: dff617d9-2e58-47af-8184-bad503e52f2a
+      hippo:name: privacy
+      hippo:versionHistory: e818a72c-5948-4297-a2a2-dede72ee5aee
+      /privacy[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: c75d645d-5ecb-468a-b731-fcbc3a02364e
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:50.692Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:43:35.224+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: dd3279dc-d40a-4bfe-b942-e1d1a5ccc794
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Privacy
+        publishing:permalink: /privacy/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: privacy
+        publishing:summary: Privacy
+        publishing:title: Privacy
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |
+            <h2>Privacy policy</h2>
+            <p>We don't use personal information (like email addresses) when you use mygov.scot unless you choose to provide it to our <a href="https://www.mygov.scot/give-feedback/">feedback</a> mailbox or to a form.</p>
+            <p>We use forms to collect information for other public sector organisations whose services are provided on mygov.scot. Information collected in a form is only used to provide the service it relates to. If the data is used for anything else there will be a consent statement for you to read and agree before submitting the form.</p>
+            <p>We store your data on our secure servers in the UK, where it could be viewed by our staff or suppliers. By submitting your personal data, you agree to this.</p>
+            <p>Transmitting information over the internet is generally not completely secure, and we can't guarantee the security of your data. We have procedures and security features in place to try and keep your data secure once we receive it.</p>
+            <p>We won't share your information with any other organisations for marketing, market research or commercial purposes.</p>
+            <p>We may pass on your personal information if we have a legal obligation to do so.</p>
+            <p>You have the right to <a href="http://www.gov.scot/About/Information/FOI/access/sar-form">find out what information we hold about you</a>.</p>
+            <p>You can complain to the <a href="https://ico.org.uk/concerns/">Information Commissioner's Office</a> on any issue regarding our handling of your personal information.</p>
+            <p>mygov.scot contains links to and from other websites. This privacy policy only applies to this website and doesn't cover other government services and transactions that we link to.</p>
+            <p>If you go to another website from this one, read the privacy policy on that website to find out what it does with your information.</p>
+            <p>Our privacy policy is under constant review. The last review was on 24 May 2018.</p>
+            <h3>Disclosure Scotland's privacy policy</h3>
+            <p>Disclosure Scotland operates separate systems and policies with regard to data inputted into the various applications. These have additional security and processes to protect the information</p>
+            <p>Disclosure Scotland is fully committed to compliance with the <a href="http://www.legislation.gov.uk/ukpga/2018/12/contents/enacted">Data Protection Act 2018</a>. Read more about <a href="https://www.mygov.scot/disclosure-scotland-privacy/">Disclosure Scotland's privacy policy</a>.</p>
+            <h2>Cookies</h2>
+            <p>We collect anonymous information about how people use mygov.scot so we can improve the site.</p>
+            <p>We use 'cookies', which are small files we place onto your computer to collect information about how you browse.</p>
+            <p><a href="https://www.mygov.scot/cookies/">Find out how we manage cookies and measure site usage</a>.</p>
+            <h2>Facebook domain insights</h2>
+            <p>We have access to anonymised data made available to us by Facebook. Information includes demographic data, shares and traffic volume. This information helps us to provide a better experience for users.</p>
+            <h2>The 'hide this page' button</h2>
+            <p>The 'hide this page' button appears on certain pages where vulnerable visitors might worry about someone knowing they've visited these pages.</p>
+            <p>The button redirects users to the mygov.scot homepage.</p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /privacy[2]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+        jcr:uuid: a4308042-4d2b-4b75-b3e7-b364c8cbbf25
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:50.692Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:43:52.015+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: dd3279dc-d40a-4bfe-b942-e1d1a5ccc794
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Privacy
+        publishing:permalink: /privacy/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: privacy
+        publishing:summary: Privacy
+        publishing:title: Privacy
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |
+            <h2>Privacy policy</h2>
+            <p>We don't use personal information (like email addresses) when you use mygov.scot unless you choose to provide it to our <a href="https://www.mygov.scot/give-feedback/">feedback</a> mailbox or to a form.</p>
+            <p>We use forms to collect information for other public sector organisations whose services are provided on mygov.scot. Information collected in a form is only used to provide the service it relates to. If the data is used for anything else there will be a consent statement for you to read and agree before submitting the form.</p>
+            <p>We store your data on our secure servers in the UK, where it could be viewed by our staff or suppliers. By submitting your personal data, you agree to this.</p>
+            <p>Transmitting information over the internet is generally not completely secure, and we can't guarantee the security of your data. We have procedures and security features in place to try and keep your data secure once we receive it.</p>
+            <p>We won't share your information with any other organisations for marketing, market research or commercial purposes.</p>
+            <p>We may pass on your personal information if we have a legal obligation to do so.</p>
+            <p>You have the right to <a href="http://www.gov.scot/About/Information/FOI/access/sar-form">find out what information we hold about you</a>.</p>
+            <p>You can complain to the <a href="https://ico.org.uk/concerns/">Information Commissioner's Office</a> on any issue regarding our handling of your personal information.</p>
+            <p>mygov.scot contains links to and from other websites. This privacy policy only applies to this website and doesn't cover other government services and transactions that we link to.</p>
+            <p>If you go to another website from this one, read the privacy policy on that website to find out what it does with your information.</p>
+            <p>Our privacy policy is under constant review. The last review was on 24 May 2018.</p>
+            <h3>Disclosure Scotland's privacy policy</h3>
+            <p>Disclosure Scotland operates separate systems and policies with regard to data inputted into the various applications. These have additional security and processes to protect the information</p>
+            <p>Disclosure Scotland is fully committed to compliance with the <a href="http://www.legislation.gov.uk/ukpga/2018/12/contents/enacted">Data Protection Act 2018</a>. Read more about <a href="https://www.mygov.scot/disclosure-scotland-privacy/">Disclosure Scotland's privacy policy</a>.</p>
+            <h2>Cookies</h2>
+            <p>We collect anonymous information about how people use mygov.scot so we can improve the site.</p>
+            <p>We use 'cookies', which are small files we place onto your computer to collect information about how you browse.</p>
+            <p><a href="https://www.mygov.scot/cookies/">Find out how we manage cookies and measure site usage</a>.</p>
+            <h2>Facebook domain insights</h2>
+            <p>We have access to anonymised data made available to us by Facebook. Information includes demographic data, shares and traffic volume. This information helps us to provide a better experience for users.</p>
+            <h2>The 'hide this page' button</h2>
+            <p>The 'hide this page' button appears on certain pages where vulnerable visitors might worry about someone knowing they've visited these pages.</p>
+            <p>The button redirects users to the mygov.scot homepage.</p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /privacy[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 74cd941f-4a10-45b4-968e-7e3463cd46ff
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:50.692Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:43:52.015+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-04-27T10:57:33.468+01:00
+        hippotranslation:id: dd3279dc-d40a-4bfe-b942-e1d1a5ccc794
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Privacy
+        publishing:permalink: /privacy/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: privacy
+        publishing:summary: Privacy
+        publishing:title: Privacy
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |
+            <h2>Privacy policy</h2>
+            <p>We don't use personal information (like email addresses) when you use mygov.scot unless you choose to provide it to our <a href="https://www.mygov.scot/give-feedback/">feedback</a> mailbox or to a form.</p>
+            <p>We use forms to collect information for other public sector organisations whose services are provided on mygov.scot. Information collected in a form is only used to provide the service it relates to. If the data is used for anything else there will be a consent statement for you to read and agree before submitting the form.</p>
+            <p>We store your data on our secure servers in the UK, where it could be viewed by our staff or suppliers. By submitting your personal data, you agree to this.</p>
+            <p>Transmitting information over the internet is generally not completely secure, and we can't guarantee the security of your data. We have procedures and security features in place to try and keep your data secure once we receive it.</p>
+            <p>We won't share your information with any other organisations for marketing, market research or commercial purposes.</p>
+            <p>We may pass on your personal information if we have a legal obligation to do so.</p>
+            <p>You have the right to <a href="http://www.gov.scot/About/Information/FOI/access/sar-form">find out what information we hold about you</a>.</p>
+            <p>You can complain to the <a href="https://ico.org.uk/concerns/">Information Commissioner's Office</a> on any issue regarding our handling of your personal information.</p>
+            <p>mygov.scot contains links to and from other websites. This privacy policy only applies to this website and doesn't cover other government services and transactions that we link to.</p>
+            <p>If you go to another website from this one, read the privacy policy on that website to find out what it does with your information.</p>
+            <p>Our privacy policy is under constant review. The last review was on 24 May 2018.</p>
+            <h3>Disclosure Scotland's privacy policy</h3>
+            <p>Disclosure Scotland operates separate systems and policies with regard to data inputted into the various applications. These have additional security and processes to protect the information</p>
+            <p>Disclosure Scotland is fully committed to compliance with the <a href="http://www.legislation.gov.uk/ukpga/2018/12/contents/enacted">Data Protection Act 2018</a>. Read more about <a href="https://www.mygov.scot/disclosure-scotland-privacy/">Disclosure Scotland's privacy policy</a>.</p>
+            <h2>Cookies</h2>
+            <p>We collect anonymous information about how people use mygov.scot so we can improve the site.</p>
+            <p>We use 'cookies', which are small files we place onto your computer to collect information about how you browse.</p>
+            <p><a href="https://www.mygov.scot/cookies/">Find out how we manage cookies and measure site usage</a>.</p>
+            <h2>Facebook domain insights</h2>
+            <p>We have access to anonymised data made available to us by Facebook. Information includes demographic data, shares and traffic volume. This information helps us to provide a better experience for users.</p>
+            <h2>The 'hide this page' button</h2>
+            <p>The 'hide this page' button appears on certain pages where vulnerable visitors might worry about someone knowing they've visited these pages.</p>
+            <p>The button redirects users to the mygov.scot homepage.</p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /accessibility:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 8f96699a-e019-4e9a-9588-09e2f804fc38
+      hippo:name: accessibility
+      hippo:versionHistory: 28f8a1c7-68e8-4505-accc-1ad7496a8146
+      /accessibility[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 64f786bf-a4b2-4114-93f5-54f74555fe5f
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:51.819Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:43:56.554+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 15a11b93-8df3-45d1-8871-e0bde77f4566
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Accessibility
+        publishing:permalink: /accessibility/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: accessibility
+        publishing:summary: Accessibility
+        publishing:title: Accessibility
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |
+            <p>We're constantly working to make mygov.scot as accessible and usable as possible.</p>
+            <p>We do not have a separate accessibility statement. This is because we've tried to be as accessible and usable as possible for all abilities and disabilities, including older audiences and those with visual, hearing, cognitive or motor impairments.</p>
+            <h2>Assistive technologies</h2>
+            <p>We try and make our site work with various assistive technologies by:</p>
+            <ul>
+            <li>using easier-to-read colours</li>
+            <li>using larger fonts</li>
+            <li>using plain english</li>
+            <li>allowing navigation using a keyboard only</li>
+            </ul>
+            <h2>Feedback</h2>
+            <p>If you have any trouble using mygov.scot, please <a href="https://www.mygov.scot/give-feedback/">contact us</a> and let us know.</p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /accessibility[2]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+        jcr:uuid: a9cb3d8f-3d35-4435-be61-71e168c3703c
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:51.819Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:12.101+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 15a11b93-8df3-45d1-8871-e0bde77f4566
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Accessibility
+        publishing:permalink: /accessibility/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: accessibility
+        publishing:summary: Accessibility
+        publishing:title: Accessibility
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |
+            <p>We're constantly working to make mygov.scot as accessible and usable as possible.</p>
+            <p>We do not have a separate accessibility statement. This is because we've tried to be as accessible and usable as possible for all abilities and disabilities, including older audiences and those with visual, hearing, cognitive or motor impairments.</p>
+            <h2>Assistive technologies</h2>
+            <p>We try and make our site work with various assistive technologies by:</p>
+            <ul>
+            <li>using easier-to-read colours</li>
+            <li>using larger fonts</li>
+            <li>using plain english</li>
+            <li>allowing navigation using a keyboard only</li>
+            </ul>
+            <h2>Feedback</h2>
+            <p>If you have any trouble using mygov.scot, please <a href="https://www.mygov.scot/give-feedback/">contact us</a> and let us know.</p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /accessibility[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 2cf27f23-aac5-482b-979a-022692937901
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:51.819Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:12.101+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-04-27T10:57:30.516+01:00
+        hippotranslation:id: 15a11b93-8df3-45d1-8871-e0bde77f4566
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Accessibility
+        publishing:permalink: /accessibility/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: accessibility
+        publishing:summary: Accessibility
+        publishing:title: Accessibility
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |
+            <p>We're constantly working to make mygov.scot as accessible and usable as possible.</p>
+            <p>We do not have a separate accessibility statement. This is because we've tried to be as accessible and usable as possible for all abilities and disabilities, including older audiences and those with visual, hearing, cognitive or motor impairments.</p>
+            <h2>Assistive technologies</h2>
+            <p>We try and make our site work with various assistive technologies by:</p>
+            <ul>
+            <li>using easier-to-read colours</li>
+            <li>using larger fonts</li>
+            <li>using plain english</li>
+            <li>allowing navigation using a keyboard only</li>
+            </ul>
+            <h2>Feedback</h2>
+            <p>If you have any trouble using mygov.scot, please <a href="https://www.mygov.scot/give-feedback/">contact us</a> and let us know.</p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /contact:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 913d6642-5533-4a88-9d58-58ca8a47a5dc
+      hippo:name: contact
+      hippo:versionHistory: b8a7df1a-392a-4d14-8c9c-26a8e2343f26
+      /contact[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 6169314a-20f0-4e82-b69d-4ecfbeb63a1a
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:52.324Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:36.358+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f000a7e0-5619-415f-8491-2e9765727333
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: How to contact us about A Trading Nation.
+        publishing:permalink: /contact/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Contact
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: contact
+        publishing:summary: How to contact us about A Trading Nation.
+        publishing:title: Contact
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>To contact us about <a href="https://www.gov.scot/publications/scotland-a-trading-nation/">A Trading Nation</a> you can:</p>
+
+            <h2>Email</h2>
+
+            <p>Email us at <a href="mailto:exportplan@gov.scot">exportplan@gov.scot</a></p>
+
+            <h2>Address</h2>
+
+            <p>Trade and Investment Delivery Division<br />
+            The Scottish Government<br />
+            5 Atlantic Quay<br />
+            150 Broomielaw<br />
+            Glasgow<br />
+            G2 8LU</p>
+
+            <h2>Twitter</h2>
+
+            <p>Follow us <a href="https://twitter.com/ditiscotland?lang=en">@DITIscotland</a></p>
+
+            <div class="ds_inset-text">
+            <div class="ds_inset-text__text">
+            <p>If you’re a business looking for help with exporting, you can <a href="help-for-businesses">find help and support</a>.</p>
+            </div>
+            </div>
+
+            <h2>Media enquiries</h2>
+
+            <p>You can contact the Scottish Government newsdesk on 0131 244 0222, Monday to Friday 9am to 5:30pm.</p>
+
+            <p>During out of hours, contact 0300 244 4000.</p>
+          /help-for-businesses:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 2440e467-a8b0-4a38-96d0-0b34a21ef315
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /contact[2]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+        jcr:uuid: 0a00d74d-cd62-43fb-96bf-26a35d92c51a
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:52.324Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:41.451+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: f000a7e0-5619-415f-8491-2e9765727333
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: How to contact us about A Trading Nation.
+        publishing:permalink: /contact/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Contact
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: contact
+        publishing:summary: How to contact us about A Trading Nation.
+        publishing:title: Contact
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>To contact us about <a href="https://www.gov.scot/publications/scotland-a-trading-nation/">A Trading Nation</a> you can:</p>
+
+            <h2>Email</h2>
+
+            <p>Email us at <a href="mailto:exportplan@gov.scot">exportplan@gov.scot</a></p>
+
+            <h2>Address</h2>
+
+            <p>Trade and Investment Delivery Division<br />
+            The Scottish Government<br />
+            5 Atlantic Quay<br />
+            150 Broomielaw<br />
+            Glasgow<br />
+            G2 8LU</p>
+
+            <h2>Twitter</h2>
+
+            <p>Follow us <a href="https://twitter.com/ditiscotland?lang=en">@DITIscotland</a></p>
+
+            <div class="ds_inset-text">
+            <div class="ds_inset-text__text">
+            <p>If you’re a business looking for help with exporting, you can <a href="help-for-businesses">find help and support</a>.</p>
+            </div>
+            </div>
+
+            <h2>Media enquiries</h2>
+
+            <p>You can contact the Scottish Government newsdesk on 0131 244 0222, Monday to Friday 9am to 5:30pm.</p>
+
+            <p>During out of hours, contact 0300 244 4000.</p>
+          /help-for-businesses:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 2440e467-a8b0-4a38-96d0-0b34a21ef315
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /contact[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 46c1405e-fdc6-4e54-a8b6-f91b82493088
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:52.324Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:41.451+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-04-27T10:57:30.424+01:00
+        hippotranslation:id: f000a7e0-5619-415f-8491-2e9765727333
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: How to contact us about A Trading Nation.
+        publishing:permalink: /contact/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Contact
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: contact
+        publishing:summary: How to contact us about A Trading Nation.
+        publishing:title: Contact
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>To contact us about <a href="https://www.gov.scot/publications/scotland-a-trading-nation/">A Trading Nation</a> you can:</p>
+
+            <h2>Email</h2>
+
+            <p>Email us at <a href="mailto:exportplan@gov.scot">exportplan@gov.scot</a></p>
+
+            <h2>Address</h2>
+
+            <p>Trade and Investment Delivery Division<br />
+            The Scottish Government<br />
+            5 Atlantic Quay<br />
+            150 Broomielaw<br />
+            Glasgow<br />
+            G2 8LU</p>
+
+            <h2>Twitter</h2>
+
+            <p>Follow us <a href="https://twitter.com/ditiscotland?lang=en">@DITIscotland</a></p>
+
+            <div class="ds_inset-text">
+            <div class="ds_inset-text__text">
+            <p>If you’re a business looking for help with exporting, you can <a href="help-for-businesses">find help and support</a>.</p>
+            </div>
+            </div>
+
+            <h2>Media enquiries</h2>
+
+            <p>You can contact the Scottish Government newsdesk on 0131 244 0222, Monday to Friday 9am to 5:30pm.</p>
+
+            <p>During out of hours, contact 0300 244 4000.</p>
+          /help-for-businesses:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 2440e467-a8b0-4a38-96d0-0b34a21ef315
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /cookies:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 2c70915f-da88-46bf-90d9-40a400af4f34
+      hippo:name: cookies
+      hippo:versionHistory: e3261fef-73c9-42c6-9447-18e86db2f1f6
+      /cookies[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 24264f43-3085-4cf7-8f66-3bb00b2f9a97
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:52.890Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:43.882+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 18a460ea-28dd-4f80-a172-c2fe1a215a54
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Cookies
+        publishing:permalink: /cookies/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookies
+        publishing:title: Cookies
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <h2>Why we use cookies</h2>\
+            \ \n  <p>We use tradingnation.mygov.scot cookie tracking data to make\
+            \ informed decisions on whether the site is meeting your needs, which\
+            \ leads to us making improvements. For example, we monitor how much traffic\
+            \ each part of the site gets and work to improve areas which are not being\
+            \ found when they should be.</p> \n  <div class=\"ds_inset-text\"> \n\
+            \   <div class=\"ds_inset-text__text\">\n     The cookies that we set\
+            \ on tradingnation.mygov.scot cannot be used to identify you personally.\
+            \ \n    <a href=\"https://ico.org.uk/your-data-matters/online/cookies/\"\
+            >Find out more about how to manage cookies for all websites</a> \n   </div>\
+            \ \n  </div> \n  <h2>Turn cookies on or off</h2> \n  <p>We use 3 main\
+            \ types of cookie on our website. You can choose which cookies you're\
+            \ happy for us to use.</p> \n  <p><a href=\"cookie-details\">Find out\
+            \ more about the cookies we use</a></p> \n </body>\n</html>"
+          /cookie-details:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 3b4b55b0-c4c7-430a-ad56-75b2f263c562
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /cookies[2]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+        jcr:uuid: ea7fdbc0-ecd7-48ee-8532-27e2d043da68
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:52.890Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:57.634+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 18a460ea-28dd-4f80-a172-c2fe1a215a54
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Cookies
+        publishing:permalink: /cookies/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookies
+        publishing:title: Cookies
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <h2>Why we use cookies</h2>\
+            \ \n  <p>We use tradingnation.mygov.scot cookie tracking data to make\
+            \ informed decisions on whether the site is meeting your needs, which\
+            \ leads to us making improvements. For example, we monitor how much traffic\
+            \ each part of the site gets and work to improve areas which are not being\
+            \ found when they should be.</p> \n  <div class=\"ds_inset-text\"> \n\
+            \   <div class=\"ds_inset-text__text\">\n     The cookies that we set\
+            \ on tradingnation.mygov.scot cannot be used to identify you personally.\
+            \ \n    <a href=\"https://ico.org.uk/your-data-matters/online/cookies/\"\
+            >Find out more about how to manage cookies for all websites</a> \n   </div>\
+            \ \n  </div> \n  <h2>Turn cookies on or off</h2> \n  <p>We use 3 main\
+            \ types of cookie on our website. You can choose which cookies you're\
+            \ happy for us to use.</p> \n  <p><a href=\"cookie-details\">Find out\
+            \ more about the cookies we use</a></p> \n </body>\n</html>"
+          /cookie-details:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 3b4b55b0-c4c7-430a-ad56-75b2f263c562
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /cookies[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 45d52b8c-003b-44cc-805c-61f502ef7cb8
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:52.890Z
+        hippostdpubwf:lastModificationDate: 2021-04-27T10:44:57.634+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-04-27T10:44:59.369+01:00
+        hippotranslation:id: 18a460ea-28dd-4f80-a172-c2fe1a215a54
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Cookies
+        publishing:permalink: /cookies/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookies
+        publishing:title: Cookies
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: "<html>\n <head></head>\n <body>\n  <h2>Why we use cookies</h2>\
+            \ \n  <p>We use tradingnation.mygov.scot cookie tracking data to make\
+            \ informed decisions on whether the site is meeting your needs, which\
+            \ leads to us making improvements. For example, we monitor how much traffic\
+            \ each part of the site gets and work to improve areas which are not being\
+            \ found when they should be.</p> \n  <div class=\"ds_inset-text\"> \n\
+            \   <div class=\"ds_inset-text__text\">\n     The cookies that we set\
+            \ on tradingnation.mygov.scot cannot be used to identify you personally.\
+            \ \n    <a href=\"https://ico.org.uk/your-data-matters/online/cookies/\"\
+            >Find out more about how to manage cookies for all websites</a> \n   </div>\
+            \ \n  </div> \n  <h2>Turn cookies on or off</h2> \n  <p>We use 3 main\
+            \ types of cookie on our website. You can choose which cookies you're\
+            \ happy for us to use.</p> \n  <p><a href=\"cookie-details\">Find out\
+            \ more about the cookies we use</a></p> \n </body>\n</html>"
+          /cookie-details:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 3b4b55b0-c4c7-430a-ad56-75b2f263c562
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+  /cookie-details:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 577c6d15-6ee2-408c-a80b-44b2a86658ea
+    hippo:name: cookie-details
+    hippo:versionHistory: d4992ad4-ebcd-482f-9866-dfd74880f021
+    /cookie-details[1]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: b673a1c3-2dd5-4fed-9c7a-a3daddca74dc
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostd:transferable: false
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-12-04T11:13:51.225Z
+      hippostdpubwf:lastModificationDate: 2021-07-08T15:17:51.238+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: a47abcd0-a92b-4939-b31c-089dc8256b08
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: ''
+      publishing:permalink: /cookie-details/
+      publishing:reportingtags: []
+      publishing:seoTitle: Cookies that we set
+      publishing:slug: cookie-details
+      publishing:summary: ''
+      publishing:title: Cookies that we set
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <h2>Google Analytics</h2>
+          <p>We use Google Analytics to collect information about how you use tradingnation.mygov.scot.</p>
+          <p>We store information about:</p>
+          <ul>
+          <li>the pages you visit and how long you spend on each page</li>
+          <li>how you got to mygov.scot</li>
+          <li>what you click on while you're visiting mygov.scot</li>
+          </ul>
+          <p>We do not:</p>
+          <ul>
+          <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+          <li>make any attempt to find out the identities of people visiting mygov.scot</li>
+          <li>allow the tools that we use to do this either</li>
+          <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+          </ul>
+          <p>All information we get through cookies and analytics will be treated in confidence.</p>
+          <p>We anonymise the last 3 digits of all tradingnation.mygov.scot user IP addresses for Google Analytics, so that we can ensure that you are protected (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>). We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+          <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and privacy in Google Analytics.</a></p>
+          <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google analytics</a> cookies.</p>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Information</th>
+                      <th>Expiry</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>_ga</td>
+                      <td>This is used to understand and differentiate between different users.</td>
+                      <td>38 Months</td>
+                  </tr>
+                  <tr>
+                      <td>_gid</td>
+                      <td>_gid has a different ID for each page set on, and a timestamp.  This assists with plotting user journeys.</td>
+                      <td>24 Hours</td>
+                  </tr>
+                  <tr>
+                      <td>_gat</td>
+                      <td>We use Google Tag Manager to tailor our tracking in case we have different elements that are being tested. For example, setting a tag to track how far a user is having to scroll down a long page. The _gat tag pushes the request rate through quicker.</td>
+                      <td>1 Minute</td>
+                  </tr>
+              </tbody>
+          </table>
+          <h3>YouTube</h3>
+          <p>Pages on mygov.scot which contain YouTube videos will not set third-party cookies (we use YouTube-nocookie.com — <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+          <h2>Further information</h2>
+          <p>You can email the performance team for further information.</p>
+          <p>Email: <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
+          <div class="ds_inset-text">
+          <div class="ds_inset-text__text">
+          This is a live document and will continue to be updated on a bi-monthly basis ensuring it complies with industry standards.
+          </div>
+          </div>
+    /cookie-details[2]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+      jcr:uuid: 9ef6c082-2a59-4407-ae6d-63fd9575b2e2
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-12-04T11:13:51.225Z
+      hippostdpubwf:lastModificationDate: 2019-12-04T11:13:51.518Z
+      hippostdpubwf:lastModifiedBy: system
+      hippotranslation:id: a47abcd0-a92b-4939-b31c-089dc8256b08
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: ''
+      publishing:permalink: /cookie-details/
+      publishing:reportingtags: []
+      publishing:seoTitle: Cookies that we set
+      publishing:slug: cookie-details
+      publishing:summary: ''
+      publishing:title: Cookies that we set
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <h2>Google Analytics</h2>
+          <p>We use Google Analytics to collect information about how you use tradingnation.mygov.scot.</p>
+          <p>We store information about:</p>
+          <ul>
+          <li>the pages you visit and how long you spend on each page</li>
+          <li>how you got to mygov.scot</li>
+          <li>what you click on while you're visiting mygov.scot</li>
+          </ul>
+          <p>We do not:</p>
+          <ul>
+          <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+          <li>make any attempt to find out the identities of people visiting mygov.scot</li>
+          <li>allow the tools that we use to do this either</li>
+          <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+          </ul>
+          <p>All information we get through cookies and analytics will be treated in confidence.</p>
+          <p>We anonymise the last 3 digits of all tradingnation.mygov.scot user IP addresses for Google Analytics, so that we can ensure that you are protected (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>). We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+          <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and privacy in Google Analytics.</a></p>
+          <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google analytics</a> cookies.</p>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Information</th>
+                      <th>Expiry</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>_ga</td>
+                      <td>This is used to understand and differentiate between different users.</td>
+                      <td>38 Months</td>
+                  </tr>
+                  <tr>
+                      <td>_gid</td>
+                      <td>_gid has a different ID for each page set on, and a timestamp.  This assists with plotting user journeys.</td>
+                      <td>24 Hours</td>
+                  </tr>
+                  <tr>
+                      <td>_gat</td>
+                      <td>We use Google Tag Manager to tailor our tracking in case we have different elements that are being tested. For example, setting a tag to track how far a user is having to scroll down a long page. The _gat tag pushes the request rate through quicker.</td>
+                      <td>1 Minute</td>
+                  </tr>
+              </tbody>
+          </table>
+          <h3>YouTube</h3>
+          <p>Pages on mygov.scot which contain YouTube videos will not set third-party cookies (we use YouTube-nocookie.com — <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+          <h2>Further information</h2>
+          <p>You can email the performance team for further information.</p>
+          <p>Email: <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
+          <div class="ds_inset-text">
+          <div class="ds_inset-text__text">
+          This is a live document and will continue to be updated on a bi-monthly basis ensuring it complies with industry standards.
+          </div>
+          </div>
+    /cookie-details[3]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: d09dbbe3-637a-45ef-87f0-1de0b902465a
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-12-04T11:13:51.225Z
+      hippostdpubwf:lastModificationDate: 2019-12-04T11:13:51.518Z
+      hippostdpubwf:lastModifiedBy: system
+      hippostdpubwf:publicationDate: 2019-12-04T11:13:51.628Z
+      hippotranslation:id: a47abcd0-a92b-4939-b31c-089dc8256b08
+      hippotranslation:locale: document-type-locale
+      publishing:authorNotes: ''
+      publishing:metaDescription: ''
+      publishing:permalink: /cookie-details/
+      publishing:reportingtags: []
+      publishing:seoTitle: Cookies that we set
+      publishing:slug: cookie-details
+      publishing:summary: ''
+      publishing:title: Cookies that we set
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |
+          <h2>Google Analytics</h2>
+          <p>We use Google Analytics to collect information about how you use tradingnation.mygov.scot.</p>
+          <p>We store information about:</p>
+          <ul>
+          <li>the pages you visit and how long you spend on each page</li>
+          <li>how you got to mygov.scot</li>
+          <li>what you click on while you're visiting mygov.scot</li>
+          </ul>
+          <p>We do not:</p>
+          <ul>
+          <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+          <li>make any attempt to find out the identities of people visiting mygov.scot</li>
+          <li>allow the tools that we use to do this either</li>
+          <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+          </ul>
+          <p>All information we get through cookies and analytics will be treated in confidence.</p>
+          <p>We anonymise the last 3 digits of all tradingnation.mygov.scot user IP addresses for Google Analytics, so that we can ensure that you are protected (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>). We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+          <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and privacy in Google Analytics.</a></p>
+          <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google analytics</a> cookies.</p>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Information</th>
+                      <th>Expiry</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>_ga</td>
+                      <td>This is used to understand and differentiate between different users.</td>
+                      <td>38 Months</td>
+                  </tr>
+                  <tr>
+                      <td>_gid</td>
+                      <td>_gid has a different ID for each page set on, and a timestamp.  This assists with plotting user journeys.</td>
+                      <td>24 Hours</td>
+                  </tr>
+                  <tr>
+                      <td>_gat</td>
+                      <td>We use Google Tag Manager to tailor our tracking in case we have different elements that are being tested. For example, setting a tag to track how far a user is having to scroll down a long page. The _gat tag pushes the request rate through quicker.</td>
+                      <td>1 Minute</td>
+                  </tr>
+              </tbody>
+          </table>
+          <h3>YouTube</h3>
+          <p>Pages on mygov.scot which contain YouTube videos will not set third-party cookies (we use YouTube-nocookie.com — <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+          <h2>Further information</h2>
+          <p>You can email the performance team for further information.</p>
+          <p>Email: <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
+          <div class="ds_inset-text">
+          <div class="ds_inset-text__text">
+          This is a live document and will continue to be updated on a bi-monthly basis ensuring it complies with industry standards.
+          </div>
+          </div>
+  /banners:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:referenceable', 'mix:versionable']
+    jcr:uuid: fd9cfc6a-95e0-4608-afe6-f5b79ec17e0b
+    hippo:name: banners
+    hippostd:foldertype: [new-notification-banner]
+  /search:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 448b989e-0061-45fc-85e0-76fa56ce420c
+    hippostd:foldertype: []
+    /search-results:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 6d97dd87-1fa4-456e-9747-0713d4d5a55f
+      hippo:name: Search results
+      hippo:versionHistory: 454ec5c5-5b87-4680-8e3a-0649a5b2aaf5
+      /search-results[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
+        jcr:uuid: 7797267b-d986-4599-a677-57fd64a1575b
+        hippo:availability: []
+        hippo:name: Search results
+        hippostd:state: draft
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
+        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:07.324+01:00
+        hippostdpubwf:lastModifiedBy: system
+        hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: ''
+        publishing:mygovid: MYGOV-585
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Search results
+        publishing:serviceproviders: []
+        publishing:slug: search
+        publishing:summary: ''
+        publishing:title: Search results
+        publishing:urlAliases:
+          type: double
+          value: []
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+      /search-results[2]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable', 'mix:versionable']
+        jcr:uuid: 370683de-5b06-4381-882b-b9484c871b54
+        hippo:availability: [preview]
+        hippo:name: Search results
+        hippostd:state: unpublished
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
+        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:07.667+01:00
+        hippostdpubwf:lastModifiedBy: system
+        hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: ''
+        publishing:mygovid: MYGOV-585
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Search results
+        publishing:serviceproviders: []
+        publishing:slug: search
+        publishing:summary: ''
+        publishing:title: Search results
+        publishing:urlAliases:
+          type: double
+          value: []
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+      /search-results[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
+          'mix:referenceable']
+        jcr:uuid: 12aa28a3-8495-4e0a-870b-92418ccfe8de
+        hippo:availability: [live]
+        hippo:name: Search results
+        hippostd:state: published
+        hippostd:tags: []
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
+        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:07.667+01:00
+        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:publicationDate: 2020-08-17T07:16:07.842+01:00
+        hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: ''
+        publishing:mygovid: MYGOV-585
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Search results
+        publishing:serviceproviders: []
+        publishing:slug: search
+        publishing:summary: ''
+        publishing:title: Search results
+        publishing:urlAliases:
+          type: double
+          value: []
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
