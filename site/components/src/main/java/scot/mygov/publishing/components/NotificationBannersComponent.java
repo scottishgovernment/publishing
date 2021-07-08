@@ -6,6 +6,7 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -21,6 +22,12 @@ public class NotificationBannersComponent extends BaseHstComponent {
 
         HippoFolder bannersFolder = folder(request, "site-furniture/banners");
         HippoBean contentBean = request.getRequestContext().getContentBean();
+
+        if (bannersFolder == null) {
+            request.setAttribute("notificationbanners", new ArrayList<>());
+            request.setAttribute("mourningbanner", null);
+            return;
+        }
 
         List<NotificationBanner> banners = getIncludedBanners(bannersFolder, contentBean);
         MourningBanner mourningBanner = getMourningBanner(bannersFolder);
