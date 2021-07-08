@@ -143,3 +143,33 @@ definitions:
       /en:
         jcr:name: Featured role
         jcr:primaryType: hipposys:resourcebundle
+    /hippo:configuration/hippo:translations/hippo:types/publishing:contentdocument:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Simple Document
+        publishing:content: Content
+        publishing:introduction: Introduction
+        publishing:publicationdate: Publication date
+        publishing:title: Title
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Eenvoudig Document
+        publishing:content: Inhoud
+        publishing:introduction: Introductie
+        publishing:publicationdate: Publicatiedatum
+        publishing:title: Titel
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Document simple
+        publishing:content: Contenu
+        publishing:introduction: Introduction
+        publishing:publicationdate: Date de publication
+        publishing:title: Titre
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        jcr:name: Einfaches Dokument
+        publishing:content: Inhalt
+        publishing:introduction: Einführung
+        publishing:publicationdate: Publikationsdatum
+        publishing:title: Titel

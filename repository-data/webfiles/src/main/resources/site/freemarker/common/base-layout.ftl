@@ -19,6 +19,7 @@
         <#else>
             <title>404 - Page not found</title>
         </#if>
+
         <@hst.headContributions categoryIncludes="schema"/>
         <@hst.headContributions categoryIncludes="meta"/>
 
