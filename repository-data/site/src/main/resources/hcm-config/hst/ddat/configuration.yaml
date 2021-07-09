@@ -15,10 +15,19 @@ definitions:
         jcr:primaryType: hst:pages
       /hst:sitemap:
         jcr:primaryType: hst:sitemap
+        /root:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/homepage
+          hst:pagetitle: Home Page
+          hst:refId: root
+          hst:relativecontentpath: ''
       /hst:sitemenus:
         jcr:primaryType: hst:sitemenus
       /hst:templates:
         jcr:primaryType: hst:templates
+        /home-main:
+          jcr:primaryType: hst:template
+          hst:renderpath: webfile:/freemarker/ddat/home-main.ftl
       /hst:workspace:
         jcr:primaryType: hst:workspace
         jcr:mixinTypes: ['dxphst:mergeable']
@@ -35,6 +44,15 @@ definitions:
           hst:lastmodified: 2021-03-08T15:12:18.829Z
         /hst:containers:
           jcr:primaryType: hst:containercomponentfolder
+          /homepage:
+            jcr:primaryType: hst:containercomponentfolder
+            /main:
+              .meta:residual-child-node-category: content
+              jcr:primaryType: hst:containercomponent
+              hippo:identifier: 48a3be05-aa6d-4b7d-b359-9d1d9596186f
+              hst:label: Home Page Main
+              hst:lastmodified: 2021-07-08T15:17:38.069+01:00
+              hst:xtype: hst.vbox
         /hst:pages:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:pages
