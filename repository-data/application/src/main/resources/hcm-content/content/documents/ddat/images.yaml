@@ -1,0 +1,75 @@
+/content/documents/ddat/images:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated']
+  hippostd:foldertype: [new-imageandtext-document, new-imageandtext-folder]
+  hippotranslation:id: 1ed77e0b-6ae7-4c21-bbeb-08624cbcc3cf
+  hippotranslation:locale: inherited locale
+  /skye1:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 38a7a599-f59a-4221-917a-7dd5b8b334f2
+    hippo:versionHistory: a7446f27-ba6f-4cb2-b93a-93b770af946f
+    /skye1[1]:
+      jcr:primaryType: publishing:imageandtext
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 59e6f2f7-598d-421d-9e56-950cbd1d74ff
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-07-09T06:47:08.473+01:00
+      hippostdpubwf:lastModificationDate: 2021-07-09T06:47:08.473+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ccff3ac5-7f31-4c41-9fb5-159f480bdcbc
+      hippotranslation:locale: inherited locale
+      publishing:alt: skye
+      publishing:content: <p>Skye</p>
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 592dc255-b53a-4c92-b552-4f69dd6b13f8
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+    /skye1[2]:
+      jcr:primaryType: publishing:imageandtext
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: e8ed175b-5af2-4fb2-858c-bfbeeb72b391
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-07-09T06:47:08.473+01:00
+      hippostdpubwf:lastModificationDate: 2021-07-09T06:48:05.872+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: ccff3ac5-7f31-4c41-9fb5-159f480bdcbc
+      hippotranslation:locale: inherited locale
+      publishing:alt: skye
+      publishing:content: <p>Skye</p>
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 592dc255-b53a-4c92-b552-4f69dd6b13f8
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+    /skye1[3]:
+      jcr:primaryType: publishing:imageandtext
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 4c47791f-10f9-439e-a141-c211a152117d
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-07-09T06:47:08.473+01:00
+      hippostdpubwf:lastModificationDate: 2021-07-09T06:48:05.872+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-07-09T06:48:10.660+01:00
+      hippotranslation:id: ccff3ac5-7f31-4c41-9fb5-159f480bdcbc
+      hippotranslation:locale: inherited locale
+      publishing:alt: skye
+      publishing:content: <p>Skye</p>
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: 592dc255-b53a-4c92-b552-4f69dd6b13f8
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
