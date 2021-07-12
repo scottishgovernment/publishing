@@ -106,6 +106,9 @@ definitions:
           /smartanswer-main:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/smartanswer-main.ftl
+          /imageandtext:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/imageandtext.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
