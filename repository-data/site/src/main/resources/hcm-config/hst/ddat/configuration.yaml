@@ -7,6 +7,14 @@ definitions:
         jcr:primaryType: hst:pages
       /hst:catalog:
         jcr:primaryType: hst:catalog
+        /publishing-catalog:
+          jcr:primaryType: hst:containeritempackage
+          /imageandtext:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.ImageAndTextComponent
+            hst:iconpath: images/essentials/catalog-component-icons/banner.svg
+            hst:label: Image and text
+            hst:template: imageandtext
       /hst:components:
         jcr:primaryType: hst:components
       /hst:pages:
@@ -15,14 +23,23 @@ definitions:
         jcr:primaryType: hst:pages
       /hst:sitemap:
         jcr:primaryType: hst:sitemap
+        /root:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/homepage
+          hst:pagetitle: Home page
+          hst:refId: root
+          hst:relativecontentpath: ''
       /hst:sitemenus:
         jcr:primaryType: hst:sitemenus
       /hst:templates:
         jcr:primaryType: hst:templates
+        /home-main:
+          jcr:primaryType: hst:template
+          hst:renderpath: webfile:/freemarker/ddat/home-main.ftl
       /hst:workspace:
         jcr:primaryType: hst:workspace
         jcr:mixinTypes: ['dxphst:mergeable']
-        dxphst:treehash: 6B9D67D8DB088B0B2470CB2CB702B0A2
+        dxphst:treehash: 4605034217367293EDAC2C1F0E654136
         /hst:channel:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:channel
@@ -35,6 +52,14 @@ definitions:
           hst:lastmodified: 2021-03-08T15:12:18.829Z
         /hst:containers:
           jcr:primaryType: hst:containercomponentfolder
+          /homepage:
+            jcr:primaryType: hst:containercomponentfolder
+            /main:
+              .meta:residual-child-node-category: content
+              jcr:primaryType: hst:containercomponent
+              hippo:identifier: c40fc6e0-083e-456c-81f4-b38f4c20e3ce
+              hst:label: Home page main
+              hst:xtype: hst.vbox
         /hst:pages:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:pages
