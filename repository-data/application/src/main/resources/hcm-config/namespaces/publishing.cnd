@@ -65,6 +65,9 @@
 [publishing:home] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
+[publishing:imageandtext] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:mirror] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
