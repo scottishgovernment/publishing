@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 58e8ebcf-0ba2-4293-9e65-08af7e921d1b
+          jcr:uuid: 828fe667-365a-4cab-a21d-3cbaf0ed4fce
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -25,15 +25,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
             hipposysedit:validators: [required]
-          /content:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:content
-            hipposysedit:primary: false
-            hipposysedit:type: Html
-            hipposysedit:validators: [required]
           /alt:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -42,6 +33,15 @@ definitions:
             hipposysedit:path: publishing:alt
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /content:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:content
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
             hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
@@ -54,9 +54,8 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          publishing:content: ''
           publishing:alt: ''
-          jcr:uuid: 89de0d4b-816b-4925-87b2-5f7e73e9ef18
+          jcr:uuid: 4dfc2c3f-56b3-4e52-b07f-6400e140d04b
           hippostdpubwf:lastModificationDate: 2021-07-09T06:40:28.896+01:00
           hippostdpubwf:creationDate: 2021-07-09T06:40:28.896+01:00
           /publishing:image:
@@ -65,6 +64,9 @@ definitions:
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -99,7 +101,7 @@ definitions:
             caption: Content
             field: content
             hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
