@@ -1,5 +1,5 @@
-<#include "include/imports.ftl">
-<p>Default (left-aligned) template</p>
+<#include "../include/imports.ftl">
+<p>Right-aligned Template Variant</p>
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Imageandtext" -->
 <#if document??>
 <div>
