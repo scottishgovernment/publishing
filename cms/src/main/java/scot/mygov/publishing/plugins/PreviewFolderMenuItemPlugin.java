@@ -57,9 +57,26 @@ public class PreviewFolderMenuItemPlugin extends RenderPlugin {
             if (child.isNodeType(NT_FOLDER) || child.isNodeType(NT_DIRECTORY)) {
                 folderPreviewGeneration(child, nodeIDs);
             } else if (child.isNodeType(NT_HANDLE)) {
+                if (isMirror(child)) {
+                    nodeIDs.add(getMirrorTarget(child));
+                }
                 nodeIDs.add(child.getIdentifier());
             }
         }
+    }
+
+    boolean isMirror(Node node) throws RepositoryException {
+
+        if (!node.hasNode(node.getName())) {
+            return false;
+        }
+
+        Node doc = node.getNode(node.getName());
+        return doc.isNodeType("publishing:mirror");
+    }
+
+    String getMirrorTarget(Node node) throws RepositoryException {
+        return node.getNode(node.getName()).getNode("publishing:document").getProperty("hippo:docbase").getString();
     }
 
     protected IModel<String> getDialogTitleModel() {

@@ -188,7 +188,7 @@ public class PreviewPlugin extends RenderPlugin<Workflow> {
             try {
                 return new PreviewDatePickerDialog(Collections.singleton(getModel().getNode().getIdentifier()));
             } catch (RepositoryException e){
-                LOG.error("An exception occurred while trying to generate a preview link for a single document.");
+                LOG.error("An exception occurred while trying to generate a preview link for a single document.", e);
                 return new ExceptionDialog(e);
             }
         }
