@@ -7,7 +7,9 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.container.ContainerException;
 import org.hippoecm.hst.core.container.ValveContext;
 import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.util.JcrUtils;
+import org.hippoecm.repository.util.NodeIterable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,23 +52,26 @@ public class PreviewValve extends AbstractOrderableValve {
 
         //fetching the content bean
         HippoBean contentBean = requestContext.getContentBean();
+
         //fetching the previewkey
         String previewKey = getPreviewKey(valveContext, resolvedMount);
+        LOG.info("previewKey is {}", previewKey);
+
         //intercepting requests having the id in the url
         if (contentBean == null) {
-            LOG.debug("Preview request doesn't contain content bean");
+            LOG.info("Preview request doesn't contain content bean");
             requestContext.getServletResponse().sendError(403);
             return;
         }
 
         if (StringUtils.isBlank(previewKey)) {
-            LOG.debug("Preview request doesn't contain content bean");
+            LOG.info("Preview request doesn't contain preview key");
             requestContext.getServletResponse().sendError(403);
             return;
         }
 
         if (!hasValidStagingKey(contentBean, previewKey)) {
-            LOG.debug("Preview key {} for document {} is invalid or preview link has expired.", previewKey, contentBean.getPath());
+            LOG.info("Preview key {} for document {} is invalid or preview link has expired.", previewKey, contentBean.getPath());
             requestContext.getServletResponse().sendError(403);
         }
     }
@@ -81,7 +86,9 @@ public class PreviewValve extends AbstractOrderableValve {
     }
 
     boolean hasValidStagingKey(HippoBean contentBean, String previewKey) throws RepositoryException {
-        NodeIterator iterator = contentBean.getNode().getNodes("previewId");
+        Node unpublishedNode = getUnpublishedNode(contentBean);
+        NodeIterator iterator = unpublishedNode.getNodes("previewId");
+        LOG.info("hasValidStagingKey {}, {} previewkeys", contentBean.getPath(), iterator.getSize());
         while (iterator.hasNext()) {
             Node node = iterator.nextNode();
             Calendar expirationCalendar = JcrUtils.getDateProperty(node, "staging:expirationdate", null);
@@ -90,6 +97,17 @@ public class PreviewValve extends AbstractOrderableValve {
             }
         }
         return false;
+    }
+
+    Node getUnpublishedNode(HippoBean contentBean) throws RepositoryException {
+        Node handle = contentBean.getNode().getParent();
+        for (Node variant : new NodeIterable(handle.getNodes(handle.getName()))) {
+            final String state = JcrUtils.getStringProperty(variant, HippoStdNodeType.HIPPOSTD_STATE, null);
+            if (HippoStdNodeType.UNPUBLISHED.equals(state)) {
+                return variant;
+            }
+        }
+        return null;
     }
 
     private boolean isValid(final Calendar expirationCalendar){
