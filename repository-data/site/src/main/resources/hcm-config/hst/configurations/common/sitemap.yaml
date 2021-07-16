@@ -6,11 +6,13 @@ definitions:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/pagenotfound
         hst:refId: pagenotfound
+        hst:hiddeninchannelmanager: true
       /search:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/search
         hst:relativecontentpath: site-furniture/search/search-results
         hst:sitemapitemhandlerids: [trailing-slash]
+        hst:hiddeninchannelmanager: true
       /site-furniture:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
@@ -20,6 +22,7 @@ definitions:
         hst:componentconfigurationid: hst:pages/article
         hst:relativecontentpath: site-furniture
         hst:sitemapitemhandlerids: [trailing-slash]
+        hst:hiddeninchannelmanager: true
         /_default_:
           jcr:primaryType: hst:sitemapitem
           hst:relativecontentpath: ${parent}/${1}
@@ -68,6 +71,7 @@ definitions:
       /sitemap.xml:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:components/sitemap
+        hst:hiddeninchannelmanager: true
       /robots.txt:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/robotstxt
@@ -87,6 +91,7 @@ definitions:
           'hst:pages/formbase']
         hst:relativecontentpath: browse
         hst:sitemapitemhandlerids: [trailing-slash]
+        hst:hiddeninchannelmanager: true
         /_default_:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',

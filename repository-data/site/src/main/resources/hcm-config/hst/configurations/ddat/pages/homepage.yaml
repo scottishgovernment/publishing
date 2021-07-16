@@ -6,6 +6,12 @@ definitions:
       /main:
         jcr:primaryType: hst:component
         hst:template: home-main
+        /menu:
+          jcr:primaryType: hst:component
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+          hst:parameternames: [selectedMenu, level, menu]
+          hst:parametervalues: ['on', '1', main]
+          hst:template: top-menu
         /container:
           jcr:primaryType: hst:containercomponentreference
           hst:referencecomponent: homepage/main
