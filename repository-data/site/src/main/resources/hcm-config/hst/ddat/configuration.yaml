@@ -15,6 +15,12 @@ definitions:
             hst:iconpath: icons/imageandtext.svg
             hst:label: Image and text
             hst:template: imageandtext
+          /divider:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.DividerComponent
+            hst:iconpath: icons/divider.svg
+            hst:label: Divider
+            hst:template: divider
       /hst:components:
         jcr:primaryType: hst:components
       /hst:pages:
@@ -42,7 +48,7 @@ definitions:
       /hst:workspace:
         jcr:primaryType: hst:workspace
         jcr:mixinTypes: ['dxphst:mergeable']
-        dxphst:treehash: 1B4B44B457AB8A9527EB359E210E3F80
+        dxphst:treehash: B1A9829BD52FC0FEBBF26C44BD3BB585
         /hst:channel:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:channel
@@ -63,7 +69,7 @@ definitions:
               hippo:identifier: c40fc6e0-083e-456c-81f4-b38f4c20e3ce
               hst:label: Home page main
               hst:xtype: hst.vbox
-              hst:lastmodified: 2021-07-15T13:24:37.773+01:00
+              hst:lastmodified: 2021-07-16T16:50:44.831+01:00
         /hst:pages:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:pages
