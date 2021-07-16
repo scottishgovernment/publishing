@@ -44,6 +44,7 @@
         };
     </script>
 
+        <!-- canonical link for ddat pages? -->
     <#if document??>
         <@hst.link var="canonicalLink" hippobean=document canonical=true fullyQualified=true/>
         <link rel="canonical" href="${canonicalLink}" />
@@ -82,6 +83,7 @@
             <div class="ds_page__top">
                 <@hst.include ref="notifications"/>
                 <@hst.include ref="siteheader"/>
+                <@hst.include ref="menu"/>
             </div>
 
             <div class="ds_page__middle">
