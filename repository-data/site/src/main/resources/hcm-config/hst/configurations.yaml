@@ -112,6 +112,9 @@ definitions:
           /divider:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/divider.ftl
+          /header:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/header.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
