@@ -1,5 +1,5 @@
 <#include "../common/include/imports.ftl">
+<@hst.include ref="menu"/>
 <div>
-    <p>Container: </p>
     <@hst.include ref="container"/>
 </div>
