@@ -7,7 +7,7 @@
                     <ul class="ds_site-navigation__list">
                         <#list menu.siteMenuItems as item>
                             <li class="ds_site-navigation__item <#if item.selected || item.expanded>ds_current</#if>">
-                                <a href="<@hst.link link=item.hstLink/>" class="activelink"><span class="label-nav">${item.name?html}</span> </a>
+                                <a href="<@hst.link link=item.hstLink/>" class="ds_site-navigation__link"><span class="label-nav">${item.name?html}</span> </a>
                             </li>
                         </#list>
                     </ul>
