@@ -9,18 +9,24 @@ definitions:
         jcr:primaryType: hst:catalog
         /publishing-catalog:
           jcr:primaryType: hst:containeritempackage
-          /imageandtext:
-            jcr:primaryType: hst:containeritemcomponent
-            hst:componentclassname: scot.mygov.publishing.components.ImageAndTextComponent
-            hst:iconpath: icons/imageandtext.svg
-            hst:label: Image and text
-            hst:template: imageandtext
           /divider:
             jcr:primaryType: hst:containeritemcomponent
             hst:componentclassname: scot.mygov.publishing.components.DividerComponent
             hst:iconpath: icons/divider.svg
             hst:label: Divider
             hst:template: divider
+          /header:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.HeaderComponent
+            hst:iconpath: icons/header.svg
+            hst:label: Header
+            hst:template: header
+          /imageandtext:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.ImageAndTextComponent
+            hst:iconpath: icons/imageandtext.svg
+            hst:label: Image and text
+            hst:template: imageandtext
           /threeimagecards:
             jcr:primaryType: hst:containeritemcomponent
             hst:componentclassname: scot.mygov.publishing.components.ThreeImageCardsComponent
