@@ -11,9 +11,6 @@ public interface ThreeImageCardsComponentInfo {
 
     String CMS_PICKERS_DOCUMENTS_ONLY = "cms-pickers/documents-only";
 
-    @Parameter(name = "pause", defaultValue = "true")
-    Boolean getPause();
-
     @Parameter(name = "document1", required = true)
     @JcrPath(
             isRelative = true,
