@@ -33,6 +33,12 @@ definitions:
             hst:iconpath: icons/threeimagecards.svg
             hst:label: 3 image cards
             hst:template: threeimagecards
+          /text:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.TextComponent
+            hst:iconpath: icons/text.svg
+            hst:label: Text
+            hst:template: text
       /hst:components:
         jcr:primaryType: hst:components
       /hst:pages:
@@ -60,7 +66,7 @@ definitions:
       /hst:workspace:
         jcr:primaryType: hst:workspace
         jcr:mixinTypes: ['dxphst:mergeable']
-        dxphst:treehash: 66C55D2B4655A6AFA2FE628D2DF8E87E
+        dxphst:treehash: BC838F46D6F06D57D00E1579CF047C29
         /hst:channel:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:channel
@@ -81,7 +87,7 @@ definitions:
               hippo:identifier: c40fc6e0-083e-456c-81f4-b38f4c20e3ce
               hst:label: Home page main
               hst:xtype: hst.vbox
-              hst:lastmodified: 2021-07-16T17:18:38.108+01:00
+              hst:lastmodified: 2021-07-19T13:48:32.642+01:00
         /hst:pages:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:pages

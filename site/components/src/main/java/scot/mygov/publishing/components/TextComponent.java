@@ -1,0 +1,20 @@
+package scot.mygov.publishing.components;
+
+import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.parameters.ParametersInfo;
+import org.onehippo.cms7.essentials.components.CommonComponent;
+
+@ParametersInfo(type = TextComponentInfo.class)
+public class TextComponent extends CommonComponent {
+
+    @Override
+    public void doBeforeRender(final HstRequest request, final HstResponse response) {
+        super.doBeforeRender(request, response);
+
+        TextComponentInfo paramInfo = getComponentParametersInfo(request);
+        setContentBeanForPath(paramInfo.getDocument(), request, response);
+        request.setAttribute("alignment", paramInfo.getAlignment());
+    }
+
+}

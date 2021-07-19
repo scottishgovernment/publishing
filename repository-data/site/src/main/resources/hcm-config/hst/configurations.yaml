@@ -118,6 +118,9 @@ definitions:
           /threeimagecards:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/threeimagecards.ftl
+          /text:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/text.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
