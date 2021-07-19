@@ -39,6 +39,12 @@ definitions:
             hst:iconpath: icons/text.svg
             hst:label: Text
             hst:template: text
+          /doubletext:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.DoubleTextComponent
+            hst:iconpath: icons/doubletext.svg
+            hst:label: Double text
+            hst:template: doubletext
       /hst:components:
         jcr:primaryType: hst:components
       /hst:pages:

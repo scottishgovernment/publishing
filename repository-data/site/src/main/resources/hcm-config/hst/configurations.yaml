@@ -121,6 +121,9 @@ definitions:
           /text:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/text.ftl
+          /doubletext:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/doubletext.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
