@@ -5,8 +5,7 @@
         <#break>
 
     <#case 'h3'>
-        <h3>${text} ${alignment}</h3>
+        <h3 style="text-align:${alignment}">${text}</h3>
         <#break>
-
 
 </#switch>
