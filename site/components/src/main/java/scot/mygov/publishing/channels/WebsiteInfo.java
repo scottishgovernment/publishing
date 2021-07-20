@@ -18,4 +18,12 @@ public interface WebsiteInfo extends ChannelInfo {
 
     @Parameter(name = "siteTitle", required = true, displayName = "Site title")
     String getSiteTitle();
+
+    @Parameter(name = "color1", displayName = "Additional colour 1")
+    @DropDownList(valueListProvider = ChannelColourValueListProvider.class)
+    String getColor1();
+
+    @Parameter(name = "color2", displayName = "Additional colour 2")
+    @DropDownList(valueListProvider = ChannelColourValueListProvider.class)
+    String getColor2();
 }
