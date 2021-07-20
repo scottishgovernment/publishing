@@ -19,10 +19,10 @@ public interface HeaderComponentInfo {
     Boolean getFullWidth();
 
     @Parameter(name = "foregroundcolor", displayName = "Text colour")
-    @DropDownList(valueListProvider = ComponentColourValueListProvider.class)
+    @DropDownList(valueListProvider = ComponentForegroundColourValueListProvider.class)
     String getForegroundColor();
 
     @Parameter(name = "backgroundcolor", displayName = "Background colour")
-    @DropDownList(valueListProvider = ComponentColourValueListProvider.class)
+    @DropDownList(valueListProvider = ComponentBackgroundColourValueListProvider.class)
     String getBackgroundColor();
 }

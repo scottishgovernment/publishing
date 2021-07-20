@@ -26,4 +26,5 @@ public interface WebsiteInfo extends ChannelInfo {
     @Parameter(name = "color2", displayName = "Additional colour 2")
     @DropDownList(valueListProvider = ChannelColourValueListProvider.class)
     String getColor2();
+
 }
