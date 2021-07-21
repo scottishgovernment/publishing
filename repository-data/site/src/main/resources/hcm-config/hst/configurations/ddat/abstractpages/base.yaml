@@ -1,0 +1,33 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/ddat/hst:abstractpages/base:
+      jcr:primaryType: hst:component
+      hst:componentclassname: scot.mygov.publishing.components.DetermineStylingComponent
+      hst:template: base-layout
+      /notifications:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.NotificationBannersComponent
+        hst:template: base-notifications
+      /siteheader:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.SiteHeaderComponent
+        hst:template: base-siteheader
+      /footer:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.FooterComponent
+        hst:parameternames: [path]
+        hst:parametervalues: [site-furniture/footer]
+        hst:template: base-footer
+      /googletagmanager:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.GoogleTagManagerComponent
+        hst:template: base-googletagmanager
+      /preview-indicator:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.PreviewIndicatorComponent
+        hst:template: preview-indicator
+      /facebook-verification:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.FacebookVerificationComponent
+        hst:suppresswastemessage: true
+        hst:template: base-facebook-verification

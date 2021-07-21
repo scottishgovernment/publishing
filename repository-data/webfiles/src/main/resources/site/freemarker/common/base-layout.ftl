@@ -9,18 +9,11 @@
         <!-- dataLayer code MUST be higher than google tag manager code -->
         <@hst.headContributions categoryIncludes="googleTagManager"/>
         <@hst.headContributions categoryIncludes="resourcehints"/>
-
-        <#if document??>
-            <#if document.titleTag??>
-                <title>${document.titleTag}</title>
-            <#else>
-                <title>${document.title} - ${siteTitle}</title>
-            </#if>
-        <#else>
-            <title>404 - Page not found</title>
-        </#if>
+        <@hst.headContributions categoryIncludes="title"/>
         <@hst.headContributions categoryIncludes="schema"/>
         <@hst.headContributions categoryIncludes="meta"/>
+        <@hst.headContributions categoryIncludes="facebookMeta"/>
+        <@hst.headContributions categoryIncludes="twitterMeta"/>
 
         <meta charset="UTF-8">
 
@@ -38,11 +31,7 @@
     <meta name="theme-color" content="#ffffff">
     <@hst.headContributions categoryIncludes="facebookVerification"/>
 
-        <!-- canonical link for ddat pages? -->
-    <#if document??>
-        <@hst.link var="canonicalLink" hippobean=document canonical=true fullyQualified=true/>
-        <link rel="canonical" href="${canonicalLink}" />
-    </#if>
+    <@hst.headContributions categoryIncludes="canonical"/>
 
     <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -55,6 +44,7 @@
     </script>
     </head>
 
+    <@hst.include ref="seo"/>
     <body <#if document?? && document.sensitive?? &&document.sensitive>class="ds_has-hide-page"</#if>>
         <input type="hidden" id="br-webfile-path" value="<@hst.webfile path="/"/>" />
 

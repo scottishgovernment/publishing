@@ -65,11 +65,5 @@
 </div>
 </#if>
 
-<@hst.headContribution category="meta">
-    <#if document??>
-        <meta name="description" content="${document.metaDescription}"/>
-    </#if>
-</@hst.headContribution>
-
 <#assign scriptName="home">
 <#include 'scripts.ftl'/>

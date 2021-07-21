@@ -14,7 +14,18 @@
             </div>
         </main>
     </div>
+
 </div>
+
+<@hst.headContribution category="title">
+    <#if contentBean?? && contentBean.title??>
+    <title>Page not fount - ${siteTitle}</title>
+    </#if>
+</@hst.headContribution>
+
+<@hst.headContribution category="meta">
+<meta name="description" content="404 - Page not found"/>
+</@hst.headContribution>
 
 <#assign scriptName="default">
 <#include 'scripts.ftl'/>

@@ -31,3 +31,7 @@ definitions:
         hst:componentclassname: scot.mygov.publishing.components.FacebookVerificationComponent
         hst:template: base-facebook-verification
         hst:suppresswastemessage: true
+      /seo:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.SEOComponent
+        hst:template: seo

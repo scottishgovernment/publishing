@@ -106,11 +106,5 @@
 </div>
 </#if>
 
-<@hst.headContribution category="meta">
-    <#if document??>
-    <meta name="description" content=""/>
-    </#if>
-</@hst.headContribution>
-
 <#assign scriptName="organisation-list">
 <#include 'scripts.ftl'/>
