@@ -61,11 +61,6 @@ $site-prefix: "mg_";
 
 
 
-/*
- * CMS STYLES
- */
-@import "../cms-editable";
-
 
 .js-enabled .fully-hidden-if-js {
     display: none;
@@ -74,3 +69,7 @@ $site-prefix: "mg_";
 .ds_page__middle {
     padding-bottom: 64px;
 }
+
+
+
+@import "content-blocks";

@@ -18,8 +18,10 @@ public class DoubleTextComponent extends CommonComponent {
         DoubleTextComponentInfo paramInfo = getComponentParametersInfo(request);
         setDocument("document1", paramInfo.getDocument1(), request);
         setDocument("document2", paramInfo.getDocument2(), request);
-        request.setAttribute("alignment1", paramInfo.getAlignment1());
-        request.setAttribute("alignment2", paramInfo.getAlignment2());
+
+        request.setAttribute("fullwidth", paramInfo.getFullWidth());
+        request.setAttribute("backgroundcolor", paramInfo.getBackgroundColor());
+        request.setAttribute("foregroundcolor", paramInfo.getForegroundColor());
     }
 
     void setDocument(String attr, String documentPath, HstRequest request) {
@@ -29,5 +31,4 @@ public class DoubleTextComponent extends CommonComponent {
             request.setModel(attr, root.getBean(documentPath));
         }
     }
-
 }

@@ -1,0 +1,400 @@
+// colors
+
+$colors: (
+    'white'     $ds_colour__white       'normal',
+    'grey'      $ds_colour__grey--light 'normal',
+    'blue'      $ds_colour__blue        'reversed',
+    'darkblue'  $ds_colour__blue--dark  'reversed',
+    'teal'      $ds_colour__teal        'dark',
+    'darkteal'  $ds_colour__dark-teal   'reversed',
+    'green'     $ds_colour__green       'dark',
+    'darkgreen' $ds_colour__dark-green  'reversed',
+    'orange'    $ds_colour__orange      'dark',
+    'red'       $ds_colour__red         'reversed',
+    'pink'      $ds_colour__pink        'reversed',
+    'purple'    $ds_colour__purple      'reversed',
+    'brown'     $ds_colour__brown       'reversed',
+    'black'     $ds_colour__black       'reversed'
+);
+
+%texttheme-reversed {
+    color: white;
+
+    a:not(:hover):not(:focus) {
+        color: currentColor;
+    }
+}
+
+%texttheme-dark {
+    a:not(:hover):not(:focus) {
+        color: $ds_colour__text;
+    }
+}
+
+.ds_cb {
+    @each $color in $colors {
+        $name: nth($color, 1);
+        $hex: nth($color, 2);
+        $texttheme: nth($color, 3);
+
+        &--fullwidth.ds_cb--bg-#{$name},
+        &:not(&--fullwidth).ds_cb--bg-#{$name} .ds_wrapper {
+            background-color: #{$hex};
+        }
+
+        &--bg-#{$name} {
+            @if ($texttheme == 'reversed') {
+                @extend %texttheme-reversed;
+            }
+
+            @if ($texttheme == 'dark') {
+                @extend %texttheme-dark;
+            }
+        }
+
+        // foreground theming
+        &--fg-#{$name}:not([class*="ds_cb--bg-"]),
+        &--fg-#{$name}.ds_cb--bg-white {
+            color: #{$hex};
+        }
+    }
+}
+
+
+
+
+// modifications to DS components
+
+.ds_cb {
+    .ds_page-header {
+        margin: 0 0 24px;
+
+        @include media-query(medium) {
+            margin-bottom: 32px;
+        }
+
+        @include media-query(large) {
+            margin-top: 16px;
+        }
+    }
+
+    .ds_cb__text:last-child:first-child .ds_page-header {
+        margin-top: 0;
+    }
+}
+
+
+
+
+
+
+// subcomponents
+
+.ds_cb__inner > :last-child,
+.ds_cb__text > :last-child {
+    margin-bottom: 0;
+}
+
+.ds_cb__inner {
+    @include layout();
+
+    > * + * {
+        margin-top: 24px;
+    }
+
+    @include media-query(medium) {
+        > * + * {
+            margin-top: 0;
+        }
+
+        @supports(display: grid) {
+            grid-gap: 0 32px;
+            grid-template-columns: repeat(12, 1fr);
+        }
+    }
+}
+
+.ds_cb__text {
+    @include media-query(medium) {
+        float: left;
+        @include colwidth(6);
+
+        &:last-child:first-child {
+            float: none;
+            @include colwidth(8);
+        }
+
+        &--middle:last-child:first-child {
+            @include colpush(2);
+        }
+
+        &--right:last-child:first-child {
+            @include colpush(4);
+        }
+
+        @supports(display: grid) {
+            grid-column: span 6;
+
+            &:last-child:first-child {
+                grid-area: 1/1/1/9;
+                width: auto;
+            }
+
+            &--middle:last-child:first-child {
+                grid-area: 1/3/1/11;
+                margin-left: 0;
+            }
+
+            &--right:last-child:first-child {
+                grid-area: 1/5/1/13;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.ds_cb__poster {
+    overflow: auto;
+
+    img,
+    iframe,
+    video {
+        display: block;
+        float: right;
+        max-width: 100%;
+    }
+
+    &:first-child {
+        img,
+        iframe,
+        video {
+            float: left;
+        }
+    }
+
+    @include media-query(medium-down) {
+        img,
+        iframe,
+        video {
+            float: none;
+        }
+    }
+
+    @include media-query(medium) {
+        float: left;
+        @include colwidth(6);
+
+        @supports(display: grid) {
+            grid-column: span 6;
+        }
+    }
+}
+
+
+
+
+// blocks
+
+// 1. page title
+
+.ds_cb--page-title {
+    .ds_cb__inner {
+        padding: 40px 0;
+
+        @include layout();
+
+        @include media-query(medium) {
+            padding: 48px 0;
+        }
+    }
+}
+
+
+
+
+// 1a. Header
+
+.ds_cb--header {
+    .ds_cb__inner {
+        padding: 8px 0;
+
+        @include media-query(medium) {
+            padding: 16px 0;
+        }
+    }
+}
+
+
+
+
+// 2. Image/text, video
+
+.ds_cb--image-text,
+.ds_cb--video {
+    .ds_cb__inner {
+        padding: 16px 0 24px;
+    }
+
+    @include media-query(medium) {
+        .ds_cb__inner {
+            padding: 24px 0 32px;
+        }
+    }
+
+    // this is ugly but it using flex for this means we can put the image under the text in IE11
+    @include media-query(medium-down) {
+        .ds_cb__inner {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ds_cb__poster:first-child {
+            order: 2;
+            margin-top: 24px;
+        }
+
+        .ds_cb__text:last-child {
+            margin-top: 0;
+        }
+    }
+}
+
+
+
+
+// 3. cards
+
+.ds_cb--cards {
+    .ds_cb__inner {
+        padding: 16px 0 32px;
+
+        @include media-query(medium) {
+            padding-top: 24px;
+
+            > * {
+                float: left;
+                @include colwidth(4);
+            }
+
+            @supports(display: grid) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+}
+
+
+
+
+// 4. text
+
+.ds_cb--text {
+    .ds_cb__inner {
+        padding: 16px 0 24px;
+
+        @include media-query(medium) {
+            padding: 24px 0 32px;
+        }
+    }
+}
+
+
+
+
+// 5. double text
+
+.ds_cb--double-text {
+    .ds_cb__inner {
+        padding: 16px 0 24px;
+
+        @include media-query(medium-down) {
+            > * + * {
+                margin-top: 40px;
+            }
+        }
+
+        @include media-query(medium) {
+            padding: 24px 0 32px;
+        }
+    }
+}
+
+
+
+
+// 6. divider
+
+.ds_cb--divider {
+    hr {
+        border: 0;
+        margin: 0;
+        padding: 8px 0;
+        position: relative;
+
+        &::after {
+            background-color: currentColor;
+            content: '';
+            height: 1px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            z-index: 1;
+        }
+    }
+}
+
+
+.ds_cb--divider + .ds_cb:not(.ds_cb--fullwidth) .ds_wrapper,
+.ds_cb--divider + .ds_cb.ds_cb--fullwidth,
+.ds_cb:not(.ds_cb--fullwidth) + .ds_cb--divider .ds_wrapper,
+.ds_cb.ds_cb--fullwidth + .ds_cb--divider {
+    position: relative;
+
+    &::before {
+        // background-color: $ds_colour__white;
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 8px;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    }
+}
+
+.ds_cb--divider + .ds_cb:not(.ds_cb--fullwidth) .ds_wrapper::before,
+.ds_cb--divider + .ds_cb.ds_cb--fullwidth::before {
+    top: -8px;
+}
+
+%visible-divider {
+    z-index: 0;
+}
+
+%texttheme-reversed-divider {
+    color: white;
+}
+
+@each $color in $colors {
+    $name: nth($color, 1);
+    $hex: nth($color, 2);
+    $texttheme: nth($color, 3);
+
+    @if $texttheme == 'reversed' {
+        .ds_cb--bg-#{$name} + .ds_cb--divider {
+            @extend %texttheme-reversed-divider;
+        }
+    }
+
+    .ds_cb--bg-#{$name}:not(.ds_cb--fullwidth) + .ds_cb--divider .ds_wrapper::before,
+    .ds_cb--bg-#{$name}.ds_cb--fullwidth + .ds_cb--divider::before,
+    .ds_cb--divider + .ds_cb--bg-#{$name}:not(.ds_cb--fullwidth) .ds_wrapper::before,
+    .ds_cb--divider + .ds_cb--bg-#{$name}.ds_cb--fullwidth::before {
+        background-color: #{$hex};
+    }
+
+    .ds_cb--bg-#{$name} + .ds_cb--divider + .ds_cb--bg-#{$name}:not(.ds_cb--fullwidth) .ds_wrapper::before,
+    .ds_cb--bg-#{$name} + .ds_cb--divider + .ds_cb--bg-#{$name}.ds_cb--fullwidth::before {
+        @extend %visible-divider;
+    }
+}

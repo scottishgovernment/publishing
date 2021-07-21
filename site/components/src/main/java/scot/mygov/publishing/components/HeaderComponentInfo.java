@@ -11,9 +11,9 @@ public interface HeaderComponentInfo {
     @DropDownList({"h2", "h3"})
     String getWeight();
 
-    @Parameter(name = "alignment", displayName = "Alignment", required = true, defaultValue = "left")
-    @DropDownList({"left", "center", "right"})
-    String getAlignment();
+    @Parameter(name = "position", displayName = "Position", required = true, defaultValue = "left")
+    @DropDownList({"left", "middle", "right"})
+    String getPosition();
 
     @Parameter(name = "fullwidth", displayName = "Full-width background")
     Boolean getFullWidth();
