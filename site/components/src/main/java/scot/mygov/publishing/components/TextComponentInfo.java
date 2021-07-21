@@ -12,7 +12,18 @@ public interface TextComponentInfo {
     )
     String getDocument();
 
-    @Parameter(name = "alignment", required = true, defaultValue = "left")
-    @DropDownList({"left", "center", "right"})
-    String getAlignment();
+    @Parameter(name = "position", displayName = "Position", required = true, defaultValue = "left")
+    @DropDownList({"left", "middle", "right"})
+    String getPosition();
+
+    @Parameter(name = "fullwidth", displayName = "Full-width background")
+    Boolean getFullWidth();
+
+    @Parameter(name = "foregroundcolor", displayName = "Text colour")
+    @DropDownList(valueListProvider = ComponentForegroundColourValueListProvider.class)
+    String getForegroundColor();
+
+    @Parameter(name = "backgroundcolor", displayName = "Background colour")
+    @DropDownList(valueListProvider = ComponentBackgroundColourValueListProvider.class)
+    String getBackgroundColor();
 }

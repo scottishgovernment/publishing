@@ -57,12 +57,12 @@ $mg-prefix: "mg_";
 
 
 
-/*
- * CMS STYLES
- */
-@import "../cms-editable";
-
 
 .js-enabled .fully-hidden-if-js {
     display: none;
 }
+
+
+
+
+@import "content-blocks";

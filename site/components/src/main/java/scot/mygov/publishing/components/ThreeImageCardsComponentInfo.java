@@ -35,4 +35,6 @@ public interface ThreeImageCardsComponentInfo {
             pickerConfiguration = CMS_PICKERS_DOCUMENTS_ONLY)
     String getImage3();
 
+    @Parameter(name = "fullwidth", displayName = "Full-width background")
+    Boolean getFullWidth();
 }

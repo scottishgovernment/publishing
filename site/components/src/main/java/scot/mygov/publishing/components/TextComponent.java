@@ -14,7 +14,10 @@ public class TextComponent extends CommonComponent {
 
         TextComponentInfo paramInfo = getComponentParametersInfo(request);
         setContentBeanForPath(paramInfo.getDocument(), request, response);
-        request.setAttribute("alignment", paramInfo.getAlignment());
+        request.setAttribute("position", paramInfo.getPosition());
+        request.setAttribute("fullwidth", paramInfo.getFullWidth());
+        request.setAttribute("backgroundcolor", paramInfo.getBackgroundColor());
+        request.setAttribute("foregroundcolor", paramInfo.getForegroundColor());
     }
 
 }
