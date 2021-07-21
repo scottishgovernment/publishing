@@ -17,3 +17,9 @@ definitions:
         hippo:identifier: 47294c29-0d50-45ca-aba5-d2c7400f2946
         hst:label: Content Page Main
         hst:xtype: hst.vbox
+        /seo:
+          jcr:primaryType: hst:containeritemcomponent
+          hst:componentclassname: scot.mygov.publishing.components.SEOComponent
+          hst:iconpath: icons/seo.svg
+          hst:label: SEO
+          hst:template: seo

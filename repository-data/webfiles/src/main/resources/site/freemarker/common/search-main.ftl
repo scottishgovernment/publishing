@@ -27,10 +27,4 @@
     </div>
 </div>
 
-<@hst.headContribution category="meta">
-    <#if document?? && document.metaDescription??>
-    <meta name="description" content="${document.metaDescription}"/>
-    </#if>
-</@hst.headContribution>
-
 <#include 'scripts.ftl'/>

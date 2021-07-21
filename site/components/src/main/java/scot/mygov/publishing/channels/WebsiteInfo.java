@@ -2,6 +2,7 @@ package scot.mygov.publishing.channels;
 
 import org.hippoecm.hst.configuration.channel.ChannelInfo;
 import org.hippoecm.hst.core.parameters.DropDownList;
+import org.hippoecm.hst.core.parameters.JcrPath;
 import org.hippoecm.hst.core.parameters.Parameter;
 
 public interface WebsiteInfo extends ChannelInfo {
@@ -27,4 +28,12 @@ public interface WebsiteInfo extends ChannelInfo {
     @DropDownList(valueListProvider = ChannelColourValueListProvider.class)
     String getColor2();
 
+    @Parameter(name = "defaultCardImage", required = true)
+    @JcrPath(
+            pickerConfiguration = "cms-pickers/images",
+            isRelative = true,
+            pickerSelectableNodeTypes = {"publishing:ImageCard"},
+            pickerInitialPath = ""
+    )
+    String getDefaultCardImage();
 }

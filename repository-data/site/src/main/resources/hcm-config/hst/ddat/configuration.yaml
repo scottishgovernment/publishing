@@ -45,6 +45,12 @@ definitions:
             hst:iconpath: icons/doubletext.svg
             hst:label: Double text
             hst:template: doubletext
+          /seo:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.SEOComponent
+            hst:iconpath: icons/seo.svg
+            hst:label: SEO
+            hst:template: seo
       /hst:components:
         jcr:primaryType: hst:components
       /hst:pages:
@@ -72,7 +78,7 @@ definitions:
       /hst:workspace:
         jcr:primaryType: hst:workspace
         jcr:mixinTypes: ['dxphst:mergeable']
-        dxphst:treehash: BC838F46D6F06D57D00E1579CF047C29
+        dxphst:treehash: C36D1C081F4E2E39F27CC94048196900
         /hst:channel:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:channel
@@ -82,7 +88,7 @@ definitions:
           hst:lastmodifiedby: admin
           hst:defaultdevice: default
           hst:devices: []
-          hst:lastmodified: 2021-03-08T15:12:18.829Z
+          hst:lastmodified: 2021-07-22T10:17:37.556+01:00
         /hst:containers:
           jcr:primaryType: hst:containercomponentfolder
           /homepage:
@@ -93,7 +99,7 @@ definitions:
               hippo:identifier: c40fc6e0-083e-456c-81f4-b38f4c20e3ce
               hst:label: Home page main
               hst:xtype: hst.vbox
-              hst:lastmodified: 2021-07-19T13:48:32.642+01:00
+              hst:lastmodified: 2021-07-22T09:40:57.413+01:00
         /hst:pages:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:pages
@@ -105,3 +111,4 @@ definitions:
           /main:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:sitemenu
+            hst:lastmodified: 2021-07-20T13:42:50.758+01:00

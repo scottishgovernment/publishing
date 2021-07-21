@@ -132,11 +132,5 @@
     </#if>
 </@hst.headContribution>
 
-<@hst.headContribution category="meta">
-    <#if document??>
-    <meta name="description" content="${document.metaDescription}"/>
-    </#if>
-</@hst.headContribution>
-
 <#assign scriptName="fair-rent-register">
 <#include 'scripts.ftl'/>

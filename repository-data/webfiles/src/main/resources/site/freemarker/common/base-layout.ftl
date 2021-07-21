@@ -9,18 +9,11 @@
         <!-- dataLayer code MUST be higher than google tag manager code -->
         <@hst.headContributions categoryIncludes="googleTagManager"/>
         <@hst.headContributions categoryIncludes="resourcehints"/>
-
-        <#if document??>
-            <#if document.titleTag??>
-                <title>${document.titleTag}</title>
-            <#else>
-                <title>${document.title} - ${siteTitle}</title>
-            </#if>
-        <#else>
-            <title>404 - Page not found</title>
-        </#if>
+        <@hst.headContributions categoryIncludes="title"/>
         <@hst.headContributions categoryIncludes="schema"/>
         <@hst.headContributions categoryIncludes="meta"/>
+        <@hst.headContributions categoryIncludes="facebookMeta"/>
+        <@hst.headContributions categoryIncludes="twitterMeta"/>
 
         <meta charset="UTF-8">
 
@@ -44,13 +37,9 @@
         };
     </script>
 
-        <!-- canonical link for ddat pages? -->
-    <#if document??>
-        <@hst.link var="canonicalLink" hippobean=document canonical=true fullyQualified=true/>
-        <link rel="canonical" href="${canonicalLink}" />
-    </#if>
+    <@hst.headContributions categoryIncludes="canonical"/>
 
-    <script
+        <script
   src="https://code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
   crossorigin="anonymous"></script>
@@ -63,7 +52,7 @@
 
 
 
-
+    <@hst.include ref="seo"/>
     <body <#if document?? && document.sensitive?? &&document.sensitive>class="ds_has-hide-page"</#if>>
         <@hst.include ref="googletagmanager"/>
 
