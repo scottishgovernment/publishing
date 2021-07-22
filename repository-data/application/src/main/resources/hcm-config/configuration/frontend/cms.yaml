@@ -224,3 +224,18 @@ definitions:
       compression: 1.0
       cropping: false
       optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-dashshortcuts/vavancies:
+      jcr:primaryType: frontend:plugin
+      baseFolder: /content/documents/ddat/vacancies
+      browser.id: service.browse
+      classificationType: date
+      documentType: publishing:vacancy
+      plugin.class: org.onehippo.forge.dashboard.documentwizard.NewDocumentWizardPlugin
+      query: new-vacancy-document
+      sortingWeight: 4
+      wicket.id: shortcut
+      /en:
+        jcr:primaryType: frontend:pluginconfig
+        date-label: Document date
+        name-label: New vacancy
+        shortcut-link-label: New vacancy
