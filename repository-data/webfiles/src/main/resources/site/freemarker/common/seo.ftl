@@ -72,3 +72,7 @@
 <meta name="twitter:image" content="<@hst.link hippobean=image.original/>" />
 </@hst.headContribution>
 </#if>
+
+<#if hstRequest.requestContext.channelManagerPreviewRequest>
+    <img src="<@hst.link path="/images/essentials/catalog-component-icons/seo.svg" />"> Click to edit SEO parameters
+</#if>
