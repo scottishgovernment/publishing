@@ -1,13 +1,14 @@
 package scot.mygov.publishing.components;
 
+import org.hippoecm.hst.core.parameters.DropDownList;
 import org.hippoecm.hst.core.parameters.JcrPath;
 import org.hippoecm.hst.core.parameters.Parameter;
 
 public interface ThreeImageCardsComponentInfo {
 
-    String TYPE = "publishing:imageandtext";
+    String TYPE = "publishing:base";
 
-    String INITIAL_PATH = "images";
+    String INITIAL_PATH = "";
 
     String CMS_PICKERS_DOCUMENTS_ONLY = "cms-pickers/documents-only";
 
@@ -37,4 +38,13 @@ public interface ThreeImageCardsComponentInfo {
 
     @Parameter(name = "fullwidth", displayName = "Full-width background")
     Boolean getFullWidth();
+
+    @Parameter(name = "foregroundcolor", displayName = "Text colour")
+    @DropDownList(valueListProvider = ComponentForegroundColourValueListProvider.class)
+    String getForegroundColor();
+
+    @Parameter(name = "backgroundcolor", displayName = "Background colour")
+    @DropDownList(valueListProvider = ComponentBackgroundColourValueListProvider.class)
+    String getBackgroundColor();
+
 }
