@@ -7,22 +7,26 @@ import org.hippoecm.hst.core.parameters.Parameter;
 public interface DoubleTextComponentInfo {
     @Parameter(name = "document1", required = true)
     @JcrPath(
-            isRelative = true,
-            pickerSelectableNodeTypes = {"hippo:document"}
+        isRelative = true,
+        pickerConfiguration = "cms-pickers/documents-only",
+        pickerInitialPath = "text",
+        pickerSelectableNodeTypes = "publishing:text"
     )
     String getDocument1();
 
     @Parameter(name = "document2", required = true)
     @JcrPath(
-            isRelative = true,
-            pickerSelectableNodeTypes = {"hippo:document"}
+        isRelative = true,
+        pickerConfiguration = "cms-pickers/documents-only",
+        pickerInitialPath = "text",
+        pickerSelectableNodeTypes = "publishing:text"
     )
     String getDocument2();
 
-    @Parameter(name = "fullwidth", displayName = "Full-width background")
+    @Parameter(name = "fullwidth", displayName = "Full-width background", defaultValue = "true")
     Boolean getFullWidth();
 
-    @Parameter(name = "foregroundcolor", displayName = "Text colour")
+    @Parameter(name = "foregroundcolor", displayName = "Text colour (on white background)")
     @DropDownList(valueListProvider = ComponentForegroundColourValueListProvider.class)
     String getForegroundColor();
 

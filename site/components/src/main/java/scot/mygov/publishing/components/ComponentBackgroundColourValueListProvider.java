@@ -52,7 +52,7 @@ public class ComponentBackgroundColourValueListProvider implements ValueListProv
 
     Map<String, String> siteColours() {
         Map<String, String> colors = new LinkedHashMap<>();
-        colors.put("white", "White");
+        colors.put("", "White");
         colors.put("blue", "Blue");
         colors.put("darkblue", "Dark blue");
         colors.put("grey", "Light grey");

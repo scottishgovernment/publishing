@@ -6,12 +6,6 @@ definitions:
       hst:displayname: Simple Content Page
       hst:primarycontainer: main
       hst:referencecomponent: hst:abstractpages/base
-      /menu:
-        jcr:primaryType: hst:component
-        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
-        hst:parameternames: [selectedMenu, level, menu]
-        hst:parametervalues: ['on', '1', main]
-        hst:template: top-menu
       /main:
         jcr:primaryType: hst:containercomponent
         hippo:identifier: 47294c29-0d50-45ca-aba5-d2c7400f2946

@@ -15,7 +15,7 @@ public interface WebsiteInfo extends ChannelInfo {
     Boolean isFeedbackEnabled();
 
     @Parameter(name = "simpleAnalyticsEnabled", required = true, displayName = "SimpleAnalytics enabled?")
-    Boolean isSimpleAnalytivcsEnabled();
+    Boolean isSimpleAnalyticsEnabled();
 
     @Parameter(name = "siteTitle", required = true, displayName = "Site title")
     String getSiteTitle();

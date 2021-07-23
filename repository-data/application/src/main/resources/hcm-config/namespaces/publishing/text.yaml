@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 552ff68e-c6b3-41b7-a687-6f17adae31ae
+          jcr:uuid: f032a8f6-b1b9-412d-9ef5-1d2bbd08b850
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -36,7 +36,7 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 97a30622-2cbe-495a-bfbd-7b190d8ce4b4
+          jcr:uuid: 1514a6af-fd84-486c-b170-d027bd9f3cbe
           hippostdpubwf:lastModificationDate: 2021-07-19T14:12:24.729+01:00
           hippostdpubwf:creationDate: 2021-07-19T14:12:24.729+01:00
           /publishing:content:
@@ -62,3 +62,8 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
+                extraAllowedContent: ''table[data-smallscreen];address[translate];'',
+                format_tags: ''h2;h3;h4;p;address'', removePlugins: ''sourcearea,codemirror,youtube,specialchar'',
+                removeButtons: ''PickImage,Underline,Strike,Subscript,Superscript,Indent,Outdent'',
+                stylesSet: ''limitedstyles_{language}:./limitedstyles.js'' }'

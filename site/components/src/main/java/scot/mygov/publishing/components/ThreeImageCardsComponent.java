@@ -3,8 +3,15 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.content.beans.standard.HippoDocument;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.parameters.FieldGroup;
+import org.hippoecm.hst.core.parameters.FieldGroupList;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.cms7.essentials.components.CommonComponent;
+
+@FieldGroupList({
+    @FieldGroup(titleKey = "Appearance", value = { "fullwidth" }),
+    @FieldGroup(titleKey = "Cards", value = { "document1", "document2", "document3" })
+})
 
 @ParametersInfo(type = ThreeImageCardsComponentInfo.class)
 public class ThreeImageCardsComponent extends CommonComponent {
