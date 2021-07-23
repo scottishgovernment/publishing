@@ -75,6 +75,7 @@ definitions:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/vacancylist
           hst:pagetitle: List of jobs
+          hst:relativecontentpath: /seo/vacancies
           /_any_:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/vacancypage
@@ -101,7 +102,7 @@ definitions:
       /hst:workspace:
         jcr:primaryType: hst:workspace
         jcr:mixinTypes: ['dxphst:mergeable']
-        dxphst:treehash: DDCA12860A563365E0A2E4E323EE03F1
+        dxphst:treehash: F5492D8CF595F9E10664BBE5D26EAA68
         /hst:channel:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:channel

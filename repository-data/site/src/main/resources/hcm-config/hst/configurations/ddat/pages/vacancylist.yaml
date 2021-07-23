@@ -11,6 +11,10 @@ definitions:
         hst:parametervalues: ['publishing:vacancy', 'publishing:closingDate', desc,
           'off', 'on', '', '5']
         hst:template: vacancylist
+        /seo:
+          jcr:primaryType: hst:component
+          hst:componentclassname: scot.mygov.publishing.components.SEOComponent
+          hst:template: seo
       /menu:
         jcr:primaryType: hst:component
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
