@@ -1,5 +1,7 @@
 <#include "include/imports.ftl">
-
+<#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Seo" -->
+<#if document??>
+<@hst.manageContent hippobean=document parameterName="document" rootPath="seo"/>
 <@hst.headContribution category="title">
 <title>${titletag}</title>
 </@hst.headContribution>
@@ -73,6 +75,7 @@
 </@hst.headContribution>
 </#if>
 
-<#if hstRequest.requestContext.channelManagerPreviewRequest>
-    <img src="<@hst.link path="/images/essentials/catalog-component-icons/seo.svg" />"> Click to edit SEO parameters
+<#elseif editMode>
+    <@hst.manageContent documentTemplateQuery="new-seo-document" parameterName="document" rootPath="seo"/>
+    Click to edit SEO parameters
 </#if>
