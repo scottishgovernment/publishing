@@ -22,7 +22,7 @@ public class ComponentForegroundColourValueListProvider extends ComponentBackgro
     @Override
     Map<String, String> siteColours() {
         Map<String, String> colors = new LinkedHashMap<>();
-        colors.put("default", "Default");
+        colors.put("", "Default");
         colors.put("blue", "Blue");
         colors.put("darkblue", "Dark blue");
         return colors;

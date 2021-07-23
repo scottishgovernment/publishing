@@ -86,9 +86,12 @@ definitions:
         /home-main:
           jcr:primaryType: hst:template
           hst:renderpath: webfile:/freemarker/ddat/home-main.ftl
-        /top-menu:
+        /site-navigation:
           jcr:primaryType: hst:template
-          hst:renderpath: webfile:/freemarker/ddat/top-menu.ftl
+          hst:renderpath: webfile:/freemarker/ddat/site-navigation.ftl
+        /site-navigation-mobile:
+          jcr:primaryType: hst:template
+          hst:renderpath: webfile:/freemarker/ddat/site-navigation-mobile.ftl
         /vacancy:
           jcr:primaryType: hst:template
           hst:renderpath: webfile:/freemarker/ddat/vacancy.ftl
@@ -108,7 +111,7 @@ definitions:
           hst:lastmodifiedby: admin
           hst:defaultdevice: default
           hst:devices: []
-          hst:lastmodified: 2021-07-22T10:17:37.556+01:00
+          hst:lastmodified: 2021-07-23T15:17:18.111+01:00
         /hst:containers:
           jcr:primaryType: hst:containercomponentfolder
           /homepage:
@@ -119,7 +122,7 @@ definitions:
               hippo:identifier: c40fc6e0-083e-456c-81f4-b38f4c20e3ce
               hst:label: Home page main
               hst:xtype: hst.vbox
-              hst:lastmodified: 2021-07-23T11:17:16.656+01:00
+              hst:lastmodified: 2021-07-23T15:07:11.471+01:00
         /hst:pages:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:pages

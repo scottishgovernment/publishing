@@ -17,10 +17,10 @@ public interface ImageAndTextComponentInfo extends EssentialsDocumentComponentIn
     )
     String getDocument();
 
-    @Parameter(name = "fullwidth", displayName = "Full-width background")
+    @Parameter(name = "fullwidth", displayName = "Full-width background", defaultValue = "true")
     Boolean getFullWidth();
 
-    @Parameter(name = "foregroundcolor", displayName = "Text colour")
+    @Parameter(name = "foregroundcolor", displayName = "Text colour (on white background)")
     @DropDownList(valueListProvider = ComponentForegroundColourValueListProvider.class)
     String getForegroundColor();
 

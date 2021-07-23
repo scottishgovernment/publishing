@@ -13,7 +13,8 @@
                 <div class="ds_cb__text  <#if position??>ds_cb__text--${position}</#if>">
                     <@hst.html hippohtml=document.content/>
                 </div>
-                <@hst.manageContent hippobean=document parameterName="document" rootPath="text"/>
+
+                <@hst.manageContent hippobean=document documentTemplateQuery="new-text-document" parameterName="document" rootPath="text"/>
             <#elseif editMode>
                 <div class="cms-blank  ds_cb__text  <#if position??>ds_cb__text--${position}</#if>">
                     <@placeholdertext lines=7/>

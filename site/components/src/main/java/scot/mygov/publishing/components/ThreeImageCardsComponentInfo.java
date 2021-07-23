@@ -36,15 +36,6 @@ public interface ThreeImageCardsComponentInfo {
             pickerConfiguration = CMS_PICKERS_DOCUMENTS_ONLY)
     String getImage3();
 
-    @Parameter(name = "fullwidth", displayName = "Full-width background")
+    @Parameter(name = "fullwidth", displayName = "Full-width background", defaultValue = "true")
     Boolean getFullWidth();
-
-    @Parameter(name = "foregroundcolor", displayName = "Text colour")
-    @DropDownList(valueListProvider = ComponentForegroundColourValueListProvider.class)
-    String getForegroundColor();
-
-    @Parameter(name = "backgroundcolor", displayName = "Background colour")
-    @DropDownList(valueListProvider = ComponentBackgroundColourValueListProvider.class)
-    String getBackgroundColor();
-
 }

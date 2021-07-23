@@ -11,7 +11,7 @@
             <#if document1??>
                 <div class="ds_card  ds_card--has-hover">
                     <div class="ds_card__media">
-                        <img class="ds_card__image" src="<@hst.link hippobean=document1.cardImage />" alt="${document1.alt?html}"/>
+                        <img class="ds_card__image" src="<@hst.link hippobean=document1.cardImage />" alt="111"/>
                     </div>
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="<@hst.link hippobean=document1/>">${document1.title}</a></h2>
@@ -43,7 +43,7 @@
             <#if document2??>
                 <div class="ds_card  ds_card--has-hover">
                     <div class="ds_card__media">
-                        <img class="ds_card__image" src="<@hst.link hippobean=document2.cardImage />" alt="${document2.alt?html}"/>
+                        <img class="ds_card__image" src="<@hst.link hippobean=document2.cardImage />" alt="222"/>
                     </div>
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="<@hst.link hippobean=document2/>">${document2.title}</a></h2>
@@ -75,7 +75,7 @@
             <#if document3??>
                 <div class="ds_card  ds_card--has-hover">
                     <div class="ds_card__media">
-                        <img class="ds_card__image" src="<@hst.link hippobean=document3.cardImage />" alt="${document3.alt?html}"/>
+                        <img class="ds_card__image" src="<@hst.link hippobean=document3.cardImage />" alt="333"/>
                     </div>
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="<@hst.link hippobean=document1/>">${document3.title}</a></h2>

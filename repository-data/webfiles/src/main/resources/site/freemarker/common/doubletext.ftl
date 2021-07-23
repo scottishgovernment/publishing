@@ -9,29 +9,29 @@
     <div class="ds_wrapper">
         <div class="ds_cb__inner">
 
-            <div class="ds_cb__text">
-                <#if document1??>
+            <#if document1??>
+                <div class="ds_cb__text">
                     <@hst.html hippohtml=document1.content/>
-                <#elseif editMode>
-                    <div class="cms-blank">
-                        <@placeholdertext lines=7/>
+                </div>
+            <#elseif editMode>
+                <div class="ds_cb__text  cms-blank">
+                    <@placeholdertext lines=7/>
 
-                        <@hst.manageContent documentTemplateQuery="new-text-document" parameterName="document1" rootPath="text"/>
-                    </div>
-                </#if>
-            </div>
+                    <@hst.manageContent documentTemplateQuery="new-text-document" parameterName="document1" rootPath="text"/>
+                </div>
+            </#if>
 
-            <div class="ds_cb__text">
-                <#if document2??>
+            <#if document2??>
+                <div class="ds_cb__text">
                     <@hst.html hippohtml=document2.content/>
-                <#elseif editMode>
-                    <div class="cms-blank">
-                        <@placeholdertext lines=7/>
+                </div>
+            <#elseif editMode>
+                <div class="ds_cb__text  cms-blank">
+                    <@placeholdertext lines=7/>
 
-                        <@hst.manageContent documentTemplateQuery="new-text-document" parameterName="document2" rootPath="text"/>
-                    </div>
-                </#if>
-            </div>
+                    <@hst.manageContent documentTemplateQuery="new-text-document" parameterName="document2" rootPath="text"/>
+                </div>
+            </#if>
         </div>
     </div>
 </div>

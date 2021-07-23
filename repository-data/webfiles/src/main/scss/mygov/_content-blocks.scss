@@ -30,8 +30,10 @@ $colors: (
 }
 
 %texttheme-dark {
+    color: $ds_colour__black;
+
     a:not(:hover):not(:focus) {
-        color: $ds_colour__text;
+        color: currentColor;
     }
 }
 
@@ -95,7 +97,7 @@ $colors: (
 // subcomponents
 
 .ds_cb__inner > :last-of-type,
-.ds_cb__text > :last-of-type {
+.ds_cb__text > :last-child {
     margin-bottom: 0;
 }
 
@@ -260,7 +262,7 @@ $colors: (
             margin-top: 24px;
         }
 
-        .ds_cb__text:last-of-type {
+        .ds_cb__text:last-child {
             margin-top: 0;
         }
     }

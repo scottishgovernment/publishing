@@ -12,6 +12,18 @@ definitions:
         jcr:primaryType: hst:component
         hst:componentclassname: scot.mygov.publishing.components.SiteHeaderComponent
         hst:template: base-siteheader
+        /menu:
+          jcr:primaryType: hst:component
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+          hst:parameternames: [selectedMenu, level, menu]
+          hst:parametervalues: ['on', '1', main]
+          hst:template: site-navigation
+        /mobilemenu:
+          jcr:primaryType: hst:component
+          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+          hst:parameternames: [selectedMenu, level, menu]
+          hst:parametervalues: ['on', '1', main]
+          hst:template: site-navigation-mobile
       /footer:
         jcr:primaryType: hst:component
         hst:componentclassname: scot.mygov.publishing.components.FooterComponent

@@ -15,10 +15,10 @@ public interface HeaderComponentInfo {
     @DropDownList({"left", "middle", "right"})
     String getPosition();
 
-    @Parameter(name = "fullwidth", displayName = "Full-width background")
+    @Parameter(name = "fullwidth", displayName = "Full-width background", defaultValue = "true")
     Boolean getFullWidth();
 
-    @Parameter(name = "foregroundcolor", displayName = "Text colour")
+    @Parameter(name = "foregroundcolor", displayName = "Text colour (on white background)")
     @DropDownList(valueListProvider = ComponentForegroundColourValueListProvider.class)
     String getForegroundColor();
 

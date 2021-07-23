@@ -10,8 +10,6 @@
     <div class="ds_wrapper">
         <div class="ds_cb__inner">
             <#if document??>
-                <@hst.manageContent hippobean=document documentTemplateQuery="new-imageandtext-document" parameterName="document" rootPath="images"/>
-
                 <div class="ds_cb__text">
                     <@hst.html hippohtml=document.content/>
                 </div>
@@ -19,9 +17,9 @@
                 <div class="ds_cb__poster">
                     <img src="<@hst.link hippobean=document.image />" alt="${document.alt?html}"/>
                 </div>
-            <#elseif editMode>
-                <@hst.manageContent documentTemplateQuery="new-imageandtext-document" parameterName="document" rootPath="images"/>
 
+                <@hst.manageContent hippobean=document documentTemplateQuery="new-imageandtext-document" parameterName="document" rootPath="images"/>
+            <#elseif editMode>
                 <div class="ds_cb__text cms-blank">
                     <@placeholdertext lines=7/>
                 </div>
@@ -29,6 +27,8 @@
                 <div class="ds_cb__poster cms-blank">
                     <@placeholderimage/>
                 </div>
+
+                <@hst.manageContent documentTemplateQuery="new-imageandtext-document" parameterName="document" rootPath="images"/>
             </#if>
         </div>
     </div>
