@@ -1,3 +1,63 @@
 /content/documents/ddat/seo:
   jcr:primaryType: hippostd:folder
   hippostd:foldertype: [new-seo-document, new-seo-folder]
+  /home:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 3870ff01-4e90-4d9b-ba8f-e609dcd6ae97
+    hippo:versionHistory: 240ed4ee-4293-4741-a0f4-df46a4334138
+    /home[1]:
+      jcr:primaryType: publishing:seo
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: e0759b87-8f7c-4da7-b3f2-84492b9d8427
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-07-23T11:16:40.655+01:00
+      hippostdpubwf:lastModificationDate: 2021-07-23T11:16:40.655+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 37a4b58b-f2d6-4e7d-bc80-abc30bbe3fe2
+      hippotranslation:locale: document-type-locale
+      publishing:metaDescription: ddat summary
+      publishing:reportingtags: []
+      publishing:seoTitle: DDAT
+      publishing:summary: ddat summary
+      publishing:title: DDAT
+    /home[2]:
+      jcr:primaryType: publishing:seo
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 85502151-2600-426c-a40f-9d36fc8c9104
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-07-23T11:16:40.655+01:00
+      hippostdpubwf:lastModificationDate: 2021-07-23T11:16:58.762+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 37a4b58b-f2d6-4e7d-bc80-abc30bbe3fe2
+      hippotranslation:locale: document-type-locale
+      publishing:metaDescription: ddat summary
+      publishing:reportingtags: []
+      publishing:seoTitle: DDAT
+      publishing:summary: ddat summary
+      publishing:title: DDAT
+    /home[3]:
+      jcr:primaryType: publishing:seo
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: fcb2b479-d9c4-4e87-8216-dca0d854d0a9
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-07-23T11:16:40.655+01:00
+      hippostdpubwf:lastModificationDate: 2021-07-23T11:16:58.762+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-07-23T11:17:00.569+01:00
+      hippotranslation:id: 37a4b58b-f2d6-4e7d-bc80-abc30bbe3fe2
+      hippotranslation:locale: document-type-locale
+      publishing:metaDescription: ddat summary
+      publishing:reportingtags: []
+      publishing:seoTitle: DDAT
+      publishing:summary: ddat summary
+      publishing:title: DDAT

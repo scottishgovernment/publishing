@@ -1,5 +1,6 @@
 <#include "include/imports.ftl">
 <#include "include/cms-placeholders.ftl">
+<#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Text" -->
 
 <div class="ds_cb  ds_cb--text
     <#if backgroundcolor?? && backgroundcolor?length gt 0>ds_cb--bg-${backgroundcolor}</#if>
@@ -12,13 +13,13 @@
                 <div class="ds_cb__text  <#if position??>ds_cb__text--${position}</#if>">
                     <@hst.html hippohtml=document.content/>
                 </div>
-                <@hst.manageContent hippobean=document documentTemplateQuery="new-publishing-article" parameterName="document" rootPath="text"/>
+                <@hst.manageContent hippobean=document parameterName="document" rootPath="text"/>
             <#elseif editMode>
                 <div class="cms-blank  ds_cb__text  <#if position??>ds_cb__text--${position}</#if>">
                     <@placeholdertext lines=7/>
                 </div>
 
-                <@hst.manageContent documentTemplateQuery="new-publishing-article" parameterName="document" rootPath="text"/>
+                <@hst.manageContent documentTemplateQuery="new-text-document" parameterName="document" rootPath="text"/>
             </#if>
         </div>
     </div>
