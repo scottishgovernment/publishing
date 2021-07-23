@@ -1,4 +1,7 @@
 <#include "../common/include/imports.ftl">
+
+<@hst.include ref="seo"/>
+
 <div class="ds_wrapper">
     <p>
     ${document.title}

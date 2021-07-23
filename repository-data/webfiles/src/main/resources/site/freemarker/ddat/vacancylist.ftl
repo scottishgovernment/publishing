@@ -1,5 +1,7 @@
 <#include "../common/include/imports.ftl">
 
+<@hst.include ref="seo"/>
+
 <#-- @ftlvariable name="pageable" type="org.onehippo.cms7.essentials.components.paging.Pageable" -->
 <#-- @ftlvariable name="item" type="scot.mygov.publishing.beans.Base" -->
 <#if pageable?? && pageable.items?has_content>
