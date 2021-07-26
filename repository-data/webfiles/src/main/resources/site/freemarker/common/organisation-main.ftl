@@ -79,9 +79,9 @@
                                         <a href="${link}" class="ds_category-item__link">${child.title}</a>
                                     </h2>
 
-                                    <div class="ds_category-item__summary">
-                                        ${child.summary}
-                                    </div>
+                                    <p class="ds_category-item__summary">
+                                        <@hst.html hippohtml=child.summary/>
+                                    </p>
                                 </li>
                             </#list>
                         </ul>
