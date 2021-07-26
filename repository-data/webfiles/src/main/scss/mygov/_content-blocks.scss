@@ -334,6 +334,10 @@ $colors: (
 // 6. divider
 
 .ds_cb--divider {
+    align-items: center;
+    display: grid;
+    min-height: 16px;
+
     hr {
         border: 0;
         margin: 0;
@@ -349,61 +353,5 @@ $colors: (
             right: 0;
             z-index: 1;
         }
-    }
-}
-
-
-.ds_cb--divider + .ds_cb:not(.ds_cb--fullwidth) .ds_wrapper,
-.ds_cb--divider + .ds_cb.ds_cb--fullwidth,
-.ds_cb:not(.ds_cb--fullwidth) + .ds_cb--divider .ds_wrapper,
-.ds_cb.ds_cb--fullwidth + .ds_cb--divider {
-    position: relative;
-
-    &::before {
-        // background-color: $ds_colour__white;
-        content: '';
-        position: absolute;
-        top: 0;
-        height: 8px;
-        left: 0;
-        right: 0;
-        z-index: 1;
-    }
-}
-
-.ds_cb--divider + .ds_cb:not(.ds_cb--fullwidth) .ds_wrapper::before,
-.ds_cb--divider + .ds_cb.ds_cb--fullwidth::before {
-    top: -8px;
-}
-
-%visible-divider {
-    z-index: 0;
-}
-
-%texttheme-reversed-divider {
-    color: white;
-}
-
-@each $color in $colors {
-    $name: nth($color, 1);
-    $hex: nth($color, 2);
-    $texttheme: nth($color, 3);
-
-    @if $texttheme == 'reversed' {
-        .ds_cb--bg-#{$name} + .ds_cb--divider {
-            @extend %texttheme-reversed-divider;
-        }
-    }
-
-    .ds_cb--bg-#{$name}:not(.ds_cb--fullwidth) + .ds_cb--divider .ds_wrapper::before,
-    .ds_cb--bg-#{$name}.ds_cb--fullwidth + .ds_cb--divider::before,
-    .ds_cb--divider + .ds_cb--bg-#{$name}:not(.ds_cb--fullwidth) .ds_wrapper::before,
-    .ds_cb--divider + .ds_cb--bg-#{$name}.ds_cb--fullwidth::before {
-        background-color: #{$hex};
-    }
-
-    .ds_cb--bg-#{$name} + .ds_cb--divider + .ds_cb--bg-#{$name}:not(.ds_cb--fullwidth) .ds_wrapper::before,
-    .ds_cb--bg-#{$name} + .ds_cb--divider + .ds_cb--bg-#{$name}.ds_cb--fullwidth::before {
-        @extend %visible-divider;
     }
 }
