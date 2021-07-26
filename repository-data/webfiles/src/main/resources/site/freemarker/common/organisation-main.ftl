@@ -80,7 +80,7 @@
                                     </h2>
 
                                     <div class="ds_category-item__summary">
-                                        ${child.summary}
+                                        <@hst.html hippohtml=child.summary/>
                                     </div>
                                 </li>
                             </#list>
