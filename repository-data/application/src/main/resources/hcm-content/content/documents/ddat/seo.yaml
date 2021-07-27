@@ -5,7 +5,7 @@
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: 3870ff01-4e90-4d9b-ba8f-e609dcd6ae97
-    hippo:versionHistory: 240ed4ee-4293-4741-a0f4-df46a4334138
+    hippo:versionHistory: 1898d0d5-b628-40c5-bb43-a95bc468be0c
     /home[1]:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:referenceable']
@@ -15,15 +15,31 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-07-23T11:16:40.655+01:00
-      hippostdpubwf:lastModificationDate: 2021-07-23T11:16:40.655+01:00
+      hippostdpubwf:lastModificationDate: 2021-07-27T10:00:47.123+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 37a4b58b-f2d6-4e7d-bc80-abc30bbe3fe2
       hippotranslation:locale: document-type-locale
-      publishing:metaDescription: ddat summary
+      publishing:alt: ''
+      publishing:metaDescription: Digital, Data and Technology
       publishing:reportingtags: []
-      publishing:seoTitle: DDAT
-      publishing:summary: ddat summary
-      publishing:title: DDAT
+      publishing:seoTitle: Digital, Data and Technology
+      publishing:summary: Digital, Data and Technology
+      publishing:title: Digital, Data and Technology
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:description:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /publishing:cardImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
     /home[2]:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -33,15 +49,31 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-07-23T11:16:40.655+01:00
-      hippostdpubwf:lastModificationDate: 2021-07-23T11:16:58.762+01:00
+      hippostdpubwf:lastModificationDate: 2021-07-27T10:01:21.116+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 37a4b58b-f2d6-4e7d-bc80-abc30bbe3fe2
       hippotranslation:locale: document-type-locale
-      publishing:metaDescription: ddat summary
+      publishing:alt: ''
+      publishing:metaDescription: Digital, Data and Technology
       publishing:reportingtags: []
-      publishing:seoTitle: DDAT
-      publishing:summary: ddat summary
-      publishing:title: DDAT
+      publishing:seoTitle: Digital, Data and Technology
+      publishing:summary: Digital, Data and Technology
+      publishing:title: Digital, Data and Technology
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:description:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /publishing:cardImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
     /home[3]:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:referenceable']
@@ -51,13 +83,90 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-07-23T11:16:40.655+01:00
-      hippostdpubwf:lastModificationDate: 2021-07-23T11:16:58.762+01:00
+      hippostdpubwf:lastModificationDate: 2021-07-27T10:01:21.116+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2021-07-23T11:17:00.569+01:00
+      hippostdpubwf:publicationDate: 2021-07-27T10:01:23.038+01:00
       hippotranslation:id: 37a4b58b-f2d6-4e7d-bc80-abc30bbe3fe2
       hippotranslation:locale: document-type-locale
-      publishing:metaDescription: ddat summary
+      publishing:alt: ''
+      publishing:metaDescription: Digital, Data and Technology
       publishing:reportingtags: []
-      publishing:seoTitle: DDAT
-      publishing:summary: ddat summary
-      publishing:title: DDAT
+      publishing:seoTitle: Digital, Data and Technology
+      publishing:summary: Digital, Data and Technology
+      publishing:title: Digital, Data and Technology
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:description:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /publishing:cardImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+  /vacancies:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: aee43f10-1972-461b-86a6-a5e083c4092a
+    hippo:versionHistory: 18d0bc69-8fac-4c0d-a1e2-4c4850adf783
+    /vacancies[1]:
+      jcr:primaryType: publishing:seo
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: cf57603c-6f5e-4c6c-af38-d3caffe25d34
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostd:transferable: false
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-07-27T09:09:55.969+01:00
+      hippostdpubwf:lastModificationDate: 2021-07-27T09:10:18.192+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 4994f495-7ed6-40ab-b0e4-482ee35ff85c
+      hippotranslation:locale: document-type-locale
+      publishing:metaDescription: DDAT Vacancies
+      publishing:reportingtags: []
+      publishing:seoTitle: Vacancies
+      publishing:summary: DDAT Vacancies
+      publishing:title: Vacancies
+    /vacancies[2]:
+      jcr:primaryType: publishing:seo
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 5be040d7-9a96-4bca-b6a9-6de2f14254e8
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-07-27T09:09:55.969+01:00
+      hippostdpubwf:lastModificationDate: 2021-07-27T09:10:15.645+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 4994f495-7ed6-40ab-b0e4-482ee35ff85c
+      hippotranslation:locale: document-type-locale
+      publishing:metaDescription: DDAT Vacancies
+      publishing:reportingtags: []
+      publishing:seoTitle: Vacancies
+      publishing:summary: DDAT Vacancies
+      publishing:title: Vacancies
+    /vacancies[3]:
+      jcr:primaryType: publishing:seo
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 0fefd666-ff18-4e67-8f1f-5eaea314214c
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-07-27T09:09:55.969+01:00
+      hippostdpubwf:lastModificationDate: 2021-07-27T09:10:15.645+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-07-27T09:10:18.080+01:00
+      hippotranslation:id: 4994f495-7ed6-40ab-b0e4-482ee35ff85c
+      hippotranslation:locale: document-type-locale
+      publishing:metaDescription: DDAT Vacancies
+      publishing:reportingtags: []
+      publishing:seoTitle: Vacancies
+      publishing:summary: DDAT Vacancies
+      publishing:title: Vacancies

@@ -6,6 +6,8 @@ import org.onehippo.cms7.essentials.components.info.EssentialsDocumentComponentI
 
 public interface SEOComponentInfo extends EssentialsDocumentComponentInfo {
 
+    @Parameter(name = "showTitle", defaultValue = "true")
+    boolean getShowTitle();
 
     @Parameter(name = "document", required = true)
     @JcrPath(
@@ -13,7 +15,6 @@ public interface SEOComponentInfo extends EssentialsDocumentComponentInfo {
             pickerConfiguration = "cms-pickers/documents-only",
             pickerInitialPath = "seo",
             pickerSelectableNodeTypes = "publishing:seo"
-
     )
     String getDocument();
 }
