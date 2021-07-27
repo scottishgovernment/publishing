@@ -247,8 +247,10 @@ definitions:
               hst:sitemapitemhandlerids: [trailing-slash]
           /_index_:
             jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide']
-            hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide']
+            hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
+              'publishing:smartanswer']
+            hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
+              'hst:pages/smartanswer']
             hst:relativecontentpath: ${parent}/index
             hst:sitemapitemhandlerids: [trailing-slash]
         /_index_:

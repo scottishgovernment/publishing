@@ -43,6 +43,14 @@
       hippo:availability: [live, preview]
       hippotranslation:id: df522156-a372-4762-9b73-d425b07fd2bf
       hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: example1
+        selection:label: example one
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: example2
+        selection:label: example two
   /audiences:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']

@@ -1,0 +1,55 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-publishing-smartanswer:
+      jcr:primaryType: hippostd:templatequery
+      jcr:mixinTypes: ['hipposys:implementation']
+      hippostd:icon: addfolder_ico
+      hippostd:modify: [./_name, $name, './hippotranslation:id', $uuid, './hippotranslation:locale',
+        $inherited, './index/index/publishing:title', $localName, './index/hippo:name',
+        $localName, './index/index/hippo:name', $localName, './index/index/hippostdpubwf:createdBy',
+        $holder, './index/index/hippostdpubwf:lastModifiedBy', $holder, './index/index/hippostdpubwf:creationDate',
+        $now, './index/index/hippostdpubwf:lastModificationDate', $now, './index/index/publishing:seoTitle',
+        $localName, './index/index/hippotranslation:id', $uuid, './index/index/hippotranslation:locale',
+        $inherited]
+      hipposys:classname: org.hippoecm.repository.impl.query.DirectPath
+      jcr:language: xpath
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-publishing-smartanswer/hippostd:templates/node()
+      /hippostd:templates:
+        jcr:primaryType: hippostd:templates
+        /hippostd:folder:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 0b2a0c90-5acb-49e5-9cff-11b0d3ff611a
+          hippostd:foldertype: [new-publishing-smartanswer-multiplechoicequestion,
+            new-publishing-smartanswer-result]
+          /index:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 027b88c3-1a57-42fa-a0b3-b8baba8e9cc4
+            hippo:name: index
+            /index:
+              jcr:primaryType: publishing:smartanswer
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:versionable']
+              jcr:uuid: 65edfe1d-8016-4036-b6d7-bf259acffe0a
+              hippo:availability: [preview]
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: system
+              hippostdpubwf:creationDate: 2019-10-02T09:27:13.455+01:00
+              hippostdpubwf:lastModificationDate: 2019-10-02T09:27:13.657+01:00
+              hippostdpubwf:lastModifiedBy: system
+              hippotranslation:id: document-type-locale-id
+              hippotranslation:locale: document-type-locale
+              publishing:audience: ''
+              publishing:authorNotes: ''
+              publishing:metaDescription: ''
+              publishing:reportingtags: []
+              publishing:sensitive: false
+              publishing:seoTitle: ''
+              publishing:serviceproviders: []
+              publishing:showFeedback: true
+              publishing:summary: ''
+              publishing:title: ''
+              publishing:userneed: ''
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
