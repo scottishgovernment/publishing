@@ -59,7 +59,7 @@
                                     </h2>
 
                                     <div class="ds_category-item__summary  ds_stack">
-                                        ${child.description}
+                                        ${child.description?no_esc}
                                     </div>
                                 </li>
                             </#list>
@@ -80,7 +80,7 @@
                                     </h2>
 
                                     <div class="ds_category-item__summary">
-                                        <@hst.html hippohtml=child.summary/>
+                                        ${child.summary}
                                     </div>
                                 </li>
                             </#list>
