@@ -39,6 +39,9 @@ public class SEOComponent extends EssentialsDocumentComponent {
             contentBean = request.getRequestContext().getContentBean();
         }
 
+        SEOComponentInfo paramInfo = getComponentParametersInfo(request);
+        request.setAttribute("showTitle", paramInfo.getShowTitle());
+
         Mount mount = request.getRequestContext().getResolvedMount().getMount();
         WebsiteInfo websiteInfo = mount.getChannelInfo();
         setPageTitle(request, websiteInfo.getSiteTitle(), contentBean);

@@ -18,19 +18,19 @@
 
     <#-- Facebook meta tags -->
     <@hst.headContribution category="facebookMeta">
-    <meta property="og:url" content="${link}" />
+        <meta property="og:url" content="${link}" />
     </@hst.headContribution>
 
     <@hst.headContribution category="facebookMeta">
-    <meta property="og:type" content="website" />
+        <meta property="og:type" content="website" />
     </@hst.headContribution>
 
     <@hst.headContribution category="facebookMeta">
-    <meta property="og:title" content="${pagetitle}" />
+        <meta property="og:title" content="${pagetitle}" />
     </@hst.headContribution>
 
     <@hst.headContribution category="facebookMeta">
-    <meta property="og:url" content="${link}" />
+        <meta property="og:url" content="${link}" />
     </@hst.headContribution>
 
     <#if contentBean?? && contentBean.metaDescription??>
@@ -47,19 +47,19 @@
 
     <#-- Twitter Meta Tags -->
     <@hst.headContribution category="twitterMeta">
-    <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:card" content="summary_large_image"/>
     </@hst.headContribution>
 
     <@hst.headContribution category="twitterMeta">
-    <meta property="twitter:domain" content=""/>
+        <meta property="twitter:domain" content=""/>
     </@hst.headContribution>
 
     <@hst.headContribution category="twitterMeta">
-    <meta property="twitter:url" content="${link}"/>
+        <meta property="twitter:url" content="${link}"/>
     </@hst.headContribution>
 
     <@hst.headContribution category="twitterMeta">
-    <meta name="twitter:title" content="${pagetitle}"/>
+        <meta name="twitter:title" content="${pagetitle}"/>
     </@hst.headContribution>
 
     <#if contentBean?? && contentBean.metaDescription??>
@@ -72,6 +72,10 @@
         <@hst.headContribution category="twitterMeta">
         <meta name="twitter:image" content="<@hst.link hippobean=image.original/>" />
         </@hst.headContribution>
+    </#if>
+
+    <#if showTitle = true>
+        <h1 class="ds_page-header__title">${pagetitle}</h1>
     </#if>
 
 <#elseif editMode>
