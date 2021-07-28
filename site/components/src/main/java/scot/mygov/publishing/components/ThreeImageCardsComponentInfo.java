@@ -6,9 +6,9 @@ import org.hippoecm.hst.core.parameters.Parameter;
 
 public interface ThreeImageCardsComponentInfo {
 
-    String TYPE = "publishing:base";
+    String TYPE = "publishing:navigationcard";
 
-    String INITIAL_PATH = "";
+    String INITIAL_PATH = "navigationcards";
 
     String CMS_PICKERS_DOCUMENTS_ONLY = "cms-pickers/documents-only";
 
