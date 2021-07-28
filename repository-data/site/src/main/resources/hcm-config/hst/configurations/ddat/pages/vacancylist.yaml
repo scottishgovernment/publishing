@@ -9,7 +9,7 @@ definitions:
         hst:parameternames: [documentTypes, sortField, sortOrder, includeSubtypes,
           showPagination, path, pageSize]
         hst:parametervalues: ['publishing:vacancy', 'publishing:closingDate', desc,
-          'off', 'on', '', '5']
+          'off', 'on', vacancies, '5']
         hst:template: vacancylist
         /seo:
           jcr:primaryType: hst:component
