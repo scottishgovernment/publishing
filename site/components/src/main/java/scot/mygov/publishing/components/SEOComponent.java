@@ -39,9 +39,6 @@ public class SEOComponent extends EssentialsDocumentComponent {
             contentBean = request.getRequestContext().getContentBean();
         }
 
-        SEOComponentInfo paramInfo = getComponentParametersInfo(request);
-        request.setAttribute("showTitle", paramInfo.getShowTitle());
-
         Mount mount = request.getRequestContext().getResolvedMount().getMount();
         WebsiteInfo websiteInfo = mount.getChannelInfo();
         setPageTitle(request, websiteInfo.getSiteTitle(), contentBean);
@@ -77,7 +74,7 @@ public class SEOComponent extends EssentialsDocumentComponent {
             imageCard = getDefaultImageCardForSite(request.getRequestContext(), websiteInfo);
         }
 
-        request.setAttribute("image", imageCard);
+        request.setAttribute("cardImage", imageCard);
     }
 
     public ImageCard getDefaultImageCardForSite(HstRequestContext requestContext, WebsiteInfo websiteInfo) {

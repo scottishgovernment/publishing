@@ -1,57 +1,6 @@
 /content/documents/ddat/images:
   jcr:primaryType: hippostd:folder
   hippostd:foldertype: [new-imageandtext-document, new-imageandtext-folder]
-  /foo:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: f31e82cd-a2b8-4b63-bde0-790165f35667
-    /foo[1]:
-      jcr:primaryType: publishing:imageandtext
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 42b95b23-be50-4fba-900e-14f374c62344
-      hippo:availability: []
-      hippostd:retainable: false
-      hippostd:state: draft
-      hippostd:transferable: false
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2021-07-23T09:06:38.002+01:00
-      hippostdpubwf:lastModificationDate: 2021-07-23T09:06:53.631+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: df6d639c-71b8-4fe1-85fe-c46cb6ac42ec
-      hippotranslation:locale: document-type-locale
-      publishing:alt: foo
-      /publishing:image:
-        jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: 0777affa-6f41-4a90-996d-d8eea4d78889
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /publishing:content:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>foo</p>
-    /foo[2]:
-      jcr:primaryType: publishing:imageandtext
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: 55ecb99e-ad3c-47d3-a42a-14aa86ff4ae7
-      hippo:availability: [preview]
-      hippostd:retainable: false
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2021-07-23T09:06:38.002+01:00
-      hippostdpubwf:lastModificationDate: 2021-07-23T09:06:52.397+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: df6d639c-71b8-4fe1-85fe-c46cb6ac42ec
-      hippotranslation:locale: document-type-locale
-      publishing:alt: foo
-      /publishing:image:
-        jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: 0777affa-6f41-4a90-996d-d8eea4d78889
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /publishing:content:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>foo</p>
   /megaboss:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -63,9 +12,9 @@
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: 0f738a29-0e4b-44d7-b574-51861709c551
       hippo:availability: []
-      hippostd:holder: admin
       hippostd:retainable: false
       hippostd:state: draft
+      hippostd:transferable: false
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2021-07-23T14:53:59.363+01:00
       hippostdpubwf:lastModificationDate: 2021-07-23T14:58:50.167+01:00

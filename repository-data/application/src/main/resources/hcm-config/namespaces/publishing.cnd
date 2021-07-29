@@ -1,18 +1,9 @@
 <'publishing'='http://www.publishing.com/publishing/nt/1.0'>
+<'hippogallery'='http://www.onehippo.org/jcr/hippogallery/nt/2.0'>
 <'hippo'='http://www.onehippo.org/jcr/hippo/nt/2.0.4'>
 <'hippostd'='http://www.onehippo.org/jcr/hippostd/nt/2.0'>
 <'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
-<'hippogallery'='http://www.onehippo.org/jcr/hippogallery/nt/2.0'>
-
-[publishing:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
-  orderable
-
-[publishing:base] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
-  orderable
-
-[publishing:vacancy] > hippostd:relaxed, hippotranslation:translated, publishing:base
-  orderable
 
 [publishing:FeaturedRole] > hippogallery:imageset, hippogallery:relaxed
 
@@ -20,10 +11,16 @@
 
 [publishing:ImageDefault] > hippogallery:imageset, hippogallery:relaxed
 
+[publishing:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
+  orderable
+
 [publishing:PublishingDocument] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:analytics] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:base] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:article] > hippostd:relaxed, hippotranslation:translated, publishing:base
@@ -71,13 +68,13 @@
 [publishing:imageandtext] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
-[publishing:navigationcard] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
-  orderable
-
 [publishing:mirror] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:mourningbanner] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:navigationcard] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:notificationbanner] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
@@ -87,6 +84,9 @@
   orderable
 
 [publishing:organisationlist] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:pageheading] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:relateditems] > hippo:compound, hippostd:relaxed
@@ -122,6 +122,9 @@
   orderable
 
 [publishing:text] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:vacancy] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
 [publishing:video] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
