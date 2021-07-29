@@ -39,9 +39,9 @@
         </@hst.headContribution>
     </#if>
 
-    <#if image??>
+    <#if cardImage??>
         <@hst.headContribution category="facebookMeta">
-        <meta property="og:image" content="<@hst.link hippobean=image.original/>" />
+        <meta property="og:image" content="<@hst.link hippobean=cardImage.original/>" />
         </@hst.headContribution>
     </#if>
 
@@ -68,14 +68,10 @@
         </@hst.headContribution>
     </#if>
 
-    <#if image??>
+    <#if cardImage??>
         <@hst.headContribution category="twitterMeta">
-        <meta name="twitter:image" content="<@hst.link hippobean=image.original/>" />
+        <meta name="twitter:image" content="<@hst.link hippobean=cardImage.original/>" />
         </@hst.headContribution>
-    </#if>
-
-    <#if showTitle = true>
-        <h1 class="ds_page-header__title">${pagetitle}</h1>
     </#if>
 
 <#elseif editMode>

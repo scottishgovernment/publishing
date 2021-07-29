@@ -13,19 +13,4 @@ public class Seo extends Base {
     public Boolean getShowFeedback() {
         return getSingleProperty("publishing:showFeedback");
     }
-
-    @HippoEssentialsGenerated(internalName = "publishing:alt")
-    public String getAlt() {
-        return getSingleProperty("publishing:alt");
-    }
-
-    @HippoEssentialsGenerated(internalName = "publishing:description")
-    public HippoHtml getDescription() {
-        return getHippoHtml("publishing:description");
-    }
-
-    @HippoEssentialsGenerated(internalName = "publishing:image")
-    public HippoGalleryImageSet getImage() {
-        return getLinkedBean("publishing:image", HippoGalleryImageSet.class);
-    }
 }
