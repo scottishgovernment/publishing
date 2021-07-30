@@ -1,4 +1,5 @@
 <#include "include/imports.ftl">
+
 <#if contentBean??>
     <@hst.manageContent hippobean=document parameterName="contentBean" rootPath="seo"/>
     <@hst.headContribution category="title">
@@ -29,10 +30,6 @@
         <meta property="og:title" content="${pagetitle}" />
     </@hst.headContribution>
 
-    <@hst.headContribution category="facebookMeta">
-        <meta property="og:url" content="${link}" />
-    </@hst.headContribution>
-
     <#if contentBean?? && contentBean.metaDescription??>
         <@hst.headContribution category="facebookMeta">
         <meta property="og:description" content="${contentBean.metaDescription}" />
@@ -41,7 +38,7 @@
 
     <#if cardImage??>
         <@hst.headContribution category="facebookMeta">
-        <meta property="og:image" content="<@hst.link hippobean=cardImage.original/>" />
+        <meta property="og:image" content="<@hst.link hippobean=cardImage.original/>" fullyQualified=true/> />
         </@hst.headContribution>
     </#if>
 
@@ -54,27 +51,10 @@
         <meta property="twitter:domain" content=""/>
     </@hst.headContribution>
 
-    <@hst.headContribution category="twitterMeta">
-        <meta property="twitter:url" content="${link}"/>
-    </@hst.headContribution>
-
-    <@hst.headContribution category="twitterMeta">
-        <meta name="twitter:title" content="${pagetitle}"/>
-    </@hst.headContribution>
-
-    <#if contentBean?? && contentBean.metaDescription??>
-        <@hst.headContribution category="twitterMeta">
-        <meta name="twitter:description" content="${contentBean.metaDescription}"/>
-        </@hst.headContribution>
-    </#if>
-
-    <#if cardImage??>
-        <@hst.headContribution category="twitterMeta">
-        <meta name="twitter:image" content="<@hst.link hippobean=cardImage.original/>" />
-        </@hst.headContribution>
-    </#if>
-
 <#elseif editMode>
-    <@hst.manageContent documentTemplateQuery="new-seo-document" parameterName="document" rootPath="seo"/>
-    Click to edit SEO parameters
+    <div class="ds_wrapper">
+        Click to edit SEO parameters
+
+        <@hst.manageContent documentTemplateQuery="new-seo-document" parameterName="document" rootPath="seo"/>
+    </div>
 </#if>
