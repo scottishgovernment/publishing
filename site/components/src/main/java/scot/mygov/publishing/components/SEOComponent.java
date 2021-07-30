@@ -79,7 +79,6 @@ public class SEOComponent extends EssentialsDocumentComponent {
 
     public ImageCard getDefaultImageCardForSite(HstRequestContext requestContext, WebsiteInfo websiteInfo) {
         try {
-
             Object e = requestContext.getObjectConverter().getObject(
                     requestContext.getSession(), websiteInfo.getDefaultCardImage());
 
