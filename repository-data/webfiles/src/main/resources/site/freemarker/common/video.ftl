@@ -1,37 +1,40 @@
 <#include "include/imports.ftl">
+<#include "include/cms-placeholders.ftl">
+<@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Video" -->
-<#if document??>
-<p>Left position variant</p>
-<div class="content-block content-block--image-text content-block--blue content-block--fullwidth">
+
+<div class="ds_cb  ds_cb--video
+    <#if backgroundcolor?? && backgroundcolor?length gt 0>ds_cb--bg-${backgroundcolor}</#if>
+    <#if foregroundcolor?? && foregroundcolor?length gt 0>ds_cb--fg-${foregroundcolor}</#if>
+    <#if fullwidth>ds_cb--fullwidth</#if>
+">
     <div class="ds_wrapper">
-        <div class="content-block__inner">
-            <div class="content-block  content-block--image-text  content-block--blue  content-block--fullwidth">
-                <@hst.manageContent hippobean=document parameterName="document" rootPath="videos"/>
-                <div class="ds_wrapper">
-                    <div class="content-block__inner">
+        <div class="ds_cb__inner">
+            <#if document??>
+                <div class="ds_cb__poster">
+                    <a class="ds_cb__poster-link" href="${document.url}">
+                        <img class="ds_cb__poster-video" src="<@hst.link hippobean=document.image /> " alt="${document.alt?html}"/>
 
-                        <div class="content-block__text">
-                            <@hst.html hippohtml=document.content/>
-                        </div>
-
-                        <div class="content-block__poster">
-                            <a href="${document.url}">
-                                <img src="<@hst.link hippobean=document.image /> " alt="${document.alt?html}"/>
-                            </a>
-                        </div>
-                    </div>
+                        <svg class="ds_icon  ds_cb__poster-video-icon" role="img"><use xlink:href="${iconspath}#play_circle_outline"></use></svg>
+                    </a>
                 </div>
-            </div>
+
+                <div class="ds_cb__text">
+                    <@hst.html hippohtml=document.content/>
+                </div>
+
+                <@hst.manageContent hippobean=document documentTemplateQuery="new-video-document" parameterName="document" rootPath="videos"/>
+            <#elseif editMode>
+                <div class="ds_cb__poster cms-blank">
+                    <@placeholdervideo/>
+                </div>
+
+                <div class="ds_cb__text cms-blank">
+                    <@placeholdertext lines=7/>
+                </div>
+
+                <@hst.manageContent documentTemplateQuery="new-video-document" parameterName="document" rootPath="videos"/>
+            </#if>
         </div>
     </div>
 </div>
-
-<#elseif editMode>
-
-<div>
-    <figure>
-        <@hst.manageContent documentTemplateQuery="new-video-document" parameterName="document" rootPath="videos"/>
-        Click to edit video component
-    </figure>
-</div>
-</#if>
