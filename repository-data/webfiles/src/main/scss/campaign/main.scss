@@ -1,0 +1,42 @@
+/**
+ * PATTERN LIBRARY VALUES
+ */
+ $iconsfile: "../../images/icons/icons.stack.svg";
+$site-prefix: "ddat_";
+
+
+/**
+ * BASE STYLES FROM PATTERN LIBRARY
+ */
+@import "../../../../node_modules/@scottish-government/pattern-library/src/base/all-base";
+@import "../../../../node_modules/@scottish-government/pattern-library/src/forms/all-forms";
+
+
+
+
+
+/**
+ * COMPONENTS FROM PATTERN LIBRARY
+ */
+@import "../../../../node_modules/@scottish-government/pattern-library/src/components/all-components";
+
+
+
+
+.js-enabled .fully-hidden-if-js {
+    display: none;
+}
+
+
+
+
+@import "component.content-blocks";
+@import "component.datalist";
+@import "component.listing";
+
+
+
+/**
+ * CMS STYLES
+ */
+ @import "../cms.experience-manager";

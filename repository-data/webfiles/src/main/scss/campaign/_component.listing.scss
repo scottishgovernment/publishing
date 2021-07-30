@@ -1,0 +1,42 @@
+/*------------------------------------*\
+    #LISTING
+\*------------------------------------*/
+
+.listing__title {
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+.listing__datalist {
+    margin-bottom: 32px;
+}
+
+.listing__content {
+    margin-bottom: 16px;
+}
+
+.listing__content:last-child {
+    margin-bottom: 0;
+}
+
+.listing__callout {
+    background-color: #ebebeb;
+    font-weight: 700;
+    margin: 16px 0;
+    padding: 8px 16px;
+}
+
+@media screen and (min-width: 768px) {
+    .listing__title {
+        margin-top: 24px;
+        margin-bottom: 32px;
+    }
+
+    .listing__datalist {
+        margin-bottom: 40px;
+    }
+
+    .listing__content {
+        margin-bottom: 24px;
+    }
+}
