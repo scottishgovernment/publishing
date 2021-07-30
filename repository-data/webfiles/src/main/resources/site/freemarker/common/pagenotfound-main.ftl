@@ -19,7 +19,7 @@
 
 <@hst.headContribution category="title">
     <#if contentBean?? && contentBean.title??>
-    <title>Page not fount - ${siteTitle}</title>
+    <title>Page not found - ${siteTitle}</title>
     </#if>
 </@hst.headContribution>
 
