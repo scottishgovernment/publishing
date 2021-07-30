@@ -17,39 +17,63 @@
         <link rel="canonical"  href="${link}" />
     </@hst.headContribution>
 
-    <#-- Facebook meta tags -->
-    <@hst.headContribution category="facebookMeta">
-        <meta property="og:url" content="${link}" />
-    </@hst.headContribution>
-
-    <@hst.headContribution category="facebookMeta">
-        <meta property="og:type" content="website" />
-    </@hst.headContribution>
-
-    <@hst.headContribution category="facebookMeta">
-        <meta property="og:title" content="${pagetitle}" />
-    </@hst.headContribution>
-
-    <#if contentBean?? && contentBean.metaDescription??>
-        <@hst.headContribution category="facebookMeta">
-        <meta property="og:description" content="${contentBean.metaDescription}" />
-        </@hst.headContribution>
-    </#if>
-
+    <#-- Facebook meta tags: only show if a card image is available -->
     <#if cardImage??>
+        <@hst.headContribution category="facebookMeta">
+            <meta property="og:url" content="${link}" />
+        </@hst.headContribution>
+
+        <@hst.headContribution category="facebookMeta">
+            <meta property="og:type" content="website" />
+        </@hst.headContribution>
+
+        <@hst.headContribution category="facebookMeta">
+            <meta property="og:title" content="${pagetitle}" />
+        </@hst.headContribution>
+
+        <@hst.headContribution category="facebookMeta">
+            <meta property="og:url" content="${link}" />
+        </@hst.headContribution>
+
+        <#if contentBean?? && contentBean.metaDescription??>
+            <@hst.headContribution category="facebookMeta">
+            <meta property="og:description" content="${contentBean.metaDescription}" />
+            </@hst.headContribution>
+        </#if>
+
         <@hst.headContribution category="facebookMeta">
         <meta property="og:image" content="<@hst.link hippobean=cardImage.original/>" fullyQualified="true"/> />
         </@hst.headContribution>
     </#if>
 
-    <#-- Twitter Meta Tags -->
-    <@hst.headContribution category="twitterMeta">
-        <meta name="twitter:card" content="summary_large_image"/>
-    </@hst.headContribution>
+    <#-- Twitter Meta Tags: only show if a card image is available -->
+    <#if cardImage??>
+        <@hst.headContribution category="twitterMeta">
+            <meta name="twitter:card" content="summary_large_image"/>
+        </@hst.headContribution>
 
-    <@hst.headContribution category="twitterMeta">
-        <meta property="twitter:domain" content=""/>
-    </@hst.headContribution>
+        <@hst.headContribution category="twitterMeta">
+            <meta property="twitter:domain" content=""/>
+        </@hst.headContribution>
+
+        <@hst.headContribution category="twitterMeta">
+            <meta property="twitter:url" content="${link}"/>
+        </@hst.headContribution>
+
+        <@hst.headContribution category="twitterMeta">
+            <meta name="twitter:title" content="${pagetitle}"/>
+        </@hst.headContribution>
+
+        <#if contentBean?? && contentBean.metaDescription??>
+            <@hst.headContribution category="twitterMeta">
+            <meta name="twitter:description" content="${contentBean.metaDescription}"/>
+            </@hst.headContribution>
+        </#if>
+
+        <@hst.headContribution category="twitterMeta">
+        <meta name="twitter:image" content="<@hst.link hippobean=cardImage.original/>" />
+        </@hst.headContribution>
+    </#if>
 
     <#if hstRequestContext.preview>
         <div class="ds_wrapper  cms-visible-if-show-components" style="padding: 5px 0">
