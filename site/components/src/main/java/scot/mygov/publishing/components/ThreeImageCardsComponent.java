@@ -26,6 +26,8 @@ public class ThreeImageCardsComponent extends CommonComponent {
         request.setAttribute("document3", getHippoDocument(paramInfo.getImage3()));
 
         request.setAttribute("fullwidth", paramInfo.getFullWidth());
+        request.setAttribute("showimages", paramInfo.getShowImages());
+        request.setAttribute("smallvariant", paramInfo.getSmallVariant());
     }
 
     HippoDocument getHippoDocument(String id) {

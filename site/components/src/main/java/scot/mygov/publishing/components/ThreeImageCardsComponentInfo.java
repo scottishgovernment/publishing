@@ -38,4 +38,10 @@ public interface ThreeImageCardsComponentInfo {
 
     @Parameter(name = "fullwidth", displayName = "Full-width background", defaultValue = "true")
     Boolean getFullWidth();
+
+    @Parameter(name = "showimages", displayName = "Show images", defaultValue = "true")
+    Boolean getShowImages();
+
+    @Parameter(name = "small", displayName = "Use small variant on mobile")
+    Boolean getSmallVariant();
 }
