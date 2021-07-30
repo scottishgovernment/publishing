@@ -27,6 +27,10 @@
     opacity: 0.5;
 }
 
+.cms-placeholder-text > :last-child:not(:first-child) {
+    width: 60%;
+}
+
 .cms-text {
     background: currentColor;
     border-radius: 2px;

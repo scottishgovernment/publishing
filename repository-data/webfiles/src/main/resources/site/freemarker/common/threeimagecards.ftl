@@ -10,9 +10,13 @@
         <div class="ds_cb__inner">
             <#if document1??>
                 <div class="ds_card  ds_card--has-hover">
-                    <div class="ds_card__media">
-                        <img class="ds_card__image" src="<@hst.link hippobean=document1.image />" alt="${document1.alt}"/>
-                    </div>
+                    <#if showimages>
+                        <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
+                            <div class="ds_aspect-box">
+                                <img class="ds_aspect-box__inner" src="<@hst.link hippobean=document1.image />" alt="${document1.alt}"/>
+                            </div>
+                        </div>
+                    </#if>
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="<@hst.link hippobean=document1.link/>">${document1.title}</a></h2>
 
@@ -23,12 +27,16 @@
                 </div>
             <#elseif editMode>
                 <div class="ds_card  cms-blank">
-                    <div class="ds_card__media">
-                        <@placeholderimage/>
-                    </div>
+                    <#if showimages>
+                        <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
+                            <div class="ds_aspect-box">
+                                <@placeholderimage/>
+                            </div>
+                        </div>
+                    </#if>
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title">
-                            <a><@placeholdertext lines=1/></a>
+                            <a><@placeholdertext lines=2/></a>
                         </h2>
 
                         <div class="ds_category-item__summary">
@@ -42,9 +50,13 @@
 
             <#if document2??>
                 <div class="ds_card  ds_card--has-hover">
-                    <div class="ds_card__media">
-                        <img class="ds_card__image" src="<@hst.link hippobean=document2.image />" alt="${document2.alt}"/>
-                    </div>
+                    <#if showimages>
+                        <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
+                            <div class="ds_aspect-box">
+                                <img class="ds_aspect-box__inner" src="<@hst.link hippobean=document2.image />" alt="${document2.alt}"/>
+                            </div>
+                        </div>
+                    </#if>
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="<@hst.link hippobean=document2.link/>">${document2.title}</a></h2>
 
@@ -55,12 +67,16 @@
                 </div>
             <#elseif editMode>
                 <div class="ds_card  cms-blank">
-                    <div class="ds_card__media">
-                        <@placeholderimage/>
-                    </div>
+                    <#if showimages>
+                        <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
+                            <div class="ds_aspect-box">
+                                <@placeholderimage/>
+                            </div>
+                        </div>
+                    </#if>
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title">
-                            <a><@placeholdertext lines=1/></a>
+                            <a><@placeholdertext lines=2/></a>
                         </h2>
 
                         <div class="ds_category-item__summary">
@@ -74,9 +90,13 @@
 
             <#if document3??>
                 <div class="ds_card  ds_card--has-hover">
-                    <div class="ds_card__media">
-                        <img class="ds_card__image" src="<@hst.link hippobean=document3.image />" alt="${document3.alt}"/>
-                    </div>
+                    <#if showimages>
+                        <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
+                            <div class="ds_aspect-box">
+                                <img class="ds_aspect-box__inner" src="<@hst.link hippobean=document3.image />" alt="${document3.alt}"/>
+                            </div>
+                        </div>
+                    </#if>
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="<@hst.link hippobean=document3.link/>">${document3.title}</a></h2>
 
@@ -87,12 +107,16 @@
                 </div>
             <#elseif editMode>
                 <div class="ds_card  cms-blank">
-                    <div class="ds_card__media">
-                        <@placeholderimage/>
-                    </div>
+                    <#if showimages>
+                        <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
+                            <div class="ds_aspect-box">
+                                <@placeholderimage/>
+                            </div>
+                        </div>
+                    </#if>
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title">
-                            <a><@placeholdertext lines=1/></a>
+                            <a><@placeholdertext lines=2/></a>
                         </h2>
 
                         <div class="ds_category-item__summary">
