@@ -29,9 +29,7 @@
                 <div class="ds_card  cms-blank">
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
-                            <div class="ds_aspect-box">
-                                <@placeholderimage/>
-                            </div>
+                            <@placeholderimage/>
                         </div>
                     </#if>
                     <div class="ds_card__content  ds_category-item">
@@ -69,9 +67,7 @@
                 <div class="ds_card  cms-blank">
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
-                            <div class="ds_aspect-box">
-                                <@placeholderimage/>
-                            </div>
+                            <@placeholderimage/>
                         </div>
                     </#if>
                     <div class="ds_card__content  ds_category-item">
@@ -109,9 +105,7 @@
                 <div class="ds_card  cms-blank">
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
-                            <div class="ds_aspect-box">
-                                <@placeholderimage/>
-                            </div>
+                            <@placeholderimage/>
                         </div>
                     </#if>
                     <div class="ds_card__content  ds_category-item">
