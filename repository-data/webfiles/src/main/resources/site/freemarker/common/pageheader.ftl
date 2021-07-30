@@ -20,7 +20,7 @@
 
             <#if document.image??>
                 <div class="ds_cb__poster">
-                    <img src="<@hst.link hippobean=contentBean.image />" alt="${document.alt?html}"/>
+                    <img src="<@hst.link hippobean=document.image />" alt="${document.alt?html}"/>
                 </div>
             </#if>
 
