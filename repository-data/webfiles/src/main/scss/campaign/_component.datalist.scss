@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    #DATA LIST
+\*------------------------------------*/
+
+.datalist dd,
+.datalist dt {
+    display: inline;
+}
+
+.datalist dt {
+    font-weight: 700;
+}
+
+.datalist dt::after {
+    content: ':';
+}
+
+.datalist dd {
+    margin-left: 0;
+}

@@ -72,7 +72,10 @@ $site-prefix: "mg_";
 
 
 
-@import "component.content-blocks";
+@import "../campaign/component.content-blocks";
+@import "../campaign/component.datalist";
+@import "../campaign/component.listing";
+
 
 
 
