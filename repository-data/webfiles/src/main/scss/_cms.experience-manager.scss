@@ -63,3 +63,10 @@
 .cms-display-grid {
     display: grid;
 }
+
+.cms-visible-if-show-components {
+    display: none;
+}
+.hippo-show-components .cms-visible-if-show-components {
+    display: block;
+}
