@@ -1,7 +1,7 @@
 <#include "include/imports.ftl">
 
 <#if contentBean??>
-    <@hst.manageContent hippobean=document parameterName="contentBean" rootPath="seo"/>
+
     <@hst.headContribution category="title">
     <title>${titletag}</title>
     </@hst.headContribution>
@@ -38,7 +38,7 @@
 
     <#if cardImage??>
         <@hst.headContribution category="facebookMeta">
-        <meta property="og:image" content="<@hst.link hippobean=cardImage.original/>" fullyQualified=true/> />
+        <meta property="og:image" content="<@hst.link hippobean=cardImage.original/>" fullyQualified="true"/> />
         </@hst.headContribution>
     </#if>
 
@@ -51,9 +51,17 @@
         <meta property="twitter:domain" content=""/>
     </@hst.headContribution>
 
+    <#if hstRequestContext.preview>
+        <div class="ds_wrapper  cms-visible-if-show-components" style="padding: 5px 0">
+            <img class="ds_icon ds_icon--40" ng-src="/site/icons/seo.svg" src="/site/icons/seo.svg"> <small class="">Click to edit SEO parameters</small>
+
+            <@hst.manageContent hippobean=document documentTemplateQuery="new-seo-document" parameterName="contentBean" rootPath="seo"/>
+        </div>
+    </#if>
+
 <#elseif editMode>
     <div class="ds_wrapper">
-        Click to edit SEO parameters
+        <img class="ds_icon ds_icon--40" ng-src="/site/icons/seo.svg" src="/site/icons/seo.svg"> <small class="">Click to edit SEO parameters</small>
 
         <@hst.manageContent documentTemplateQuery="new-seo-document" parameterName="document" rootPath="seo"/>
     </div>
