@@ -64,10 +64,10 @@ const atLeastOneDocumentProvided = function(highlightField, errorFields) {
         $removeDisclosureCounterSignatories = $('#disclosure-pvg-remove-disclosure-counter-signatories'),
         $responsibleEmployerEnrolmentApplication = $('#disclosure-pvg-responsible-employer-enrolment-application'),
         $subAccountApplication = $('#disclosure-pvg-sub-account-application');
-    const documents = commonForms.atLeastOneRequired([$applicationToJoinPvgScheme,
-        $existingPvgSchemeMember, $employerRegistrationApplication, $addDisclosureCounterSignatories,
-        $removeDisclosureCounterSignatories,
-        $responsibleEmployerEnrolmentApplication, $subAccountApplication
+    const documents = commonForms.atLeastOneRequired([$applicationToJoinPvgScheme[0],
+        $existingPvgSchemeMember[0], $employerRegistrationApplication[0], $addDisclosureCounterSignatories[0],
+        $removeDisclosureCounterSignatories[0],
+        $responsibleEmployerEnrolmentApplication[0], $subAccountApplication[0]
     ], '#disclosure-pvg-documents', highlightField);
     commonForms.updateErrors(errorFields, documents, 'disclosure-pvg-documents');
     return documents;
@@ -81,31 +81,31 @@ const providedDocumentsAreValid = function(highlightField, errorFields) {
         $removeDisclosureCounterSignatories = $('#disclosure-pvg-remove-disclosure-counter-signatories'),
         $responsibleEmployerEnrolmentApplication = $('#disclosure-pvg-responsible-employer-enrolment-application'),
         $subAccountApplication = $('#disclosure-pvg-sub-account-application');
-    const applicationToJoinPvgScheme = commonForms.validateField($applicationToJoinPvgScheme, highlightField, commonForms.numericOnly,
+    const applicationToJoinPvgScheme = commonForms.validateField($applicationToJoinPvgScheme[0], highlightField, commonForms.numericOnly,
         _.partialRight(commonForms.maxCharacters, $applicationToJoinPvgScheme.data('maxlength')));
     commonForms.updateErrors(errorFields, applicationToJoinPvgScheme, 'disclosure-pvg-application-to-join-pvg-scheme');
 
-    const existingPvgSchemeMember = commonForms.validateField($existingPvgSchemeMember, highlightField, commonForms.numericOnly,
+    const existingPvgSchemeMember = commonForms.validateField($existingPvgSchemeMember[0], highlightField, commonForms.numericOnly,
         _.partialRight(commonForms.maxCharacters, $existingPvgSchemeMember.data('maxlength')));
     commonForms.updateErrors(errorFields, existingPvgSchemeMember, 'disclosure-pvg-existing-pvg-scheme-member');
 
-    const employerRegistrationApplication = commonForms.validateField($employerRegistrationApplication, highlightField, commonForms.numericOnly,
+    const employerRegistrationApplication = commonForms.validateField($employerRegistrationApplication[0], highlightField, commonForms.numericOnly,
         _.partialRight(commonForms.maxCharacters, $employerRegistrationApplication.data('maxlength')));
     commonForms.updateErrors(errorFields, employerRegistrationApplication, 'disclosure-pvg-employer-registration-application');
 
-    const addDisclosureCounterSignatories = commonForms.validateField($addDisclosureCounterSignatories, highlightField, commonForms.numericOnly,
+    const addDisclosureCounterSignatories = commonForms.validateField($addDisclosureCounterSignatories[0], highlightField, commonForms.numericOnly,
         _.partialRight(commonForms.maxCharacters, $addDisclosureCounterSignatories.data('maxlength')));
     commonForms.updateErrors(errorFields, addDisclosureCounterSignatories, 'disclosure-pvg-add-disclosure-counter-signatories');
 
-    const removeDisclosureCounterSignatories = commonForms.validateField($removeDisclosureCounterSignatories, highlightField, commonForms.numericOnly,
+    const removeDisclosureCounterSignatories = commonForms.validateField($removeDisclosureCounterSignatories[0], highlightField, commonForms.numericOnly,
         _.partialRight(commonForms.maxCharacters, $removeDisclosureCounterSignatories.data('maxlength')));
     commonForms.updateErrors(errorFields, removeDisclosureCounterSignatories, 'disclosure-pvg-remove-disclosure-counter-signatories');
 
-    const responsibleEmployerEnrolmentApplication = commonForms.validateField($responsibleEmployerEnrolmentApplication, highlightField, commonForms.numericOnly,
+    const responsibleEmployerEnrolmentApplication = commonForms.validateField($responsibleEmployerEnrolmentApplication[0], highlightField, commonForms.numericOnly,
         _.partialRight(commonForms.maxCharacters, $responsibleEmployerEnrolmentApplication.data('maxlength')));
     commonForms.updateErrors(errorFields, responsibleEmployerEnrolmentApplication, 'disclosure-pvg-responsible-employer-enrolment-application');
 
-    const subAccountApplication = commonForms.validateField($subAccountApplication, highlightField, commonForms.numericOnly,
+    const subAccountApplication = commonForms.validateField($subAccountApplication[0], highlightField, commonForms.numericOnly,
         _.partialRight(commonForms.maxCharacters, $subAccountApplication.data('maxlength')));
     commonForms.updateErrors(errorFields, subAccountApplication, 'disclosure-pvg-sub-account-application');
     // all fields should be valid
@@ -133,34 +133,34 @@ const formIsValid = function(highlightField, errorFields) {
 
     const documentsValid = providedDocumentsAreValid(highlightField, errorFields);
 
-    const name = commonForms.validateField($name, highlightField, commonForms.requiredField,
+    const name = commonForms.validateField($name[0], highlightField, commonForms.requiredField,
         _.partialRight(commonForms.maxCharacters, $name.data('maxlength')));
     commonForms.updateErrors(errorFields, name, 'disclosure-pvg-name');
 
-    const email = commonForms.validateField($email, highlightField, commonForms.requiredField, commonForms.regexMatch,
+    const email = commonForms.validateField($email[0], highlightField, commonForms.requiredField, commonForms.regexMatch,
         _.partialRight(commonForms.maxCharacters, $email.data('maxlength')));
     commonForms.updateErrors(errorFields, email, 'disclosure-pvg-email');
 
-    const telephone = commonForms.validateField($telephone, highlightField,
+    const telephone = commonForms.validateField($telephone[0], highlightField,
         _.partialRight(commonForms.maxCharacters, $telephone.data('maxlength')));
     commonForms.updateErrors(errorFields, telephone, 'disclosure-pvg-telephone');
 
-    const addressLine1 = commonForms.validateField($addressLine1, highlightField, commonForms.requiredField,
+    const addressLine1 = commonForms.validateField($addressLine1[0], highlightField, commonForms.requiredField,
         _.partialRight(commonForms.maxCharacters, $addressLine1.data('maxlength')));
     commonForms.updateErrors(errorFields, addressLine1, 'disclosure-pvg-address-line-1');
 
-    const town = commonForms.validateField($town, highlightField, commonForms.requiredField,
+    const town = commonForms.validateField($town[0], highlightField, commonForms.requiredField,
         _.partialRight(commonForms.maxCharacters, $town.data('maxlength')));
     commonForms.updateErrors(errorFields, town, 'disclosure-pvg-town');
 
-    const postcode = commonForms.validateField($postcode, highlightField, commonForms.requiredField);
+    const postcode = commonForms.validateField($postcode[0], highlightField, commonForms.requiredField);
     commonForms.updateErrors(errorFields, postcode, 'disclosure-pvg-postcode');
 
-    const country = commonForms.validateField($country, highlightField,
+    const country = commonForms.validateField($country[0], highlightField,
         _.partialRight(commonForms.maxCharacters, $country.data('maxlength')));
     commonForms.updateErrors(errorFields, country, 'disclosure-pvg-country');
 
-    const recaptcha = commonForms.validateField($recaptcha, highlightField, commonForms.recaptchaCompleted);
+    const recaptcha = commonForms.validateField($recaptcha[0], highlightField, commonForms.recaptchaCompleted);
     commonForms.updateErrors(errorFields, recaptcha, 'recaptcha');
 
     return telephone && addressLine1 && town && postcode && country && name && email && recaptcha && documents && documentsValid; //NOSONAR
@@ -255,8 +255,8 @@ window.checkRecaptcha = function() {
         return;
     }
 
-    commonForms.validateField($recaptcha, commonForms.recaptchaCompleted);
-    commonForms.showOrHideErrorBox(submitted, $clientError, isValid);
+    commonForms.validateField($recaptcha[0], commonForms.recaptchaCompleted);
+    commonForms.showOrHideErrorBox(submitted, $clientError[0], isValid);
 };
 
 disclosurePvgForm.init();

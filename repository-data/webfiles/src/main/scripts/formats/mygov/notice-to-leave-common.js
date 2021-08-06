@@ -234,13 +234,13 @@ const noticeToLeaveForm = {
 
                 const startInput = document.querySelector('#tenancy-start-date-with-help');
                 const startInputValidation = startInput.dataset.validation.split(' ').map(check => commonForms[check]);
-                if (!commonForms.validateInput($(startInput), startInputValidation, false)) {
+                if (!commonForms.validateInput(startInput, startInputValidation, false)) {
                     valid = false;
                 }
 
                 const noticeInput = document.querySelector('#notice-date');
                 const noticeInputValidation = noticeInput.dataset.validation.split(' ').map(check => commonForms[check]);
-                if (!commonForms.validateInput($(noticeInput), noticeInputValidation, false)) {
+                if (!commonForms.validateInput(noticeInput, noticeInputValidation, false)) {
                     valid = false;
                 }
 

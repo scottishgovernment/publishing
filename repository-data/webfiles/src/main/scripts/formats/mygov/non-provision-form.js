@@ -561,7 +561,7 @@ const nonProvisionForm = {
                 }
             }
 
-            commonForms.validateInput($(this), validationChecks);
+            commonForms.validateInput(this, validationChecks);
         });
 
         const invalidFields = currentStepContainer.find('[aria-invalid="true"]:visible');

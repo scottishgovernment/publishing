@@ -7,7 +7,7 @@ jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
 import commonForms from '../../../src/main/scripts/tools/forms';
 import $ from '../../../src/main/scripts/vendor/jquery/dist/jquery.min';
 
-describe('Form validation functions:', function() {
+fdescribe('Form validation functions:', function() {
 
     xdescribe ('reCAPTCHA', function () {
         beforeEach(function () {
@@ -108,34 +108,39 @@ describe('Form validation functions:', function() {
         });
 
         it ('should recognise a valid postcode', function () {
-            var input = $('<input type="text" value="EH6 6QQ">');
+            let input = document.createElement('input');
+            input.value = 'EH6 6QQ';
             var output = commonForms.validPostcode(input);
             expect(output).toEqual(true);
         });
 
         it ('should recognise a postcode with no spaces as valid', function () {
-            var input = $('<input type="text" value="EH66QQ">');
+            let input = document.createElement('input');
+            input.value = 'EH66QQ';
             var output = commonForms.validPostcode(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should recognise a lowercase postcode as valid', function () {
-            var input = $('<input type="text" value="eh66qq">');
+            let input = document.createElement('input');
+            input.value = 'eh66qq';
             var output = commonForms.validPostcode(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should recognise an empty field as valid', function () {
-            var input = $('<input type="text" value="">');
+            let input = document.createElement('input');
+            input.value = '';
             var output = commonForms.validPostcode(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should recognise invalid input', function () {
-            var input = $('<input type="text" value="abcdefg">');
+            let input = document.createElement('input');
+            input.value = 'abcdefg';
             var output = commonForms.validPostcode(input);
 
             expect(output).toEqual(false);
@@ -149,14 +154,14 @@ describe('Form validation functions:', function() {
 
         it ('should recognise a fieldset with a checked radio button as valid', function () {
             var input = $('<fieldset><input type="radio" checked><input type="radio"></fieldset>');
-            var output = commonForms.requiredRadio(input);
+            var output = commonForms.requiredRadio(input[0]);
 
             expect(output).toEqual(true);
         });
 
         it ('should recognise a fieldset with no checked radio buttons as invalid', function () {
             var input = $('<fieldset><input type="radio"><input type="radio"></fieldset>');
-            var output = commonForms.requiredRadio(input);
+            var output = commonForms.requiredRadio(input[0]);
 
             expect(output).toEqual(false);
         });
@@ -168,28 +173,32 @@ describe('Form validation functions:', function() {
         });
 
         it ('should recognise a valid phone number', function () {
-            var input = $('<input type="text" value="+44 131 123 456">');
+            let input = document.createElement('input');
+            input.value = '+44 131 123 456';
             var output = commonForms.validPhone(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should recognise an empty field as valid', function () {
-            var input = $('<input type="text" value="">');
+            let input = document.createElement('input');
+            input.value = '';
             var output = commonForms.validPhone(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should recognise disallowed characters as invalid', function () {
-            var input = $('<input type="text" value="GER 0897-3782">');
+            let input = document.createElement('input');
+            input.value = 'GER 0897-3782';
             var output = commonForms.validPhone(input);
 
             expect(output).toEqual(false);
         });
 
         it ('should recognise a too long number as invalid', function () {
-            var input = $('<input type="text" value="0131123456 09889009809">');
+            let input = document.createElement('input');
+            input.value = '0131123456 09889009809';
             var output = commonForms.validPhone(input);
 
             expect(output).toEqual(false);
@@ -202,21 +211,24 @@ describe('Form validation functions:', function() {
         });
 
         it ('should recognise a valid email format', function () {
-            var input = $('<input type="text" value="foo@foo.foo">');
+            let input = document.createElement('input');
+            input.value = 'foo@foo.foo';
             var output = commonForms.validEmail(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should pass an empty input', function () {
-            var input = $('<input type="text" value="">');
+            let input = document.createElement('input');
+            input.value = '';
             var output = commonForms.validEmail(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should fail an invalid email format', function () {
-            var input = $('<input type="text" value="foo.foo.foo">');
+            let input = document.createElement('input');
+            input.value = 'foo.foo.foo';
             var output = commonForms.validEmail(input);
 
             expect(output).toEqual(false);
@@ -226,7 +238,8 @@ describe('Form validation functions:', function() {
             spyOn(commonForms, 'toggleFormErrors');
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            var input = $('<input type="text" value="foo.foo.foo">');
+            let input = document.createElement('input');
+            input.value = 'foo.foo.foo';
             var output = commonForms.validEmail(input);
 
             expect(commonForms.toggleFormErrors).toHaveBeenCalled();
@@ -274,21 +287,25 @@ describe('Form validation functions:', function() {
             let futureDateAsString =
                 futureDateDays.substring(futureDateDays.length - 2) + '/' + futureDateMonths.substring(futureDateMonths.length - 2) + '/' + futureDate.getFullYear();
 
-            let input = $('<input type="text" value="' + futureDateAsString + '">');
+            let input = document.createElement('input');
+            input.value = futureDateAsString;
+
             let output = commonForms.futureDate(input);
 
             expect(output).toEqual(true);
         });
 
-        it ('should fail a date in the past', function () {
-            let input = $('<input type="text" value="01/01/2000">');
+        it('should fail a date in the past', function () {
+            let input = document.createElement('input');
+            input.value = '01/01/2000';
             let output = commonForms.futureDate(input);
 
             expect(output).toEqual(false);
         });
 
         it ('should fail an invalid date', function () {
-            let input = $('<input type="text" value="hello">');
+            let input = document.createElement('input');
+            input.value = 'hello';
             let output = commonForms.futureDate(input);
 
             expect(output).toEqual(false);
@@ -298,7 +315,8 @@ describe('Form validation functions:', function() {
             spyOn(commonForms, 'toggleFormErrors');
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            let input = $('<input type="text" value="01/01/2000">');
+            let input = document.createElement('input');
+            input.value = '01/01/2000';
             let output = commonForms.futureDate(input);
 
             expect(commonForms.toggleFormErrors).toHaveBeenCalled();
@@ -316,7 +334,8 @@ describe('Form validation functions:', function() {
             let pastDateAsString =
                 pastDateDays.substring(pastDateDays.length - 2) + '/' + pastDateMonths.substring(pastDateMonths.length - 2) + '/' + pastDate.getFullYear();
 
-            let input = $('<input type="text" value="' + pastDateAsString + '">');
+                let input = document.createElement('input');
+                input.value = pastDateAsString;
             let output = commonForms.pastDate(input);
 
             expect(output).toEqual(true);
@@ -330,14 +349,16 @@ describe('Form validation functions:', function() {
             let futureDateAsString =
                 futureDateDays.substring(futureDateDays.length - 2) + '/' + futureDateMonths.substring(futureDateMonths.length - 2) + '/' + futureDate.getFullYear();
 
-            let input = $('<input type="text" value="' + futureDateAsString + '">');
+            let input = document.createElement('input');
+            input.value = futureDateAsString;
             let output = commonForms.pastDate(input);
 
             expect(output).toEqual(false);
         });
 
         it ('should fail an invalid date', function () {
-            let input = $('<input type="text" value="hello">');
+            let input = document.createElement('input');
+            input.value = 'hello';
             let output = commonForms.pastDate(input);
 
             expect(output).toEqual(false);
@@ -347,7 +368,8 @@ describe('Form validation functions:', function() {
             spyOn(commonForms, 'toggleFormErrors');
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            let input = $('<input type="text" value="01/01/2000">');
+            let input = document.createElement('input');
+            input.value = '01/01/2000';
             let output = commonForms.pastDate(input);
 
             expect(commonForms.toggleFormErrors).toHaveBeenCalled();
@@ -358,21 +380,27 @@ describe('Form validation functions:', function() {
     describe ('afterDate validation', function () {
         //mindate format is is dd/mm/yyyy
         it ('should pass dates after a provided date', function () {
-            let input = $('<input type="text" data-mindate="14/02/2017" value="14/03/2017">');
+            let input = document.createElement('input');
+            input.dataset.mindate = '14/02/2017';
+            input.value = '14/03/2017';
             let output = commonForms.afterDate(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should fail dates that are before a provided date', function () {
-            let input = $('<input type="text" data-mindate="14/02/2017" value="14/01/2017">');
+            let input = document.createElement('input');
+            input.dataset.mindate = '14/02/2017';
+            input.value = '14/01/2017';
             let output = commonForms.afterDate(input);
 
             expect(output).toEqual(false);
         });
 
         it ('should fail an invalid date', function () {
-            let input = $('<input type="text" data-mindate="14/02/2017" value="hello">');
+            let input = document.createElement('input');
+            input.dataset.mindate = '14/02/2017';
+            input.value = 'hello';
             let output = commonForms.afterDate(input);
 
             expect(output).toEqual(false);
@@ -382,7 +410,9 @@ describe('Form validation functions:', function() {
             spyOn(commonForms, 'toggleFormErrors');
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            let input = $('<input type="text" data-mindate="14/02/2017" value="01/01/2000">');
+            let input = document.createElement('input');
+            input.dataset.mindate = '14/02/2017';
+            input.value = '01/01/2000';
             let output = commonForms.afterDate(input);
 
             expect(commonForms.toggleFormErrors).toHaveBeenCalled();
@@ -396,14 +426,16 @@ describe('Form validation functions:', function() {
         });
 
         it ('should recognise a valid date', function () {
-            var input = $('<input type="text" value="14/01/1987">');
+            let input = document.createElement('input');
+            input.value = '14/07/1978';
             var output = commonForms.dateRegex(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should recognise incorrect input as invalid', function () {
-            var input = $('<input type="text" value="14071987">');
+            let input = document.createElement('input');
+            input.value = '14071978';
             var output = commonForms.dateRegex(input);
 
             expect(output).toEqual(false);
@@ -412,21 +444,26 @@ describe('Form validation functions:', function() {
 
     describe ('maxValue validation', function () {
         it ('should pass values less than than a provided maxValue', function () {
-            let input = $('<input type="text" data-maxvalue="200" value="10">');
+            let input = document.createElement('input');
+            input.dataset.maxvalue = 200;
+            input.value = 10;
             let output = commonForms.maxValue(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should fail values greater than a provided maxValue', function () {
-            let input = $('<input type="text" data-maxvalue="200" value="210">');
+            let input = document.createElement('input');
+            input.dataset.maxvalue = 200;
+            input.value = 210;
             let output = commonForms.maxValue(input);
 
             expect(output).toEqual(false);
         });
 
         it ('should pass through if a maxValue is not set', function () {
-            let input = $('<input type="text" value="10">');
+            let input = document.createElement('input');
+            input.value = 10;
             let output = commonForms.maxValue(input);
 
             expect(output).toEqual(true);
@@ -435,7 +472,10 @@ describe('Form validation functions:', function() {
         it ('should display a custom error message if one is provided', function () {
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            let input = $('<input type="text" data-message="foo {value}" data-maxvalue="200" value="210">');
+            let input = document.createElement('input');
+            input.dataset.maxvalue = 200;
+            input.dataset.message = 'foo {value}';
+            input.value = 210;
             let output = commonForms.maxValue(input);
 
             expect(commonForms.toggleCurrentErrors).toHaveBeenCalledWith(input, false, 'invalid-max-value', 'foo 200');
@@ -445,7 +485,9 @@ describe('Form validation functions:', function() {
             spyOn(commonForms, 'toggleFormErrors');
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            let input = $('<input type="text" data-maxvalue="200" value="10">');
+            let input = document.createElement('input');
+            input.dataset.maxvalue = 200;
+            input.value = 10;
             let output = commonForms.maxValue(input);
 
             expect(commonForms.toggleFormErrors).toHaveBeenCalled();
@@ -459,35 +501,40 @@ describe('Form validation functions:', function() {
         });
 
         it ('should recognise a valid currency amount', function () {
-            var input = $('<input type="text" value="145.67">');
+            var input = document.createElement('input');
+            input.value = 145.67;
             var output = commonForms.validCurrency(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should recognise an empty field as valid', function () {
-            var input = $('<input type="text" value="">');
+            var input = document.createElement('input');
+            input.value = '';
             var output = commonForms.validCurrency(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should recognise non-numeric input as invalid', function () {
-            var input = $('<input type="text" value="sadlkj">');
+            var input = document.createElement('input');
+            input.value = 'asdfgh';
             var output = commonForms.validCurrency(input);
 
             expect(output).toEqual(false);
         });
 
         it ('should recognise no decimal places as valid', function () {
-            var input = $('<input type="text" value="123">');
+            var input = document.createElement('input');
+            input.value = 123;
             var output = commonForms.validCurrency(input);
 
             expect(output).toEqual(true);
         });
 
         it ('should recognise too many decimal places as invalid', function () {
-            var input = $('<input type="text" value="145.678">');
+            var input = document.createElement('input');
+            input.value = 145.678;
             var output = commonForms.validCurrency(input);
 
             expect(output).toEqual(false);
@@ -496,25 +543,25 @@ describe('Form validation functions:', function() {
 
     describe ('Required field validation', function () {
         it ('should pass any non-empty input', function () {
-            var input = $('<input type="text" value="">');
+            var input = document.createElement('input');
             var output;
 
-            input.val('bananas');
-            output = commonForms.requiredField(input);
+            input.value = 'bananas';
+            output = commonForms.requiredField(input[0]);
             expect(output).toEqual(true);
 
-            input.val('');
-            output = commonForms.requiredField(input);
+            input.value = '';
+            output = commonForms.requiredField(input[0]);
             expect(output).toEqual(false);
         });
 
         it ('should display a custom error message if one is provided', function () {
-            var input = $('<input type="text" value="">');
+            var input = document.createElement('input');
             var output;
 
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            input.val('bananas');
+            input.value = 'bananas';
             output = commonForms.requiredField(input, 'a custom message');
             expect(output).toEqual(true);
 
@@ -524,14 +571,15 @@ describe('Form validation functions:', function() {
 
     describe ('Required dropdown validation', function () {
         it ('should fail dropdowns with no selected value', function () {
-            var select = $('<select><option value="">foo</option><option value="bar">bar</option>');
+            var select = document.createElement('select');
+            select.innerHTML = '<option value="">foo</option><option value="bar">bar</option>';
             var output;
 
             output = commonForms.requiredDropdown(select);
             expect(output).toEqual(false);
 
-            select.find('option:nth-child(1)').attr('selected', 'true');
-            select.val('bar')
+            select.querySelector('option:nth-child(1)').setAttribute('selected', 'true');
+            select.value = 'bar';
             output = commonForms.requiredDropdown(select);
             expect(output).toEqual(true);
         });
@@ -539,7 +587,8 @@ describe('Form validation functions:', function() {
 
     describe ('Regexp match validation', function () {
         it ('should pass matching values and fail non-matching values', function () {
-            var input = $('<input type="text" value="" pattern="\\w\\w\\d\\d">');
+            var input = document.createElement('input');
+            input.setAttribute('pattern', '\\w\\w\\d\\d');
             var output;
 
             input.val('aa11');
@@ -554,10 +603,10 @@ describe('Form validation functions:', function() {
 
     describe ('Max character count validation', function () {
         it ('should pass fields that are under or equal to the max character limit and fail fields that are over it.', function () {
-            var input = $('<input type="text" value="">');
+            var input = document.createElement('input');
             var output;
 
-            input.val('bananas');
+            input.value = 'bananas';
             output = commonForms.maxCharacters(input, 50);
             expect(output).toEqual(true);
 
@@ -568,32 +617,32 @@ describe('Form validation functions:', function() {
 
     describe ('Numeric validation', function () {
         it ('should pass numbers and fail non-numbers', function () {
-            var input = $('<input type="text" value="">');
+            var input = document.createElement('input');
             var output;
 
-            input.val(100);
+            input.value = 100;
             output = commonForms.numericOnly(input);
             expect(output).toEqual(true);
 
-            input.val('foo');
+            input.value = 'foo';
             output = commonForms.numericOnly(input);
             expect(output).toEqual(false);
 
-            input.val([123,456]);
+            input.value = [123,456];
             output = commonForms.numericOnly(input);
             expect(output).toEqual(false);
 
-            input.val(['abc','def']);
+            input.value = ['abc','def'];
             output = commonForms.numericOnly(input);
             expect(output).toEqual(false);
 
-            input.val({foo:'bar'});
+            input.value = {foo:'bar'};
             output = commonForms.numericOnly(input);
             expect(output).toEqual(false);
         });
 
         it ('should obey optional min and max params', function () {
-            var input = $('<input type="text" value="">');
+            var input = document.createElement('input');
             var output;
 
             input.val(-1);
@@ -656,11 +705,11 @@ describe('Miscellaneous helper functions:', function () {
         loadFixtures('form-fields.html');
 
         // 1. get label from a label elements
-        let output = commonForms.getLabelText($('#labeledInput'));
+        let output = commonForms.getLabelText(document.querySelector('#labeledInput'));
         expect(output).toEqual('Labeled input');
 
         // 2. get label from an aria-labeledby attribute
-        output = commonForms.getLabelText($('#ariaLabeledInput'));
+        output = commonForms.getLabelText(document.querySelector('#ariaLabeledInput'));
         expect(output).toEqual('Aria-labeled input');
     });
 });

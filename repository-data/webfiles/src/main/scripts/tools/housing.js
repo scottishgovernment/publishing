@@ -34,7 +34,7 @@ const commonHousing = {
                 }
             }
 
-            commonForms.validateInput($(this), validationChecks);
+            commonForms.validateInput(this, validationChecks);
         });
 
         const invalidFields = stepContainer.find('[aria-invalid="true"]:visible');
@@ -45,8 +45,11 @@ const commonHousing = {
     validateSummary: function () {
         // do validations
 
-        const allValidationFields = document.querySelectorAll('[data-validation]:not(.no-validate)');
-        const fieldsToValidate = [].slice.call(allValidationFields).filter(field => {
+        const allValidationFields = [].slice.call(document.querySelectorAll('[data-validation]:not(.no-validate)'));
+        const fieldsToValidate = allValidationFields.filter(field => {
+            if (!field.offsetParent) {
+                return false;
+            }
             if (field.closest('.ds_reveal-content')) {
                 return [].slice.call(field.closest('.ds_reveal-content').parentNode.children).filter(item => item.nodeName === 'INPUT' && item.checked).length;
             } else {
@@ -64,8 +67,9 @@ const commonHousing = {
                 }
             }
 
-            commonForms.validateInput($(field), validationChecks);
+            commonForms.validateInput(field, validationChecks);
         });
+
         const invalidFields = $('[aria-invalid="true"]:not(.no-validate)');
 
         const stopProgressToDownload = function(){
@@ -204,8 +208,7 @@ const commonHousing = {
 
         /*
             *  Event listener to be attached to a button for adding an additional section.
-            *  @param {object} sections
-            *  @param {object} form
+            *  @param {object} section
             */
         const addSectionListener = function(section) {
             const newSectionNumber = $('[data-group="' + section.name + '"]').length + 1;
@@ -259,8 +262,8 @@ const commonHousing = {
             inputName = inputName ? ' (' + inputName + ')' : '';
 
             $('#' + redirectSection).prepend(
-                '<div class="ds_inset-text  js-note-success"><div class="ds_inset-text__text">'
-                    + section.stepTitle + inputName + ' removed successfully</div></div>');
+                '<div class="ds_inset-text  js-note-success"><div class="ds_inset-text__text">' +
+                    section.stepTitle + inputName + ' removed successfully</div></div>');
 
             // remove success notification on click
             $('.js-note-success').on('click', function(){

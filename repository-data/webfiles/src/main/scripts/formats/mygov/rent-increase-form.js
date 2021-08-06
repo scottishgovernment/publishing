@@ -355,7 +355,7 @@ const rentIncreaseForm = {
 
                 // remove any extant maxvalue error
                 $('[data-field="new-rent-amount"]').find('.invalid-max-value').remove();
-                commonForms.validateInput(newRentField, validationChecks);
+                commonForms.validateInput(newRentField[0], validationChecks);
             }
 
             newFrequency.addClass('js-dirty');
@@ -459,7 +459,7 @@ const rentIncreaseForm = {
         if (rentIncreaseDate.value) {
             let validations = rentIncreaseDate.getAttribute('data-validation').split(' ');
             const validationChecks = validations.map(validation => commonForms[validation]);
-            commonForms.validateInput($(rentIncreaseDate), validationChecks);
+            commonForms.validateInput(rentIncreaseDate, validationChecks);
         }
 
         if (rentIncreaseForm.notificationDate && rentIncreaseForm.notificationDate !== '') {
