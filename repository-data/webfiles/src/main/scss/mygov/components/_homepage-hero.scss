@@ -1,4 +1,4 @@
-.#{$mg-prefix}hero {
+.#{$site-prefix}hero {
     align-items: start;
     margin-top: 32px;
 
@@ -31,7 +31,7 @@
 
 
 /* LINKS */
-.#{$mg-prefix}hero-links {
+.#{$site-prefix}hero-links {
     display: grid;
     grid-gap: 16px;
     grid-template-columns: 1fr 1fr;
@@ -67,7 +67,7 @@
 
 
 /* A-Z */
-.#{$mg-prefix}hero-az {
+.#{$site-prefix}hero-az {
     background-color: $ds_colour__blue--dark;
     font-size: 1em;
     padding-top: 12px;
@@ -86,7 +86,7 @@
     }
 }
 
-.#{$pl-prefix}button--has-icon>.#{$mg-prefix}hero-az__icon {
+.#{$pl-prefix}button--has-icon>.#{$site-prefix}hero-az__icon {
     margin-top: -2em;
     position: absolute;
     right: 12px;
@@ -102,7 +102,7 @@
 }
 
 @include media-query(large) {
-    .#{$mg-prefix}hero {
+    .#{$site-prefix}hero {
         .#{$pl-prefix}site-search {
             @include layout();
 
@@ -115,7 +115,7 @@
 
 @supports (display: grid) {
     @include media-query(large) {
-        .#{$mg-prefix}hero {
+        .#{$site-prefix}hero {
             .#{$pl-prefix}site-search {
                 grid-template-columns: 7fr 1fr;
             }
@@ -123,7 +123,7 @@
     }
 
     @include media-query(xlarge) {
-        .#{$mg-prefix}hero-az {
+        .#{$site-prefix}hero-az {
             grid-template-columns: 1fr 70px;
 
             &__text {
