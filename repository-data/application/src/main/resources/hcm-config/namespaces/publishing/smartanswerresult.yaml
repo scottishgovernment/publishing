@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5845c85a-1614-4783-af3a-23a759f7c40a
+          jcr:uuid: 5b5169b6-2c83-4b4c-9d5b-a8d405fa84c7
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -24,6 +24,15 @@ definitions:
             hipposysedit:path: publishing:answer
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /title:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -35,9 +44,10 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 9b0c094e-8598-4be8-8bb6-dda7becad752
+          jcr:uuid: 707a7cc1-73a5-40a1-aed3-f62f58436e56
           hippostdpubwf:lastModificationDate: 2021-05-17T11:00:50.806+01:00
           hippostdpubwf:creationDate: 2021-05-17T11:00:50.806+01:00
+          publishing:title: ''
           /publishing:answer:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -52,11 +62,20 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /title:
+            jcr:primaryType: frontend:plugin
+            caption: Title
+            field: title
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /answer:
             jcr:primaryType: frontend:plugin
             caption: Answer
             field: answer
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

@@ -1,63 +1,86 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#if document??>
 <div class="cms-editable" xmlns="http://www.w3.org/1999/html">
     <@hst.manageContent hippobean=document />
 
-    <@hst.include ref="breadcrumbs"/>
+    <@hst.link var="startpage" hippobean=document.startpage/>
 
     <div class="ds_wrapper">
-        <main id="main-content" class="ds_layout  ds_layout--guide">
-
+        <main id="main-content" class="ds_layout  ds_layout--article">
             <div class="ds_layout__header">
-                <header class="ds_page-header">
-                    <h1 class="ds_page-header__title">${document.title}</h1>
-                </header>
+                <div tabindex="-1" class="ds_error-summary  fully-hidden  client-error" aria-labelledby="error-summary-title" role="alert">
+                    <h2 class="ds_error-summary__title" id="error-summary-title">There is a problem</h2>
+
+                    <div class="form-errors">
+
+                    </div>
+                </div>
+
+                <noscript>
+                    <div class="ds_page-header">
+                        <h1 class="ds_page-header__title  mg_smart-answer__step-title">${document.title}</h1>
+                    </div>
+
+                    <div class="ds_warning-text">
+                        <strong class="ds_warning-text__icon" aria-hidden="true"></strong>
+                        <strong class="visually-hidden">Warning</strong>
+                        <div class="ds_warning-text__text">
+                            We've detected from your browser that JavaScript is disabled.
+                            Please enable JavaScript to use this page.
+                        </div>
+                    </div>
+                </noscript>
             </div>
 
             <div class="ds_layout__content">
-                <@hst.html hippohtml=document.content/>
+                <div class="mg_smart-answer" data-module="smartanswer">
+                    <#list questions as question>
+                        <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" id="step-${question.name}">
+                            <div class="ds_question">
+                                <fieldset class="mg_no-margin--last-child  " id="question-${question.name}" data-validation="requiredRadio">
+                                    <legend class="ds_page-header">
+                                        <span class="mg_smart-answer__parent-title">${document.title}</span>
+                                        <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">${question.title}</h1>
+                                    </legend>
 
-                <#list questions as question>
-                    <div class="smartanswer-question" id="${question.name}">
-
-                        <@hst.html hippohtml=question.content/>
-
-                        <#list question.options as option>
-                            <div>
-                                <input type="radio" id="" name="${question.name}" value="${option.value}">
-                                <label for="${question.name}">${option.label}</label><br>
-                                <span style="display:none" class="smartanswer-nextpage">${option.nextPage.name}</span>
+                                    <#list question.options as option>
+                                        <div class="ds_radio">
+                                            <input required data-form="radio-step-${question.name}-${option.value}" class="ds_radio__input" type="radio" id="step-${question.name}-${option.value}" name="question-${question.name}" value="${option.value}" data-nextstep="step-${option.nextPage.name}">
+                                            <label class="ds_radio__label" for="step-${question.name}-${option.value}">${option.label}</label>
+                                        </div>
+                                    </#list>
+                                </fieldset>
                             </div>
-                        </#list>
 
-                        <p>
-                            <button class="ds_button smartanswer-nextbutton">Next</button>
-                        </p>
-                    </div>
-                </#list>
+                            <#if question?is_first>
+                                <a href="${startpage}" id="start-page-link" class="ds_button  ds_button--has-icon  ds_button--has-icon--left  ds_button--cancel  ds_no-margin">
+                                    <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#chevron_left"></use></svg>
+                                    Back
+                                </a>
+                            </#if>
 
-                <#list answers as answer>
-                    <div class="smartanswer-answer" id="${answer.name}">
-                        <@hst.html hippohtml=answer.answer/>
-                    </div>
-                </#list>
+                            <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin">
+                                Next
+                                <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#chevron_right"></use></svg>
+                            </button>
+                        </section>
+                    </#list>
 
-                <div id="answered-questions">
-                    <h2>Your Answers</h2>
-                    <ul>
-                        <#list questions as question>
-                            <li data-answer="${question.name}">
-                                <strong>${question.title}</strong>
-                                <span data-answer-to-question="${question.name}"></span>
-                            </li>
-                        </#list>
-                    </ul>
+                    <#list answers as answer>
+                        <div tabindex="-1" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-${answer.name}">
+                            <header class="ds_page-header">
+                                <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">${answer.title}</h1>
+                            </header>
+                            <@hst.html hippohtml=answer.answer/>
+                        </div>
+                    </#list>
+
+                    <div id="answered-questions"></div>
                 </div>
             </div>
-
-            <#include 'feedback-wrapper.ftl'>
         </main>
     </div>
 </div>

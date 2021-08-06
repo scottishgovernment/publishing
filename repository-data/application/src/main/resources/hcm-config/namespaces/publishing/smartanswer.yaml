@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 7bdf2aca-32fb-4bea-9a6c-11b9d20db52f
+          jcr:uuid: caae825f-5658-418a-ba7f-6616c252e99f
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -33,6 +33,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             hipposysedit:validators: [required]
+          /startpage:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:startpage
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -48,7 +56,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           publishing:slug: ''
-          jcr:uuid: dfdc6fd0-5945-4d4c-aaf0-9aa415a83a15
+          jcr:uuid: f41baa68-04e2-45ba-a25a-7b8cc50abc47
           hippostdpubwf:lastModificationDate: 2021-05-17T15:09:40.585+01:00
           hippostdpubwf:creationDate: 2021-05-17T15:09:40.585+01:00
           publishing:audience: ''
@@ -64,6 +72,9 @@ definitions:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
           /publishing:contentOwner:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:startpage:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
@@ -299,6 +310,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Related items
             field: relateditems
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /startpage:
+            jcr:primaryType: frontend:plugin
+            caption: Start page link
+            field: startpage
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field

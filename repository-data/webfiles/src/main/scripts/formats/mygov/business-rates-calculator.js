@@ -562,7 +562,7 @@ const businessRatesCalculator = {
     errorMessageMarkup: function (fieldId, message) {
         const messageEl = document.createElement('p');
         messageEl.classList.add('error', 'invalid-field', 'ds_error-summary__list');
-        messageEl.innerHTML = `<a class="form-nav" href="#${fieldId}"><span class="underline">${message}</span></a>`
+        messageEl.innerHTML = `<a class="ds_error-summary__link" href="#${fieldId}">${message}</a>`;
         return messageEl;
     }
 };
