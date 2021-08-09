@@ -193,23 +193,16 @@ const commonForms = {
     maxCharacters: function (field, maxLength) {
 
         const valid = field.value.length <= maxLength;
-        const errorContainer = document.querySelector(`.${field.id}-errors`);
         const fieldName = commonForms.getLabelText(field);
+        const message = `${fieldName} has too many characters`;
 
-        if (!valid) {
-            if (errorContainer.querySelectorAll('.too-many').length === 0) {
-                const errorLi = document.createElement('li');
-                errorLi.innerHTML = `${fieldName} has too many characters`;
-                errorLi.classList.add('error');
-                errorLi.classList.add('too-many');
-                errorContainer.appendChild(errorLi);
-            }
-        } else {
-            const errorLi = errorContainer.querySelector('.too-many');
-            errorContainer.removeChild(errorLi);
+        commonForms.toggleFormErrors(field, valid, 'too-many', fieldName, message);
+        commonForms.toggleCurrentErrors(field, valid, 'too-many', message);
+
+        const countEl = field.parentNode.querySelector('.js-count');
+        if (countEl) {
+            countEl.innerHTML = (maxLength - field.value.length);
         }
-
-        field.parentNode.querySelector('.js-count').innerHTML = (maxLength - field.value.length);
 
         return valid;
     },
@@ -661,7 +654,9 @@ const commonForms = {
         }
 
         if (errorContainer) {
-            window.DS.tracking.init(errorContainer[0]);
+            if (window.DS && window.DS.tracking) {
+                window.DS.tracking.init(errorContainer);
+            }
         }
     },
 
@@ -890,6 +885,9 @@ const commonForms = {
     },
 
     getTitleFromLegend(legendEl) {
+        if (!legendEl) {
+            return '';
+        }
         if (legendEl.querySelector('.js-question-title')) {
             return legendEl.querySelector('.js-question-title').innerHTML;
         } else {

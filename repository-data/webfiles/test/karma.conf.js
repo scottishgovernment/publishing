@@ -43,11 +43,13 @@ module.exports = function (config) {
         singleRun: true,
 
         files: [
-            'test/specs/**.js',
-            'test/fixtures/*.html'
+            'node_modules/@scottish-government/pattern-library/src/all.js',
+            'test/specs/**/*.js',
+            'test/fixtures/*.html',
         ],
 
         preprocessors: {
+            'node_modules/@scottish-government/pattern-library/src/all.js': ['babel', 'webpack'],
             '../src/main/**/*.js': ['babel', 'webpack'],
             'test/specs/**/**.js': ['webpack']
         },

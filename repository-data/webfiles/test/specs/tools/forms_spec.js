@@ -1,13 +1,36 @@
 'use strict';
 
-/* global describe beforeEach it expect spyOn */
+/* global document jasmine describe beforeEach it expect spyOn */
 
 jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
 
 import commonForms from '../../../src/main/scripts/tools/forms';
 import $ from '../../../src/main/scripts/vendor/jquery/dist/jquery.min';
 
-fdescribe('Form validation functions:', function() {
+function createField(fieldNodeName) {
+    let container = document.getElementById('input-container');
+    if (!container) {
+        container = document.createElement('div');
+        document.body.appendChild(container);
+    }
+
+    container.innerHTML = '';
+    container.id = 'input-container';
+    container.classList.add('ds_question');
+    const label = document.createElement('label');
+    const field = document.createElement(fieldNodeName);
+    const rand = parseInt(Math.random() * 100000);
+    field.id = 'field-' + rand;
+    label.setAttribute('for', field.id);
+    label.innerText = 'test field';
+
+    container.appendChild(label);
+    container.appendChild(field);
+
+    return field;
+}
+
+describe('Form validation functions:', function() {
 
     xdescribe ('reCAPTCHA', function () {
         beforeEach(function () {
@@ -108,14 +131,14 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise a valid postcode', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = 'EH6 6QQ';
             var output = commonForms.validPostcode(input);
             expect(output).toEqual(true);
         });
 
         it ('should recognise a postcode with no spaces as valid', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = 'EH66QQ';
             var output = commonForms.validPostcode(input);
 
@@ -123,7 +146,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise a lowercase postcode as valid', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = 'eh66qq';
             var output = commonForms.validPostcode(input);
 
@@ -131,7 +154,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise an empty field as valid', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = '';
             var output = commonForms.validPostcode(input);
 
@@ -139,7 +162,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise invalid input', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = 'abcdefg';
             var output = commonForms.validPostcode(input);
 
@@ -173,7 +196,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise a valid phone number', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = '+44 131 123 456';
             var output = commonForms.validPhone(input);
 
@@ -181,7 +204,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise an empty field as valid', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = '';
             var output = commonForms.validPhone(input);
 
@@ -189,7 +212,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise disallowed characters as invalid', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = 'GER 0897-3782';
             var output = commonForms.validPhone(input);
 
@@ -197,7 +220,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise a too long number as invalid', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = '0131123456 09889009809';
             var output = commonForms.validPhone(input);
 
@@ -211,7 +234,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise a valid email format', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = 'foo@foo.foo';
             var output = commonForms.validEmail(input);
 
@@ -219,7 +242,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should pass an empty input', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = '';
             var output = commonForms.validEmail(input);
 
@@ -227,7 +250,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should fail an invalid email format', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = 'foo.foo.foo';
             var output = commonForms.validEmail(input);
 
@@ -238,7 +261,7 @@ fdescribe('Form validation functions:', function() {
             spyOn(commonForms, 'toggleFormErrors');
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = 'foo.foo.foo';
             var output = commonForms.validEmail(input);
 
@@ -287,7 +310,7 @@ fdescribe('Form validation functions:', function() {
             let futureDateAsString =
                 futureDateDays.substring(futureDateDays.length - 2) + '/' + futureDateMonths.substring(futureDateMonths.length - 2) + '/' + futureDate.getFullYear();
 
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = futureDateAsString;
 
             let output = commonForms.futureDate(input);
@@ -296,7 +319,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it('should fail a date in the past', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = '01/01/2000';
             let output = commonForms.futureDate(input);
 
@@ -304,7 +327,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should fail an invalid date', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = 'hello';
             let output = commonForms.futureDate(input);
 
@@ -315,7 +338,7 @@ fdescribe('Form validation functions:', function() {
             spyOn(commonForms, 'toggleFormErrors');
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = '01/01/2000';
             let output = commonForms.futureDate(input);
 
@@ -334,7 +357,7 @@ fdescribe('Form validation functions:', function() {
             let pastDateAsString =
                 pastDateDays.substring(pastDateDays.length - 2) + '/' + pastDateMonths.substring(pastDateMonths.length - 2) + '/' + pastDate.getFullYear();
 
-                let input = document.createElement('input');
+                let input = createField('input');
                 input.value = pastDateAsString;
             let output = commonForms.pastDate(input);
 
@@ -349,7 +372,7 @@ fdescribe('Form validation functions:', function() {
             let futureDateAsString =
                 futureDateDays.substring(futureDateDays.length - 2) + '/' + futureDateMonths.substring(futureDateMonths.length - 2) + '/' + futureDate.getFullYear();
 
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = futureDateAsString;
             let output = commonForms.pastDate(input);
 
@@ -357,7 +380,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should fail an invalid date', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = 'hello';
             let output = commonForms.pastDate(input);
 
@@ -368,7 +391,7 @@ fdescribe('Form validation functions:', function() {
             spyOn(commonForms, 'toggleFormErrors');
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = '01/01/2000';
             let output = commonForms.pastDate(input);
 
@@ -380,7 +403,7 @@ fdescribe('Form validation functions:', function() {
     describe ('afterDate validation', function () {
         //mindate format is is dd/mm/yyyy
         it ('should pass dates after a provided date', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.dataset.mindate = '14/02/2017';
             input.value = '14/03/2017';
             let output = commonForms.afterDate(input);
@@ -389,7 +412,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should fail dates that are before a provided date', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.dataset.mindate = '14/02/2017';
             input.value = '14/01/2017';
             let output = commonForms.afterDate(input);
@@ -398,7 +421,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should fail an invalid date', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.dataset.mindate = '14/02/2017';
             input.value = 'hello';
             let output = commonForms.afterDate(input);
@@ -410,7 +433,7 @@ fdescribe('Form validation functions:', function() {
             spyOn(commonForms, 'toggleFormErrors');
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            let input = document.createElement('input');
+            let input = createField('input');
             input.dataset.mindate = '14/02/2017';
             input.value = '01/01/2000';
             let output = commonForms.afterDate(input);
@@ -426,7 +449,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise a valid date', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = '14/07/1978';
             var output = commonForms.dateRegex(input);
 
@@ -434,7 +457,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise incorrect input as invalid', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = '14071978';
             var output = commonForms.dateRegex(input);
 
@@ -444,7 +467,7 @@ fdescribe('Form validation functions:', function() {
 
     describe ('maxValue validation', function () {
         it ('should pass values less than than a provided maxValue', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.dataset.maxvalue = 200;
             input.value = 10;
             let output = commonForms.maxValue(input);
@@ -453,7 +476,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should fail values greater than a provided maxValue', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.dataset.maxvalue = 200;
             input.value = 210;
             let output = commonForms.maxValue(input);
@@ -462,7 +485,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should pass through if a maxValue is not set', function () {
-            let input = document.createElement('input');
+            let input = createField('input');
             input.value = 10;
             let output = commonForms.maxValue(input);
 
@@ -472,7 +495,7 @@ fdescribe('Form validation functions:', function() {
         it ('should display a custom error message if one is provided', function () {
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            let input = document.createElement('input');
+            let input = createField('input');
             input.dataset.maxvalue = 200;
             input.dataset.message = 'foo {value}';
             input.value = 210;
@@ -485,7 +508,7 @@ fdescribe('Form validation functions:', function() {
             spyOn(commonForms, 'toggleFormErrors');
             spyOn(commonForms, 'toggleCurrentErrors');
 
-            let input = document.createElement('input');
+            let input = createField('input');
             input.dataset.maxvalue = 200;
             input.value = 10;
             let output = commonForms.maxValue(input);
@@ -501,7 +524,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise a valid currency amount', function () {
-            var input = document.createElement('input');
+            var input = createField('input');
             input.value = 145.67;
             var output = commonForms.validCurrency(input);
 
@@ -509,7 +532,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise an empty field as valid', function () {
-            var input = document.createElement('input');
+            var input = createField('input');
             input.value = '';
             var output = commonForms.validCurrency(input);
 
@@ -517,7 +540,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise non-numeric input as invalid', function () {
-            var input = document.createElement('input');
+            var input = createField('input');
             input.value = 'asdfgh';
             var output = commonForms.validCurrency(input);
 
@@ -525,7 +548,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise no decimal places as valid', function () {
-            var input = document.createElement('input');
+            var input = createField('input');
             input.value = 123;
             var output = commonForms.validCurrency(input);
 
@@ -533,7 +556,7 @@ fdescribe('Form validation functions:', function() {
         });
 
         it ('should recognise too many decimal places as invalid', function () {
-            var input = document.createElement('input');
+            var input = createField('input');
             input.value = 145.678;
             var output = commonForms.validCurrency(input);
 
@@ -543,20 +566,20 @@ fdescribe('Form validation functions:', function() {
 
     describe ('Required field validation', function () {
         it ('should pass any non-empty input', function () {
-            var input = document.createElement('input');
+            var input = createField('input');
             var output;
 
             input.value = 'bananas';
-            output = commonForms.requiredField(input[0]);
+            output = commonForms.requiredField(input);
             expect(output).toEqual(true);
 
             input.value = '';
-            output = commonForms.requiredField(input[0]);
+            output = commonForms.requiredField(input);
             expect(output).toEqual(false);
         });
 
         it ('should display a custom error message if one is provided', function () {
-            var input = document.createElement('input');
+            var input = createField('input');
             var output;
 
             spyOn(commonForms, 'toggleCurrentErrors');
@@ -565,13 +588,13 @@ fdescribe('Form validation functions:', function() {
             output = commonForms.requiredField(input, 'a custom message');
             expect(output).toEqual(true);
 
-            expect(commonForms.toggleCurrentErrors).toHaveBeenCalledWith(input, true, 'invalid-required', 'a custom message');
+            expect(commonForms.toggleCurrentErrors).toHaveBeenCalledWith(input, true, 'invalid-required', '<strong>test field</strong> <br>a custom message');
         });
     });
 
     describe ('Required dropdown validation', function () {
         it ('should fail dropdowns with no selected value', function () {
-            var select = document.createElement('select');
+            var select = createField('select');
             select.innerHTML = '<option value="">foo</option><option value="bar">bar</option>';
             var output;
 
@@ -587,15 +610,15 @@ fdescribe('Form validation functions:', function() {
 
     describe ('Regexp match validation', function () {
         it ('should pass matching values and fail non-matching values', function () {
-            var input = document.createElement('input');
+            var input = createField('input');
             input.setAttribute('pattern', '\\w\\w\\d\\d');
             var output;
 
-            input.val('aa11');
+            input.value = 'aa11';
             output = commonForms.regexMatch(input);
             expect(output).toBeTruthy();
 
-            input.val('ball');
+            input.value = 'ball';
             output = commonForms.regexMatch(input);
             expect(output).toBeFalsy();
         });
@@ -603,7 +626,7 @@ fdescribe('Form validation functions:', function() {
 
     describe ('Max character count validation', function () {
         it ('should pass fields that are under or equal to the max character limit and fail fields that are over it.', function () {
-            var input = document.createElement('input');
+            var input = createField('input');
             var output;
 
             input.value = 'bananas';
@@ -612,54 +635,6 @@ fdescribe('Form validation functions:', function() {
 
             output = commonForms.maxCharacters(input, 5);
             expect(output).toEqual(false);
-        });
-    });
-
-    describe ('Numeric validation', function () {
-        it ('should pass numbers and fail non-numbers', function () {
-            var input = document.createElement('input');
-            var output;
-
-            input.value = 100;
-            output = commonForms.numericOnly(input);
-            expect(output).toEqual(true);
-
-            input.value = 'foo';
-            output = commonForms.numericOnly(input);
-            expect(output).toEqual(false);
-
-            input.value = [123,456];
-            output = commonForms.numericOnly(input);
-            expect(output).toEqual(false);
-
-            input.value = ['abc','def'];
-            output = commonForms.numericOnly(input);
-            expect(output).toEqual(false);
-
-            input.value = {foo:'bar'};
-            output = commonForms.numericOnly(input);
-            expect(output).toEqual(false);
-        });
-
-        it ('should obey optional min and max params', function () {
-            var input = document.createElement('input');
-            var output;
-
-            input.val(-1);
-            output = commonForms.numericOnly(input);
-            expect(output).toEqual(false);
-
-            input.val('10000');
-            output = commonForms.numericOnly(input);
-            expect(output).toEqual(false);
-
-            input.val(-1);
-            output = commonForms.numericOnly(input, -100);
-            expect(output).toEqual(true);
-
-            input.val(10000);
-            output = commonForms.numericOnly(input, 1, 100000);
-            expect(output).toEqual(true);
         });
     });
 });

@@ -7,11 +7,13 @@ class SmartAnswer {
         this.container = container;
         this.answersTemplate = require('../templates/smartanswer-answers');
         this.errorSummary = document.querySelector('.ds_error-summary');
-        this.pageTitle = document.querySelector('.mg_smart-answer__parent-title').innerText;
+        this.pageTitle = document.title;
+        this.startPage = document.getElementById('start-page-link') ? document.getElementById('start-page-link').getAttribute('href') : '';
     }
 
     init() {
         this.overrideInPageLinks();
+
         this.initErrorSummary();
 
         // set the form state to match the initial URL
@@ -24,7 +26,7 @@ class SmartAnswer {
 
         // identify the the question response that would bring the user to a particular step
         // this is used to build URLs for the form state
-        var steps = this.container.querySelectorAll('.mg_smart-answer__step');
+        const steps = this.container.querySelectorAll('.mg_smart-answer__step');
         steps.forEach(step => {
             if (this.container.querySelector(`[data-nextstep="${step.id}"]`)) {
                 step.dataset.previousResponse = this.container.querySelector(`[data-nextstep="${step.id}"]`).id;
@@ -104,7 +106,7 @@ class SmartAnswer {
             let answerpath = '#!';
 
             // replay the responses from the URL through the form
-            for (var i = 0, il = responses.length; i < il; i++) {
+            for (let i = 0, il = responses.length; i < il; i++) {
                 const chosenAnswer = step.querySelector(`[value="${responses[i]}"]`);
                 if (chosenAnswer) {
                     answers.push(
@@ -129,24 +131,23 @@ class SmartAnswer {
         this.showStep(step, focus);
         this.hideErrorSummary();
 
-
         // populate the answer list
         const answerListHtml = this.answersTemplate.render({
-            startPageLink: document.getElementById('start-page-link').getAttribute('href'),
+            startPageLink: this.startPage,
             answers: answers
         });
         document.getElementById('answered-questions').innerHTML = answerListHtml;
     }
 
     showErrorSummary() {
-        this.errorSummary.classList.add('fully-hidden');
+        this.errorSummary.classList.remove('fully-hidden');
         document.title = `Error: ${this.stepTitle} - Mygov`;
         this.errorSummary.focus();
     }
 
     hideErrorSummary() {
         this.errorSummary.classList.add('fully-hidden');
-        document.title = `${this.pageTitle} - Mygov`;
+        document.title = `${this.pageTitle}`;
     }
 
     /*
@@ -187,13 +188,13 @@ class SmartAnswer {
      * Build the hashbang URL from the answered questions
      * Use the URL to trigger a hashchange event & perform navigation
      */
-    updateUrl (currentStep) {
-        var urlBits = [];
+    updateUrl(currentStep) {
+        const urlBits = [];
 
         while (currentStep && this.container.querySelector('#' + currentStep.dataset.previousResponse)) {
             urlBits.push(this.container.querySelector('#' + currentStep.dataset.previousResponse).value);
 
-            var prevStep = this.container.querySelector(`[data-nextstep="${currentStep.id}"]`);
+            const prevStep = this.container.querySelector(`[data-nextstep="${currentStep.id}"]`);
 
             if (prevStep) {
                 currentStep = prevStep.closest('.mg_smart-answer__question');

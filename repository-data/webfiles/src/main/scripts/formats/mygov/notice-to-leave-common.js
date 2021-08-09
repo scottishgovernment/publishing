@@ -72,6 +72,7 @@ import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import formSections from '../../components/mygov/housing-forms/notice-to-leave-sections';
 import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
+import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/notice-to-leave-form');
 const summaryTemplate = require('../../templates/mygov/notice-to-leave-summary');
@@ -124,7 +125,7 @@ const noticeToLeaveForm = {
         const overviewContent = formTemplateContainer.innerHTML;
 
         const formTemplateData = {
-            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg')
         };
 
         if (formType === 'tenant') {
@@ -208,11 +209,11 @@ const noticeToLeaveForm = {
     },
 
     setupDatePickers: function () {
-        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), { maxDate: new Date(), imagePath: BR.webfile('/assets/images/icons/') });
-        const tenancyStartWithHelpDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-with-help-picker'), {maxDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
-        const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
-        const tribunalDatePicker = new DSDatePicker(document.getElementById('notice-period-end-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
-        const tribunalWithHelpDatePicker = new DSDatePicker(document.getElementById('notice-period-end-date-with-help-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
+        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), { maxDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/') });
+        const tenancyStartWithHelpDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-with-help-picker'), {maxDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const tribunalDatePicker = new DSDatePicker(document.getElementById('notice-period-end-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const tribunalWithHelpDatePicker = new DSDatePicker(document.getElementById('notice-period-end-date-with-help-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
 
         tenancyStartDatePicker.init();
         tenancyStartWithHelpDatePicker.init();

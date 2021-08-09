@@ -263,6 +263,7 @@ import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
+import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
 
@@ -349,7 +350,7 @@ const nonProvisionForm = {
         const overviewContent = formTemplateContainer.innerHTML;
         formTemplateContainer.innerHTML = formTemplate.render({
             tenants: true,
-            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg')
         });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
@@ -497,8 +498,8 @@ const nonProvisionForm = {
         const newDate = new Date();
         const minChangedDate = new Date(newDate.setDate(newDate.getDate() - 27));
 
-        const changedDatePicker = new DSDatePicker(document.getElementById('changed-terms-date-picker'), {minDate: minChangedDate, maxDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
-        const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
+        const changedDatePicker = new DSDatePicker(document.getElementById('changed-terms-date-picker'), {minDate: minChangedDate, maxDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const noticeDatePicker = new DSDatePicker(document.getElementById('notice-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
 
         changedDatePicker.init();
         noticeDatePicker.init();

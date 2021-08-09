@@ -5,6 +5,7 @@
 import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
 import feedback from '../../components/feedback';
+import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/rent-pressure-zone-checker');
 
@@ -53,6 +54,8 @@ const rpzChecker = {
     }),
 
     init: function () {
+        feedback.init();
+
         // append form template
         const formTemplateContainer = document.querySelector('#form-container');
         if (!formTemplateContainer) {
@@ -60,7 +63,7 @@ const rpzChecker = {
         }
         const overviewContent = formTemplateContainer.innerHTML;
         formTemplateContainer.innerHTML = formTemplate.render({
-            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg')
         });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
@@ -68,7 +71,6 @@ const rpzChecker = {
 
         this.form.init();
 
-        feedback.init();
         const rpzComplete = function(){};
         new PostcodeLookup({  // NOSONAR
             rpz: true,

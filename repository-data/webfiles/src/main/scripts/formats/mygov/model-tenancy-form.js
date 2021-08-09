@@ -15,6 +15,7 @@ import formMapping from '../../components/mygov/housing-forms/model-tenancy-mapp
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
+import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/model-tenancy-form');
 const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
@@ -113,7 +114,7 @@ const modelTenancyForm = {
         const overviewContent = formTemplateContainer.innerHTML;
         formTemplateContainer.innerHTML = formTemplate.render({
             tenants: true,
-            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg')
         });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
@@ -439,10 +440,10 @@ const modelTenancyForm = {
     },
 
     setupDatePickers: function () {
-        const startDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
-        const hmoDatePicker = new DSDatePicker(document.getElementById('hmo-expiry-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
-        const firstPaymentDatePicker = new DSDatePicker(document.getElementById('first-payment-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
-        const firstPaymentEndDatePicker = new DSDatePicker(document.getElementById('first-payment-end-date-picker'), {minDate: new Date(), imagePath: BR.webfile('/assets/images/icons/')});
+        const startDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const hmoDatePicker = new DSDatePicker(document.getElementById('hmo-expiry-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const firstPaymentDatePicker = new DSDatePicker(document.getElementById('first-payment-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const firstPaymentEndDatePicker = new DSDatePicker(document.getElementById('first-payment-end-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
 
         startDatePicker.init();
         hmoDatePicker.init();

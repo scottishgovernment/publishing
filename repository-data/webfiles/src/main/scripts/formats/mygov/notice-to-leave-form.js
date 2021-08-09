@@ -8,7 +8,7 @@ window.format = noticeToLeaveForm;
 const formBoxEl = document.querySelector('.multi-page-form');
 
 let formType;
-if (formBoxEl.getAttribute('name') === 'notice-to-leave-form') {
+if (formBoxEl && formBoxEl.getAttribute('name') === 'notice-to-leave-form') {
     formType = 'tenant';
 } else {
     formType = 'subtenant';

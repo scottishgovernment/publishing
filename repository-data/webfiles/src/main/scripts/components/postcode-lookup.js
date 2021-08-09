@@ -80,7 +80,7 @@ function init() {
         self.findAddresses(input, select);
     }
 
-    $('body').on('click', self.settings.lookupId + '.js-postcode-lookup .js-find-address-button', function (event) {
+    $('body').on('click', self.settings.lookupId + ' .js-find-address-button', function (event) {
         event.preventDefault();
         submitSearch();
     });
@@ -274,7 +274,9 @@ function findAddresses (input, select) {
                 field.classList.add('no-validate');
             }
 
-            window.DS.tracking.init(document.querySelector(self.settings.lookupId));
+            if (window.DS && window.DS.tracking) {
+                window.DS.tracking.init(document.querySelector(self.settings.lookupId));
+            }
         })
         .fail(function(response){
             self.clearAddresses();

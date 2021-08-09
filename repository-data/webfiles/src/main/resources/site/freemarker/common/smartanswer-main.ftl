@@ -70,12 +70,12 @@
                     </#list>
 
                     <#list answers as answer>
-                        <div tabindex="-1" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-${answer.name}">
+                        <section tabindex="-1" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-${answer.name}">
                             <header class="ds_page-header">
                                 <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">${answer.title}</h1>
                             </header>
                             <@hst.html hippohtml=answer.answer/>
-                        </div>
+                        </section>
                     </#list>
 
                     <div id="answered-questions"></div>

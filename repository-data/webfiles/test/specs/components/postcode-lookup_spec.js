@@ -7,6 +7,8 @@ jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
 import commonForms from '../../../src/main/scripts/tools/forms';
 import PostcodeLookup from '../../../src/main/scripts/components/postcode-lookup';
 
+
+
 var testObj = {
     ajaxFunction: function (url) {
         $.ajax({url: url}).done(this.successFunction.bind(this));

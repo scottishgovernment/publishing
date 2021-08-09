@@ -1,142 +1,263 @@
-<div class="ds_layout__content">
-    <section id="introduction" class="tabbed wizard-step" data-step="0">
-        <p>This calculator gives an estimate of your non-domestic rates bill for 2019-20. It also shows which council is responsible for your rates. </p>
-<div class="ds_inset-text">
-<div class="ds_inset-text__text">
-Non-domestic rates are often referred to as &#39;business rates&#39;.
-</div>
+<div id="section-progess-indicator">
 </div>
 
-<p>The calculator does not show all the reliefs (discounts) you might be able to get. It only shows if you can get the <a href="/non-domestic-rates-relief/small-business-bonus-scheme/">Small Business Bonus Scheme</a>.</p>
-<blockquote>
-<p>hello!</p>
-</blockquote>
-<p>oien;v</p>
-<div class="ds_accordion-item">
-<input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-panel-3104040" aria-labelledby="panel-panel-3104040-heading">
-<div class="ds_accordion-item__header">
-<h3 id="panel-panel-3104040-heading" class="ds_accordion-item__title">
-hello
-</h3>
-<span class="ds_accordion-item__indicator"></span>
-<label class="ds_accordion-item__label" for="panel-panel-3104040"><span class="visually-hidden">Show this section</span></label>
-</div>
-<div class="ds_accordion-item__body">
-<h2 id="hello">hello</h2>
-<p>feedle de dee</p>
-<h2 id="anyone-">anyone?</h2>
-<p>ea;oiner;onv</p>
-<h2 id="anyone-">anyone?</h2>
-<p>ea;oiner;onv</p>
-
-</div>
+<div id="subsection-progess-indicator">
 </div>
 
+<div class="multi-page-form form-box" name="business-rates-calculator">
+    <div class="ds_error-summary  fully-hidden  client-error" id="feedback-box"
+        aria-labelledby="error-summary-title" role="alert" aria-live="assertive">
+        <h2 class="ds_error-summary__title" id="error-summary-title">There is a problem</h2>
 
+        <p>There were some errors found on this page:</p>
 
+        <div class="form-errors">
 
+        </div>
+    </div>
 
+    <div id="form-container">
 
+        <div id="brc-form" autocomplete="false">
+            <section id="overview" data-step="overview" class="form-section  form-section--unpad fully-hidden"
+                aria-hidden="true">
+                <p>This calculator gives an estimate of your non-domestic rates bill for 2021-22. It also shows
+                    which council is responsible for your rates.</p>
 
-<div class="ds_accordion" data-module="ds-accordion">
-
-<div class="ds_accordion-item">
-<input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-panel-before-you-start" aria-labelledby="panel-panel-before-you-start-heading">
-<div class="ds_accordion-item__header">
-    <h3 id="panel-panel-before-you-start-heading" class="ds_accordion-item__title">
-        Before you start
-    </h3>
-    <span class="ds_accordion-item__indicator"></span>
-    <label class="ds_accordion-item__label" for="panel-panel-before-you-start"><span class="visually-hidden">Show this section</span></label>
-</div>
-<div class="ds_accordion-item__body">
-        <p>To use the calculator, you&#39;ll need:</p>
-<ul>
-<li>the property postcode, or</li>
-<li>the street</li>
-</ul>
-<p>By continuing, you agree that you have <a href="#disclaimer">read and understood the disclaimer</a>.</p>
-<h3 id="disclaimer">Disclaimer</h3>
-<p>This calculator gives an estimate of your non-domestic rates bill. The exact amount you&#39;ll need to pay (your net liability) can only be provided by your local council when it sends your rates bill.</p>
-<p>The calculator currently uses draft revaluations (rateable values) which are available at <a href="https://www.saa.gov.uk">www.saa.gov.uk</a>. </p>
-<p>We accept no liability for the information provided by this calculator.</p>
-<p>Reliefs (discounts) and net liability may not be comprehensive if the property receives other discretionary reliefs. Please <a href="https://www.mygov.scot/find-your-local-council/">contact your local council</a> for further information.</p>
-<p>Read <a href="/non-domestic-rates-guidance/">more information on non-domestic rates</a>.</p>
-
-</div>
-</div>
-<div class="ds_accordion-item">
-<input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-panel-extra-reliefs" aria-labelledby="panel-panel-extra-reliefs-heading">
-<div class="ds_accordion-item__header">
-    <h3 id="panel-panel-extra-reliefs-heading" class="ds_accordion-item__title">
-        Extra reliefs
-    </h3>
-    <span class="ds_accordion-item__indicator"></span>
-    <label class="ds_accordion-item__label" for="panel-panel-extra-reliefs"><span class="visually-hidden">Show this section</span></label>
-</div>
-<div class="ds_accordion-item__body">
-        <p>If you want to know more about any extra reliefs, you can: </p>
-<ul>
-<li>find more information <a href="/non-domestic-rates-relief/">non-domestic rates reliefs</a></li>
-<li>contact your <a href="/find-your-local-council/">local council</a> for advice</li>
-</ul>
-
-</div>
-</div>
-</div>
-
-
-        <a href="#property-address" class="wizard-navigation ds_button"><span class="link-text">Start now</span></a>
-
-    </section>
-    <!-- /end #introduction -->
-
-    <section id="property-address" class="wizard-step fully-hidden" data-step="1">
-
-        <div class="form-box  no-margin">
-            <form id="postcode-form">
-                <div class="form-group">
-                    <label class="ds_label" for="postcode">Enter business postcode</label>
-
-                    <div class="ds_input__wrapper">
-                        <input class="ds_input  ds_input--fixed-10  postcode-search" type="text" id="postcode" placeholder="e.g. EH7 4EL" data-form="textinput-postcode">
-                        <button id="find-by-postcode" class="js-find-address-button  ds_button">Find address</button>
+                <div class="ds_inset-text">
+                    <div class="ds_inset-text__text">
+                        <p>Non-domestic rates are often referred to as 'business rates'.</p>
                     </div>
                 </div>
-            </form>
 
-            <p><a href="#" id="dont-know-postcode" class="small">I do not know the postcode</a></p>
+                <p>The calculator does not show all the reliefs (discounts) you might be able to get. It only
+                    shows the universal relief and the <a
+                        href="/non-domestic-rates-relief/small-business-bonus-scheme">Small Business Bonus
+                        Scheme</a>.</p>
 
-            <form id="address-form">
-                <div class="form-group">
-                    <label class="ds_label" for="address">Street</label>
-                    <input placeholder="e.g. High Street" type="text" class="ds_input" id="address" data-form="textinput-address">
+                <div class="ds_accordion js-initialised" data-module="ds-accordion"><button
+                        class="ds_link  ds_accordion__open-all  js-open-all"
+                        data-button="button-open-all-sections" data-accordion="accordion-open-all">Open all
+                        <span class="visually-hidden">sections</span></button>
+                    <div class="ds_accordion-item"><input aria-labelledby="panel-panel-65671600-heading"
+                            id="panel-panel-65671600" type="checkbox"
+                            class="ds_accordion-item__control fully-hidden">
+
+
+                        <button class="ds_accordion-item__header-button js-accordion-button"
+                            aria-controls="accordion-item-965833" aria-expanded="false"
+                            data-accordion="accordion-open-1" data-button="button-before-you-start">Before you
+                            start<span class="ds_accordion-item__indicator"></span></button>
+                        <div class="ds_accordion-item__body" id="accordion-item-965833">
+                            <p>To use the calculator, you'll need:</p>
+
+                            <ul>
+                                <li>the property postcode, or</li>
+                                <li>the street</li>
+                            </ul>
+
+                            <p>By continuing, you agree that you have <a href="#disclaimer">read and understood
+                                    the disclaimer</a>.</p>
+
+                            <h3>Disclaimer</h3>
+
+                            <p>This calculator gives an estimate of your non-domestic rates bill. The exact
+                                amount you'll need to pay (your net liability) can only be provided by your
+                                local council when it sends your rates bill.</p>
+
+                            <p>The calculator currently uses draft revaluations (rateable values) which are
+                                available at <a href="https://www.saa.gov.uk"
+                                    onclick="saAutomatedLink(this, &quot;outbound&quot;); return false;">www.saa.gov.uk</a>.
+                            </p>
+
+                            <p>We accept no liability for the information provided by this calculator.</p>
+
+                            <p>Reliefs (discounts) and net liability may not be comprehensive if the property
+                                receives other discretionary reliefs. Please <a
+                                    href="https://www.mygov.scot/find-your-local-council/">contact your local
+                                    council</a> for further information.</p>
+
+                            <p>Read <a href="/non-domestic-rates-guidance">more information on non-domestic
+                                    rates</a>.</p>
+                        </div>
+                    </div>
+                    <div class="ds_accordion-item"><input aria-labelledby="panel-panel-53567766-heading"
+                            id="panel-panel-53567766" type="checkbox"
+                            class="ds_accordion-item__control fully-hidden">
+
+
+                        <button class="ds_accordion-item__header-button js-accordion-button"
+                            aria-controls="accordion-item-373320" aria-expanded="false"
+                            data-accordion="accordion-open-2" data-button="button-extra-reliefs">Extra
+                            reliefs<span class="ds_accordion-item__indicator"></span></button>
+                        <div class="ds_accordion-item__body" id="accordion-item-373320">
+                            <p>If you want to know more about any extra reliefs, you can:</p>
+
+                            <ul>
+                                <li>find more information <a href="/non-domestic-rates-relief">non-domestic
+                                        rates reliefs</a></li>
+                                <li>contact your <a href="/find-your-local-council">local council</a> for advice
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="ds_label" for="town">Town</label>
-                    <input placeholder="e.g. Edinburgh" type="text" class="ds_input" id="town" data-form="textinput-town">
-                    <button style="margin-top: 0;" id="find-by-address" class="button--primary button button--medium">Find</button>
+
+                <a href="#!/property/" type="button" class="ds_button  ds_button--has-icon"
+                    data-button="button-next">
+                    Next
+                    <svg class="ds_icon" aria-hidden="true" role="img">
+                        <use
+                            xlink:href="/assets/images/icons/icons.stack.svg#chevron_right">
+                        </use>
+                    </svg>
+                </a>
+            </section>
+
+            <section data-step="property" class="form-section" aria-hidden="false">
+                <h2>Search for a property</h2>
+
+                <form id="postcode-form">
+                    <div class="ds_question">
+                        <label class="ds_label" for="postcode">Enter business postcode</label>
+
+                        <div class="ds_input__wrapper">
+                            <input class="ds_input ds_input--fixed-10 postcode-search" type="text" id="postcode"
+                                placeholder="e.g. EH7 4EL" data-form="textinput-postcode">
+                            <button id="find-by-postcode" class="js-find-address-button  ds_button"
+                                data-button="button-find-address">Find address</button>
+                        </div>
+                        <p><a href="#" id="dont-know-postcode" class="small  js-show-address-search">I do not
+                                know the postcode</a></p>
+                    </div>
+                </form>
+
+                <form id="address-form" class="fully-hidden">
+                    <fieldset>
+                        <legend>Search by street and town</legend>
+                        <div class="ds_question" id="street-and-town">
+                            <label class="ds_label" for="address">Street</label>
+                            <input placeholder="e.g. High Street" type="text" class="ds_input" id="address"
+                                data-form="textinput-address">
+
+                            <label class="ds_label" for="town">Town</label>
+                            <input placeholder="e.g. Edinburgh" type="text" class="ds_input" id="town"
+                                data-form="textinput-town">
+                        </div>
+
+                        <button style="margin-top: 0;" id="find-by-address"
+                            class="button--primary button button--medium"
+                            data-button="button-find-by-street-town">Find by street/town</button>
+                    </fieldset>
+                </form>
+
+                <div id="property-select-wrapper"></div>
+                <div id="property-error-wrapper"></div>
+            </section>
+
+            <section data-step="result" class="form-section  form-section--unpad fully-hidden"
+                aria-hidden="true">
+                <h2 class="emphasis">Results</h2>
+                <div id="property-results">
+
+
+
+                    <div class="mg_leg_result">
+                        <div class="indent">
+
+
+
+                            <h3 class="brc-result__title">CARDTRONICS EUROPE LIMITED</h3>
+
+                            <div class="address">
+                                <h4>Address</h4>
+                                <p>(A1)
+                                    VICTORIA QUAY
+                                    EDINBURGH
+                                    EH6 6QQ</p>
+                            </div>
+
+                            <div class="block right">
+                                <h4>Rateable value</h4>
+                                <p>£4,875.00</p>
+
+                                <h4>Liability before relief</h4>
+                                <p>£2,388.75</p>
+                            </div>
+
+                            <div class="relief right block">
+                                <h3>Relief applied</h3>
+
+
+
+                                <h4>Small Business Bonus Scheme</h4>
+                                <p class="discount">100% discount</p>
+                                <p>£2,388.75</p>
+
+
+
+
+
+                            </div>
+
+                            <div class="liability block right">
+                                <h4>Net liability</h4>
+                                <p>The amount you might have to pay:</p>
+
+                                <p class="large heavy">£0.00</p>
+                            </div>
+
+                            <p class="clear-results"><a href="#!/overview/"
+                                    class="ds_button  ds_button--cancel  js-clear-results"
+                                    data-button="button-clear-results-and-start-again">Clear results and start
+                                    again</a></p>
+
+                            <div class="ds_inset-text">
+                                <div class="ds_inset-text__text">
+                                    <p>If you have more than one business property, it might affect your
+                                        eligibility for the Small Business Bonus Scheme.</p>
+                                    <p>You can <a href="#!/property/" class="js-add-another"
+                                            data-navigation="inset-link">add additional properties</a>.</p>
+                                </div>
+                            </div>
+
+                            <h4 class="gamma">Extra reliefs available</h4>
+
+                            <p>You might be able to get extra reliefs. You can:</p>
+
+                            <ul>
+                                <li>find more information on <a
+                                        href="https://www.mygov.scot/business-rates-relief/"
+                                        target="_blank">business rates reliefs</a></li>
+                                <li>contact your <a href="https://www.mygov.scot/find-your-local-council/"
+                                        target="_blank">local council</a> for advice<p></p>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <h2 class="emphasis">What to do next?</h2>
+
+                        <div class="indent">
+
+                            <p>The exact amount you'll pay can only be provided by your local council when it
+                                sends you your rates bill.</p>
+                            <p>A rates bill will be issued when you notify the council of your move to the new
+                                premises.</p>
+                            <a href="http://www.edinburgh.gov.uk/info/20020/business_rates" class="ds_button"
+                                data-button="button-contact-city-of-edinburgh-council">
+                                Contact City of Edinburgh council
+                            </a>
+
+                        </div>
+                    </div>
+
+
                 </div>
-            </form>
+            </section>
         </div>
 
-    </section>
-    <!-- /end #property-address -->
 
-    <section id="results" class="wizard-step" data-step="2" aria-hidden="false">
-        <h2 class="emphasis">Results</h2>
-        <div id="property-results"><div class="mg_leg_result"><div class="indent"><h3 class="brc-result__title">Property 2</h3><a href="#" class="remove-property  ds_button  ds_button--cancel  ds_button--small  ds_button--has-icon" data-property-index="0">Remove property
-<svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#close"></use></svg>
-</a><div class="address"><h4>Address</h4><p>CARDTRONICS EUROPE LIMITED, (A1)
-VICTORIA QUAY
-EDINBURGH
-EH6 6QQ</p></div><div class="block right"><h4>Rateable value</h4><p>£4,875.00</p><h4>Liability before relief</h4><p>£2,427.75</p></div><div class="relief right block"><h3>Relief applied</h3><h4>Small Business Bonus Scheme</h4><p class="discount">100% discount</p><p>£2,427.75</p><h4>Universal 1.6% relief</h4><p class="discount">1.6% discount</p><p>£38.84</p></div><div class="liability block right"><h4>Net liability</h4><p>The amount you might have to pay:</p><p class="large heavy">£0.00</p></div><p><a href="#introduction" class="ds_button  ds_button--cancel">Clear results and start again</a></p><div class="ds_inset-text"><div class="ds_inset-text__text">If you have more than one business property, it might affect your eligibility for the Small Business Bonus Scheme. You can <a href="#property-address" class="reset">add additional properties</a>.</div></div><h4 class="gamma">Extra reliefs available</h4><p>You might be able to get extra reliefs. You can:</p><ul><li>find more information on <a href="https://www.mygov.scot/business-rates-relief/" target="_blank">business rates reliefs</a></li><li>contact your <a href="https://www.mygov.scot/find-your-local-council/" target="_blank">local council</a> for advice<p></p></li></ul></div><h2 class="emphasis">What to do next?</h2><div class="indent"><p>The exact amount you'll pay can only be provided by your local council when it sends you your rates bill.</p><p>A rates bill will be issued when you notify the council of your move to the new premises.</p><a href="http://www.edinburgh.gov.uk/info/20020/business_rates" class="ds_button">Contact City of Edinburgh council</a></div></div><div class="mg_leg_result"><div class="indent"><h3 class="brc-result__title">Property 1</h3><a href="#" class="remove-property  ds_button  ds_button--cancel  ds_button--small  ds_button--has-icon" data-property-index="1">Remove property
-<svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#close"></use></svg>
-</a><div class="address"><h4>Address</h4><p>EDINBURGH PISTOL CLUB PER R E MANNIFIELD, AIRHOUSE QUARRY
-OXTON
-LAUDER
-TD2 6PU</p></div><div class="block right"><h4>Rateable value</h4><p>£100.00</p><h4>Liability before relief</h4><p>£49.80</p></div><div class="relief right block"><h3>Relief applied</h3><h4>Small Business Bonus Scheme</h4><p class="discount">100% discount</p><p>£49.80</p><h4>Universal 1.6% relief</h4><p class="discount">1.6% discount</p><p>£0.80</p></div><div class="liability block right"><h4>Net liability</h4><p>The amount you might have to pay:</p><p class="large heavy">£0.00</p></div><p><a href="#introduction" class="ds_button  ds_button--cancel">Clear results and start again</a></p><div class="ds_inset-text"><div class="ds_inset-text__text">If you have more than one business property, it might affect your eligibility for the Small Business Bonus Scheme. You can <a href="#property-address" class="reset">add additional properties</a>.</div></div><h4 class="gamma">Extra reliefs available</h4><p>You might be able to get extra reliefs. You can:</p><ul><li>find more information on <a href="https://www.mygov.scot/business-rates-relief/" target="_blank">business rates reliefs</a></li><li>contact your <a href="https://www.mygov.scot/find-your-local-council/" target="_blank">local council</a> for advice<p></p></li></ul></div><h2 class="emphasis">What to do next?</h2><div class="indent"><p>The exact amount you'll pay can only be provided by your local council when it sends you your rates bill.</p><p>A rates bill will be issued when you notify the council of your move to the new premises.</p><a href="https://www.scotborders.gov.uk/info/20024/business_rates" class="ds_button">Contact Scottish Borders council</a></div></div></div>
-    </section>
-    <!-- /end #results -->
+    </div>
 </div>

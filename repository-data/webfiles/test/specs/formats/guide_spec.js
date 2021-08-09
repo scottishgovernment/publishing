@@ -7,12 +7,12 @@ jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
 import guide from '../../../src/main/scripts/formats/guide';
 import feedback from '../../../src/main/scripts/components/feedback';
 
-describe('Guide page', function() {
-    it('should be defined', function() {
-        expect(guide).toBeDefined();
-    });
+describe("guide format", function() {
+    it ('should init feedback on init', function () {
+        spyOn(feedback, 'init');
 
-    it('init should be defined', function() {
-        expect(guide.init).toBeDefined();
+        guide.init();
+
+        expect(feedback.init).toHaveBeenCalled();
     });
 });
