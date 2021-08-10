@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5b5169b6-2c83-4b4c-9d5b-a8d405fa84c7
+          jcr:uuid: 46dad68d-cc2f-4002-8442-53f62eb74572
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -24,6 +24,7 @@ definitions:
             hipposysedit:path: publishing:answer
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [required]
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -44,7 +45,7 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 707a7cc1-73a5-40a1-aed3-f62f58436e56
+          jcr:uuid: 7fd2d583-fcb5-41ec-b503-79f8a38eee61
           hippostdpubwf:lastModificationDate: 2021-05-17T11:00:50.806+01:00
           hippostdpubwf:creationDate: 2021-05-17T11:00:50.806+01:00
           publishing:title: ''
@@ -72,7 +73,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /answer:
             jcr:primaryType: frontend:plugin
-            caption: Answer
+            caption: Content
             field: answer
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
