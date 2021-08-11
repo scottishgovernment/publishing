@@ -57,25 +57,25 @@ const formIsValid = function(highlightField, errorFields) {
         $recaptcha = $('#recaptcha');
     $formErrors.html('');
 
-    const name = commonForms.validateField($name, highlightField, commonForms.requiredField,
+    const name = commonForms.validateField($name[0], highlightField, commonForms.requiredField,
         _.partialRight(commonForms.maxCharacters, $name.data('maxlength')));
     commonForms.updateErrors(errorFields, name, 'letting-agent-registration-name');
 
-    const companyName = commonForms.validateField($companyName, highlightField,
+    const companyName = commonForms.validateField($companyName[0], highlightField,
         commonForms.requiredField, _.partialRight(commonForms.maxCharacters,
         $companyName.data('maxlength')));
     commonForms.updateErrors(errorFields, companyName,
         'letting-agent-registration-company-name');
 
-    const email = commonForms.validateField($email, highlightField,
+    const email = commonForms.validateField($email[0], highlightField,
         commonForms.requiredField, commonForms.regexMatch,
         _.partialRight(commonForms.maxCharacters, $email.data('maxlength')));
     commonForms.updateErrors(errorFields, email, 'letting-agent-registration-email');
 
-    const consent = commonForms.validateField($consent, highlightField,
+    const consent = commonForms.validateField($consent[0], highlightField,
         commonForms.requiredCheckbox);
 
-    const recaptcha = commonForms.validateField($recaptcha, highlightField,
+    const recaptcha = commonForms.validateField($recaptcha[0], highlightField,
         commonForms.recaptchaCompleted);
     commonForms.updateErrors(errorFields, recaptcha, 'recaptcha');
 
@@ -164,8 +164,8 @@ window.checkRecaptcha = function() {
         return;
     }
 
-    commonForms.validateField($recaptcha, commonForms.recaptchaCompleted);
-    commonForms.showOrHideErrorBox(submitted, $clientError, isValid);
+    commonForms.validateField($recaptcha[0], commonForms.recaptchaCompleted);
+    commonForms.showOrHideErrorBox(submitted, $clientError[0], isValid);
 };
 
 lettingAgentRegistrationForm.init();

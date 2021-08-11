@@ -80,7 +80,7 @@ function init() {
         self.findAddresses(input, select);
     }
 
-    $('body').on('click', self.settings.lookupId + '.js-postcode-lookup .js-find-address-button', function (event) {
+    $('body').on('click', self.settings.lookupId + ' .js-find-address-button', function (event) {
         event.preventDefault();
         submitSearch();
     });
@@ -219,8 +219,8 @@ function clearAddresses () {
 function findAddresses (input, select) {
     const self = this;
 
-    const field = $(this.settings.lookupId).find('.postcode-search');
-    field[0].classList.remove('no-validate');
+    const field = document.querySelector(`${this.settings.lookupId} .postcode-search`);
+    field.classList.remove('no-validate');
 
     const valid = commonForms.validateInput(field, [commonForms.validPostcode]);
     if (!valid) {
@@ -271,10 +271,12 @@ function findAddresses (input, select) {
 
                 self.addressesAtPostcode = data.results;
 
-                field[0].classList.add('no-validate');
+                field.classList.add('no-validate');
             }
 
-            window.DS.tracking.init(document.querySelector(self.settings.lookupId));
+            if (window.DS && window.DS.tracking) {
+                window.DS.tracking.init(document.querySelector(self.settings.lookupId));
+            }
         })
         .fail(function(response){
             self.clearAddresses();

@@ -2,31 +2,31 @@
 <#include "./include/imports.ftl">
 
 <#if document??>
-<@hst.headContribution category="googleTagManager">
+    <@hst.headContribution category="googleTagManager">
 
-<!-- Google Tag Manager (GTM) -->
-<script id="gtm-datalayer">
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-        'gtm.whitelist': ['google', 'jsm', 'lcl'],
+    <!-- Google Tag Manager (GTM) -->
+    <script id="gtm-datalayer">
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            'gtm.whitelist': ['google', 'jsm', 'lcl'],
 
-        <#if document.audience?has_content>
-            'audience': '${document.audience}',
-        </#if>
-        <#if reportingTags?has_content>
-            'reportingTags': [<#list reportingTags as tag>'${tag?js_string}'<#sep>, </#sep></#list>],
-        </#if>
-        <#if document.lifeEvents?has_content>
-            'lifeEvents': [<#list document.lifeEvents as lifeEvent>'${lifeEvent?js_string}'<#sep>, </#sep></#list>],
-        </#if>
-        <#if document.serviceproviders?has_content>
-            'serviceproviders': [<#list document.serviceproviders as serviceprovider>'${serviceprovider?js_string}'<#sep>, </#sep></#list>],
-        </#if>
-            <#if gtmName??>'format' : '${gtmName?js_string}',</#if>
-            <#if gtmId??>'siteid' : '${gtmId?js_string}'</#if>
-    });
-</script>
-</@hst.headContribution>
+            <#if document.audience?has_content>
+                'audience': '${document.audience}',
+            </#if>
+            <#if reportingTags?has_content>
+                'reportingTags': [<#list reportingTags as tag>'${tag?js_string}'<#sep>, </#sep></#list>],
+            </#if>
+            <#if document.lifeEvents?has_content>
+                'lifeEvents': [<#list document.lifeEvents as lifeEvent>'${lifeEvent?js_string}'<#sep>, </#sep></#list>],
+            </#if>
+            <#if document.serviceproviders?has_content>
+                'serviceproviders': [<#list document.serviceproviders as serviceprovider>'${serviceprovider?js_string}'<#sep>, </#sep></#list>],
+            </#if>
+                <#if gtmName??>'format' : '${gtmName?js_string}',</#if>
+                <#if gtmId??>'siteid' : '${gtmId?js_string}'</#if>
+        });
+    </script>
+    </@hst.headContribution>
 </#if>
 
 <@hst.headContribution category="googleTagManager">

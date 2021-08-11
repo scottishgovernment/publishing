@@ -1,0 +1,105 @@
+<div class="ds_wrapper">
+    <nav aria-label="Breadcrumb">
+        <ol class="ds_breadcrumbs">
+            <li class="ds_breadcrumbs__item">
+                <a class="ds_breadcrumbs__link" href="/">
+                    Home
+                </a>
+            </li>
+            <li class="ds_breadcrumbs__item">
+                <a class="ds_breadcrumbs__link" href="/browse/housing-local-services">
+                    Housing and local services
+                </a>
+            </li>
+            <li class="ds_breadcrumbs__item">
+                <a class="ds_breadcrumbs__link" href="/browse/housing-local-services/renting-property">
+                    Renting a property
+                </a>
+            </li>
+
+            <li class="ds_breadcrumbs__item" aria-current="page">
+                Search the register of fair rents
+            </li>
+        </ol>
+    </nav>
+</div>
+<div class="ds_layout__header">
+    <div id="fair-rent-register-header">
+        <header class="ds_page-header">
+            <h1 class="ds_page-header__title">Search the register of fair rents</h1>
+            <dl class="ds_page-header__metadata  ds_metadata">
+                <div class="ds_metadata__item">
+                    <dt class="ds_metadata__key">Last updated</dt>
+                    <dd class="ds_metadata__value">4 Mar 2020</dd>
+                </div>
+            </dl>
+        </header>
+    </div>
+</div>
+
+<div class="ds_layout__content">
+
+    <section id="fair-rent-introduction" class="js-fair-rent-section  fully-hidden">
+
+        <p>Search the register of Fair Rents to find out the maximum rent that can be charged for registered
+            accommodation that:</p>
+        <ul>
+            <li>is rented privately</li>
+            <li>was let before 2 January 1989</li>
+            <li>doesn't have a resident landlord</li>
+        </ul>
+
+
+        <div class="ds_site-header__search  ds_site-search">
+            <form role="search" class="ds_site-search__form" method="GET" action="">
+                <label class="ds_label  visually-hidden" for="site-search">Search</label>
+
+                <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
+                    <input name="query" id="fair-rent-search-box" class="ds_input" type="text"
+                        placeholder="Search the Fair Rent Register">
+
+                    <button type="submit" class="ds_button  ds_button--icon-only  js-site-search-button">
+                        <span class="visually-hidden">Search the Fair Rent Register</span>
+                        <svg class="ds_icon" role="img">
+                            <use xlink:href="/webfiles/1627999798120/assets/images/icons/icons.stack.svg#search"></use>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
+        <h2 id="requesting-printed-copies">Requesting printed copies</h2>
+        <p>Details of all registrations of fair rents on individual properties since November 1994 are available on the
+            Fair Rent eRegister or you can request a printed extract from the Rent Service Scotland office.</p>
+        <div class="ds_contact-details">
+            <h3>Contact</h3>
+            <h4>Address</h4>
+            <address translate="no"> Rent Service Scotland<br> Endeavour House (second floor)<br> 1 Greenmarket<br>
+                Dundee<br> DD1 4QB<br> </address>
+            <h4>Email</h4>
+            <p><a href="mailto:rss.dundee@gov.scot">rss.dundee@gov.scot</a></p>
+            <h4>Phone</h4>
+            <p> 0300 244 7000 <br> <a href="https://www.gov.uk/call-charges">Find out about call charges</a> </p>
+        </div>
+
+    </section>
+
+    <section id="fair-rent-list" class="js-fair-rent-section  fully-hidden">
+        <div class="ds_search-results">
+            <h2 class="visually-hidden">Search results</h2>
+
+            <div id="results-top"></div>
+
+            <p id="result-count" class="ds_search-results__count  js-search-results-count"></p>
+
+            <ol id="search-results-list" class="ds_search-results__list"></ol>
+
+            <div id="pagination"></div>
+        </div>
+    </section>
+
+    <section id="fair-rent-property" class="js-fair-rent-section  fully-hidden">
+
+    </section>
+</div>

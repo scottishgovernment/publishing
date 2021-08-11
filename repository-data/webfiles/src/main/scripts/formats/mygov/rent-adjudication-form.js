@@ -129,6 +129,7 @@ import PostcodeLookup from '../../components/postcode-lookup';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import formSections from '../../components/mygov/housing-forms/rent-adjudication-sections';
+import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/rent-adjudication-form');
 const summaryTemplate = require('../../templates/mygov/rent-adjudication-summary');
@@ -196,7 +197,7 @@ const rentAdjudicationForm = {
         const overviewContent = formTemplateContainer.innerHTML;
         formTemplateContainer.innerHTML = formTemplate.render({
             tenants: true,
-            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg')
         });
         formTemplateContainer.querySelector('#overview').innerHTML = formTemplateContainer.querySelector('#overview').innerHTML + overviewContent;
 

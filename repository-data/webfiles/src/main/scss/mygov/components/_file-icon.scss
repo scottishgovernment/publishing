@@ -23,7 +23,7 @@ $filetypegroups: (
     (kml, kmz) geo $ds_colour__icon--geo
 ) !default;
 
-.#{$mg-prefix}file {
+.#{$site-prefix}file {
     color: $ds_colour__icon--default;
     display: inline-block;
     @include small-size;

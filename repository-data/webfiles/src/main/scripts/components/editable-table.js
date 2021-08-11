@@ -185,7 +185,7 @@ export default class EditableTable {
                 }
             }
 
-            commonForms.validateInput($(element), validationChecks);
+            commonForms.validateInput(element, validationChecks);
         });
 
         var invalidFields = container.querySelectorAll('[aria-invalid="true"]');

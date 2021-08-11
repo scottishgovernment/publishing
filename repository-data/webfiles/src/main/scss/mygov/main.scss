@@ -2,7 +2,7 @@
  * PATTERN LIBRARY VALUES
  */
  $iconsfile: "../../images/icons/icons.stack.svg";
-$mg-prefix: "mg_";
+$site-prefix: "mg_";
 
 
 /**
@@ -10,7 +10,8 @@ $mg-prefix: "mg_";
  */
 @import "../../../../node_modules/@scottish-government/pattern-library/src/base/all-base";
 @import "../../../../node_modules/@scottish-government/pattern-library/src/forms/all-forms";
-@import "base.mg-layouts";
+@import "../base/helpers/no-margin";
+@import "base/mg-layouts";
 
 
 
@@ -27,30 +28,32 @@ $mg-prefix: "mg_";
 /**
  * COMPONENTS FROM PUBLISHING
  */
-@import "../../scss/form-box";
+@import "../components/form-box";
 
 
 
 /**
  * COMPONENTS FROM MYGOV
  */
-@import "component.article-aside";
-@import "component.az-nav";
-@import "component.document-info";
-@import "component.editable-table";
-@import "component.feedback";
-@import "component.file-icon";
-@import "component.form-pieces";
-@import "component.homepage-hero";
-@import "component.org-person";
-@import "component.org-sectors";
-@import "component.org-services";
-@import "component.partner-logo";
-@import "component.popular-panel";
-@import "component.repeating-container";
-@import "component.section-nav";
-@import "component.subsection-nav";
-@import "component.summary-table";
+@import "components/article-aside";
+@import "components/az-nav";
+@import "components/document-info";
+@import "components/editable-table";
+@import "components/feedback";
+@import "components/file-icon";
+@import "components/form-pieces";
+@import "components/homepage-hero";
+@import "components/org-person";
+@import "components/org-sectors";
+@import "components/org-services";
+@import "components/partner-logo";
+@import "components/popular-panel";
+@import "components/repeating-container";
+@import "components/section-nav";
+@import "components/smart-answer";
+@import "components/subsection-nav";
+@import "components/summary-list";
+@import "components/summary-table";
 @import "legacy/business-rates-results";
 
 @import "mg_address-reveal";
@@ -65,4 +68,8 @@ $mg-prefix: "mg_";
 
 .js-enabled .fully-hidden-if-js {
     display: none;
+}
+
+.ds_page__middle {
+    padding-bottom: 64px;
 }

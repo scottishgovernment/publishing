@@ -4,10 +4,15 @@
 
 jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
 
-import index from '../../../src/main/scripts/formats/home';
+import home from '../../../src/main/scripts/formats/home';
+import feedback from '../../../src/main/scripts/components/feedback';
 
-describe("index format", function() {
-    it ('should have an init function', function () {
-        expect(index.init).toBeDefined();
+describe("homepage format", function() {
+    it ('should init feedback on init', function () {
+        spyOn(feedback, 'init');
+
+        home.init();
+
+        expect(feedback.init).toHaveBeenCalled();
     });
 });

@@ -64,6 +64,7 @@ import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import formSections from '../../components/mygov/housing-forms/rent-increase-sections';
 import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
+import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/rent-increase-form');
 const summaryTemplate = require('../../templates/mygov/rent-increase-summary');
@@ -161,7 +162,7 @@ const rentIncreaseForm = {
         }
         const overviewContent = formTemplateContainer.innerHTML;
         formTemplateContainer.innerHTML = formTemplate.render({
-            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg')
         });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
@@ -247,8 +248,8 @@ const rentIncreaseForm = {
     },
 
     setupDatePickers: function () {
-        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {maxDate: new Date(TODAY), imagePath: BR.webfile('/assets/images/icons/')});
-        const lastIncreaseDatePicker = new DSDatePicker(document.getElementById('last-increase-date-picker'), {maxDate: new Date(TODAY), imagePath: BR.webfile('/assets/images/icons/')});
+        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {maxDate: new Date(TODAY), imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const lastIncreaseDatePicker = new DSDatePicker(document.getElementById('last-increase-date-picker'), {maxDate: new Date(TODAY), imagePath: bloomreachWebfile('/assets/images/icons/')});
 
         tenancyStartDatePicker.init();
         lastIncreaseDatePicker.init();
@@ -355,7 +356,7 @@ const rentIncreaseForm = {
 
                 // remove any extant maxvalue error
                 $('[data-field="new-rent-amount"]').find('.invalid-max-value').remove();
-                commonForms.validateInput(newRentField, validationChecks);
+                commonForms.validateInput(newRentField[0], validationChecks);
             }
 
             newFrequency.addClass('js-dirty');
@@ -451,7 +452,7 @@ const rentIncreaseForm = {
         const html = dateOfIncreaseTemplate.render(templateData);
         document.querySelector('#date-of-increase-content-container').innerHTML = html;
 
-        const rentIncreaseDatePicker = new DSDatePicker(document.getElementById('rent-increase-date-picker'), {minDate: earliestDateForNextIncrease, imagePath: BR.webfile('/assets/images/icons/')});
+        const rentIncreaseDatePicker = new DSDatePicker(document.getElementById('rent-increase-date-picker'), {minDate: earliestDateForNextIncrease, imagePath: bloomreachWebfile('/assets/images/icons/')});
         rentIncreaseDatePicker.init();
 
         // validate this date field
@@ -459,7 +460,7 @@ const rentIncreaseForm = {
         if (rentIncreaseDate.value) {
             let validations = rentIncreaseDate.getAttribute('data-validation').split(' ');
             const validationChecks = validations.map(validation => commonForms[validation]);
-            commonForms.validateInput($(rentIncreaseDate), validationChecks);
+            commonForms.validateInput(rentIncreaseDate, validationChecks);
         }
 
         if (rentIncreaseForm.notificationDate && rentIncreaseForm.notificationDate !== '') {
@@ -536,7 +537,7 @@ const rentIncreaseForm = {
 
         if (!isNaN(rentIncreaseForm.notificationDate.getTime())){
             document.getElementById('date-increase-notification-alert').innerHTML = html;
-            const rentIncreaseSendDatePicker = new DSDatePicker(document.getElementById('rent-increase-send-date-picker'), {minDate: new Date(TODAY), maxDate: rentIncreaseForm.notificationDate, imagePath: BR.webfile('/assets/images/icons/')});
+            const rentIncreaseSendDatePicker = new DSDatePicker(document.getElementById('rent-increase-send-date-picker'), {minDate: new Date(TODAY), maxDate: rentIncreaseForm.notificationDate, imagePath: bloomreachWebfile('/assets/images/icons/')});
             rentIncreaseSendDatePicker.init();
 
             // bind change event

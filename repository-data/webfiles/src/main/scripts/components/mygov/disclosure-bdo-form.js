@@ -60,39 +60,39 @@ const formIsValid = function(highlightField, errorFields) {
         $numberOfForms = $('#disclosure-bdo-number-of-forms');
     $formErrors.html('');
 
-    const numberOfForms = commonForms.validateField($numberOfForms, highlightField, commonForms.requiredField, commonForms.numericOnly,
+    const numberOfForms = commonForms.validateField($numberOfForms[0], highlightField, commonForms.requiredField, commonForms.numericOnly,
         _.partialRight(commonForms.maxCharacters, $numberOfForms.data('maxlength')));
 
     commonForms.updateErrors(errorFields, numberOfForms, 'disclosure-bdo-number-of-forms');
 
-    const name = commonForms.validateField($name, highlightField, commonForms.requiredField,
+    const name = commonForms.validateField($name[0], highlightField, commonForms.requiredField,
         _.partialRight(commonForms.maxCharacters, $name.data('maxlength')));
     commonForms.updateErrors(errorFields, name, 'disclosure-bdo-name');
 
-    const telephone = commonForms.validateField($telephone, highlightField,
+    const telephone = commonForms.validateField($telephone[0], highlightField,
         _.partialRight(commonForms.maxCharacters, $telephone.data('maxlength')));
     commonForms.updateErrors(errorFields, telephone, 'disclosure-bdo-telephone');
 
-    const addressLine1 = commonForms.validateField($addressLine1, highlightField, commonForms.requiredField,
+    const addressLine1 = commonForms.validateField($addressLine1[0], highlightField, commonForms.requiredField,
         _.partialRight(commonForms.maxCharacters, $addressLine1.data('maxlength')));
     commonForms.updateErrors(errorFields, addressLine1, 'disclosure-bdo-address-line-1');
 
-    const town = commonForms.validateField($town, highlightField, commonForms.requiredField,
+    const town = commonForms.validateField($town[0], highlightField, commonForms.requiredField,
         _.partialRight(commonForms.maxCharacters, $town.data('maxlength')));
     commonForms.updateErrors(errorFields, town, 'disclosure-bdo-town');
 
-    const postcode = commonForms.validateField($postcode, highlightField, commonForms.requiredField);
+    const postcode = commonForms.validateField($postcode[0], highlightField, commonForms.requiredField);
     commonForms.updateErrors(errorFields, postcode, 'disclosure-bdo-postcode');
 
-    const country = commonForms.validateField($country, highlightField,
+    const country = commonForms.validateField($country[0], highlightField,
         _.partialRight(commonForms.maxCharacters, $country.data('maxlength')));
     commonForms.updateErrors(errorFields, country, 'disclosure-bdo-country');
 
-    const email = commonForms.validateField($email, highlightField, commonForms.requiredField, commonForms.regexMatch,
+    const email = commonForms.validateField($email[0], highlightField, commonForms.requiredField, commonForms.regexMatch,
         _.partialRight(commonForms.maxCharacters, $email.data('maxlength')));
     commonForms.updateErrors(errorFields, email, 'disclosure-bdo-email');
 
-    const recaptcha = commonForms.validateField($recaptcha, highlightField, commonForms.recaptchaCompleted);
+    const recaptcha = commonForms.validateField($recaptcha[0], highlightField, commonForms.recaptchaCompleted);
     commonForms.updateErrors(errorFields, recaptcha, 'recaptcha');
 
     return numberOfForms && telephone && addressLine1 && town && postcode && country && name && email && recaptcha; //NOSONAR
@@ -180,8 +180,8 @@ window.checkRecaptcha = function() {
         return;
     }
 
-    commonForms.validateField($recaptcha, commonForms.recaptchaCompleted);
-    commonForms.showOrHideErrorBox(submitted, $clientError, isValid);
+    commonForms.validateField($recaptcha[0], commonForms.recaptchaCompleted);
+    commonForms.showOrHideErrorBox(submitted, $clientError[0], isValid);
 };
 
 disclosureBdoForm.init();

@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    #SMART ANSWER
+\*------------------------------------*/
+
+.#{$site-prefix}smart-answer {
+    &__step {
+        display: none;
+        margin-bottom: 64px;
+        margin-top: 16px;
+
+        &--current {
+            display: block;
+        }
+    }
+
+    &__parent-title {
+        color: $ds_colour__text--secondary;
+        font-weight: $normal;
+
+        @include large-size;
+    }
+}
+
+@include media-query(medium) {
+    .#{$site-prefix}smart-answer {
+        &__step {
+            margin-top: 32px;
+        }
+    }
+}

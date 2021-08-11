@@ -4,6 +4,7 @@
 
 import MultiPageForm from '../../components/multi-page-form';
 import feedback from '../../components/feedback';
+import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const PolyPromise = require('../../vendor/promise-polyfill').default;
 const formTemplate = require('../../templates/mygov/business-rates-calculator');
@@ -96,7 +97,7 @@ const businessRatesCalculator = {
         }
         const overviewContent = formTemplateContainer.innerHTML;
         formTemplateContainer.innerHTML = formTemplate.render({
-            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg')
+            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg')
         });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent + formTemplateContainer.querySelector('#overview').innerHTML;
 
@@ -323,7 +324,7 @@ const businessRatesCalculator = {
             }
         });
 
-        resultsData.iconsFile = window.BR.webfile('/assets/images/icons/icons.stack.svg');
+        resultsData.iconsFile = bloomreachWebfile('/assets/images/icons/icons.stack.svg');
         document.querySelector('#property-select-wrapper').innerHTML = propertySelectTemplate.render(resultsData);
 
         // preselect the first item if we have one property result
@@ -562,7 +563,7 @@ const businessRatesCalculator = {
     errorMessageMarkup: function (fieldId, message) {
         const messageEl = document.createElement('p');
         messageEl.classList.add('error', 'invalid-field', 'ds_error-summary__list');
-        messageEl.innerHTML = `<a class="form-nav" href="#${fieldId}"><span class="underline">${message}</span></a>`
+        messageEl.innerHTML = `<a class="ds_error-summary__link" href="#${fieldId}">${message}</a>`;
         return messageEl;
     }
 };

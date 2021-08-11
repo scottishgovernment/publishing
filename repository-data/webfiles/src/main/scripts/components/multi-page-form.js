@@ -4,6 +4,7 @@
 
 import '../vendor/jquery.routes';
 import _ from '../vendor/lodash/dist/tinydash.es6';
+import bloomreachWebfile from '../tools/bloomreach-webfile';
 
 const MultiPageForm = function (settings) {
     this.settings = {};
@@ -450,7 +451,7 @@ function updateFormNav (navs) {
         });
 
         const sectionHtml = sectionTemplate.render({
-            iconsFile: window.BR.webfile('/assets/images/icons/icons.stack.svg'),
+            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
             groups: groups,
             hideSectionNav: currentStep.hideSectionNav
         });
@@ -505,7 +506,7 @@ function updatePageNav () {
         pageNavTemplate = this.templates.pageNav;
     }
 
-    templateData.iconsFile = window.BR.webfile('/assets/images/icons/icons.stack.svg');
+    templateData.iconsFile = bloomreachWebfile('/assets/images/icons/icons.stack.svg');
     const pageNavHtml = pageNavTemplate.render(templateData);
 
     const pageNavElement = document.getElementById('page-nav');

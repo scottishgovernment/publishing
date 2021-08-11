@@ -4,8 +4,7 @@
 
 jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
 
-import PostcodeLookup from '../../../../src/main/scripts/components/postcode-lookup';
-import rpzChecker from '../../../../src/main/scripts/formats/mygov/rpz-checker';
+import rpzChecker from '../../../../src/main/scripts/formats/mygov/rent-pressure-zone-checker';
 import feedback from '../../../../src/main/scripts/components/feedback';
 
 describe("rpzChecker format", function() {

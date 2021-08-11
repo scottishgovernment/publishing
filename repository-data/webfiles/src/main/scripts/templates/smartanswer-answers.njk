@@ -1,0 +1,21 @@
+{% if answers.length %}
+
+<h2>Your answers</h2>
+
+<p><a href="{{startPageLink}}">Start again</a>
+
+<ol class="mg_summary-list">
+    {% for answer in answers %}
+        <li class="mg_summary-list__item">
+            <span class="mg_summary-list__key">{{answer.title | safe}}</span>
+            <span class="mg_summary-list__value"><span class="visually-hidden">Your answer is:</span> <q class="mg_summary-list__answer">{{answer.value}}</q></span>
+            <div class="mg_summary-list__actions">
+                <button class="ds_link  js-change-answer" data-questionid="{{answer.id}}" data-path="{{answer.path}}">
+                    Change <span class="visually-hidden">your answer for: <q>{{answer.title | safe}}</q></span>
+                </button>
+            </div>
+        </li>
+    {% endfor %}
+</ol>
+
+{% endif %}

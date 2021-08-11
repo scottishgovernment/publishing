@@ -42,8 +42,6 @@ const fairRentRegister = {
             }
         });
 
-
-
         this.getParamsAndDisplaySection();
         this.attachEventHandlers();
 
@@ -93,33 +91,40 @@ const fairRentRegister = {
         }
 
         const breadcrumbsListElement = document.querySelector('.ds_breadcrumbs');
-        breadcrumbsListElement.innerHTML = '';
+        if (breadcrumbsListElement) {
+            breadcrumbsListElement.innerHTML = '';
 
-        for (let i = 0, il = breadcrumbsArray.length; i < il; i++) {
-            let breadcrumbItem;
-            if (i !== il - 1) {
-                breadcrumbItem = `<li class="ds_breadcrumbs__item" id="${breadcrumbsArray[i].id}">
+            for (let i = 0, il = breadcrumbsArray.length; i < il; i++) {
+                let breadcrumbItem;
+                if (i !== il - 1) {
+                    breadcrumbItem = `<li class="ds_breadcrumbs__item" id="${breadcrumbsArray[i].id}">
                     <a class="ds_breadcrumbs__link" href="${breadcrumbsArray[i].url}">
                         ${breadcrumbsArray[i].title}
                     </a>
                 </li>`;
-            }
-            else {
-                breadcrumbItem = `<li class="ds_breadcrumbs__item" id="${breadcrumbsArray[i].id}">
+                }
+                else {
+                    breadcrumbItem = `<li class="ds_breadcrumbs__item" id="${breadcrumbsArray[i].id}">
                     ${breadcrumbsArray[i].title}
                 </li>`;
+                }
+                breadcrumbsListElement.innerHTML = breadcrumbsListElement.innerHTML + breadcrumbItem;
             }
-            breadcrumbsListElement.innerHTML = breadcrumbsListElement.innerHTML + breadcrumbItem;
-        }
 
-        window.DS.tracking.init(breadcrumbsListElement);
+            window.DS.tracking.init(breadcrumbsListElement);
+        }
     },
 
     /**
      * Hide all sections apart from the current one
      * @param {string} sectionName
      */
-    showSection: function(sectionName) {
+    showSection: function (sectionName) {
+        const targetSection = document.querySelector(`#fair-rent-${sectionName}`);
+        if (!targetSection) {
+            return;
+        }
+
         const sections = document.querySelectorAll('.js-fair-rent-section');
 
         // hide all sections
@@ -128,7 +133,6 @@ const fairRentRegister = {
         }
 
         // show target section
-        const targetSection = document.querySelector(`#fair-rent-${sectionName}`);
         targetSection.classList.remove('fully-hidden');
 
         window.DS.tracking.init(targetSection);
@@ -140,7 +144,9 @@ const fairRentRegister = {
     doIntro: function() {
         // show fair rent section header (it might have been hidden)
         const fairRentHeader = document.getElementById('fair-rent-register-header');
-        fairRentHeader.classList.remove('fully-hidden');
+        if (fairRentHeader) {
+            fairRentHeader.classList.remove('fully-hidden');
+        }
 
         this.showSection('introduction');
 

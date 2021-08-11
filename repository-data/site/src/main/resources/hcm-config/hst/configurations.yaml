@@ -103,6 +103,9 @@ definitions:
           /base-facebook-verification:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/facebook-verification.ftl
+          /smartanswer-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/smartanswer-main.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

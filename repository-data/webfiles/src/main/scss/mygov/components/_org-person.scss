@@ -1,4 +1,4 @@
-.#{$mg-prefix}org-person {
+.#{$site-prefix}org-person {
     @include layout();
     @include block-margins--bottom;
 
@@ -38,7 +38,7 @@
 }
 
 @supports(display: grid) {
-    .#{$mg-prefix}org-person {
+    .#{$site-prefix}org-person {
         &__image {
             grid-area: i;
         }

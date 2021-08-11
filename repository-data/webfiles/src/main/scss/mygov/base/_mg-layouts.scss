@@ -2,14 +2,14 @@
     SITE PAGE LAYOUTS
 \*------------------------------------*/
 
-$mg-prefix: 'mg_';
+$site-prefix: 'mg_';
 
-.#{$mg-prefix}layout {
+.#{$site-prefix}layout {
 
 }
 
 @include media-query(medium) {
-    .#{$mg-prefix}layout {
+    .#{$site-prefix}layout {
         &--org-hub {
             > .#{$pl-prefix}layout {
                 &__header {
@@ -60,7 +60,7 @@ $mg-prefix: 'mg_';
 }
 
 @include media-query(large) {
-    .#{$mg-prefix}layout {
+    .#{$site-prefix}layout {
         &--org-hub {
             > .#{$pl-prefix}layout {
                 &__contact {
@@ -173,7 +173,7 @@ $mg-prefix: 'mg_';
         }
     }
 
-    .#{$mg-prefix}layout {
+    .#{$site-prefix}layout {
         &--paged-form {
             grid-template-areas:
                 'h h'
@@ -208,7 +208,7 @@ $mg-prefix: 'mg_';
     }
 
     @include media-query(small) {
-        .#{$mg-prefix}layout {
+        .#{$site-prefix}layout {
             &--paged-form {
                 grid-template-areas:
                     'h h h h h h'
@@ -243,7 +243,7 @@ $mg-prefix: 'mg_';
     }
 
     @include media-query(medium) {
-        .#{$mg-prefix}layout {
+        .#{$site-prefix}layout {
             &--paged-form {
                 grid-template-areas:
                     'h h h h h h h h h h h h'
@@ -275,7 +275,7 @@ $mg-prefix: 'mg_';
     }
 
     @include media-query(large) {
-        .#{$mg-prefix}layout {
+        .#{$site-prefix}layout {
             &--paged-form {
                 grid-template-areas:
                     'h h h h h h h h h h h h'
@@ -296,7 +296,7 @@ $mg-prefix: 'mg_';
     }
 
     @include media-query(xlarge) {
-        .#{$mg-prefix}layout {
+        .#{$site-prefix}layout {
             &--org-hub {
                 grid-template-areas:
                     'h h h h h h h h p p p p'

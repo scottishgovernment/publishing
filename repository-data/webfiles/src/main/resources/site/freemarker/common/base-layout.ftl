@@ -37,12 +37,6 @@
     <meta name="msapplication-TileColor" content="#0065bd">
     <meta name="theme-color" content="#ffffff">
     <@hst.headContributions categoryIncludes="facebookVerification"/>
-    <script>
-        BR = window.BR || {};
-        BR.webfile = function(path) {
-            return '<@hst.webfile path="/"/>' + path;
-        };
-    </script>
 
     <#if document??>
         <@hst.link var="canonicalLink" hippobean=document canonical=true fullyQualified=true/>
@@ -60,10 +54,9 @@
     </script>
     </head>
 
-
-
-
     <body <#if document?? && document.sensitive?? &&document.sensitive>class="ds_has-hide-page"</#if>>
+        <input type="hidden" id="br-webfile-path" value="<@hst.webfile path="/"/>" />
+
         <@hst.include ref="googletagmanager"/>
 
         <#include "skip-links.ftl">

@@ -4,8 +4,6 @@
 
 'use strict';
 
-import $ from 'jquery';
-
 const commonForms = {
     /**
      * prepends zeroes to a number, up to a set length
@@ -55,17 +53,23 @@ const commonForms = {
             */
         window.checkRecaptcha = function () {
             // check reCAPTCHA
-            recaptchaSuccess = commonForms.validateField($('#recaptcha'), true, commonForms.recaptchaCompleted);
+            recaptchaSuccess = commonForms.validateField(document.getElementById('recaptcha'), true, commonForms.recaptchaCompleted);
 
             if (!recaptchaSuccess) {
                 return false;
             } else {
-                $('.js-document-container').find('.js-download-file').removeAttr('disabled');
+                const downloadLinks = [].slice.call(document.querySelectorAll('.js-document-container .js-download-file'));
+                downloadLinks.forEach(link => {
+                    link.removeAttribute('disabled');
+                });
             }
         };
 
         window.expireRecaptcha = function () {
-            $('.js-document-container').find('.js-download-file').attr('disabled', true);
+            const downloadLinks = [].slice.call(document.querySelectorAll('.js-document-container .js-download-file'));
+            downloadLinks.forEach(link => {
+                link.setAttribute('disabled', true);
+            });
             recaptchaSuccess = false;
             grecaptcha.reset();
         };
@@ -74,19 +78,28 @@ const commonForms = {
     /**
      * Checks if recaptcha is completed. Appends or Removes an error message.
      *
-     * @param {object} $field - the form field to be checked
+     * @param {object} field - the form field to be checked
      * @returns {boolean} whether the field value is valid
      */
-    recaptchaCompleted: function ($field) {
+    recaptchaCompleted: function (field) {
         const valid = grecaptcha.getResponse() !== '';
-        const className = `.${$field.attr('id')}-errors`;
+
+        commonForms.appendErrorContainer(field);
+        const errorContainer = document.querySelector(`.${field.id}-errors`);
 
         if (!valid) {
-            if ($(`${className} .recaptcha`).length === 0) {
-                $(className).append('<li class="error recaptcha"><strong>reCAPTCHA</strong> <br>This field is required</li>');
+            if (errorContainer.querySelectorAll('.recaptcha').length === 0) {
+                const errorLi = document.createElement('li');
+                errorLi.innerHTML = '<strong>reCAPTCHA</strong> <br>This field is required';
+                errorLi.classList.add('error');
+                errorLi.classList.add('recaptcha');
+                errorContainer.appendChild(errorLi);
             }
         } else {
-            $(`${className} .recaptcha`).remove();
+            const errorLi = errorContainer.querySelector('.recaptcha');
+            if (errorLi) {
+                errorContainer.removeChild(errorLi);
+            }
         }
 
         return valid;
@@ -95,66 +108,75 @@ const commonForms = {
     /**
      * Appends an error container for $field to the DOM
      *
-     * @param {object} $field - the form field to log errors against
+     * @param {object} field - the form field to log errors against
      */
-    appendErrorContainer: function ($field) {
-        const $formErrors = $('.form-errors');
+    appendErrorContainer: function (field) {
+        const formErrors = document.querySelector('.form-errors');
 
-        const className = $field.attr('id') + '-errors';
-        if ($(`.${className}`).length === 0) {
-            $formErrors.append(`<ul class="ds_error-summary__list  ${className}"></ul>`);
+        if (!formErrors) {
+            return;
+        }
+
+        let errorContainer = document.querySelector(`.${field.id}-errors`);
+
+        if (!errorContainer) {
+            errorContainer = document.createElement('ul');
+            errorContainer.classList.add('ds_error-summary__list');
+            errorContainer.classList.add(`${field.id}-errors`);
+            formErrors.appendChild(errorContainer);
         }
     },
 
     /**
      * Removes the error container for $field from the DOM
      *
-     * @param {object} $field - the form field errors were logged against
+     * @param {object} field - the form field errors were logged against
      */
-    removeErrorContainer: function ($field) {
-        const className = $field.attr('id') + '-errors';
-        if ($(`${className}`).length !== 0) {
-            $(`${className}`).remove();
+    removeErrorContainer: function (field) {
+        const errorContainer = document.querySelector(`.${field.id}-errors`);
+
+        if (errorContainer) {
+            errorContainer.parentNode.removeChild(errorContainer);
         }
     },
 
     /**
      * Checks if $field is completed. Appends or Removes an error message.
      *
-     * @param {object} $field - the form field to be checked
+     * @param {object} field - the form field to be checked
      * @returns {boolean} whether the field value is valid
      */
-    requiredField: function ($field, customMessage) {
-        const trimmedValue = $field.val().trim();
-        const fieldName = commonForms.getLabelText($field);
+    requiredField: function (field, customMessage) {
+        const trimmedValue = field.value.trim();
+        const fieldName = commonForms.getLabelText(field);
 
         const valid = trimmedValue !== '';
 
         let message = 'This field is required';
-        if ($field[0].dataset.message || customMessage) {
+        if (field.dataset.message || customMessage) {
             message = '';
             if (fieldName) {
                 message += `<strong>${fieldName}</strong> <br>`;
             }
-            message += `${$field[0].dataset.message || customMessage}`;
+            message += `${field.dataset.message || customMessage}`;
         }
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-required', fieldName, message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-required', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-required', fieldName, message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-required', message);
 
         return valid;
     },
 
-    regexMatch: function ($field) {
-        const trimmedValue = $field.val().trim(),
-            regex = new RegExp($field.attr('pattern')),
-            message = $field.data('errormessage'),
-            fieldName = commonForms.getLabelText($field);
+    regexMatch: function (field) {
+        const trimmedValue = field.value.trim(),
+            regex = new RegExp(field.getAttribute('pattern')),
+            message = field.dataset.errormessage,
+            fieldName = commonForms.getLabelText(field);
 
         const valid = trimmedValue === '' || trimmedValue.match(regex);
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-regex', fieldName, message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-regex', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-regex', fieldName, message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-regex', message);
 
         return valid;
     },
@@ -164,70 +186,49 @@ const commonForms = {
      * Appends or Removes an error message.
      * Updates character count
      *
-     * @param {object} $field - the form field to be checked
+     * @param {object} field - the form field to be checked
      * @param {int} maxLength - the permitted character length of $field
      * @returns {boolean} whether the field value is valid
      */
-    maxCharacters: function ($field, maxLength) {
+    maxCharacters: function (field, maxLength) {
 
-        const valid = $field.val().length <= maxLength;
-        const className = `.${$field.attr('id')}-errors`;
-        const fieldName = commonForms.getLabelText($field);
+        const valid = field.value.length <= maxLength;
+        const fieldName = commonForms.getLabelText(field);
+        const message = `${fieldName} has too many characters`;
 
-        if (!valid) {
-            if ($(className + ' .too-many').length === 0) {
-                $(className).append(`<li class="error too-many">${fieldName} has too many characters</li>`);
-            }
-        } else {
-            $(`${className} .too-many`).remove();
-        }
+        commonForms.toggleFormErrors(field, valid, 'too-many', fieldName, message);
+        commonForms.toggleCurrentErrors(field, valid, 'too-many', message);
 
-        $field.siblings('.js-count').html((maxLength - $field.val().length));
-
-        return valid;
-    },
-
-    numericOnly: function ($field, min, max) {
-        const trimmedValue = $field.val().trim();
-        min = min || 1;
-        max = max || 9999;
-        const valid = trimmedValue === '' || ($field.val() >= min && $field.val() <= max);
-        const className = `.${$field.attr('id')}-errors`;
-        const fieldName = commonForms.getLabelText($field);
-        if (!valid) {
-            if ($(className + ' .required').length === 0) {
-                $(className).append(`<li class="error required"><strong>${fieldName}</strong> please specify a numeric value between ${min} and ${max}</li>`);
-            }
-        } else {
-            $(`${className} .too-many`).remove();
+        const countEl = field.parentNode.querySelector('.js-count');
+        if (countEl) {
+            countEl.innerHTML = (maxLength - field.value.length);
         }
 
         return valid;
     },
 
     atLeastOneRequired: function (fields, container, highlightField) {
-        const $container = $(container);
-        this.appendErrorContainer($container);
+        this.appendErrorContainer(container);
         let provided = false;
         for (let i = 0; i < fields.length; i++) {
-            provided = provided || fields[i].val();
+            provided = provided || fields[i].value;
         }
         if (highlightField) {
+            const formGroup = container.closest('.form-group');
+
             if (!provided) {
-                $container.closest('.form-group')
-                    .addClass('js-has-error')
-                    .removeClass('js-has-success');
+                formGroup.classList.add('js-has-error');
+                formGroup.classList.remove('js-has-success');
             } else {
-                $container.closest('.form-group')
-                    .removeClass('js-has-error')
-                    .addClass('js-has-success');
+                formGroup.classList.remove('js-has-error');
+                formGroup.classList.add('js-has-success');
             }
         }
 
         if (provided) {
-            this.removeErrorContainer($container);
+            this.removeErrorContainer(container);
         } else {
-            this.requiredField($container, 'Please specify at least one document');
+            this.requiredField(container, 'Specify at least one document');
         }
 
         return provided;
@@ -235,70 +236,70 @@ const commonForms = {
 
     // New form validations
 
-    validPostcode: function ($field) {
-        let message = 'Please enter a valid postcode, for example EH6 6QQ';
-        let trimmedValue = $field.val().trim();
+    validPostcode: function (field) {
+        let message = 'Enter a valid postcode, for example EH6 6QQ';
+        let trimmedValue = field.value.trim();
 
         let postcodeRegExp = new RegExp('^[A-Z]{1,2}[0-9R][0-9A-Z]?[0-9][ABD-HJLNP-UW-Z]{2}$');
         let postcodeValue = trimmedValue.toUpperCase().replace(/\s+/g, '');
 
         let valid = trimmedValue === '' || postcodeValue.match(postcodeRegExp) !== null;
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-postcode', 'Postcode', message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-postcode', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-postcode', 'Postcode', message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-postcode', message);
 
         return valid;
     },
 
-    validEmail: function ($field) {
-        const message = 'Please enter a valid email address, for example jane.smith@gov.scot';
-        const trimmedValue = $field.val().trim();
+    validEmail: function (field) {
+        const message = 'Enter a valid email address, for example jane.smith@gov.scot';
+        const trimmedValue = field.value.trim();
 
         const regex = /^[^@ ]+@[^@ ]+\.[^@ ]+$/;
 
         const valid = trimmedValue === '' || trimmedValue.match(regex) !== null;
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-email', 'Email address', message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-email', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-email', 'Email address', message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-email', message);
 
         return valid;
     },
 
-    requiredRadio: function ($field) {
-        const radioButtons = $field.find('input:radio');
+    requiredRadio: function (container) {
+        const radioButtons = [].slice.call(container.querySelectorAll('input[type="radio"]'));
 
-        const title = $field.find('legend').html();
-        const message = 'Please select one of the options';
+        const title = commonForms.getTitleFromLegend(container.querySelector('legend'));
+        const message = 'Select one of the options';
 
         let valid = false;
 
-        for (let i = 0; i < radioButtons.length; i++) {
-            if ($(radioButtons[i]).is(':checked')) {
+        radioButtons.forEach(radioButton => {
+            if (radioButton.checked) {
                 valid = true;
             }
-        }
+        });
 
-        commonForms.toggleFormErrors($field, valid, 'required', title, message);
-        commonForms.toggleCurrentErrors($field, valid, 'required', message);
+        commonForms.toggleFormErrors(container, valid, 'required', title, message);
+        commonForms.toggleCurrentErrors(container, valid, 'required', message);
 
         return valid;
     },
 
-    requiredDropdown: function ($field) {
-        const value = $field.val();
-        const fieldName = commonForms.getLabelText($field);
-        const message = 'Please select one of the options';
+    requiredDropdown: function (field) {
+        const value = field.value;
+        const fieldName = commonForms.getLabelText(field);
+        const message = 'Select one of the options';
 
         const valid = value !== null && value !== '';
 
-        commonForms.toggleFormErrors($field, valid, 'required', fieldName, message);
-        commonForms.toggleCurrentErrors($field, valid, 'required', message);
+        commonForms.toggleFormErrors(field, valid, 'required', fieldName, message);
+        commonForms.toggleCurrentErrors(field, valid, 'required', message);
 
         return valid;
     },
 
-    validPhone: function ($field) {
-        const trimmedValue = $field.val().trim().replace(/\s+/g, '');
+    validPhone: function (field) {
+        const trimmedValue = field.value.trim().replace(/\s+/g, '');
         const message = 'Use only numbers 0-9 and the "+" character. Phone numbers should be less than 20 characters long.';
 
         // A regular expression matching only up to 20 numbers and possibly a '+' character at the beginning
@@ -306,8 +307,8 @@ const commonForms = {
 
         const valid = trimmedValue.match(regex) !== null;
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-phone', 'Phone number', message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-phone', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-phone', 'Phone number', message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-phone', message);
 
         return valid;
     },
@@ -317,15 +318,13 @@ const commonForms = {
         const isLeapYear = year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
         const daysInMonth = [31, isLeapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month - 1];
 
-        const valid = day <= daysInMonth;
-
-        return valid;
+        return day <= daysInMonth;
     },
 
-    dateRegex: function ($field) {
-        const trimmedValue = $field.val().trim();
-        const fieldName = $(`label[for="${$field.attr('id')}"]`).text();
-        const message = 'Please enter the date as DD/MM/YYYY';
+    dateRegex: function (field) {
+        const trimmedValue = field.value.trim();
+        const fieldName = document.querySelector(`label[for="${field.id}"]`).innerText;
+        const message = 'Enter the date as DD/MM/YYYY';
 
         // A regular expression only allowing dd/mm/yyyy format
         const regex = new RegExp('^\\d\\d\\/\\d\\d\\/\\d\\d\\d\\d$');
@@ -337,19 +336,19 @@ const commonForms = {
 
         const valid = trimmedValue === '' || (commonForms.isValidDate(day, month, year) && trimmedValue.match(regex) !== null);
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-date-format', fieldName, message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-date-format', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-date-format', fieldName, message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-date-format', message);
 
         return valid;
     },
 
-    futureDate: function ($field) {
-        const trimmedValue = $field.val().trim();
-        const fieldName = commonForms.getLabelText($field);
+    futureDate: function (field) {
+        const trimmedValue = field.value.trim();
+        const fieldName = commonForms.getLabelText(field);
         const message = 'This date must be in the future';
         let valid = false;
 
-        if (commonForms.dateRegex($field) && trimmedValue.length) {
+        if (commonForms.dateRegex(field) && trimmedValue.length) {
             const day = parseInt(trimmedValue.slice(0, 2));
             const month = parseInt(trimmedValue.slice(3, 5));
             const year = parseInt(trimmedValue.slice(6, 10));
@@ -362,21 +361,21 @@ const commonForms = {
 
             valid = date >= new Date();
 
-            commonForms.toggleFormErrors($field, valid, 'invalid-future-date', fieldName, message);
-            commonForms.toggleCurrentErrors($field, valid, 'invalid-future-date', message);
+            commonForms.toggleFormErrors(field, valid, 'invalid-future-date', fieldName, message);
+            commonForms.toggleCurrentErrors(field, valid, 'invalid-future-date', message);
         }
 
         return valid;
     },
 
-    afterDate: function ($field) {
-        const minDate = commonForms.stringToDate($field.attr('data-mindate'));
-        const trimmedValue = $field.val().trim();
-        const fieldName = commonForms.getLabelText($field);
+    afterDate: function (field) {
+        const minDate = commonForms.stringToDate(field.dataset.mindate);
+        const trimmedValue = field.value.trim();
+        const fieldName = commonForms.getLabelText(field);
         const message = `This date must be after ${commonForms.leadingZeroes(minDate.getDate(), 2)}/${commonForms.leadingZeroes((minDate.getMonth() + 1), 2)}/${minDate.getFullYear()}`;
         let valid = false;
 
-        if (commonForms.dateRegex($field) && trimmedValue.length) {
+        if (commonForms.dateRegex(field) && trimmedValue.length) {
             const day = parseInt(trimmedValue.slice(0, 2));
             const month = parseInt(trimmedValue.slice(3, 5));
             const year = parseInt(trimmedValue.slice(6, 10));
@@ -389,20 +388,20 @@ const commonForms = {
 
             valid = date >= minDate;
 
-            commonForms.toggleFormErrors($field, valid, 'invalid-after-date', fieldName, message);
-            commonForms.toggleCurrentErrors($field, valid, 'invalid-after-date', message);
+            commonForms.toggleFormErrors(field, valid, 'invalid-after-date', fieldName, message);
+            commonForms.toggleCurrentErrors(field, valid, 'invalid-after-date', message);
         }
 
         return valid;
     },
 
-    pastDate: function ($field) {
-        const trimmedValue = $field.val().trim();
-        const fieldName = commonForms.getLabelText($field);
+    pastDate: function (field) {
+        const trimmedValue = field.value.trim();
+        const fieldName = commonForms.getLabelText(field);
         const message = 'This date must be in the past';
         let valid = false;
 
-        if (commonForms.dateRegex($field) && trimmedValue.length) {
+        if (commonForms.dateRegex(field) && trimmedValue.length) {
             const day = parseInt(trimmedValue.slice(0, 2));
             const month = parseInt(trimmedValue.slice(3, 5));
             const year = parseInt(trimmedValue.slice(6, 10));
@@ -411,40 +410,40 @@ const commonForms = {
 
             valid = date < new Date();
 
-            commonForms.toggleFormErrors($field, valid, 'invalid-past-date', fieldName, message);
-            commonForms.toggleCurrentErrors($field, valid, 'invalid-past-date', message);
+            commonForms.toggleFormErrors(field, valid, 'invalid-past-date', fieldName, message);
+            commonForms.toggleCurrentErrors(field, valid, 'invalid-past-date', message);
         }
 
         return valid;
     },
 
-    maxValue: function ($field) {
-        let maxValue = $field.attr('data-maxvalue');
+    maxValue: function (field) {
+        let maxValue = field.dataset.maxvalue;
         let valid;
-        let fieldName = commonForms.getLabelText($field);
+        let fieldName = commonForms.getLabelText(field);
         let message;
 
         if (!maxValue) {
             valid = true;
         } else {
-            if ($field.attr('data-message')) {
-                message = $field.attr('data-message').replace('{value}', maxValue);
+            if (field.dataset.message) {
+                message = field.dataset.message.replace('{value}', maxValue);
             } else {
                 message = `This must not be greater than ${maxValue}`;
             }
 
-            valid = Number($field.val()) <= Number(maxValue);
+            valid = Number(field.value) <= Number(maxValue);
         }
-        commonForms.toggleFormErrors($field, valid, 'invalid-max-value', fieldName, message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-max-value', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-max-value', fieldName, message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-max-value', message);
 
         return valid;
     },
 
-    validCurrency: function ($field) {
-        const trimmedValue = $field.val().trim();
-        const fieldName = commonForms.getLabelText($field);
-        const message = 'Please enter a currency amount with no more than two decimal places, e.g. 150.00';
+    validCurrency: function (field) {
+        const trimmedValue = field.value.trim();
+        const fieldName = commonForms.getLabelText(field);
+        const message = 'Enter a currency amount with no more than two decimal places, e.g. 150.00';
 
         const numberRegex = new RegExp('^£?[0-9]+([.][0-9]{2}p?)?$');
         let valid = false;
@@ -454,10 +453,10 @@ const commonForms = {
         }
 
         // remove currency symbols
-        $field.val($field.val().replace(/[£p]/ig, ''));
+        field.value = field.value.replace(/[£p]/ig, '');
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-currency', fieldName, message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-currency', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-currency', fieldName, message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-currency', message);
 
         return valid;
     },
@@ -465,15 +464,15 @@ const commonForms = {
     /**
      *  Requires an address to have either building or street address.
      */
-     requiredBuildingOrStreet: function ($field) {
-        const message = 'Please enter an address, including building or street';
+     requiredBuildingOrStreet: function (field) {
+        const message = 'Enter an address, including building or street';
 
-        const parentQuestion = $field.closest('.building-street');
+        const parentQuestion = field.closest('.building-street');
 
-        const buildingEl = parentQuestion.find('.building');
-        const streetEl = parentQuestion.find('.street');
+        const buildingEl = parentQuestion.querySelector('.building');
+        const streetEl = parentQuestion.querySelector('.street');
 
-        let valid = !!(buildingEl.val().trim() || streetEl.val().trim());
+        let valid = !!(buildingEl.value.trim() || streetEl.value.trim());
 
         commonForms.toggleFormErrors(buildingEl, valid, 'invalid-required-address', 'Address', message);
         commonForms.toggleCurrentErrors(buildingEl, valid, 'invalid-required-address', message);
@@ -486,21 +485,21 @@ const commonForms = {
      *  For a required postcode lookup, invalid unless address fields are showing
      *  (either will have been filled when address chosen, or will trigger their own validations if empty)
      */
-    requiredPostcodeLookup: function ($field) {
-        const manualAddress = $field.closest('.js-postcode-lookup').find('.address-manual');
-        const addressDropdown = $field.closest('.js-postcode-lookup').find('.postcode-results');
+    requiredPostcodeLookup: function (field) {
+        const manualAddress = field.closest('.js-postcode-lookup').querySelector('.address-manual');
+        const addressDropdown = field.closest('.js-postcode-lookup').querySelector('.postcode-results');
 
-        let message = 'Please enter a postcode and click "Find address"';
+        let message = 'Enter a postcode and click "Find address"';
 
-        if (manualAddress.length > 0) {
+        if (manualAddress) {
             message += ', or enter an address manually';
         }
 
-        const valid = (manualAddress.length > 0 && !manualAddress.hasClass('fully-hidden')) ||
-            (addressDropdown.length > 0 && !addressDropdown.hasClass('fully-hidden'));
+        const valid = (manualAddress && !manualAddress.classList.contains('fully-hidden')) ||
+            (addressDropdown && !addressDropdown.classList.contains('fully-hidden'));
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-required-postcode', 'Postcode lookup', message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-required-postcode', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-required-postcode', 'Postcode lookup', message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-required-postcode', message);
 
         return valid;
     },
@@ -508,16 +507,16 @@ const commonForms = {
     /**
      *  For a required RPZ postcode lookup - does not allow progress if address chosen is in a rent pressure zone.
      */
-    requiredNonRPZAddress: function ($field) {
+    requiredNonRPZAddress: function (field) {
         const message = 'You cannot use this form if the address chosen' +
             ' is in a Rent Pressure Zone.';
 
-        const fieldInRpz = $field.hasClass('js-in-rpz');
+        const fieldInRpz = field.classList.contains('js-in-rpz');
 
         const valid = !fieldInRpz;
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-required-non-rpz-address', 'Postcode lookup', message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-required-non-rpz-address', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-required-non-rpz-address', 'Postcode lookup', message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-required-non-rpz-address', message);
 
         return valid;
     },
@@ -525,16 +524,16 @@ const commonForms = {
     /**
      *  For a required RPZ postcode lookup - only allows progress if address chosen is in a rent pressure zone.
      */
-    requiredRPZAddress: function ($field) {
+    requiredRPZAddress: function (field) {
         const message = 'You can only use this form if the address chosen' +
             ' is in a Rent Pressure Zone.';
 
-        const fieldInRpz = $field.hasClass('js-in-rpz');
+        const fieldInRpz = field.classList.contains('js-in-rpz');
 
         const valid = fieldInRpz;
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-required-rpz-address', 'Postcode lookup', message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-required-rpz-address', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-required-rpz-address', 'Postcode lookup', message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-required-rpz-address', message);
 
         return valid;
     },
@@ -542,14 +541,14 @@ const commonForms = {
     /**
      *  For a required RPZ postcode lookup - does not allow progress if 'address not listed' is chosen.
      */
-    noAddressNotListed: function ($field) {
+    noAddressNotListed: function (field) {
         const message = 'To complete this form you must choose an address';
-        const addressNotListed = $field.val() === '-1';
+        const addressNotListed = field.value === '-1';
 
         const valid = !addressNotListed;
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-required-listed-address', 'Postcode lookup', message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-required-listed-address', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-required-listed-address', 'Postcode lookup', message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-required-listed-address', message);
 
         return valid;
     },
@@ -558,22 +557,22 @@ const commonForms = {
      *  Requires a set of checkboxes to have at least one checked.
      *  todo: this is v similar to requiredRadio -- consolidate?
      */
-    atLeastOneCheckbox: function ($field) {
-        const checkboxes = $field.find('input:checkbox');
+    atLeastOneCheckbox: function (container) {
+        const checkboxes = [].slice.call(container.querySelectorAll('input[type="checkbox"]'));
 
-        const title = $field.find('legend').html();
-        const message = $field.attr('data-message') || 'Please select one of the options';
+        const title = commonForms.getTitleFromLegend(container.querySelector('legend'));
+        const message = container.dataset.message || 'Select one or more options';
 
         let valid = false;
 
-        for (let i = 0; i < checkboxes.length; i++) {
-            if ($(checkboxes[i]).is(':checked')) {
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
                 valid = true;
             }
-        }
+        });
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-minimum-one-checkbox', title, message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-minimum-one-checkbox', message);
+        commonForms.toggleFormErrors(container, valid, 'invalid-minimum-one-checkbox', title, message);
+        commonForms.toggleCurrentErrors(container, valid, 'invalid-minimum-one-checkbox', message);
 
         return valid;
     },
@@ -594,17 +593,17 @@ const commonForms = {
         // obtain field ID
         let fieldId;
 
-        if (field[0].nodeName !== 'INPUT' && field[0].nodeName !== 'SELECT' && field[0].nodeName !== 'TEXTAREA') {
+        if (field.nodeName !== 'INPUT' && field.nodeName !== 'SELECT' && field.nodeName !== 'TEXTAREA') {
             // assume fieldset
-            if (field.find('input[type="radio"]').length) {
-                fieldId = field.find('input[type="radio"]')[0].name;
-            } else if (field.find('input[type="checkbox"]').length) {
-                fieldId = field.find('input[type="checkbox"]')[0].id;
+            if (field.querySelectorAll('input[type="radio"]').length) {
+                fieldId = field.querySelectorAll('input[type="radio"]')[0].name;
+            } else if (field.querySelectorAll('input[type="checkbox"]').length) {
+                fieldId = field.querySelectorAll('input[type="checkbox"]')[0].id;
             } else {
-                fieldId = field[0].id;
+                fieldId = field.id;
             }
         } else {
-            fieldId = field[0].id;
+            fieldId = field.id;
         }
 
         if (!fieldId) { return; }
@@ -626,32 +625,38 @@ const commonForms = {
 
         if (Object.keys(field.errors).length) {
             question.classList.add('ds_question--error');
-            field.attr('aria-invalid', true);
-
-            let errorContainer;
+            field.setAttribute('aria-invalid', true);
 
             // add an error container
-            if (field.attr('type') !== 'hidden') {
-                field[0].setAttribute('aria-describedby', `${fieldId}-errors`);
-                errorContainer = $(`<div class="ds_question__error-message" id="${fieldId}-errors" data-field="${fieldId}"></div>`);
+            if (field.getAttribute('type') !== 'hidden') {
+                field.setAttribute('aria-describedby', `${fieldId}-errors`);
+                errorContainer = document.createElement('div');
+                errorContainer.classList.add('ds_question__error-message');
+                errorContainer.id = `${fieldId}-errors`;
+                errorContainer.dataset.field = fieldId;
 
-                if (field.find('legend').length) {
-                    errorContainer.insertAfter(field.closest('.ds_question').find('legend')[0]);
+                if (field.querySelector('legend')) {
+                    field.closest('.ds_question').querySelector('legend').insertAdjacentElement('afterend', errorContainer);
                 } else {
-                    errorContainer.insertAfter(field.closest('.ds_question').find('label')[0]);
+                    field.closest('.ds_question').querySelector('label').insertAdjacentElement('afterend', errorContainer);
                 }
             }
 
             for (let key in field.errors) {
-                errorContainer.append(`<p class="${key}">${field.errors[key]}</p>`);
+                const errorEl = document.createElement('p');
+                errorEl.classList.add(key);
+                errorEl.innerHTML = `<span class="visually-hidden">Error:</span> ${field.errors[key]}`;
+                errorContainer.appendChild(errorEl);
             }
         } else {
             question.classList.remove('ds_question--error');
-            field.removeAttr('aria-invalid');
+            field.removeAttribute('aria-invalid');
         }
 
         if (errorContainer) {
-            window.DS.tracking.init(errorContainer[0]);
+            if (window.DS && window.DS.tracking) {
+                window.DS.tracking.init(errorContainer);
+            }
         }
     },
 
@@ -659,19 +664,34 @@ const commonForms = {
      * Adds or removes error messages to main error container (at top of page)
      */
     toggleFormErrors: function (field, valid, errorClass, fieldName = '', message = '') {
-        const className = `.${field.attr('id')}-errors`;
-        const errorName = className + ' .' + errorClass;
+        if (!document.querySelector('.form-errors')) {
+            return;
+        }
+
+        commonForms.appendErrorContainer(field);
+
+        const fieldErrorContainer = document.querySelector(`.${field.id}-errors`);
+        const fieldErrors = [].slice.call(fieldErrorContainer.querySelectorAll(`.${errorClass}`));
+
         if (!valid) {
-            if ($(errorName).length === 0) {
-                $(className).append(`<p class="error ${errorClass}"><a class="form-nav" href="#${field.attr('id')}">${fieldName.trim()}: <span class="underline">${message.trim()}</span></a></p>`);
+            if (fieldErrors.length === 0) {
+                const errorEl = document.createElement('li');
+                errorEl.classList.add('error');
+                errorEl.classList.add(errorClass);
+                errorEl.innerHTML = `<a class="ds_error-summary__link" href="#${field.id}">${fieldName.trim()}: ${message.trim()}</a>`;
+                fieldErrorContainer.appendChild(errorEl);
             } else {
-                $(errorName).removeClass('error-grey');
+                fieldErrors.forEach(fieldError => {
+                    fieldError.classList.remove('error-grey');
+                });
             }
         } else {
-            if ($('.client-error').hasClass('fully-hidden')) {
-                $(errorName).remove();
+            if (document.querySelector('.client-error').classList.contains('fully-hidden')) {
+                fieldErrorContainer.parentNode.removeChild(fieldErrorContainer);
             } else {
-                $(errorName).addClass('error-grey');
+                fieldErrors.forEach(fieldError => {
+                    fieldError.classList.remove('error-grey');
+                });
             }
         }
     },
@@ -684,21 +704,21 @@ const commonForms = {
      * @param {validationChecks} - array of validation functions to test $field against
      * @returns {boolean} whether the field value is valid
      */
-    validateInput: function ($field, validationChecks, highlightField = true) {
-        commonForms.appendErrorContainer($field);
+    validateInput: function (field, validationChecks, highlightField = true) {
+        commonForms.appendErrorContainer(field);
         let valid = true;
 
         for (let i = 0; i < validationChecks.length; i++) {
-            if (validationChecks[i]($field) === false) {
+            if (validationChecks[i](field) === false) {
                 valid = false;
             }
         }
 
         if (highlightField) {
             if (!valid) {
-                $field.addClass('ds_input--error');
+                field.classList.add('ds_input--error');
             } else {
-                $field.removeClass('ds_input--error');
+                field.classList.remove('ds_input--error');
             }
         }
 
@@ -713,13 +733,13 @@ const commonForms = {
      * @param {arguments} - [2 ..] list of validation functions to test $field against
      * @returns {boolean} whether the field value is valid
      */
-    validateField: function ($field, highlightField) {
-        commonForms.appendErrorContainer($field);
+    validateField: function (field, highlightField) {
+        commonForms.appendErrorContainer(field);
 
         const validationChecks = [];
 
         for (let i = 2; i < arguments.length; i++) {
-            validationChecks.push(arguments[i]($field));
+            validationChecks.push(arguments[i](field));
         }
 
         const valid = validationChecks.every(function (x) {
@@ -727,19 +747,21 @@ const commonForms = {
         });
 
         if (highlightField) {
-            if (!valid) {
-                $field.closest('.form-group')
-                    .addClass('js-has-error')
-                    .removeClass('js-has-success');
-            } else {
-                $field.closest('.form-group')
-                    .removeClass('js-has-error')
-                    .addClass('js-has-success');
+            const formGroup = field.closest('.form-group');
+
+            if (formGroup) {
+                if (!valid) {
+                    formGroup.classList.add('js-has-error');
+                    formGroup.classList.remove('js-has-success');
+                } else {
+                    formGroup.classList.remove('js-has-error');
+                    formGroup.classList.add('js-has-success');
+                }
             }
         }
 
         if (valid) {
-            commonForms.removeErrorContainer($field);
+            commonForms.removeErrorContainer(field);
         }
 
         return valid;
@@ -754,46 +776,46 @@ const commonForms = {
     /**
      * Shows or hides main error container in the DOM
      */
-    showOrHideErrorBox: function (submitted, $clientError, isValid) {
+    showOrHideErrorBox: function (submitted, clientError, isValid) {
         if (submitted) {
             if (!isValid) {
-                $clientError.removeClass('fully-hidden');
+                clientError.classList.remove('fully-hidden');
             } else {
-                $clientError.addClass('fully-hidden');
+                clientError.classList.add('fully-hidden');
             }
         }
     },
 
-    requiredCheckbox: function ($field) {
-        const valid = $field.prop('checked');
+    requiredCheckbox: function (field) {
+        const valid = field.checked;
 
-        let fieldName = commonForms.getLabelText($field);
-        if ($field[0].dataset.label) {
-            fieldName = $field[0].dataset.label;
+        let fieldName = commonForms.getLabelText(field);
+        if (field.dataset.label) {
+            fieldName = field.dataset.label;
         }
 
         let message = 'This field is required';
-        if ($field[0].dataset.message) {
+        if (field.dataset.message) {
             message = '';
             if (fieldName) {
                 message += `<strong>${fieldName}</strong> <br>`;
             }
-            message += `${$field[0].dataset.message}`;
+            message += `${field.dataset.message}`;
         }
 
-        commonForms.toggleFormErrors($field, valid, 'invalid-required', fieldName, message);
-        commonForms.toggleCurrentErrors($field, valid, 'invalid-required', message);
+        commonForms.toggleFormErrors(field, valid, 'invalid-required', fieldName, message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-required', message);
 
         return valid;
     },
 
-    getLabelText: function ($field) {
-        if ($field.attr('aria-labeledby')) {
-            return $(`#${$field.attr('aria-labeledby')}`).html();
-        } else if ($field[0].nodeName === 'FIELDSET') {
+    getLabelText: function (field) {
+        if (field.getAttribute('aria-labeledby')) {
+            return document.getElementById(field.getAttribute('aria-labeledby')).innerHTML;
+        } else if (field.nodeName === 'FIELDSET') {
             return null;
         } else {
-            return $(`label[for="${$field.attr('id')}"]`).html();
+            return document.querySelector(`label[for="${field.id}"]`).innerHTML;
         }
     },
 
@@ -814,17 +836,18 @@ const commonForms = {
         pageNavData.startPage = currentStep.slug === startSlug;
 
         // does the current step have a data-group attribute and is it the last of its kind?
-        const groupName = $(`section[data-step="${currentStep.slug}"]`).attr('data-group');
-        const stepIsLastInGroup = $(`[data-group="${groupName}"]:last`).is(`section[data-step="${currentStep.slug}"]`);
+        const groupName = document.querySelector(`section[data-step="${currentStep.slug}"]`).dataset.group;
+        if (groupName) {
+            const stepIsLastInGroup = document.querySelector(`[data-group="${groupName}"]:last-child`) === document.querySelector(`section[data-step="${currentStep.slug}"]`);
 
-        if (stepIsLastInGroup) {
-            if (currentStep.section === 'landlords') {
-                pageNavData.addLandlord = true;
-            } else if (currentStep.section === 'tenants') {
-                pageNavData.addTenant = true;
+            if (stepIsLastInGroup) {
+                if (currentStep.section === 'landlords') {
+                    pageNavData.addLandlord = true;
+                } else if (currentStep.section === 'tenants') {
+                    pageNavData.addTenant = true;
+                }
             }
         }
-
         return pageNavData;
     },
 
@@ -832,11 +855,12 @@ const commonForms = {
         /* look for data-validation attributes in current step & PERFORM VALIDATION
          * do not allow progress if invalid
          */
-        const stepContainer = $(`section[data-step="${step.slug}"]`);
-        const fieldsThatNeedToBeValidated = stepContainer.find('[data-validation]:visible');
 
-        fieldsThatNeedToBeValidated.each(function (index, element) {
-            const validations = element.getAttribute('data-validation').split(' ');
+        const stepContainer = document.querySelector(`section[data-step="${step.slug}"]`);
+        const itemsThatNeedToBeValidated = [].slice.call(stepContainer.querySelectorAll('[data-validation]')).filter(item => item.offsetParent);
+
+        itemsThatNeedToBeValidated.forEach(item => {
+            const validations = item.getAttribute('data-validation').split(' ');
             const validationChecks = [];
             for (let i = 0, il = validations.length; i < il; i++) {
                 if (commonForms[validations[i]]) {
@@ -844,10 +868,10 @@ const commonForms = {
                 }
             }
 
-            commonForms.validateInput($(this), validationChecks);
+            commonForms.validateInput(item, validationChecks);
         });
 
-        const invalidFields = stepContainer.find('[aria-invalid="true"]:visible');
+        const invalidFields = [].slice.call(stepContainer.querySelectorAll('[aria-invalid="true"]'));
 
         return invalidFields.length === 0;
     },
@@ -858,6 +882,17 @@ const commonForms = {
 
     objectKeys: function (object) {
         return Object.keys(object || {});
+    },
+
+    getTitleFromLegend(legendEl) {
+        if (!legendEl) {
+            return '';
+        }
+        if (legendEl.querySelector('.js-question-title')) {
+            return legendEl.querySelector('.js-question-title').innerHTML;
+        } else {
+            return legendEl.innerHTML;
+        }
     }
 };
 
