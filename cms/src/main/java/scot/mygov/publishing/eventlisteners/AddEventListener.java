@@ -41,6 +41,8 @@ public class AddEventListener {
 
     private static final String NEW_FAIRRENT = "new-publishing-fairrent";
 
+    private static final String NEW_SMARTANSWER = "new-publishing-smartanswer";
+
     protected HippoUtils hippoUtils;
 
     Set<String> orgFormats = new HashSet<>();
@@ -74,7 +76,7 @@ public class AddEventListener {
 
         Node node = session.getNode(event.result());
 
-        if (isGuide(node)) {
+        if (isGuideOrSmartAnswer(node)) {
             Node index = node.getNode(INDEX).getNode(INDEX);
             setSlug(index, node.getName());
             addRequiredOrganisations(index);
@@ -108,10 +110,11 @@ public class AddEventListener {
 
     }
 
-    boolean isGuide(Node node) throws RepositoryException {
+    boolean isGuideOrSmartAnswer(Node node) throws RepositoryException {
         return isFolder(node)
                 && isUnder(node, "/content/documents/")
-                && hasFolderAction(node, "new-publishing-guide-page");
+                && (hasFolderAction(node, "new-publishing-guide-page")
+                    || hasFolderAction(node, "new-publishing-smartanswer-result"));
     }
 
     boolean hasOrganisationsTags(Node node) throws RepositoryException {
@@ -142,11 +145,11 @@ public class AddEventListener {
     }
 
     String [] allActions() {
-        return new String[] { NEW_ARTICLE, NEW_CATEGORY, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE, NEW_FAIRRENT };
+        return new String[] { NEW_ARTICLE, NEW_CATEGORY, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE, NEW_FAIRRENT, NEW_SMARTANSWER };
     }
 
     String [] actionsWithoutNewCategory() {
-        return new String[] { NEW_ARTICLE, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE, NEW_FAIRRENT };
+        return new String[] { NEW_ARTICLE, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE, NEW_FAIRRENT, NEW_SMARTANSWER };
     }
 
     void setNavigationStyle(Node folder) throws RepositoryException {

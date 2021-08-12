@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a4a95709-cc87-4191-9d03-425d2b4e8b7c
+          jcr:uuid: d7b8e114-4986-4602-9832-a4508d4dc501
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:smartanswerquestion', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -37,7 +37,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           publishing:exitFunction: ''
           publishing:title: ''
-          jcr:uuid: b3132c1b-1a86-4182-817d-db5fa4332e4c
+          jcr:uuid: f6ba0752-d9e5-4c49-8a12-e5623a21a22b
           hippostdpubwf:lastModificationDate: 2021-05-17T11:10:32.548+01:00
           hippostdpubwf:creationDate: 2021-05-17T11:10:32.549+01:00
           /publishing:content:
@@ -78,14 +78,6 @@ definitions:
             field: options
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /exitFunction:
-            jcr:primaryType: frontend:plugin
-            caption: Exit function
-            field: exitFunction
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
