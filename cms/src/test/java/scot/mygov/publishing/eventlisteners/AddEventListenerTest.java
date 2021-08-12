@@ -277,6 +277,24 @@ public class AddEventListenerTest {
     }
 
     @Test
+    public void nothingWhenNotUnderDocuments() throws RepositoryException {
+        Session session = mock(Session.class);
+        HippoUtils hippoUtils = mock(HippoUtils.class);
+        Node index = mock(Node.class);
+        Node folder = folderNodeWithPath(index, "/some/other/path");
+        Value [] values = new Value[] { new StringValue("new-publishing-guide-page")};
+        Property folderTypeProperty = folderTypeProperty(values);
+        when(folder.getProperty("hippostd:foldertype")).thenReturn(folderTypeProperty);
+
+        AddEventListener sut = new AddEventListener(session, hippoUtils);
+        organisationTags(session, index, sut);
+        HippoEvent event = eventWithAction("add").result("path");
+        when(session.getNode(event.result())).thenReturn(folder);
+        sut.handleEvent(event);
+
+    }
+
+    @Test
     public void setsOrganisationsWhenRequired() throws RepositoryException {
         Session session = mock(Session.class);
         HippoUtils hippoUtils = mock(HippoUtils.class);
@@ -306,13 +324,16 @@ public class AddEventListenerTest {
         event.action(action);
         return event;
     }
-
     Node folderNode(Node index) throws RepositoryException {
+        return folderNodeWithPath(index, "/content/documents/test");
+    }
+
+    Node folderNodeWithPath(Node index, String path) throws RepositoryException {
         Node folder = mock(Node.class);
         Node indexHandle = mock(Node.class);
         when(folder.isNodeType("hippostd:folder")).thenReturn(true);
         when(folder.isNodeType("publishing:base")).thenReturn(false);
-        when(folder.getPath()).thenReturn("/content/documents/test");
+        when(folder.getPath()).thenReturn(path);
         when(indexHandle.getNodes()).thenReturn(TestUtil.iterator(singletonList(index)));
         when(folder.getNode("index")).thenReturn(indexHandle);
         when(folder.getNode("index").getNode("index")).thenReturn(index);
