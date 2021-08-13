@@ -51,9 +51,9 @@
                 </nav>
             </div>
 
-            <#if document.logo??>
+            <#if guide.logo??>
                 <div class="ds_layout__partner  mg_partner-logo">
-                    <img alt="" src="<@hst.link hippobean=document.logo/>" />
+                    <img alt="" src="<@hst.link hippobean=guide.logo/>" />
                 </div>
             </#if>
 
