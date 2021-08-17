@@ -9,6 +9,8 @@ import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.onehippo.cms7.essentials.components.EssentialsListComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
@@ -21,6 +23,8 @@ import static org.onehippo.repository.util.JcrConstants.JCR_PRIMARY_TYPE;
 
 @ParametersInfo(type = EssentialsListComponentInfo.class)
 public class SearchComponent extends EssentialsListComponent {
+
+    private static final Logger LOG = LoggerFactory.getLogger(SearchComponent.class);
 
     private static final Collection<String> FIELD_NAMES = new ArrayList<>();
 
@@ -40,8 +44,8 @@ public class SearchComponent extends EssentialsListComponent {
         final int pageSize = getPageSize(request, paramInfo);
         final int page = getCurrentPage(request);
         final int offset = (page - 1) * pageSize;
-        HstQueryBuilder builder = HstQueryBuilder.create(request.getRequestContext().getSiteContentBaseBean());
-        return builder
+        return HstQueryBuilder
+                .create(request.getRequestContext().getSiteContentBaseBean())
                 .where(whereConstraint(request))
                 .limit(pageSize)
                 .offset(offset)
@@ -50,6 +54,7 @@ public class SearchComponent extends EssentialsListComponent {
 
     Constraint whereConstraint(HstRequest request) {
         List<Constraint> constraints = new ArrayList<>();
+        constraints.add(showInParentConstraint());
         constraints.add(excludeTypesConstraint());
         String term = param(request, "q");
         String parsedTerm = SearchInputParsingUtils.parse(term, false);
@@ -58,6 +63,14 @@ public class SearchComponent extends EssentialsListComponent {
         }
 
         return and(constraints.toArray(new Constraint[] {}));
+    }
+
+    Constraint showInParentConstraint() {
+        // only include content if the showInParentFlag has not been set to false.
+        return or(
+                constraint("publishing:showInParent").equalTo(true),
+                constraint("publishing:showInParent").notExists()
+        );
     }
 
     Constraint excludeTypesConstraint() {

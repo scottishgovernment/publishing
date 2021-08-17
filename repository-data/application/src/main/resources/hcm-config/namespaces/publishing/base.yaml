@@ -432,7 +432,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Show in parent?
             field: showInParent
-            hint: Indicates whether the page should appear in the site navigation.
+            hint: Indicates whether the page should appear in the site navigation and site search results
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
