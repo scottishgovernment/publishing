@@ -9,8 +9,6 @@ import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.onehippo.cms7.essentials.components.EssentialsListComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
@@ -23,8 +21,6 @@ import static org.onehippo.repository.util.JcrConstants.JCR_PRIMARY_TYPE;
 
 @ParametersInfo(type = EssentialsListComponentInfo.class)
 public class SearchComponent extends EssentialsListComponent {
-
-    private static final Logger LOG = LoggerFactory.getLogger(SearchComponent.class);
 
     private static final Collection<String> FIELD_NAMES = new ArrayList<>();
 
