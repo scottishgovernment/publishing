@@ -76,7 +76,7 @@
     </#if>
 
     <#if hstRequestContext.preview>
-        <div class="ds_wrapper  cms-visible-if-show-components" style="padding: 5px 0">
+        <div class="ds_wrapper  cms-visible-if-show-components" style="padding: 5px 0; position: relative;">
             <img class="ds_icon ds_icon--40" ng-src="/site/icons/seo.svg" src="/site/icons/seo.svg"> <small class="">Click to edit SEO parameters</small>
 
             <@hst.manageContent hippobean=document documentTemplateQuery="new-seo-document" parameterName="contentBean" rootPath="seo"/>
@@ -84,7 +84,7 @@
     </#if>
 
 <#elseif editMode>
-    <div class="ds_wrapper">
+    <div class="ds_wrapper  cms-visible-if-show-components" style="padding: 5px 0; position: relative;">
         <img class="ds_icon ds_icon--40" ng-src="/site/icons/seo.svg" src="/site/icons/seo.svg"> <small class="">Click to edit SEO parameters</small>
 
         <@hst.manageContent documentTemplateQuery="new-seo-document" parameterName="document" rootPath="seo"/>

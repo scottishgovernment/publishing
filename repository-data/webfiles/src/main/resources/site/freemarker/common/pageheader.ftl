@@ -24,6 +24,8 @@
                 </div>
             </#if>
 
+            <@hst.manageContent hippobean=document documentTemplateQuery="new-pageheading-document" parameterName="document" rootPath="pageheadings"/>
+
             <#elseif editMode>
                 <div class="ds_cb__text  ds_cb__content">
                     <header class="ds_page-header">
