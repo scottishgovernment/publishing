@@ -10,8 +10,10 @@
         <div class="ds_cb__inner">
 
             <#if document1??>
-                <div class="ds_cb__text">
+                <div class="ds_cb__text" style="position: relative">
                     <@hst.html hippohtml=document1.content/>
+
+                    <@hst.manageContent hippobean=document1 documentTemplateQuery="new-text-document" parameterName="document1" rootPath="text"/>
                 </div>
             <#elseif editMode>
                 <div class="ds_cb__text  cms-blank">
@@ -24,6 +26,8 @@
             <#if document2??>
                 <div class="ds_cb__text">
                     <@hst.html hippohtml=document2.content/>
+
+                    <@hst.manageContent hippobean=document2 documentTemplateQuery="new-text-document" parameterName="document2" rootPath="text"/>
                 </div>
             <#elseif editMode>
                 <div class="ds_cb__text  cms-blank">

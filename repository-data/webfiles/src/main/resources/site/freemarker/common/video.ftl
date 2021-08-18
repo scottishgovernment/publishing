@@ -14,8 +14,6 @@
                 <div class="ds_cb__poster">
                     <a class="ds_cb__poster-link" href="${document.url}">
                         <img class="ds_cb__poster-video" src="<@hst.link hippobean=document.image /> " alt="${document.alt?html}"/>
-
-                        <svg class="ds_icon  ds_cb__poster-video-icon" role="img"><use xlink:href="${iconspath}#play_circle_outline"></use></svg>
                     </a>
                 </div>
 

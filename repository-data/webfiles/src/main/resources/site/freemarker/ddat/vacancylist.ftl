@@ -1,7 +1,5 @@
 <#include "../common/include/imports.ftl">
 
-<@hst.include ref="seo"/>
-
 <div class="ds_cb  ds_cb--page-title">
     <div class="ds_wrapper">
         <div class="ds_cb__inner">
@@ -92,6 +90,8 @@
             <#include "../common/include/pagination.ftl">
         </div>
     </#if>
+
+    <@hst.include ref="seo"/>
 </#if>
 
 <@hst.headContribution category="footerScripts">
