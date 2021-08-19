@@ -28,3 +28,7 @@ definitions:
       /organisationtag-validator:
         jcr:primaryType: hipposys:moduleconfig
         hipposys:className: scot.mygov.publishing.validation.OrganisationTagValidator
+      /smartanswer-question-value:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: org.onehippo.cms.services.validation.validator.RegExpValidator
+        regexp.pattern: ^[a-z0-9-]+$
