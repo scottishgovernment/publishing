@@ -252,7 +252,7 @@ const commonForms = {
     },
 
     validEmail: function (field) {
-        const message = 'Enter a valid email address, for example jane.smith@gov.scot';
+        const message = 'Enter a valid email address, for example firstname.surname@example.com';
         const trimmedValue = field.value.trim();
 
         const regex = /^[^@ ]+@[^@ ]+\.[^@ ]+$/;
