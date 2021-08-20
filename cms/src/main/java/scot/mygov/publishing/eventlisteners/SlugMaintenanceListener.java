@@ -87,7 +87,7 @@ public class SlugMaintenanceListener {
             return false;
         }
 
-        return event.interaction().equals("embedded:folder-extended:rename");
+        return "embedded:folder-extended:rename".equals(event.interaction());
     }
 
     void updateLookupsInFolder(HippoWorkflowEvent event) throws RepositoryException {
