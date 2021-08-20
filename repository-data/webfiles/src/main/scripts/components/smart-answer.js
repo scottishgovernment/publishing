@@ -5,10 +5,10 @@ import commonForms from '../tools/forms';
 class SmartAnswer {
     constructor(container) {
         this.container = container;
+        this.form = this.container.querySelector('form');
         this.answersTemplate = require('../templates/smartanswer-answers');
         this.errorSummary = document.querySelector('.ds_error-summary');
         this.pageTitle = document.title;
-        this.startPage = document.getElementById('start-page-link') ? document.getElementById('start-page-link').getAttribute('href') : '';
     }
 
     init() {
@@ -24,15 +24,6 @@ class SmartAnswer {
             this.interpretUrl();
         });
 
-        // identify the the question response that would bring the user to a particular step
-        // this is used to build URLs for the form state
-        const steps = this.container.querySelectorAll('.mg_smart-answer__step');
-        steps.forEach(step => {
-            if (this.container.querySelector(`[data-nextstep="${step.id}"]`)) {
-                step.dataset.previousResponse = this.container.querySelector(`[data-nextstep="${step.id}"]`).id;
-            }
-        });
-
         this.container.addEventListener('click', (event) => {
             if (event.target.classList.contains('js-next-button')) {
                 event.preventDefault();
@@ -41,9 +32,8 @@ class SmartAnswer {
 
                 if (this.validateStep(stepContainer)) {
                     const checkedOption = stepContainer.querySelector("input[type='radio']:checked");
-                    const next = this.container.querySelector('#' + checkedOption.dataset.nextstep);
 
-                    this.updateUrl(next);
+                    this.updateUrl(checkedOption.value);
                 } else {
                     this.showErrorSummary();
                 }
@@ -52,6 +42,12 @@ class SmartAnswer {
             if (event.target.classList.contains('js-change-answer')) {
                 event.preventDefault();
                 window.location.hash = event.target.dataset.path;
+            }
+
+            if (event.target.classList.contains('js-clear-answers')) {
+                event.preventDefault();
+                this.form.reset();
+                window.location.hash = '';
             }
         });
     }
@@ -123,8 +119,12 @@ class SmartAnswer {
                     // move to next step
                     step = this.container.querySelector('#' + chosenAnswer.dataset.nextstep);
                     answerpath += '/' + responses[i];
+                } else {
+                    // break;
                 }
             }
+            // clean the URL (removes answers found in the URL that are not in the page)
+            window.history.replaceState({}, document.title, answerpath);
         }
 
         // show the target step
@@ -133,7 +133,6 @@ class SmartAnswer {
 
         // populate the answer list
         const answerListHtml = this.answersTemplate.render({
-            startPageLink: this.startPage,
             answers: answers
         });
         document.getElementById('answered-questions').innerHTML = answerListHtml;
@@ -188,22 +187,15 @@ class SmartAnswer {
      * Build the hashbang URL from the answered questions
      * Use the URL to trigger a hashchange event & perform navigation
      */
-    updateUrl(currentStep) {
-        const urlBits = [];
-
-        while (currentStep && this.container.querySelector('#' + currentStep.dataset.previousResponse)) {
-            urlBits.push(this.container.querySelector('#' + currentStep.dataset.previousResponse).value);
-
-            const prevStep = this.container.querySelector(`[data-nextstep="${currentStep.id}"]`);
-
-            if (prevStep) {
-                currentStep = prevStep.closest('.mg_smart-answer__question');
-            } else {
-                currentStep = null;
-            }
+    updateUrl(value) {
+        let values;
+        if (window.location.hash.indexOf('/') > -1) {
+            values = window.location.hash.substring(window.location.hash.indexOf('/') + 1).split('/');
+        } else {
+            values = [];
         }
-
-        window.location.hash = `#!/${urlBits.reverse().join('/')}`;
+        values.push(value);
+        window.location.hash = `!/${values.join('/')}`;
     }
 
     validateStep () {

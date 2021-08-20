@@ -121,9 +121,6 @@ const global = {
         const mobileMenus = [].slice.call(document.querySelectorAll('[data-module="ds-mobile-navigation-menu"]'));
         mobileMenus.forEach(mobileMenu =>  new window.DS.components.MobileMenu(mobileMenu).init());
 
-        const searchBoxes = [].slice.call(document.querySelectorAll('[data-module="ds-site-search"]'));
-        searchBoxes.forEach(searchBox => new window.DS.components.CollapsibleSearchBox(searchBox).init());
-
         const sideNavigations = [].slice.call(document.querySelectorAll('[data-module="ds-side-navigation"]'));
         sideNavigations.forEach(sideNavigation => new window.DS.components.SideNavigation(sideNavigation).init());
 

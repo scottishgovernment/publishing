@@ -1,19 +1,25 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <@hst.setBundle basename="preview.indicator"/>
 
 <#if isStaging>
-    <div style="padding: 20px;
-    background-color: #f8d7da;
-    position: fixed;
-    bottom: 0;
-    z-index: 10000;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    border-radius: 3px;
-    text-decoration: underline">
-        <span><@fmt.message key="indicator.content" var="content"/>${content}</span><br/>
-        <span><@fmt.message key="indicator.disclaimer" var="disclaimer"/>${disclaimer}</span>
+    <div class="ds_notification  dp_preview-notification">
+        <div class="ds_wrapper">
+            <div class="ds_notification__content">
+                <div role="heading" class="visually-hidden">Information</div>
+
+                <span class="ds_notification__icon" aria-hidden="true">
+                    <svg class="ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#info"></use></svg>
+                </span>
+
+                <div class="ds_notification__text">
+                    <p>
+                        <@fmt.message key="indicator.content" var="content"/>${content}
+                        <@fmt.message key="indicator.disclaimer" var="disclaimer"/>${disclaimer}
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </#if>

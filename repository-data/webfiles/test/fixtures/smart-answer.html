@@ -8,142 +8,135 @@
 
 <div class="mg_smart-answer" data-module="smartanswer">
     <input type="hidden" id="smartanswer-startpage" value="foo" />
+    <form class="mg_smart-answer__form">
+        <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" id="step-under-16">
+            <div class="ds_question">
+                <fieldset class="mg_no-margin--last-child  " id="question-under-16" data-validation="requiredRadio">
+                    <legend class="ds_page-header">
+                        <span class="mg_smart-answer__parent-title">Check if Adult Disability Payment is suitable for
+                            you</span>
+                        <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">How old are you?
+                        </h1>
+                    </legend>
 
-    <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" id="step-under-16">
-        <div class="ds_question">
-            <fieldset class="mg_no-margin--last-child  " id="question-under-16" data-validation="requiredRadio">
-                <legend class="ds_page-header">
-                    <span class="mg_smart-answer__parent-title">Check if Adult Disability Payment is suitable for
-                        you</span>
-                    <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">How old are you?
-                    </h1>
-                </legend>
+                    <div class="ds_radio">
+                        <input required data-form="radio-step-under-16-under-16" class="ds_radio__input" type="radio"
+                            id="step-under-16-under-16" name="question-under-16" value="under-16"
+                            data-nextstep="step-under-16-result">
+                        <label class="ds_radio__label" for="step-under-16-under-16">Under 16</label>
+                    </div>
+                    <div class="ds_radio">
+                        <input required data-form="radio-step-under-16-over-16" class="ds_radio__input" type="radio"
+                            id="step-under-16-over-16" name="question-under-16" value="over-16"
+                            data-nextstep="step-residency-question-one">
+                        <label class="ds_radio__label" for="step-under-16-over-16">16 or over</label>
+                    </div>
+                </fieldset>
+            </div>
 
-                <div class="ds_radio">
-                    <input required data-form="radio-step-under-16-under-16" class="ds_radio__input" type="radio"
-                        id="step-under-16-under-16" name="question-under-16" value="under-16"
-                        data-nextstep="step-under-16-result">
-                    <label class="ds_radio__label" for="step-under-16-under-16">Under 16</label>
-                </div>
-                <div class="ds_radio">
-                    <input required data-form="radio-step-under-16-over-16" class="ds_radio__input" type="radio"
-                        id="step-under-16-over-16" name="question-under-16" value="over-16"
-                        data-nextstep="step-residency-question-one">
-                    <label class="ds_radio__label" for="step-under-16-over-16">16 or over</label>
-                </div>
-            </fieldset>
-        </div>
+            <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin">
+                Next
+                <svg class="ds_icon" aria-hidden="true" role="img">
+                    <use xlink:href="/site/webfiles/1628509152228/assets/images/icons/icons.stack.svg#chevron_right"></use>
+                </svg>
+            </button>
+        </section>
+        <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" id="step-residency-question-one">
+            <div class="ds_question">
+                <fieldset class="mg_no-margin--last-child  " id="question-residency-question-one"
+                    data-validation="requiredRadio">
+                    <legend class="ds_page-header">
+                        <span class="mg_smart-answer__parent-title">Check if Adult Disability Payment is suitable for
+                            you</span>
+                        <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">Do you live in
+                            Scotland?</h1>
+                    </legend>
 
-        <a href="/site/mygov/browse/mammals/bats" id="start-page-link"
-            class="ds_button  ds_button--has-icon  ds_button--has-icon--left  ds_button--cancel  ds_no-margin">
-            <svg class="ds_icon" aria-hidden="true" role="img">
-                <use xlink:href="/site/webfiles/1628509152228/assets/images/icons/icons.stack.svg#chevron_left"></use>
-            </svg>
-            Back
-        </a>
-
-        <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin">
-            Next
-            <svg class="ds_icon" aria-hidden="true" role="img">
-                <use xlink:href="/site/webfiles/1628509152228/assets/images/icons/icons.stack.svg#chevron_right"></use>
-            </svg>
-        </button>
-    </section>
-    <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" id="step-residency-question-one">
-        <div class="ds_question">
-            <fieldset class="mg_no-margin--last-child  " id="question-residency-question-one"
-                data-validation="requiredRadio">
-                <legend class="ds_page-header">
-                    <span class="mg_smart-answer__parent-title">Check if Adult Disability Payment is suitable for
-                        you</span>
-                    <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">Do you live in
-                        Scotland?</h1>
-                </legend>
-
-                <div class="ds_radio">
-                    <input required data-form="radio-step-residency-question-one-yes" class="ds_radio__input"
-                        type="radio" id="step-residency-question-one-yes" name="question-residency-question-one"
-                        value="yes" data-nextstep="step-client-receipt-afip">
-                    <label class="ds_radio__label" for="step-residency-question-one-yes">Yes</label>
-                </div>
-                <div class="ds_radio">
-                    <input required data-form="radio-step-residency-question-one-no" class="ds_radio__input"
-                        type="radio" id="step-residency-question-one-no" name="question-residency-question-one"
-                        value="no" data-nextstep="step-not-resident-result">
-                    <label class="ds_radio__label" for="step-residency-question-one-no">No</label>
-                </div>
-            </fieldset>
-        </div>
+                    <div class="ds_radio">
+                        <input required data-form="radio-step-residency-question-one-yes" class="ds_radio__input"
+                            type="radio" id="step-residency-question-one-yes" name="question-residency-question-one"
+                            value="yes" data-nextstep="step-client-receipt-afip">
+                        <label class="ds_radio__label" for="step-residency-question-one-yes">Yes</label>
+                    </div>
+                    <div class="ds_radio">
+                        <input required data-form="radio-step-residency-question-one-no" class="ds_radio__input"
+                            type="radio" id="step-residency-question-one-no" name="question-residency-question-one"
+                            value="no" data-nextstep="step-not-resident-result">
+                        <label class="ds_radio__label" for="step-residency-question-one-no">No</label>
+                    </div>
+                </fieldset>
+            </div>
 
 
-        <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin">
-            Next
-            <svg class="ds_icon" aria-hidden="true" role="img">
-                <use xlink:href="/site/webfiles/1628509152228/assets/images/icons/icons.stack.svg#chevron_right"></use>
-            </svg>
-        </button>
-    </section>
-    <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" id="step-client-receipt-afip">
-        <div class="ds_question">
-            <fieldset class="mg_no-margin--last-child  " id="question-client-receipt-afip"
-                data-validation="requiredRadio">
-                <legend class="ds_page-header">
-                    <span class="mg_smart-answer__parent-title">Check if Adult Disability Payment is suitable for
-                        you</span>
-                    <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">Is the client in
-                        receipt of AFIP?</h1>
-                </legend>
+            <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin">
+                Next
+                <svg class="ds_icon" aria-hidden="true" role="img">
+                    <use xlink:href="/site/webfiles/1628509152228/assets/images/icons/icons.stack.svg#chevron_right"></use>
+                </svg>
+            </button>
+        </section>
+        <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" id="step-client-receipt-afip">
+            <div class="ds_question">
+                <fieldset class="mg_no-margin--last-child  " id="question-client-receipt-afip"
+                    data-validation="requiredRadio">
+                    <legend class="ds_page-header">
+                        <span class="mg_smart-answer__parent-title">Check if Adult Disability Payment is suitable for
+                            you</span>
+                        <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">Is the client in
+                            receipt of AFIP?</h1>
+                    </legend>
 
-                <div class="ds_radio">
-                    <input required data-form="radio-step-client-receipt-afip-yes" class="ds_radio__input" type="radio"
-                        id="step-client-receipt-afip-yes" name="question-client-receipt-afip" value="yes"
-                        data-nextstep="step-recipient-afip">
-                    <label class="ds_radio__label" for="step-client-receipt-afip-yes">Yes</label>
-                </div>
-                <div class="ds_radio">
-                    <input required data-form="radio-step-client-receipt-afip-no" class="ds_radio__input" type="radio"
-                        id="step-client-receipt-afip-no" name="question-client-receipt-afip" value="no"
-                        data-nextstep="step-final-result">
-                    <label class="ds_radio__label" for="step-client-receipt-afip-no">No</label>
-                </div>
-            </fieldset>
-        </div>
+                    <div class="ds_radio">
+                        <input required data-form="radio-step-client-receipt-afip-yes" class="ds_radio__input" type="radio"
+                            id="step-client-receipt-afip-yes" name="question-client-receipt-afip" value="yes"
+                            data-nextstep="step-recipient-afip">
+                        <label class="ds_radio__label" for="step-client-receipt-afip-yes">Yes</label>
+                    </div>
+                    <div class="ds_radio">
+                        <input required data-form="radio-step-client-receipt-afip-no" class="ds_radio__input" type="radio"
+                            id="step-client-receipt-afip-no" name="question-client-receipt-afip" value="no"
+                            data-nextstep="step-final-result">
+                        <label class="ds_radio__label" for="step-client-receipt-afip-no">No</label>
+                    </div>
+                </fieldset>
+            </div>
 
 
-        <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin">
-            Next
-            <svg class="ds_icon" aria-hidden="true" role="img">
-                <use xlink:href="/site/webfiles/1628509152228/assets/images/icons/icons.stack.svg#chevron_right"></use>
-            </svg>
-        </button>
-    </section>
+            <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin">
+                Next
+                <svg class="ds_icon" aria-hidden="true" role="img">
+                    <use xlink:href="/site/webfiles/1628509152228/assets/images/icons/icons.stack.svg#chevron_right"></use>
+                </svg>
+            </button>
+        </section>
 
-    <section tabindex="-1" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-under-16-result">
-        <header class="ds_page-header">
-            <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">Under 16 result</h1>
-        </header>
-        <p>Signpost to CDP / DLA Child etc</p>
+        <section tabindex="-1" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-under-16-result">
+            <header class="ds_page-header">
+                <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">Under 16 result</h1>
+            </header>
+            <p>Signpost to CDP / DLA Child etc</p>
 
-        <p>&nbsp;</p>
-    </section>
-    <section tabindex="-1" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-not-resident-result">
-        <header class="ds_page-header">
-            <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">Not resident result</h1>
-        </header>
-        <p>Not resident result</p>
-    </section>
-    <div tabindex="-1" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-recipient-afip">
-        <header class="ds_page-header">
-            <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">AFIP result</h1>
-        </header>
-        <p>recipient of afip: signpost elsewhere</p>
-    </section>
-    <section tabindex="-1" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-final-result">
-        <header class="ds_page-header">
-            <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">Final result</h1>
-        </header>
-        <p>final result</p>
-    </section>
+            <p>&nbsp;</p>
+        </section>
+        <section tabindex="-1" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-not-resident-result">
+            <header class="ds_page-header">
+                <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">Not resident result</h1>
+            </header>
+            <p>Not resident result</p>
+        </section>
+        <div tabindex="-1" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-recipient-afip">
+            <header class="ds_page-header">
+                <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">AFIP result</h1>
+            </header>
+            <p>recipient of afip: signpost elsewhere</p>
+        </section>
+        <section tabindex="-1" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-final-result">
+            <header class="ds_page-header">
+                <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">Final result</h1>
+            </header>
+            <p>final result</p>
+        </section>
+    </form>
 
     <div id="answered-questions"></div>
 </div>

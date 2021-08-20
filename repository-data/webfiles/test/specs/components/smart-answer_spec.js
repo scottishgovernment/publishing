@@ -45,6 +45,7 @@ describe('smart-answer', function () {
             testObj.smartAnswer.init();
 
             expect(document.querySelector('#step-residency-question-one').classList.contains('mg_smart-answer__step--current')).toBeTruthy();
+            expect(window.location.hash).toEqual('#!/over-16');
         });
 
         it('should pre-fill values from the URL params', () => {
@@ -74,10 +75,10 @@ describe('smart-answer', function () {
         it('should move to the next step if the current step is valid', () => {
             testObj.smartAnswer.init();
 
-            const selectedRadio = document.querySelector('#step-under-16-over-16');
+            let selectedRadio = document.querySelector('#step-under-16-over-16');
             selectedRadio.checked = true;
 
-            const button = document.querySelector('#step-under-16 .js-next-button');
+            let button = document.querySelector('#step-under-16 .js-next-button');
             button.click();
 
             expect(window.location.hash).toEqual('#!/over-16');
@@ -86,11 +87,36 @@ describe('smart-answer', function () {
 
             expect(document.querySelectorAll('.mg_smart-answer__step--current').length).toEqual(1);
             expect(document.querySelector('.mg_smart-answer__step--current').id).toEqual(selectedRadio.dataset.nextstep);
+
+            // and we'll do that again just to make sure the URL is updating
+            selectedRadio = document.querySelector('#step-residency-question-one-yes');
+            selectedRadio.checked = true;
+
+            button = document.querySelector('#step-residency-question-one .js-next-button');
+            button.click();
+
+            expect(window.location.hash).toEqual('#!/over-16/yes');
+        });
+
+        it('should clear errors from the step beign navigated to, if present', () => {
+            testObj.smartAnswer.init();
+
+            const step = document.querySelector('#step-under-16');
+
+            //force error state
+            const button = step.querySelector('.js-next-button');
+            button.click();
+
+            expect(step.querySelectorAll('.ds_question--error').length).toEqual(1);
+
+            // try to show that step again
+            testObj.smartAnswer.showStep(step);
+            expect(step.querySelectorAll('.ds_question--error').length).toEqual(0);
         });
     });
 
     describe('answer navigation', () => {
-        xit('should go to the selected step if an answer\'s "change" button is clicked', () => {
+        it('should go to the selected step if an answer\'s "change" button is clicked', () => {
             window.location.hash = '#!/over-16/yes/yes';
             testObj.smartAnswer.init();
 
@@ -98,6 +124,19 @@ describe('smart-answer', function () {
             button.click();
 
             expect(window.location.hash).toEqual('#!/over-16');
+        });
+
+        it('should clear the form and return to the first question when the "clear form" button is clicked', () => {
+            window.location.hash = '#!/over-16/yes/yes';
+            testObj.smartAnswer.init();
+            const formElement = document.querySelector('.mg_smart-answer__form');
+            spyOn(formElement, 'reset');
+
+            const button = document.querySelector('.js-clear-answers');
+            button.click();
+
+            expect(window.location.hash).toEqual('');
+            expect(formElement.reset).toHaveBeenCalled();
         });
     });
 });

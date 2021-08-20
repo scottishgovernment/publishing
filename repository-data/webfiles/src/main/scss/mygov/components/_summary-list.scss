@@ -24,6 +24,10 @@
     &__actions {
         @include small-size;
         display: inline;
+
+        > button {
+            @include small-size;
+        }
     }
 }
 
