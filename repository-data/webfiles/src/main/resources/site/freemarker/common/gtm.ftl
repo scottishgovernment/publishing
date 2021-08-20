@@ -16,7 +16,7 @@
             <#if reportingTags?has_content>
                 'reportingTags': [<#list reportingTags as tag>'${tag?js_string}'<#sep>, </#sep></#list>],
             </#if>
-            <#if document.lifeEvents?has_content>
+            <#if document.lifeEvents??>
                 'lifeEvents': [<#list document.lifeEvents as lifeEvent>'${lifeEvent?js_string}'<#sep>, </#sep></#list>],
             </#if>
             <#if document.serviceproviders?has_content>
