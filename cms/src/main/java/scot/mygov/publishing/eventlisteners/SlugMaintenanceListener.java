@@ -47,13 +47,16 @@ public class SlugMaintenanceListener {
     }
 
     void doHandleEvent(HippoWorkflowEvent event) throws RepositoryException {
-        Node subject = session.getNode(event.subjectPath());
-
-        if (isFolderRename(event, subject)) {
+        if (isFolderRename(event)) {
             updateLookupsInFolder(event);
             return;
         }
 
+        if (!session.nodeExists(event.subjectPath())) {
+            return;
+        }
+
+        Node subject = session.getNode(event.subjectPath());
         if (!requiresSlug(subject)) {
             return;
         }
@@ -79,12 +82,12 @@ public class SlugMaintenanceListener {
         }
     }
 
-    boolean isFolderRename(HippoWorkflowEvent event, Node subject) throws RepositoryException {
+    boolean isFolderRename(HippoWorkflowEvent event) throws RepositoryException {
         if (!"rename".equals(event.action())) {
             return false;
         }
 
-        return subject.isNodeType("hippostd:folder");
+        return event.interaction().equals("embedded:folder-extended:rename");
     }
 
     void updateLookupsInFolder(HippoWorkflowEvent event) throws RepositoryException {

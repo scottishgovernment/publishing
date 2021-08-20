@@ -127,7 +127,7 @@ public class SlugMaintenanceListenerTest {
 
     Session exceptionThrowingSession() throws RepositoryException {
         Session session = mock(Session.class);
-        when(session.getNode(any())).thenThrow(new RepositoryException("arg"));
+        when(session.nodeExists(any())).thenThrow(new RepositoryException("arg"));
         return session;
     }
 
@@ -139,6 +139,7 @@ public class SlugMaintenanceListenerTest {
         when(node.getNode("index")).thenReturn(index);
         when(index.isNodeType("publishing:category")).thenReturn(true);
         when(session.getNode("subject")).thenReturn(node);
+        when(session.nodeExists("subject")).thenReturn(true);
         when(index.hasProperty("publishing:slug")).thenReturn(false);
         return session;
     }
@@ -148,6 +149,7 @@ public class SlugMaintenanceListenerTest {
         Node handle = mock(Node.class);
         Node variant = mock(Node.class);
         when(session.getNode("subject")).thenReturn(handle);
+        when(session.nodeExists("subject")).thenReturn(true);
         when(handle.hasNode("index")).thenReturn(false);
         when(handle.getName()).thenReturn("subject");
         when(handle.hasNode("subject")).thenReturn(true);
