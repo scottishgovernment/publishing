@@ -1,107 +1,124 @@
 .sectors {
-    margin-left: 0;
+    margin-bottom: 32px;
 }
-
-
-
 
 .sector {
-    @include blocklink('.sector__link');
-
-    color: $ds_colour__link;
-    margin-bottom: 0;
-    padding: 32px 16px 80px;
-    text-decoration: none;
-    margin-bottom: 32px;
-
-    display: grid;
-    grid-template-areas: 'count' 'title' 'summary';
-
-    transition: color $transition-in-time;
-
-    &:hover {
-        color: $ds_colour__link--hover;
+    &__title {
+        @include h3-size;
+        margin-bottom: 0;
     }
 
-    &--has-focus {
-        color: $ds_colour__text;
+    &__count {
+        display: none;
+    }
+
+    &__summary {
+        margin-left: 24px;
     }
 }
 
-.sector__link::after {
-    background-color: #ebebeb;
-}
-
-.sector__title {
-    grid-area: title;
-
-    font-weight: 300;
-    font-size: 1.333333rem;
-    padding-bottom: 16px;
-    line-height: 32px;
-    text-align: center;
-}
-
-.sector__summary {
-    grid-area: summary;
-
-    font-weight: 300;
-    line-height: 1.5em;
-    pointer-events: none;
-    position: relative;
-}
-
-.sector__summary::before {
-    background: rgba(0,0,0,0.2);
-    content: '';
-    height: 8px;
-    left: 10%;
-    position: absolute;
-    right: 10%;
-    top: -24px;
-}
-
-.sector__summary::after {
-    left: 50%;
-    position: absolute;
-    bottom: -80px;
-    margin-left: -1.5em;
-
-    @include chevron(down, 3em);
-}
-
-.sector__count {
-    display: none;
-    grid-area: count;
-
-    font-size: 6rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-}
-
-@supports (display: grid) {
-    .sector__count {
-        display: block;
-    }
-}
-
-@include media-query(medium) {
+@supports(display: grid) {
     .sectors {
-        display: grid;
-        grid-gap: 0 32px;
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        margin-left: 0;
     }
 
     .sector {
-        grid-template-rows: 120px 144px auto;
+        @include blocklink('.sector__link');
 
-        &__title {
-            height: 72px;
-            padding-bottom: 0;
+        background-color: $ds_colour__grey--light;
+        color: $ds_colour__link;
+        margin-bottom: 0;
+        padding: 32px 16px 80px;
+        text-decoration: none;
+        margin-bottom: 32px;
+
+        display: grid;
+        grid-template-areas: 'count' 'title' 'summary';
+
+        transition: color 0.2s, background-color 0.2s;
+
+        &:hover {
+            color: $ds_colour__link--hover;
+        }
+
+        &--has-focus {
+            color: $ds_colour__text;
+        }
+
+        &:focus-within,
+        &:focus-within a {
+            color: $ds_colour__link--focus;
+        }
+    }
+
+    .sector__title {
+        grid-area: title;
+
+        font-weight: 300;
+        font-size: 1.333333rem;
+        padding-bottom: 16px;
+        line-height: 32px;
+        text-align: center;
+    }
+
+    .sector__summary {
+        grid-area: summary;
+
+        font-weight: 300;
+        line-height: 1.5em;
+        margin-left: 0;
+        pointer-events: none;
+        position: relative;
+    }
+
+    .sector__summary::before {
+        background: rgba(0,0,0,0.2);
+        content: '';
+        height: 8px;
+        left: 10%;
+        position: absolute;
+        right: 10%;
+        top: -24px;
+    }
+
+    .sector__summary::after {
+        left: 50%;
+        position: absolute;
+        bottom: -80px;
+        margin-left: -3em;
+
+        @include chevron(down, 3em);
+    }
+
+    .sector__count {
+        grid-area: count;
+
+        display: block;
+        font-size: 6rem;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+    }
+
+    @include media-query(medium) {
+        .sectors {
+            display: grid;
+            grid-gap: 0 32px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        }
+
+        .sector {
+            grid-template-rows: 120px 144px auto;
+
+            &__title {
+                height: 72px;
+                padding-bottom: 0;
+            }
         }
     }
 }
+
+
 
 
 
