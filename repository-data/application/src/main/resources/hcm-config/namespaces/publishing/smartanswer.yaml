@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 0ad8ee78-221e-416b-bdf6-a3c7f64211d4
+          jcr:uuid: 021c661b-508b-4a7b-b5d1-3a9d107fb3a5
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -47,7 +47,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           publishing:slug: ''
-          jcr:uuid: 81f66ddb-2e02-420f-8b55-ed58572510c7
+          jcr:uuid: 60d2a5f1-3dcc-4b5b-a65f-dc90b8540ed9
           hippostdpubwf:lastModificationDate: 2021-05-17T15:09:40.585+01:00
           hippostdpubwf:creationDate: 2021-05-17T15:09:40.585+01:00
           publishing:audience: ''
@@ -199,7 +199,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Show in parent?
             field: showInParent
-            hint: Indicates whether the page should appear in the site navigation and site search results
+            hint: Indicates whether the page should appear in the site navigation
+              and site search results
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -246,15 +247,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/publishing/valuelists/serviceproviders
-          /showFeedback:
-            jcr:primaryType: frontend:plugin
-            caption: Show feedback?
-            field: showFeedback
-            hint: Should this page include the ability to leave user feedback?
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /urlAliases:
             jcr:primaryType: frontend:plugin
             caption: URL Aliases

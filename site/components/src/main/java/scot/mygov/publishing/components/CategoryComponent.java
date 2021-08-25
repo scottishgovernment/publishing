@@ -5,14 +5,11 @@ import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
-import scot.mygov.publishing.beans.Article;
-import scot.mygov.publishing.beans.Guide;
 import scot.mygov.publishing.beans.Mirror;
 
 import java.util.*;
 
 import static java.util.Objects.nonNull;
-import static java.util.stream.Collectors.partitioningBy;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -95,15 +92,7 @@ public class CategoryComponent extends EssentialsContentComponent {
     }
 
     static boolean includeInParent(HippoBean bean) {
-        if (bean instanceof Article) {
-            return ((Article)bean).getShowInParent();
-        }
-
-        if (bean instanceof Guide) {
-            return ((Guide)bean).getShowInParent();
-        }
-
-        return  true;
+        return bean.getSingleProperty("publishing:showInParent", true);
     }
 
     static boolean notIndexFile(HippoBean bean) {

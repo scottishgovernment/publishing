@@ -131,9 +131,13 @@ public class GoogleTagManagerComponentTest {
         Guide guide = mock(Guide.class);
         GuidePage guidepage = mock(GuidePage.class);
         when(guide.getReportingtags()).thenReturn(new String [] {"tag1"});
+        when(guide.getName()).thenReturn("index");
+        when(guide.getSingleProperty(eq("publishing:showInParent"), eq(true))).thenReturn(true);
         when(guidepage.getReportingtags()).thenReturn(new String [] {"tag2"});
+        when(guidepage.getSingleProperty(eq("publishing:showInParent"), eq(true))).thenReturn(true);
 
         HippoFolderBean folder = mock(HippoFolderBean.class);
+        when(folder.getSingleProperty(eq("publishing:showInParent"), eq(true))).thenReturn(true);
         when(guide.getParentBean()).thenReturn(folder);
 
         List<HippoBean> children = new ArrayList<>();

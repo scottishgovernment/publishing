@@ -33,7 +33,6 @@ public class CategoryComponentTest {
 
         // ARRANGE - note that the folder are base bean are different
         HippoFolderBean folder = mock(HippoFolderBean.class);
-        HippoBean basebean = mock(HippoFolderBean.class);
         HippoBean siteFurnitureFolder = subfolderBean("site-furniture");
         HippoBean adminFolder = subfolderBean("administration");
         HippoBean index = indexBean();
@@ -91,6 +90,7 @@ public class CategoryComponentTest {
     HippoBean indexBean() {
         HippoBean index = mock(HippoBean.class);
         when(index.getName()).thenReturn(INDEX);
+        when(index.getSingleProperty(eq("publishing:showInParent"), eq(true))).thenReturn(true);
         return index;
     }
 
@@ -99,6 +99,7 @@ public class CategoryComponentTest {
         when(folder.getName()).thenReturn(name);
         when(folder.isHippoFolderBean()).thenReturn(true);
         when(folder.getBean(INDEX)).thenReturn(indexBean, indexBean);
+        when(folder.getSingleProperty(eq("publishing:showInParent"), eq(true))).thenReturn(true);
         return folder;
     }
 
@@ -111,6 +112,7 @@ public class CategoryComponentTest {
     Mirror mirror(Base mirrored) {
         Mirror mirror = mock(Mirror.class);
         when(mirror.getDocument()).thenReturn(mirrored);
+        when(mirror.getSingleProperty(eq("publishing:includeInParent"), eq(true))).thenReturn(true);
         return mirror;
     }
 
