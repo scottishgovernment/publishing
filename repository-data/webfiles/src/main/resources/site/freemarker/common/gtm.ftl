@@ -9,15 +9,14 @@
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             'gtm.whitelist': ['google', 'jsm', 'lcl'],
-
             <#if document.audience?has_content>
                 'audience': '${document.audience}',
             </#if>
             <#if reportingTags?has_content>
                 'reportingTags': [<#list reportingTags as tag>'${tag?js_string}'<#sep>, </#sep></#list>],
             </#if>
-            <#if document.lifeEvents??>
-                'lifeEvents': [<#list document.lifeEvents as lifeEvent>'${lifeEvent?js_string}'<#sep>, </#sep></#list>],
+            <#if document.lifeEvents?has_content>
+                'lifeEvents': [<#list document.lifeEvents as lifeEvent><#if lifeEvent?has_content>'${lifeEvent?js_string}'<#sep>, </#sep></#if></#list>],
             </#if>
             <#if document.serviceproviders?has_content>
                 'serviceproviders': [<#list document.serviceproviders as serviceprovider>'${serviceprovider?js_string}'<#sep>, </#sep></#list>],

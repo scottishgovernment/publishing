@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c306a0af-98ee-468c-be5d-fb1c15132c2e
+          jcr:uuid: 546e5085-fe21-414a-b3cf-5a4bb936a4ef
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -71,7 +71,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: c8c7e76e-7b7e-4f9c-a741-bd8cdadfb730
+          jcr:uuid: e5550f54-c411-47b9-820e-0cd9e1f1ed4f
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -86,6 +86,7 @@ definitions:
           publishing:userneed: ''
           publishing:showFeedback: true
           publishing:showInParent: true
+          publishing:lifeEvents: []
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -369,7 +370,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Show in parent?
             field: showInParent
-            hint: Indicates whether the page should appear in the site navigation and site search results
+            hint: Indicates whether the page should appear in the site navigation
+              and site search results
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

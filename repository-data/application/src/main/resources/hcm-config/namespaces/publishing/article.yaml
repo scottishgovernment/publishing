@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 023fd064-73dc-4d19-9185-35e500f192a8
+          jcr:uuid: f4bb0c9f-abb7-4386-a8a4-ca218e5fd840
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -80,7 +80,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: b11ca068-9325-4116-840f-6014f0b80f6f
+          jcr:uuid: dffd5606-8e52-4dd5-a605-d108e0f45428
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -95,6 +95,7 @@ definitions:
           publishing:showInParent: true
           publishing:showFeedback: true
           publishing:organisationtags: []
+          publishing:lifeEvents: []
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -381,7 +382,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Show in parent?
             field: showInParent
-            hint: Indicates whether the page should appear in the site navigation and site search results
+            hint: Indicates whether the page should appear in the site navigation
+              and site search results
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
