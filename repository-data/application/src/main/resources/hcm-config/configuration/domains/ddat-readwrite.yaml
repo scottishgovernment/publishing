@@ -1,0 +1,57 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/ddat-assets-images-readwrite:
+      jcr:primaryType: hipposys:domain
+      /readwrite:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [ddat-editors, ddat-authors]
+        hipposys:role: readwrite
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: []
+      /ddat-assets-domain:
+        jcr:primaryType: hipposys:domainrule
+        /documents-only:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: hippo:availability
+          hipposys:type: String
+          hipposys:value: live
+        /non-publishable:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: nodetype
+          hipposys:type: String
+          hipposys:value: hippostd:publishable
+        /ddat-assets-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/assets/ddat
+      /ddat-gallery-domain:
+        jcr:primaryType: hipposys:domainrule
+        /documents-only:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: hippo:availability
+          hipposys:type: String
+          hipposys:value: live
+        /non-publishable:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: nodetype
+          hipposys:type: String
+          hipposys:value: hippostd:publishable
+        /ddat-gallery-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/gallery/ddat

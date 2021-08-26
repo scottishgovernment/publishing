@@ -20,8 +20,9 @@ definitions:
           operation: override
           type: string
           value: [mygov-authors, mygov-editors,
-                  trading-nation-authors, trading-nation-editors, orgs-social-security-editors,
-                  orgs-social-security-authors]
+                  trading-nation-authors, trading-nation-editors,
+                  ddat-authors, ddat-editors,
+                  orgs-social-security-editors, orgs-social-security-authors]
         hipposys:role: readwrite
         hipposys:userrole:
           .meta:category: system
