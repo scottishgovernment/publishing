@@ -11,6 +11,13 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/trading-nation/administration
+        /include-ddat-administration-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/ddat/administration
       /editor:
           jcr:primaryType: hipposys:authrole
           hipposys:groups: [cmsadmin]

@@ -15,6 +15,15 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/trading-nation/site-furniture/banners
+      /ddat-document:
+        jcr:primaryType: hipposys:domainrule
+        /include-ddat-banners-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/ddat/site-furniture/banners
       /mygov-document:
         jcr:primaryType: hipposys:domainrule
         /include-mygov-banners-folder:
