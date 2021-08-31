@@ -7,12 +7,15 @@
 
 [publishing:FeaturedRole] > hippogallery:imageset, hippogallery:relaxed
 
+[publishing:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
+  orderable
+
+[publishing:Fragment] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:ImageCard] > hippogallery:imageset, hippogallery:relaxed
 
 [publishing:ImageDefault] > hippogallery:imageset, hippogallery:relaxed
-
-[publishing:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
-  orderable
 
 [publishing:PublishingDocument] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
@@ -65,10 +68,16 @@
 [publishing:home] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
+[publishing:imageandtext] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:mirror] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:mourningbanner] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:navigationcard] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:notificationbanner] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
@@ -80,6 +89,9 @@
 [publishing:organisationlist] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:pageheading] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:relateditems] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -87,6 +99,9 @@
   orderable
 
 [publishing:sector] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:seo] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
 [publishing:smartanswer] > hippostd:relaxed, hippotranslation:translated, publishing:base
@@ -108,5 +123,14 @@
   orderable
 
 [publishing:status] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:text] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:vacancy] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
+[publishing:video] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 

@@ -154,7 +154,7 @@ class SmartAnswer {
      */
     showStep (step, focus = true) {
         const currentStep = this.container.querySelector('.mg_smart-answer__step--current');
-
+        
         if (currentStep) {
             currentStep.classList.remove('mg_smart-answer__step--current');
         }
@@ -173,6 +173,9 @@ class SmartAnswer {
 
             question.classList.remove('ds_question--error');
         });
+
+        /// DS  HACK
+        // put something in here for the fetcing of fragmetns.
 
         step.classList.add('mg_smart-answer__step--current');
 
@@ -218,7 +221,7 @@ class SmartAnswer {
 
             commonForms.validateInput(item, validationChecks);
         });
-
+x
         const invalidFields = [].slice.call(stepContainer.querySelectorAll('[aria-invalid="true"]'));
 
         return invalidFields.length === 0;

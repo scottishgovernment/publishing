@@ -23,7 +23,7 @@ CKEDITOR.dialog.add('dsButtonDialog', function (editor) {
                                     this.setValue(selectedText);
                                 }
                             }
-                        },
+                        },   
                         commit: function (element) {
                             element.setText(this.getValue());
                         }

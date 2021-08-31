@@ -70,6 +70,9 @@
                                     <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">${answer.title}</h1>
                                 </header>
                                 <@hst.html hippohtml=answer.answer/>
+
+                                //// DS HACK ... put something in here that will be used to fetch fragmetns...
+
                             </section>
                         </#list>
                     </form>

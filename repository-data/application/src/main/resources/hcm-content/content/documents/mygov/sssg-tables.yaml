@@ -1,0 +1,64 @@
+/content/documents/mygov/sssg-tables:
+  .meta:order-before: abuse-support
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippotranslation:translated']
+  hippostd:foldertype: [new-Fragment-document, new-Fragment-folder]
+  hippotranslation:id: 7fc5d441-d4cd-4f1d-af41-0009b8567e15
+  hippotranslation:locale: inherited locale
+  /aberdeenshire:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: b9780d9e-fd26-4096-aa8d-d8dc2fa5a81a
+    hippo:versionHistory: f80d8859-93a4-4fe5-a9fa-7e222528ce40
+    /aberdeenshire[1]:
+      jcr:primaryType: publishing:Fragment
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 4aeba02f-99a3-4fa4-9964-4d39d6b76d5f
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostd:tags: ['council:aberdeen', '']
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-08-27T15:11:38.749+01:00
+      hippostdpubwf:lastModificationDate: 2021-09-03T13:54:03.979+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6c9954c3-8686-45ff-bf2e-ab8802ca80fd
+      hippotranslation:locale: inherited locale
+      /publishing:html:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>SSG TABLE FOR ABERDEENSHIRE</p>
+    /aberdeenshire[2]:
+      jcr:primaryType: publishing:Fragment
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 5e00829b-2527-48ae-9949-79e83842522d
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostd:tags: ['council:aberdeen', '']
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-08-27T15:11:38.749+01:00
+      hippostdpubwf:lastModificationDate: 2021-09-03T13:54:03.877+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 6c9954c3-8686-45ff-bf2e-ab8802ca80fd
+      hippotranslation:locale: inherited locale
+      /publishing:html:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>SSG TABLE FOR ABERDEENSHIRE</p>
+    /aberdeenshire[3]:
+      jcr:primaryType: publishing:Fragment
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 3f7eae5f-0301-4b7c-9d20-ae75b16d5fe2
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostd:tags: ['council:aberdeen', '']
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2021-08-27T15:11:38.749+01:00
+      hippostdpubwf:lastModificationDate: 2021-09-03T13:54:03.877+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-09-03T13:54:07.447+01:00
+      hippotranslation:id: 6c9954c3-8686-45ff-bf2e-ab8802ca80fd
+      hippotranslation:locale: inherited locale
+      /publishing:html:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>SSG TABLE FOR ABERDEENSHIRE</p>
