@@ -6,9 +6,9 @@
 </div>
 
 <script>
-window.ds_patterns = window.ds_patterns || {};
+window.DS = window.DS || {};
 
-window.ds_patterns.breakpoint = function(size) {
+window.DS.breakpoint = function(size) {
     const breakElement = document.getElementById('bp-' + size);
     return window.getComputedStyle(breakElement, null).display === 'block';
 }

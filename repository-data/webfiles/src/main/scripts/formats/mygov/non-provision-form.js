@@ -70,12 +70,12 @@ const formSections = [
             hideFromSectionNav: true
         },
         hideFromSectionNav: true,
-        slug: 'introduction',
-        title: 'Introduction',
+        slug: 'overview',
+        title: 'Overview',
         pages: [
             {
-                slug: 'introduction',
-                title: 'Introduction',
+                slug: 'overview',
+                title: 'Overview',
                 hideSubsectionNav: true,
                 hideSectionNav: true,
                 noFormBox: true
@@ -354,6 +354,11 @@ const nonProvisionForm = {
         });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
+        if (window.DS && window.DS.components) {
+            const accordionElements = [].slice.call(formTemplateContainer.querySelectorAll('[data-module="ds-accordion"]'));
+            accordionElements.forEach(accordionElement => new window.DS.components.Accordion(accordionElement).init());
+        }
+
         commonForms.appendCaptchaScript();
 
         feedback.init();
@@ -628,7 +633,7 @@ function pageNavFunction () {
     const pageNavData = {};
     const currentStep = nonProvisionForm.form.currentStep;
 
-    pageNavData.startPage = currentStep.slug === 'introduction';
+    pageNavData.startPage = currentStep.slug === 'overview';
 
     const stepIsLastInSection = currentStep.slug === $(`#${currentStep.section} section:last`).attr('id');
 
