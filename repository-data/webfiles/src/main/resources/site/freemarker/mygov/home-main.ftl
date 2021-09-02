@@ -71,7 +71,7 @@
                                     <#list document.popularpanelitem as items>
                                         <li class="popular__item">
                                             <@hst.link var="link" hippobean=items.link/>
-                                            <svg class="popular__icon"></svg>
+                                            <svg class="popular__icon" role="img" aria-hidden="true"></svg>
                                             <a class="popular__link" href="${link}" data-popular="${items.title}">${items.title}</a>
                                         </li>
                                     </#list>

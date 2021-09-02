@@ -7,7 +7,7 @@
     <div class="ds_notification  dp_preview-notification">
         <div class="ds_wrapper">
             <div class="ds_notification__content">
-                <div role="heading" class="visually-hidden">Information</div>
+                <h2 class="visually-hidden">Information</h2>
 
                 <span class="ds_notification__icon" aria-hidden="true">
                     <svg class="ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#info"></use></svg>

@@ -5,7 +5,7 @@
 <div id="cookie-notice" class="ds_notification  ds_notification--large  ds_notification--cookie  js-initial-cookie-content  fully-hidden" data-module="ds-cookie-notification">
     <div class="ds_wrapper">
         <div class="ds_notification__content">
-            <div role="heading" class="visually-hidden">Information</div>
+            <h2 class="visually-hidden">Information</h2>
 
             <div class="ds_notification__text">
                 <p>We use <a href="${cookieprefslink}">cookies</a> to collect anonymous data to help us improve your site browsing

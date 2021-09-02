@@ -5,7 +5,7 @@
         <div <#if banner.id??>id="${banner.id}"</#if> class="ds_notification  ds_reversed  fully-hidden-if-js  <#if banner.priority??>priority-banner</#if>" data-module="ds-notification">
             <div class="ds_wrapper">
                 <div class="ds_notification__content  <#if banner.closeable>ds_notification__content--has-close</#if>">
-                    <div role="heading" class="visually-hidden">Information</div>
+                    <h2 class="visually-hidden">Information</h2>
 
                     <#if banner.priority?? && banner.priority>
                         <span class="ds_notification__icon ds_notification__icon--inverse ds_notification__icon--colour" aria-hidden="true">
