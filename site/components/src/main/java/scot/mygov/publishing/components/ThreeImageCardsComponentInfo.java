@@ -3,13 +3,11 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.core.parameters.JcrPath;
 import org.hippoecm.hst.core.parameters.Parameter;
 
+import static scot.mygov.publishing.components.ThreeImageCardsComponent.CMS_PICKERS_DOCUMENTS_ONLY;
+import static scot.mygov.publishing.components.ThreeImageCardsComponent.INITIAL_PATH;
+import static scot.mygov.publishing.components.ThreeImageCardsComponent.TYPE;
+
 public interface ThreeImageCardsComponentInfo {
-
-    String TYPE = "publishing:navigationcard";
-
-    String INITIAL_PATH = "navigationcards";
-
-    String CMS_PICKERS_DOCUMENTS_ONLY = "cms-pickers/documents-only";
 
     @Parameter(name = "document1", required = true)
     @JcrPath(

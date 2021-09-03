@@ -16,6 +16,12 @@ import org.onehippo.cms7.essentials.components.CommonComponent;
 @ParametersInfo(type = ThreeImageCardsComponentInfo.class)
 public class ThreeImageCardsComponent extends CommonComponent {
 
+    static final String TYPE = "publishing:navigationcard";
+
+    static final String INITIAL_PATH = "navigationcards";
+
+    static final String CMS_PICKERS_DOCUMENTS_ONLY = "cms-pickers/documents-only";
+
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
