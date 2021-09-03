@@ -55,8 +55,8 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
 
     //When required to add a new property in the CSV export add displayed label and corresponding property in the two lists below.
     //You might have to change #constructPropertiesList method below to add your property if it requires special handling.
-    private static final String[] headers = new String[]{"fact_checkers", "format" , "content_owner", "title", "created_by", "url", "review_date", "date_modified", "modified_by", "id", "state", "life_events"};
-    private static final String[] documentProperties = new String[]{"publishing:factCheckers", "format" , "publishing:contentOwner", "hippo:name", HIPPOSTDPUBWF_CREATED_BY, "url", REVIEW_DATE_PROP, HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents"};
+    private static final String[] headers = new String[]{"fact_checkers", "format" , "content_owner", "title", "created_by", "url", "review_date", "official_last_modified", "date_modified", "modified_by", "id", "state", "life_events"};
+    private static final String[] documentProperties = new String[]{"publishing:factCheckers", "format" , "publishing:contentOwner", "hippo:name", HIPPOSTDPUBWF_CREATED_BY, "url", REVIEW_DATE_PROP, "publishing:lastUpdatedDate",HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents"};
 
     private final ResourceLink<String> exportCSVLink;
     private final ISearchContext searcher;
@@ -228,8 +228,10 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                 }
                 break;
             case REVIEW_DATE_PROP :
-                reviewDate(variant, props);
+            case "publishing:lastUpdatedDate":
+                reviewDate(variant, property, props);
                 break;
+
             default:
                 if (variant.hasProperty(property)) {
                     props.add(variant.getProperty(property).getString());
@@ -243,14 +245,14 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     /**
      * the content team have asked that guiod pages get the same rview date as their parent guid in the csv export
      */
-    private void reviewDate(Node variant, List<String> props) throws RepositoryException {
+    private void reviewDate(Node variant, String property, List<String> props) throws RepositoryException {
 
         if (variant.isNodeType("publishing:guidepage")) {
-            guideReviewDate(variant, props);
+            guideReviewDate(variant, property, props);
             return;
         }
-        Calendar reviewDate = variant.hasProperty(REVIEW_DATE_PROP)
-                    ? variant.getProperty(REVIEW_DATE_PROP).getDate()
+        Calendar reviewDate = variant.hasProperty(property)
+                    ? variant.getProperty(property).getDate()
                     : null;
 
         if (reviewDate != null) {
@@ -260,14 +262,14 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
         }
     }
 
-    void guideReviewDate(Node variant, List<String> props) throws RepositoryException {
+    void guideReviewDate(Node variant, String property, List<String> props) throws RepositoryException {
         Node folder = variant.getParent().getParent();
         Node indexHandle = folder.getNode("index");
         Node publishedVariant = getDocumentVariantByHippoStdState(indexHandle, PUBLISHED);
         Node unpublishedVariant = getDocumentVariantByHippoStdState(indexHandle, UNPUBLISHED);
         Node guideVariant = publishedVariant != null
                 ? publishedVariant : unpublishedVariant;
-        reviewDate(guideVariant, props);
+        reviewDate(guideVariant, property, props);
     }
 
     private String extractContactEmails(final NodeIterator nodeIterator){
