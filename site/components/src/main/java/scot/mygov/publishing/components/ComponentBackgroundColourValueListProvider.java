@@ -1,15 +1,13 @@
 package scot.mygov.publishing.components;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.parameters.ValueListProvider;
-
+import org.hippoecm.hst.core.request.HstRequestContext;
 import scot.mygov.publishing.channels.ChannelColourValueListProvider;
 import scot.mygov.publishing.channels.WebsiteInfo;
+
+import java.util.*;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
