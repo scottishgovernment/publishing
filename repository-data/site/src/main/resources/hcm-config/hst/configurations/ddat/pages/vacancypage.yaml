@@ -3,12 +3,6 @@ definitions:
     /hst:hst/hst:configurations/ddat/hst:pages/vacancypage:
       jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/base
-      /menu:
-        jcr:primaryType: hst:component
-        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
-        hst:parameternames: [selectedMenu, level, menu]
-        hst:parametervalues: ['on', '1', main]
-        hst:template: top-menu
       /main:
         jcr:primaryType: hst:component
         hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsContentComponent
