@@ -33,9 +33,7 @@ import javax.jcr.*;
 import java.text.MessageFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static org.hippoecm.repository.HippoStdNodeType.*;
@@ -53,10 +51,12 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     private static final String DEFAULT_SEPARATOR = ",";
     private static final String SEPARATOR_WITH_QUOTES = QUOTE + DEFAULT_SEPARATOR + QUOTE;
 
+    private static final String REVIEW_DATE_PROP = "publishing:reviewDate";
+
     //When required to add a new property in the CSV export add displayed label and corresponding property in the two lists below.
     //You might have to change #constructPropertiesList method below to add your property if it requires special handling.
     private static final String[] headers = new String[]{"fact_checkers", "format" , "content_owner", "title", "created_by", "url", "review_date", "date_modified", "modified_by", "id", "state", "life_events"};
-    private static final String[] documentProperties = new String[]{"publishing:factCheckers", "format" , "publishing:contentOwner", "hippo:name", HIPPOSTDPUBWF_CREATED_BY, "url", "publishing:reviewDate", HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents"};
+    private static final String[] documentProperties = new String[]{"publishing:factCheckers", "format" , "publishing:contentOwner", "hippo:name", HIPPOSTDPUBWF_CREATED_BY, "url", REVIEW_DATE_PROP, HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents"};
 
     private final ResourceLink<String> exportCSVLink;
     private final ISearchContext searcher;
@@ -125,6 +125,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     }
 
     protected byte[] createCsvData() {
+        /// ugh, we should use a csv library for this...
         final StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(QUOTE);
@@ -149,91 +150,124 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     }
 
     private List<String> constructPropertiesList(final Node handle) {
-        ArrayList<String> props = new ArrayList<>();
-        String nodeStateSummary = getNodeStateSummary(handle);
-        Node variant;
+        List<String> props = new ArrayList<>();
+        String stateSummary = getNodeStateSummary(handle);
+        Node variant = getVariant(handle, stateSummary);
+        if (variant == null) {
+            return Collections.emptyList();
+        }
 
         for (String property : documentProperties) {
-            if ("live".equals(nodeStateSummary) || "changed".equals(nodeStateSummary)) {
-                variant = getDocumentVariantByHippoStdState(handle, PUBLISHED);
-            } else {
-                variant = getDocumentVariantByHippoStdState(handle, UNPUBLISHED);
-            }
-            if (variant != null) {
-                try {
-                    switch (property) {
-                        case "url":
-                            List<String> urls = getDocumentSiteURL(variant);
-                            if (!urls.isEmpty()) {
-                                props.add(urls.get(0));
-                            } else {
-                                props.add("");
-                            }
-                            break;
-                        case "id":
-                            props.add(variant.getIdentifier());
-                            break;
-                        case "format":
-                            props.add(variant.getPrimaryNodeType().getName());
-                            break;
-                        case "publishing:reviewDate":
-                            if (variant.hasProperty(property)) {
-                                props.add(DateTimePrinter.of(variant.getProperty("publishing:reviewDate").getDate()).print());
-                            } else {
-                                props.add("");
-                            }
-                            break;
-                        case HIPPOSTDPUBWF_LAST_MODIFIED_BY:
-                            if ("changed".equals(nodeStateSummary)) {
-                                variant = getDocumentVariantByHippoStdState(handle, UNPUBLISHED);
-                            }
-                            if (variant != null && variant.hasProperty(HIPPOSTDPUBWF_LAST_MODIFIED_BY)) {
-                                props.add(variant.getProperty(HIPPOSTDPUBWF_LAST_MODIFIED_BY).getString());
-                            } else {
-                                props.add("");
-                            }
-                            break;
-                        case HIPPOSTDPUBWF_LAST_MODIFIED_DATE:
-                            if ("changed".equals(nodeStateSummary)) {
-                                variant = getDocumentVariantByHippoStdState(handle, UNPUBLISHED);
-                            }
-                            if (variant != null && variant.hasProperty(HIPPOSTDPUBWF_LAST_MODIFIED_DATE)) {
-                                props.add(DateTimePrinter.of(variant.getProperty(HIPPOSTDPUBWF_LAST_MODIFIED_DATE).getDate()).print());
-                            } else {
-                                props.add("");
-                            }
-                            break;
-                        case "publishing:contentOwner":
-                        case "publishing:factCheckers":
-                            if (variant.hasNode(property)) {
-                                props.add(extractContactEmails(variant.getNodes(property)));
-                            } else {
-                                props.add("");
-                            }
-                            break;
-                        case "publishing:lifeEvents":
-                            if (variant.hasProperty(property)) {
-                                props.add(extractLifeEvents(variant.getProperty(property)));
-                            } else {
-                                props.add("");
-                            }
-                            break;
-                        default:
-                            if (variant.hasProperty(property)) {
-                                props.add(variant.getProperty(property).getString());
-                            } else {
-                                props.add("");
-                            }
-                            break;
-                    }
-                } catch (RepositoryException e){
-                    LOG.error("An exception occurred while exporting CSV for the property {} ", property, e);
-                    props.add("---Exception occurred---");
-                }
+            try {
+                addProperty(variant, property, stateSummary, props);
+            } catch (RepositoryException e){
+                LOG.error("An exception occurred while exporting CSV for the property {} ", property, e);
+                props.add("---Exception occurred---");
             }
         }
 
+
         return props;
+    }
+
+    private Node getVariant(Node handle, String stateSummary) {
+        return "live".equals(stateSummary) || "changed".equals(stateSummary)
+                ? getDocumentVariantByHippoStdState(handle, PUBLISHED)
+                : getDocumentVariantByHippoStdState(handle, UNPUBLISHED);
+    }
+
+    private void addProperty(Node variant, String property, String stateSummary, List<String> props) throws RepositoryException {
+        switch (property) {
+            case "url":
+                List<String> urls = getDocumentSiteURL(variant);
+                if (!urls.isEmpty()) {
+                    props.add(urls.get(0));
+                } else {
+                    props.add("");
+                }
+                break;
+            case "id":
+                props.add(variant.getIdentifier());
+                break;
+            case "format":
+                props.add(variant.getPrimaryNodeType().getName());
+                break;
+            case HIPPOSTDPUBWF_LAST_MODIFIED_BY:
+                if ("changed".equals(stateSummary)) {
+                    variant = getDocumentVariantByHippoStdState(variant.getParent(), UNPUBLISHED);
+                }
+                if (variant != null && variant.hasProperty(HIPPOSTDPUBWF_LAST_MODIFIED_BY)) {
+                    props.add(variant.getProperty(HIPPOSTDPUBWF_LAST_MODIFIED_BY).getString());
+                } else {
+                    props.add("");
+                }
+                break;
+            case HIPPOSTDPUBWF_LAST_MODIFIED_DATE:
+                if ("".equals(stateSummary)) {
+                    variant = getDocumentVariantByHippoStdState(variant.getParent(), UNPUBLISHED);
+                }
+                if (variant != null && variant.hasProperty(HIPPOSTDPUBWF_LAST_MODIFIED_DATE)) {
+                    props.add(DateTimePrinter.of(variant.getProperty(HIPPOSTDPUBWF_LAST_MODIFIED_DATE).getDate()).print());
+                } else {
+                    props.add("");
+                }
+                break;
+            case "publishing:contentOwner":
+            case "publishing:factCheckers":
+                if (variant.hasNode(property)) {
+                    props.add(extractContactEmails(variant.getNodes(property)));
+                } else {
+                    props.add("");
+                }
+                break;
+            case "publishing:lifeEvents":
+                if (variant.hasProperty(property)) {
+                    props.add(extractLifeEvents(variant.getProperty(property)));
+                } else {
+                    props.add("");
+                }
+                break;
+            case REVIEW_DATE_PROP :
+                reviewDate(variant, props);
+                break;
+            default:
+                if (variant.hasProperty(property)) {
+                    props.add(variant.getProperty(property).getString());
+                } else {
+                    props.add("");
+                }
+                break;
+        }
+    }
+
+    /**
+     * the content team have asked that guiod pages get the same rview date as their parent guid in the csv export
+     */
+    private void reviewDate(Node variant, List<String> props) throws RepositoryException {
+
+        if (variant.isNodeType("publishing:guidepage")) {
+            guideReviewDate(variant, props);
+            return;
+        }
+        Calendar reviewDate = variant.hasProperty(REVIEW_DATE_PROP)
+                    ? variant.getProperty(REVIEW_DATE_PROP).getDate()
+                    : null;
+
+        if (reviewDate != null) {
+            props.add(DateTimePrinter.of(reviewDate).print());
+        } else {
+            props.add("");
+        }
+    }
+
+    void guideReviewDate(Node variant, List<String> props) throws RepositoryException {
+        Node folder = variant.getParent().getParent();
+        Node indexHandle = folder.getNode("index");
+        Node publishedVariant = getDocumentVariantByHippoStdState(indexHandle, PUBLISHED);
+        Node unpublishedVariant = getDocumentVariantByHippoStdState(indexHandle, UNPUBLISHED);
+        Node guideVariant = publishedVariant != null
+                ? publishedVariant : unpublishedVariant;
+        reviewDate(guideVariant, props);
     }
 
     private String extractContactEmails(final NodeIterator nodeIterator){
