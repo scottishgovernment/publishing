@@ -17,9 +17,3 @@ definitions:
           hst:template: seo
           hst:parameternames: [showTitle]
           hst:parametervalues: ['true']
-      /menu:
-        jcr:primaryType: hst:component
-        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
-        hst:parameternames: [selectedMenu, level, menu]
-        hst:parametervalues: ['on', '1', main]
-        hst:template: top-menu
