@@ -12,6 +12,10 @@ import static org.hippoecm.hst.core.container.ContainerConstants.CMS_REQUEST_REN
 
 public class MountUtils {
 
+    private MountUtils() {
+        // prevent instantiation
+    }
+
     public static Mount getEditingMount(HstRequestContext hstRequestContext) {
         String mountId = getRenderingMountId(hstRequestContext);
         Mount mount = getEditingPreviewVirtualHosts(hstRequestContext).getMountByIdentifier(mountId);
