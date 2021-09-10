@@ -23,7 +23,7 @@
                     <#if banner.closeable>
                         <button class="ds_notification__close  js-close-notification" type="button">
                             <span class="visually-hidden">Close this notification</span>
-                            <svg class="ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#close"></use></svg>
+                            <svg class="ds_icon  ds_icon--fill" aria-hidden="true" role="img"><use href="${iconspath}#close"></use></svg>
                         </button>
                     </#if>
                 </div>
