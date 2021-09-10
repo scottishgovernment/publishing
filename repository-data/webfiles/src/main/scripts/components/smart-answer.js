@@ -18,6 +18,7 @@ class SmartAnswer {
 
         // set the form state to match the initial URL
         this.interpretUrl(false);
+        this.trackVirtualPageviews = true;
 
         // listen for hashbang changes
         window.addEventListener('hashchange', () => {
@@ -125,6 +126,12 @@ class SmartAnswer {
             }
             // clean the URL (removes answers found in the URL that are not in the page)
             window.history.replaceState({}, document.title, answerpath);
+        }
+
+        // trigger virtual pageview
+        if (this.trackVirtualPageviews && window.ga && typeof window.ga === 'function') {
+            ga('set', 'page', `${window.location.pathname}${window.location.hash}`);
+            ga('send', 'pageview');
         }
 
         // show the target step

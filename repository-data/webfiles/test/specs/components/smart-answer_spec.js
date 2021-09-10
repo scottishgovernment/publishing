@@ -98,6 +98,38 @@ describe('smart-answer', function () {
             expect(window.location.hash).toEqual('#!/over-16/yes');
         });
 
+        it('should trigger a virtual pageview when moving to a new step', () => {
+            testObj.smartAnswer.init();
+
+            let selectedRadio = document.querySelector('#step-under-16-over-16');
+            selectedRadio.checked = true;
+
+            let button = document.querySelector('#step-under-16 .js-next-button');
+            button.click();
+
+            // mock window.ga
+            window.ga = function (command, ...fields) {};
+
+            expect(window.location.hash).toEqual('#!/over-16');
+            // have to force this -- jasmine not liking hashchange
+            spyOn(window, 'ga');
+            testObj.smartAnswer.interpretUrl();
+
+            expect(window.ga).toHaveBeenCalledWith('set', 'page', `${window.location.pathname}${window.location.hash}`);
+            expect(window.ga).toHaveBeenCalledWith('send', 'pageview');
+        });
+
+        it('should NOT track virtual pageview if user comes in from a deep link', () => {
+            // mock window.ga
+            window.ga = function (command, ...fields) {};
+            spyOn(window, 'ga');
+
+            window.location.hash = '#!/over-16/yes';
+            testObj.smartAnswer.init();
+
+            expect(window.ga).not.toHaveBeenCalled();
+        });
+
         it('should clear errors from the step beign navigated to, if present', () => {
             testObj.smartAnswer.init();
 
