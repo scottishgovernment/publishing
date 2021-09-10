@@ -23,7 +23,7 @@
                         <fieldset>
                             <legend class="fully-hidden">Turn cookies on or off</legend>
 
-                            <div class="ds_question  ds_no-margin--top">
+                            <div class="ds_question  ds_!_margin--0">
                                 <h3 class="beta  no-top-margin">Cookies needed for the website to work</h3>
                                 <p>These cookies do things like keep the website secure. They always need to be on.</p>
                             </div>
@@ -64,7 +64,7 @@
                                 <p><b>Your cookie preferences have been saved.</b></p>
                             </div>
 
-                            <button class="ds_button  ds_no-margin--bottom" type="submit">Save cookie preferences</button>
+                            <button class="ds_button  ds_!_margin-bottom--0" type="submit">Save cookie preferences</button>
                         </fieldset>
                     </form>
                 </div>

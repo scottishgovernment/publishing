@@ -1,7 +1,7 @@
 /**
  * PATTERN LIBRARY VALUES
  */
- $iconsfile: "../../images/icons/icons.stack.svg";
+$iconsfile: "../../images/icons/icons.stack.svg";
 $site-prefix: "mg_";
 
 
@@ -9,7 +9,6 @@ $site-prefix: "mg_";
  * BASE STYLES FROM PATTERN LIBRARY
  */
 @import "../../../../node_modules/@scottish-government/pattern-library/src/base/all-base";
-@import "../../../../node_modules/@scottish-government/pattern-library/src/forms/all-forms";
 @import "../base/helpers/no-margin";
 @import "base/mg-layouts";
 
@@ -21,6 +20,7 @@ $site-prefix: "mg_";
  * COMPONENTS FROM PATTERN LIBRARY
  */
 @import "../../../../node_modules/@scottish-government/pattern-library/src/components/all-components";
+@import "../../../../node_modules/@scottish-government/pattern-library/src/forms/all-forms";
 
 
 

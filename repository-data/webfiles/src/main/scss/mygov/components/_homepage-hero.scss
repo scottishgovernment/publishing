@@ -2,7 +2,7 @@
     align-items: start;
     margin-top: 32px;
 
-    .#{$pl-prefix}category-header {
+    .ds_category-header {
         &__header {
             border-left: 0;
             margin-bottom: 0;
@@ -22,7 +22,7 @@
     }
 }
 
-.#{$pl-prefix}category-header__aside {
+.ds_category-header__aside {
     display: none;
     font-size: $small-size;
     line-height: 24px;
@@ -86,7 +86,7 @@
     }
 }
 
-.#{$pl-prefix}button--has-icon>.#{$site-prefix}hero-az__icon {
+.ds_button--has-icon>.#{$site-prefix}hero-az__icon {
     margin-top: -36px;
     position: absolute;
     right: 0;
@@ -96,14 +96,14 @@
 }
 
 @include media-query(medium) {
-    .#{$pl-prefix}category-header__aside {
+    .ds_category-header__aside {
         display: block;
     }
 }
 
 @include media-query(large) {
     .#{$site-prefix}hero {
-        .#{$pl-prefix}site-search {
+        .ds_site-search {
             @include layout();
 
             &__form {
@@ -116,7 +116,7 @@
 @supports (display: grid) {
     @include media-query(large) {
         .#{$site-prefix}hero {
-            .#{$pl-prefix}site-search {
+            .ds_site-search {
                 grid-template-columns: 7fr 1fr;
             }
         }
