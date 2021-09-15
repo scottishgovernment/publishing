@@ -27,7 +27,8 @@
       **/CustomFiltersPlugin.java,
       **/PreviewDatePickerDialog.java,
       **/PreviewFolderMenuItemPlugin.java,
-      **/PreviewLinksCleanupJob.java
+      **/PreviewLinksCleanupJob.java,
+      **/FragmentInjectingHtmlRewriter.java
     </sonar.coverage.exclusions>
   </properties>
 
@@ -82,7 +83,10 @@
       <artifactId>imageprocessing</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
-
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-cms-richtext-ckeditor-frontend</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

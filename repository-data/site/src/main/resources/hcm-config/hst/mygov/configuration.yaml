@@ -30,6 +30,7 @@ definitions:
         /document-cover-pages:
           jcr:primaryType: hst:sitemapitem
           hst:relativecontentpath: document-cover-pages
+          hst:sitemapitemhandlerids: [trailing-slash]
           /_any_:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/documentcoverpage
