@@ -13,13 +13,13 @@
 
         <input class="ds_site-navigation__toggle" id="menu" type="checkbox" />
         <nav id="mobile-navigation" class="ds_site-navigation  ds_site-navigation--mobile" data-module="ds-mobile-navigation-menu">
-            <ul class="ds_mobile-navigation__list">
+            <ul class="ds_site-navigation__list">
                 <#list menu.siteMenuItems as item>
-                    <li class="ds_mobile-navigation__item">
+                    <li class="ds_site-navigation__item">
                         <#if item.selected>
-                            <span class="ds_mobile-navigation__link  ds_current">${item.name?html}</span>
+                            <span class="ds_site-navigation__link  ds_current">${item.name?html}</span>
                         <#else>
-                            <a href="<@hst.link link=item.hstLink/>" class="ds_mobile-navigation__link">${item.name?html}</a>
+                            <a href="<@hst.link link=item.hstLink/>" class="ds_site-navigation__link">${item.name?html}</a>
                         </#if>
                     </li>
                 </#list>

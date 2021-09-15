@@ -2,25 +2,24 @@
 
 <@hst.include ref="seo"/>
 
-<div class="ds_wrapper">
-    <main id="main-content" class="ds_layout  ds_layout--article">
-        <div class="ds_layout__header">
-            <header class="ds_page-header">
-                <h1 class="ds_page-header__title">${document.title}</h1>
-                <dl class="ds_page-header__metadata  ds_metadata">
-                    <#if document.lastUpdatedDate??>
-                        <div class="ds_metadata__item">
-                            <dt class="ds_metadata__key">Last updated</dt>
-                            <dd class="ds_metadata__value"><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></dd>
-                        </div>
-                    </#if>
-                </dl>
-            </header>
+<main id="main-content">
+    <div class="ds_cb  ds_cb--page-title  ds_cb--bg-blue">
+        <div class="ds_wrapper">
+            <div class="ds_cb__inner  ds_!_padding-top--9  ds_!_padding-bottom--4">
+                <div class="ds_cb__text  ds_cb__content">
+                    <header class="ds_page-header">
+                        <h1 class="ds_page-header__title">${document.title}</h1>
+                    </header>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="ds_layout__content">
-            <article class="listing">
-                <dl class="listing__datalist  datalist">
+    <div class="ds_cb  ds_cb--text  ds_cb--bg-grey">
+        <div class="ds_wrapper">
+            <div class="ds_cb__inner  ds_!_padding-top--4  ds_!_padding-bottom--3">
+                <div class="ds_cb__text  ds_cb__content">
+                    <dl class="listing__datalist  datalist">
                     <#if document.salaryband??>
                         <div class="datalist__item">
                             <dt class="datalist__title">Salary</dt>
@@ -52,17 +51,26 @@
                         </div>
                     </#if>
                 </dl>
-
-                <div class="listing__content">
-                    <@hst.html hippohtml=document.content/>
                 </div>
-
-                <#if document.closingDate??>
-                    <div class="listing__callout">
-                        Closing date: <@fmt.formatDate value=document.closingDate.time type="date" dateStyle="long"/> at midnight
-                    </div>
-                </#if>
-            </article>
+            </div>
         </div>
-    </main>
-</div>
+    </div>
+
+    <div class="ds_cb  ds_cb--text">
+        <div class="ds_wrapper">
+            <div class="ds_cb__inner">
+                <div class="ds_cb__text  ds_cb__content">
+                    <div class="listing__content">
+                        <@hst.html hippohtml=document.content/>
+                    </div>
+
+                    <#if document.closingDate??>
+                        <div class="listing__callout">
+                            Closing date: <@fmt.formatDate value=document.closingDate.time type="date" dateStyle="long"/> at midnight
+                        </div>
+                    </#if>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
