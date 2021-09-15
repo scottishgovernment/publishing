@@ -56,6 +56,9 @@
 [publishing:formbase] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
+[publishing:fragment] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:guide] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
@@ -98,6 +101,9 @@
 [publishing:sector] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:seo] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
 [publishing:smartanswer] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
@@ -114,9 +120,6 @@
   orderable
 
 [publishing:smartanswerresult] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
-
-[publishing:seo] > hippostd:relaxed, hippotranslation:translated, publishing:base
-  orderable
 
 [publishing:status] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
