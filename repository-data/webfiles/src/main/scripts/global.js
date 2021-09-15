@@ -132,6 +132,8 @@ const global = {
 
         const tabSets = [].slice.call(document.querySelectorAll('[data-module="ds-tabs"]'));
         tabSets.forEach(tabSet => new window.DS.components.Tabs(tabSet).init());
+
+        window.DS.components.skipLinks.init();
     },
 
     setInitialCookiePermissions: function () {
