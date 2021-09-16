@@ -31,10 +31,6 @@
             <meta property="og:title" content="${pagetitle}" />
         </@hst.headContribution>
 
-        <@hst.headContribution category="facebookMeta">
-            <meta property="og:url" content="${link}" />
-        </@hst.headContribution>
-
         <#if contentBean?? && contentBean.metaDescription??>
             <@hst.headContribution category="facebookMeta">
             <meta property="og:description" content="${contentBean.metaDescription}" />
@@ -42,8 +38,9 @@
         </#if>
 
         <@hst.headContribution category="facebookMeta">
-        <meta property="og:image" content="<@hst.link hippobean=cardImage.original/>" fullyQualified="true"/> />
+        <meta property="og:image" content="<@hst.link hippobean=cardImage.original fullyQualified=true />"/>
         </@hst.headContribution>
+
     </#if>
 
     <#-- Twitter Meta Tags: only show if a card image is available -->
@@ -71,7 +68,7 @@
         </#if>
 
         <@hst.headContribution category="twitterMeta">
-        <meta name="twitter:image" content="<@hst.link hippobean=cardImage.original/>" />
+        <meta name="twitter:image" content="<@hst.link hippobean=cardImage.original fullyQualified=true />" />
         </@hst.headContribution>
     </#if>
 
