@@ -86,7 +86,7 @@ public class SEOComponent extends EssentialsDocumentComponent {
                 return (ImageCard) e;
             }
 
-            LOG.warn("unable to find default card image for request {}", websiteInfo.getSiteTitle());
+            LOG.info("unable to find default card image for request {}", websiteInfo.getSiteTitle());
             return null;
         } catch (ObjectBeanManagerException | RepositoryException e) {
             LOG.error("Exception trying to get default image card for site {}", websiteInfo.getSiteTitle(), e);
