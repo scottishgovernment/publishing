@@ -204,9 +204,10 @@
           hippo:availability: []
           hippostd:retainable: false
           hippostd:state: draft
+          hippostd:transferable: false
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T09:22:02.773+01:00
-          hippostdpubwf:lastModificationDate: 2021-04-27T08:33:05.109+01:00
+          hippostdpubwf:lastModificationDate: 2021-09-16T08:57:29.197+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
           hippotranslation:locale: document-type-locale
@@ -293,17 +294,18 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 7d182bad-7295-44ae-961e-8e25f3554b23
         hippo:name: Echidna
-        hippo:versionHistory: 45bb85f3-7c37-4eb1-97a2-bb1635bbc73a
+        hippo:versionHistory: b65d6944-1f3f-4755-8e19-f46db4f9fe0c
         /echidna[1]:
           jcr:primaryType: publishing:article
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 5879ec41-6d6f-4611-9e07-46b1e24eab13
           hippo:availability: []
+          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T09:26:57.390+01:00
-          hippostdpubwf:lastModificationDate: 2021-04-27T08:33:27.205+01:00
+          hippostdpubwf:lastModificationDate: 2021-09-21T17:19:59.262+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 58859a8b-dd8c-45d5-9770-b3f56715a05d
           hippotranslation:locale: document-type-locale
@@ -327,9 +329,25 @@
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p><strong>chidnas</strong>&nbsp;(<a href="https://en.wikipedia.org/wiki/Help:IPA/English" title="Help:IPA/English">/ɪˈkɪdnə/</a>), sometimes known as&nbsp;<strong>spiny anteaters</strong>,<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-pwstSBE-1">[1]</a></sup>&nbsp;belong to the&nbsp;<a href="https://en.wikipedia.org/wiki/Family_(biology)" title="Family (biology)">family</a>&nbsp;<strong>Tachyglossidae</strong>&nbsp;in the&nbsp;<a href="https://en.wikipedia.org/wiki/Monotreme" title="Monotreme">monotreme</a>&nbsp;order of&nbsp;<a href="https://en.wikipedia.org/wiki/Egg_(biology)" title="Egg (biology)">egg</a>-laying&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>. The four&nbsp;<a href="https://en.wikipedia.org/wiki/Extant_taxon" title="Extant taxon">extant</a>&nbsp;species of echidnas and the&nbsp;<a href="https://en.wikipedia.org/wiki/Platypus" title="Platypus">platypus</a>&nbsp;are the only living mammals that lay eggs and the only surviving members of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;Monotremata.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-nwf03-2">[2]</a></sup>&nbsp;The diet of some species consists of ants and termites, but they are not closely related to the&nbsp;<a href="https://en.wikipedia.org/wiki/Anteater" title="Anteater">true anteaters</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Americas" title="Americas">Americas</a>, which are&nbsp;<a href="https://en.wikipedia.org/wiki/Xenarthra" title="Xenarthra">xenarthrans</a>, along with&nbsp;<a href="https://en.wikipedia.org/wiki/Sloth" title="Sloth">sloths</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/Cingulata" title="Cingulata">armadillos</a>. Echidnas live in&nbsp;<a href="https://en.wikipedia.org/wiki/Australia" title="Australia">Australia</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/New_Guinea" title="New Guinea">New Guinea</a>.</p>
+              <p><strong>chidnas</strong>&nbsp;(<a href="https://en.wikipedia.org/wiki/Help:IPA/English" title="Help:IPA/English">/ɪˈkɪdnə/</a>), sometimes known as&nbsp;<strong>spiny anteaters</strong>,<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-pwstSBE-1">[1]</a></sup>&nbsp;belong to the&nbsp;<a href="https://en.wikipedia.org/wiki/Family_(biology)" title="Family (biology)">family</a>&nbsp;<strong>Tachyglossidae</strong>&nbsp;in the&nbsp;<a href="https://en.wikipedia.org/wiki/Monotreme" title="Monotreme">monotreme</a>&nbsp;order of&nbsp;<a href="https://en.wikipedia.org/wiki/Egg_(biology)" title="Egg (biology)">egg</a>-laying&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>. The four&nbsp;<a href="https://en.wikipedia.org/wiki/Extant_taxon" title="Extant taxon">extant</a>&nbsp;species of echidnas and the&nbsp;<a href="https://en.wikipedia.org/wiki/Platypus" title="Platypus">platypus</a>&nbsp;are the&nbsp;</p>
 
-              <p>Echidnas evolved between 20 and 50&nbsp;million years ago, descending from a platypus-like monotreme.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-Phillips-3">[3]</a></sup>&nbsp;This ancestor was aquatic, but echidnas adapted to life on land.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-Phillips-3">[3]</a></sup></p>
+              <div data-uuid="7d50c719-265e-496a-96ed-d78987d8ebe3" href="http://" class="fragment">FRGMNT</div>
+
+              <p>only living mammals that lay <a href="test-fragment-1" class="ds_cms-fragment">eggs</a> and the only surviving<br />
+              members of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;Monotremata.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-nwf03-2">[2]</a></sup>&nbsp;The diet of so</p>
+
+              <div data-uuid="1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d" class="fragment">1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d</div>
+
+              <p><br />
+              me species consists of ants and termites, but they are not closely related to the&nbsp;<a href="https://en.wikipedia.org/wiki/Anteater" title="Anteater">true anteaters</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Americas" title="Americas">Americas</a>, which 7d50c719-265e-496a-96ed-d78987d8ebe3 are&nbsp;<a href="https://en.wikipedia.org/wiki/Xenarthra" title="Xenarthra">xenarthrans</a>, along with&nbsp;<a href="https://en.wikipedia.org/wiki/Sloth" title="Sloth">sloths</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/Cingulata" title="Cingulata">armadillos</a>. Echidnas live in&nbsp;<a href="https://en.wikipedia.org/wiki/Australia" title="Australia">Australia</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/New_Guinea" title="New Guinea">New Guinea</a>.</p>
+
+              <p>werwerwerevolved between 20 and 50&nbsp;million years ago, descending from a platypus-like monotreme.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-Phillips-3">[3]</a></sup>&nbsp;This ancestor was aquatic, but echidnas adapted to life on land.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-Phillips-3">[3]</a></sup></p>
+            /test-fragment-1:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -348,7 +366,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T09:26:57.390+01:00
-          hippostdpubwf:lastModificationDate: 2021-04-27T08:33:30.401+01:00
+          hippostdpubwf:lastModificationDate: 2021-09-21T17:01:43.590+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 58859a8b-dd8c-45d5-9770-b3f56715a05d
           hippotranslation:locale: document-type-locale
@@ -372,9 +390,25 @@
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p><strong>chidnas</strong>&nbsp;(<a href="https://en.wikipedia.org/wiki/Help:IPA/English" title="Help:IPA/English">/ɪˈkɪdnə/</a>), sometimes known as&nbsp;<strong>spiny anteaters</strong>,<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-pwstSBE-1">[1]</a></sup>&nbsp;belong to the&nbsp;<a href="https://en.wikipedia.org/wiki/Family_(biology)" title="Family (biology)">family</a>&nbsp;<strong>Tachyglossidae</strong>&nbsp;in the&nbsp;<a href="https://en.wikipedia.org/wiki/Monotreme" title="Monotreme">monotreme</a>&nbsp;order of&nbsp;<a href="https://en.wikipedia.org/wiki/Egg_(biology)" title="Egg (biology)">egg</a>-laying&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>. The four&nbsp;<a href="https://en.wikipedia.org/wiki/Extant_taxon" title="Extant taxon">extant</a>&nbsp;species of echidnas and the&nbsp;<a href="https://en.wikipedia.org/wiki/Platypus" title="Platypus">platypus</a>&nbsp;are the only living mammals that lay eggs and the only surviving members of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;Monotremata.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-nwf03-2">[2]</a></sup>&nbsp;The diet of some species consists of ants and termites, but they are not closely related to the&nbsp;<a href="https://en.wikipedia.org/wiki/Anteater" title="Anteater">true anteaters</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Americas" title="Americas">Americas</a>, which are&nbsp;<a href="https://en.wikipedia.org/wiki/Xenarthra" title="Xenarthra">xenarthrans</a>, along with&nbsp;<a href="https://en.wikipedia.org/wiki/Sloth" title="Sloth">sloths</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/Cingulata" title="Cingulata">armadillos</a>. Echidnas live in&nbsp;<a href="https://en.wikipedia.org/wiki/Australia" title="Australia">Australia</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/New_Guinea" title="New Guinea">New Guinea</a>.</p>
+              <p><strong>chidnas</strong>&nbsp;(<a href="https://en.wikipedia.org/wiki/Help:IPA/English" title="Help:IPA/English">/ɪˈkɪdnə/</a>), sometimes known as&nbsp;<strong>spiny anteaters</strong>,<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-pwstSBE-1">[1]</a></sup>&nbsp;belong to the&nbsp;<a href="https://en.wikipedia.org/wiki/Family_(biology)" title="Family (biology)">family</a>&nbsp;<strong>Tachyglossidae</strong>&nbsp;in the&nbsp;<a href="https://en.wikipedia.org/wiki/Monotreme" title="Monotreme">monotreme</a>&nbsp;order of&nbsp;<a href="https://en.wikipedia.org/wiki/Egg_(biology)" title="Egg (biology)">egg</a>-laying&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>. The four&nbsp;<a href="https://en.wikipedia.org/wiki/Extant_taxon" title="Extant taxon">extant</a>&nbsp;species of echidnas and the&nbsp;<a href="https://en.wikipedia.org/wiki/Platypus" title="Platypus">platypus</a>&nbsp;are the&nbsp;</p>
 
-              <p>Echidnas evolved between 20 and 50&nbsp;million years ago, descending from a platypus-like monotreme.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-Phillips-3">[3]</a></sup>&nbsp;This ancestor was aquatic, but echidnas adapted to life on land.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-Phillips-3">[3]</a></sup></p>
+              <div data-uuid="7d50c719-265e-496a-96ed-d78987d8ebe3" href="http://" class="fragment">FRGMNT</div>
+
+              <p>only living mammals that lay <a href="test-fragment-1" class="ds_cms-fragment">eggs</a> and the only surviving<br />
+              members of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;Monotremata.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-nwf03-2">[2]</a></sup>&nbsp;The diet of so</p>
+
+              <div data-uuid="1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d" class="fragment">1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d</div>
+
+              <p><br />
+              me species consists of ants and termites, but they are not closely related to the&nbsp;<a href="https://en.wikipedia.org/wiki/Anteater" title="Anteater">true anteaters</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Americas" title="Americas">Americas</a>, which 7d50c719-265e-496a-96ed-d78987d8ebe3 are&nbsp;<a href="https://en.wikipedia.org/wiki/Xenarthra" title="Xenarthra">xenarthrans</a>, along with&nbsp;<a href="https://en.wikipedia.org/wiki/Sloth" title="Sloth">sloths</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/Cingulata" title="Cingulata">armadillos</a>. Echidnas live in&nbsp;<a href="https://en.wikipedia.org/wiki/Australia" title="Australia">Australia</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/New_Guinea" title="New Guinea">New Guinea</a>.</p>
+
+              <p>werwerwerevolved between 20 and 50&nbsp;million years ago, descending from a platypus-like monotreme.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-Phillips-3">[3]</a></sup>&nbsp;This ancestor was aquatic, but echidnas adapted to life on land.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-Phillips-3">[3]</a></sup></p>
+            /test-fragment-1:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -393,9 +427,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T09:26:57.390+01:00
-          hippostdpubwf:lastModificationDate: 2021-04-27T08:33:30.401+01:00
+          hippostdpubwf:lastModificationDate: 2021-09-21T17:01:43.590+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-04-27T08:36:14.923+01:00
+          hippostdpubwf:publicationDate: 2021-09-21T17:01:46.404+01:00
           hippotranslation:id: 58859a8b-dd8c-45d5-9770-b3f56715a05d
           hippotranslation:locale: document-type-locale
           publishing:audience: ''
@@ -418,9 +452,25 @@
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p><strong>chidnas</strong>&nbsp;(<a href="https://en.wikipedia.org/wiki/Help:IPA/English" title="Help:IPA/English">/ɪˈkɪdnə/</a>), sometimes known as&nbsp;<strong>spiny anteaters</strong>,<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-pwstSBE-1">[1]</a></sup>&nbsp;belong to the&nbsp;<a href="https://en.wikipedia.org/wiki/Family_(biology)" title="Family (biology)">family</a>&nbsp;<strong>Tachyglossidae</strong>&nbsp;in the&nbsp;<a href="https://en.wikipedia.org/wiki/Monotreme" title="Monotreme">monotreme</a>&nbsp;order of&nbsp;<a href="https://en.wikipedia.org/wiki/Egg_(biology)" title="Egg (biology)">egg</a>-laying&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>. The four&nbsp;<a href="https://en.wikipedia.org/wiki/Extant_taxon" title="Extant taxon">extant</a>&nbsp;species of echidnas and the&nbsp;<a href="https://en.wikipedia.org/wiki/Platypus" title="Platypus">platypus</a>&nbsp;are the only living mammals that lay eggs and the only surviving members of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;Monotremata.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-nwf03-2">[2]</a></sup>&nbsp;The diet of some species consists of ants and termites, but they are not closely related to the&nbsp;<a href="https://en.wikipedia.org/wiki/Anteater" title="Anteater">true anteaters</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Americas" title="Americas">Americas</a>, which are&nbsp;<a href="https://en.wikipedia.org/wiki/Xenarthra" title="Xenarthra">xenarthrans</a>, along with&nbsp;<a href="https://en.wikipedia.org/wiki/Sloth" title="Sloth">sloths</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/Cingulata" title="Cingulata">armadillos</a>. Echidnas live in&nbsp;<a href="https://en.wikipedia.org/wiki/Australia" title="Australia">Australia</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/New_Guinea" title="New Guinea">New Guinea</a>.</p>
+              <p><strong>chidnas</strong>&nbsp;(<a href="https://en.wikipedia.org/wiki/Help:IPA/English" title="Help:IPA/English">/ɪˈkɪdnə/</a>), sometimes known as&nbsp;<strong>spiny anteaters</strong>,<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-pwstSBE-1">[1]</a></sup>&nbsp;belong to the&nbsp;<a href="https://en.wikipedia.org/wiki/Family_(biology)" title="Family (biology)">family</a>&nbsp;<strong>Tachyglossidae</strong>&nbsp;in the&nbsp;<a href="https://en.wikipedia.org/wiki/Monotreme" title="Monotreme">monotreme</a>&nbsp;order of&nbsp;<a href="https://en.wikipedia.org/wiki/Egg_(biology)" title="Egg (biology)">egg</a>-laying&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>. The four&nbsp;<a href="https://en.wikipedia.org/wiki/Extant_taxon" title="Extant taxon">extant</a>&nbsp;species of echidnas and the&nbsp;<a href="https://en.wikipedia.org/wiki/Platypus" title="Platypus">platypus</a>&nbsp;are the&nbsp;</p>
 
-              <p>Echidnas evolved between 20 and 50&nbsp;million years ago, descending from a platypus-like monotreme.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-Phillips-3">[3]</a></sup>&nbsp;This ancestor was aquatic, but echidnas adapted to life on land.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-Phillips-3">[3]</a></sup></p>
+              <div data-uuid="7d50c719-265e-496a-96ed-d78987d8ebe3" href="http://" class="fragment">FRGMNT</div>
+
+              <p>only living mammals that lay <a href="test-fragment-1" class="ds_cms-fragment">eggs</a> and the only surviving<br />
+              members of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;Monotremata.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-nwf03-2">[2]</a></sup>&nbsp;The diet of so</p>
+
+              <div data-uuid="1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d" class="fragment">1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d</div>
+
+              <p><br />
+              me species consists of ants and termites, but they are not closely related to the&nbsp;<a href="https://en.wikipedia.org/wiki/Anteater" title="Anteater">true anteaters</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Americas" title="Americas">Americas</a>, which 7d50c719-265e-496a-96ed-d78987d8ebe3 are&nbsp;<a href="https://en.wikipedia.org/wiki/Xenarthra" title="Xenarthra">xenarthrans</a>, along with&nbsp;<a href="https://en.wikipedia.org/wiki/Sloth" title="Sloth">sloths</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/Cingulata" title="Cingulata">armadillos</a>. Echidnas live in&nbsp;<a href="https://en.wikipedia.org/wiki/Australia" title="Australia">Australia</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/New_Guinea" title="New Guinea">New Guinea</a>.</p>
+
+              <p>werwerwerevolved between 20 and 50&nbsp;million years ago, descending from a platypus-like monotreme.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-Phillips-3">[3]</a></sup>&nbsp;This ancestor was aquatic, but echidnas adapted to life on land.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-Phillips-3">[3]</a></sup></p>
+            /test-fragment-1:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -1705,7 +1755,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T09:35:12.409+01:00
-          hippostdpubwf:lastModificationDate: 2021-04-27T11:13:38.427+01:00
+          hippostdpubwf:lastModificationDate: 2021-09-15T16:44:51.744+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 74003017-3d6d-45cc-a132-520a257ce96c
           hippotranslation:locale: document-type-locale
@@ -1726,9 +1776,15 @@
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p>All are entirely&nbsp;<a href="https://en.wikipedia.org/wiki/Aquatic_animal" title="Aquatic animal">aquatic</a>, lacking the broad belly-scales found in most other snakes and possessing dorsally located eyes. Their most notable feature is their skin and scales. The skin is loose and baggy, giving the impression of being several sizes too large for the snake, and the scales, rather than overlapping, are tiny pyramidal projections that led to their common names.</p>
+              <p>All are entirely&nbsp;<a href="https://en.wikipedia.org/wiki/Aquatic_animal" title="Aquatic animal">aquatic</a>, lacking the broad belly-scales found in most other snakes and possessing<a href="test-fragment-1" class="fragment"> dorsally located eyes. Their most notable feature is their skin and scales. T</a>he skin is loose and baggy, giving the impression of being several sizes too large for the snake, and the scales, rather than overlapping, are tiny pyramidal projections that led to their common names.</p>
 
               <p>These snakes are ambush predators, lurking at the bottom of rivers, streams and estuaries, and waiting for fish to approach, which they grip with their coils. The rough scales allow them to hold the fish despite the mucus coating. Adults grow to between 60&nbsp;cm and 2.43&nbsp;m in length.</p>
+            /test-fragment-1:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
         /wart-snakes[2]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
@@ -1738,7 +1794,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T09:35:12.409+01:00
-          hippostdpubwf:lastModificationDate: 2021-04-27T11:14:00.079+01:00
+          hippostdpubwf:lastModificationDate: 2021-09-15T16:46:11.586+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 74003017-3d6d-45cc-a132-520a257ce96c
           hippotranslation:locale: document-type-locale
@@ -1759,9 +1815,15 @@
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: |-
-              <p>All are entirely&nbsp;<a href="https://en.wikipedia.org/wiki/Aquatic_animal" title="Aquatic animal">aquatic</a>, lacking the broad belly-scales found in most other snakes and possessing dorsally located eyes. Their most notable feature is their skin and scales. The skin is loose and baggy, giving the impression of being several sizes too large for the snake, and the scales, rather than overlapping, are tiny pyramidal projections that led to their common names.</p>
+              <p>All are entirely&nbsp;<a href="https://en.wikipedia.org/wiki/Aquatic_animal" title="Aquatic animal">aquatic</a>, lacking the broad belly-scales found in most other snakes and possessing<a href="test-fragment-1" class="fragment"> dorsally located eyes. Their most notable feature is their skin and scales. T</a>he skin is loose and baggy, giving the impression of being several sizes too large for the snake, and the scales, rather than overlapping, are tiny pyramidal projections that led to their common names.</p>
 
               <p>These snakes are ambush predators, lurking at the bottom of rivers, streams and estuaries, and waiting for fish to approach, which they grip with their coils. The rough scales allow them to hold the fish despite the mucus coating. Adults grow to between 60&nbsp;cm and 2.43&nbsp;m in length.</p>
+            /test-fragment-1:
+              jcr:primaryType: hippo:facetselect
+              hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
         /wart-snakes[3]:
           jcr:primaryType: publishing:guidepage
           jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
