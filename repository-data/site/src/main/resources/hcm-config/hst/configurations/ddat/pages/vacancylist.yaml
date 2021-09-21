@@ -11,9 +11,6 @@ definitions:
         hst:parametervalues: ['publishing:vacancy', 'publishing:closingDate', desc,
           'off', 'on', vacancies, '5']
         hst:template: vacancylist
-        /seo:
-          jcr:primaryType: hst:component
-          hst:componentclassname: scot.mygov.publishing.components.SEOComponent
-          hst:template: seo
-          hst:parameternames: [showTitle]
-          hst:parametervalues: ['true']
+        /container:
+          jcr:primaryType: hst:containercomponentreference
+          hst:referencecomponent: homepage/main

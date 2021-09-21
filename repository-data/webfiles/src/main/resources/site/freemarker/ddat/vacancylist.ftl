@@ -1,16 +1,11 @@
 <#include "../common/include/imports.ftl">
 
-<div class="ds_cb  ds_cb--page-title">
-    <div class="ds_wrapper">
-        <div class="ds_cb__inner">
-            <div class="ds_cb__text  ds_cb__content">
-                <header class="ds_page-header">
-                    <h1 class="ds_page-header__title">Vacancies</h1>
-                </header>
-            </div>
-        </div>
-    </div>
-</div>
+<#include "../common/include/imports.ftl">
+<@hst.include ref="container"/>
+
+<@hst.headContribution category="footerScripts">
+<script type="module" src='<@hst.webfile path="assets/scripts/global.js"/>'></script>
+</@hst.headContribution>
 
 <#-- @ftlvariable name="pageable" type="org.onehippo.cms7.essentials.components.paging.Pageable" -->
 <#-- @ftlvariable name="item" type="scot.mygov.publishing.beans.Base" -->
