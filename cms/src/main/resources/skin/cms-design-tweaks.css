@@ -1,5 +1,25 @@
 .fragment {
-    border: 1px dotted red;
+    border: 2px dashed #b3b3b3;
+    background: #fafafa;
+    /*color: #333 !important;*/
+    display: block;
+    margin: 10px 0;
+    padding: 20px 10px 20px 52px;
+    position: relative;
+    /*text-decoration: none !important;*/
+
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3VpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDYuMC1jMDAyIDc5LjE2NDM2MCwgMjAyMC8wMi8xMy0wMTowNzoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDplN2I4MGVlNC1kMGU2LTQ1MTQtOGExZS1lNTEzZDk2ZmEwMTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NzU4MTZBN0UxMkUxMTFFQzkyMEZCNDlFNEFERkUyODIiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NzU4MTZBN0QxMkUxMTFFQzkyMEZCNDlFNEFERkUyODIiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjEgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozMGFjNjgwYi1kZjQ2LTQwMDItOWQ2Ny0zYWMyYTQxMWFhZTIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6ZTdiODBlZTQtZDBlNi00NTE0LThhMWUtZTUxM2Q5NmZhMDE0Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+6sZoBQAAADBQTFRFuLi4+vr6xcXFampqfX19l5eXWFhY29vb0tLS5eXl8vLyTExMpaWl6urqRkZG////fR0mHQAAABB0Uk5T////////////////////AOAjXRkAAAEJSURBVHjafJNXFsQgCEWxYMPg/nc7MTY0c8KXyrW8J0DZA+Bc2GbRMqc+Vn8ATcxsnuFlnYET0PxErtsryrgDgXkSnQUJKMeLwDYgJYCLV0w2yhNCNnyEU6fMA9HzDUN8FFmb/VDhLeUG+JWnZVSY9hQrTsABPM93uxXTsQo0TaHmiV8ElNyvRLSnSrZXgcBfQQDwCTBC8W//1m2Uqkw8Li5rLTSjssw3RxJ1Gc1qeUY33+wFs2qBfftbWkYVBZbOE5QzYVgd3fZG42VRV+BloLGoRF+o6ZpgggT6DZiElkt2Fsyvy4fUoQKnPJSlIlovOzZ62sP53bwq9mm6v0p/dPc9x7Qv/AQYAJSeNQA+jXK+AAAAAElFTkSuQmCC");
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+
+.fragment::after {
+    bottom: 0;
+    content: '';
+    left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
 }
 
 /* Style the supporting hint text */

@@ -42,15 +42,15 @@ public class FragmentInjectingHtmlRewriter extends SimpleContentRewriter {
     @Override
     public String rewrite(String html, Node node, HstRequestContext requestContext,  Mount targetMount) {
         TagNode rootNode = cleaner.clean(html);
-        rootNode.getElementList(this::isInternalAnchorWithFragmentClass, true)
+        rootNode.getElementList(this::isElementWithFragmentClass, true)
                 .stream().map(o -> (TagNode) o)
-                .forEach(tn -> processInternalAnchor(tn, node, requestContext, targetMount));
+                .forEach(tn -> processFragmentElement(tn, node, requestContext, targetMount));
         html = cleaner.getInnerHtml(rootNode);
         return super.rewrite(html, node, requestContext, targetMount);
 
     }
-    boolean isInternalAnchorWithFragmentClass(TagNode tagNode) {
-        return isInternalAnchor(tagNode) && "fragment".equals(tagNode.getAttributeByName("class"));
+    boolean isElementWithFragmentClass(TagNode tagNode) {
+        return "fragment".equals(tagNode.getAttributeByName("class"));
     }
 
     boolean isInternalAnchor(TagNode tagNode) {
@@ -58,15 +58,15 @@ public class FragmentInjectingHtmlRewriter extends SimpleContentRewriter {
                 && !super.isExternal(tagNode.getAttributeByName("href"));
     }
 
-    void processInternalAnchor(TagNode tagNode, Node htmlNode, HstRequestContext requestContext,  Mount targetMount) {
+    void processFragmentElement(TagNode tagNode, Node htmlNode, HstRequestContext requestContext,  Mount targetMount) {
         try {
-            doProcessAnchor(tagNode, htmlNode, requestContext, targetMount);
+            doProcessFragment(tagNode, htmlNode, requestContext, targetMount);
         } catch (RepositoryException e) {
             LOG.error("unexpected exception processing fragment links for html", e);
         }
     }
 
-    void doProcessAnchor(TagNode tagNode, Node htmlNode, HstRequestContext requestContext,  Mount targetMount) throws RepositoryException {
+    void doProcessFragment(TagNode tagNode, Node htmlNode, HstRequestContext requestContext,  Mount targetMount) throws RepositoryException {
         Node handle = getFragmentForHref(requestContext.getSession(), tagNode, htmlNode);
         if (!isFragmentHandle(handle)) {
              return;
