@@ -33,26 +33,30 @@ public class FragmentsComponent extends BaseHstComponent {
 
     private static final String FRAGMENT_TYPE = "publishing:fragment";
 
+    private static final String FRAGMENTS = "fragments";
+
     @Override
-    public void doBeforeRender(final HstRequest request, final HstResponse response) {
+    public void doBeforeRender(HstRequest request, HstResponse response) {
         try {
              HippoBean scopeBean = getScopeBean(request);
 
             // of no scope was specified then dont return any fragments
             if (scopeBean == null) {
                 LOG.warn("Fragment request with invalid path specified");
-                request.setAttribute("fragments", emptyList());
+                request.setAttribute(FRAGMENTS, emptyList());
                 return;
             }
 
             // if the base bean is a fragment then we will just return that one fragment
             if (scopeBean.getNode().isNodeType(FRAGMENT_TYPE)) {
-                request.setAttribute("fragments", singletonList(scopeBean));
+                request.setAttribute(FRAGMENTS, singletonList(scopeBean));
                 return;
             }
 
             // run a query to get the bean fragments that match in that folder
-            request.setAttribute("fragments", runQuery(request, scopeBean));
+            HstQuery query = buildQuery(request, scopeBean);
+            HstQueryResult result = query.execute();
+            request.setAttribute(FRAGMENTS, result.getHippoBeans());
         } catch (RepositoryException | QueryException e) {
             LOG.warn("Error trying to fetch fragments", e);
         }
@@ -69,13 +73,6 @@ public class FragmentsComponent extends BaseHstComponent {
         contentPath = StringUtils.substringAfter(contentPath, baseBean.getPath() + "/");
 
         return baseBean.getBean(contentPath);
-    }
-
-    HippoBeanIterator runQuery(HstRequest request, HippoBean scopeBean) throws QueryException {
-        HstQuery query = buildQuery(request, scopeBean);
-        LOG.info("fragment query: {}", query);
-        HstQueryResult result = query.execute();
-        return result.getHippoBeans();
     }
 
     HstQuery buildQuery(HstRequest request, HippoBean baseBean) {

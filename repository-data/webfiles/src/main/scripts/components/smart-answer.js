@@ -209,7 +209,6 @@ class SmartAnswer {
     }
 
     loadDynamicResult(step, dynamicResult) {
-        console.log('loadDynamicResult', dynamicResult);
         const dynamicFolder = dynamicResult.getAttribute('data-dynamic-result-folder');
         const dynamicQuestion = dynamicResult.getAttribute('data-dynamic-result-question');
         const answerStep = this.container.querySelector(`#step-${dynamicQuestion}.mg_smart-answer__step`);

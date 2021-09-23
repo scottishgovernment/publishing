@@ -3419,12 +3419,12 @@
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
         jcr:uuid: 18fec544-1122-4868-9b83-94eda497e0f2
         hippo:availability: []
+        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
-        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-05-17T17:52:37.573+01:00
-        hippostdpubwf:lastModificationDate: 2021-09-16T16:05:45.487+01:00
+        hippostdpubwf:lastModificationDate: 2021-09-29T08:48:33.478+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 1dcf8fbf-4b18-4a4e-a016-baab4b3ded87
         hippotranslation:locale: document-type-locale
@@ -3490,17 +3490,18 @@
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 390098ea-f98e-4d31-bb7a-058fe3c5361b
-      hippo:versionHistory: 16705b72-4946-4dd0-94bb-77811511340e
+      hippo:versionHistory: 85516874-bc99-4671-86f8-acecdd2a1eed
       /council[1]:
         jcr:primaryType: publishing:smartanswermultiplechoicequestion
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: 6f54690b-e598-4d0b-8a53-8fc4a8803a81
         hippo:availability: []
+        hippostd:holder: admin
         hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-09-22T15:09:11.263+01:00
-        hippostdpubwf:lastModificationDate: 2021-09-22T20:57:34.262+01:00
+        hippostdpubwf:lastModificationDate: 2021-09-29T08:50:51.019+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d92c813f-2921-46ea-ba49-a09326fe2d58
         hippotranslation:locale: document-type-locale
@@ -3509,7 +3510,14 @@
         publishing:title: Local authority
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: <p>What local authority?</p>
+          hippostd:content: |-
+            <p>What local authority? we can have a framnegt</p>
+
+            <div data-uuid="25eafbae-1f09-491c-9b8b-05f96f9d1a31" class="fragment">
+            <div contenteditable="false">Fragment</div>
+            </div>
+
+            <p>&nbsp;</p>
         /publishing:defaultNextPage:
           jcr:primaryType: hippo:mirror
           hippo:docbase: e0890d88-ab22-422d-8d30-7c51cdb1261d
@@ -3746,7 +3754,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-09-22T15:09:11.263+01:00
-        hippostdpubwf:lastModificationDate: 2021-09-22T20:57:46.126+01:00
+        hippostdpubwf:lastModificationDate: 2021-09-29T08:49:23.994+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d92c813f-2921-46ea-ba49-a09326fe2d58
         hippotranslation:locale: document-type-locale
@@ -3755,7 +3763,14 @@
         publishing:title: Local authority
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: <p>What local authority?</p>
+          hippostd:content: |-
+            <p>What local authority? we can have a framnegt</p>
+
+            <div data-uuid="25eafbae-1f09-491c-9b8b-05f96f9d1a31" class="fragment">
+            <div contenteditable="false">Fragment</div>
+            </div>
+
+            <p>&nbsp;</p>
         /publishing:defaultNextPage:
           jcr:primaryType: hippo:mirror
           hippo:docbase: e0890d88-ab22-422d-8d30-7c51cdb1261d
@@ -3992,9 +4007,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-09-22T15:09:11.263+01:00
-        hippostdpubwf:lastModificationDate: 2021-09-22T20:57:46.126+01:00
+        hippostdpubwf:lastModificationDate: 2021-09-29T08:49:23.994+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2021-09-22T20:57:49.277+01:00
+        hippostdpubwf:publicationDate: 2021-09-29T08:49:26.625+01:00
         hippotranslation:id: d92c813f-2921-46ea-ba49-a09326fe2d58
         hippotranslation:locale: document-type-locale
         publishing:exitFunction: ''
@@ -4002,7 +4017,14 @@
         publishing:title: Local authority
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: <p>What local authority?</p>
+          hippostd:content: |-
+            <p>What local authority? we can have a framnegt</p>
+
+            <div data-uuid="25eafbae-1f09-491c-9b8b-05f96f9d1a31" class="fragment">
+            <div contenteditable="false">Fragment</div>
+            </div>
+
+            <p>&nbsp;</p>
         /publishing:defaultNextPage:
           jcr:primaryType: hippo:mirror
           hippo:docbase: e0890d88-ab22-422d-8d30-7c51cdb1261d
@@ -4916,7 +4938,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: db65be40-86c9-49d1-8e61-80f2ffed9e31
       hippo:name: final result
-      hippo:versionHistory: bdadc7a1-eed2-4332-abf3-1c602f36e6fb
+      hippo:versionHistory: 8a3cbec9-d48f-43ce-af3e-3262928fab19
       /final-result[1]:
         jcr:primaryType: publishing:smartanswerresult
         jcr:mixinTypes: ['mix:referenceable']
@@ -4926,7 +4948,7 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-05-17T18:00:46.854+01:00
-        hippostdpubwf:lastModificationDate: 2021-09-22T11:53:46.442+01:00
+        hippostdpubwf:lastModificationDate: 2021-09-29T08:40:50.873+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: a1af89e0-d4f1-4382-a334-cf8659f98c42
         hippotranslation:locale: document-type-locale
@@ -4943,22 +4965,20 @@
         /publishing:dynamicresultsquestion:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:dynamicresults[1]:
+        /publishing:dynamicresults:
           jcr:primaryType: publishing:smartanswerresultdynamicselector
           /publishing:question:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: e0890d88-ab22-422d-8d30-7c51cdb1261d
+            hippo:docbase: 390098ea-f98e-4d31-bb7a-058fe3c5361b
           /publishing:folder:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 308761d8-2676-47c4-9afe-656923dfa252
-        /publishing:dynamicresults[2]:
-          jcr:primaryType: publishing:smartanswerresultdynamicselector
-          /publishing:question:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 11ea7dbb-db13-465c-8363-46ac2fe8d146
-          /publishing:folder:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 93bb86d4-764c-413c-97fe-294d01d7c2f2
+          /publishing:prologue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:epilogue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
       /final-result[2]:
         jcr:primaryType: publishing:smartanswerresult
         jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -4968,7 +4988,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-05-17T18:00:46.854+01:00
-        hippostdpubwf:lastModificationDate: 2021-09-22T11:54:00.136+01:00
+        hippostdpubwf:lastModificationDate: 2021-09-29T08:41:34.640+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: a1af89e0-d4f1-4382-a334-cf8659f98c42
         hippotranslation:locale: document-type-locale
@@ -4985,22 +5005,20 @@
         /publishing:dynamicresultsquestion:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:dynamicresults[1]:
+        /publishing:dynamicresults:
           jcr:primaryType: publishing:smartanswerresultdynamicselector
           /publishing:question:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: e0890d88-ab22-422d-8d30-7c51cdb1261d
+            hippo:docbase: 390098ea-f98e-4d31-bb7a-058fe3c5361b
           /publishing:folder:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 308761d8-2676-47c4-9afe-656923dfa252
-        /publishing:dynamicresults[2]:
-          jcr:primaryType: publishing:smartanswerresultdynamicselector
-          /publishing:question:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 11ea7dbb-db13-465c-8363-46ac2fe8d146
-          /publishing:folder:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 93bb86d4-764c-413c-97fe-294d01d7c2f2
+          /publishing:prologue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:epilogue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
       /final-result[3]:
         jcr:primaryType: publishing:smartanswerresult
         jcr:mixinTypes: ['mix:referenceable']
@@ -5010,9 +5028,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2021-05-17T18:00:46.854+01:00
-        hippostdpubwf:lastModificationDate: 2021-09-22T11:54:00.136+01:00
+        hippostdpubwf:lastModificationDate: 2021-09-29T08:41:34.640+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2021-09-22T11:54:01.798+01:00
+        hippostdpubwf:publicationDate: 2021-09-29T08:41:36.909+01:00
         hippotranslation:id: a1af89e0-d4f1-4382-a334-cf8659f98c42
         hippotranslation:locale: document-type-locale
         publishing:title: Final
@@ -5028,22 +5046,20 @@
         /publishing:dynamicresultsquestion:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:dynamicresults[1]:
+        /publishing:dynamicresults:
           jcr:primaryType: publishing:smartanswerresultdynamicselector
           /publishing:question:
             jcr:primaryType: hippo:mirror
-            hippo:docbase: e0890d88-ab22-422d-8d30-7c51cdb1261d
+            hippo:docbase: 390098ea-f98e-4d31-bb7a-058fe3c5361b
           /publishing:folder:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 308761d8-2676-47c4-9afe-656923dfa252
-        /publishing:dynamicresults[2]:
-          jcr:primaryType: publishing:smartanswerresultdynamicselector
-          /publishing:question:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 11ea7dbb-db13-465c-8363-46ac2fe8d146
-          /publishing:folder:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 93bb86d4-764c-413c-97fe-294d01d7c2f2
+          /publishing:prologue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:epilogue:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
     /dynamicresults:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['mix:versionable']
@@ -5125,6 +5141,91 @@
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /default-content:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: cf541b6c-1bf2-4e27-a821-41f986229301
+        hippo:name: Default content
+        hippo:versionHistory: 9c528050-722c-4ea1-9082-e52425051fd6
+        /default-content[1]:
+          jcr:primaryType: publishing:fragment
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 93f7c5c2-784d-45bd-a500-b42d7621ee41
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostd:tags: [all]
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-09-29T08:47:13.826+01:00
+          hippostdpubwf:lastModificationDate: 2021-09-29T08:47:48.953+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: d49ca666-c870-4d6f-b1c3-9e33a53510e1
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:localauthorities: []
+          publishing:organisationtags: []
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This is content that is shown for all councils</p>
+          /publishing:contentOwner:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:authorNotes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /default-content[2]:
+          jcr:primaryType: publishing:fragment
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: c977efcf-dd55-4eff-a7a1-b7e91b6c2a13
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostd:tags: [all]
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-09-29T08:47:13.826+01:00
+          hippostdpubwf:lastModificationDate: 2021-09-29T08:47:48.871+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: d49ca666-c870-4d6f-b1c3-9e33a53510e1
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:localauthorities: []
+          publishing:organisationtags: []
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This is content that is shown for all councils</p>
+          /publishing:contentOwner:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:authorNotes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /default-content[3]:
+          jcr:primaryType: publishing:fragment
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f25a0507-1a3c-4364-a348-0691313a393d
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostd:tags: [all]
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2021-09-29T08:47:13.826+01:00
+          hippostdpubwf:lastModificationDate: 2021-09-29T08:47:48.871+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2021-09-29T08:47:51.614+01:00
+          hippotranslation:id: d49ca666-c870-4d6f-b1c3-9e33a53510e1
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:localauthorities: []
+          publishing:organisationtags: []
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>This is content that is shown for all councils</p>
+          /publishing:contentOwner:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:authorNotes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
   /self-isolation-support-grant-suitability-checker:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
