@@ -1,6 +1,7 @@
 /* global document, window, require */
 
 import commonForms from '../tools/forms';
+import $ from 'jquery';
 
 class SmartAnswer {
     constructor(container) {
@@ -29,12 +30,19 @@ class SmartAnswer {
             if (event.target.classList.contains('js-next-button')) {
                 event.preventDefault();
 
+
+            /// the user has presses next  ... either get the value from a list or a radio button
                 const stepContainer = event.target.closest('.mg_smart-answer__step');
 
                 if (this.validateStep(stepContainer)) {
-                    const checkedOption = stepContainer.querySelector("input[type='radio']:checked");
+                    var selectedOption = stepContainer.querySelector("input[type='radio']:checked");
 
-                    this.updateUrl(checkedOption.value);
+                    if (selectedOption != null) {
+                        this.updateUrl(selectedOption.value);
+                    } else {
+                        selectedOption = stepContainer.querySelector("select");
+                        this.updateUrl(selectedOption[selectedOption.selectedIndex].value);
+                    }
                 } else {
                     this.showErrorSummary();
                 }
@@ -160,12 +168,14 @@ class SmartAnswer {
      * Show a specified step, set focus on it by default for accessibility (focus management)
      */
     showStep (step, focus = true) {
+
         const currentStep = this.container.querySelector('.mg_smart-answer__step--current');
+
+        this.loadDynamicResults(step);
 
         if (currentStep) {
             currentStep.classList.remove('mg_smart-answer__step--current');
         }
-
         // reset errors
         const errorQuestions = [].slice.call(step.querySelectorAll('.ds_question--error'));
         errorQuestions.forEach(question => {
@@ -188,6 +198,28 @@ class SmartAnswer {
         }
 
         this.stepTitle = step.querySelector('.js-question-title').innerText;
+    }
+
+    loadDynamicResults(step) {
+        const dynamicResults = step.querySelectorAll('.mg_smart-answer__dynamic-result');
+
+        if (dynamicResults !== null) {
+            dynamicResults.forEach(dynamicResult => this.loadDynamicResult(step, dynamicResult));
+        }
+    }
+
+    loadDynamicResult(step, dynamicResult) {
+        console.log('loadDynamicResult', dynamicResult);
+        const dynamicFolder = dynamicResult.getAttribute('data-dynamic-result-folder');
+        const dynamicQuestion = dynamicResult.getAttribute('data-dynamic-result-question');
+        const answerStep = this.container.querySelector(`#step-${dynamicQuestion}.mg_smart-answer__step`);
+        const responses = window.location.hash.substring(window.location.hash.indexOf('#!/') + 3).split('/');
+        const stepIndex = Array.prototype.indexOf.call(answerStep.parentNode.children, answerStep);
+        const tag = responses[stepIndex];
+
+        $.ajax(`${dynamicFolder}?tag=${tag}`)
+            .done(data => dynamicResult.innerHTML = data)
+            .fail(response => console.log('failed to fetch dynamic content ', response));
     }
 
     /*
@@ -222,7 +254,6 @@ class SmartAnswer {
                     validationChecks.push(commonForms[validations[i]]);
                 }
             }
-
             commonForms.validateInput(item, validationChecks);
         });
 

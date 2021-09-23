@@ -1036,3 +1036,161 @@
         jcr:primaryType: selection:listitem
         selection:key: orgs-social-security-authors
         selection:label: social-security
+  /smartanswermultiplechoicestyle:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 8a372e3c-0e46-419e-ad02-76634b5344bb
+    /smartanswermultiplechoicestyle:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 3587b57c-7a19-4e4d-aea6-1779396279dd
+      hippo:availability: [live, preview]
+      hippotranslation:id: 3d3a7c0a-2051-472d-b11f-b4c50bdd85d2
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: radiobuttons
+        selection:label: Radio buttons
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: list
+        selection:label: List
+  /localauthorities:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: f94e261a-7098-48ba-b511-a64fe8229c0c
+    hippo:name: localAuthorities
+    /localauthorities:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 8e8cf273-df52-4662-afe0-f4be400cc9bd
+      hippotranslation:id: 807cc640-01ac-4bd2-be4b-a178c63e3e0b
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: aberdeen-city-council
+        selection:label: Aberdeen City Council
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: aberdeenshire-council
+        selection:label: Aberdeenshire Council
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: angus-council
+        selection:label: Angus Council
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: argyll-bute-council
+        selection:label: Argyll & Bute Council
+      /selection:listitem[5]:
+        jcr:primaryType: selection:listitem
+        selection:key: city-of-edinburgh-council
+        selection:label: City of Edinburgh Council
+      /selection:listitem[6]:
+        jcr:primaryType: selection:listitem
+        selection:key: clackmannanshire-council
+        selection:label: Clackmannanshire Council
+      /selection:listitem[7]:
+        jcr:primaryType: selection:listitem
+        selection:key: comhairle-nan-eilean-siar-western-isles-council
+        selection:label: Comhairle nan Eilean Siar (Western Isles Council)
+      /selection:listitem[8]:
+        jcr:primaryType: selection:listitem
+        selection:key: dumfries-and-galloway-council
+        selection:label: Dumfries and Galloway Council
+      /selection:listitem[9]:
+        jcr:primaryType: selection:listitem
+        selection:key: dundee-council
+        selection:label: Dundee City Council
+      /selection:listitem[10]:
+        jcr:primaryType: selection:listitem
+        selection:key: east-ayrshire-council
+        selection:label: East Ayrshire Council
+      /selection:listitem[11]:
+        jcr:primaryType: selection:listitem
+        selection:key: east-dunbartonshire-council
+        selection:label: East Dunbartonshire Council
+      /selection:listitem[12]:
+        jcr:primaryType: selection:listitem
+        selection:key: east-lothian-council
+        selection:label: East Lothian Council
+      /selection:listitem[13]:
+        jcr:primaryType: selection:listitem
+        selection:key: east-renfrewshire-council
+        selection:label: East Renfrewshire Council
+      /selection:listitem[14]:
+        jcr:primaryType: selection:listitem
+        selection:key: falkirk-council
+        selection:label: Falkirk Council
+      /selection:listitem[15]:
+        jcr:primaryType: selection:listitem
+        selection:key: fife-council
+        selection:label: Fife Council
+      /selection:listitem[16]:
+        jcr:primaryType: selection:listitem
+        selection:key: glasgow-council
+        selection:label: Glasgow City Council
+      /selection:listitem[17]:
+        jcr:primaryType: selection:listitem
+        selection:key: highland-council
+        selection:label: Highland Council
+      /selection:listitem[18]:
+        jcr:primaryType: selection:listitem
+        selection:key: inverclyde-council
+        selection:label: Inverclyde Council
+      /selection:listitem[19]:
+        jcr:primaryType: selection:listitem
+        selection:key: midlothian-council
+        selection:label: Midlothian Council
+      /selection:listitem[20]:
+        jcr:primaryType: selection:listitem
+        selection:key: moray-council
+        selection:label: Moray Council
+      /selection:listitem[21]:
+        jcr:primaryType: selection:listitem
+        selection:key: north-ayrshire-council
+        selection:label: North Ayrshire Council
+      /selection:listitem[22]:
+        jcr:primaryType: selection:listitem
+        selection:key: north-lanarkshire-council
+        selection:label: North Lanarkshire Council
+      /selection:listitem[23]:
+        jcr:primaryType: selection:listitem
+        selection:key: orkney-council
+        selection:label: Orkney Council
+      /selection:listitem[24]:
+        jcr:primaryType: selection:listitem
+        selection:key: perth-kinross-council
+        selection:label: Perth & Kinross Council
+      /selection:listitem[25]:
+        jcr:primaryType: selection:listitem
+        selection:key: renfrewshire-council
+        selection:label: Renfrewshire Council
+      /selection:listitem[26]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-borders-council
+        selection:label: Scottish Borders Council
+      /selection:listitem[27]:
+        jcr:primaryType: selection:listitem
+        selection:key: shetland-islands-council
+        selection:label: Shetland Islands Council
+      /selection:listitem[28]:
+        jcr:primaryType: selection:listitem
+        selection:key: south-ayrshire-council
+        selection:label: South Ayrshire Council
+      /selection:listitem[29]:
+        jcr:primaryType: selection:listitem
+        selection:key: south-lanarkshire-council
+        selection:label: South Lanarkshire Council
+      /selection:listitem[30]:
+        jcr:primaryType: selection:listitem
+        selection:key: stirling-council
+        selection:label: Stirling Council
+      /selection:listitem[31]:
+        jcr:primaryType: selection:listitem
+        selection:key: west-dunbartonshire-council
+        selection:label: West Dunbartonshire Council
+      /selection:listitem[32]:
+        jcr:primaryType: selection:listitem
+        selection:key: west-lothian-council
+        selection:label: West Lothian Council

@@ -1,0 +1,981 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-local-authority-fragments-folder:
+      jcr:primaryType: hippostd:templatequery
+      jcr:mixinTypes: ['hipposys:implementation']
+      hippostd:icon: addfolder_ico
+      hippostd:modify: [./_name, $name, './hippotranslation:id', $uuid, './hippotranslation:locale',
+        $inherited]
+      hipposys:classname: org.hippoecm.repository.impl.query.DirectPath
+      jcr:language: xpath
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-publishing-smartanswer/hippostd:templates/node()
+      /hippostd:templates:
+        jcr:primaryType: hippostd:templates
+        /hippostd:folder:
+          jcr:primaryType: hippostd:folder
+          jcr:mixinTypes: ['mix:versionable']
+          jcr:uuid: 68db9096-62d1-470a-bc48-86eaa752692a
+          hippostd:foldertype: [new-fragment-document]
+          /aberdeen-city-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 8c2aa60b-9875-4181-a3dc-f78a71c571fa
+            hippo:name: Aberdeen City Council
+            hippo:versionHistory: 6b2ee5ef-2779-479d-a28b-d1914a6abbab
+            /aberdeen-city-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: df4f1a60-25c6-4e59-a7c7-4d727b7bdb33
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:51:12.419+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T09:51:36.404+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: d22e53ef-d05b-4008-b601-bc51e850605f
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [aberdeen-city-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /aberdeenshire-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: c739dc6a-a5dc-4a89-89dd-e3750cc01591
+            hippo:name: Aberdeenshire Council
+            /aberdeenshire-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 586c185f-33c0-4bfa-9a59-d4a5279be5f4
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:51:56.685+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T09:57:36.977+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: e7ae8505-009d-48ec-a6f7-de7395eed38d
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [aberdeenshire-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /angus-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 070c1936-8ccc-4a48-b4b7-70e5fe0eade6
+            hippo:name: Angus Council
+            /angus-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 37afa66c-1e2e-42f5-b97f-e8f3605b289d
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:52:06.012+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T09:58:01.692+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 3da5b6a9-5a5a-4875-a46d-f91a77ea0aab
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [angus-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /argyll--bute-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 76047026-ae8d-410d-9b42-fd5aef6b9e67
+            hippo:name: Argyll & Bute Council
+            /argyll--bute-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 2bd02b6d-6794-4a51-99b1-b229be152c1e
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:52:14.776+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T09:57:59.832+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 63ebd2eb-2321-42de-aac3-c890090b157b
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [argyll-bute-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /clackmannanshire-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 9df94f8f-138d-4081-8985-bb167053f2bb
+            hippo:name: Clackmannanshire Council
+            /clackmannanshire-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 2fb7f10f-f770-4437-b7fd-d257b1f53364
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:52:23.801+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T09:57:57.415+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: f23a39ff-b825-444c-878e-74adb1cde57e
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [clackmannanshire-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /comhairle-nan-eilean-siar-western-isles-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: cb95b987-2483-4137-a3c4-b9e5982c6fe3
+            hippo:name: Comhairle nan Eilean Siar (Western Isles Council)
+            /comhairle-nan-eilean-siar-western-isles-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: bc4a4c1e-4688-4ade-a834-66119dce7bf9
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:52:37.616+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T09:58:13.153+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: f02bef3a-991e-46d2-8391-33be2b6d951a
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [comhairle-nan-eilean-siar-western-isles-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /dumfries-and-galloway-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 7119d9dd-0475-49c8-9a09-33bd094e85d4
+            hippo:name: Dumfries and Galloway Council
+            /dumfries-and-galloway-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: a233dee2-00f1-4eea-81f3-1ce25c1534dc
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:52:51.845+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T09:58:20.692+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: d24863a1-ef47-4bfb-bbe5-f7c743b08b5e
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [dumfries-and-galloway-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /dundee-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 39b281bb-67ff-4e4b-bffe-8946746335e4
+            hippo:name: Dundee Council
+            /dundee-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: deb9da14-7399-4251-8d0a-642b656ff410
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:53:01.273+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T09:58:31.119+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 367e48b7-a331-4d0d-a20e-ef119b6d6552
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [dundee-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>conetent</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /east-ayrshire-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: d6a0b2dc-4002-4166-ac35-950b1e6417b0
+            hippo:name: East Ayrshire Council
+            /east-ayrshire-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 6910a0bf-b053-421d-bfc6-78fc7ae83367
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:59:02.670+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T09:59:12.587+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 47241dcc-2f56-427b-9e6e-16665d8c5605
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [east-ayrshire-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /east-dunbartonshire-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: d0041216-0a26-4d35-ad25-2734d297c8ff
+            hippo:name: East Dunbartonshire Council
+            /east-dunbartonshire-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: fa4a59f2-3681-433d-bd2d-60889740b282
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:53:10.960+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T09:59:38.709+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 83bb803c-e7ee-494c-8e1f-4ea7e5fa5ef7
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [east-dunbartonshire-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /east-lothian-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: dc212929-bfd8-4810-9c11-9000c2127c15
+            hippo:name: East Lothian Council
+            /east-lothian-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: b9a94b99-b3f0-4307-92e4-87d9de51bbde
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:53:19.647+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T09:59:49.105+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 18374d19-ffbd-4802-b8cc-bbf66f34e78a
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [east-lothian-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /east-renfrewshire-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 289e8489-02e6-4662-85c0-2a7b3e84ec2b
+            hippo:name: East Renfrewshire Council
+            /east-renfrewshire-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: d7060c9b-3efc-497d-825c-2f30f58219d7
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:53:29.737+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:07:52.307+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 1cd1192c-809a-4915-bd0a-96be429bca4c
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [east-renfrewshire-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /edinburgh-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: a768da47-9dc7-4dd2-9d40-1c61467ca5ac
+            hippo:name: Edinburgh Council
+            /edinburgh-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 086cf88d-a864-49bc-bfb2-c1c20b6f63b9
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:53:38.605+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:21:17.955+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: c0b5fdeb-68f7-4cee-9b32-f497e19c5bd9
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [city-of-edinburgh-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /falkirk-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 0b39806e-5b84-4a3e-b4c4-34fcad76c023
+            hippo:name: Falkirk Council
+            /falkirk-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: feb408b2-495d-41db-8866-906baa5aae0e
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:53:48.546+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:07:26.798+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 51fc7ea0-842e-412f-b631-879bb1bd763e
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [falkirk-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /fife-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: a8a1af64-e54c-49b7-913a-a6aad8fdd6d9
+            hippo:name: Fife Council
+            /fife-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 2cb6cc6a-5676-43f3-b9fd-367216b2c32f
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:53:58.729+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:07:16.048+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 6daf8ece-e297-4f0d-8246-2136e3f671e4
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [fife-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /glasgow-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: e03b81d6-3069-4ba0-946e-03e794540d57
+            hippo:name: Glasgow Council
+            /glasgow-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: e8e813f0-c80c-4755-ba7a-afc62a87eff9
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:54:08.791+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:07:04.663+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 0f20c17a-5a18-4aac-85d3-beca089b0adf
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [glasgow-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /highland-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: f36b6bdd-aae3-46ba-b3e0-9e130b4320df
+            hippo:name: Highland Council
+            /highland-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 1040ef08-e9ac-4634-bc8f-6edebe91e8a4
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:54:32.593+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:06:53.958+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: c72a739a-85a5-484a-b78a-41d50a306ade
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [highland-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /inverclyde-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 0f5002de-8366-4b69-90df-1ecd1115c6a4
+            hippo:name: Inverclyde Council
+            /inverclyde-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 61ef98bc-7e11-4d2a-b90c-5f9df0e7ae19
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:54:43.236+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:06:24.133+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: e68cb280-6f7b-435d-a64c-5bf3cefc8613
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [inverclyde-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /midlothian-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 02cdbb56-b051-4c17-8efb-09a4312be18d
+            hippo:name: Midlothian Council
+            hippo:versionHistory: decceb0f-7ded-4ec1-a740-9291c945f2ee
+            /midlothian-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 62035e7d-9602-4870-8833-2843f469de64
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:54:51.323+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:06:10.059+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 031783a4-8d0d-4db0-b366-b1bace0a1a07
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [midlothian-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /moray-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 88259785-7789-4ee0-88f2-5a9ace0837a0
+            hippo:name: Moray Council
+            /moray-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: bc904a8d-4b12-4adc-bf5b-92d6fdaa2252
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:54:59.772+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:05:53.878+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 1c322a27-8611-4639-946e-e00e5f9600af
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [moray-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /north-ayrshire-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: d8ad54df-0bd1-43a7-9a79-b556f27e987e
+            hippo:name: North Ayrshire Council
+            /north-ayrshire-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 1cfa76a2-8ccc-416e-86da-1c31c2846b95
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T10:16:19.994+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:16:28.247+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 22d78a1e-ea30-4992-a9c3-9a459d7f43df
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [north-ayrshire-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /north-lanarkshire-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: b946254d-50bd-48bb-bd82-564f1b6eb88f
+            hippo:name: North Lanarkshire Council
+            /north-lanarkshire-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 5388271f-2f57-4c71-8020-0971ed8f264f
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:55:13.803+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:05:37.565+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 7eb741a7-2270-42cc-95f7-3a38c3cab78a
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [north-lanarkshire-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /orkney-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 2122202a-8902-466b-85f6-29f4bf28cb0c
+            hippo:name: Orkney Council
+            /orkney-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 6f877471-76af-4e4e-b52f-db35bd83acef
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:55:21.495+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:05:13.602+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 8cf43c53-c3a8-48e1-b050-edaba8338e8f
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [orkney-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /perth--kinross-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: f8aa7505-7a4b-47cc-9b8d-de915c75c5ba
+            hippo:name: Perth & Kinross Council
+            hippo:versionHistory: 89255cbf-3183-4a36-bd0e-c794cce45da6
+            /perth--kinross-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 64f1b9e3-280e-4308-8ded-c261312a11ee
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:55:29.362+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:04:57.767+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: a0916bec-2aaf-40bb-92e3-47bebcae9415
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [perth-kinross-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /renfrewshire-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: b3dc44fa-791e-40d2-b610-5031a2c8ce56
+            hippo:name: Renfrewshire Council
+            /renfrewshire-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 0e68490a-1e72-4a21-8c3e-e93ae92e000c
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:55:37.079+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:04:43.116+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: b95200da-ff54-40c2-8e72-7e36fd51b19a
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [renfrewshire-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /scottish-borders-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: e34aeaf9-cc5e-4a7e-86e2-c0fd0813c7b5
+            hippo:name: Scottish Borders Council
+            /scottish-borders-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 309bd371-1867-4391-ab4c-aef87773dfe4
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:55:45.077+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:04:21.946+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: c212d224-4be6-4a68-af66-0b53c5f7fb9e
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [scottish-borders-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /shetland-islands-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 057215b5-ce1e-4997-8bfa-92a61d47d79b
+            hippo:name: Shetland Islands Council
+            /shetland-islands-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: fdc97288-7cd8-4982-a298-54ca5ee1cf9e
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:55:52.413+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:01:21.877+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 28099d72-8a6e-4ac8-b557-1ffefcd269f8
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [shetland-islands-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /south-ayrshire-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 595be0b3-dfae-4d79-a010-345abb6bdcfe
+            hippo:name: South Ayrshire Council
+            /south-ayrshire-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: e49000fa-6ef8-4817-bfc7-65707ff2a44a
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:55:59.974+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:01:07.953+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 0e24ff96-d5f6-4426-8a50-951d6ffb89b7
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [south-ayrshire-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /south-lanarkshire-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 630edb61-3670-458e-a459-c85a664a1ba6
+            hippo:name: South Lanarkshire council
+            /south-lanarkshire-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 281889df-94c8-46e3-aec5-2f408697ec25
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T10:17:28.902+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:17:35.952+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: e076b3a4-9ed5-4755-85f0-f2e654a952e5
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [south-lanarkshire-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /stirling-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 7b74dfde-f377-4a12-a189-f2f6de586f98
+            hippo:name: Stirling Council
+            /stirling-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 68309b7f-2aef-4e8f-8bb8-3c0c0ae31754
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:56:08.287+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:00:54.800+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 04b75d44-95d9-49da-a6a3-7526e2deeeff
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [stirling-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /west-dunbartonshire-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: 3b4a24b0-afa0-4ea5-bd0e-b912a1fa72f9
+            hippo:name: West Dunbartonshire Council
+            /west-dunbartonshire-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 2cb2742e-1155-4dc8-81ab-d562331c5261
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:56:16.871+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:00:42.530+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: b7b8dda9-338d-4cd0-b270-6b9335742bd6
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: [west-dunbartonshire-council]
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''
+          /west-lothian-council:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+            jcr:uuid: b4125a42-1696-4c80-8eeb-f2faddd5addb
+            hippo:name: West Lothian Council
+            /west-lothian-council[1]:
+              jcr:primaryType: publishing:fragment
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 8b4b7ae1-3eb9-4931-9155-ea295843014e
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2021-09-23T09:56:23.664+01:00
+              hippostdpubwf:lastModificationDate: 2021-09-23T10:00:18.635+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 936b088b-fb35-4ecb-92b5-527283daa396
+              hippotranslation:locale: document-type-locale
+              publishing:authorNotes: ''
+              publishing:localauthorities: []
+              publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
+              /publishing:contentOwner:
+                jcr:primaryType: hippo:mirror
+                hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+              /publishing:authorNotes:
+                jcr:primaryType: hippostd:html
+                hippostd:content: ''

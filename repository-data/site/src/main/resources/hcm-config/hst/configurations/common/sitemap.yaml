@@ -264,3 +264,11 @@ definitions:
           hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide']
           hst:relativecontentpath: ${parent}/index
           hst:sitemapitemhandlerids: [trailing-slash]
+      /fragments:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/fragments
+        hst:relativecontentpath: abuse-support
+        /_any_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/fragments
+          hst:relativecontentpath: abuse-support
