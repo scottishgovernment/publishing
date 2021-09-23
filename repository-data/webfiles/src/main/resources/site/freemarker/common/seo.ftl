@@ -44,6 +44,7 @@
         <@hst.headContribution category="facebookMeta">
         <meta property="og:image" content="<@hst.link hippobean=cardImage.original/>" fullyQualified="true"/> />
         </@hst.headContribution>
+
     </#if>
 
     <#-- Twitter Meta Tags: only show if a card image is available -->

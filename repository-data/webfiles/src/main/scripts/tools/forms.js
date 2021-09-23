@@ -285,6 +285,21 @@ const commonForms = {
         return valid;
     },
 
+    requiredList: function (container) {
+        const radioButtons = [].slice.call(container.querySelectorAll('input[type="radio"]'));
+
+        const title = commonForms.getTitleFromLegend(container.querySelector('legend'));
+        const message = 'Select one of the options';
+
+        let valid = false;
+
+        /// logic to ensure an item in the list has been selected
+        commonForms.toggleFormErrors(container, valid, 'required', title, message);
+        commonForms.toggleCurrentErrors(container, valid, 'required', message);
+
+        return valid;
+    },
+
     requiredDropdown: function (field) {
         const value = field.value;
         const fieldName = commonForms.getLabelText(field);

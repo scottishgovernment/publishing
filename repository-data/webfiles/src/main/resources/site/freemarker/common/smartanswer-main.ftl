@@ -40,7 +40,10 @@
                         <#list questions as question>
                             <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" id="step-${question.name}">
                                 <div class="ds_question">
-                                    <fieldset class="mg_no-margin--last-child  " id="question-${question.name}" data-validation="requiredRadio">
+
+
+
+                                    <fieldset class="mg_no-margin--last-child  " id="question-${question.name}" data-validation="<#if question.style='radiobuttons'>requiredRadio</#if>">
                                         <legend class="ds_page-header">
                                             <span class="mg_smart-answer__parent-title">${document.title}</span>
                                             <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">${question.title}</h1>
@@ -48,12 +51,24 @@
 
                                         <@hst.html hippohtml=question.content/>
 
-                                        <#list question.options as option>
-                                            <div class="ds_radio">
-                                                <input required data-form="radio-step-${question.name}-${option.value}" class="ds_radio__input" type="radio" id="step-${question.name}-${option.value}" name="question-${question.name}" value="${option.value}" data-nextstep="step-${option.nextPage.name}">
-                                                <label class="ds_radio__label" for="step-${question.name}-${option.value}">${option.label}</label>
-                                            </div>
-                                        </#list>
+                                        <#switch question.style>
+                                            <#case 'list'>
+                                                <select name="${question.name}" size="10">
+                                                    <#list question.options as option>
+                                                        <option value="${option.value}">${option.label}</option>
+                                                    </#list>
+                                                </select>
+                                            <#break>
+                                            <#case 'radiobuttons'>
+                                                <#list question.options as option>
+                                                    <div class="ds_radio">
+                                                        <#assign nextStep><#if option.nextPage??>${option.nextPage.name}<#else>${question.defaultNextPage.name}</#if></#assign>
+                                                        <input required data-form="radio-step-${question.name}-${option.value}" class="ds_radio__input" type="radio" id="step-${question.name}-${option.value}" name="question-${question.name}" value="${option.value}" data-nextstep="step-${nextStep}">
+                                                        <label class="ds_radio__label" for="step-${question.name}-${option.value}">${option.label}</label>
+                                                    </div>
+                                                </#list>
+                                            <#break>
+                                        </#switch>
                                     </fieldset>
                                 </div>
 
@@ -70,6 +85,18 @@
                                     <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">${answer.title}</h1>
                                 </header>
                                 <@hst.html hippohtml=answer.answer/>
+
+                                <#list answer.dynamicresults as dynamicresult>
+
+                                    <@hst.html hippohtml=dynamicresult.prologue/>
+                                    <div class="mg_smart-answer__dynamic-result"
+                                        id="dynamic-result-${answer.name}-${dynamicresult.question.name}"
+                                        data-dynamic-result-folder="<@hst.link hippobean=root/>/fragments${dynamicresult.folder.path}",
+                                        data-dynamic-result-question="${dynamicresult.question.name}">
+                                    </div>
+                                    <@hst.html hippohtml=dynamicresult.epilogue/>
+
+                                </#list>
                             </section>
                         </#list>
                     </form>

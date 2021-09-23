@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 46dad68d-cc2f-4002-8442-53f62eb74572
+          jcr:uuid: fccdc60b-ffc3-48e5-992a-3f7aa2fed399
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -24,7 +24,6 @@ definitions:
             hipposysedit:path: publishing:answer
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            hipposysedit:validators: [required]
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -34,6 +33,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
+          /smartanswerresultdynamicselectors:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:dynamicresults
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:smartanswerresultdynamicselector
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -45,13 +52,27 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 7fd2d583-fcb5-41ec-b503-79f8a38eee61
+          jcr:uuid: c21633ea-97e0-4f8f-9130-485d73119a46
           hippostdpubwf:lastModificationDate: 2021-05-17T11:00:50.806+01:00
           hippostdpubwf:creationDate: 2021-05-17T11:00:50.806+01:00
           publishing:title: ''
           /publishing:answer:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
+          /publishing:dynamicresults:
+            jcr:primaryType: publishing:smartanswerresultdynamicselector
+            /publishing:question:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            /publishing:folder:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            /publishing:prologue:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /publishing:epilogue:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -77,6 +98,15 @@ definitions:
             field: answer
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: Content displayed at the top of the results page.
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /dynamicresults:
+            jcr:primaryType: frontend:plugin
+            caption: Dynamic results
+            field: smartanswerresultdynamicselectors
             hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

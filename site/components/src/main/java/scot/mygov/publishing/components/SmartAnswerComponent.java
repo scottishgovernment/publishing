@@ -30,6 +30,7 @@ public class SmartAnswerComponent extends EssentialsContentComponent {
         request.setAttribute("document", document);
         request.setAttribute("questions", questions);
         request.setAttribute("answers", answers);
+        request.setAttribute("root", request.getRequestContext().getSiteContentBaseBean());
     }
 
 }

@@ -7,12 +7,15 @@
 
 [publishing:FeaturedRole] > hippogallery:imageset, hippogallery:relaxed
 
+[publishing:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
+  orderable
+
+[publishing:Fragment] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:ImageCard] > hippogallery:imageset, hippogallery:relaxed
 
 [publishing:ImageDefault] > hippogallery:imageset, hippogallery:relaxed
-
-[publishing:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
-  orderable
 
 [publishing:PublishingDocument] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
@@ -120,6 +123,9 @@
   orderable
 
 [publishing:smartanswerresult] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+
+[publishing:smartanswerresultdynamicselector] > hippo:compound, hippostd:relaxed
+  orderable
 
 [publishing:status] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
