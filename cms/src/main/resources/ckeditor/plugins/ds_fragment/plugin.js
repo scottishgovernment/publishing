@@ -1,8 +1,7 @@
 (function () {
     "use strict";
 
-    var skipToolbarButtonUpdate = false,
-        PREVENT_DBLCLICK_DELAY = 300;
+    var PREVENT_DBLCLICK_DELAY = 300;
 
     function initFragmentPicker(editor) {
         var LINK_ATTRIBUTES_PARAMETER_MAP = {
@@ -17,10 +16,9 @@
 
         function openFragmentPickerDialog(selectedFragment) {
             // disable button state for PREVENT_DBLCLICK_DELAY, to prevent double clicking:
-            skipToolbarButtonUpdate = true;
             editor.getCommand('pickFragment').setState(CKEDITOR.TRISTATE_DISABLED);
             setTimeout(function () {
-                skipToolbarButtonUpdate = false;
+                editor.getCommand('pickFragment').setState(CKEDITOR.TRISTATE_ENABLED);
             }, PREVENT_DBLCLICK_DELAY);
 
             var fragmentPickerParameters = getElementParameters(selectedFragment, LINK_ATTRIBUTES_PARAMETER_MAP);
@@ -65,10 +63,7 @@
 
             startDisabled: false,
 
-            exec: function (editor) {
-                // var selectedLink = getSelectedFragmentOrNull(editor.getSelection());
-                // openInternalLinkPickerDialog(selectedLink);
-
+            exec: function () {
                 openFragmentPickerDialog();
             }
         });
@@ -84,52 +79,18 @@
                     element = editor.selectedFragment;
                 }
 
-                element.appendText(parameters.f_uuid);
-                element.setAttribute('contenteditable', 'false');
-                element.setAttribute('href', 'http://');
+                element.setHtml('<div contenteditable="false">Fragment</div>');
                 element.addClass('fragment');
                 element.data('uuid', parameters.f_uuid);
 
                 delete editor.selectedFragment;
-
-                // var selectedLink = getSelectedFragmentOrNull(editor.getSelection());
-
-                // if (selectedLink !== null) {
-
-                //     setElementAttributes(selectedLink, LINK_ATTRIBUTES_PARAMETER_MAP, parameters);
-
-                //     // ensure compatibility with the 'link' plugin, which creates an additional attribute
-                //     // 'data-cke-saved-href' for each link that overrides the actual href value. We don't need
-                //     // this attribute, so remove it.
-                //     selectedLink.removeAttribute('data-cke-saved-href');
-                // } else {
-                //     createLinkFromSelection(editor.getSelection(), parameters);
-                //     selectedLink = getSelectedFragmentOrNull(editor.getSelection());
-                // }
-
-                // if (selectedLink !== null) {
-                //     if (selectedLink.hasAttribute('data-uuid')) {
-
-                //         // Set the href attribute to 'http://' so the CKEditor link picker will still recognize the link
-                //         // as a link (and, for example, enable the 'remove link' button). The CMS will recognize the empty
-                //         // 'http://' href and still interpret the link as an internal link.
-                //         selectedLink.setAttribute('href', 'http://');
-                //     } else {
-                //         // the link has been removed in the picker dialog
-                //         selectedLink.remove(true);
-
-                //     }
-                // }
-
             }
         });
 
         editor.on('doubleclick', function (event) {
             var clickedFragment = event.data.element;
-            console.log(clickedFragment)
+
             if (isFragmentElement(clickedFragment)) {
-                console.log(222)
-                // disableRegisteredCKEditorDialog(event);
                 openFragmentPickerDialog(clickedFragment);
                 editor.selectedFragment = clickedFragment;
             }

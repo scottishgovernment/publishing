@@ -19,7 +19,7 @@ import javax.jcr.Session;
 import static org.hippoecm.repository.HippoStdNodeType.HIPPOSTD_STATE;
 
 /**
- * Replace any anchors whose href points to a publishing:fragment node
+ * Replace any fragment placeholders whose UUID is that of a publishing:fragment node
  */
 public class FragmentInjectingHtmlRewriter extends SimpleContentRewriter {
 
@@ -53,47 +53,36 @@ public class FragmentInjectingHtmlRewriter extends SimpleContentRewriter {
         return "fragment".equals(tagNode.getAttributeByName("class"));
     }
 
-    boolean isInternalAnchor(TagNode tagNode) {
-        return "a".equals(tagNode.getName())
-                && !super.isExternal(tagNode.getAttributeByName("href"));
-    }
-
     void processFragmentElement(TagNode tagNode, Node htmlNode, HstRequestContext requestContext,  Mount targetMount) {
         try {
             doProcessFragment(tagNode, htmlNode, requestContext, targetMount);
         } catch (RepositoryException e) {
-            LOG.error("unexpected exception processing fragment links for html", e);
+            LOG.error("unexpected exception processing fragments for html", e);
         }
     }
 
     void doProcessFragment(TagNode tagNode, Node htmlNode, HstRequestContext requestContext,  Mount targetMount) throws RepositoryException {
-        Node handle = getFragmentForHref(requestContext.getSession(), tagNode, htmlNode);
+        Node handle = getFragmentForIdentifier(requestContext.getSession(), tagNode, htmlNode);
         if (!isFragmentHandle(handle)) {
              return;
         }
 
         String fragment = getFragment(handle, htmlNode, requestContext, targetMount);
         if (StringUtils.isNotBlank(fragment)) {
-            // replace the link with the content of the fragment
-            replaceLinkWithFragment(tagNode, fragment);
+            // replace the placeholder div with the content of the fragment
+            replacePlaceholderWithFragment(tagNode, fragment);
         }
     }
 
-    Node getFragmentForHref(Session session, TagNode tagNode, Node htmlNode) {
-        String href = getHref(tagNode);
+    Node getFragmentForIdentifier(Session session, TagNode tagNode, Node htmlNode) {
+        String identifier = tagNode.getAttributeByName("data-uuid");
 
         try {
-            Node mirror = htmlNode.getNode(href);
-            String docbase = mirror.getProperty("hippo:docbase").getString();
-            return session.getNodeByIdentifier(docbase);
+            return session.getNodeByIdentifier(identifier);
         } catch (RepositoryException e) {
-            LOG.warn("Exception trying to get docbase while processing fragments, href is {}", href, e);
+            LOG.warn("Exception trying to get node while processing fragments, identifier is {}", identifier, e);
             return null;
         }
-    }
-
-    String getHref(TagNode tagNode) {
-        return tagNode.getAttributeByName("href");
     }
 
     boolean isFragmentHandle(Node handle) throws  RepositoryException {
@@ -126,7 +115,7 @@ public class FragmentInjectingHtmlRewriter extends SimpleContentRewriter {
         }
     }
 
-    void replaceLinkWithFragment(TagNode tagNode, String fragment) {
+    void replacePlaceholderWithFragment(TagNode tagNode, String fragment) {
         int index = tagNode.getParent().getChildIndex(tagNode);
         TagNode fragmentNode = cleaner.clean(fragment);
         tagNode.getParent().removeChild(tagNode);
