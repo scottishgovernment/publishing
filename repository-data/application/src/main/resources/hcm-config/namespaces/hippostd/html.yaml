@@ -2,6 +2,6 @@ definitions:
   config:
     /hippo:namespaces/hippostd/html/editor:templates/_default_:
       ckeditor.config.overlayed.json: '{disallowedContent: ''*[style]{*}'',extraPlugins:
-        ''dialogadvtab2,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',extraAllowedContent:''embed;table[data-smallscreen];div[data-module,data-uuid,href];address[translate];'',format_tags:''h1;h2;h3;h4;p;pre;address''}'
+        ''dialogadvtab2,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',extraAllowedContent:''embed;table[data-smallscreen];div[data-module,data-uuid,href,contenteditable];address[translate];'',format_tags:''h1;h2;h3;h4;p;pre;address''}'
     /hippo:namespaces/hippostd/html/editor:templates/_default_/root:
       plugin.class: scot.mygov.publishing.plugins.FragmentCKEditorNodePlugin
