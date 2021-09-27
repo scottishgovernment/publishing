@@ -274,9 +274,9 @@ const businessRatesCalculator = {
                         <p><p>Sorry, the information you entered returned too many properties. Please enter more of the address or postcode. Use the <a href="http://www.royalmail.com/find-a-postcode">Royal Mail website</a> to find the postcode.</p>`;
                     } else {
                         document.querySelector('#property-select-wrapper').innerHTML = `<h3>No results found</h3>
-                        <p>Your search returned either no results, or too many to show. Supplying both the street address and the town might narrow down your search enough that you get a result. Also, check the spelling of each part of the address.</p>
+                        <p>Please check that the address or postcode you're searching for is valid and in Scotland. The calculator uses address data from the Scottish Assessors Association (SAA).</p>
                         <p>If you have entered a valid business location and your property can't be found, <a id="unlisted" href="https://www.saa.gov.uk/contact-us/feedback/">please report this to the Scottish Assessors Association</a>.</p>`;
-                    }
+                        }
                     // enable buttons
                     postcodeButton.removeAttribute('disabled');
                     addressButton.removeAttribute('disabled');
