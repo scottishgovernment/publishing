@@ -5,26 +5,25 @@ definitions:
       jcr:mixinTypes: ['hst:prototypemeta']
       hst:displayname: Simple Content Page
       hst:referencecomponent: hst:abstractpages/base
-      hst:primarycontainer: main/main
+      hst:primarycontainer: main
       /main:
-        jcr:primaryType: hst:component
-        hst:template: contentpage-main
-        /main:
-          jcr:primaryType: hst:containercomponent
-          hippo:identifier: d1c6ad7b-5556-48f7-9ce5-142a736b0568
-          /pageheading:
-            jcr:primaryType: hst:containeritemcomponent
-            hst:componentclassname: scot.mygov.publishing.components.PageheadingComponent
-            hst:iconpath: icons/header.svg
-            hst:label: Page Header
-            hst:parameternames: [document, foregroundcolor, fullwidth, backgroundcolor]
-            hst:parametervalues: ['', '', 'on', '']
-            hst:template: pageheader
-          /seo:
-            jcr:primaryType: hst:containeritemcomponent
-            hst:componentclassname: scot.mygov.publishing.components.SEOComponent
-            hst:iconpath: icons/seo.svg
-            hst:label: SEO
-            hst:parameternames: [showTitle, document]
-            hst:parametervalues: ['on', '']
-            hst:template: seo
+        jcr:primaryType: hst:containercomponent
+        hippo:identifier: 47294c29-0d50-45ca-aba5-d2c7400f2946
+        hst:label: Content Page Main
+        hst:xtype: hst.vbox
+        /pageheading:
+          jcr:primaryType: hst:containeritemcomponent
+          hst:componentclassname: scot.mygov.publishing.components.PageheadingComponent
+          hst:iconpath: icons/header.svg
+          hst:label: Page Header
+          hst:parameternames: [document, foregroundcolor, fullwidth, backgroundcolor]
+          hst:parametervalues: ['', '', 'on', '']
+          hst:template: pageheader
+        /seo:
+          jcr:primaryType: hst:containeritemcomponent
+          hst:componentclassname: scot.mygov.publishing.components.SEOComponent
+          hst:iconpath: icons/seo.svg
+          hst:label: SEO
+          hst:parameternames: [document]
+          hst:parametervalues: ['']
+          hst:template: seo
