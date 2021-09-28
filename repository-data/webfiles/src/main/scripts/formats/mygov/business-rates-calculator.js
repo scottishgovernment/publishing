@@ -271,7 +271,7 @@ const businessRatesCalculator = {
                         businessRatesCalculator.showSearchResults();
                     } else if (result.resultType === 'too-many-results') {
                         document.querySelector('#property-select-wrapper').innerHTML = `<h3>Too many results</h3>
-                        <p><p>Sorry, the information you entered returned too many properties. Please enter more of the address or postcode. Use the <a href="http://www.royalmail.com/find-a-postcode">Royal Mail website</a> to find the postcode.</p>`;
+                        <p>Sorry, the information you entered returned too many properties. Please enter more of the address or postcode. Use the <a href="http://www.royalmail.com/find-a-postcode">Royal Mail website</a> to find the postcode.</p>`;
                     } else {
                         document.querySelector('#property-select-wrapper').innerHTML = `<h3>No results found</h3>
                         <p>Please check that the address or postcode you're searching for is valid and in Scotland. The calculator uses address data from the Scottish Assessors Association (SAA).</p>
