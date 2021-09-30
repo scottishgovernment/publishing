@@ -79,7 +79,7 @@
                     element = editor.selectedFragment;
                 }
 
-                element.setHtml('<div contenteditable="false">Fragment</div>');
+                element.setHtml('<div>Fragment</div>');
                 element.addClass('fragment');
                 element.data('uuid', parameters.f_uuid);
 

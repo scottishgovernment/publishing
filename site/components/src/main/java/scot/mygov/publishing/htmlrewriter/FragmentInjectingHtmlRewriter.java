@@ -1,20 +1,15 @@
 package scot.mygov.publishing.htmlrewriter;
 
-import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.content.rewriter.impl.SimpleContentRewriter;
 import org.hippoecm.hst.core.request.HstRequestContext;
 
-import org.htmlcleaner.CleanerProperties;
-import org.htmlcleaner.HtmlCleaner;
-import org.htmlcleaner.TagNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scot.mygov.publishing.HippoUtils;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
-import javax.jcr.Session;
 
 import static org.hippoecm.repository.HippoStdNodeType.HIPPOSTD_STATE;
 
@@ -27,79 +22,65 @@ public class FragmentInjectingHtmlRewriter extends SimpleContentRewriter {
 
     private HippoUtils hippoUtils = new HippoUtils();
 
-    private static HtmlCleaner cleaner;
+    private static final String FRAGMENT_CLASS = "class=\"fragment\"";
 
-    static {
-        cleaner = new HtmlCleaner();
-        CleanerProperties properties = cleaner.getProperties();
-        properties.setOmitHtmlEnvelope(true);
-        properties.setTranslateSpecialEntities(false);
-        properties.setOmitXmlDeclaration(true);
-        properties.setRecognizeUnicodeChars(false);
-        properties.setOmitComments(true);
-    }
+    private static final String DATA_UUID = "data-uuid";
 
     @Override
     public String rewrite(String html, Node node, HstRequestContext requestContext,  Mount targetMount) {
-        TagNode rootNode = cleaner.clean(html);
-        rootNode.getElementList(this::isElementWithFragmentClass, true)
-                .stream().map(o -> (TagNode) o)
-                .forEach(tn -> processFragmentElement(tn, node, requestContext, targetMount));
-        html = cleaner.getInnerHtml(rootNode);
-        return super.rewrite(html, node, requestContext, targetMount);
+        if (html.indexOf(FRAGMENT_CLASS) == -1) {
+            return super.rewrite(html, node, requestContext, targetMount);
+        }
 
-    }
-    boolean isElementWithFragmentClass(TagNode tagNode) {
-        return "fragment".equals(tagNode.getAttributeByName("class"));
+        // only create if really needed
+        StringBuilder sb = new StringBuilder();
+        int globalOffset = 0;
+
+        while (html.indexOf(FRAGMENT_CLASS, globalOffset) > -1) {
+            int classOffset = html.indexOf(FRAGMENT_CLASS, globalOffset);
+            int tagOffset = html.lastIndexOf('<', classOffset);
+
+            // append all content from global index up until the start of the tag
+            sb.append(html.substring(globalOffset, tagOffset));
+
+            // find the end of the div.  It contains a nested div and se we need to skip over that too.
+            int end = html.indexOf("</", classOffset);
+            end = html.indexOf("</", end + 1);
+            end = html.indexOf('>', end + 1);
+
+            String uuid = getUuid(html, tagOffset);
+            String fragmentContent = getFragmentContent(uuid, node, requestContext, targetMount);
+            sb.append(fragmentContent);
+
+            globalOffset = end + 1;
+        }
+
+        sb.append(html.substring(globalOffset));
+        return super.rewrite(sb.toString(), node, requestContext, targetMount);
     }
 
-    void processFragmentElement(TagNode tagNode, Node htmlNode, HstRequestContext requestContext,  Mount targetMount) {
+    String getUuid(String html, int offset) {
+        int attribStart = html.indexOf(DATA_UUID, offset);
+
+        int openingQuoteIndex = html.indexOf('"', attribStart);
+        int closingQuoteIndex = html.indexOf('"', openingQuoteIndex + 1);
+        return html.substring(openingQuoteIndex + 1, closingQuoteIndex);
+    }
+
+    String getFragmentContent(String uuid, Node node, HstRequestContext requestContext,  Mount targetMount) {
+
         try {
-            doProcessFragment(tagNode, htmlNode, requestContext, targetMount);
+            Node fragmentHandle = requestContext.getSession().getNodeByIdentifier(uuid);
+            Node fragmentVariant = getFragmentVariant(node, fragmentHandle);
+            Node fragmentHtmlNode = fragmentVariant.getNode("publishing:content");
+            String html = fragmentHtmlNode.getProperty("hippostd:content").getString();
+
+            // rewrite the html so that internal links work
+            return super.rewrite(html, fragmentHtmlNode, requestContext, targetMount);
         } catch (RepositoryException e) {
-            LOG.error("unexpected exception processing fragments for html", e);
+            LOG.warn("Failed to inject fragment {}", uuid, e);
+            return "";
         }
-    }
-
-    void doProcessFragment(TagNode tagNode, Node htmlNode, HstRequestContext requestContext,  Mount targetMount) throws RepositoryException {
-        Node handle = getFragmentForIdentifier(requestContext.getSession(), tagNode, htmlNode);
-        if (!isFragmentHandle(handle)) {
-             return;
-        }
-
-        String fragment = getFragment(handle, htmlNode, requestContext, targetMount);
-        if (StringUtils.isNotBlank(fragment)) {
-            // replace the placeholder div with the content of the fragment
-            replacePlaceholderWithFragment(tagNode, fragment);
-        }
-    }
-
-    Node getFragmentForIdentifier(Session session, TagNode tagNode, Node htmlNode) {
-        String identifier = tagNode.getAttributeByName("data-uuid");
-
-        try {
-            return session.getNodeByIdentifier(identifier);
-        } catch (RepositoryException e) {
-            LOG.warn("Exception trying to get node while processing fragments, identifier is {}", identifier, e);
-            return null;
-        }
-    }
-
-    boolean isFragmentHandle(Node handle) throws  RepositoryException {
-        if (handle == null) {
-            return false;
-        }
-        Node variant = handle.getNode(handle.getName());
-        return variant.isNodeType("publishing:fragment");
-    }
-
-    String getFragment(Node fragmentHandle, Node htmlNode, HstRequestContext requestContext,  Mount targetMount) throws RepositoryException {
-        Node fragmentVariant = getFragmentVariant(htmlNode, fragmentHandle);
-        Node fragmentHtmlNode = fragmentVariant.getNode("publishing:content");
-        String html = fragmentHtmlNode.getProperty("hippostd:content").getString();
-
-        // rewrite the html so that internal links work
-        return super.rewrite(html, fragmentHtmlNode, requestContext, targetMount);
     }
 
     Node getFragmentVariant(Node htmlNode, Node fragmentHandle) throws RepositoryException {
@@ -113,12 +94,5 @@ public class FragmentInjectingHtmlRewriter extends SimpleContentRewriter {
                     ? draft
                     : hippoUtils.getVariantWithState(fragmentHandle, state);
         }
-    }
-
-    void replacePlaceholderWithFragment(TagNode tagNode, String fragment) {
-        int index = tagNode.getParent().getChildIndex(tagNode);
-        TagNode fragmentNode = cleaner.clean(fragment);
-        tagNode.getParent().removeChild(tagNode);
-        tagNode.getParent().insertChild(index, fragmentNode);
     }
 }
