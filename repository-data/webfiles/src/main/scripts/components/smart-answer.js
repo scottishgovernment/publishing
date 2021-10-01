@@ -1,48 +1,47 @@
 /* global document, window, require */
 
 import commonForms from '../tools/forms';
-import $ from 'jquery';
+const PolyPromise = require('../vendor/promise-polyfill').default;
 
 class SmartAnswer {
     constructor(container) {
         this.container = container;
+        this.rooturl = container.dataset.rooturl;
         this.form = this.container.querySelector('form');
         this.answersTemplate = require('../templates/smartanswer-answers');
         this.errorSummary = document.querySelector('.ds_error-summary');
         this.pageTitle = document.title;
+        this.useHashBangs = true;
     }
 
     init() {
-        this.overrideInPageLinks();
-
         this.initErrorSummary();
 
-        // set the form state to match the initial URL
-        this.interpretUrl(false);
         this.trackVirtualPageviews = true;
-
-        // listen for hashbang changes
-        window.addEventListener('hashchange', () => {
-            this.interpretUrl();
-        });
+        const responses = this.getResponsesFromUrl();
+        this.goToPage(this.buildUrl(responses), false);
 
         this.container.addEventListener('click', (event) => {
+            let url;
+
             if (event.target.classList.contains('js-next-button')) {
                 event.preventDefault();
 
-
-            /// the user has presses next  ... either get the value from a list or a radio button
+                /// the user has pressed next  ... either get the value from a list or a radio button
                 const stepContainer = event.target.closest('.mg_smart-answer__step');
+                const responses = this.getResponsesFromUrl();
 
                 if (this.validateStep(stepContainer)) {
-                    var selectedOption = stepContainer.querySelector("input[type='radio']:checked");
+                    let selectedOption = stepContainer.querySelector("input[type='radio']:checked");
 
                     if (selectedOption != null) {
-                        this.updateUrl(selectedOption.value);
+                        responses.push(selectedOption.value);
                     } else {
                         selectedOption = stepContainer.querySelector("select");
-                        this.updateUrl(selectedOption[selectedOption.selectedIndex].value);
+                        responses.push(selectedOption[selectedOption.selectedIndex].value);
                     }
+
+                    this.goToPage(this.buildUrl(responses));
                 } else {
                     this.showErrorSummary();
                 }
@@ -50,13 +49,17 @@ class SmartAnswer {
 
             if (event.target.classList.contains('js-change-answer')) {
                 event.preventDefault();
-                window.location.hash = event.target.dataset.path;
+
+                url = event.target.dataset.path;
+                this.goToPage(url);
             }
 
             if (event.target.classList.contains('js-clear-answers')) {
                 event.preventDefault();
                 this.form.reset();
-                window.location.hash = '';
+
+                url = this.rooturl;
+                this.goToPage(url);
             }
         });
     }
@@ -81,60 +84,13 @@ class SmartAnswer {
         });
     }
 
-    /*
-     * Need an alternative to using a fragment identifier, since that messes with the hashbang URLs
-     */
-    overrideInPageLinks() {
-        document.addEventListener('click', (event) => {
-            if (event.target.nodeName === 'A' && event.target.href.indexOf('#') > -1 && event.target.href.indexOf('#!') === -1) {
-                event.preventDefault();
+    goToPage(url, focus = true) {
+        history.pushState('', '', url);
 
-                const targetElement = document.querySelector(event.target.href.substring(event.target.href.indexOf('#')));
-                if (targetElement) {
-                    targetElement.scrollIntoView();
-                }
-            }
-        });
-    }
+        this.interpretUrl();
 
-    /*
-     * Examine the hashbang for responses to questions in the tree, and replay those answers to set the form state
-     */
-    interpretUrl(focus = true) {
-        const answers = [];
-
-        let step = this.container.querySelector('.mg_smart-answer__step');
-
-        if (window.location.hash.indexOf('#!/') > -1) {
-            const responses = window.location.hash.substring(window.location.hash.indexOf('#!/') + 3).split('/');
-
-            let answerpath = '#!';
-
-            // replay the responses from the URL through the form
-            for (let i = 0, il = responses.length; i < il; i++) {
-                const chosenAnswer = step.querySelector(`[value="${responses[i]}"]`);
-                if (chosenAnswer) {
-                    answers.push(
-                        {
-                            id: step.id,
-                            title: step.querySelector('.mg_smart-answer__step-title').innerText,
-                            value: step.querySelector(`[for="${chosenAnswer.id}"]`).innerText,
-                            path: answerpath
-                        }
-                    );
-
-                    chosenAnswer.checked = true;
-
-                    // move to next step
-                    step = this.container.querySelector('#' + chosenAnswer.dataset.nextstep);
-                    answerpath += '/' + responses[i];
-                } else {
-                    // break;
-                }
-            }
-            // clean the URL (removes answers found in the URL that are not in the page)
-            window.history.replaceState({}, document.title, answerpath);
-        }
+        const dynamicContentElements = [].slice.call(this.currentStepElement.querySelectorAll('.mg_smart-answer__dynamic-result'));
+        const responses = this.getResponsesFromUrl();
 
         // trigger virtual pageview
         if (this.trackVirtualPageviews && window.ga && typeof window.ga === 'function') {
@@ -142,40 +98,34 @@ class SmartAnswer {
             ga('send', 'pageview');
         }
 
-        // show the target step
-        this.showStep(step, focus);
         this.hideErrorSummary();
 
-        // populate the answer list
-        const answerListHtml = this.answersTemplate.render({
-            answers: answers
+        const dynamicContentPromises = dynamicContentElements.map(element => {
+            const dynamicFolder = element.getAttribute('data-dynamic-result-folder');
+            const dynamicQuestion = element.getAttribute('data-dynamic-result-question');
+            const answerStep = this.container.querySelector(`#step-${dynamicQuestion}.mg_smart-answer__step`);
+            const stepIndex = Array.prototype.indexOf.call(answerStep.parentNode.children, answerStep);
+            const tag = responses[stepIndex];
+            return this.promiseRequest(`${dynamicFolder}?tag=${tag}`);
         });
-        document.getElementById('answered-questions').innerHTML = answerListHtml;
+
+        PolyPromise.all(dynamicContentPromises)
+            .then(values => values.forEach((value, i) => dynamicContentElements[i].innerHTML = value.responseText))
+            .then(() => this.showStep(focus))
+            .catch(error => console.log('failed to fetch dynamic content ', error));
     }
 
-    showErrorSummary() {
-        this.errorSummary.classList.remove('fully-hidden');
-        document.title = `Error: ${this.stepTitle} - Mygov`;
-        this.errorSummary.focus();
-    }
+    showStep(focus = true) {
+        // show step, deal with error summary etc, set up answer list
+        this.hideErrorSummary();
 
-    hideErrorSummary() {
-        this.errorSummary.classList.add('fully-hidden');
-        document.title = `${this.pageTitle}`;
-    }
+        const oldStep = this.container.querySelector('.mg_smart-answer__step--current');
+        const step = this.currentStepElement;
 
-    /*
-     * Show a specified step, set focus on it by default for accessibility (focus management)
-     */
-    showStep (step, focus = true) {
-
-        const currentStep = this.container.querySelector('.mg_smart-answer__step--current');
-
-        this.loadDynamicResults(step);
-
-        if (currentStep) {
-            currentStep.classList.remove('mg_smart-answer__step--current');
+        if (oldStep) {
+            oldStep.classList.remove('mg_smart-answer__step--current');
         }
+
         // reset errors
         const errorQuestions = [].slice.call(step.querySelectorAll('.ds_question--error'));
         errorQuestions.forEach(question => {
@@ -190,7 +140,6 @@ class SmartAnswer {
 
             question.classList.remove('ds_question--error');
         });
-
         step.classList.add('mg_smart-answer__step--current');
 
         if (focus) {
@@ -198,42 +147,76 @@ class SmartAnswer {
         }
 
         this.stepTitle = step.querySelector('.js-question-title').innerText;
-    }
 
-    loadDynamicResults(step) {
-        const dynamicResults = step.querySelectorAll('.mg_smart-answer__dynamic-result');
+        // populate the answer list
+        const answerListHtml = this.answersTemplate.render({
+            answers: this.currentAnswers
+        });
 
-        if (dynamicResults !== null) {
-            dynamicResults.forEach(dynamicResult => this.loadDynamicResult(step, dynamicResult));
-        }
-    }
-
-    loadDynamicResult(step, dynamicResult) {
-        const dynamicFolder = dynamicResult.getAttribute('data-dynamic-result-folder');
-        const dynamicQuestion = dynamicResult.getAttribute('data-dynamic-result-question');
-        const answerStep = this.container.querySelector(`#step-${dynamicQuestion}.mg_smart-answer__step`);
-        const responses = window.location.hash.substring(window.location.hash.indexOf('#!/') + 3).split('/');
-        const stepIndex = Array.prototype.indexOf.call(answerStep.parentNode.children, answerStep);
-        const tag = responses[stepIndex];
-
-        $.ajax(`${dynamicFolder}?tag=${tag}`)
-            .done(data => dynamicResult.innerHTML = data)
-            .fail(response => console.log('failed to fetch dynamic content ', response));
+        document.getElementById('answered-questions').innerHTML = answerListHtml;
     }
 
     /*
-     * Build the hashbang URL from the answered questions
-     * Use the URL to trigger a hashchange event & perform navigation
+     * Examine the URL for responses to questions in the tree, and replay those answers to set the form state
      */
-    updateUrl(value) {
-        let values;
-        if (window.location.hash.indexOf('/') > -1) {
-            values = window.location.hash.substring(window.location.hash.indexOf('/') + 1).split('/');
+    interpretUrl(focus = true) {
+        this.currentAnswers = [];
+
+        this.currentStepElement = this.container.querySelector('.mg_smart-answer__step');
+
+        let answerpath;
+        let responses = this.getResponsesFromUrl();
+
+        if (this.useHashBangs) {
+            answerpath = '#!';
         } else {
-            values = [];
+            answerpath = this.rooturl;
         }
-        values.push(value);
-        window.location.hash = `!/${values.join('/')}`;
+
+        for (let i = 0, il = responses.length; i < il; i++) {
+            const chosenAnswer = this.currentStepElement.querySelector(`[value="${responses[i]}"]`);
+            if (chosenAnswer) {
+                let answerValue;
+
+                switch (chosenAnswer.nodeName) {
+                    case 'OPTION':
+                        answerValue = chosenAnswer.innerText;
+                        break;
+                    default:
+                        answerValue = this.currentStepElement.querySelector(`[for="${chosenAnswer.id}"]`).innerText;
+                        break;
+                }
+
+                this.currentAnswers.push({
+                    id: this.currentStepElement.id,
+                    title: this.currentStepElement.querySelector('.mg_smart-answer__step-title').innerText,
+                    value: answerValue,
+                    path: answerpath
+                });
+
+                chosenAnswer.checked = true;
+
+                // move to next step
+                this.currentStepElement = this.container.querySelector('#' + chosenAnswer.dataset.nextstep);
+                answerpath += '/' + responses[i];
+            } else {
+                // break;
+            }
+        }
+
+        // clean the URL (removes answers found in the URL that are not in the page)
+        window.history.replaceState({}, '', answerpath);
+    }
+
+    showErrorSummary() {
+        this.errorSummary.classList.remove('fully-hidden');
+        document.title = `Error: ${this.stepTitle} - Mygov`;
+        this.errorSummary.focus();
+    }
+
+    hideErrorSummary() {
+        this.errorSummary.classList.add('fully-hidden');
+        document.title = `${this.pageTitle}`;
     }
 
     validateStep () {
@@ -259,6 +242,55 @@ class SmartAnswer {
         const invalidFields = [].slice.call(stepContainer.querySelectorAll('[aria-invalid="true"]'));
 
         return invalidFields.length === 0;
+    }
+
+    buildUrl(answers) {
+        let url = window.location.pathname;
+
+        if (this.useHashBangs) {
+            url += '#!/' + answers.join('/');
+        } else {
+            url += '/' + answers.join('/');
+        }
+
+        return url;
+    }
+
+    getResponsesFromUrl() {
+        let responses = [];
+        if (this.useHashBangs) {
+            if (window.location.hash.indexOf('#!/') > -1) {
+                responses = window.location.hash.substring(window.location.hash.indexOf('#!/') + 3).split('/');
+            }
+        } else {
+            responses = window.location.pathname.replace(this.rooturl, '').substring(1).split('/');
+        }
+
+        return responses;
+    }
+
+    promiseRequest(url, method = 'GET') {
+        const request = new XMLHttpRequest();
+
+        return new PolyPromise((resolve, reject) => {
+            request.onreadystatechange = () => {
+                if (request.readyState !== 4) {
+                    return;
+                }
+
+                if (request.status >= 200 && request.status < 300) {
+                    resolve(request);
+                } else {
+                    reject({
+                        status: request.status,
+                        statusText: request.statusText
+                    });
+                }
+            };
+
+            request.open(method, url, true);
+            request.send();
+        });
     }
 }
 
