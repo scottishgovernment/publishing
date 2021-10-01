@@ -35,13 +35,12 @@
                 </noscript>
             </div>
             <div class="ds_layout__content">
-                <div class="mg_smart-answer" data-module="smartanswer">
+                <div class="mg_smart-answer" data-module="smartanswer" data-rooturl="<@hst.link hippobean=document />">
+
                     <form class="mg_smart-answer__form">
                         <#list questions as question>
                             <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" id="step-${question.name}">
                                 <div class="ds_question">
-
-
 
                                     <fieldset class="mg_no-margin--last-child  " id="question-${question.name}" data-validation="<#if question.style='radiobuttons'>requiredRadio</#if>">
                                         <legend class="ds_page-header">
@@ -52,12 +51,20 @@
                                         <@hst.html hippohtml=question.content/>
 
                                         <#switch question.style>
-                                            <#case 'list'>
-                                                <select name="${question.name}" size="10">
-                                                    <#list question.options as option>
-                                                        <option value="${option.value}">${option.label}</option>
-                                                    </#list>
-                                                </select>
+                                            <#case 'dropdown'>
+                                                <div>
+                                                    <label class="ds_label" for="step-${question.name}-${question.name}"><#if question.dropdownLabel?has_content>${question.dropdownLabel}<#else>Choose an option</#if></label>
+                                                    <div class="ds_select-wrapper  ds_input--fixed-20  ds_!_margin-bottom--0">
+                                                        <select class="ds_select" id="step-${question.name}-${question.name}" data-validation="requiredDropdown">
+                                                            <option></option>
+                                                            <#list question.options as option>
+                                                                <#assign nextStep><#if option.nextPage??>${option.nextPage.name}<#else>${question.defaultNextPage.name}</#if></#assign>
+                                                                <option value="${option.value}" data-nextstep="step-${nextStep}">${option.label}</option>
+                                                            </#list>
+                                                        </select>
+                                                        <span class="ds_select-arrow" aria-hidden="true"></span>
+                                                    </div>
+                                                </div>
                                             <#break>
                                             <#case 'radiobuttons'>
                                                 <#list question.options as option>
@@ -91,7 +98,7 @@
                                     <@hst.html hippohtml=dynamicresult.prologue/>
                                     <div class="mg_smart-answer__dynamic-result"
                                         id="dynamic-result-${answer.name}-${dynamicresult.question.name}"
-                                        data-dynamic-result-folder="<@hst.link hippobean=root/>/fragments${dynamicresult.folder.path}",
+                                        data-dynamic-result-folder="<@hst.link hippobean=root/>/fragments${dynamicresult.folder.path}"
                                         data-dynamic-result-question="${dynamicresult.question.name}">
                                     </div>
                                     <@hst.html hippohtml=dynamicresult.epilogue/>
