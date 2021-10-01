@@ -27,7 +27,7 @@ class SmartAnswer {
             if (event.target.classList.contains('js-next-button')) {
                 event.preventDefault();
 
-                /// the user has pressed next  ... either get the value from a list or a radio button
+                /// the user has pressed next ... either get the value from a list or a radio button
                 const stepContainer = event.target.closest('.mg_smart-answer__step');
                 const responses = this.getResponsesFromUrl();
 
@@ -181,9 +181,11 @@ class SmartAnswer {
                 switch (chosenAnswer.nodeName) {
                     case 'OPTION':
                         answerValue = chosenAnswer.innerText;
+                        chosenAnswer.selected = true;
                         break;
                     default:
                         answerValue = this.currentStepElement.querySelector(`[for="${chosenAnswer.id}"]`).innerText;
+                        chosenAnswer.checked = true;
                         break;
                 }
 
@@ -193,8 +195,6 @@ class SmartAnswer {
                     value: answerValue,
                     path: answerpath
                 });
-
-                chosenAnswer.checked = true;
 
                 // move to next step
                 this.currentStepElement = this.container.querySelector('#' + chosenAnswer.dataset.nextstep);
