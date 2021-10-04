@@ -32,3 +32,6 @@ definitions:
         jcr:primaryType: hipposys:moduleconfig
         hipposys:className: org.onehippo.cms.services.validation.validator.RegExpValidator
         regexp.pattern: ^[a-z0-9-]+$
+      /smartanwer-next-page:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.DefaultNextSmartAnswerPageValidator

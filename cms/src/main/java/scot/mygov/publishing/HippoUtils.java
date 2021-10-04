@@ -66,6 +66,16 @@ public class HippoUtils {
         }
     }
 
+    public Node findFirst(NodeIterator it, ThrowingPredicate predicate) throws RepositoryException {
+        while (it.hasNext()) {
+            Node node = it.nextNode();
+            if (predicate.test(node)) {
+                return node;
+            }
+        }
+        return null;
+    }
+
     public ValueList getValueList(Session session, String name) throws RepositoryException {
         try {
             ObjectConverter converter = HstServices.getComponentManager().getComponent(ObjectConverter.class);
