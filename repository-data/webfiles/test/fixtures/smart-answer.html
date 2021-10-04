@@ -9,7 +9,7 @@
 <div class="mg_smart-answer" data-module="smartanswer" data-rooturl="/">
     <input type="hidden" id="smartanswer-startpage" value="foo" />
     <form class="mg_smart-answer__form">
-        <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" id="step-under-16">
+        <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step  js-test-step__RADIO" id="step-under-16">
             <div class="ds_question">
                 <fieldset class="mg_no-margin--last-child  " id="question-under-16" data-validation="requiredRadio">
                     <legend class="ds_page-header">
@@ -41,6 +41,39 @@
                 </svg>
             </button>
         </section>
+
+        <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step  js-test-step__SELECT" id="step-under-16__SELECT">
+            <div class="ds_question">
+                <fieldset class="mg_no-margin--last-child  " id="question-under-16">
+                    <legend class="ds_page-header">
+                        <span class="mg_smart-answer__parent-title">Check if Adult Disability Payment is suitable for
+                            you</span>
+                        <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">How old are you?
+                        </h1>
+                    </legend>
+
+                    <div>
+                        <label class="ds_label" for="step-age-select">Choose an option</label>
+                        <div class="ds_select-wrapper  ds_input--fixed-20  ds_!_margin-bottom--0">
+                            <select class="ds_select js-has-tracking-event" id="step-age-select" data-validation="requiredDropdown">
+                                <option></option>
+                                <option value="under-16" data-nextstep="step-residency-question-one">Under 16</option>
+                                <option value="over-16" data-nextstep="step-residency-question-one">Over 16</option>
+                            </select>
+                            <span class="ds_select-arrow" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin">
+                Next
+                <svg class="ds_icon" aria-hidden="true" role="img">
+                    <use xlink:href="/site/webfiles/1628509152228/assets/images/icons/icons.stack.svg#chevron_right"></use>
+                </svg>
+            </button>
+        </section>
+
         <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" id="step-residency-question-one">
             <div class="ds_question">
                 <fieldset class="mg_no-margin--last-child  " id="question-residency-question-one"

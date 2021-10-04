@@ -724,7 +724,7 @@ const commonForms = {
         let valid = true;
 
         for (let i = 0; i < validationChecks.length; i++) {
-            if (validationChecks[i](field) === false) {
+            if (validationChecks[i] && validationChecks[i](field) === false) {
                 valid = false;
             }
         }

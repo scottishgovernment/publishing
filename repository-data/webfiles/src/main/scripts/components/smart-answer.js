@@ -6,7 +6,7 @@ const PolyPromise = require('../vendor/promise-polyfill').default;
 class SmartAnswer {
     constructor(container) {
         this.container = container;
-        this.rooturl = container.dataset.rooturl;
+        this.rootUrl = container.dataset.rooturl ;
         this.form = this.container.querySelector('form');
         this.answersTemplate = require('../templates/smartanswer-answers');
         this.errorSummary = document.querySelector('.ds_error-summary');
@@ -17,9 +17,13 @@ class SmartAnswer {
     init() {
         this.initErrorSummary();
 
-        this.trackVirtualPageviews = true;
         const responses = this.getResponsesFromUrl();
+        const url = this.buildUrl(responses);
+
         this.goToPage(this.buildUrl(responses), false);
+
+        // only start tracking virtul page views after the initial "goToPage"
+        this.trackVirtualPageviews = true;
 
         this.container.addEventListener('click', (event) => {
             let url;
@@ -58,7 +62,7 @@ class SmartAnswer {
                 event.preventDefault();
                 this.form.reset();
 
-                url = this.rooturl;
+                url = this.rootUrl;
                 this.goToPage(url);
             }
         });
@@ -69,16 +73,11 @@ class SmartAnswer {
             if (event.target.classList.contains('ds_error-summary__link')) {
                 const targetElement = document.querySelector(event.target.href.substring(event.target.href.indexOf('#')));
 
-                switch (targetElement.nodeName) {
-                    case 'FIELDSET':
-                        const firstField = targetElement.querySelector('input, textarea, select');
-                        firstField.focus();
-                        break;
-                    case 'INPUT':
-                    case 'TEXTAREA':
-                    case 'SELECT':
-                        targetElement.focus();
-                        break;
+                if (targetElement.nodeName === 'FIELDSET') {
+                    const firstField = targetElement.querySelector('input, textarea, select');
+                    firstField.focus();
+                } else {
+                    targetElement.focus();
                 }
             }
         });
@@ -100,22 +99,26 @@ class SmartAnswer {
 
         this.hideErrorSummary();
 
-        const dynamicContentPromises = dynamicContentElements.map(element => {
-            const dynamicFolder = element.getAttribute('data-dynamic-result-folder');
-            const dynamicQuestion = element.getAttribute('data-dynamic-result-question');
-            const answerStep = this.container.querySelector(`#step-${dynamicQuestion}.mg_smart-answer__step`);
-            const stepIndex = Array.prototype.indexOf.call(answerStep.parentNode.children, answerStep);
-            const tag = responses[stepIndex];
-            return this.promiseRequest(`${dynamicFolder}?tag=${tag}`);
-        });
+        if (dynamicContentElements.length) {
+            const dynamicContentPromises = dynamicContentElements.map(element => {
+                const dynamicFolder = element.getAttribute('data-dynamic-result-folder');
+                const dynamicQuestion = element.getAttribute('data-dynamic-result-question');
+                const answerStep = this.container.querySelector(`#step-${dynamicQuestion}.mg_smart-answer__step`);
+                const stepIndex = Array.prototype.indexOf.call(answerStep.parentNode.children, answerStep);
+                const tag = responses[stepIndex];
+                return this.promiseRequest(`${dynamicFolder}?tag=${tag}`);
+            });
 
-        PolyPromise.all(dynamicContentPromises)
-            .then(values => values.forEach((value, i) => dynamicContentElements[i].innerHTML = value.responseText))
-            .then(() => this.showStep(focus))
-            .catch(error => console.log('failed to fetch dynamic content ', error));
+            PolyPromise.all(dynamicContentPromises)
+                .then(values => values.forEach((value, i) => dynamicContentElements[i].innerHTML = value.responseText))
+                .then(() => this.showStep(focus))
+                .catch(error => console.log('failed to fetch dynamic content ', error));
+        } else {
+            this.showStep(focus);
+        }
     }
 
-    showStep(focus = true) {
+    showStep(focus) {
         // show step, deal with error summary etc, set up answer list
         this.hideErrorSummary();
 
@@ -166,11 +169,10 @@ class SmartAnswer {
 
         let answerpath;
         let responses = this.getResponsesFromUrl();
-
         if (this.useHashBangs) {
             answerpath = '#!';
         } else {
-            answerpath = this.rooturl;
+            answerpath = this.rootUrl;
         }
 
         for (let i = 0, il = responses.length; i < il; i++) {
@@ -232,9 +234,7 @@ class SmartAnswer {
             const validations = item.getAttribute('data-validation').split(' ');
             const validationChecks = [];
             for (let i = 0, il = validations.length; i < il; i++) {
-                if (commonForms[validations[i]]) {
-                    validationChecks.push(commonForms[validations[i]]);
-                }
+                validationChecks.push(commonForms[validations[i]]);
             }
             commonForms.validateInput(item, validationChecks);
         });
@@ -245,12 +245,12 @@ class SmartAnswer {
     }
 
     buildUrl(answers) {
-        let url = window.location.pathname;
+        let url;// = window.location.pathname;
 
         if (this.useHashBangs) {
-            url += '#!/' + answers.join('/');
+            url = window.location.pathname + '#!/' + answers.join('/');
         } else {
-            url += '/' + answers.join('/');
+            url = this.rootUrl + '/' + answers.join('/');
         }
 
         return url;
@@ -263,7 +263,7 @@ class SmartAnswer {
                 responses = window.location.hash.substring(window.location.hash.indexOf('#!/') + 3).split('/');
             }
         } else {
-            responses = window.location.pathname.replace(this.rooturl, '').substring(1).split('/');
+            responses = window.location.pathname.replace(this.rootUrl, '').substring(1).split('/');
         }
 
         return responses;
