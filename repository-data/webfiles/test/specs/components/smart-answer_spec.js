@@ -5,16 +5,12 @@
 jasmine.getFixtures().fixturesPath = 'base/test/fixtures';
 
 import SmartAnswer from '../../../src/main/scripts/components/smart-answer';
-
-
+import commonForms from '../../../src/main/scripts/tools/forms';
 
 const testObj = {};
 const rootUrl = window.location.pathname;
 
-
-
-
-describe('smart-answer', function () {
+fdescribe('smart-answer', function () {
     beforeEach(() => {
         loadFixtures('smart-answer.html');
         testObj.smartAnswer = new SmartAnswer(document.querySelector('[data-module="smartanswer"]'));
@@ -325,4 +321,50 @@ describe('smart-answer', function () {
     });
 
     // promise request/dynamic step
+    describe('dynamic content', () => {
+        beforeEach(() => {
+            const dynamicElement = document.createElement('div');
+            dynamicElement.setAttribute('data-dynamic-result-folder', 'foo');
+            dynamicElement.setAttribute('data-dynamic-result-question', 'under-16');
+            dynamicElement.classList.add('mg_smart-answer__dynamic-result');
+            document.getElementById('step-final-result').appendChild(dynamicElement);
+        });
+
+        afterEach(() => {
+            const dynamicElement = document.getElementById('step-final-result').querySelector('.mg_smart-answer__dynamic-result');
+            dynamicElement.parentNode.removeChild(dynamicElement);
+        });
+
+        it('should load dynamic content if there is a dynamic content element', (done) => {
+            window.location.hash = '#!/over-16/yes/no';
+
+            commonForms.promiseRequest = function (url, method = 'GET') {
+                return Promise.resolve({ responseText: 'message' });
+            };
+
+            testObj.smartAnswer.init();
+
+            window.setTimeout(function () {
+                const dynamicElement = testObj.smartAnswer.currentStepElement.querySelector('.mg_smart-answer__dynamic-result');
+                expect(dynamicElement.innerText).toEqual('message');
+                done();
+            }, 0);
+        });
+
+        xit('should show a helpful message if unable to fetch dynamic content', (done) => {
+            window.location.hash = '#!/over-16/yes/no';
+
+            commonForms.promiseRequest = function (url, method = 'GET') {
+                return Promise.reject({ responseText: 'message' });
+            };
+
+            testObj.smartAnswer.init();
+
+            window.setTimeout(function () {
+                const dynamicElement = testObj.smartAnswer.currentStepElement.querySelector('.mg_smart-answer__dynamic-result');
+                expect(dynamicElement.querySelectorAll('.js-dynamic-content-error').length).toEqual(1);
+                done();
+            }, 0);
+        });
+    });
 });

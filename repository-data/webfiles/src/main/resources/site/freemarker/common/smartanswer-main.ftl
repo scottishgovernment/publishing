@@ -39,7 +39,7 @@
 
                     <form class="mg_smart-answer__form">
                         <#list questions as question>
-                            <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" id="step-${question.name}">
+                            <section class="mg_smart-answer__question  mg_smart-answer__step" id="step-${question.name}">
                                 <div class="ds_question">
 
                                     <fieldset class="mg_no-margin--last-child  " id="question-${question.name}" data-validation="<#if question.style='radiobuttons'>requiredRadio</#if>">
@@ -87,7 +87,7 @@
                         </#list>
 
                         <#list answers as answer>
-                            <section tabindex="-1" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-${answer.name}">
+                            <section class="mg_smart-answer__answer  mg_smart-answer__step" id="step-${answer.name}">
                                 <header class="ds_page-header">
                                     <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">${answer.title}</h1>
                                 </header>

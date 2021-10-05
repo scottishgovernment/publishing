@@ -1,6 +1,7 @@
 /* global document, window, require */
 
 import commonForms from '../tools/forms';
+import temporaryFocus from '../../../../node_modules/@scottish-government/pattern-library/src/base/tools/temporary-focus/temporary-focus';
 const PolyPromise = require('../vendor/promise-polyfill').default;
 
 class SmartAnswer {
@@ -18,7 +19,6 @@ class SmartAnswer {
         this.initErrorSummary();
 
         const responses = this.getResponsesFromUrl();
-        const url = this.buildUrl(responses);
 
         this.goToPage(this.buildUrl(responses), false);
 
@@ -99,6 +99,7 @@ class SmartAnswer {
 
         this.hideErrorSummary();
 
+        // this check isn't really necessary but it simplifies unit tests
         if (dynamicContentElements.length) {
             const dynamicContentPromises = dynamicContentElements.map(element => {
                 const dynamicFolder = element.getAttribute('data-dynamic-result-folder');
@@ -106,13 +107,19 @@ class SmartAnswer {
                 const answerStep = this.container.querySelector(`#step-${dynamicQuestion}.mg_smart-answer__step`);
                 const stepIndex = Array.prototype.indexOf.call(answerStep.parentNode.children, answerStep);
                 const tag = responses[stepIndex];
-                return this.promiseRequest(`${dynamicFolder}?tag=${tag}`);
+
+                const promiseRequest = commonForms.promiseRequest(`${dynamicFolder}?tag=${tag}`);
+                promiseRequest
+                    .then(value => element.innerHTML = value.responseText)
+                    .catch(error => {
+                        console.log('failed to fetch dynamic content ', error)
+                        element.innerHTML = '<div class="ds_inset-text  js-dynamic-content-error"><div class="ds_inset-text__text">Unable to fetch additional content</div></div>'
+                    });
+                return promiseRequest;
             });
 
             PolyPromise.all(dynamicContentPromises)
-                .then(values => values.forEach((value, i) => dynamicContentElements[i].innerHTML = value.responseText))
-                .then(() => this.showStep(focus))
-                .catch(error => console.log('failed to fetch dynamic content ', error));
+                .then(() => this.showStep(focus));
         } else {
             this.showStep(focus);
         }
@@ -146,7 +153,7 @@ class SmartAnswer {
         step.classList.add('mg_smart-answer__step--current');
 
         if (focus) {
-            step.focus();
+            temporaryFocus(step);
         }
 
         this.stepTitle = step.querySelector('.js-question-title').innerText;
@@ -162,7 +169,7 @@ class SmartAnswer {
     /*
      * Examine the URL for responses to questions in the tree, and replay those answers to set the form state
      */
-    interpretUrl(focus = true) {
+    interpretUrl() {
         this.currentAnswers = [];
 
         this.currentStepElement = this.container.querySelector('.mg_smart-answer__step');
@@ -267,30 +274,6 @@ class SmartAnswer {
         }
 
         return responses;
-    }
-
-    promiseRequest(url, method = 'GET') {
-        const request = new XMLHttpRequest();
-
-        return new PolyPromise((resolve, reject) => {
-            request.onreadystatechange = () => {
-                if (request.readyState !== 4) {
-                    return;
-                }
-
-                if (request.status >= 200 && request.status < 300) {
-                    resolve(request);
-                } else {
-                    reject({
-                        status: request.status,
-                        statusText: request.statusText
-                    });
-                }
-            };
-
-            request.open(method, url, true);
-            request.send();
-        });
     }
 }
 
