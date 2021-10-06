@@ -9,6 +9,9 @@
     <div class="ds_wrapper">
         <a class="ds_back-link" href="<@hst.link hippobean=document.startpage/>">Back to '${document.startpage.title}'</a>
 
+        <a href="<@hst.link path='/fragments'/>">fragments link?</a>
+        <a href="<@hst.link path='/'/>">root link?</a>
+
         <main id="main-content" class="ds_layout  ds_layout--article">
             <div class="ds_layout__header">
                 <div tabindex="-1" class="ds_error-summary  fully-hidden  client-error" aria-labelledby="error-summary-title" role="alert">
