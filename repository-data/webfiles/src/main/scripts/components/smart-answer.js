@@ -105,10 +105,12 @@ class SmartAnswer {
                 const dynamicFolder = element.getAttribute('data-dynamic-result-folder');
                 const dynamicQuestion = element.getAttribute('data-dynamic-result-question');
                 const answerStep = this.container.querySelector(`#step-${dynamicQuestion}.mg_smart-answer__step`);
-                const stepIndex = Array.prototype.indexOf.call(answerStep.parentNode.children, answerStep);
-                const tag = responses[stepIndex];
-
-                const promiseRequest = commonForms.promiseRequest(`${dynamicFolder}?tag=${tag}`);
+                /// get the response for a given
+                const answer = this.currentAnswers.find(element => element.id === 'step-' + dynamicQuestion);
+                const tag = answer.code;
+                const url = `${dynamicFolder}?tag=${tag}`;
+                console.log(url);
+                const promiseRequest = commonForms.promiseRequest(url);
                 promiseRequest
                     .then(value => element.innerHTML = value.responseText)
                     .catch(error => {
@@ -186,6 +188,7 @@ class SmartAnswer {
             const chosenAnswer = this.currentStepElement.querySelector(`[value="${responses[i]}"]`);
             if (chosenAnswer) {
                 let answerValue;
+                let code = chosenAnswer.value;
 
                 switch (chosenAnswer.nodeName) {
                     case 'OPTION':
@@ -194,6 +197,7 @@ class SmartAnswer {
                         break;
                     default:
                         answerValue = this.currentStepElement.querySelector(`[for="${chosenAnswer.id}"]`).innerText;
+                        // TODO ... work out the 'code' here
                         chosenAnswer.checked = true;
                         break;
                 }
@@ -202,6 +206,7 @@ class SmartAnswer {
                     id: this.currentStepElement.id,
                     title: this.currentStepElement.querySelector('.mg_smart-answer__step-title').innerText,
                     value: answerValue,
+                    code: code,
                     path: answerpath
                 });
 
