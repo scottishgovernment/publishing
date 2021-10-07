@@ -89,7 +89,6 @@ class SmartAnswer {
         this.interpretUrl();
 
         const dynamicContentElements = [].slice.call(this.currentStepElement.querySelectorAll('.mg_smart-answer__dynamic-result'));
-        const responses = this.getResponsesFromUrl();
 
         // trigger virtual pageview
         if (this.trackVirtualPageviews && window.ga && typeof window.ga === 'function') {
@@ -101,23 +100,24 @@ class SmartAnswer {
 
         // this check isn't really necessary but it simplifies unit tests
         if (dynamicContentElements.length) {
-            const dynamicContentPromises = dynamicContentElements.map(element => {
-                const dynamicFolder = element.getAttribute('data-dynamic-result-folder');
-                const dynamicQuestion = element.getAttribute('data-dynamic-result-question');
-                const answerStep = this.container.querySelector(`#step-${dynamicQuestion}.mg_smart-answer__step`);
-                /// get the response for a given
-                const answer = this.currentAnswers.find(element => element.id === 'step-' + dynamicQuestion);
-                const tag = answer.code;
-                const url = `${dynamicFolder}?tag=${tag}`;
-                console.log(url);
-                const promiseRequest = commonForms.promiseRequest(url);
-                promiseRequest
-                    .then(value => element.innerHTML = value.responseText)
-                    .catch(error => {
-                        console.log('failed to fetch dynamic content ', error)
-                        element.innerHTML = '<div class="ds_inset-text  js-dynamic-content-error"><div class="ds_inset-text__text">Unable to fetch additional content</div></div>'
-                    });
-                return promiseRequest;
+            const dynamicContentPromises = [];
+
+            dynamicContentElements.forEach(element => {
+                const location = element.getAttribute('data-location');
+                const question = element.getAttribute('data-question');
+                const answerForQuestion = this.currentAnswers.find(answer => answer.id === 'step-' + question);
+
+                if (answerForQuestion) {
+                    const promiseRequest = commonForms.promiseRequest(`${location}?tag=${answerForQuestion.value}`);
+
+                    promiseRequest
+                        .then(value => element.innerHTML = value.responseText)
+                        .catch(error => {
+                            console.log('failed to fetch dynamic content ', error);
+                        });
+
+                    dynamicContentPromises.push(promiseRequest);
+                }
             });
 
             PolyPromise.all(dynamicContentPromises)
@@ -187,28 +187,23 @@ class SmartAnswer {
         for (let i = 0, il = responses.length; i < il; i++) {
             const chosenAnswer = this.currentStepElement.querySelector(`[value="${responses[i]}"]`);
             if (chosenAnswer) {
-                let answerValue;
-                let code = chosenAnswer.value;
-
-                switch (chosenAnswer.nodeName) {
-                    case 'OPTION':
-                        answerValue = chosenAnswer.innerText;
-                        chosenAnswer.selected = true;
-                        break;
-                    default:
-                        answerValue = this.currentStepElement.querySelector(`[for="${chosenAnswer.id}"]`).innerText;
-                        // TODO ... work out the 'code' here
-                        chosenAnswer.checked = true;
-                        break;
-                }
-
-                this.currentAnswers.push({
+                let answerData = {
                     id: this.currentStepElement.id,
                     title: this.currentStepElement.querySelector('.mg_smart-answer__step-title').innerText,
-                    value: answerValue,
-                    code: code,
                     path: answerpath
-                });
+                };
+
+                if (chosenAnswer.nodeName === 'OPTION') {
+                    answerData.text = chosenAnswer.innerText;
+                    answerData.value = chosenAnswer.value;
+                    chosenAnswer.selected = true;
+                } else {
+                    answerData.text = this.currentStepElement.querySelector(`[for="${chosenAnswer.id}"]`).innerText;
+                    answerData.value = this.currentStepElement.querySelector('#' + chosenAnswer.id).value;
+                    chosenAnswer.checked = true;
+                }
+
+                this.currentAnswers.push(answerData);
 
                 // move to next step
                 this.currentStepElement = this.container.querySelector('#' + chosenAnswer.dataset.nextstep);
