@@ -10,7 +10,7 @@ import commonForms from '../../../src/main/scripts/tools/forms';
 const testObj = {};
 const rootUrl = window.location.pathname;
 
-fdescribe('smart-answer', function () {
+describe('smart-answer', function () {
     beforeEach(() => {
         loadFixtures('smart-answer.html');
         testObj.smartAnswer = new SmartAnswer(document.querySelector('[data-module="smartanswer"]'));
@@ -324,8 +324,8 @@ fdescribe('smart-answer', function () {
     describe('dynamic content', () => {
         beforeEach(() => {
             const dynamicElement = document.createElement('div');
-            dynamicElement.setAttribute('data-dynamic-result-folder', 'foo');
-            dynamicElement.setAttribute('data-dynamic-result-question', 'under-16');
+            dynamicElement.setAttribute('data-location', 'foo');
+            dynamicElement.setAttribute('data-question', 'under-16');
             dynamicElement.classList.add('mg_smart-answer__dynamic-result');
             document.getElementById('step-final-result').appendChild(dynamicElement);
         });
@@ -348,23 +348,7 @@ fdescribe('smart-answer', function () {
                 const dynamicElement = testObj.smartAnswer.currentStepElement.querySelector('.mg_smart-answer__dynamic-result');
                 expect(dynamicElement.innerText).toEqual('message');
                 done();
-            }, 0);
-        });
-
-        xit('should show a helpful message if unable to fetch dynamic content', (done) => {
-            window.location.hash = '#!/over-16/yes/no';
-
-            commonForms.promiseRequest = function (url, method = 'GET') {
-                return Promise.reject({ responseText: 'message' });
-            };
-
-            testObj.smartAnswer.init();
-
-            window.setTimeout(function () {
-                const dynamicElement = testObj.smartAnswer.currentStepElement.querySelector('.mg_smart-answer__dynamic-result');
-                expect(dynamicElement.querySelectorAll('.js-dynamic-content-error').length).toEqual(1);
-                done();
-            }, 0);
+            }, 1110);
         });
     });
 });
