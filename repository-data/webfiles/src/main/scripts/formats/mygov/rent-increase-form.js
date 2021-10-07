@@ -95,7 +95,7 @@ const adjustDate = function (date, adjustment, capMonth) {
 
         // capMonth: true will prevent the date being set beyond the end of a month
         // (e.g. 31 Jan -> 28 Feb instead of 31 Jan -> 3 Mar)
-        if (capMonth && newDate.getMonth() > (date.getMonth() + adjustment.months) % 12) {
+        if (capMonth && newDate.getMonth() > (12 + date.getMonth() + adjustment.months) % 12) {
             newDate.setDate(0);
         }
     }
