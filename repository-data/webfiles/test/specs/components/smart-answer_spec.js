@@ -10,10 +10,15 @@ import commonForms from '../../../src/main/scripts/tools/forms';
 const testObj = {};
 const rootUrl = window.location.pathname;
 
+// mock window
+const windowObj = {
+    addEventListener: function () { }
+};
+
 describe('smart-answer', function () {
     beforeEach(() => {
         loadFixtures('smart-answer.html');
-        testObj.smartAnswer = new SmartAnswer(document.querySelector('[data-module="smartanswer"]'));
+        testObj.smartAnswer = new SmartAnswer(document.querySelector('[data-module="smartanswer"]'), windowObj);
         testObj.smartAnswer.rootUrl = rootUrl;
     });
 
@@ -147,7 +152,7 @@ describe('smart-answer', function () {
             expect(window.location.hash).toEqual('#!/over-16');
             // have to force this -- jasmine not liking hashchange
             spyOn(window, 'ga');
-            testObj.smartAnswer.goToPage('#!/over-16');
+            testObj.smartAnswer.goToPageFromUrl('#!/over-16');
 
             expect(window.ga).toHaveBeenCalledWith('set', 'page', `${window.location.pathname}${window.location.hash}`);
             expect(window.ga).toHaveBeenCalledWith('send', 'pageview');
@@ -213,7 +218,6 @@ describe('smart-answer', function () {
 
             selectStep.parentNode.removeChild(selectStep);
             testObj.smartAnswer.init();
-            spyOn(testObj.smartAnswer, 'goToPage');
 
             // select option
             let selectedRadio = radioStep.querySelector('#step-under-16-over-16');
@@ -223,7 +227,7 @@ describe('smart-answer', function () {
             let button = document.querySelector('.js-next-button');
             button.click();
 
-            expect(testObj.smartAnswer.goToPage).toHaveBeenCalledWith(window.location.pathname + '#!/over-16');
+            expect(testObj.smartAnswer.getResponsesFromUrl()).toEqual(['over-16']);
         });
 
         it('should get the selected answer from a SELECT element', () => {
@@ -232,7 +236,7 @@ describe('smart-answer', function () {
 
             radioStep.parentNode.removeChild(radioStep);
             testObj.smartAnswer.init();
-            spyOn(testObj.smartAnswer, 'goToPage');
+            spyOn(testObj.smartAnswer, 'goToPageFromUrl');
 
             // select option
             let selectedOption = document.querySelector('#step-age-select option:nth-child(3)');
@@ -242,7 +246,7 @@ describe('smart-answer', function () {
             let button = selectStep.querySelector('.js-next-button');
             button.click();
 
-            expect(testObj.smartAnswer.goToPage).toHaveBeenCalledWith(window.location.pathname + '#!/over-16');
+            expect(testObj.smartAnswer.getResponsesFromUrl()).toEqual(['over-16']);
         });
 
         it('should set a pre-filled answer in a radio button group', () => {
@@ -348,7 +352,7 @@ describe('smart-answer', function () {
                 const dynamicElement = testObj.smartAnswer.currentStepElement.querySelector('.mg_smart-answer__dynamic-result');
                 expect(dynamicElement.innerText).toEqual('message');
                 done();
-            }, 1110);
+            }, 0);
         });
     });
 });

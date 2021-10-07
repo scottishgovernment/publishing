@@ -5,7 +5,7 @@ import temporaryFocus from '../../../../node_modules/@scottish-government/patter
 const PolyPromise = require('../vendor/promise-polyfill').default;
 
 class SmartAnswer {
-    constructor(container) {
+    constructor(container, _window = window) {
         this.container = container;
         this.rootUrl = container.dataset.rooturl ;
         this.form = this.container.querySelector('form');
@@ -13,20 +13,18 @@ class SmartAnswer {
         this.errorSummary = document.querySelector('.ds_error-summary');
         this.pageTitle = document.title;
         this.useHashBangs = true;
+        this.window = _window;
     }
 
     init() {
         this.initErrorSummary();
 
-        const responses = this.getResponsesFromUrl();
-
-        this.goToPage(this.buildUrl(responses), false);
+        this.goToPageFromUrl(false);
 
         // only start tracking virtul page views after the initial "goToPage"
         this.trackVirtualPageviews = true;
 
         this.container.addEventListener('click', (event) => {
-            let url;
 
             if (event.target.classList.contains('js-next-button')) {
                 event.preventDefault();
@@ -45,7 +43,8 @@ class SmartAnswer {
                         responses.push(selectedOption[selectedOption.selectedIndex].value);
                     }
 
-                    this.goToPage(this.buildUrl(responses));
+                    history.pushState('', '', this.buildUrl(responses));
+                    this.goToPageFromUrl();
                 } else {
                     this.showErrorSummary();
                 }
@@ -54,17 +53,21 @@ class SmartAnswer {
             if (event.target.classList.contains('js-change-answer')) {
                 event.preventDefault();
 
-                url = event.target.dataset.path;
-                this.goToPage(url);
+                history.pushState('', '', event.target.dataset.path);
+                this.goToPageFromUrl();
             }
 
             if (event.target.classList.contains('js-clear-answers')) {
                 event.preventDefault();
                 this.form.reset();
 
-                url = this.rootUrl;
-                this.goToPage(url);
+                history.pushState('', '', this.rootUrl);
+                this.goToPageFromUrl();
             }
+        });
+
+        this.window.addEventListener('popstate', () => {
+            this.goToPageFromUrl();
         });
     }
 
@@ -83,9 +86,7 @@ class SmartAnswer {
         });
     }
 
-    goToPage(url, focus = true) {
-        history.pushState('', '', url);
-
+    goToPageFromUrl(focus = true) {
         this.interpretUrl();
 
         const dynamicContentElements = [].slice.call(this.currentStepElement.querySelectorAll('.mg_smart-answer__dynamic-result'));
@@ -252,7 +253,7 @@ class SmartAnswer {
     }
 
     buildUrl(answers) {
-        let url;// = window.location.pathname;
+        let url;
 
         if (this.useHashBangs) {
             url = window.location.pathname + '#!/' + answers.join('/');
