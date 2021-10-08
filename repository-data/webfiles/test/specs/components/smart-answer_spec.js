@@ -191,7 +191,7 @@ describe('smart-answer', function () {
             window.location.hash = '#!/over-16/yes/yes';
             testObj.smartAnswer.init();
 
-            const button = document.querySelector('[data-questionid="step-residency-question-one"]');
+            const button = document.querySelector('[data-questionid="residency-question-one"]');
             button.click();
 
             expect(window.location.hash).toEqual('#!/over-16');

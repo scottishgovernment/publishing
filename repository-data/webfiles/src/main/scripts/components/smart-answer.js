@@ -106,13 +106,16 @@ class SmartAnswer {
             dynamicContentElements.forEach(element => {
                 const location = element.getAttribute('data-location');
                 const question = element.getAttribute('data-question');
-                const answerForQuestion = this.currentAnswers.find(answer => answer.id === 'step-' + question);
+                const answerForQuestion = this.currentAnswers.find(answer => answer.id === question);
 
                 if (answerForQuestion) {
                     const promiseRequest = commonForms.promiseRequest(`${location}?tag=${answerForQuestion.value}`);
 
                     promiseRequest
-                        .then(value => element.innerHTML = value.responseText)
+                        .then(value => {
+                            element.innerHTML = value.responseText;
+                            window.DS.tracking.init(element);
+                        })
                         .catch(error => {
                             console.log('failed to fetch dynamic content ', error);
                         });
@@ -166,7 +169,9 @@ class SmartAnswer {
             answers: this.currentAnswers
         });
 
-        document.getElementById('answered-questions').innerHTML = answerListHtml;
+        const answerContainer = document.getElementById('answered-questions');
+        answerContainer.innerHTML = answerListHtml;
+        window.DS.tracking.init(answerContainer);
     }
 
     /*
@@ -189,7 +194,7 @@ class SmartAnswer {
             const chosenAnswer = this.currentStepElement.querySelector(`[value="${responses[i]}"]`);
             if (chosenAnswer) {
                 let answerData = {
-                    id: this.currentStepElement.id,
+                    id: this.currentStepElement.id.replace('step-',''),
                     title: this.currentStepElement.querySelector('.mg_smart-answer__step-title').innerText,
                     path: answerpath
                 };
