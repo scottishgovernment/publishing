@@ -1,19 +1,5 @@
 definitions:
   config:
-    /hippo:configuration/hippo:domains/content/content-domain/exclude-trading-nation-administration-folder:
-      jcr:primaryType: hipposys:facetrule
-      hipposys:equals: false
-      hipposys:facet: jcr:path
-      hipposys:filter: false
-      hipposys:type: Reference
-      hipposys:value: /content/documents/trading-nation/administration
-    /hippo:configuration/hippo:domains/content/content-domain/exclude-ddat-administration-folder:
-      jcr:primaryType: hipposys:facetrule
-      hipposys:equals: false
-      hipposys:facet: jcr:path
-      hipposys:filter: false
-      hipposys:type: Reference
-      hipposys:value: /content/documents/ddat/administration
     /hippo:configuration/hippo:domains/content/editor:
       hipposys:groups: [admin, cmsadmin, editor]
     /hippo:configuration/hippo:domains/content/author:
