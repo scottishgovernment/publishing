@@ -56,7 +56,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     //When required to add a new property in the CSV export add displayed label and corresponding property in the two lists below.
     //You might have to change #constructPropertiesList method below to add your property if it requires special handling.
     private static final String[] headers = new String[]{"fact_checkers", "format" , "content_owner", "title", "created_by", "url", "review_date", "official_last_modified", "date_modified", "modified_by", "id", "state", "life_events"};
-    private static final String[] documentProperties = new String[]{"publishing:factCheckers", "format" , "publishing:contentOwner", "hippo:name", HIPPOSTDPUBWF_CREATED_BY, "url", REVIEW_DATE_PROP, "publishing:lastUpdatedDate",HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents"};
+    private static final String[] documentProperties = new String[]{"publishing:factCheckers", "format" , "publishing:contentOwner", "title", HIPPOSTDPUBWF_CREATED_BY, "url", REVIEW_DATE_PROP, "publishing:lastUpdatedDate",HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents"};
 
     private final ResourceLink<String> exportCSVLink;
     private final ISearchContext searcher;
@@ -178,6 +178,9 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
 
     private void addProperty(Node variant, String property, String stateSummary, List<String> props) throws RepositoryException {
         switch (property) {
+            case "title":
+                props.add(useFirstPresentProperty(variant, "publishing:title", "hippo:name"));
+                break;
             case "url":
                 List<String> urls = getDocumentSiteURL(variant);
                 if (!urls.isEmpty()) {
@@ -240,6 +243,15 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                 }
                 break;
         }
+    }
+
+    private String useFirstPresentProperty(Node node, String ... props) throws RepositoryException {
+        for (String prop : props) {
+            if (node.hasProperty(prop) && StringUtils.isNotBlank(node.getProperty(prop).getString())) {
+                return node.getProperty(prop).getString();
+            }
+        }
+        return node.getName();
     }
 
     /**
