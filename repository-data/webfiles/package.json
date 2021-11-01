@@ -8,11 +8,10 @@
     "url": "http://www.gov.scot/"
   },
   "scripts": {
-    "postshrinkwrap": "node_modules/.bin/sealant @scottish-government/mygov-assets",
     "sass": "npm run sass_campaign; npm run sass_mygov; npm run sass_tn",
-    "sass_campaign": "node_modules/.bin/node-sass ./src/main/scss/campaign/main.scss ./src/main/resources/site/assets/campaign/css/main.css --style compressed --cache-location target/.sass-cache",
-    "sass_mygov": "node_modules/.bin/node-sass ./src/main/scss/mygov/main.scss ./src/main/resources/site/assets/mygov/css/main.css --style compressed --cache-location target/.sass-cache",
-    "sass_tn": "node_modules/.bin/node-sass ./src/main/scss/tradingnation/main.scss ./src/main/resources/site/assets/tradingnation/css/main.css --style compressed --cache-location target/.sass-cache",
+    "sass_campaign": "node_modules/.bin/sass ./src/main/scss/campaign/main.scss ./src/main/resources/site/assets/campaign/css/main.css --style compressed",
+    "sass_mygov": "node_modules/.bin/sass ./src/main/scss/mygov/main.scss ./src/main/resources/site/assets/mygov/css/main.css --style compressed",
+    "sass_tn": "node_modules/.bin/sass ./src/main/scss/tradingnation/main.scss ./src/main/resources/site/assets/tradingnation/css/main.css --style compressed",
     "svgsprite": "node svg-sprite",
     "test": "karma start ./test/karma.conf.js",
     "webpack": "node_modules/.bin/webpack --config ./src/main/scripts/webpack.config.js"
@@ -36,9 +35,9 @@
     "karma-jasmine-matchers": "^4.0.1",
     "karma-jquery": "^0.2.4",
     "karma-webpack": "^4.0.2",
-    "node-sass": "^4.12.0",
     "nunjucks": "^3.2.2",
     "nunjucks-loader": "^3.0.0",
+    "sass": "^1.32.13",
     "sealant": "^0.1.1",
     "svg-sprite": "^1.5.0",
     "webpack": "^4.41.1",
