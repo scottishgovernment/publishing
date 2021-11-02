@@ -7,10 +7,17 @@
         <div class="ds_site-header__content">
             <div class="ds_site-branding">
                 <a class="ds_site-branding__logo  ds_site-branding__link" href="/">
-                    <#if document.bean.logo??>
-                        <img class="ds_site-branding__logo-image" src="<@hst.link hippobean=document.bean.logo/>" alt="The Scottish Government" />
+                    <#if logo??>
+                         <@hst.link var="img" hippobean=logo />
+                        <img class="ds_site-branding__logo-image" src="${img}" alt="The Scottish Government" />
                     <#else>
-                        <img class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/scottish-government.svg"/>" alt="The Scottish Government" />
+                        <#if document??>
+                            <#if document.logo??>
+                                <img class="ds_site-branding__logo-image" src="<@hst.link hippobean=document.logo/>" alt="The Scottish Government" />
+                            </#if>
+                        <#else>
+                            <img class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/scottish-government.svg"/>" alt="The Scottish Government" />
+                        </#if>
                     </#if>
                 </a>
 

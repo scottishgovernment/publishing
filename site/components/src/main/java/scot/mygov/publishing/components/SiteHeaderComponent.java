@@ -3,9 +3,15 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
 import org.hippoecm.hst.configuration.hosting.Mount;
+import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
+import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.request.HstRequestContext;
 import scot.mygov.publishing.channels.WebsiteInfo;
+
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 
 import static org.apache.commons.lang3.StringUtils.equalsAny;
 
@@ -31,5 +37,28 @@ public class SiteHeaderComponent extends BaseHstComponent {
         Mount mount = request.getRequestContext().getResolvedMount().getMount();
         WebsiteInfo info = mount.getChannelInfo();
         request.setAttribute("siteTitle", info.getSiteTitle());
+
+        determineLogo(request);
+    }
+
+    static void determineLogo (HstRequest request) {
+        Mount mount = request.getRequestContext().getResolvedMount().getMount();
+        WebsiteInfo info = mount.getChannelInfo();
+
+        String logoPath = info.getLogoPath();
+
+        if (!logoPath.isEmpty()) {
+            try {
+                HstRequestContext context = request.getRequestContext();
+                Session session = context.getSession();
+
+                Object logo = context.getObjectBeanManager(session).getObject(logoPath);
+                request.setAttribute("logo", logo);
+            } catch (RepositoryException | ObjectBeanManagerException e) {
+                throw new HstComponentException(e);
+            }
+
+        }
+
     }
 }
