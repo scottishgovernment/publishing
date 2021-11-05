@@ -26,28 +26,25 @@ public class SiteHeaderComponent extends BaseHstComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-        String formatName = getFormatName(request);
-        // hide search for home or search pages
-        request.setAttribute("hideSearch", equalsAny(formatName, "home", "search"));
-
-        String siteTitle = getSiteTitle(request);
-        request.setAttribute("siteTitle", siteTitle);
-
+        hideFormatName(request);
+        setSiteTitle(request);
         determineLogo(request);
     }
 
-    String getFormatName(HstRequest request) {
+    void hideFormatName(HstRequest request) {
         HstComponentConfiguration componentConfig = request
                 .getRequestContext()
                 .getResolvedSiteMapItem()
                 .getHstComponentConfiguration();
-        return componentConfig.getName();
+        String formatName = componentConfig.getName();
+        // hide search for home or search pages
+        request.setAttribute("hideSearch", equalsAny(formatName, "home", "search"));
     }
 
-    String getSiteTitle(HstRequest request) {
+    void setSiteTitle(HstRequest request) {
         Mount mount = request.getRequestContext().getResolvedMount().getMount();
         WebsiteInfo info = mount.getChannelInfo();
-        return info.getSiteTitle();
+        request.setAttribute("siteTitle", info.getSiteTitle());
     }
 
     static void determineLogo (HstRequest request) {

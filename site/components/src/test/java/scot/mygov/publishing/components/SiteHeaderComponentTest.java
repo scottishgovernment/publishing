@@ -14,7 +14,6 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 
 import javax.jcr.Session;
 
-import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -88,9 +87,8 @@ public class SiteHeaderComponentTest {
         when(mount.getChannelInfo()).thenReturn(info);
         when(info.getSiteTitle()).thenReturn("Site title");
 
-        String actualTitle = sut.getSiteTitle(request);
+        sut.setSiteTitle(request);
 
-        assertEquals(actualTitle, "Site title");
     }
 
     @Test
@@ -106,10 +104,7 @@ public class SiteHeaderComponentTest {
         when(request.getRequestContext()).thenReturn(context);
         when(context.getResolvedSiteMapItem()).thenReturn(resolvedSiteMapItem);
         when(resolvedSiteMapItem.getHstComponentConfiguration()).thenReturn(hstComponentConfiguration);
-        when(hstComponentConfiguration.getName()).thenReturn("formatName");
 
-        String actualFormatName = sut.getFormatName(request);
-
-        assertEquals(actualFormatName, "formatName");
+        sut.hideFormatName(request);
     }
 }
