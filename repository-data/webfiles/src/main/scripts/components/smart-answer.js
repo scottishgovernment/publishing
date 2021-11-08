@@ -11,7 +11,6 @@ class SmartAnswer {
         this.form = this.container.querySelector('form');
         this.answersTemplate = require('../templates/smartanswer-answers');
         this.errorSummary = document.querySelector('.ds_error-summary');
-        this.pageTitle = document.title;
         this.useHashBangs = true;
         this.window = _window;
     }
@@ -163,6 +162,7 @@ class SmartAnswer {
         }
 
         this.stepTitle = step.querySelector('.js-question-title').innerText;
+        document.title = `${this.stepTitle}`;
 
         // populate the answer list
         const answerListHtml = this.answersTemplate.render({
@@ -231,7 +231,7 @@ class SmartAnswer {
 
     hideErrorSummary() {
         this.errorSummary.classList.add('fully-hidden');
-        document.title = `${this.pageTitle}`;
+        document.title = `${this.stepTitle}`;
     }
 
     validateStep () {
