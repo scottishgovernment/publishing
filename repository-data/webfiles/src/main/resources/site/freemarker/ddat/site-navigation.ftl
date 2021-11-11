@@ -6,8 +6,8 @@
                 <nav class="ds_site-navigation">
                     <ul class="ds_site-navigation__list">
                         <#list menu.siteMenuItems as item>
-                            <li class="ds_site-navigation__item <#if item.selected || item.expanded>ds_current</#if>">
-                                <a href="<@hst.link link=item.hstLink/>" class="ds_site-navigation__link"><span class="label-nav">${item.name?html}</span> </a>
+                            <li class="ds_site-navigation__item">
+                                <a href="<@hst.link link=item.hstLink/>" class="ds_site-navigation__link  <#if item.selected || item.expanded>ds_current</#if>"><span class="label-nav">${item.name?html}</span> </a>
                             </li>
                         </#list>
                     </ul>
