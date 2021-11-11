@@ -100,11 +100,11 @@
     {% endfor %}
 </div>
 {% elif properties.length > 1 %}
-<div class="ds_tab-container  ds_tab-container--{{properties.length}}" data-module="ds-tabs">
+<div class="mg_tab-container  mg_tab-container--{{properties.length}}" data-module="mg-tabs">
     {% for property in properties %}
-    <input class="ds_tab__radio" type="radio" checked="" name="tabs" id="tab{{loop.index}}" />
-    <div class="ds_tab__header"><label id="tab{{loop.index}}-label" aria-controls="tab{{loop.index}}-content" role="tab" class="ds_tab__label" for="tab{{loop.index}}">Property {{loop.index}}</label></div>
-    <div tabindex="0" id="tab{{loop.index}}-content" class="ds_tab__content" role="tabpanel" aria-labelledby="tab{{loop.index}}-label">
+    <input class="mg_tab__radio" type="radio" checked="" name="tabs" id="tab{{loop.index}}" />
+    <div class="mg_tab__header"><label id="tab{{loop.index}}-label" aria-controls="tab{{loop.index}}-content" role="tab" class="mg_tab__label" for="tab{{loop.index}}">Property {{loop.index}}</label></div>
+    <div tabindex="0" id="tab{{loop.index}}-content" class="mg_tab__content" role="tabpanel" aria-labelledby="tab{{loop.index}}-label">
         {{ propertyDetails(property, loop.index0)}}
     </div>
     {% endfor %}

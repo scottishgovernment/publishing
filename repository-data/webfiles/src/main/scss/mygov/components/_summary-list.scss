@@ -22,16 +22,16 @@
     }
 
     &__actions {
-        @include small-size;
+        @include ds_small-size;
         display: inline;
 
         > button {
-            @include small-size;
+            @include ds_small-size;
         }
     }
 }
 
-@include media-query(medium) {
+@include ds_media-query(medium) {
     .#{$site-prefix}summary-list {
         &__item {
             display: grid;
@@ -55,7 +55,7 @@
     }
 }
 
-@include media-query(large) {
+@include ds_media-query(large) {
     .#{$site-prefix}summary-list {
         &__item {
             grid-template-columns: 4fr 3fr 1fr;

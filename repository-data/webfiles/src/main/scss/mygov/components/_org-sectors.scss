@@ -4,7 +4,7 @@
 
 .sector {
     &__title {
-        @include h3-size;
+        @include ds_h3-size;
         margin-bottom: 0;
     }
 
@@ -23,7 +23,7 @@
     }
 
     .sector {
-        @include blocklink('.sector__link');
+        @include ds_blocklink('.sector__link');
 
         background-color: $ds_colour__grey--light;
         color: $ds_colour__link;
@@ -48,6 +48,10 @@
         &:focus-within,
         &:focus-within a {
             color: $ds_colour__link--focus;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 
@@ -84,10 +88,10 @@
     .sector__summary::after {
         left: 50%;
         position: absolute;
-        bottom: -80px;
-        margin-left: -3em;
+        bottom: -56px;
+        margin-left: -1.5em;
 
-        @include chevron(down, 3em);
+        @include ds_chevron(down, 2.15em);
     }
 
     .sector__count {
@@ -100,7 +104,7 @@
         text-align: center;
     }
 
-    @include media-query(medium) {
+    @include ds_media-query(medium) {
         .sectors {
             display: grid;
             grid-gap: 0 32px;
@@ -134,12 +138,12 @@
     }
 }
 
-@include media-query(medium) {
+@include ds_media-query(medium) {
     .sector-list {
         &__sublist {
-            @include small-size;
+            @include ds_small-size;
 
-            @include layout;
+            @include ds_layout;
         }
 
         &__sublist-item {
@@ -148,7 +152,7 @@
             padding: 8px 0;
 
             float: left;
-            @include colwidth(6);
+            @include ds_colwidth(6);
 
             &:nth-child(2n+1) {
                 clear: left;
@@ -157,7 +161,7 @@
     }
 }
 
-@include media-query(large) {
+@include ds_media-query(large) {
     .sector-list__sublist-item {
         &:nth-child(2n+1) {
             clear: none;
@@ -165,11 +169,11 @@
         &:nth-child(3n+1) {
             clear: left;
         }
-        @include colwidth(4);
+        @include ds_colwidth(4);
     }
 }
 
-@include media-query(xlarge) {
+@include ds_media-query(xlarge) {
     .sector-list__sublist-item {
         &:nth-child(3n+1) {
             clear: none;
@@ -177,24 +181,24 @@
         &:nth-child(4n+1) {
             clear: left;
         }
-        @include colwidth(3);
+        @include ds_colwidth(3);
     }
 }
 
 @supports (display: grid) {
-    @include media-query(medium) {
+    @include ds_media-query(medium) {
         .sector-list__sublist {
             grid-template-columns: repeat(2, 6fr);
         }
     }
 
-    @include media-query(large) {
+    @include ds_media-query(large) {
         .sector-list__sublist {
             grid-template-columns: repeat(3, 4fr);
         }
     }
 
-    @include media-query(xlarge) {
+    @include ds_media-query(xlarge) {
         .sector-list__sublist {
             grid-template-columns: repeat(4, 3fr)
         }

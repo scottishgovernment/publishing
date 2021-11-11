@@ -79,11 +79,11 @@ $colors: (
     .ds_page-header {
         margin: 0 0 24px;
 
-        @include media-query(medium) {
+        @include ds_media-query(medium) {
             margin-bottom: 32px;
         }
 
-        @include media-query(large) {
+        @include ds_media-query(large) {
             margin-top: 16px;
         }
     }
@@ -106,13 +106,13 @@ $colors: (
 }
 
 .ds_cb__inner {
-    @include layout();
+    @include ds_layout();
 
     > * + * {
         margin-top: 24px;
     }
 
-    @include media-query(medium) {
+    @include ds_media-query(medium) {
         > * + * {
             margin-top: 0;
         }
@@ -127,21 +127,21 @@ $colors: (
 .ds_cb__text {
     position: relative;
 
-    @include media-query(medium) {
+    @include ds_media-query(medium) {
         float: left;
-        @include colwidth(6);
+        @include ds_colwidth(6);
 
         &:last-of-type:first-of-type {
             float: none;
-            @include colwidth(8);
+            @include ds_colwidth(8);
         }
 
         &--middle:last-of-type:first-of-type {
-            @include colpush(2);
+            @include ds_colpush(2);
         }
 
         &--right:last-of-type:first-of-type {
-            @include colpush(4);
+            @include ds_colpush(4);
         }
 
         @supports(display: grid) {
@@ -184,7 +184,7 @@ $colors: (
         }
     }
 
-    @include media-query(medium-down) {
+    @include ds_media-query(medium-down) {
         img,
         iframe,
         video {
@@ -192,9 +192,9 @@ $colors: (
         }
     }
 
-    @include media-query(medium) {
+    @include ds_media-query(medium) {
         float: left;
-        @include colwidth(6);
+        @include ds_colwidth(6);
 
         @supports(display: grid) {
             grid-column: span 6;
@@ -214,9 +214,9 @@ $colors: (
         padding: 40px 0;
         position: relative;
 
-        @include layout();
+        @include ds_layout();
 
-        @include media-query(medium) {
+        @include ds_media-query(medium) {
             padding: 48px 0;
         }
     }
@@ -231,7 +231,7 @@ $colors: (
     .ds_cb__inner {
         padding: 8px 0;
 
-        @include media-query(medium) {
+        @include ds_media-query(medium) {
             padding: 16px 0;
         }
     }
@@ -248,14 +248,14 @@ $colors: (
         padding: 16px 0 24px;
     }
 
-    @include media-query(medium) {
+    @include ds_media-query(medium) {
         .ds_cb__inner {
             padding: 24px 0 32px;
         }
     }
 
     // this is ugly but it using flex for this means we can put the image under the text in IE11
-    @include media-query(medium-down) {
+    @include ds_media-query(medium-down) {
         .ds_cb__inner {
             display: flex;
             flex-direction: column;
@@ -281,12 +281,12 @@ $colors: (
     .ds_cb__inner {
         padding: 16px 0 32px;
 
-        @include media-query(medium) {
+        @include ds_media-query(medium) {
             padding-top: 24px;
 
             > * {
                 float: left;
-                @include colwidth(4);
+                @include ds_colwidth(4);
             }
 
             @supports(display: grid) {
@@ -305,7 +305,7 @@ $colors: (
     .ds_cb__inner {
         padding: 16px 0 24px;
 
-        @include media-query(medium) {
+        @include ds_media-query(medium) {
             padding: 24px 0 32px;
         }
     }
@@ -320,13 +320,13 @@ $colors: (
     .ds_cb__inner {
         padding: 16px 0 24px;
 
-        @include media-query(medium-down) {
+        @include ds_media-query(medium-down) {
             > * + * {
                 margin-top: 40px;
             }
         }
 
-        @include media-query(medium) {
+        @include ds_media-query(medium) {
             padding: 24px 0 32px;
         }
     }

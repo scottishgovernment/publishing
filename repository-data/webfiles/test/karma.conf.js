@@ -29,7 +29,8 @@ module.exports = function (config) {
         frameworks: [
             'jquery-1.8.3',
             'jasmine-jquery',
-            'jasmine'
+            'jasmine',
+            'viewport'
         ],
         reporters: [
             'dots',

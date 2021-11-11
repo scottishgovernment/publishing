@@ -40,11 +40,12 @@
 
     /* [1] compensate for 1px border */
     &__link {
-        @include blocklink;
+        @include ds_blocklink;
 
         border-bottom: 1px solid currentColor;
         border-top: 1px solid currentColor;
         margin-bottom: 24px;
+        min-height: 44px;
         padding: 7px 0; /* [1] */
         text-decoration: none;
 
@@ -57,8 +58,9 @@
         }
 
         &::after {
-            @include chevron(right);
+            @include ds_chevron(right, 10px);
             justify-self: center;
+            margin-right: -5px;
         }
     }
 }
@@ -87,34 +89,34 @@
 }
 
 .ds_button--has-icon>.#{$site-prefix}hero-az__icon {
-    margin-top: -36px;
+    margin-top: -13px;
     position: absolute;
-    right: 0;
+    right: 29px;
     top: 50%;
 
-    @include chevron(right, 2em);
+    @include ds_chevron(right, 26px);
 }
 
-@include media-query(medium) {
+@include ds_media-query(medium) {
     .ds_category-header__aside {
         display: block;
     }
 }
 
-@include media-query(large) {
+@include ds_media-query(large) {
     .#{$site-prefix}hero {
         .ds_site-search {
-            @include layout();
+            @include ds_layout();
 
             &__form {
-                @include colwidth(7, 8);
+                @include ds_colwidth(7, 8);
             }
         }
     }
 }
 
 @supports (display: grid) {
-    @include media-query(large) {
+    @include ds_media-query(large) {
         .#{$site-prefix}hero {
             .ds_site-search {
                 grid-template-columns: 7fr 1fr;
@@ -122,7 +124,7 @@
         }
     }
 
-    @include media-query(xlarge) {
+    @include ds_media-query(xlarge) {
         .#{$site-prefix}hero-az {
             grid-template-columns: 1fr 70px;
 

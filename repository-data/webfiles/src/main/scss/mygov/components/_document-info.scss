@@ -221,7 +221,7 @@ $document-info__text-margin: 16px;
     width: 100%;
 }
 
-@include media-query(medium) {
+@include ds_media-query(medium) {
 
   .document-info {
     margin-bottom: 32px;

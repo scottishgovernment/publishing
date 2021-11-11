@@ -17,11 +17,11 @@
         color: $ds_colour__text--secondary;
         font-weight: $normal;
 
-        @include large-size;
+        @include ds_large-size;
     }
 }
 
-@include media-query(medium) {
+@include ds_media-query(medium) {
     .#{$site-prefix}smart-answer {
         &__step {
             margin-top: 32px;

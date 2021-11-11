@@ -1,28 +1,28 @@
 .#{$site-prefix}org-person {
-    @include layout();
-    @include block-margins--bottom;
+    @include ds_layout();
+    @include ds_block-margins--bottom;
 
     &__name {
         margin-bottom: 0;
     }
 
     &__roles {
-        @include small-size;
+        @include ds_small-size;
     }
 
     &__image > img {
         width: 100%;
     }
 
-    @include media-query(small) {
+    @include ds_media-query(small) {
         &__image {
             float: left;
-            @include colwidth(4);
+            @include ds_colwidth(4);
         }
 
         &__heading {
             float: left;
-            @include colwidth(8);
+            @include ds_colwidth(8);
         }
 
         &__summary {
@@ -30,7 +30,7 @@
         }
     }
 
-    @include media-query(medium) {
+    @include ds_media-query(medium) {
         &__summary {
             clear: none;
         }
@@ -56,18 +56,18 @@
         grid-template-columns: 1fr 2fr;
         grid-template-rows: auto 1fr;
 
-        @include media-query(small) {
+        @include ds_media-query(small) {
             grid-template-areas: 'i h' 's s';
         }
 
-        @include media-query(medium) {
+        @include ds_media-query(medium) {
             grid-template-areas:
                 'i i i i h h h h h h h h'
                 'i i i i s s s s s s s s';
             grid-template-columns: repeat(12, 1fr);
         }
 
-        @include media-query(large) {
+        @include ds_media-query(large) {
             grid-template-areas:
                 'i i i h h h h h h h h h'
                 'i i i s s s s s s s s s';

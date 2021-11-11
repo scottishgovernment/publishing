@@ -20,10 +20,10 @@
             </div>
 
             <div class="ds_layout__org-list">
-                <div class="ds_tab-container  ds_tab-container--3" data-module="ds-tabs">
-                    <input class="ds_tab__radio" type="radio" checked="" name="tabs" id="tab1" />
-                    <div class="ds_tab__header"><label id="tab1-label" aria-controls="tab1-content" role="tab" class="ds_tab__label" for="tab1">Organisations by sector</label></div>
-                    <div tabindex="0" id="tab1-content" class="ds_tab__content" role="tabpanel" aria-labelledby="tab1-label">
+                <div class="mg_tab-container  mg_tab-container--3" data-module="mg-tabs">
+                    <input class="mg_tab__radio" type="radio" checked="" name="tabs" id="tab1" />
+                    <div class="mg_tab__header"><label id="tab1-label" aria-controls="tab1-content" role="tab" class="mg_tab__label" for="tab1">Organisations by sector</label></div>
+                    <div tabindex="0" id="tab1-content" class="mg_tab__content" role="tabpanel" aria-labelledby="tab1-label">
                         <!--Org list by sector-->
                         <ul class="sectors">
                             <#list orgsBySector as orgAndSector>
@@ -58,9 +58,9 @@
                         </#list>
                     </div>
 
-                    <input class="ds_tab__radio" type="radio" name="tabs" id="tab2" />
-                    <div class="ds_tab__header"><label id="tab2-label" aria-controls="tab2-content" role="tab" class="ds_tab__label" for="tab2">Organisations by name</label></div>
-                    <div tabindex="0" id="tab2-content" class="ds_tab__content" role="tabpanel" aria-labelledby="tab2-label">
+                    <input class="mg_tab__radio" type="radio" name="tabs" id="tab2" />
+                    <div class="mg_tab__header"><label id="tab2-label" aria-controls="tab2-content" role="tab" class="mg_tab__label" for="tab2">Organisations by name</label></div>
+                    <div tabindex="0" id="tab2-content" class="mg_tab__content" role="tabpanel" aria-labelledby="tab2-label">
 
                         <#assign alph = 'abcdefghijklmnopqrstuvwxyz'?split('')>
                         <nav aria-label="organisations by letter" id="back-to-top">

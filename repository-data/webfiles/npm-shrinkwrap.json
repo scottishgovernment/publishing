@@ -5521,6 +5521,7 @@
                 "anymatch": "^2.0.0",
                 "async-each": "^1.0.1",
                 "braces": "^2.3.2",
+                "fsevents": "^1.2.7",
                 "glob-parent": "^3.1.0",
                 "inherits": "^2.0.3",
                 "is-binary-path": "^1.0.0",
@@ -8824,6 +8825,7 @@
                 "anymatch": "^2.0.0",
                 "async-each": "^1.0.1",
                 "braces": "^2.3.2",
+                "fsevents": "^1.2.7",
                 "glob-parent": "^3.1.0",
                 "inherits": "^2.0.3",
                 "is-binary-path": "^1.0.0",
@@ -9212,6 +9214,87 @@
           "integrity": "sha1-AI4G2AlDIMNy28L47XagymyKxBk="
         }
       }
+    },
+    "@types/karma": {
+      "version": "5.0.1",
+      "resolved": "http://nexus.digital.gov.uk/repository/npm-all/@types/karma/-/karma-5.0.1.tgz",
+      "integrity": "sha512-zSaPZ+ABVx/DQ5imAQZUITgLy19H0aAogknHU67JuDi2PvaXGjYBevFakkDtooBvr7dMsq/YD9vtOxMcSHWnxw==",
+      "dev": true,
+      "requires": {
+        "@types/node": "*",
+        "log4js": "^4.0.0"
+      },
+      "dependencies": {
+        "date-format": {
+          "version": "2.1.0",
+          "resolved": "http://nexus.digital.gov.uk/repository/npm-all/date-format/-/date-format-2.1.0.tgz",
+          "integrity": "sha512-bYQuGLeFxhkxNOF3rcMtiZxvCBAquGzZm6oWA1oZ0g2THUzivaRhv8uOhdr19LmoobSOLoIAxeUK2RdbM8IFTA==",
+          "dev": true
+        },
+        "fs-extra": {
+          "version": "7.0.1",
+          "resolved": "http://nexus.digital.gov.uk/repository/npm-all/fs-extra/-/fs-extra-7.0.1.tgz",
+          "integrity": "sha512-YJDaCJZEnBmcbw13fvdAM9AwNOJwOzrE4pqMqBq5nFiEqXUqHwlK4B+3pUw6JNvfSPtX05xFHtYy/1ni01eGCw==",
+          "dev": true,
+          "requires": {
+            "graceful-fs": "^4.1.2",
+            "jsonfile": "^4.0.0",
+            "universalify": "^0.1.0"
+          }
+        },
+        "jsonfile": {
+          "version": "4.0.0",
+          "resolved": "http://nexus.digital.gov.uk/repository/npm-all/jsonfile/-/jsonfile-4.0.0.tgz",
+          "integrity": "sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=",
+          "dev": true,
+          "requires": {
+            "graceful-fs": "^4.1.6"
+          }
+        },
+        "log4js": {
+          "version": "4.5.1",
+          "resolved": "http://nexus.digital.gov.uk/repository/npm-all/log4js/-/log4js-4.5.1.tgz",
+          "integrity": "sha512-EEEgFcE9bLgaYUKuozyFfytQM2wDHtXn4tAN41pkaxpNjAykv11GVdeI4tHtmPWW4Xrgh9R/2d7XYghDVjbKKw==",
+          "dev": true,
+          "requires": {
+            "date-format": "^2.0.0",
+            "debug": "^4.1.1",
+            "flatted": "^2.0.0",
+            "rfdc": "^1.1.4",
+            "streamroller": "^1.0.6"
+          }
+        },
+        "streamroller": {
+          "version": "1.0.6",
+          "resolved": "http://nexus.digital.gov.uk/repository/npm-all/streamroller/-/streamroller-1.0.6.tgz",
+          "integrity": "sha512-3QC47Mhv3/aZNFpDDVO44qQb9gwB9QggMEE0sQmkTAwBVYdBRWISdsywlkfm5II1Q5y/pmrHflti/IgmIzdDBg==",
+          "dev": true,
+          "requires": {
+            "async": "^2.6.2",
+            "date-format": "^2.0.0",
+            "debug": "^3.2.6",
+            "fs-extra": "^7.0.1",
+            "lodash": "^4.17.14"
+          },
+          "dependencies": {
+            "debug": {
+              "version": "3.2.7",
+              "resolved": "http://nexus.digital.gov.uk/repository/npm-all/debug/-/debug-3.2.7.tgz",
+              "integrity": "sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==",
+              "dev": true,
+              "requires": {
+                "ms": "^2.1.1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "@types/node": {
+      "version": "16.11.7",
+      "resolved": "http://nexus.digital.gov.uk/repository/npm-all/@types/node/-/node-16.11.7.tgz",
+      "integrity": "sha512-QB5D2sqfSjCmTuWcBWyJ+/44bcjO7VbjSbOE0ucoVbAsSNQc4Lt6QkgkVXkTDwkL4z/beecZNDvVX15D4P8Jbw==",
+      "dev": true
     },
     "@types/q": {
       "version": "1.5.2",
@@ -9980,7 +10063,6 @@
       "version": "1.5.0",
       "resolved": "https://registry.npmjs.org/bindings/-/bindings-1.5.0.tgz",
       "integrity": "sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==",
-      "dev": true,
       "optional": true,
       "requires": {
         "file-uri-to-path": "1.0.0"
@@ -11763,7 +11845,6 @@
       "version": "1.0.0",
       "resolved": "https://registry.npmjs.org/file-uri-to-path/-/file-uri-to-path-1.0.0.tgz",
       "integrity": "sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==",
-      "dev": true,
       "optional": true
     },
     "fill-range": {
@@ -11959,7 +12040,6 @@
       "version": "1.2.13",
       "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-1.2.13.tgz",
       "integrity": "sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==",
-      "dev": true,
       "optional": true,
       "requires": {
         "bindings": "^1.5.0",
@@ -12887,6 +12967,12 @@
         "graceful-fs": "^4.1.6"
       }
     },
+    "jsonschema": {
+      "version": "1.4.0",
+      "resolved": "http://nexus.digital.gov.uk/repository/npm-all/jsonschema/-/jsonschema-1.4.0.tgz",
+      "integrity": "sha512-/YgW6pRMr6M7C+4o8kS+B/2myEpHCrxO4PEWnqJNBFMjn7EWXqlQ4tGwL6xTHeRplwuZmcAncdvfOad1nT2yMw==",
+      "dev": true
+    },
     "jsprim": {
       "version": "1.4.1",
       "resolved": "https://registry.npmjs.org/jsprim/-/jsprim-1.4.1.tgz",
@@ -13046,6 +13132,16 @@
       "resolved": "https://registry.npmjs.org/karma-jquery/-/karma-jquery-0.2.4.tgz",
       "integrity": "sha512-NkEzqc+ulVlOASeQRZh07wB4mv1yUUQPp5natoqcTxl+oXwIB0Hu4/g3uCIJLzvEydAxD7IxWLhZuqIigsdBOQ==",
       "dev": true
+    },
+    "karma-viewport": {
+      "version": "1.0.8",
+      "resolved": "http://nexus.digital.gov.uk/repository/npm-all/karma-viewport/-/karma-viewport-1.0.8.tgz",
+      "integrity": "sha512-KIN8zteDBmvh5Fvac/jet05cEtT+dag583DlSTMGKNvdib9NM2dMWWA/u1zfnkHxSQEQVE/zyxlqBgmOTqdqQg==",
+      "dev": true,
+      "requires": {
+        "@types/karma": "^5.0.0",
+        "jsonschema": "^1.2.6"
+      }
     },
     "karma-webpack": {
       "version": "4.0.2",
@@ -13647,7 +13743,6 @@
       "version": "2.15.0",
       "resolved": "https://registry.npmjs.org/nan/-/nan-2.15.0.tgz",
       "integrity": "sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ==",
-      "dev": true,
       "optional": true
     },
     "nanomatch": {
@@ -16118,6 +16213,12 @@
       "requires": {
         "imurmurhash": "^0.1.4"
       }
+    },
+    "universalify": {
+      "version": "0.1.2",
+      "resolved": "http://nexus.digital.gov.uk/repository/npm-all/universalify/-/universalify-0.1.2.tgz",
+      "integrity": "sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==",
+      "dev": true
     },
     "unpipe": {
       "version": "1.0.0",

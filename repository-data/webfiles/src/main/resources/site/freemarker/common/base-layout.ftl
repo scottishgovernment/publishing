@@ -81,8 +81,6 @@
             </div>
         </div>
 
-        <#include "breakpoint-tests.ftl">
-
         <@hst.headContributions categoryIncludes="footerScripts" xhtml=true/>
 
         <script async defer src="https://sa.mygov.scot/app.js"></script>

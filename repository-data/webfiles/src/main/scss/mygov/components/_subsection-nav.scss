@@ -18,7 +18,7 @@
   }
 
   .subsection-nav__content {
-    @include media-query(medium-down) {
+    @include ds_media-query(medium-down) {
       padding-top: 32px;
     }
   }
@@ -161,7 +161,7 @@
     }
   }
 
-  @include media-query(medium) {
+  @include ds_media-query(medium) {
 
     .subsection-nav {
       &--section-nav {
@@ -248,7 +248,7 @@
       }
   }
 
-  @include media-query(large) {
+  @include ds_media-query(large) {
       ol.subsection-nav__list
         .subsection-nav__item {
           a:before,

@@ -24,7 +24,7 @@
     display: none;
 }
 
-@include media-query(xlarge) {
+@include ds_media-query(xlarge) {
     .section-nav__link {
         display: inline-block;
         padding: 8px 16px;
@@ -113,7 +113,7 @@ span.section-nav__item {
     }
 }
 
-@include media-query(medium-down) {
+@include ds_media-query(medium-down) {
     .section-nav {
         overflow-x: scroll;
         border-bottom-width: 4px;

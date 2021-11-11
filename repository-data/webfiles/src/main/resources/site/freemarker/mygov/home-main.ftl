@@ -48,7 +48,7 @@
                                 <span class="small">of Scotland's<br>organisations</span>
                             </span>
 
-                            <span class="ds_icon mg_hero-az__icon"></span>
+                            <span class="mg_hero-az__icon"></span>
                         </a>
 
                     </div>

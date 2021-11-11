@@ -7,9 +7,10 @@
 
 import $ from 'jquery';
 import './usertype';
-import storage from './tools/storage';
 import NotificationBanner from './components/notification';
+import storage from './tools/storage';
 import finders from './components/content-select';
+import Tabs from './components/mygov/old-ds-tabs';
 import './vendor/polyfills';
 
 import '../../../node_modules/@scottish-government/pattern-library/src/all';
@@ -130,8 +131,8 @@ const global = {
             mobileTables.init();
         }
 
-        const tabSets = [].slice.call(document.querySelectorAll('[data-module="ds-tabs"]'));
-        tabSets.forEach(tabSet => new window.DS.components.Tabs(tabSet).init());
+        const tabSets = [].slice.call(document.querySelectorAll('[data-module="mg-tabs"]'));
+        tabSets.forEach(tabSet => new Tabs(tabSet).init());
 
         window.DS.components.skipLinks.init();
     },

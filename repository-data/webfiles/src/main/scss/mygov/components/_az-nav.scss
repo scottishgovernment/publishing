@@ -4,7 +4,7 @@
     max-width: 640px;
     text-align: center;
 
-    @include layout(8px);
+    @include ds_layout(8px);
     margin-right: auto;
 
     &__link {
@@ -29,11 +29,11 @@
     }
 }
 
-@include media-query(medium) {
+@include ds_media-query(medium) {
     .az-nav {
         &__item {
             float: left;
-            @include colwidth(1, 13, 8px);
+            @include ds_colwidth(1, 13, 8px);
         }
     }
 }
@@ -47,7 +47,7 @@
     margin-left: 0;
 
     &__item {
-        @include layout;
+        @include ds_layout;
 
         &:not(:last-child) {
             border-bottom: 1px solid $ds_colour__border--light;
@@ -65,7 +65,7 @@
 
         clear: left;
         float: left;
-        @include colwidth(2);
+        @include ds_colwidth(2);
     }
 
     &__sublist {
@@ -73,7 +73,7 @@
 
         float: left;
         margin-left: 0;
-        @include colwidth(10);
+        @include ds_colwidth(10);
     }
 }
 

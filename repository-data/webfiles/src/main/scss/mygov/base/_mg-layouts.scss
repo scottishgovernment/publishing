@@ -8,23 +8,23 @@ $site-prefix: 'mg_';
 
 }
 
-@include media-query(medium) {
+@include ds_media-query(medium) {
     .#{$site-prefix}layout {
         &--org-hub {
             > .ds_layout {
                 &__header {
                     float: left;
-                    @include colwidth(8);
+                    @include ds_colwidth(8);
                 }
 
                 &__partner {
                     float: left;
-                    @include colwidth(4);
+                    @include ds_colwidth(4);
                 }
 
                 &__content {
                     clear: left;
-                    @include colwidth(8);
+                    @include ds_colwidth(8);
                 }
             }
         }
@@ -33,44 +33,44 @@ $site-prefix: 'mg_';
             > .ds_layout {
                 &__section-progress {
                     clear: both;
-                    @include colwidth(12);
+                    @include ds_colwidth(12);
                 }
 
                 &__subsection-progress {
                     float: left;
-                    @include colwidth(3);
+                    @include ds_colwidth(3);
                 }
 
                 &__form-content {
                     float: left;
-                    @include colwidth(9);
+                    @include ds_colwidth(9);
                 }
 
                 &__feedback {
-                    @include colwidth(9);
+                    @include ds_colwidth(9);
                 }
 
                 &__sidebar {
                     clear: both;
-                    @include colwidth(9);
+                    @include ds_colwidth(9);
                 }
             }
         }
     }
 }
 
-@include media-query(large) {
+@include ds_media-query(large) {
     .#{$site-prefix}layout {
         &--org-hub {
             > .ds_layout {
                 &__contact {
                     float: left;
-                    @include colwidth(8);
+                    @include ds_colwidth(8);
                 }
 
                 &__connect {
                     float: left;
-                    @include colwidth(4);
+                    @include ds_colwidth(4);
                 }
             }
         }
@@ -79,25 +79,25 @@ $site-prefix: 'mg_';
             > .ds_layout {
                 &__section-progress {
                     clear: both;
-                    @include colwidth(10);
+                    @include ds_colwidth(10);
                 }
 
                 &__subsection-progress {
                     float: left;
-                    @include colwidth(3);
+                    @include ds_colwidth(3);
                 }
 
                 &__form-content {
                     float: left;
-                    @include colwidth(7);
+                    @include ds_colwidth(7);
                 }
 
                 &__feedback {
-                    @include colwidth(7);
+                    @include ds_colwidth(7);
                 }
 
                 &__sidebar {
-                    @include colwidth(7);
+                    @include ds_colwidth(7);
                 }
             }
         }
@@ -207,7 +207,7 @@ $site-prefix: 'mg_';
         }
     }
 
-    @include media-query(small) {
+    @include ds_media-query(small) {
         .#{$site-prefix}layout {
             &--paged-form {
                 grid-template-areas:
@@ -242,7 +242,7 @@ $site-prefix: 'mg_';
         }
     }
 
-    @include media-query(medium) {
+    @include ds_media-query(medium) {
         .#{$site-prefix}layout {
             &--paged-form {
                 grid-template-areas:
@@ -274,7 +274,7 @@ $site-prefix: 'mg_';
         }
     }
 
-    @include media-query(large) {
+    @include ds_media-query(large) {
         .#{$site-prefix}layout {
             &--paged-form {
                 grid-template-areas:
@@ -295,7 +295,7 @@ $site-prefix: 'mg_';
         }
     }
 
-    @include media-query(xlarge) {
+    @include ds_media-query(xlarge) {
         .#{$site-prefix}layout {
             &--org-hub {
                 grid-template-areas:
@@ -312,13 +312,13 @@ $site-prefix: 'mg_';
 }
 
 .ds_cols {
-    @include layout();
+    @include ds_layout();
 
     &--2 {
-        @include media-query(large) {
+        @include ds_media-query(large) {
             > * {
                 float: left;
-                @include colwidth(6);
+                @include ds_colwidth(6);
 
                 &:nth-child(2n-1) {
                     clear: left;
@@ -328,10 +328,10 @@ $site-prefix: 'mg_';
     }
 
     &--4 {
-        @include media-query(small) {
+        @include ds_media-query(small) {
             > * {
                 float: left;
-                @include colwidth(6);
+                @include ds_colwidth(6);
 
                 &:nth-child(2n+1) {
                     clear: left;
@@ -339,10 +339,10 @@ $site-prefix: 'mg_';
             }
         }
 
-        @include media-query(large) {
+        @include ds_media-query(large) {
             > * {
                 float: left;
-                @include colwidth(3);
+                @include ds_colwidth(3);
 
                 &:nth-child(2n+1) {
                     clear: none;
@@ -358,17 +358,17 @@ $site-prefix: 'mg_';
 
 @supports(display: grid) {
     .ds_cols--2 {
-        @include media-query(large) {
+        @include ds_media-query(large) {
             grid-template-columns: repeat(2, 1fr);
         }
     }
 
     .ds_cols--4 {
-        @include media-query(small) {
+        @include ds_media-query(small) {
             grid-template-columns: repeat(2, 1fr);
         }
 
-        @include media-query(large) {
+        @include ds_media-query(large) {
             grid-template-columns: repeat(4, 1fr);
         }
     }
