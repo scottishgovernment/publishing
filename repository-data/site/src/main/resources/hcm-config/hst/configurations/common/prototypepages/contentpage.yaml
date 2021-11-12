@@ -1,11 +1,11 @@
 definitions:
   config:
-    /hst:hst/hst:configurations/ddat/hst:prototypepages/contentpage:
+    /hst:hst/hst:configurations/common/hst:prototypepages/contentpage:
       jcr:primaryType: hst:component
       jcr:mixinTypes: ['hst:prototypemeta']
       hst:displayname: Simple Content Page
-      hst:referencecomponent: hst:abstractpages/base
       hst:primarycontainer: main
+      hst:referencecomponent: hst:abstractpages/base
       /main:
         jcr:primaryType: hst:containercomponent
         hippo:identifier: 47294c29-0d50-45ca-aba5-d2c7400f2946

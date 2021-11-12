@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hst:hst/hst:configurations/ddat:
+    /hst:hst/hst:configurations/privatetenancy:
       jcr:primaryType: hst:configuration
       hst:inheritsfrom: [../common]
       /hst:abstractpages:
@@ -21,39 +21,24 @@ definitions:
           hst:pagetitle: Home page
           hst:refId: root
           hst:relativecontentpath: ''
-        /vacancies:
-          jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/vacancylist
-          hst:pagetitle: List of jobs
-          hst:relativecontentpath: /seo/vacancies
-          /_any_:
-            jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/vacancypage
-            hst:relativecontentpath: vacancies/${1}
       /hst:sitemenus:
         jcr:primaryType: hst:sitemenus
       /hst:templates:
         jcr:primaryType: hst:templates
-        /vacancy:
-          jcr:primaryType: hst:template
-          hst:renderpath: webfile:/freemarker/ddat/vacancy.ftl
-        /vacancylist:
-          jcr:primaryType: hst:template
-          hst:renderpath: webfile:/freemarker/ddat/vacancylist.ftl
       /hst:workspace:
         jcr:primaryType: hst:workspace
         jcr:mixinTypes: ['dxphst:mergeable']
-        dxphst:treehash: B4D17F0FC44A115A91D81616A4D661F4
+        dxphst:treehash: 01A66A84AF0DFF985EAD7F449D3C1356
         /hst:channel:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:channel
-          hst:name: DDaT
+          hst:name: Private tenancy
           hst:type: website
           hst:channelinfoclass: scot.mygov.publishing.channels.WebsiteInfo
           hst:lastmodifiedby: admin
           hst:defaultdevice: default
           hst:devices: []
-          hst:lastmodified: 2021-07-29T13:31:55.630+01:00
+          hst:lastmodified: 2021-11-12T16:54:01.900Z
         /hst:containers:
           jcr:primaryType: hst:containercomponentfolder
           /homepage:
@@ -64,16 +49,7 @@ definitions:
               hippo:identifier: c40fc6e0-083e-456c-81f4-b38f4c20e3ce
               hst:label: Home page main
               hst:xtype: hst.vbox
-              hst:lastmodified: 2021-09-21T13:28:40.152+01:00
-          /vacancylist:
-            jcr:primaryType: hst:containercomponentfolder
-            /main:
-              .meta:residual-child-node-category: content
-              jcr:primaryType: hst:containercomponent
-              hippo:identifier: 514d56ef4905403f9c9b5041fefe289f
-              hst:label: Vacancy page main
-              hst:lastmodified: 2021-07-29T13:32:10.206+01:00
-              hst:xtype: hst.vbox
+              hst:lastmodified: 2021-11-12T16:57:29.120Z
         /hst:pages:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:pages

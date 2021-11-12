@@ -136,6 +136,21 @@ definitions:
           /fragments:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/fragments.ftl
+          /campaign-base-layout-with-main-content:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/campaign-base-layout-with-main-content.ftl
+          /template-home-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/ddat/home-main.ftl
+          /site-navigation:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/site-navigation.ftl
+          /site-navigation-mobile:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/site-navigation-mobile.ftl
+          /campaign-home-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/campaign-home-main.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
@@ -145,6 +160,62 @@ definitions:
             hst:sitemapitemhandlerclassname: scot.mygov.publishing.sitemap.TrailingSlashRedirect
         /hst:catalog:
           jcr:primaryType: hst:catalog
+          /publishing-catalog:
+            jcr:primaryType: hst:containeritempackage
+            /divider:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.DividerComponent
+              hst:iconpath: icons/divider.svg
+              hst:label: Divider
+              hst:template: divider
+            /header:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.HeaderComponent
+              hst:iconpath: icons/header.svg
+              hst:label: Header
+              hst:template: header
+            /imageandtext:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.ImageAndTextComponent
+              hst:iconpath: icons/imageandtext.svg
+              hst:label: Image and text
+              hst:template: imageandtext
+            /video:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.VideoComponent
+              hst:iconpath: icons/video.svg
+              hst:label: Video
+              hst:template: video
+            /threeimagecards:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.ThreeImageCardsComponent
+              hst:iconpath: icons/threeimagecards.svg
+              hst:label: 3 image cards
+              hst:template: threeimagecards
+            /text:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.TextComponent
+              hst:iconpath: icons/text.svg
+              hst:label: Text
+              hst:template: text
+            /doubletext:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.DoubleTextComponent
+              hst:iconpath: icons/doubletext.svg
+              hst:label: Double text
+              hst:template: doubletext
+            /seo:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.SEOComponent
+              hst:iconpath: icons/seo.svg
+              hst:label: SEO
+              hst:template: seo
+            /pageheading:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.PageheadingComponent
+              hst:iconpath: icons/pageheader.svg
+              hst:label: Page Header
+              hst:template: pageheader
       /publishing:
         jcr:primaryType: hst:configuration
         hst:inheritsfrom: [../common]
