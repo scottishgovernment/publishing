@@ -1,9 +1,9 @@
 definitions:
   config:
-    /hst:hst/hst:configurations/ddat/hst:abstractpages/base:
+    /hst:hst/hst:configurations/common/hst:abstractpages/campaign-base:
       jcr:primaryType: hst:component
       hst:componentclassname: scot.mygov.publishing.components.DetermineStylingComponent
-      hst:template: base-layout-with-main-content
+      hst:template: campaign-base-layout-with-main-content
       /notifications:
         jcr:primaryType: hst:component
         hst:componentclassname: scot.mygov.publishing.components.NotificationBannersComponent
