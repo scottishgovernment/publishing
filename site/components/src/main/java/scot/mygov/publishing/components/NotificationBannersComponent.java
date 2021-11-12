@@ -19,7 +19,6 @@ public class NotificationBannersComponent extends BaseHstComponent {
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response){
-
         HippoFolder bannersFolder = folder(request, "site-furniture/banners");
         HippoBean contentBean = request.getRequestContext().getContentBean();
 
@@ -54,6 +53,9 @@ public class NotificationBannersComponent extends BaseHstComponent {
     }
 
     static boolean showBanner(NotificationBanner banner, HippoBean contentBean)  {
+        if (contentBean == null) {
+            return true;
+        }
         return banner.getExcluded()
                 .stream()
                 .noneMatch(b -> b.isSelf(contentBean));
