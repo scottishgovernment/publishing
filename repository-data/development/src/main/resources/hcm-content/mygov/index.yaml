@@ -1,9 +1,9 @@
 /content/documents/mygov/index:
-  .meta:order-before: brexit
+  .meta:order-before: browse
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 006de33e-39bb-48be-81ad-2cfda0c12f21
-  hippo:versionHistory: 9d0f3e15-97a4-42f3-bd4e-1abb118c0162
+  hippo:versionHistory: f0357508-1232-4479-80e4-4eb2741d666a
   /index[1]:
     jcr:primaryType: publishing:home
     jcr:mixinTypes: ['mix:referenceable']
@@ -13,7 +13,7 @@
     hippostd:state: draft
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-09-30T08:32:42.313+01:00
-    hippostdpubwf:lastModificationDate: 2021-09-15T15:21:35.783+01:00
+    hippostdpubwf:lastModificationDate: 2021-11-18T08:17:49.644Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 1ac63381-45ac-4631-9716-9c765cabb404
     hippotranslation:locale: document-type-locale
@@ -39,60 +39,10 @@
       hippo:values: []
     /publishing:prologue:
       jcr:primaryType: hippostd:html
-      hippostd:content: |-
-        <p>Prologue with a fragment in it.</p>
-
-        <p><a href="test-fragment-1" class="fragment">fragment is here</a></p>
-
-        <p><a href="test-fragment-1_2" class="fragment">link</a></p>
-
-        <p><a href="vq-address" class="fragment">nother</a></p>
-      /test-fragment-1:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /test-fragment-1_2:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /vq-address:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
+      hippostd:content: ''
     /publishing:epilogue:
       jcr:primaryType: hippostd:html
-      hippostd:content: |-
-        <p>Epilogue with a fragment in it.</p>
-
-        <p><a href="test-fragment-1" class="fragment">fragment is here</a></p>
-
-        <p><a href="index">svxcv</a></p>
-
-        <p><a href="vq-address" class="fragment">xcvxcvxcv</a></p>
-      /test-fragment-1:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /index:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 006de33e-39bb-48be-81ad-2cfda0c12f21
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /vq-address:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
+      hippostd:content: ''
   /index[2]:
     jcr:primaryType: publishing:home
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -102,7 +52,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-09-30T08:32:42.313+01:00
-    hippostdpubwf:lastModificationDate: 2021-09-15T15:21:35.397+01:00
+    hippostdpubwf:lastModificationDate: 2021-11-18T08:18:07.841Z
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 1ac63381-45ac-4631-9716-9c765cabb404
     hippotranslation:locale: document-type-locale
@@ -128,60 +78,10 @@
       hippo:values: []
     /publishing:prologue:
       jcr:primaryType: hippostd:html
-      hippostd:content: |-
-        <p>Prologue with a fragment in it.</p>
-
-        <p><a href="test-fragment-1" class="fragment">fragment is here</a></p>
-
-        <p><a href="test-fragment-1_2" class="fragment">link</a></p>
-
-        <p><a href="vq-address" class="fragment">nother</a></p>
-      /test-fragment-1:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /test-fragment-1_2:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /vq-address:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
+      hippostd:content: ''
     /publishing:epilogue:
       jcr:primaryType: hippostd:html
-      hippostd:content: |-
-        <p>Epilogue with a fragment in it.</p>
-
-        <p><a href="test-fragment-1" class="fragment">fragment is here</a></p>
-
-        <p><a href="index">svxcv</a></p>
-
-        <p><a href="vq-address" class="fragment">xcvxcvxcv</a></p>
-      /test-fragment-1:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /index:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 006de33e-39bb-48be-81ad-2cfda0c12f21
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /vq-address:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
+      hippostd:content: ''
   /index[3]:
     jcr:primaryType: publishing:home
     jcr:mixinTypes: ['mix:referenceable']
@@ -191,9 +91,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-09-30T08:32:42.313+01:00
-    hippostdpubwf:lastModificationDate: 2021-09-15T11:08:54.945+01:00
+    hippostdpubwf:lastModificationDate: 2021-11-18T08:18:07.841Z
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2021-09-15T11:08:56.966+01:00
+    hippostdpubwf:publicationDate: 2021-11-18T08:18:09.952Z
     hippotranslation:id: 1ac63381-45ac-4631-9716-9c765cabb404
     hippotranslation:locale: document-type-locale
     publishing:authorNotes: ''
@@ -206,7 +106,7 @@
     publishing:showSummaries: false
     publishing:summary: mygov.scot is the place for people in Scotland to access public
       services that are easy to find and simple to use.
-    publishing:title: Access to public services in Scotland
+    publishing:title: Access to public services in Scotland 2
     /publishing:content:
       jcr:primaryType: hippostd:html
       hippostd:content: ''
@@ -218,27 +118,7 @@
       hippo:values: []
     /publishing:prologue:
       jcr:primaryType: hippostd:html
-      hippostd:content: |-
-        <p>Prologue with a fragment in it.</p>
-
-        <p><a href="test-fragment-1" class="fragment">fragment is here</a></p>
-      /test-fragment-1:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
+      hippostd:content: ''
     /publishing:epilogue:
       jcr:primaryType: hippostd:html
-      hippostd:content: |-
-        <p>Epilogue with a fragment in it.</p>
-
-        <p><a href="test-fragment-1" class="fragment">fragment is here</a></p>
-
-        <p>&nbsp;</p>
-      /test-fragment-1:
-        jcr:primaryType: hippo:facetselect
-        hippo:docbase: 7d50c719-265e-496a-96ed-d78987d8ebe3
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
+      hippostd:content: ''

@@ -11,7 +11,8 @@
     jcr:uuid: 0dc5a7ac-c81f-4aae-960a-e569877b3248
     hippo:name: Mammals
     hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer]
+      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer,
+      new-fragment-folder]
     /index:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -145,7 +146,8 @@
       jcr:uuid: ee74d086-dfd7-4d31-87d2-4bccc41fcc8e
       hippo:name: Prototheria
       hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-        new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer]
+        new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer,
+        new-fragment-folder]
       /index:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -294,13 +296,12 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 7d182bad-7295-44ae-961e-8e25f3554b23
         hippo:name: Echidna
-        hippo:versionHistory: b65d6944-1f3f-4755-8e19-f46db4f9fe0c
+        hippo:versionHistory: 1b1cb160-72eb-4f55-8f31-39bec3d223e8
         /echidna[1]:
           jcr:primaryType: publishing:article
           jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
           jcr:uuid: 5879ec41-6d6f-4611-9e07-46b1e24eab13
           hippo:availability: []
-          hippostd:holder: admin
           hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
@@ -331,12 +332,8 @@
             hippostd:content: |-
               <p><strong>chidnas</strong>&nbsp;(<a href="https://en.wikipedia.org/wiki/Help:IPA/English" title="Help:IPA/English">/ɪˈkɪdnə/</a>), sometimes known as&nbsp;<strong>spiny anteaters</strong>,<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-pwstSBE-1">[1]</a></sup>&nbsp;belong to the&nbsp;<a href="https://en.wikipedia.org/wiki/Family_(biology)" title="Family (biology)">family</a>&nbsp;<strong>Tachyglossidae</strong>&nbsp;in the&nbsp;<a href="https://en.wikipedia.org/wiki/Monotreme" title="Monotreme">monotreme</a>&nbsp;order of&nbsp;<a href="https://en.wikipedia.org/wiki/Egg_(biology)" title="Egg (biology)">egg</a>-laying&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>. The four&nbsp;<a href="https://en.wikipedia.org/wiki/Extant_taxon" title="Extant taxon">extant</a>&nbsp;species of echidnas and the&nbsp;<a href="https://en.wikipedia.org/wiki/Platypus" title="Platypus">platypus</a>&nbsp;are the&nbsp;</p>
 
-              <div data-uuid="7d50c719-265e-496a-96ed-d78987d8ebe3" href="http://" class="fragment">FRGMNT</div>
-
               <p>only living mammals that lay <a href="test-fragment-1" class="ds_cms-fragment">eggs</a> and the only surviving<br />
               members of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;Monotremata.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-nwf03-2">[2]</a></sup>&nbsp;The diet of so</p>
-
-              <div data-uuid="1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d" class="fragment">1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d</div>
 
               <p><br />
               me species consists of ants and termites, but they are not closely related to the&nbsp;<a href="https://en.wikipedia.org/wiki/Anteater" title="Anteater">true anteaters</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Americas" title="Americas">Americas</a>, which 7d50c719-265e-496a-96ed-d78987d8ebe3 are&nbsp;<a href="https://en.wikipedia.org/wiki/Xenarthra" title="Xenarthra">xenarthrans</a>, along with&nbsp;<a href="https://en.wikipedia.org/wiki/Sloth" title="Sloth">sloths</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/Cingulata" title="Cingulata">armadillos</a>. Echidnas live in&nbsp;<a href="https://en.wikipedia.org/wiki/Australia" title="Australia">Australia</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/New_Guinea" title="New Guinea">New Guinea</a>.</p>
@@ -366,7 +363,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T09:26:57.390+01:00
-          hippostdpubwf:lastModificationDate: 2021-09-21T17:01:43.590+01:00
+          hippostdpubwf:lastModificationDate: 2021-11-18T08:19:56.409Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 58859a8b-dd8c-45d5-9770-b3f56715a05d
           hippotranslation:locale: document-type-locale
@@ -392,12 +389,8 @@
             hippostd:content: |-
               <p><strong>chidnas</strong>&nbsp;(<a href="https://en.wikipedia.org/wiki/Help:IPA/English" title="Help:IPA/English">/ɪˈkɪdnə/</a>), sometimes known as&nbsp;<strong>spiny anteaters</strong>,<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-pwstSBE-1">[1]</a></sup>&nbsp;belong to the&nbsp;<a href="https://en.wikipedia.org/wiki/Family_(biology)" title="Family (biology)">family</a>&nbsp;<strong>Tachyglossidae</strong>&nbsp;in the&nbsp;<a href="https://en.wikipedia.org/wiki/Monotreme" title="Monotreme">monotreme</a>&nbsp;order of&nbsp;<a href="https://en.wikipedia.org/wiki/Egg_(biology)" title="Egg (biology)">egg</a>-laying&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>. The four&nbsp;<a href="https://en.wikipedia.org/wiki/Extant_taxon" title="Extant taxon">extant</a>&nbsp;species of echidnas and the&nbsp;<a href="https://en.wikipedia.org/wiki/Platypus" title="Platypus">platypus</a>&nbsp;are the&nbsp;</p>
 
-              <div data-uuid="7d50c719-265e-496a-96ed-d78987d8ebe3" href="http://" class="fragment">FRGMNT</div>
-
               <p>only living mammals that lay <a href="test-fragment-1" class="ds_cms-fragment">eggs</a> and the only surviving<br />
               members of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;Monotremata.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-nwf03-2">[2]</a></sup>&nbsp;The diet of so</p>
-
-              <div data-uuid="1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d" class="fragment">1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d</div>
 
               <p><br />
               me species consists of ants and termites, but they are not closely related to the&nbsp;<a href="https://en.wikipedia.org/wiki/Anteater" title="Anteater">true anteaters</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Americas" title="Americas">Americas</a>, which 7d50c719-265e-496a-96ed-d78987d8ebe3 are&nbsp;<a href="https://en.wikipedia.org/wiki/Xenarthra" title="Xenarthra">xenarthrans</a>, along with&nbsp;<a href="https://en.wikipedia.org/wiki/Sloth" title="Sloth">sloths</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/Cingulata" title="Cingulata">armadillos</a>. Echidnas live in&nbsp;<a href="https://en.wikipedia.org/wiki/Australia" title="Australia">Australia</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/New_Guinea" title="New Guinea">New Guinea</a>.</p>
@@ -427,9 +420,9 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T09:26:57.390+01:00
-          hippostdpubwf:lastModificationDate: 2021-09-21T17:01:43.590+01:00
+          hippostdpubwf:lastModificationDate: 2021-11-18T08:19:56.409Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2021-09-21T17:01:46.404+01:00
+          hippostdpubwf:publicationDate: 2021-11-18T08:19:58.765Z
           hippotranslation:id: 58859a8b-dd8c-45d5-9770-b3f56715a05d
           hippotranslation:locale: document-type-locale
           publishing:audience: ''
@@ -454,12 +447,8 @@
             hippostd:content: |-
               <p><strong>chidnas</strong>&nbsp;(<a href="https://en.wikipedia.org/wiki/Help:IPA/English" title="Help:IPA/English">/ɪˈkɪdnə/</a>), sometimes known as&nbsp;<strong>spiny anteaters</strong>,<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-pwstSBE-1">[1]</a></sup>&nbsp;belong to the&nbsp;<a href="https://en.wikipedia.org/wiki/Family_(biology)" title="Family (biology)">family</a>&nbsp;<strong>Tachyglossidae</strong>&nbsp;in the&nbsp;<a href="https://en.wikipedia.org/wiki/Monotreme" title="Monotreme">monotreme</a>&nbsp;order of&nbsp;<a href="https://en.wikipedia.org/wiki/Egg_(biology)" title="Egg (biology)">egg</a>-laying&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>. The four&nbsp;<a href="https://en.wikipedia.org/wiki/Extant_taxon" title="Extant taxon">extant</a>&nbsp;species of echidnas and the&nbsp;<a href="https://en.wikipedia.org/wiki/Platypus" title="Platypus">platypus</a>&nbsp;are the&nbsp;</p>
 
-              <div data-uuid="7d50c719-265e-496a-96ed-d78987d8ebe3" href="http://" class="fragment">FRGMNT</div>
-
               <p>only living mammals that lay <a href="test-fragment-1" class="ds_cms-fragment">eggs</a> and the only surviving<br />
               members of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;Monotremata.<sup><a href="https://en.wikipedia.org/wiki/Echidna#cite_note-nwf03-2">[2]</a></sup>&nbsp;The diet of so</p>
-
-              <div data-uuid="1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d" class="fragment">1a7b55e4-ab32-42c7-8fe7-f0add6e3b94d</div>
 
               <p><br />
               me species consists of ants and termites, but they are not closely related to the&nbsp;<a href="https://en.wikipedia.org/wiki/Anteater" title="Anteater">true anteaters</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Americas" title="Americas">Americas</a>, which 7d50c719-265e-496a-96ed-d78987d8ebe3 are&nbsp;<a href="https://en.wikipedia.org/wiki/Xenarthra" title="Xenarthra">xenarthrans</a>, along with&nbsp;<a href="https://en.wikipedia.org/wiki/Sloth" title="Sloth">sloths</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/Cingulata" title="Cingulata">armadillos</a>. Echidnas live in&nbsp;<a href="https://en.wikipedia.org/wiki/Australia" title="Australia">Australia</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/New_Guinea" title="New Guinea">New Guinea</a>.</p>
@@ -634,7 +623,8 @@
       jcr:uuid: d315066b-2e0b-41f7-a4c9-67474c2b2f4b
       hippo:name: Theriiformes
       hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-        new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer]
+        new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer,
+        new-fragment-folder]
       /index:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -781,13 +771,13 @@
         hippo:name: Ungulate
         hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
           new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent,
-          new-publishing-smartanswer]
+          new-publishing-smartanswer, new-fragment-folder]
         /index:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
           jcr:uuid: 7265a957-79ee-49cb-af1d-298705af0516
           hippo:name: Ungulate
-          hippo:versionHistory: 69917ca1-418c-43bd-aa8c-91b9d4a85114
+          hippo:versionHistory: c32da5c2-16ed-4075-b702-0fd870ba6f9e
           /index[1]:
             jcr:primaryType: publishing:category
             jcr:mixinTypes: ['mix:versionable']
@@ -797,13 +787,13 @@
             hippostd:state: unpublished
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-09-30T09:29:57.322+01:00
-            hippostdpubwf:lastModificationDate: 2021-04-27T08:33:45.624+01:00
+            hippostdpubwf:lastModificationDate: 2021-11-18T08:23:13.307Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
             hippotranslation:locale: document-type-locale
             publishing:authorNotes: ''
-            publishing:metaDescription: Ungulates (pronounced /ˈʌŋɡjəleɪts/ UNG-gyə-layts)
-              are members of a diverse clade of primarily large mammals with hooves.
+            publishing:metaDescription: Ungulates (pronounced are members of a diverse
+              clade of primarily large mammals with hooves.
             publishing:navigationType: list
             publishing:reportingtags: []
             publishing:seoTitle: Ungulate
@@ -840,13 +830,13 @@
             hippostd:state: draft
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-09-30T09:29:57.322+01:00
-            hippostdpubwf:lastModificationDate: 2021-04-27T08:33:42.470+01:00
+            hippostdpubwf:lastModificationDate: 2021-11-18T08:22:52.333Z
             hippostdpubwf:lastModifiedBy: admin
             hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
             hippotranslation:locale: document-type-locale
             publishing:authorNotes: ''
-            publishing:metaDescription: Ungulates (pronounced /ˈʌŋɡjəleɪts/ UNG-gyə-layts)
-              are members of a diverse clade of primarily large mammals with hooves.
+            publishing:metaDescription: Ungulates (pronounced are members of a diverse
+              clade of primarily large mammals with hooves.
             publishing:navigationType: list
             publishing:reportingtags: []
             publishing:seoTitle: Ungulate
@@ -883,14 +873,14 @@
             hippostd:state: published
             hippostdpubwf:createdBy: admin
             hippostdpubwf:creationDate: 2020-09-30T09:29:57.322+01:00
-            hippostdpubwf:lastModificationDate: 2021-04-27T08:33:45.624+01:00
+            hippostdpubwf:lastModificationDate: 2021-11-18T08:23:13.307Z
             hippostdpubwf:lastModifiedBy: admin
-            hippostdpubwf:publicationDate: 2021-04-27T08:36:17.984+01:00
+            hippostdpubwf:publicationDate: 2021-11-18T08:23:14.952Z
             hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
             hippotranslation:locale: document-type-locale
             publishing:authorNotes: ''
-            publishing:metaDescription: Ungulates (pronounced /ˈʌŋɡjəleɪts/ UNG-gyə-layts)
-              are members of a diverse clade of primarily large mammals with hooves.
+            publishing:metaDescription: Ungulates (pronounced are members of a diverse
+              clade of primarily large mammals with hooves.
             publishing:navigationType: list
             publishing:reportingtags: []
             publishing:seoTitle: Ungulate
@@ -1524,7 +1514,7 @@
     jcr:uuid: 09021994-cc02-45cd-929a-add8230b9326
     hippo:name: Reptiles
     hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent]
+      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-fragment-folder]
     /index:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -1651,7 +1641,7 @@
       jcr:mixinTypes: ['hippo:named', 'mix:versionable']
       jcr:uuid: 577283ea-6544-49da-881e-4b0c1c8148bf
       hippo:name: Snakes
-      hippostd:foldertype: [new-publishing-guide-page]
+      hippostd:foldertype: [new-publishing-guide-page, new-fragment-folder]
       /index:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -2455,7 +2445,8 @@
     jcr:uuid: 8ec03b19-6fbe-4730-9f43-27e4e48eace5
     hippo:name: Beaky
     hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer]
+      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer,
+      new-fragment-folder]
     /index:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -2693,7 +2684,8 @@
     jcr:uuid: 13b7a691-4a6d-419b-8dd3-f3c02228d415
     hippo:name: Birds
     hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer]
+      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer,
+      new-fragment-folder]
     /index:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -3177,7 +3169,8 @@
     jcr:uuid: 99d2302d-1920-43c9-9c4c-cf5bab4d8634
     hippo:name: Flying
     hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer]
+      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer,
+      new-fragment-folder]
     /index:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -4504,174 +4497,6 @@
           /publishing:authorNotes:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
-  /frags:
-    jcr:primaryType: hippostd:folder
-    jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 2710911a-4310-4030-a448-86cba2ce9cea
-    hippostd:foldertype: [new-fragment-document]
-    /frag1:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 6ce7380e-1d87-4929-aa1a-3497d38c08b6
-      hippo:versionHistory: 520588f4-e99e-46a4-8462-5d7906e9c9f8
-      /frag1[1]:
-        jcr:primaryType: publishing:fragment
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 60c5d618-a713-4dd2-8701-aad1ea4dd387
-        hippo:availability: []
-        hippostd:holder: admin
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2021-09-30T11:43:13.141+01:00
-        hippostdpubwf:lastModificationDate: 2021-10-01T15:12:23.746+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: fcfa8bcd-42f3-4a26-8e01-1353a536dc7c
-        hippotranslation:locale: document-type-locale
-        publishing:authorNotes: ''
-        publishing:localauthorities: []
-        publishing:organisationtags: []
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: <p><strong>this is fragment 1</strong></p>
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:authorNotes:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-      /frag1[2]:
-        jcr:primaryType: publishing:fragment
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: 96bd236c-bc8a-420a-9e38-f1bcaf275440
-        hippo:availability: [preview]
-        hippostd:retainable: false
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2021-09-30T11:43:13.141+01:00
-        hippostdpubwf:lastModificationDate: 2021-09-30T11:43:24.835+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: fcfa8bcd-42f3-4a26-8e01-1353a536dc7c
-        hippotranslation:locale: document-type-locale
-        publishing:authorNotes: ''
-        publishing:localauthorities: []
-        publishing:organisationtags: []
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: <p><strong>this is fragment 1</strong></p>
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:authorNotes:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-      /frag1[3]:
-        jcr:primaryType: publishing:fragment
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 7f980c74-410e-4431-85d7-b01ca796ba9a
-        hippo:availability: [live]
-        hippostd:retainable: false
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2021-09-30T11:43:13.141+01:00
-        hippostdpubwf:lastModificationDate: 2021-09-30T11:43:24.835+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2021-09-30T11:43:27.852+01:00
-        hippotranslation:id: fcfa8bcd-42f3-4a26-8e01-1353a536dc7c
-        hippotranslation:locale: document-type-locale
-        publishing:authorNotes: ''
-        publishing:localauthorities: []
-        publishing:organisationtags: []
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: <p><strong>this is fragment 1</strong></p>
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:authorNotes:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-    /frag2:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 4d8cac44-b4e3-45d2-b088-2cad166852e5
-      hippo:versionHistory: dea2127e-232d-43e2-ac46-2b40ade84c9d
-      /frag2[1]:
-        jcr:primaryType: publishing:fragment
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 3eefceb8-b848-4a5d-821c-48991124a4b8
-        hippo:availability: []
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2021-09-30T11:43:35.208+01:00
-        hippostdpubwf:lastModificationDate: 2021-09-30T11:43:35.208+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: ce68d260-97e0-4e48-9e1e-f931c63a21d4
-        hippotranslation:locale: document-type-locale
-        publishing:authorNotes: ''
-        publishing:localauthorities: []
-        publishing:organisationtags: []
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: <p><strong>this is fragment2</strong></p>
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:authorNotes:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-      /frag2[2]:
-        jcr:primaryType: publishing:fragment
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: 7f69e739-0e96-464c-8c5e-8b6829f4794e
-        hippo:availability: [preview]
-        hippostd:retainable: false
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2021-09-30T11:43:35.208+01:00
-        hippostdpubwf:lastModificationDate: 2021-09-30T11:43:46.499+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: ce68d260-97e0-4e48-9e1e-f931c63a21d4
-        hippotranslation:locale: document-type-locale
-        publishing:authorNotes: ''
-        publishing:localauthorities: []
-        publishing:organisationtags: []
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: <p><strong>this is fragment2</strong></p>
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:authorNotes:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-      /frag2[3]:
-        jcr:primaryType: publishing:fragment
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 15996a6e-f918-46e3-ae74-1a19a605a3a8
-        hippo:availability: [live]
-        hippostd:retainable: false
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2021-09-30T11:43:35.208+01:00
-        hippostdpubwf:lastModificationDate: 2021-09-30T11:43:46.499+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2021-09-30T11:43:48.116+01:00
-        hippotranslation:id: ce68d260-97e0-4e48-9e1e-f931c63a21d4
-        hippotranslation:locale: document-type-locale
-        publishing:authorNotes: ''
-        publishing:localauthorities: []
-        publishing:organisationtags: []
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: <p><strong>this is fragment2</strong></p>
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:authorNotes:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
   /self-isolation-support-grant-suitability-checker:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
