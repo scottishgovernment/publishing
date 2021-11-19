@@ -1,0 +1,8 @@
+/hst:hst/hst:configurations/privatetenancy/hst:workspace/hst:containers/homepage/main/seo:
+  jcr:primaryType: hst:containeritemcomponent
+  hst:componentclassname: scot.mygov.publishing.components.SEOComponent
+  hst:iconpath: icons/seo.svg
+  hst:label: SEO
+  hst:parameternames: [showTitle, document, contentBean]
+  hst:parametervalues: ['on', seo/home, /content/documents/privatetenancy/seo/private-tenancy]
+  hst:template: seo
