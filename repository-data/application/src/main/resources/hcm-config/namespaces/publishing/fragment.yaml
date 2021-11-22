@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 9fe9178e-f104-4aec-a959-5890236fc72c
+          jcr:uuid: 0e112eb0-7eac-4bb1-957e-83b18c396132
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated', 'hippostd:taggable']
@@ -50,6 +50,32 @@ definitions:
             hipposysedit:path: publishing:authorNotes
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /reviewDate:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:reviewDate
+            hipposysedit:primary: false
+            hipposysedit:type: CalendarDate
+            hipposysedit:validators: [optional]
+          /lastUpdatedDate:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:lastUpdatedDate
+            hipposysedit:primary: false
+            hipposysedit:type: CalendarDate
+            hipposysedit:validators: [optional]
+          /contentOwner:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:contentOwner
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -61,12 +87,14 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: cc2506ba-bd00-42a7-85d3-aef35f969c33
+          jcr:uuid: 3be582b3-42f0-47ca-b069-8bbcbb62670a
           hippostdpubwf:lastModificationDate: 2021-09-09T09:38:21.927+01:00
           hippostdpubwf:creationDate: 2021-09-09T09:38:21.928+01:00
           publishing:authorNotes: ''
           publishing:organisationtags: []
           publishing:localauthorities: []
+          publishing:reviewDate: 0001-01-01T12:00:00Z
+          publishing:lastUpdatedDate: 0001-01-01T12:00:00Z
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -76,6 +104,9 @@ definitions:
           /publishing:authorNotes:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
+          /publishing:contentOwner[2]:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -137,3 +168,32 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /reviewDate:
+            jcr:primaryType: frontend:plugin
+            caption: Review Date
+            field: reviewDate
+            hint: The date on which this content item should next be reviewed
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /lastUpdatedDate:
+            jcr:primaryType: frontend:plugin
+            caption: Last updated date
+            field: lastUpdatedDate
+            hint: The 'Last updated' date displayed in the article heading. If left
+              blank no date will be displayed
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /contentOwner:
+            jcr:primaryType: frontend:plugin
+            caption: Content owner
+            field: contentOwner
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              nodetypes: ['publishing:contentcontact']
