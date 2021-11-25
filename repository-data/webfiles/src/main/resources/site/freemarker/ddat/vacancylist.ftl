@@ -17,32 +17,32 @@
                 <div class="ds_cb__inner">
                     <div class="ds_cb__text">
                         <article class="listing">
-                            <@hst.link var="link" hippobean=item/>
-                            <h2 class="listing__title"><a href="${link}">${item.title?html}</a></h2>
+                            <h2 class="listing__title">
+                                <#if item.link?has_content>
+                                    <a href="${item.link}">${item.title?html}</a>
+                                <#else>
+                                    <@hst.link var="link" hippobean=item/>
+                                    <a href="${link}">${item.title?html}</a>
+                                </#if>
+                            </h2>
 
                             <dl class="listing__datalist  datalist">
-                                <#if item.salaryband??>
-                                    <div class="datalist__item">
-                                        <dt class="datalist__title">Salary</dt>
-                                        <dd class="datalist__value">${item.salaryband}</dd>
-                                    </div>
-                                </#if>
                                 <#if item.location??>
                                     <div class="datalist__item">
                                         <dt class="datalist__title">Location</dt>
                                         <dd class="datalist__value">${item.location}</dd>
                                     </div>
                                 </#if>
-                                <#if item.hours??>
+                                <#if item.salaryband??>
                                     <div class="datalist__item">
-                                        <dt class="datalist__title">Hours</dt>
-                                        <dd class="datalist__value"></dd>
+                                        <dt class="datalist__title">Salary</dt>
+                                        <dd class="datalist__value">${item.salaryband}</dd>
                                     </div>
                                 </#if>
-                                <#if item.type??>
+                                <#if item.closingDate??>
                                     <div class="datalist__item">
-                                        <dt class="datalist__title">Employment type</dt>
-                                        <dd class="datalist__value"></dd>
+                                        <dt class="datalist__title">Closing date</dt>
+                                        <dd class="datalist__value"><@fmt.formatDate value=item.closingDate.time type="date" dateStyle="long"/> at midnight</dd>
                                     </div>
                                 </#if>
                                 <#if item.reference??>
@@ -53,17 +53,11 @@
                                 </#if>
                             </dl>
 
-                            <div class="listing__content">
-                                <#if item.summary??>
-                                    ${item.summary?html}
-                                </#if>
-                                <a href="${link}">read more</a>
-                            </div>
-
-                            <#if item.closingDate??>
-                                <div class="listing__callout">
-                                    Closing date: <@fmt.formatDate value=item.closingDate.time type="date" dateStyle="long"/> at midnight
-                                </div>
+                            <#if item.link?has_content>
+                                <a href="${item.link}">Apply for this role</a>
+                            <#else>
+                                <@hst.link var="link" hippobean=item/>
+                                <a href="${link}">More about this role</a>
                             </#if>
                         </article>
                     </div>
