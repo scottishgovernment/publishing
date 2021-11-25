@@ -9,7 +9,7 @@
 
                     <#if banner.priority?? && banner.priority>
                         <span class="ds_notification__icon ds_notification__icon--inverse ds_notification__icon--colour" aria-hidden="true">
-                            <svg class="ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#priority_high"></use></svg>
+                            <svg class="ds_icon  ds_icon--fill" aria-hidden="true" role="img"><use href="${iconspath}#priority_high"></use></svg>
                         </span>
                     </#if>
 
