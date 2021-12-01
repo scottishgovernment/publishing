@@ -15,7 +15,7 @@ public class PreviewIndicatorComponent extends BaseHstComponent {
         request.setAttribute("isStaging", isStaging(request));
     }
 
-    boolean isStaging(HstRequest request) {
+    static boolean isStaging(HstRequest request) {
         Mount resolvedMount = request.getRequestContext().getResolvedMount().getMount();
         return "preview".equals(resolvedMount.getType()) && endsWith(resolvedMount.getAlias(), "-staging");
     }

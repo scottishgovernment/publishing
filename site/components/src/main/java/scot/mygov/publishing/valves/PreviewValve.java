@@ -17,17 +17,14 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Calendar;
 
-import static org.apache.commons.lang3.StringUtils.endsWith;
+import static scot.mygov.publishing.valves.PreviewKeyUtils.isPreviewMount;
 
 public class PreviewValve extends AbstractOrderableValve {
 
     private static final Logger LOG = LoggerFactory.getLogger(PreviewValve.class);
-    private static final String PREVIEW_KEY = "previewkey";
 
     @Override
     public void invoke(ValveContext context) throws ContainerException {
@@ -35,7 +32,7 @@ public class PreviewValve extends AbstractOrderableValve {
         Mount resolvedMount = requestContext.getResolvedMount().getMount();
 
         try {
-            if (isPreviewMount(resolvedMount)) {
+            if (isPreviewMount(requestContext)) {
                 doInvoke(context, requestContext, resolvedMount);
             }
         } catch (RepositoryException repositoryException) {
@@ -54,16 +51,20 @@ public class PreviewValve extends AbstractOrderableValve {
         HippoBean contentBean = requestContext.getContentBean();
 
         //fetching the previewkey
-        String previewKey = getPreviewKey(valveContext, resolvedMount);
-        LOG.info("previewKey is {}", previewKey);
+        String previewKey = PreviewKeyUtils.getPreviewKey(
+                valveContext.getServletRequest(), valveContext.getServletResponse(), resolvedMount);
 
-        //intercepting requests having the id in the url
+        if (isExempt(requestContext)) {
+            return;
+        }
+
         if (contentBean == null) {
             LOG.info("Preview request doesn't contain content bean");
             requestContext.getServletResponse().sendError(403);
             return;
         }
 
+        // intercepting requests having the id in the url
         if (StringUtils.isBlank(previewKey)) {
             LOG.info("Preview request doesn't contain preview key");
             requestContext.getServletResponse().sendError(403);
@@ -76,19 +77,17 @@ public class PreviewValve extends AbstractOrderableValve {
         }
     }
 
-    boolean isPreviewMount(Mount resolvedMount) {
-        if (resolvedMount == null) {
-            LOG.debug("resolved mount is null");
-            return false;
-        }
-
-        return "preview".equals(resolvedMount.getType()) && endsWith(resolvedMount.getAlias(), "-staging");
+    /**
+     * anything starting with /fragments is exempt as it is a dynamic endpoint and have to implement its
+     * own logic determining visibility.
+     */
+    boolean isExempt(HstRequestContext context) {
+        return StringUtils.startsWith(context.getBaseURL().getPathInfo(), "/fragments/");
     }
 
     boolean hasValidStagingKey(HippoBean contentBean, String previewKey) throws RepositoryException {
         Node unpublishedNode = getUnpublishedNode(contentBean);
         NodeIterator iterator = unpublishedNode.getNodes("previewId");
-        LOG.info("hasValidStagingKey {}, {} previewkeys", contentBean.getPath(), iterator.getSize());
         while (iterator.hasNext()) {
             Node node = iterator.nextNode();
             Calendar expirationCalendar = JcrUtils.getDateProperty(node, "staging:expirationdate", null);
@@ -110,54 +109,8 @@ public class PreviewValve extends AbstractOrderableValve {
         return null;
     }
 
-    private boolean isValid(final Calendar expirationCalendar){
+    private boolean isValid(final Calendar expirationCalendar) {
         return expirationCalendar == null || Calendar.getInstance().before(expirationCalendar);
-    }
-
-    private String getPreviewKey(final ValveContext context, final Mount resolvedMount){
-        String previewKey = context.getServletRequest().getParameter(PREVIEW_KEY);
-        Cookie previewCookie = getPreviewCookie(context);
-
-        if(StringUtils.isNotEmpty(previewKey) && previewCookie == null){
-            Cookie cookie = new Cookie(PREVIEW_KEY, previewKey);
-            cookie.setPath(getPath(context.getServletRequest()));
-            boolean httpOnly = Boolean.parseBoolean(resolvedMount.getProperty("preview-cookie-httponly"));
-            boolean secure = Boolean.parseBoolean(resolvedMount.getProperty("preview-cookie-secure"));
-            cookie.setHttpOnly(httpOnly);
-            cookie.setSecure(secure);
-            context.getServletResponse().addCookie(cookie);
-            return previewKey;
-        } else if (StringUtils.isNotEmpty(previewKey) && previewCookie != null){
-            if(!previewKey.equals(previewCookie.getValue())){
-                previewCookie.setValue(previewKey);
-                context.getServletResponse().addCookie(previewCookie);
-            }
-            return previewKey;
-        } else if (StringUtils.isEmpty(previewKey) && previewCookie != null){
-            return previewCookie.getValue();
-        } else {
-            return null;
-        }
-    }
-
-    private static String getPath(HttpServletRequest request) {
-        final String contextPath = request.getContextPath();
-        if (StringUtils.isBlank(contextPath)) {
-            return "/";
-        }
-        return contextPath;
-    }
-
-    private Cookie getPreviewCookie(final ValveContext context){
-        Cookie[] cookies = context.getServletRequest().getCookies();
-        if(cookies!=null) {
-            for (Cookie cookie : cookies) {
-                if (PREVIEW_KEY.equals(cookie.getName())) {
-                    return cookie;
-                }
-            }
-        }
-        return null;
     }
 
 }

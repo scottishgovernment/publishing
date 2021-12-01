@@ -1,6 +1,5 @@
 package scot.mygov.publishing.components;
 
-import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -10,21 +9,27 @@ import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.repository.util.DateTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.mygov.publishing.valves.PreviewKeyUtils;
 
 import javax.jcr.RepositoryException;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
+import static java.util.Collections.addAll;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang.StringUtils.isBlank;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.apache.commons.lang3.StringUtils.substringAfter;
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.and;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
+import static scot.mygov.publishing.valves.PreviewKeyUtils.isPreviewMount;
 
 public class FragmentsComponent extends BaseHstComponent {
 
@@ -37,28 +42,32 @@ public class FragmentsComponent extends BaseHstComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         try {
-             HippoBean scopeBean = getScopeBean(request);
-
-            // of no scope was specified then dont return any fragments
-            if (scopeBean == null) {
-                LOG.warn("Fragment request with invalid path specified");
-                request.setAttribute(FRAGMENTS, emptyList());
-                return;
-            }
-
-            // if the base bean is a fragment then we will just return that one fragment
-            if (scopeBean.getNode().isNodeType(FRAGMENT_TYPE)) {
-                request.setAttribute(FRAGMENTS, singletonList(scopeBean));
-                return;
-            }
-
-            // run a query to get the bean fragments that match in that folder
-            HstQuery query = buildQuery(request, scopeBean);
-            HstQueryResult result = query.execute();
-            request.setAttribute(FRAGMENTS, result.getHippoBeans());
+             populateRequest(request);
         } catch (RepositoryException | QueryException e) {
             LOG.warn("Error trying to fetch fragments", e);
         }
+    }
+
+    void populateRequest(HstRequest request) throws RepositoryException, QueryException {
+        HippoBean scopeBean = getScopeBean(request);
+
+        // of no scope was specified then dont return any fragments
+        if (scopeBean == null) {
+            LOG.warn("Fragment request with invalid path specified");
+            request.setAttribute(FRAGMENTS, emptyList());
+            return;
+        }
+
+        // if the base bean is a fragment then we will just return that one fragment
+        if (scopeBean.getNode().isNodeType(FRAGMENT_TYPE)) {
+            request.setAttribute(FRAGMENTS, singletonList(scopeBean));
+            return;
+        }
+
+        // run a query to get the bean fragments that match in that folder
+        HstQuery query = getQuery(request, scopeBean);
+        HstQueryResult result = query.execute();
+        request.setAttribute(FRAGMENTS, result.getHippoBeans());
     }
 
     HippoBean getScopeBean(HstRequest request) {
@@ -69,30 +78,30 @@ public class FragmentsComponent extends BaseHstComponent {
         HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
 
         // remove the path of the base bean from the path.
-        contentPath = StringUtils.substringAfter(contentPath, baseBean.getPath() + "/");
-
+        contentPath = substringAfter(contentPath, baseBean.getPath() + "/");
         return baseBean.getBean(contentPath);
     }
 
-    HstQuery buildQuery(HstRequest request, HippoBean baseBean) {
-        HstQueryBuilder queryBuilder =
-                HstQueryBuilder.create(baseBean)
-                        .ofTypes(FRAGMENT_TYPE)
-                        // what should the limit actually ne?
-                        .limit(20);
-        addTagConstraint(queryBuilder, request);
+    HstQuery getQuery(HstRequest request, HippoBean scopeBean) {
+        HstQueryBuilder queryBuilder = HstQueryBuilder.create(scopeBean).ofTypes(FRAGMENT_TYPE).limit(20);
+        List<Constraint> constraints = new ArrayList<>();
+        addAll(constraints, tagConstraint(request), stagingConstraint(request));
+        constraints = constraints.stream().filter(Objects::nonNull).collect(toList());
+        if (!constraints.isEmpty()) {
+            queryBuilder.where(and(constraints.toArray(new Constraint[constraints.size()])));
+        }
         return queryBuilder.build();
     }
 
-    void addTagConstraint(HstQueryBuilder queryBuilder, HstRequest request) {
+    Constraint tagConstraint(HstRequest request) {
         String [] tags = request.getRequestContext().getServletRequest().getParameterValues("tag");
         if (tags == null) {
-            return;
+            return null;
         }
         List<Constraint> constraints = Arrays.stream(tags).distinct().map(this::tagEquals).collect(toList());
         // special case, the query is understood to have an implicit or 'tag=all'
         constraints.add(tagEquals("all"));
-        queryBuilder.where(or(constraints.toArray(new Constraint[] {})));
+        return or(constraints.toArray(new Constraint[] {}));
     }
 
     Constraint tagEquals(String type) {
@@ -103,4 +112,29 @@ public class FragmentsComponent extends BaseHstComponent {
         );
     }
 
+    Constraint stagingConstraint(HstRequest request) {
+        // we only want to add this constrasint if this is the preview mount
+        if (!isPreviewMount(request.getRequestContext())) {
+            return null;
+        }
+
+        String key = previewKey(request);
+        if (isBlank(key)) {
+            return null;
+        }
+
+        Calendar now = Calendar.getInstance();
+        return and(
+                constraint("previewId/@staging:key").equalTo(key),
+                constraint("previewId/@staging:expirationdate").greaterOrEqualThan(now, DateTools.Resolution.MILLISECOND)
+        );
+    }
+
+    String previewKey(HstRequest request) {
+        HstRequestContext context = request.getRequestContext();
+        return PreviewKeyUtils.getPreviewKey(
+                context.getServletRequest(),
+                context.getServletResponse(),
+                context.getResolvedMount().getMount());
+    }
 }
