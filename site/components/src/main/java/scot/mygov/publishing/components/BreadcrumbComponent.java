@@ -28,6 +28,7 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
         super.doBeforeRender(request, response);
 
         HippoBean contentBean = CategoryComponent.getDocumentBean(request);
+        HstRequestContext context = request.getRequestContext();
 
         // special case for guide pages: we do not want the page to be a part of the breadcrumb
         if (contentBean instanceof GuidePage) {
@@ -35,8 +36,13 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
         }
 
         List<BreadcrumbItem> breadcrumbs = constructBreadcrumb(request, contentBean);
+
+        // ensure that there is always a link to the home page at the start of the breadcrumbs
+        if (breadcrumbs.isEmpty()) {
+            breadcrumbs.add(breadcrumbItem(context.getSiteContentBaseBean(), context, "Home"));
+        }
         request.setAttribute("breadcrumbs", breadcrumbs);
-        request.setAttribute("documentBreadcrumbItem", breadcrumbItem(contentBean, request.getRequestContext()));
+        request.setAttribute("documentBreadcrumbItem", breadcrumbItem(contentBean, context));
     }
 
     static List<BreadcrumbItem> constructBreadcrumb(HstRequest request, HippoBean contentBean) {
@@ -84,9 +90,12 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
     }
 
     static BreadcrumbItem breadcrumbItem(HippoBean bean, HstRequestContext context) {
-        HstLinkCreator linkCreator = context.getHstLinkCreator();
-        HstLink link = linkCreator.create(bean, context);
-        return new BreadcrumbItem(link, bean.getSingleProperty("publishing:title"));
+        return breadcrumbItem(bean, context, bean.getSingleProperty("publishing:title"));
     }
 
+    static BreadcrumbItem breadcrumbItem(HippoBean bean, HstRequestContext context, String title) {
+        HstLinkCreator linkCreator = context.getHstLinkCreator();
+        HstLink link = linkCreator.create(bean, context);
+        return new BreadcrumbItem(link, title);
+    }
 }
