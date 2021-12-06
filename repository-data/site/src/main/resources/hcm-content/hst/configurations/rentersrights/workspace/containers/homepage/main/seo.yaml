@@ -1,0 +1,8 @@
+/hst:hst/hst:configurations/rentersrights/hst:workspace/hst:containers/homepage/main/seo:
+  jcr:primaryType: hst:containeritemcomponent
+  hst:componentclassname: scot.mygov.publishing.components.SEOComponent
+  hst:iconpath: icons/seo.svg
+  hst:label: SEO
+  hst:parameternames: [showTitle, document, contentBean]
+  hst:parametervalues: ['on', seo/home, /content/documents/rentersrights/seo/renters-rights]
+  hst:template: seo

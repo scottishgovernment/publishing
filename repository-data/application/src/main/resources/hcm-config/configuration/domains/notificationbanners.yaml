@@ -24,15 +24,15 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/ddat/site-furniture/banners
-      /privatetenancy-document:
+      /rentersrights-document:
         jcr:primaryType: hipposys:domainrule
-        /include-privatetenancy-banners-folder:
+        /include-rentersrights-banners-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/privatetenancy/site-furniture/banners
+          hipposys:value: /content/documents/rentersrights/site-furniture/banners
       /mygov-document:
         jcr:primaryType: hipposys:domainrule
         /include-mygov-banners-folder:

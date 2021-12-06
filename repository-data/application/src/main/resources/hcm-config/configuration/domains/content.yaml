@@ -24,13 +24,13 @@ definitions:
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/ddat/site-furniture/banners
-    /hippo:configuration/hippo:domains/content/content-domain/exclude-privatetenancy-banners-folder:
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-rentersrights-banners-folder:
       jcr:primaryType: hipposys:facetrule
       hipposys:equals: false
       hipposys:facet: jcr:path
       hipposys:filter: false
       hipposys:type: Reference
-      hipposys:value: /content/documents/privatetenancy/site-furniture/banners
+      hipposys:value: /content/documents/rentersrights/site-furniture/banners
     /hippo:configuration/hippo:domains/content/content-domain/exclude-mygov-banners-folder:
       jcr:primaryType: hipposys:facetrule
       hipposys:equals: false

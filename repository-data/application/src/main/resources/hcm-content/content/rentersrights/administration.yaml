@@ -1,0 +1,165 @@
+/content/documents/rentersrights/administration:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['mix:referenceable']
+  jcr:uuid: 4aa7a134-8226-489b-b00b-60b8eaaafae7
+  hippostd:foldertype: [new-resource-bundle, new-untranslated-folder]
+  /robots:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 9e50f20a-4b6c-475d-b3f7-19a456bf9a22
+    /robots[1]:
+      jcr:primaryType: robotstxt:robotstxt
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: b6b7f36f-282d-4b9c-8239-d2c78c919792
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
+      hippostdpubwf:lastModificationDate: 2021-07-06T14:40:22.420+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2021-07-06T14:45:22.420+01:00
+      robotstxt:sitemap: ['https://digital.jobs.gov.scot/sitemap.xml']
+      /robotstxt:section:
+        jcr:primaryType: robotstxt:section
+        robotstxt:disallow: []
+        robotstxt:useragent: '*'
+    /robots[2]:
+      jcr:primaryType: robotstxt:robotstxt
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 8e6c70b2-dc22-4fab-b1dc-d59207be993f
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
+      hippostdpubwf:lastModificationDate: 2021-07-06T14:40:22.420+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      robotstxt:sitemap: ['https://digital.jobs.gov.scot/sitemap.xml']
+      /robotstxt:section:
+        jcr:primaryType: robotstxt:section
+        robotstxt:disallow: []
+        robotstxt:useragent: '*'
+    /robots[3]:
+      jcr:primaryType: robotstxt:robotstxt
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 895780d1-ae03-4a89-9e64-064f1bb9e77f
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
+      hippostdpubwf:lastModificationDate: 2021-07-06T14:40:22.420+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      robotstxt:sitemap: ['https://digital.jobs.gov.scot/sitemap.xml']
+      /robotstxt:section:
+        jcr:primaryType: robotstxt:section
+        robotstxt:disallow: []
+        robotstxt:useragent: '*'
+  /analytics:
+    jcr:primaryType: hippostd:folder
+    hippostd:foldertype: []
+    /dev:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: bfa18757-3e1c-4bbe-9370-d017740a9052
+      /dev[1]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: ace6cff4-0fb7-4a37-93a3-d467e90568d7
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-07-06T14:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2021-07-06T14:54:28.104Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+        hippotranslation:locale: document-type-locale
+        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+        publishing:containerid: ''
+        publishing:env: '2'
+        publishing:notes: ''
+      /dev[2]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 2179e346-2ee9-40cf-a190-c276e14ebda1
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-07-06T14:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2021-07-06T14:54:28.104Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+        hippotranslation:locale: document-type-locale
+        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+        publishing:containerid: ''
+        publishing:env: '2'
+        publishing:notes: ''
+      /dev[3]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 39b9639b-5883-4cee-850b-d3da81ebedcf
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-07-06T14:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2021-07-06T14:54:28.104Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-07-06T14:54:28.104Z
+        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+        hippotranslation:locale: document-type-locale
+        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+        publishing:containerid: ''
+        publishing:env: '2'
+        publishing:notes: ''
+    /live:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 4959c659-676a-4b3d-80e0-a4d4b5c9ffa7
+      hippo:versionHistory: a48db8c8-ebf6-458a-b7f2-399dabe17913
+      /live[1]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 22043d57-42f2-4c46-b930-9a6918c60952
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-07-06T14:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2021-07-06T14:54:28.104Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+        hippotranslation:locale: document-type-locale
+        publishing:auth: ''
+        publishing:containerid: ''
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
+      /live[2]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 08e6f3e1-93e4-4f55-8a5b-3d6d77a98886
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-07-06T14:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2021-07-06T14:54:28.104Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+        hippotranslation:locale: document-type-locale
+        publishing:auth: ''
+        publishing:containerid: ''
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
+      /live[3]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: b09acb62-eea5-4d9c-91f0-a2eb5d823f2d
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2021-07-06T14:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2021-07-06T14:54:28.104Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2021-07-06T14:54:28.104Z
+        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+        hippotranslation:locale: document-type-locale
+        publishing:auth: ''
+        publishing:containerid: ''
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
