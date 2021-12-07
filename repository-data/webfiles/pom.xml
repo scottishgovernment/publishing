@@ -76,49 +76,21 @@
               <arguments>run svgsprite</arguments>
             </configuration>
           </execution>
+          <execution>
+            <id>npm compile sass</id>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <configuration>
+              <arguments>run sass</arguments>
+            </configuration>
+          </execution>
         </executions>
         <configuration>
           <installDirectory>${install.node.dir}</installDirectory>
           <nodeVersion>${version.node}</nodeVersion>
           <npmVersion>${version.npm}</npmVersion>
         </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>com.github.warmuuh</groupId>
-        <artifactId>libsass-maven-plugin</artifactId>
-        <version>0.2.10-libsass_3.5.3</version>
-        <executions>
-
-          <execution>
-            <id>mygov</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>compile</goal>
-            </goals>
-            <configuration>
-              <inputPath>src/main/scss/mygov</inputPath>
-              <outputPath>src/main/resources/site/assets/mygov/css/</outputPath>
-              <outputStyle>compressed</outputStyle>
-              <generateSourceMap>false</generateSourceMap>
-            </configuration>
-          </execution>
-
-          <execution>
-            <id>Trading Nation</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>compile</goal>
-            </goals>
-            <configuration>
-              <inputPath>src/main/scss/tradingnation</inputPath>
-              <outputPath>src/main/resources/site/assets/tradingnation/css/</outputPath>
-              <outputStyle>compressed</outputStyle>
-              <generateSourceMap>false</generateSourceMap>
-            </configuration>
-          </execution>
-
-        </executions>
       </plugin>
 
     </plugins>
