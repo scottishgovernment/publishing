@@ -29,6 +29,8 @@ public class OrganisationComponent extends EssentialsContentComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+
+        setServices(request);
     }
 
     static void setServices(HstRequest request) {
