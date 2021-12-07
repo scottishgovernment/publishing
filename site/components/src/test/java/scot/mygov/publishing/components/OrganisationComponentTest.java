@@ -20,6 +20,20 @@ import static org.mockito.Mockito.*;
 public class OrganisationComponentTest {
 
     @Test
+    public void noServicesSetIfNoContentBean() {
+        HstRequest request = mock(HstRequest.class);
+        HstRequestContext requestContext = mock(HstRequestContext.class);
+        when(request.getRequestContext()).thenReturn(requestContext);
+        when(requestContext.getContentBean()).thenReturn(null);
+
+        // ACT
+        OrganisationComponent.setServices(request);
+
+        // ASSERT
+        verify(request).setAttribute(eq("services"), eq(emptyList()));
+    }
+
+    @Test
     public void setServicesUsersQueryResults() throws QueryException {
 
         HstRequest request = mock(HstRequest.class);

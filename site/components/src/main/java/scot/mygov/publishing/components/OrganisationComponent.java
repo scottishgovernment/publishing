@@ -5,6 +5,7 @@ import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.Constraint;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
@@ -21,31 +22,41 @@ public class OrganisationComponent extends EssentialsContentComponent {
 
     private static final Logger LOG = LoggerFactory.getLogger(OrganisationComponent.class);
 
+    private static final String SERVICES = "services";
+
     static HippoUtils hippoUtils = new HippoUtils();
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-        setServices(request);
     }
 
     static void setServices(HstRequest request) {
 
+        if (request.getRequestContext().getContentBean() == null) {
+            request.setAttribute(SERVICES, emptyList());
+            return;
+        }
+
+        try {
+            HstQueryResult result = getMatchingServices(request);
+            request.setAttribute(SERVICES, result.getHippoBeans());
+        } catch (QueryException e) {
+            LOG.warn("Unable to get services for org {}", request.getPathInfo(), e);
+            request.setAttribute(SERVICES, emptyList());
+        }
+    }
+
+    static HstQueryResult getMatchingServices(HstRequest request) throws QueryException {
         HippoBean siteBean = request.getRequestContext().getSiteContentBaseBean();
         Organisation org = (Organisation) request.getRequestContext().getContentBean();
         String serviceProvider = org.getServiceprovider();
-        try {
-            HstQuery query = hippoUtils.createQuery(siteBean)
-                    .ofTypes(Base.class)
-                    .orderByAscending("publishing:title")
-                    .where(serviceProviderMatches(serviceProvider))
-                    .build();
-            HstQueryResult result = query.execute();
-            request.setAttribute("services", result.getHippoBeans());
-        } catch (QueryException e) {
-            LOG.warn("Unable to get services for org {}", org.getPath(), e);
-            request.setAttribute("services", emptyList());
-        }
+        HstQuery query = hippoUtils.createQuery(siteBean)
+                .ofTypes(Base.class)
+                .where(serviceProviderMatches(serviceProvider))
+                .orderByAscending("publishing:title")
+                .build();
+        return query.execute();
     }
 
     static Constraint serviceProviderMatches(String serviceProvider) {
