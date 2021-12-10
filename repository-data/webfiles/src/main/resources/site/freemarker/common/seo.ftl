@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 
 <#if contentBean??>
@@ -8,7 +9,7 @@
 
     <#if contentBean?? && contentBean.metaDescription??>
         <@hst.headContribution category="meta">
-        <meta name="description" content="${contentBean.metaDescription?html}"/>
+        <meta name="description" content="${contentBean.metaDescription}"/>
         </@hst.headContribution>
     </#if>
 
@@ -28,12 +29,12 @@
         </@hst.headContribution>
 
         <@hst.headContribution category="facebookMeta">
-            <meta property="og:title" content="${pagetitle?html}" />
+            <meta property="og:title" content="${pagetitle}" />
         </@hst.headContribution>
 
         <#if contentBean?? && contentBean.metaDescription??>
             <@hst.headContribution category="facebookMeta">
-            <meta property="og:description" content="${contentBean.metaDescription?html}" />
+            <meta property="og:description" content="${contentBean.metaDescription}" />
             </@hst.headContribution>
         </#if>
 
@@ -58,12 +59,12 @@
         </@hst.headContribution>
 
         <@hst.headContribution category="twitterMeta">
-            <meta name="twitter:title" content="${pagetitle?html}"/>
+            <meta name="twitter:title" content="${pagetitle}"/>
         </@hst.headContribution>
 
         <#if contentBean?? && contentBean.metaDescription??>
             <@hst.headContribution category="twitterMeta">
-            <meta name="twitter:description" content="${contentBean.metaDescription?html}"/>
+            <meta name="twitter:description" content="${contentBean.metaDescription}"/>
             </@hst.headContribution>
         </#if>
 
