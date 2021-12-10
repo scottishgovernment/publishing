@@ -8,7 +8,7 @@
 
     <#if contentBean?? && contentBean.metaDescription??>
         <@hst.headContribution category="meta">
-        <meta name="description" content="${contentBean.metaDescription}"/>
+        <meta name="description" content="${contentBean.metaDescription?html}"/>
         </@hst.headContribution>
     </#if>
 
@@ -28,12 +28,12 @@
         </@hst.headContribution>
 
         <@hst.headContribution category="facebookMeta">
-            <meta property="og:title" content="${pagetitle}" />
+            <meta property="og:title" content="${pagetitle?html}" />
         </@hst.headContribution>
 
         <#if contentBean?? && contentBean.metaDescription??>
             <@hst.headContribution category="facebookMeta">
-            <meta property="og:description" content="${contentBean.metaDescription}" />
+            <meta property="og:description" content="${contentBean.metaDescription?html}" />
             </@hst.headContribution>
         </#if>
 
@@ -58,12 +58,12 @@
         </@hst.headContribution>
 
         <@hst.headContribution category="twitterMeta">
-            <meta name="twitter:title" content="${pagetitle}"/>
+            <meta name="twitter:title" content="${pagetitle?html}"/>
         </@hst.headContribution>
 
         <#if contentBean?? && contentBean.metaDescription??>
             <@hst.headContribution category="twitterMeta">
-            <meta name="twitter:description" content="${contentBean.metaDescription}"/>
+            <meta name="twitter:description" content="${contentBean.metaDescription?html}"/>
             </@hst.headContribution>
         </#if>
 
