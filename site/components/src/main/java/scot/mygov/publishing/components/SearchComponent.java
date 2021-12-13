@@ -84,6 +84,10 @@ public class SearchComponent extends EssentialsListComponent {
                 notType("publishing:cookiepage"),
                 notType("publishing:analytics"),
                 notType("publishing:facebookverification"),
+                notType("publishing:smartanswerquestion"),
+                notType("publishing:smartanswermultiplechoicequestion"),
+                notType("publishing:smartanswerresult"),
+                notType("publishing:fragment"),
                 notType("robotstxt:robotstxt")
         );
     }
