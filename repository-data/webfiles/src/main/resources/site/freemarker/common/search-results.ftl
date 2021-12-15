@@ -1,7 +1,9 @@
 <#ftl output_format="HTML">
 <#include 'include/search.ftl'/>
 
-<p class="ds_search-results__count js-search-results-count"><b>${pageable.total}</b> results</p>
+<p class="ds_search-results__count js-search-results-count">
+    <#if pageable??><b>${pageable.total}</b> results<#else><b>0</b> results, please fill in the search field.</#if>
+</p>
 
 <ol id="search-results-list" class="ds_search-results__list" data-total="${pageable.total}">
     <#list pageable.items as item>

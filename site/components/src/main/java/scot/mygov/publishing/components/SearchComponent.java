@@ -1,5 +1,6 @@
 package scot.mygov.publishing.components;
 
+import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.builder.Constraint;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
@@ -13,7 +14,6 @@ import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
 import java.util.*;
 
 import static java.util.stream.Collectors.toList;
-import static org.apache.commons.lang.StringUtils.isBlank;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.and;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
@@ -23,6 +23,20 @@ import static org.onehippo.repository.util.JcrConstants.JCR_PRIMARY_TYPE;
 public class SearchComponent extends EssentialsListComponent {
 
     private static final Collection<String> FIELD_NAMES = new ArrayList<>();
+
+    static String [] NON_PAGE_TYPES = {
+            "publishing:analytics",
+            "publishing:facebookverification",
+            "publishing:smartanswerquestion",
+            "publishing:smartanswermultiplechoicequestion",
+            "publishing:smartanswerresult",
+            "publishing:fragment",
+            "publishing:mirror",
+            "publishing:analytics",
+            "publishing:contentcontact",
+            "publishing:sector",
+            "robotstxt:robotstxt",
+    };
 
     static {
         Collections.addAll(FIELD_NAMES,
@@ -37,28 +51,29 @@ public class SearchComponent extends EssentialsListComponent {
     protected <T extends EssentialsListComponentInfo>
     HstQuery buildQuery(final HstRequest request, final T paramInfo, final HippoBean scope) {
 
+        String term = param(request, "q");
+        String parsedTerm = SearchInputParsingUtils.parse(term, false);
+        if (StringUtils.isBlank(parsedTerm)) {
+            return null;
+        }
+
         final int pageSize = getPageSize(request, paramInfo);
         final int page = getCurrentPage(request);
         final int offset = (page - 1) * pageSize;
         return HstQueryBuilder
                 .create(request.getRequestContext().getSiteContentBaseBean())
-                .where(whereConstraint(request))
+                .where(whereConstraint(parsedTerm))
                 .limit(pageSize)
                 .offset(offset)
                 .build();
     }
 
-    Constraint whereConstraint(HstRequest request) {
-        List<Constraint> constraints = new ArrayList<>();
-        constraints.add(showInParentConstraint());
-        constraints.add(excludeTypesConstraint());
-        String term = param(request, "q");
-        String parsedTerm = SearchInputParsingUtils.parse(term, false);
-        if (!isBlank(parsedTerm)) {
-            constraints.add(termConstraint(parsedTerm));
-        }
-
-        return and(constraints.toArray(new Constraint[] {}));
+    Constraint whereConstraint(String term) {
+        return and(new Constraint [] {
+                showInParentConstraint(),
+                excludeTypesConstraint(),
+                termConstraint(term)
+        });
     }
 
     Constraint showInParentConstraint() {
@@ -70,26 +85,22 @@ public class SearchComponent extends EssentialsListComponent {
     }
 
     Constraint excludeTypesConstraint() {
-        return and(
-                notType("publishing:mirror"),
+
+        // exclude document types that are not pages ...
+        List<Constraint> constraints
+                = Arrays.stream(NON_PAGE_TYPES).map(this::notType).collect(toList());
+
+        // also exclude other types of pages we do not want in the search results
+        Collections.addAll(constraints,
                 notType("publishing:documentcoverpage"),
-                notType("publishing:notificationbanner"),
                 notType("publishing:home"),
                 notType("publishing:category"),
                 notType("publishing:organisationlist"),
-                notType("publishing:contentcontact"),
-                notType("publishing:sector"),
                 notType("publishing:status"),
                 notType("publishing:search"),
-                notType("publishing:cookiepage"),
-                notType("publishing:analytics"),
-                notType("publishing:facebookverification"),
-                notType("publishing:smartanswerquestion"),
-                notType("publishing:smartanswermultiplechoicequestion"),
-                notType("publishing:smartanswerresult"),
-                notType("publishing:fragment"),
-                notType("robotstxt:robotstxt")
-        );
+                notType("publishing:cookiepage"));
+
+        return and(constraints.toArray(new Constraint [0]));
     }
 
     Constraint notType(String type) {
