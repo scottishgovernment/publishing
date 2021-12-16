@@ -35,3 +35,6 @@ definitions:
       /smartanwer-next-page:
         jcr:primaryType: hipposys:moduleconfig
         hipposys:className: scot.mygov.publishing.validation.DefaultNextSmartAnswerPageValidator
+      /optional-url:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.OptionalUrlValidator
