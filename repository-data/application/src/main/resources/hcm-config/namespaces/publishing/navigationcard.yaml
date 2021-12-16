@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 805a89be-0f8a-4c67-a0d6-9eae819bbe6b
+          jcr:uuid: 6557977a-8b34-4ad4-a784-569b695c04f9
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -60,6 +60,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
+          /externalLink:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:externalLink
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -74,9 +82,10 @@ definitions:
           publishing:text: ''
           publishing:title: ''
           publishing:alt: ''
-          jcr:uuid: f3a4db93-28e5-4bd9-aa54-facd573bdcb9
+          jcr:uuid: d637aece-8b92-4642-add2-6d0366aae990
           hippostdpubwf:lastModificationDate: 2021-07-28T15:52:30.106+01:00
           hippostdpubwf:creationDate: 2021-07-28T15:52:30.106+01:00
+          publishing:externalLink: ''
           /publishing:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -136,6 +145,15 @@ definitions:
             field: link
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /externalLink:
+            jcr:primaryType: frontend:plugin
+            caption: External link
+            field: externalLink
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

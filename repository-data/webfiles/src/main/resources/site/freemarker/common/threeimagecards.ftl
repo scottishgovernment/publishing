@@ -19,11 +19,11 @@
                     </#if>
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="<@hst.link hippobean=document1.link/>">${document1.title}</a></h2>
-
+                        <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="${document1.externalLink}">${document1.title}</a></h2>
                         <div class="ds_category-item__summary">${document1.text}</div>
                     </div>
 
-                    <@hst.manageContent hippobean=document1 documentTemplateQuery="new-navigationcard-document" parameterName="document1" rootPath="images"/>
+                    <@hst.manageContent hippobean=document1 documentTemplateQuery="new-navigationcard-document" parameterName="document1" rootPath="navigationcards"/>
                 </div>
             <#elseif editMode>
                 <div class="ds_card  cms-blank">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
 
-                    <@hst.manageContent documentTemplateQuery="new-navigationcard-document" parameterName="document1" rootPath="images"/>
+                    <@hst.manageContent documentTemplateQuery="new-navigationcard-document" parameterName="document1" rootPath="navigationcards"/>
                 </div>
             </#if>
 
@@ -57,11 +57,11 @@
                     </#if>
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="<@hst.link hippobean=document2.link/>">${document2.title}</a></h2>
-
+                        <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="${document2.externalLink}">${document2.title}</a></h2>
                         <div class="ds_category-item__summary">${document2.text}</div>
                     </div>
 
-                    <@hst.manageContent hippobean=document1 documentTemplateQuery="new-navigationcard-document" parameterName="document2" rootPath="images"/>
+                    <@hst.manageContent hippobean=document1 documentTemplateQuery="new-navigationcard-document" parameterName="document2" rootPath="navigationcards"/>
                 </div>
             <#elseif editMode>
                 <div class="ds_card  cms-blank">
@@ -80,7 +80,7 @@
                         </div>
                     </div>
 
-                    <@hst.manageContent documentTemplateQuery="new-navigationcard-document" parameterName="document2" rootPath="images"/>
+                    <@hst.manageContent documentTemplateQuery="new-navigationcard-document" parameterName="document2" rootPath="navigationcards"/>
                 </div>
             </#if>
 
@@ -95,11 +95,11 @@
                     </#if>
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="<@hst.link hippobean=document3.link/>">${document3.title}</a></h2>
-
+                        <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="${document3.externalLink}">${document3.title}</a></h2>
                         <div class="ds_category-item__summary">${document3.text}</div>
                     </div>
 
-                    <@hst.manageContent hippobean=document1 documentTemplateQuery="new-navigationcard-document" parameterName="document3" rootPath="images"/>
+                    <@hst.manageContent hippobean=document1 documentTemplateQuery="new-navigationcard-document" parameterName="document3" rootPath="navigationcards"/>
                 </div>
             <#elseif editMode>
                 <div class="ds_card  cms-blank">
@@ -118,7 +118,7 @@
                         </div>
                     </div>
 
-                    <@hst.manageContent documentTemplateQuery="new-navigationcard-document" parameterName="document3" rootPath="images"/>
+                    <@hst.manageContent documentTemplateQuery="new-navigationcard-document" parameterName="document3" rootPath="navigationcards"/>
                 </div>
             </#if>
         </div>

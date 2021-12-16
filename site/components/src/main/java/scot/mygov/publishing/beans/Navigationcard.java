@@ -32,4 +32,10 @@ public class Navigationcard extends BaseDocument {
     public HippoBean getLink() {
         return getLinkedBean("publishing:link", HippoBean.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "publishing:externalLink")
+    public String getExternalLink() {
+        return getSingleProperty("publishing:externalLink");
+    }
+
 }
