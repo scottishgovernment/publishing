@@ -18,8 +18,16 @@
                         </div>
                     </#if>
                     <div class="ds_card__content  ds_category-item">
-                        <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="<@hst.link hippobean=document1.link/>">${document1.title}</a></h2>
-                        <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="${document1.externalLink}">${document1.title}</a></h2>
+                        <h2 class="ds_category-item__title">
+                            <#if document1.link??>
+                                <a class="ds_card__cover-link" href="<@hst.link hippobean=document1.link/>">${document1.title}</a>
+                            <#elseif document1.externalLink?has_content>
+                                <a class="ds_card__cover-link" href="${document1.externalLink}">${document1.title}</a>
+                            <#else>
+                                ${document1.title}
+                            </#if>
+                        </h2>
+
                         <div class="ds_category-item__summary">${document1.text}</div>
                     </div>
 
@@ -56,8 +64,16 @@
                         </div>
                     </#if>
                     <div class="ds_card__content  ds_category-item">
-                        <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="<@hst.link hippobean=document2.link/>">${document2.title}</a></h2>
-                        <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="${document2.externalLink}">${document2.title}</a></h2>
+                        <h2 class="ds_category-item__title">
+                            <#if document2.link??>
+                                <a class="ds_card__cover-link" href="<@hst.link hippobean=document2.link/>">${document2.title}</a>
+                            <#elseif document2.externalLink?has_content>
+                                <a class="ds_card__cover-link" href="${document2.externalLink}">${document2.title}</a>
+                            <#else>
+                                ${document2.title}
+                            </#if>
+                        </h2>
+
                         <div class="ds_category-item__summary">${document2.text}</div>
                     </div>
 
@@ -94,8 +110,16 @@
                         </div>
                     </#if>
                     <div class="ds_card__content  ds_category-item">
-                        <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="<@hst.link hippobean=document3.link/>">${document3.title}</a></h2>
-                        <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="${document3.externalLink}">${document3.title}</a></h2>
+                        <h2 class="ds_category-item__title">
+                            <#if document3.link??>
+                                <a class="ds_card__cover-link" href="<@hst.link hippobean=document3.link/>">${document3.title}</a>
+                            <#elseif document3.externalLink?has_content>
+                                <a class="ds_card__cover-link" href="${document3.externalLink}">${document3.title}</a>
+                            <#else>
+                                ${document3.title}
+                            </#if>
+                        </h2>
+
                         <div class="ds_category-item__summary">${document3.text}</div>
                     </div>
 
