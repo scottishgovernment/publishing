@@ -12,7 +12,7 @@
         <div class="ds_cb__inner">
             <#if document??>
                 <div class="ds_cb__poster">
-                    <a class="ds_cb__poster-link" href="${document.url}">
+                    <a target="_blank" class="ds_cb__poster-link" href="${document.url}">
                         <img class="ds_cb__poster-video" src="<@hst.link hippobean=document.image /> " alt="${document.alt?html}"/>
                     </a>
                 </div>
