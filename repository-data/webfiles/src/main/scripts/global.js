@@ -5,7 +5,6 @@
 
 'use strict';
 
-import $ from 'jquery';
 import './usertype';
 import NotificationBanner from './components/notification';
 import storage from './tools/storage';
@@ -20,7 +19,6 @@ const global = {
 
     init: function() {
         this.initCookieNotice();
-        this.validateSearchForm();
         this.setInitialCookiePermissions();
         this.initNotifications();
         this.initDesignSystemComponents();
@@ -152,55 +150,48 @@ const global = {
         }
     },
 
-    validateSearchForm: function() {
-        $('#searchForm').submit(function() {
-            const term = $('#search-box').val();
-            if (term === undefined || term === '') {
-                return false;
-            }
-        });
-    },
-
     /**
      * Checks whether to display the cookie notice
      * Binds click handler to the cookie notice close button
      */
     initCookieNotice: function() {
-        const cookieNotice = $('#cookie-notice');
+        const cookieNotice = document.getElementById('cookie-notice');
 
         // check whether we need to display the cookie notice
         if (!storage.get({type: storage.types.cookie, name: 'cookie-notification-acknowledged'})) {
-            cookieNotice.removeClass('fully-hidden');
+            cookieNotice.classList.remove('fully-hidden');
             this.notes.push(cookieNotice);
         }
 
         // bind a click handler to the close button
-        cookieNotice.on('click', '.js-accept-cookies', function(event) {
-            event.preventDefault();
+        cookieNotice.addEventListener('click', function (event) {
+            if (event.target.classList.contains('js-accept-cookie')) {
+                event.preventDefault();
 
-            const cookiePermissions = JSON.parse(JSON.stringify(storage.categories));
-            for (const key in cookiePermissions) {
-                if (!cookiePermissions.hasOwnProperty(key)) {continue;}
+                const cookiePermissions = JSON.parse(JSON.stringify(storage.categories));
+                for (const key in cookiePermissions) {
+                    if (!cookiePermissions.hasOwnProperty(key)) { continue; }
 
-                cookiePermissions[key] = true;
+                    cookiePermissions[key] = true;
+                }
+
+                storage.setCookie(
+                    storage.categories.necessary,
+                    'cookiePermissions',
+                    JSON.stringify(cookiePermissions),
+                    365
+                );
+
+                storage.setCookie(
+                    storage.categories.necessary,
+                    'cookie-notification-acknowledged',
+                    'yes',
+                    365
+                );
+
+                document.querySelector('.js-initial-cookie-content').classList.add('fully-hidden');
+                document.querySelector('.js-confirm-cookie-content').classList.remove('fully-hidden');
             }
-
-            storage.setCookie(
-                storage.categories.necessary,
-                'cookiePermissions',
-                JSON.stringify(cookiePermissions),
-                365
-            );
-
-            storage.setCookie(
-                storage.categories.necessary,
-                'cookie-notification-acknowledged',
-                'yes',
-                365
-            );
-
-            document.querySelector('.js-initial-cookie-content').classList.add('fully-hidden');
-            document.querySelector('.js-confirm-cookie-content').classList.remove('fully-hidden');
         });
     }
 };

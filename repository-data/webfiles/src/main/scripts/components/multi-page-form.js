@@ -2,6 +2,7 @@
 
 'use strict';
 
+import $ from 'jquery';
 import '../vendor/jquery.routes';
 import _ from '../vendor/lodash/dist/tinydash.es6';
 import bloomreachWebfile from '../tools/bloomreach-webfile';

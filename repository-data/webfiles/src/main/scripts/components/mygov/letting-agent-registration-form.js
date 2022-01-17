@@ -2,9 +2,9 @@
 
 'use strict';
 
-import commonForms from '../../tools/forms';
-import _ from '../../vendor/lodash/dist/tinydash.es6';
 import $ from 'jquery';
+import _ from '../../vendor/lodash/dist/tinydash.es6';
+import commonForms from '../../tools/forms';
 
 let submitted = false,
     success = false,

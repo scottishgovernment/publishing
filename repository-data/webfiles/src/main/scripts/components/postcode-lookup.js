@@ -4,8 +4,8 @@
 
 'use strict';
 
-import commonForms from '../tools/forms';
 import $ from 'jquery';
+import commonForms from '../tools/forms';
 
 const postcodeResultsTemplate = require('../templates/postcode-results');
 const addressTemplate = require('../templates/address');
