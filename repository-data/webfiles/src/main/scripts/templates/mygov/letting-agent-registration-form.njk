@@ -1,0 +1,112 @@
+<div id="larf" autocomplete="false">
+    <section id="overview" data-step="overview" class="form-section  form-section--unpad">
+        <a href="#!/sign-up/" type="button" class="ds_button  ds_button--has-icon">
+            Next
+            <svg class="ds_icon" aria-hidden="true" role="img">
+                <use xlink:href="{{ iconsFile }}#chevron_right"></use>
+            </svg>
+        </a>
+    </section>
+
+    <section data-step="sign-up" class="fully-hidden  form-section">
+        <section data-step="form" class="fully-hidden  form-section">
+            <form id="larf-form">
+                <div>
+                    <div class="client-error ds_error-summary fully-hidden">
+                        <h2>There is a problem</h2>
+
+                        <p>There were some errors found on this page:</p>
+
+                        <div class="form-errors">&nbsp;</div>
+                    </div>
+
+                    <div class="ds_error-summary fully-hidden server-error">
+                        <h2>There is a problem</h2>
+                        We are having issues with our server at the moment, please try again later.
+                    </div>
+
+                </div>
+
+                <div class="ds_!_margin-bottom--8">
+
+                <div class="ds_question">
+                    <label for="letting-agent-registration-name" class="ds_label">Your name</label>
+                    <input aria-required="true" required="required" data-validation="requiredField" type="text" id="letting-agent-registration-name" class="ds_input">
+                </div>
+
+                <div class="ds_question">
+                    <label for="letting-agent-registration-company-name" class="ds_label">Your company</label>
+
+                    <p class="ds_hint-text">
+                        As stated in <a href="https://beta.companieshouse.gov.uk/">Companies House</a> or your
+                        trading name.
+                    </p>
+
+                    <input aria-required="true" required="required" data-validation="requiredField" type="text" id="letting-agent-registration-company-name" class="ds_input">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="letting-agent-registration-email">Email address</label>
+                    <input aria-required="true" required="required" data-validation="validEmail requiredField" type="text" id="letting-agent-registration-email" class="ds_input">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="letting-agent-registration-address-line-1">Address line 1 (optional)</label>
+                    <input type="text" id="letting-agent-registration-address-line-1" class="ds_input  building">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="letting-agent-registration-address-line-2">Address line 2 (optional)</label>
+                    <input type="text" id="letting-agent-registration-address-line-2" class="ds_input  street">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="letting-agent-registration-town">Town or city (optional)</label>
+                    <input type="text" id="letting-agent-registration-town" class="ds_input town">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="letting-agent-registration-postcode">Postcode (optional)</label>
+                    <input type="text" id="letting-agent-registration-postcode" class="ds_input uppercase ds_input--fixed-10 postcode">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="letting-agent-registration-country">Country (optional)</label>
+                    <input type="text" id="letting-agent-registration-country" class="ds_input region">
+                </div>
+
+                </div>
+
+                <div class="ds_!_margin-bottom--8">
+                    <h3>Consent statement</h3>
+
+                    <p class="ds_!_margin-bottom--4">The Scottish Government Housing and Social Justice Directorate are working to provide reliable, relevant and up-to-date information on The Scottish Government websites with regards to the Housing (Scotland) Act 2014 and The Private Housing (Tenancies) Act 2016. This form allows letting agents to register their details, so that these details can be used by The Scottish Government, Housing and Social Justice Directorate to communicate relevant information on the upcoming letting agent registration requirements or other relevant housing matters.</p>
+
+                    <div class="ds_question">
+                        <div class="ds_checkbox">
+                            <input aria-required="true" required="required" class="ds_checkbox__input" data-validation="requiredCheckbox" id="letting-agent-registration-consent" type="checkbox" />
+                            <label class="ds_checkbox__label  ds_label" for="letting-agent-registration-consent">I consent</label>
+                            <p class="ds_hint-text">
+                                By ticking the attached box you’re consenting to your data being used as laid out in the consent statement.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="recaptcha" class="g-recaptcha"
+                    data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV"
+                    data-callback="checkRecaptcha"
+                    data-expired-callback="expireRecaptcha"></div>
+
+                <button disabled="true" id="larf-submit" class="ds_button  ds_button--fixed  js-submit-form  js-recaptcha-submit">Submit</button>
+            </form>
+        </section>
+
+        <section data-step="success" class="fully-hidden form-section">
+            <div class="ds_notification-panel ds_notification-panel--success">
+                <h2 class="ds_notification-panel__title">Thank you</h2>
+                <div class="ds_notification-panel__content"><p>Your registration form has been submitted.</p></div>
+            </div>
+        </section>
+    </section>
+</div>

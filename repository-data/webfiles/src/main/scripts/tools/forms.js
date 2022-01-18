@@ -58,16 +58,17 @@ const commonForms = {
             if (!recaptchaSuccess) {
                 return false;
             } else {
-                const downloadLinks = [].slice.call(document.querySelectorAll('.js-document-container .js-download-file'));
-                downloadLinks.forEach(link => {
+                const recaptchaLinks = [].slice.call(document.querySelectorAll('.js-document-container .js-download-file, .js-recaptcha-submit'));
+
+                recaptchaLinks.forEach(link => {
                     link.removeAttribute('disabled');
                 });
             }
         };
 
         window.expireRecaptcha = function () {
-            const downloadLinks = [].slice.call(document.querySelectorAll('.js-document-container .js-download-file'));
-            downloadLinks.forEach(link => {
+            const recaptchaLinks = [].slice.call(document.querySelectorAll('.js-document-container .js-download-file, .js-recaptcha-submit'));
+            recaptchaLinks.forEach(link => {
                 link.setAttribute('disabled', true);
             });
             recaptchaSuccess = false;

@@ -23,6 +23,7 @@ const commonItems = {
         'business-rates-calculator':    path.resolve(__dirname, './formats/mygov/business-rates-calculator.js'),
         'fair-rent-register':           path.resolve(__dirname, './formats/mygov/fair-rent-register.js'),
         'fair-rent-register-result':    path.resolve(__dirname, './formats/mygov/fair-rent-register-result.js'),
+        'letting-agent-registration-form': path.resolve(__dirname, './formats/mygov/letting-agent-registration-form.js'),
         'model-tenancy-form':           path.resolve(__dirname, './formats/mygov/model-tenancy-form.js'),
         'non-provision-form':           path.resolve(__dirname, './formats/mygov/non-provision-form.js'),
         'notice-to-leave-form':         path.resolve(__dirname, './formats/mygov/notice-to-leave-form.js'),
