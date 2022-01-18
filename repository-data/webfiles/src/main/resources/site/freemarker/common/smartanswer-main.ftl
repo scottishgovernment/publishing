@@ -58,7 +58,7 @@
                                                         <select class="ds_select" id="step-${question.name}-${question.name}" data-validation="requiredDropdown">
                                                             <option></option>
                                                             <#list question.options as option>
-                                                                <#assign nextStep><#if option.nextPage??>${option.nextPage.name}<#else>${question.defaultNextPage.name}</#if></#assign>
+                                                                <#assign nextStep><#if option.nextPage??>${option.nextPage.name}<#elseif question.defaultNextPage??>${question.defaultNextPage.name}<#else></#if></#assign>
                                                                 <option value="${option.value}" data-nextstep="step-${nextStep}">${option.label}</option>
                                                             </#list>
                                                         </select>
@@ -69,7 +69,7 @@
                                             <#case 'radiobuttons'>
                                                 <#list question.options as option>
                                                     <div class="ds_radio">
-                                                        <#assign nextStep><#if option.nextPage??>${option.nextPage.name}<#else>${question.defaultNextPage.name}</#if></#assign>
+                                                        <#assign nextStep><#if option.nextPage??>${option.nextPage.name}<#elseif question.defaultNextPage??>${question.defaultNextPage.name}<#else></#if></#assign>
                                                         <input required data-form="radio-step-${question.name}-${option.value}" class="ds_radio__input" type="radio" id="step-${question.name}-${option.value}" name="question-${question.name}" value="${option.value}" data-nextstep="step-${nextStep}">
                                                         <label class="ds_radio__label" for="step-${question.name}-${option.value}">${option.label}</label>
                                                     </div>
