@@ -5,6 +5,7 @@
     <#if pageable??><b>${pageable.total}</b> results<#else><b>0</b> results, please fill in the search field.</#if>
 </p>
 
+<#if pageable??>
 <ol id="search-results-list" class="ds_search-results__list" data-total="${pageable.total}">
     <#list pageable.items as item>
         <@hst.manageContent hippobean=item/>
@@ -34,3 +35,4 @@
         <#include "include/pagination.ftl">
     </#if>
 </div>
+</#if>
