@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: b5a9b64f-5230-4e2b-bd98-537fa4aa36d8
+          jcr:uuid: 7a32ed84-f48c-403e-84ad-a01a7c5dd843
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:article', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -40,10 +40,11 @@ definitions:
           publishing:title: ''
           publishing:slug: ''
           publishing:metaDescription: ''
-          jcr:uuid: c5483820-0b09-42c5-97bd-f411122059fb
+          jcr:uuid: 65a5721c-145e-47d4-8ef6-391e00aaf5db
           hippostdpubwf:lastModificationDate: 2021-03-31T09:44:42.933+01:00
           hippostdpubwf:creationDate: 2021-03-31T09:44:42.933+01:00
           publishing:showFeedback: true
+          publishing:reportingtags: []
           /publishing:logo:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -204,3 +205,17 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /reportingtags:
+            jcr:primaryType: frontend:plugin
+            caption: Reporting tags
+            field: reportingtags
+            multiselect.type: palette
+            palette.alloworder: true
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/publishing/valuelists/reportingtags
