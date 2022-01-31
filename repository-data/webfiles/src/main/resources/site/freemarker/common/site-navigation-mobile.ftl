@@ -2,7 +2,7 @@
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#if menu??>
-    <#if menu.siteMenuItems?? && menu.siteMenuItem?has_content>
+    <#if menu.siteMenuItems??>
         <div class="ds_site-header__controls">
             <label aria-controls="mobile-navigation" class="ds_site-header__control  js-toggle-menu" for="menu">
                 <span class="ds_site-header__control-text">Menu</span>
