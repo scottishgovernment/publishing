@@ -7,7 +7,7 @@
         <div class="ds_site-header__content">
             <div class="ds_site-branding">
                 <a class="ds_site-branding__logo  ds_site-branding__link" href="/">
-                    <img class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/mygov.svg" />" alt="mygov.scot">
+                    <img class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/mygov.svg" />" alt="mygov.scot" width="300" height="58">
                 </a>
             </div>
 

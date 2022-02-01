@@ -6,7 +6,7 @@
         <div class="ds_site-header__content">
             <div class="ds_site-branding">
                 <a class="ds_site-branding__logo  ds_site-branding__link" href="${home}">
-                    <img class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/scottish-government.svg"/>" alt="The Scottish Government" />
+                    <img class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/scottish-government.svg"/>" alt="The Scottish Government" width="300" height="56" />
                 </a>
 
                 <div class="ds_site-branding__title">
