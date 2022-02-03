@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a384796b-3b61-4b25-96a5-17f71e3eae90
+          jcr:uuid: 41fe8d60-9edd-4619-bbe0-e152725350fc
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -184,6 +184,14 @@ definitions:
             hipposysedit:path: publishing:showFeedback
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /noindex:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:noindex
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -197,7 +205,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           publishing:summary: ''
           publishing:title: ''
-          jcr:uuid: 593cecd6-6709-49ec-98ea-ab8d80ab1b9d
+          jcr:uuid: c728f383-7983-4e75-aaba-0389e986bff2
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:07.551+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:07.552+01:00
           publishing:seoTitle: ''
@@ -212,6 +220,7 @@ definitions:
           publishing:userneed: ''
           publishing:showInParent: true
           publishing:showFeedback: true
+          publishing:noindex: false
           /publishing:cardimage:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -432,7 +441,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Show in parent?
             field: showInParent
-            hint: Indicates whether the page should appear in the site navigation and site search results
+            hint: Indicates whether the page should appear in the site navigation
+              and site search results
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -442,6 +452,16 @@ definitions:
             caption: Show feedback?
             field: showFeedback
             hint: Should this page include the ability to leave user feedback?
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /noindex:
+            jcr:primaryType: frontend:plugin
+            caption: Noindex
+            field: noindex
+            hint: Check if this page should not be indexed for search (both internal
+              and on search engines)
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

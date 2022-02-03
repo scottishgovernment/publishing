@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 021c661b-508b-4a7b-b5d1-3a9d107fb3a5
+          jcr:uuid: ab29b5ef-2ea8-408c-bd48-81b1e6a596fd
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -47,7 +47,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           publishing:slug: ''
-          jcr:uuid: 60d2a5f1-3dcc-4b5b-a65f-dc90b8540ed9
+          jcr:uuid: 9a6a345e-dba0-44bb-b2fa-515f2ee3d77d
           hippostdpubwf:lastModificationDate: 2021-05-17T15:09:40.585+01:00
           hippostdpubwf:creationDate: 2021-05-17T15:09:40.585+01:00
           publishing:audience: ''
@@ -59,6 +59,7 @@ definitions:
           publishing:seoTitle: ''
           publishing:showInParent: false
           publishing:userneed: ''
+          publishing:noindex: true
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -291,6 +292,16 @@ definitions:
             field: startpage
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /noindex:
+            jcr:primaryType: frontend:plugin
+            caption: Noindex
+            field: noindex
+            hint: Check if this page should not be indexed for search (both internal
+              and on search engines)
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

@@ -12,6 +12,11 @@
         <meta name="description" content="${contentBean.metaDescription}"/>
         </@hst.headContribution>
     </#if>
+    <#if contentBean?? && contentBean.noindex = true??>
+        <@hst.headContribution category="noindex">
+        <meta name="robots" content="noindex"/>
+        </@hst.headContribution>
+    </#if>
 
     <@hst.link var="link" canonical=true fullyQualified=true/>
     <@hst.headContribution category="canonical">
