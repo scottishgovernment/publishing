@@ -16,7 +16,7 @@
                 <div class="ds_category-header__media-container">
                     <#if document.heroImage??>
                         <img class="ds_category-header__media" alt=""
-                             src="<@hst.link hippobean=document.heroImage />" />
+                             src="<@hst.link hippobean=document.heroImage />" width="${document.heroImage.original.width}" height="${document.heroImage.original.height}"/>
                     </#if>
                 </div>
             </div>
