@@ -87,6 +87,7 @@
             </div>
 
             <#if document.relateditems?has_content >
+                <!--noindex-->
                 <aside class="ds_layout__sidebar">
                     <aside class="ds_article-aside">
                         <h2 class="gamma">Related content</h2>
@@ -102,6 +103,7 @@
                         </ul>
                     </aside>
                 </aside>
+                <!--endnoindex-->
             </#if>
 
             <#include 'feedback-wrapper.ftl'>

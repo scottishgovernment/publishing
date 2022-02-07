@@ -12,7 +12,9 @@
         <main id="main-content" class="ds_layout  ds_layout--article">
 
             <#if document.sensitive?? && document.sensitive>
+                <!--noindex-->
                 <#include "hide-this-page.ftl">
+                <!--endnoindex-->
             </#if>
 
             <div class="ds_layout__header">
@@ -39,6 +41,7 @@
                 <@hst.html hippohtml=document.content/>
 
                 <#if sequenceable?? && sequenceable == true>
+                    <!--noindex-->
                     <nav class="ds_sequential-nav" aria-label="Article navigation">
                         <#if prev??>
                             <div class="ds_sequential-nav__item  ds_sequential-nav__item--prev">
@@ -61,10 +64,12 @@
                             </div>
                         </#if>
                     </nav>
+                    <!--endnoindex-->
                 </#if>
             </div>
 
             <#if document.relateditems?has_content >
+                <!--noindex-->
                 <div class="ds_layout__sidebar">
                     <aside class="ds_article-aside">
                         <h2 class="gamma">Related content</h2>
@@ -91,6 +96,7 @@
                         </aside>
                     </#if>
                 </div>
+                <!--endnoindex-->
             </#if>
 
             <#include 'feedback-wrapper.ftl'>

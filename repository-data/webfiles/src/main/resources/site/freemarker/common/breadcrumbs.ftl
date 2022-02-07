@@ -3,6 +3,7 @@
 
 <#-- @ftlvariable name="breadcrumb" type="org.onehippo.forge.breadcrumb.om.Breadcrumb" -->
 <#if breadcrumbs??>
+<!--noindex-->
 <div class="ds_wrapper">
     <nav aria-label="Breadcrumb">
         <ol class="ds_breadcrumbs">
@@ -25,7 +26,7 @@
         </ol>
     </nav>
 </div>
-
+<!--endnoindex-->
 
 </#if>
 

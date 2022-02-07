@@ -10,7 +10,9 @@
     <div class="ds_wrapper">
         <main id="main-content" class="ds_layout  ds_layout--guide">
             <#if guide.sensitive?? && guide.sensitive>
+                <!--noindex-->
                 <#include "hide-this-page.ftl">
+                <!--endnoindex-->
             </#if>
 
             <div class="ds_layout__header">
@@ -28,6 +30,7 @@
                 </header>
             </div>
 
+            <!--noindex-->
             <div class="ds_layout__navigation">
                 <nav role="navigation" class="ds_contents-nav" aria-label="Sections">
                     <h2 class="gamma">Contents</h2>
@@ -50,6 +53,7 @@
                     </ul>
                 </nav>
             </div>
+            <!--endnoindex-->
 
             <#if guide.logo??>
                 <div class="ds_layout__partner  mg_partner-logo">
@@ -60,6 +64,7 @@
             <div class="ds_layout__content">
                 <@hst.html hippohtml=document.content/>
 
+                <!--noindex-->
                 <nav class="ds_sequential-nav" aria-label="Article navigation">
                     <#if prev??>
                         <div class="ds_sequential-nav__item  ds_sequential-nav__item--prev">
@@ -82,9 +87,11 @@
                         </div>
                     </#if>
                 </nav>
+                <!--endnoindex-->
             </div>
 
             <#if guide.relateditems?has_content >
+                <!--noindex-->
                 <div class="ds_layout__sidebar">
                     <aside class="ds_article-aside">
                         <h2 class="gamma">Related content</h2>
@@ -111,6 +118,7 @@
                         </aside>
                     </#if>
                 </div>
+                <!--endnoindex-->
             </#if>
 
             <#include 'feedback-wrapper.ftl'>

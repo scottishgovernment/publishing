@@ -34,6 +34,7 @@
                     <@hst.html hippohtml=document.prologue/>
                 </#if>
 
+                <!--noindex-->
                 <div class="ds_layout  ds_layout--category-list">
                     <#if document.navigationType == "list">
                     <div class="ds_layout__list">
@@ -56,6 +57,7 @@
                         </div>
                     </div>
                 </div>
+                <!--endnoindex-->
 
                 <#if document.epilogue??>
                     <@hst.html hippohtml=document.epilogue/>

@@ -46,6 +46,7 @@
 
             <!--Only show services if any exist-->
             <#if document.featuredservices?size gt 0>
+                <!--noindex-->
                 <div class="ds_layout__services">
                     <section id="featured-services" class="page-section  org-services">
                         <h2>${document.featuredservicestitle}</h2>
@@ -66,7 +67,9 @@
                         </ul>
                     </section>
                 </div>
+                <!--endnoindex-->
             <#elseif services?has_content>
+                <!--noindex-->
                 <div class="ds_layout__services">
                     <section id="other-services" class="page-section  org-services">
                         <h2>Services</h2>
@@ -87,33 +90,34 @@
                         </ul>
                     </section>
                 </div>
+                <!--endnoindex-->
             </#if>
 
             <!--Only show featured items if any exist-->
             <#if document.featureditem?size gt 0>
+                <!--noindex-->
                 <div class="ds_layout__featured">
-                <section id="how-we-work" class="page-section">
-                    <h2>${document.featureditemstitle}</h2>
-
-                    <div class="ds_cols  ds_cols--4">
-                        <#list document.featureditem as child>
-                            <div class="ds_card  ds_card--transparent">
-                                <div class="ds_card__media">
-                                    <img src="<@hst.link hippobean=child.image/>" alt="" class="ds_card__image" />
-                                </div>
-                                <@hst.link var="link" hippobean=child.link/>
-                                <div class="ds_card__content  ds_category-item">
-                                    <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="${link}">${child.link.title}</a></h2>
-                                    <div class="ds_category-item__summary">
-                                        ${child.summary?no_esc}
+                    <section id="how-we-work" class="page-section">
+                        <h2>${document.featureditemstitle}</h2>
+                        <div class="ds_cols  ds_cols--4">
+                            <#list document.featureditem as child>
+                                <div class="ds_card  ds_card--transparent">
+                                    <div class="ds_card__media">
+                                        <img src="<@hst.link hippobean=child.image/>" alt="" class="ds_card__image" />
+                                    </div>
+                                    <@hst.link var="link" hippobean=child.link/>
+                                    <div class="ds_card__content  ds_category-item">
+                                        <h2 class="ds_category-item__title"><a class="ds_card__cover-link" href="${link}">${child.link.title}</a></h2>
+                                        <div class="ds_category-item__summary">
+                                            ${child.summary?no_esc}
+                                        </div>
                                     </div>
                                 </div>
-
-                            </div>
-                        </#list>
-                    </div>
+                            </#list>
+                        </div>
                     </section>
                 </div>
+                <!--endnoindex-->
             </#if>
 
             <@hst.html var="organisationstructure" hippohtml=document.organisationstructure/>

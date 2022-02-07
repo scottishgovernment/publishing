@@ -75,9 +75,11 @@
     </#list>
 
     <#if cparam.showPagination>
+        <!--noindex-->
         <div class="ds_wrapper">
             <#include "../common/include/pagination.ftl">
         </div>
+        <!--endnoindex-->
     </#if>
 
     <@hst.include ref="seo"/>

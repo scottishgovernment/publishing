@@ -51,6 +51,7 @@
 
         <@hst.include ref="googletagmanager"/>
 
+        <!--noindex-->
         <#include "skip-links.ftl">
 
         <@hst.include ref="preview-indicator"/>
@@ -62,13 +63,16 @@
                 <p>To leave the page quickly, press the escape key.</p>
             </div>
         </#if>
+        <!--endnoindex-->
 
         <div class="ds_page">
+            <!--noindex-->
             <div class="ds_page__top">
                 <@hst.include ref="notifications"/>
                 <@hst.include ref="siteheader"/>
                 <@hst.include ref="menu"/>
             </div>
+            <!--endnoindex-->
 
             <div class="ds_page__middle">
                 <main id="main-content">
@@ -76,11 +80,15 @@
                 </main>
             </div>
 
+            <!--noindex-->
             <#include "back-to-top.ftl">
+            <!--endnoindex-->
 
+            <!--noindex-->
             <div class="ds_page__bottom">
                 <@hst.include ref="footer"/>
             </div>
+            <!--endnoindex-->
         </div>
 
         <@hst.headContributions categoryIncludes="footerScripts" xhtml=true/>
