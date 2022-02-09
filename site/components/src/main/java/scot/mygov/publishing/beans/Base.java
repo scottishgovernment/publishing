@@ -114,4 +114,10 @@ public class Base extends BaseDocument {
     public List<HippoBean> getFactCheckers() {
         return getLinkedBeans("publishing:factCheckers", HippoBean.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "hippostd:tags")
+    public String[] getTags() {
+        return getMultipleProperty("hippostd:tags");
+    }
+
 }

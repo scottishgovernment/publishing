@@ -3,6 +3,26 @@
 
 <#if contentBean??>
 
+    <@hst.headContribution category="meta">
+        <meta name="dc.format" content="article"/>
+    </@hst.headContribution>
+    <@hst.headContribution category="meta">
+        <meta name="dc.title" content="${contentBean.title}"/>
+    </@hst.headContribution>
+    <@hst.headContribution category="meta">
+        <meta name="dc.description" content="${contentBean.summary}"/>
+    </@hst.headContribution>
+    <#if contentBean.tags??>
+        <@hst.headContribution category="meta">
+            <meta name="dc.subject" content="<#list contentBean.tags as tag>${tag}<#sep>, </#sep></#list>"/>
+        </@hst.headContribution>
+    </#if>
+    <#if contentBean.lastUpdatedDate??>
+        <@hst.headContribution category="meta">
+            <meta name="dc.date.modified" content="<@fmt.formatDate value=contentBean.lastUpdatedDate.time type="both" pattern="YYYY-MM-DD"/>"/>
+        </@hst.headContribution>
+    </#if>
+
     <@hst.headContribution category="title">
     <title>${titletag}</title>
     </@hst.headContribution>
