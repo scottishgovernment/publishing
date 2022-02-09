@@ -17,6 +17,11 @@
         <meta name="robots" content="noindex"/>
         </@hst.headContribution>
     </#if>
+    <#if contentBean?? && contentBean.title??>
+        <@hst.headContribution category="meta">
+        <meta name="dc.title" content="${contentBean.title}"/>
+        </@hst.headContribution>
+    </#if>
 
     <@hst.link var="link" canonical=true fullyQualified=true/>
     <@hst.headContribution category="canonical">
