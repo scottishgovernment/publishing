@@ -2,10 +2,6 @@
 <#include "include/imports.ftl">
 
 <#if contentBean??>
-
-    <@hst.headContribution category="meta">
-        <meta name="dc.format" content="article"/>
-    </@hst.headContribution>
     <@hst.headContribution category="meta">
         <meta name="dc.title" content="${contentBean.title}"/>
     </@hst.headContribution>
@@ -19,7 +15,7 @@
     </#if>
     <#if contentBean.lastUpdatedDate??>
         <@hst.headContribution category="meta">
-            <meta name="dc.date.modified" content="<@fmt.formatDate value=contentBean.lastUpdatedDate.time type="both" pattern="YYYY-MM-DD"/>"/>
+            <meta name="dc.date.modified" content="<@fmt.formatDate value=contentBean.lastUpdatedDate.time type="both" pattern="YYYY-MM-dd"/>"/>
         </@hst.headContribution>
     </#if>
 

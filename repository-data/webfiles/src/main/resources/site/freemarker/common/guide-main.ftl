@@ -125,6 +125,17 @@
         </main>
     </div>
 </div>
+
+<@hst.headContribution category="meta">
+    <meta name="dc.format" content="Guide"/>
+</@hst.headContribution>
+
+<#if guide.title??>
+<@hst.headContribution category="meta">
+    <meta name="dc.title.series" content="${guide.title}"/>
+</@hst.headContribution>
+</#if>
+
 </#if>
 
 <@hst.headContribution category="resourcehints">

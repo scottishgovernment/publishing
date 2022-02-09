@@ -104,6 +104,11 @@
         </main>
     </div>
 </div>
+
+<@hst.headContribution category="meta">
+    <meta name="dc.format" content="Article"/>
+</@hst.headContribution>
+
 </#if>
 
 <@hst.headContribution category="resourcehints">
@@ -111,6 +116,8 @@
         <link rel="prerender" href="${nextlink}"/>
     </#if>
 </@hst.headContribution>
+
+
 
 <#assign scriptName="article">
 <#include 'scripts.ftl'/>

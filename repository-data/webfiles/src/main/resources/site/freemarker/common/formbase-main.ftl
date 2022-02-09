@@ -73,7 +73,13 @@
             </main>
         </div>
     </div>
+
+<@hst.headContribution category="meta">
+    <meta name="dc.format" content="Form"/>
+</@hst.headContribution>
+
 </#if>
+
 
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"

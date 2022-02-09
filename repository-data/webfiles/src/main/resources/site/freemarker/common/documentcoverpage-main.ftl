@@ -110,17 +110,16 @@
         </main>
     </div>
 </div>
+
+<@hst.headContribution category="meta">
+    <meta name="dc.format" content="Documents"/>
+</@hst.headContribution>
+
 </#if>
 
 <@hst.headContribution category="resourcehints">
     <#if nextlink??>
     <link rel="prerender" href="${nextlink}"/>
-    </#if>
-</@hst.headContribution>
-
-<@hst.headContribution category="meta">
-    <#if document??>
-    <meta name="description" content="${document.metaDescription}"/>
     </#if>
 </@hst.headContribution>
 

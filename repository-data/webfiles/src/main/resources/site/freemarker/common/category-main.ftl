@@ -70,6 +70,10 @@
     </main>
 </div>
 
+<@hst.headContribution category="meta">
+    <meta name="dc.format" content="Category"/>
+</@hst.headContribution>
+
 </#if>
 
 <#assign scriptName="category">

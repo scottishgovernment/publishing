@@ -281,6 +281,11 @@
         </main>
     </div>
 </div>
+
+<@hst.headContribution category="meta">
+    <meta name="dc.format" content="Organisation"/>
+</@hst.headContribution>
+
 </#if>
 
 <#assign scriptName="organisation">
