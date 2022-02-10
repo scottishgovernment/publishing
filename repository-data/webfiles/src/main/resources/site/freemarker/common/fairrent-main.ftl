@@ -65,7 +65,7 @@
                 <section id="fair-rent-introduction" class="js-fair-rent-section  fully-hidden">
                         <@hst.html hippohtml=document.content/>
 
-                        <div class="ds_site-header__search  ds_site-search">
+                        <div class="ds_site-search">
                             <form role="search" class="ds_site-search__form" method="GET" action="">
                                 <label class="ds_label  visually-hidden" for="site-search">Search</label>
 

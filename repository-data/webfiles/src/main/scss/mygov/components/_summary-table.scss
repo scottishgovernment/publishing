@@ -60,6 +60,7 @@
     &__label {
         font-size: $small-size;
         font-weight: 700;
+        line-height: px-to-em(24px, 14px);
     }
 
     &:after {
