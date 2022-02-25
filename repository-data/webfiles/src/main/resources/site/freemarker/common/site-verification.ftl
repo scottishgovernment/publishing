@@ -6,3 +6,9 @@
     </@hst.headContribution>
 </#list>
 
+<#list googleVerifications as googleVerification>
+    <@hst.headContribution category="googleVerification">
+    <meta name="google-site-verification" content="${googleVerification.code}" />
+    </@hst.headContribution>
+</#list>
+

@@ -28,8 +28,8 @@ definitions:
         hst:template: preview-indicator
       /facebook-verification:
         jcr:primaryType: hst:component
-        hst:componentclassname: scot.mygov.publishing.components.FacebookVerificationComponent
-        hst:template: base-facebook-verification
+        hst:componentclassname: scot.mygov.publishing.components.SiteVerificationComponent
+        hst:template: site-verification
         hst:suppresswastemessage: true
       /seo:
         jcr:primaryType: hst:component
