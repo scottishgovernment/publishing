@@ -3,8 +3,6 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta name="google-site-verification" content="vSrfYRrCbfMqGoggpdhADL9rvDQm70LtAHalmFmZ4wE"/>
-
         <@hst.headContributions categoryIncludes="dataLayer"/>
 
         <!-- dataLayer code MUST be higher than google tag manager code -->
@@ -32,6 +30,8 @@
         <meta name="theme-color" content="#ffffff">
 
         <@hst.headContributions categoryIncludes="facebookVerification"/>
+        <@hst.headContributions categoryIncludes="googleVerification"/>
+
         <@hst.headContributions categoryIncludes="canonical"/>
 
         <script>

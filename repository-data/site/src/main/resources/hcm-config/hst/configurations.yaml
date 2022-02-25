@@ -100,9 +100,6 @@ definitions:
           /search-results:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/search-results.ftl
-          /base-facebook-verification:
-            jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/facebook-verification.ftl
           /smartanswer-main:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/smartanswer-main.ftl
@@ -151,6 +148,9 @@ definitions:
           /campaign-home-main:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/campaign-home-main.ftl
+          /site-verification:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/site-verification.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

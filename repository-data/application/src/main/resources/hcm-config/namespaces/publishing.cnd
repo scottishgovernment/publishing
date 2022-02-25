@@ -62,6 +62,9 @@
 [publishing:fragment] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:googleverification] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:guide] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 

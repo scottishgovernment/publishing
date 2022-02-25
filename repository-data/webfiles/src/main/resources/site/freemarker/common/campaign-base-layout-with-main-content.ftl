@@ -31,6 +31,7 @@
     <meta name="msapplication-TileColor" content="#0065bd">
     <meta name="theme-color" content="#ffffff">
     <@hst.headContributions categoryIncludes="facebookVerification"/>
+    <@hst.headContributions categoryIncludes="googleVerification"/>
 
     <@hst.headContributions categoryIncludes="canonical"/>
 
