@@ -130,9 +130,12 @@
     <meta name="dc.format" content="Guide"/>
 </@hst.headContribution>
 
-<#if guide.title??>
+<#if guide??>
 <@hst.headContribution category="meta">
     <meta name="dc.title.series" content="${guide.title}"/>
+</@hst.headContribution>
+<@hst.headContribution category="meta">
+    <meta name="dc.title.series.link" content="<@hst.link hippobean=guide/>"/>
 </@hst.headContribution>
 </#if>
 
