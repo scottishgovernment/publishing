@@ -44,7 +44,6 @@ const global = {
                         backToTop.classList.add('js-has-tracking-event');
                     }
                 });
-                window.DS.tracking.add.backToTop(scope);
             };
 
             window.DS.tracking.init();
