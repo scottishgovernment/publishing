@@ -1,6 +1,6 @@
 <#include "../common/include/imports.ftl">
 <#if menu??>
-    <#if menu.siteMenuItems??>
+    <#if menu.siteMenuItems?? && menu.siteMenuItems?has_content>
         <div class="ds_site-header__navigation">
             <div class="ds_wrapper">
                 <nav class="ds_site-navigation">
