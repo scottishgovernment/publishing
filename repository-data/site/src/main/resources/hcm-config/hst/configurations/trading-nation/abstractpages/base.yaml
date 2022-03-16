@@ -29,3 +29,8 @@ definitions:
         jcr:primaryType: hst:component
         hst:componentclassname: scot.mygov.publishing.components.SEOComponent
         hst:template: seo
+      /facebook-verification:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.SiteVerificationComponent
+        hst:suppresswastemessage: true
+        hst:template: site-verification
