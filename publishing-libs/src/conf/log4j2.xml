@@ -43,13 +43,13 @@
       </Policies>
     </RollingFile>
 
-    <!-- hippo-repo.log -->
+    <!-- hippo-platform.log -->
     <RollingFile
-        name="repo"
+        name="platform"
         fileName="${sys:catalina.base}/logs/hippo-platform.log"
         filePattern="${sys:catalina.base}/logs/hippo-platform.log.yyyy-MM-dd"
         createOnDemand="true">
-      <LookupFilter key="jndi:logging/contextName" value="repository" onMatch="ACCEPT"/>
+      <LookupFilter key="jndi:logging/contextName" value="platform" onMatch="ACCEPT"/>
       <PatternLayout pattern="%d{DEFAULT}{UTC} [%t] %-5p [%C.%M():%L] %m%n"/>
       <Policies>
         <SizeBasedTriggeringPolicy size="10MB"/>
