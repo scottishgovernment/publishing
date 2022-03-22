@@ -89,7 +89,7 @@
 
                         <div id="results-top"></div>
 
-                        <p id="result-count" class="ds_search-results__count  js-search-results-count"></p>
+                        <p id="result-count" class="s__count  js-search-results-count"></p>
 
                         <ol id="search-results-list" class="ds_search-results__list"></ol>
 
