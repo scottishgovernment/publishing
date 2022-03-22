@@ -199,7 +199,7 @@ const fairRentRegister = {
                 Please search again using an alternative street, town or postcode.
             </p>
 
-             <div class="ds_site-header__search  ds_site-search">
+             <div class="ds_site-search">
                 <form id="fair-rent-search-no-results" role="search" class="ds_site-search__form" method="GET" action="/fair-rent-register/">
                     <label class="ds_label  visually-hidden" for="site-search">Search</label>
 
@@ -222,17 +222,13 @@ const fairRentRegister = {
             for (let i = 0, il = result.data.length; i < il; i++) {
                 const item = result.data[i];
 
-                const itemHTML = `<article>
-                    <header class="ds_search-result__header">
-                        <h3 class="gamma  ds_search-result__title">
+                const itemHTML = `<h3 class="ds_search-result__title">
                             <a data-caseid="${item.caseNo}" data-gtm="search-pos-${i}" href="/fair-rent-register/?caseId=${item.caseNo}" title="${item.propertyAddressLine}" class="js-fair-rent-item  ds_search-result__link" href="#">${item.propertyAddressLine}</a>
                         </h3>
-                    </header>
                     <p class="ds_search-result__summary">
                         Registered ${date.ddMMyyyy(new Date(item.registered))}
                         Rent: ${currency(item.rent)}
-                    </p>
-                </article>`;
+                    </p>`;
 
                 const itemElement = document.createElement('li');
                 itemElement.classList.add('ds_search-result');
