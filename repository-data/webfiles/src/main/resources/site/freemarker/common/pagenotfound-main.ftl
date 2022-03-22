@@ -11,7 +11,7 @@
             </div>
 
             <div class="ds_layout__content">
-                <@fmt.message key="pagenotfound.text" var="text"/>${text}
+                <@fmt.message key="pagenotfound.text" var="text"/>${text?no_esc}
             </div>
         </main>
     </div>
