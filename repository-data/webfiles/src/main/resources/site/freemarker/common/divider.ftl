@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 
 <#if hstRequestContext.preview><div class="cms-display-grid"></#if>

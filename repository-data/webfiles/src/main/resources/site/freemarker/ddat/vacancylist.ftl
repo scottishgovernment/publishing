@@ -1,5 +1,4 @@
-<#include "../common/include/imports.ftl">
-
+<#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
 <@hst.include ref="container"/>
 
@@ -19,10 +18,10 @@
                         <article class="listing">
                             <h2 class="listing__title">
                                 <#if item.link?has_content>
-                                    <a href="${item.link}">${item.title?html}</a>
+                                    <a href="${item.link}">${item.title}</a>
                                 <#else>
                                     <@hst.link var="link" hippobean=item/>
-                                    <a href="${link}">${item.title?html}</a>
+                                    <a href="${link}">${item.title}</a>
                                 </#if>
                             </h2>
 

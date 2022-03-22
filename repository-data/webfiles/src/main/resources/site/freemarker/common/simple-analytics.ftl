@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#if simpleAnalyticsEnabled = true>
 <script async defer src="https://sa.mygov.scot/app.js"></script>
 

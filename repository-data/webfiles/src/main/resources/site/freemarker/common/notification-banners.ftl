@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
     <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
     <#list notificationbanners as banner>
@@ -16,7 +17,7 @@
                     <div class="ds_notification__text">
                         <@hst.html var="content" hippohtml=banner.content/>
                         <#if content?has_content>
-                            ${content}
+                            ${content?no_esc}
                         </#if>
                     </div>
 

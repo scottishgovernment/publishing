@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
 
 <@hst.link var="home" siteMapItemRefId="root" />

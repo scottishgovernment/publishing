@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <div id="browser-notice" class="ds_notification  fully-hidden" data-module="ds-notification" data-customcondition="true">
