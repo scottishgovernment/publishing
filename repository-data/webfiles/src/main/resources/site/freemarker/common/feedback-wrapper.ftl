@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#if document.showFeedback?? && document.showFeedback>
     <!--noindex-->
     <div class="ds_layout__feedback">

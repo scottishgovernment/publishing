@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 <#include "include/cms-placeholders.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
@@ -13,7 +14,7 @@
             <#if document??>
                 <div class="ds_cb__poster">
                     <a target="_blank" class="ds_cb__poster-link" href="${document.url}">
-                        <img class="ds_cb__poster-video" src="<@hst.link hippobean=document.image /> " alt="${document.alt?html}"/>
+                        <img class="ds_cb__poster-video" src="<@hst.link hippobean=document.image /> " alt="${document.alt}"/>
                     </a>
                 </div>
 

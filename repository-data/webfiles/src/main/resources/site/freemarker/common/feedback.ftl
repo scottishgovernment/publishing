@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#if isFeedbackEnabled = true>
 <section id="feedback" class="mg_feedback">
     <div class="ds_error-summary  fully-hidden" id="feedbackErrorSummary" aria-labelledby="error-summary-title" role="alert">

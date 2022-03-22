@@ -1,4 +1,6 @@
+<#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
+
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#if menu??>
@@ -17,9 +19,9 @@
                 <#list menu.siteMenuItems as item>
                     <li class="ds_site-navigation__item">
                         <#if item.selected>
-                            <span class="ds_site-navigation__link  ds_current">${item.name?html}</span>
+                            <span class="ds_site-navigation__link  ds_current">${item.name}</span>
                         <#else>
-                            <a href="<@hst.link link=item.hstLink/>" class="ds_site-navigation__link">${item.name?html}</a>
+                            <a href="<@hst.link link=item.hstLink/>" class="ds_site-navigation__link">${item.name}</a>
                         </#if>
                     </li>
                 </#list>

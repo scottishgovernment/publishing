@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "include/imports.ftl">
 <#include "include/cms-placeholders.ftl">
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Imageandtext" -->
@@ -15,7 +16,7 @@
                 </div>
 
                 <div class="ds_cb__poster">
-                    <img src="<@hst.link hippobean=document.image />" alt="${document.alt?html}"/>
+                    <img src="<@hst.link hippobean=document.image />" alt="${document.alt}"/>
                 </div>
 
                 <@hst.manageContent hippobean=document documentTemplateQuery="new-imageandtext-document" parameterName="document" rootPath="images"/>

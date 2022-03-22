@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 

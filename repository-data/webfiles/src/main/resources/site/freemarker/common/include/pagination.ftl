@@ -1,3 +1,4 @@
+<#ftl output_format="HTML">
 <#-- @ftlvariable name="pageable" type="org.onehippo.cms7.essentials.components.paging.Pageable" -->
 <#include "imports.ftl">
 <#if pageable??>
@@ -19,7 +20,7 @@
                             <@hst.param name="page" value="${pageable.previousPage}"/>
                         </@hst.renderURL>
                         <li class="ds_pagination__item">
-                            <a class="ds_pagination__link  ds_pagination__link--text" href="${pageUrlPrevious}"><@fmt.message key="page.previous" var="prev"/>${prev?html}</a>
+                            <a class="ds_pagination__link  ds_pagination__link--text" href="${pageUrlPrevious?no_esc}"><@fmt.message key="page.previous" var="prev"/>${prev}</a>
                         </li>
                     </#if>
                     <#if pageable.currentPage == pageNr>
@@ -28,7 +29,7 @@
                         </li>
                     <#else>
                         <li class="ds_pagination__item ">
-                            <a class="ds_pagination__link" href="${pageUrl}">${pageNr}</a>
+                            <a class="ds_pagination__link" href="${pageUrl?no_esc}">${pageNr}</a>
                         </li>
                     </#if>
 
@@ -37,7 +38,7 @@
                             <@hst.param name="page" value="${pageable.nextPage}"/>
                         </@hst.renderURL>
                         <li class="ds_pagination__item ">
-                            <a class="ds_pagination__link  ds_pagination__link--text" href="${pageUrlNext}"><@fmt.message key="page.next" var="next"/>${next?html}</a>
+                            <a class="ds_pagination__link  ds_pagination__link--text" href="${pageUrlNext?no_esc}"><@fmt.message key="page.next" var="next"/>${next}</a>
                         </li>
                     </#if>
                 </#list>
