@@ -30,14 +30,6 @@
 
     {% endif %}
 
-    {% if property.universalRelief %}
-
-    <h4>{{property.universalRelief.name}}</h4>
-    <p class="discount">{{property.universalRelief.fraction | decimalToPercent}} discount</p>
-    <p>{{property.universalRelief.amount | currencyFormatted}}</p>
-
-    {% endif %}
-
     </div>
 
     <div class="liability block right">

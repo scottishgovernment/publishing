@@ -116,19 +116,17 @@ const businessRatesCalculator = {
         this.ratesCalculatorData.sbbs_25_rv_threshold = 18000;
         this.ratesCalculatorData.sbbs_25_percentage_relief = 0.25;
         this.ratesCalculatorData.sbbs_combined_threshold = 35000;
-        this.ratesCalculatorData.universalRelief = 0.016;
-        this.ratesCalculatorData.financial_year = '2020-2021';
-        this.ratesCalculatorData.poundage = 0.498;
+        this.ratesCalculatorData.financial_year = '2021-2022';
+        this.ratesCalculatorData.poundage = 0.490;
         this.ratesCalculatorData.intermediate_business_supplement_threshold = 51000;
         this.ratesCalculatorData.intermediate_business_supplement = 0.013;
         this.ratesCalculatorData.large_business_supplement_threshold = 95000;
         this.ratesCalculatorData.large_business_supplement = 0.026;
 
-        const newFiscalYeardate = new Date(2021, 3, 1);
+        const newFiscalYeardate = new Date(2022, 3, 1);
         if (today > newFiscalYeardate) {
-            this.ratesCalculatorData.financial_year = '2021-2022';
-            this.ratesCalculatorData.poundage = 0.490;
-            this.ratesCalculatorData.universalRelief = false;
+            this.ratesCalculatorData.financial_year = '2022-2023';
+            this.ratesCalculatorData.poundage = 0.498;
         }
 
         // adjust this to use different value types, e.dg. current rateable value or proposed rateable value
@@ -416,16 +414,6 @@ const businessRatesCalculator = {
 
             if(property.appliedRelief) {
                 property.netLiability = Math.max(property.netLiability - property.appliedRelief.amount.toFixed(2), 0);
-            }
-
-            // on top of any other reliefs, add the coronavirus special
-            if (this.ratesCalculatorData.universalRelief) {
-                property.universalRelief = {
-                    name: 'Universal 1.6% relief',
-                    fraction: 0.016,
-                    amount: property.baseLiability * this.ratesCalculatorData.universalRelief
-                };
-                property.netLiability = Math.max(property.netLiability - property.universalRelief.amount.toFixed(2), 0);
             }
         }
     },
