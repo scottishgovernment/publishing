@@ -149,11 +149,15 @@ const feedbackForm = {
                     // hide form
                     that.formElement.classList.add('fully-hidden');
 
+                } else if (this.status === 429) {
+                  that.errorSummary.querySelector('.ds_error-summary__content').innerHTML = '<p>Sorry, too many requests have been submitted. Please try again later.</p>';
+                  that.errorSummary.classList.remove('fully-hidden');
+                  that.errorSummary.scrollIntoView();
                 } else if (this.status >= 400) {
-                    that.errorSummary.querySelector('.ds_error-summary__content').innerHTML = '<p>Sorry, we have a problem at our side. Please try again later.</p>';
-                    that.errorSummary.classList.remove('fully-hidden');
-                    that.errorSummary.scrollIntoView();
-                }
+                  that.errorSummary.querySelector('.ds_error-summary__content').innerHTML = '<p>Sorry, we have a problem at our side. Please try again later.</p>';
+                  that.errorSummary.classList.remove('fully-hidden');
+                  that.errorSummary.scrollIntoView();
+              }
             };
 
             xhr.send(JSON.stringify(feedback));
