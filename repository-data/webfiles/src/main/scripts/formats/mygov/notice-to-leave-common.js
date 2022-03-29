@@ -545,7 +545,10 @@ const noticeToLeaveForm = {
 
         const period = evictionGroundsWithPeriods[longestGround.id];
 
-        if (period.match('m')) {
+        if (today < sixMonthsFromStartDate) {
+            // if within six months of start date
+            retData.number = 28;
+        } else if (period.match('m')) {
             endDate.setMonth(endDate.getMonth() + parseInt(period, 10));
             retData.type = 'months';
             retData.number = parseInt(period, 10);
@@ -556,6 +559,8 @@ const noticeToLeaveForm = {
             endDate.setDate(endDate.getDate() + period);
             retData.number = parseInt(period);
         }
+
+
 
         return retData;
     },
