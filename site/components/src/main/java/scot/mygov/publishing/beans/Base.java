@@ -64,7 +64,7 @@ public class Base extends BaseDocument {
         return getSingleProperty("publishing:showInParent");
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:sensitive")
+    @HippoEssentialsGenerated(internalName = "publishing:noindex")
     public Boolean getNoindex() {
         return getSingleProperty("publishing:noindex", Boolean.FALSE);
     }
