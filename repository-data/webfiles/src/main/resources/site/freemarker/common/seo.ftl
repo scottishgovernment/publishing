@@ -5,9 +5,11 @@
     <@hst.headContribution category="meta">
         <meta name="dc.title" content="${contentBean.title}"/>
     </@hst.headContribution>
-    <@hst.headContribution category="meta">
-        <meta name="dc.description" content="${contentBean.summary}"/>
-    </@hst.headContribution>
+    <#if contentBean.summary??>
+        <@hst.headContribution category="meta">
+            <meta name="dc.description" content="${contentBean.summary}"/>
+        </@hst.headContribution>
+    </#if>
     <#if contentBean.tags??>
         <@hst.headContribution category="meta">
             <meta name="dc.subject" content="<#list contentBean.tags as tag>${tag}<#sep>, </#sep></#list>"/>
@@ -28,7 +30,7 @@
         <meta name="description" content="${contentBean.metaDescription}"/>
         </@hst.headContribution>
     </#if>
-    <#if contentBean?? && contentBean.noindex = true??>
+    <#if contentBean?? && contentBean.noindex?? && contentBean.noindex = true>
         <@hst.headContribution category="noindex">
         <meta name="robots" content="noindex"/>
         </@hst.headContribution>
