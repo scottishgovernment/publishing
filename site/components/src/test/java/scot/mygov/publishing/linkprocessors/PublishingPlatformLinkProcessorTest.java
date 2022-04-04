@@ -26,8 +26,29 @@ public class PublishingPlatformLinkProcessorTest {
     PublishingPlatformLinkProcessor sut = new PublishingPlatformLinkProcessor();
 
     @Test
-    public void postProcessIgnoresUrlsWithExtensions() {
-        HstLink link = link("/path/with-extension.jpeg");
+    public void preProcessDoesNotChangeLocalLink() {
+        HstLink link = localhostLink();
+        HstLink actual = sut.preProcess(link);
+        assertSame(link, actual);
+    }
+
+    @Test
+    public void postProcessDoesNotChangeLocalLink() {
+        HstLink link = localhostLink();
+        HstLink actual = sut.postProcess(link);
+        assertSame(link, actual);
+    }
+
+    @Test
+    public void preProcessDoesNotChangeBinaryLink() {
+        HstLink link = binariesLink();
+        HstLink actual = sut.preProcess(link);
+        assertSame(link, actual);
+    }
+
+    @Test
+    public void postProcessDoesNotChangeBinaryLink() {
+        HstLink link = binariesLink();
         HstLink actual = sut.postProcess(link);
         assertSame(link, actual);
     }
@@ -43,6 +64,15 @@ public class PublishingPlatformLinkProcessorTest {
 
     @Test
     public void postProcessReturnsUnchangedLinkForFolders() throws RepositoryException {
+        Session session = sessionWithFolder();
+        sut.sessionSource = () -> session;
+        HstLink link = folderLink();
+        HstLink actual = sut.postProcess(link);
+        assertSame(link, actual);
+    }
+
+    @Test
+    public void postProcessReturnsUnchangedLinkUnpublishedIndex() throws RepositoryException {
         Session session = sessionWithFolder();
         sut.sessionSource = () -> session;
         HstLink link = folderLink();
@@ -111,6 +141,16 @@ public class PublishingPlatformLinkProcessorTest {
         verify(link).setPath("looked-up-path");
     }
 
+    HstLink localhostLink() {
+        HstLink link = mock(HstLink.class);
+        Mount mount = mock(Mount.class);
+        VirtualHost virtualHost = mock(VirtualHost.class);
+        when(link.getMount()).thenReturn(mount);
+        when(mount.getVirtualHost()).thenReturn(virtualHost);
+        when(virtualHost.getName()).thenReturn("localhost");
+        return link;
+    }
+
     HstLink link(String path) {
         HstLink link = mock(HstLink.class);
         when(link.getPath()).thenReturn(path);
@@ -121,6 +161,11 @@ public class PublishingPlatformLinkProcessorTest {
         when(link.getMount()).thenReturn(mount);
         when(link.getPathElements()).thenReturn(path.split("/"));
         return link;
+    }
+
+
+    HstLink binariesLink() {
+        return link("/binaries/thisisabinary");
     }
 
     HstLink folderLink() {
