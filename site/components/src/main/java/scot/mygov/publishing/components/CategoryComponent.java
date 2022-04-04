@@ -2,11 +2,13 @@ package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
+import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import scot.mygov.publishing.beans.Mirror;
 
+import java.io.IOException;
 import java.util.*;
 
 import static java.util.Objects.nonNull;
@@ -30,16 +32,26 @@ public class CategoryComponent extends EssentialsContentComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-        setCategoryAttributes(request);
+        setCategoryAttributes(request, response);
     }
 
-    static void setCategoryAttributes(HstRequest request) {
+    static void setCategoryAttributes(HstRequest request, HstResponse response) {
 
         if (!hasContentBean(request)) {
+            send404(request, response);
             return;
         }
         HippoFolderBean folder = getChildrenFolder(request);
         request.setAttribute("children", getChildren(folder));
+    }
+
+    static void send404(HstRequest request, HstResponse response){
+        try {
+            response.setStatus(404);
+            response.forward("/pagenotfound");
+        }  catch (IOException e) {
+            throw new HstComponentException("Forward failed", e);
+        }
     }
 
     static HippoFolderBean getChildrenFolder(HstRequest request) {
@@ -75,7 +87,8 @@ public class CategoryComponent extends EssentialsContentComponent {
     }
 
     static boolean hasContentBean(HstRequest request) {
-        return request.getRequestContext().getContentBean() != null;
+        HippoBean bean = request.getRequestContext().getContentBean();
+        return bean != null && !bean.isHippoFolderBean();
     }
 
     static List<Wrapper> getChildren(HippoFolderBean folder) {
