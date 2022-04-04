@@ -92,9 +92,10 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
             return false;
         }
 
-        if (!node.hasNode(INDEX)) {
+        if (!node.hasNode(INDEX) || !node.getNode(INDEX).hasNode(INDEX)) {
             return false;
         }
+
         Node index = node.getNode(INDEX).getNode(INDEX);
         return index.isNodeType("publishing:guide");
     }

@@ -3,6 +3,7 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -52,12 +53,32 @@ public class CategoryComponentTest {
     public void notAttributesSetIfNoContentBean() {
         // ARRANGE
         HstRequest request = mock(HstRequest.class);
+        HstResponse response = mock(HstResponse.class);
         HstRequestContext context = mock(HstRequestContext.class);
         when(request.getRequestContext()).thenReturn(context);
         when(context.getContentBean()).thenReturn(null);
 
         // ACT
-        CategoryComponent.setCategoryAttributes(request);
+        CategoryComponent.setCategoryAttributes(request, response);
+
+        // ASSERT
+        verify(request, never()).setAttribute(any(), any());
+    }
+
+    @Test
+    public void notAttributesSetIfContentBeanIsAFolder() {
+        // ARRANGE
+        HstRequest request = mock(HstRequest.class);
+        HstResponse response = mock(HstResponse.class);
+        HstRequestContext context = mock(HstRequestContext.class);
+        Base contentBean = mock(Base.class);
+        when(contentBean.isHippoFolderBean()).thenReturn(true);
+        when(request.getRequestContext()).thenReturn(context);
+        when(context.getContentBean()).thenReturn(contentBean);
+        when(request.getRequestContext()).thenReturn(context);
+
+        // ACT
+        CategoryComponent.setCategoryAttributes(request, response);
 
         // ASSERT
         verify(request, never()).setAttribute(any(), any());
@@ -81,7 +102,7 @@ public class CategoryComponentTest {
 
         request.getRequestContext().getSiteContentBaseBean();
         // ACT
-        CategoryComponent.setCategoryAttributes(request);
+        CategoryComponent.setCategoryAttributes(request, null);
 
         // ASSERT
         verify(request).setAttribute(any(), any());
