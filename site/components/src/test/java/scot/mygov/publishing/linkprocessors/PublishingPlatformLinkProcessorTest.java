@@ -47,13 +47,6 @@ public class PublishingPlatformLinkProcessorTest {
     }
 
     @Test
-    public void postProcessDoesNotChangeBinaryLink() {
-        HstLink link = binariesLink();
-        HstLink actual = sut.postProcess(link);
-        assertSame(link, actual);
-    }
-
-    @Test
     public void postProcessRepoExceptionReturnsUnchangedLink() throws RepositoryException {
         Session session = exceptionThrowingSession();
         sut.sessionSource = () -> session;
