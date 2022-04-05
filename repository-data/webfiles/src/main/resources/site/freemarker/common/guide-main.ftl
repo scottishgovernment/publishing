@@ -130,7 +130,7 @@
     <meta name="dc.format" content="Guide"/>
 </@hst.headContribution>
 
-<#if guide??>
+<#if guide?? && !isFirstPage >
 <@hst.headContribution category="meta">
     <meta name="dc.title.series" content="${guide.title}"/>
 </@hst.headContribution>
