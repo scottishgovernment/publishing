@@ -19,6 +19,7 @@ public class GuideComponent extends CategoryComponent {
         request.setAttribute("guide", getDocumentBean(request));
         HippoBean firstPage = getFirstGuidePage(request);
         ArticleComponent.doSetArticleAttributes(request, firstPage);
+        request.setAttribute("firstPage", true);
     }
 
     static HippoBean getFirstGuidePage(HstRequest request) {

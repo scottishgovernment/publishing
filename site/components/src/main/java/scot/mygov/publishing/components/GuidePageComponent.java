@@ -5,6 +5,8 @@ import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 
+import static scot.mygov.publishing.components.GuideComponent.getFirstGuidePage;
+
 public class GuidePageComponent extends ArticleComponent {
 
     @Override
@@ -13,7 +15,9 @@ public class GuidePageComponent extends ArticleComponent {
         HippoBean page = getDocumentBean(request);
         HippoFolderBean folder = (HippoFolderBean) page.getParentBean();
         HippoBean guide = folder.getBean("index");
+        HippoBean firstPage = getFirstGuidePage(request);
         request.setAttribute("guide", guide);
+        request.setAttribute("isFirstPage", page.isSelf(firstPage));
     }
 
 }
