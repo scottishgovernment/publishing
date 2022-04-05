@@ -5,7 +5,6 @@
 
 'use strict';
 
-import './usertype';
 import NotificationBanner from './components/notification';
 import storage from './tools/storage';
 import finders from './components/content-select';

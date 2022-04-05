@@ -35,6 +35,8 @@ import static org.apache.commons.lang3.StringUtils.*;
  * - gtmContainerId: the google tag manager container id
  * - gtmAuth: value to use for the gtm_auth parameter
  * - gtmEnv: value to use in the gtm_preview parameter
+ * - userType: value to indicate whether the user is internal/external,
+ *             for use in the dataLayer
  */
 public class GoogleTagManagerComponent extends BaseHstComponent {
 
@@ -48,6 +50,7 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
 
         setGtmName(request);
         setGtmId(request);
+        setUserType(request);
         setMountDependentAttributes(request);
 
 
@@ -119,6 +122,12 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
                 .getResolvedSiteMapItem()
                 .getPathInfo();
         request.setAttribute("gtmId", gtmId);
+    }
+
+    void setUserType(HstRequest request) {
+        String headerUserType = request.getHeader("X-User-Type");
+        String userType = defaultString(headerUserType, "internal");
+        request.setAttribute("userType", userType);
     }
 
     /**
