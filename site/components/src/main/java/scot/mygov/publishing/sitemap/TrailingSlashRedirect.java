@@ -26,7 +26,7 @@ public class TrailingSlashRedirect implements HstSiteMapItemHandler {
             HttpServletRequest request,
             HttpServletResponse response) {
 
-        if (!request.getPathTranslated().endsWith("/")) {
+        if (!request.getRequestURL().toString().endsWith("/")) {
             return resolvedSiteMapItem;
         }
 
