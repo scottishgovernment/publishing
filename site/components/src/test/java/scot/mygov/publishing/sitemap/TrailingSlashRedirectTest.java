@@ -58,6 +58,7 @@ public class TrailingSlashRedirectTest {
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
         ResolvedSiteMapItem siteMapItem = mock(ResolvedSiteMapItem.class);
+        when(request.getRequestURL()).thenReturn(new StringBuffer("http://www.site.com/path"));
         when(request.getPathTranslated()).thenReturn("path");
 
         // ACT
@@ -76,6 +77,7 @@ public class TrailingSlashRedirectTest {
         HttpServletRequest request = mock(HttpServletRequest.class);
         HttpServletResponse response = mock(HttpServletResponse.class);
         ResolvedSiteMapItem siteMapItem = mock(ResolvedSiteMapItem.class);
+        when(request.getRequestURL()).thenReturn(new StringBuffer("http://www.site.com/path/file.pdf"));
         when(request.getPathTranslated()).thenReturn("path/file.pdf");
 
         // ACT
