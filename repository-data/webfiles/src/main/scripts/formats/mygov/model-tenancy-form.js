@@ -31,7 +31,7 @@ const confirmDefaultModal = `<div class="modal">
 
         <a href="#" id="js-modal-close" class="modal__close" ds_button  ds_button--icon-only  ds_button--small  ds_button--cancel">
             <span class="visually-hidden">Close</span>
-            <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="/assets/images/icons/icons.stack.svg#close"></use></svg>
+            <svg class="ds_icon" aria-hidden="true" role="img"><use href="/assets/images/icons/icons.stack.svg#close"></use></svg>
         </a>
 
         <h2 class="modal__title">Reset to recommended text?</h2>

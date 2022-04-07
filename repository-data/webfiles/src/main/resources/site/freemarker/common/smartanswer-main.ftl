@@ -81,7 +81,7 @@
 
                                 <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin">
                                     Next
-                                    <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="${iconspath}#chevron_right"></use></svg>
+                                    <svg class="ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#chevron_right"></use></svg>
                                 </button>
                             </section>
                         </#list>

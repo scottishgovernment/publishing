@@ -19,7 +19,7 @@
                         <li class="ds_pagination__item">
                             <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${pageUrlPrevious?no_esc}">
                                 <svg class="ds_icon" aria-hidden="true" role="img">
-                                    <use xlink:href="${iconspath}#chevron_left"></use>
+                                    <use href="${iconspath}#chevron_left"></use>
                                 </svg>
                                 <span class="ds_pagination__link-label"><@fmt.message key="page.previous" var="prev"/>${prev}</span>
                             </a>
@@ -45,7 +45,7 @@
                             <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${pageUrlNext?no_esc}">
                                 <span class="ds_pagination__link-label"><@fmt.message key="page.next" var="next"/>${next}</span>
                                 <svg class="ds_icon" aria-hidden="true" role="img">
-                                    <use xlink:href="${iconspath}#chevron_right"></use>
+                                    <use href="${iconspath}#chevron_right"></use>
                                 </svg>
                             </a>
                         </li>

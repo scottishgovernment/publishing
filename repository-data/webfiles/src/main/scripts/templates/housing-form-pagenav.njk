@@ -1,7 +1,7 @@
 <div class="button-group">
     {% if prevStep %}
         <a title="{{prevStep.title}}" id="button-back" href="#!/{{prevStep.section}}/{{prevStep.slug}}/" class="ds_button  ds_button--cancel  ds_button--has-icon  ds_button--has-icon--left  js-validate-step">
-            <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="{{ iconsFile }}#chevron_left"></use></svg>
+            <svg class="ds_icon" aria-hidden="true" role="img"><use href="{{ iconsFile }}#chevron_left"></use></svg>
             Back
         </a>
     {% endif %}
@@ -30,7 +30,7 @@
         <a title="{{nextStep.title}}" id="button-next" href="#!/{{nextStep.section}}/{{nextStep.slug}}/" class="ds_button  ds_button--has-icon  js-validate-step" {% if startPage %}data-gtm="btn-start"{% endif %}>
             {% if startPage %}Start{% else %}Next{% endif %}
 
-            <svg class="ds_icon" aria-hidden="true" role="img"><use xlink:href="{{ iconsFile }}#chevron_right"></use></svg>
+            <svg class="ds_icon" aria-hidden="true" role="img"><use href="{{ iconsFile }}#chevron_right"></use></svg>
         </a>
     {% endif %}
 </div>

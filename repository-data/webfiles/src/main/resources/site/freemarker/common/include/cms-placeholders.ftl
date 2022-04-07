@@ -22,5 +22,5 @@
     </style>
     <rect class="st0" width="160" height="90"/>
 </svg>
-<svg class="ds_icon  ds_cb__poster-video-icon" role="img"><use xlink:href="${iconspath}#play_circle_outline"></use></svg>
+<svg class="ds_icon  ds_cb__poster-video-icon" role="img"><use href="${iconspath}#play_circle_outline"></use></svg>
 </#macro>

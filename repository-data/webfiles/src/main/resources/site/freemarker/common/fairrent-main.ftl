@@ -74,7 +74,7 @@
 
                                     <button type="submit" class="ds_button  ds_button--icon-only  js-site-search-button">
                                         <span class="visually-hidden">Search the Fair Rent Register</span>
-                                        <svg class="ds_icon" role="img"><use xlink:href="${iconspath}#search"></use></svg>
+                                        <svg class="ds_icon" role="img"><use href="${iconspath}#search"></use></svg>
                                     </button>
                                 </div>
                             </form>
