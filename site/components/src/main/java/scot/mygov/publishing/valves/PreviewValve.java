@@ -19,6 +19,7 @@ import javax.jcr.RepositoryException;
 
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.Set;
 
 import static scot.mygov.publishing.valves.PreviewKeyUtils.isPreviewMount;
 
@@ -30,7 +31,6 @@ public class PreviewValve extends AbstractOrderableValve {
     public void invoke(ValveContext context) throws ContainerException {
         HstRequestContext requestContext = context.getRequestContext();
         Mount resolvedMount = requestContext.getResolvedMount().getMount();
-
         try {
             if (isPreviewMount(requestContext)) {
                 doInvoke(context, requestContext, resolvedMount);
@@ -51,7 +51,7 @@ public class PreviewValve extends AbstractOrderableValve {
         HippoBean contentBean = requestContext.getContentBean();
 
         //fetching the previewkey
-        String previewKey = PreviewKeyUtils.getPreviewKey(
+        Set<String> previewKeys = PreviewKeyUtils.getPreviewKeys(
                 valveContext.getServletRequest(), valveContext.getServletResponse(), resolvedMount);
 
         if (isExempt(requestContext)) {
@@ -65,14 +65,14 @@ public class PreviewValve extends AbstractOrderableValve {
         }
 
         // intercepting requests having the id in the url
-        if (StringUtils.isBlank(previewKey)) {
+        if (previewKeys.isEmpty()) {
             LOG.info("Preview request doesn't contain preview key");
             requestContext.getServletResponse().sendError(403);
             return;
         }
 
-        if (!hasValidStagingKey(contentBean, previewKey)) {
-            LOG.info("Preview key {} for document {} is invalid or preview link has expired.", previewKey, contentBean.getPath());
+        if (!hasValidStagingKey(contentBean, previewKeys)) {
+            LOG.info("Preview key {} for document {} is invalid or preview link has expired.", previewKeys, contentBean.getPath());
             requestContext.getServletResponse().sendError(403);
         }
     }
@@ -85,13 +85,14 @@ public class PreviewValve extends AbstractOrderableValve {
         return StringUtils.startsWith(context.getBaseURL().getPathInfo(), "/fragments/");
     }
 
-    boolean hasValidStagingKey(HippoBean contentBean, String previewKey) throws RepositoryException {
+    boolean hasValidStagingKey(HippoBean contentBean, Set<String> previewKeys) throws RepositoryException {
         Node unpublishedNode = getUnpublishedNode(contentBean);
         NodeIterator iterator = unpublishedNode.getNodes("previewId");
         while (iterator.hasNext()) {
             Node node = iterator.nextNode();
             Calendar expirationCalendar = JcrUtils.getDateProperty(node, "staging:expirationdate", null);
-            if (JcrUtils.getStringProperty(node, "staging:key", "").equals(previewKey) && isValid(expirationCalendar)) {
+            String key = JcrUtils.getStringProperty(node, "staging:key", "");
+            if (previewKeys.contains(key) && isValid(expirationCalendar)) {
                 return true;
             }
         }

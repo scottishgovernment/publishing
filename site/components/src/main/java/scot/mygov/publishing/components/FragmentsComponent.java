@@ -23,7 +23,6 @@ import static java.util.Collections.addAll;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static java.util.stream.Collectors.toList;
-import static org.apache.commons.lang.StringUtils.isBlank;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static org.apache.commons.lang3.StringUtils.substringAfter;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.and;
@@ -113,26 +112,31 @@ public class FragmentsComponent extends BaseHstComponent {
     }
 
     Constraint stagingConstraint(HstRequest request) {
-        // we only want to add this constrasint if this is the preview mount
+        // we only want to add this constraint if this is the preview mount
         if (!isPreviewMount(request.getRequestContext())) {
             return null;
         }
 
-        String key = previewKey(request);
-        if (isBlank(key)) {
+        Set<String> keys = previewKeys(request);
+        if (keys.isEmpty()) {
             return null;
         }
 
         Calendar now = Calendar.getInstance();
+        List<Constraint> keyConstraints = keys.stream().map(key -> constraintForKey(key, now)).collect(toList());
+        return or(keyConstraints.toArray(new Constraint[keyConstraints.size()]));
+    }
+
+    Constraint constraintForKey(String key, Calendar now) {
         return and(
                 constraint("previewId/@staging:key").equalTo(key),
                 constraint("previewId/@staging:expirationdate").greaterOrEqualThan(now, DateTools.Resolution.MILLISECOND)
         );
     }
 
-    String previewKey(HstRequest request) {
+    Set<String> previewKeys(HstRequest request) {
         HstRequestContext context = request.getRequestContext();
-        return PreviewKeyUtils.getPreviewKey(
+        return PreviewKeyUtils.getPreviewKeys(
                 context.getServletRequest(),
                 context.getServletResponse(),
                 context.getResolvedMount().getMount());
