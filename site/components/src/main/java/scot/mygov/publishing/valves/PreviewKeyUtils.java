@@ -8,7 +8,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static org.apache.commons.lang3.StringUtils.endsWith;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+import static java.util.Collections.emptySet;
+import static java.util.stream.Collectors.toSet;
+import static org.apache.commons.lang3.StringUtils.*;
 
 
 public class PreviewKeyUtils {
@@ -19,33 +25,18 @@ public class PreviewKeyUtils {
         // prevent instantiation
     }
 
-    public static String getPreviewKey(
+    public static Set<String> getPreviewKeys(
             HttpServletRequest servletRequest,
             HttpServletResponse servletResponse,
-            Mount resolvedMount){
+            Mount resolvedMount) {
         String previewKey = servletRequest.getParameter(PREVIEW_KEY);
-        Cookie previewCookie = getPreviewCookie(servletRequest);
-
-        if(StringUtils.isNotEmpty(previewKey) && previewCookie == null){
-            Cookie cookie = new Cookie(PREVIEW_KEY, previewKey);
-            cookie.setPath(getPath(servletRequest));
-            boolean httpOnly = Boolean.parseBoolean(resolvedMount.getProperty("preview-cookie-httponly"));
-            boolean secure = Boolean.parseBoolean(resolvedMount.getProperty("preview-cookie-secure"));
-            cookie.setHttpOnly(httpOnly);
-            cookie.setSecure(secure);
-            servletResponse.addCookie(cookie);
-            return previewKey;
-        } else if (StringUtils.isNotEmpty(previewKey) && previewCookie != null){
-            if(!previewKey.equals(previewCookie.getValue())){
-                previewCookie.setValue(previewKey);
-                servletResponse.addCookie(previewCookie);
-            }
-            return previewKey;
-        } else if (StringUtils.isEmpty(previewKey) && previewCookie != null){
-            return previewCookie.getValue();
-        } else {
-            return null;
+        Set<String> previewKeys = getPreviewKeyCookies(servletRequest);
+        if (isNotBlank(previewKey)) {
+            addCookieIfNotPresent(servletRequest, servletResponse, resolvedMount, previewKeys, previewKey);
+            previewKeys.add(previewKey);
         }
+
+        return previewKeys;
     }
 
     public static boolean isPreviewMount(HstRequestContext requestContext) {
@@ -57,6 +48,32 @@ public class PreviewKeyUtils {
                 && endsWith(resolvedMount.getAlias(), "-staging");
     }
 
+    private static void addCookieIfNotPresent(
+            HttpServletRequest servletRequest,
+            HttpServletResponse servletResponse,
+            Mount resolvedMount,
+            Set<String> previewKeys,
+            String previewKey) {
+        if (!previewKeys.contains(previewKey)) {
+            addCookie(servletRequest, servletResponse, resolvedMount, previewKey);
+        }
+    }
+
+    private static void addCookie(
+            HttpServletRequest servletRequest,
+            HttpServletResponse servletResponse,
+            Mount resolvedMount,
+            String previewKey) {
+
+        Cookie cookie = new Cookie(PREVIEW_KEY, previewKey);
+        cookie.setPath(getPath(servletRequest));
+        boolean httpOnly = Boolean.parseBoolean(resolvedMount.getProperty("preview-cookie-httponly"));
+        boolean secure = Boolean.parseBoolean(resolvedMount.getProperty("preview-cookie-secure"));
+        cookie.setHttpOnly(httpOnly);
+        cookie.setSecure(secure);
+        servletResponse.addCookie(cookie);
+    }
+
     private static String getPath(HttpServletRequest request) {
         final String contextPath = request.getContextPath();
         if (StringUtils.isBlank(contextPath)) {
@@ -65,15 +82,20 @@ public class PreviewKeyUtils {
         return contextPath;
     }
 
-    private static Cookie getPreviewCookie(HttpServletRequest request){
+    private static Set<String> getPreviewKeyCookies(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
-        if(cookies!=null) {
-            for (Cookie cookie : cookies) {
-                if (PREVIEW_KEY.equals(cookie.getName())) {
-                    return cookie;
-                }
-            }
+        if (cookies == null) {
+            return emptySet();
         }
-        return null;
+        Set<String> previewKeys = Arrays.stream(cookies)
+                .filter(PreviewKeyUtils::isPreviewKey)
+                .map(Cookie::getValue)
+                .collect(toSet());
+        return new HashSet<>(previewKeys);
     }
+
+    private static boolean isPreviewKey(Cookie cookie) {
+        return PREVIEW_KEY.equals(cookie.getName());
+    }
+
 }
