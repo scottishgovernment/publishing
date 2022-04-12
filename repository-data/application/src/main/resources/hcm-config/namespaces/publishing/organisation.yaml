@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 798b2b89-60f2-428a-8c3d-febb2354eeb2
+          jcr:uuid: 47d90130-94ca-4ebd-80fe-ea56b925a64d
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -227,6 +227,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
+          /linkedin:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:linkedin
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -244,7 +252,7 @@ definitions:
           publishing:authorNotes: ''
           publishing:serviceproviders: []
           publishing:metaDescription: ''
-          jcr:uuid: b06a2067-ccc5-4ad9-84b8-69dfc94bff6c
+          jcr:uuid: f494ed69-9a49-4211-9446-8cdaeb260724
           hippostdpubwf:lastModificationDate: 2020-06-30T08:47:27.466+01:00
           hippostdpubwf:creationDate: 2020-06-30T08:47:27.466+01:00
           publishing:serviceprovider: ''
@@ -268,6 +276,7 @@ definitions:
           publishing:showFeedback: true
           publishing:reportingtags: []
           publishing:organisationtags: []
+          publishing:linkedin: ''
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -553,6 +562,15 @@ definitions:
             caption: Youtube
             field: youtube
             hint: Enter the YouTube URL for this page
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /linkedin:
+            jcr:primaryType: frontend:plugin
+            caption: LinkedIn
+            field: linkedin
+            hint: Enter the LinkedIn URL for this page
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

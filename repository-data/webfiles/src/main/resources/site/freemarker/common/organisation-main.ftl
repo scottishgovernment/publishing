@@ -222,6 +222,7 @@
                 document.twitter?has_content ||
                 document.flickr?has_content ||
                 document.youtube?has_content ||
+                document.linkedin?has_content ||
                 document.blog?has_content
             >
             <div class="ds_layout__connect">
@@ -252,6 +253,14 @@
                                     <a class="ds_contact-details__social-link" href="${document.flickr}">
                                         <svg class="ds_contact-details__social-icon  ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#flickr"></use></svg>
                                         Flickr
+                                    </a>
+                                </dd>
+                            </#if>
+                            <#if document.linkedin?has_content>
+                                <dd class="ds_contact-details__social-item">
+                                    <a class="ds_contact-details__social-link" href="${document.linkedin}">
+                                        <svg class="ds_contact-details__social-icon  ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#linkedin"></use></svg>
+                                        LinkedIn
                                     </a>
                                 </dd>
                             </#if>
