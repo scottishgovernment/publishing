@@ -17,7 +17,7 @@ public class GuidePageComponent extends ArticleComponent {
         HippoBean guide = folder.getBean("index");
         HippoBean firstPage = getFirstGuidePage(request);
         request.setAttribute("guide", guide);
-        request.setAttribute("isFirstPage", page.isSelf(firstPage));
+        request.setAttribute("firstPage", page.isSelf(firstPage));
     }
 
 }

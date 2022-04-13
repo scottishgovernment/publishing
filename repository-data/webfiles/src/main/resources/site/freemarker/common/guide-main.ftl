@@ -130,7 +130,7 @@
     <meta name="dc.format" content="Guide"/>
 </@hst.headContribution>
 
-<#if guide?? && !isFirstPage >
+<#if guide?? && !firstPage >
 <@hst.headContribution category="meta">
     <meta name="dc.title.series" content="${guide.title}"/>
 </@hst.headContribution>
@@ -138,7 +138,11 @@
     <meta name="dc.title.series.link" content="<@hst.link hippobean=guide/>"/>
 </@hst.headContribution>
 </#if>
-
+<#if guide.lastUpdatedDate??>
+    <@hst.headContribution category="meta">
+    <meta name="dc.date.modified" content="<@fmt.formatDate value=guide.lastUpdatedDate.time type="both" pattern="YYYY-MM-dd"/>"/>
+    </@hst.headContribution>
+</#if>
 </#if>
 
 <@hst.headContribution category="resourcehints">
