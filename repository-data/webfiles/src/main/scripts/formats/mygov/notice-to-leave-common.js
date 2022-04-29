@@ -533,6 +533,7 @@ const noticeToLeaveForm = {
             const definitions = {
                 '6m': 168,
                 '3m': 84,
+                '84d': 84,
                 '28d': 28
             };
 
