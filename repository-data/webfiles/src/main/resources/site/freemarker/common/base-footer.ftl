@@ -22,7 +22,7 @@
             </div>
 
             <div class="ds_site-footer__org">
-                <a class="ds_site-footer__org-link" title="The Scottish Government" href="http://www.gov.scot/">
+                <a class="ds_site-footer__org-link" title="The Scottish Government" href="https://www.gov.scot/">
                     <img width="300" height="55" class="ds_site-footer__org-logo" src="<@hst.webfile path="/assets/images/logos/scottish-government--min.svg"/>" alt="gov.scot" />
                 </a>
             </div>
