@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: d6ddab4a-713f-4ae4-a9bc-55597c5615cf
+          jcr:uuid: a8456bce-d865-412c-b7f4-768c1769f535
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -49,7 +49,7 @@ definitions:
             hipposysedit:path: publishing:organisationtags
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [ organisationtag-validator ]
+            hipposysedit:validators: [organisationtag-validator]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -68,12 +68,14 @@ definitions:
           publishing:title: ''
           publishing:reportingtags: []
           publishing:metaDescription: ''
-          jcr:uuid: 234e9342-acbb-4703-85c9-559200136ca5
+          jcr:uuid: b59f3bbf-b631-4795-9616-baf4b25c14fb
           hippostdpubwf:lastModificationDate: 2020-08-04T08:51:01.604+01:00
           hippostdpubwf:creationDate: 2020-08-04T08:51:01.604+01:00
           publishing:serviceproviders: []
           publishing:showFeedback: true
           publishing:organisationtags: []
+          publishing:noindex: false
+          publishing:showInParent: false
           /publishing:documents:
             jcr:primaryType: publishing:document
             publishing:title: ''
@@ -302,6 +304,26 @@ definitions:
             field: organisationtags
             hint: List of organisations able to edit and publish the content in this
               document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showInParent:
+            jcr:primaryType: frontend:plugin
+            caption: Show in parent?
+            field: showInParent
+            hint: Indicates whether the page should appear in the site navigation
+              and site search results
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /noindex:
+            jcr:primaryType: frontend:plugin
+            caption: Noindex
+            field: noindex
+            hint: Check if this page should not be indexed for search (both internal
+              and on search engines)
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

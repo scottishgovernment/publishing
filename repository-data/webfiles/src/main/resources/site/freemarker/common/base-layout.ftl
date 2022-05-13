@@ -31,7 +31,6 @@
 
         <@hst.headContributions categoryIncludes="facebookVerification"/>
         <@hst.headContributions categoryIncludes="googleVerification"/>
-
         <@hst.headContributions categoryIncludes="canonical"/>
 
         <script>
