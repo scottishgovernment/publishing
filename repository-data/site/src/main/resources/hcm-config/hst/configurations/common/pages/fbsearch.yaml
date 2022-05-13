@@ -1,0 +1,20 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/fbsearch:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/base
+      /main:
+        jcr:primaryType: hst:component
+        hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsContentComponent
+        hst:parameternames: []
+        hst:parametervalues: []
+        hst:template: fbsearch-main
+        /results:
+          jcr:primaryType: hst:containercomponent
+          hippo:identifier: fec05e00-7d55-45ec-b2ee-34d2cae39ced
+          hst:componentclassname: scot.mygov.publishing.components.funnelback.SearchComponent
+          hst:label: Search Results List
+          hst:parameternames: [includeSubtypes, showPagination, pageSize]
+          hst:parametervalues: ['on', 'on', '10']
+          hst:template: fbsearch-results
+          hst:xtype: hst.item

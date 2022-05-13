@@ -151,6 +151,12 @@ definitions:
           /site-verification:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/site-verification.ftl
+          /fbsearch-results:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/fbsearch-results.ftl
+          /fbsearch-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/fbsearch-main.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

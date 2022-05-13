@@ -11,6 +11,7 @@ public class DetermineStylingComponent extends CommonComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+        request.setModel(REQUEST_ATTR_DOCUMENT, request.getRequestContext().getContentBean());
         determineStyling(request);
     }
 

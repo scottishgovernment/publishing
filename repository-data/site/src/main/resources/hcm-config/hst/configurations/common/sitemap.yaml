@@ -9,7 +9,7 @@ definitions:
         hst:hiddeninchannelmanager: true
       /search:
         jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/search
+        hst:componentconfigurationid: hst:pages/fbsearch
         hst:relativecontentpath: site-furniture/search/search-results
         hst:sitemapitemhandlerids: [trailing-slash]
         hst:hiddeninchannelmanager: true
@@ -67,10 +67,6 @@ definitions:
       /_any_:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/pagenotfound
-      /sitemap.xml:
-        jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:components/sitemap
-        hst:hiddeninchannelmanager: true
       /robots.txt:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/robotstxt
@@ -272,3 +268,14 @@ definitions:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/fragments
           hst:relativecontentpath: abuse-support
+      /suggestions:
+        jcr:primaryType: hst:sitemapitem
+        hst:excludedforlinkrewriting: true
+        hst:hiddeninchannelmanager: true
+        hst:namedpipeline: JaxrsRestPlainPipeline
+      /old-search:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/search
+        hst:hiddeninchannelmanager: true
+        hst:relativecontentpath: site-furniture/search/search-results
+        hst:sitemapitemhandlerids: [trailing-slash]

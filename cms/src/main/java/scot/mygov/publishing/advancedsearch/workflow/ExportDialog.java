@@ -2,6 +2,7 @@ package scot.mygov.publishing.advancedsearch.workflow;
 
 import com.google.common.base.Charsets;
 import com.onehippo.cms7.search.frontend.ISearchContext;
+import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.wicket.markup.head.CssHeaderItem;
