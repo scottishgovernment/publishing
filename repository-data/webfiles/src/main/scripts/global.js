@@ -61,6 +61,23 @@ const global = {
             backToTop.init();
         }
 
+        const autocompletes = [].slice.call(document.querySelectorAll('[data-module="ds-autocomplete"]'));
+        autocompletes.forEach(autocomplete => {
+            const url = '/site/mygov/suggestions?partial_query=';
+            const mapping = ppp => {
+                const suggestionsObj = JSON.parse(ppp.responseText).splice(0, 6);
+                return suggestionsObj.map(suggestionsObj => ({
+                    key: suggestionsObj,
+                    displayText: suggestionsObj,
+                    weight: null,
+                    type: null,
+                    category: null
+                }));
+            };
+            const ppp = new window.DS.components.Autocomplete(autocomplete, url, { suggestionMappingFunction: mapping });
+            ppp.init();
+        });
+
         // need to preprocess accordion items to group them
         const accordionItems = [].slice.call(document.querySelectorAll('.ds_accordion-item'));
         const groups = [];
