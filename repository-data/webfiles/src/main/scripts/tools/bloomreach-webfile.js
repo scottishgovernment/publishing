@@ -3,7 +3,7 @@
  * @param {*} path
  * @returns modified path
  */
-export default function (path) {
+export default function (path = '') {
     const webfilePathInput = document.getElementById('br-webfile-path');
     if (webfilePathInput) {
         return webfilePathInput.value + path;

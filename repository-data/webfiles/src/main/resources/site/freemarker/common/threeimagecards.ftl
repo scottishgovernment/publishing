@@ -14,7 +14,24 @@
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <div class="ds_aspect-box">
-                                <img class="ds_aspect-box__inner" src="<@hst.link hippobean=document1.image />" alt="${document1.alt}"/>
+                                <#if document1.image.xlargefourcolumns??>
+                                    <img class="" alt="${document1.alt}" src="<@hst.link hippobean=document1.image.xlargefourcolumns />"
+                                            width="${document1.image.xlargefourcolumns.width?c}"
+                                            height="${document1.image.xlargefourcolumns.height?c}"
+                                            srcset="
+                                            <@hst.link hippobean=document1.image.smalltwelvecolumns/> 448w,
+                                            <@hst.link hippobean=document1.image.smalltwelvecolumnsdoubled/> 896w,
+                                            <@hst.link hippobean=document1.image.mediumfourcolumns/> 224w,
+                                            <@hst.link hippobean=document1.image.mediumfourcolumnsdoubled/> 448w,
+                                            <@hst.link hippobean=document1.image.largefourcolumns/> 288w,
+                                            <@hst.link hippobean=document1.image.largefourcolumnsdoubled/> 576w,
+                                            <@hst.link hippobean=document1.image.xlargefourcolumns/> 352w,
+                                            <@hst.link hippobean=document1.image.xlargefourcolumnsdoubled/> 704"
+                                            sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
+                                            >
+                                <#else>
+                                    <img class="ds_aspect-box__inner" src="<@hst.link hippobean=document1.image />" alt="${document1.alt}"/>
+                                </#if>
                             </div>
                         </div>
                     </#if>
@@ -60,7 +77,24 @@
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <div class="ds_aspect-box">
-                                <img class="ds_aspect-box__inner" src="<@hst.link hippobean=document2.image />" alt="${document2.alt}"/>
+                                <#if document2.image.xlargefourcolumns??>
+                                    <img class="" alt="${document2.alt}" src="<@hst.link hippobean=document2.image.xlargefourcolumns />"
+                                            width="${document2.image.xlargefourcolumns.width?c}"
+                                            height="${document2.image.xlargefourcolumns.height?c}"
+                                            srcset="
+                                            <@hst.link hippobean=document2.image.smalltwelvecolumns/> 448w,
+                                            <@hst.link hippobean=document2.image.smalltwelvecolumnsdoubled/> 896w,
+                                            <@hst.link hippobean=document2.image.mediumfourcolumns/> 224w,
+                                            <@hst.link hippobean=document2.image.mediumfourcolumnsdoubled/> 448w,
+                                            <@hst.link hippobean=document2.image.largefourcolumns/> 288w,
+                                            <@hst.link hippobean=document2.image.largefourcolumnsdoubled/> 576w,
+                                            <@hst.link hippobean=document2.image.xlargefourcolumns/> 352w,
+                                            <@hst.link hippobean=document2.image.xlargefourcolumnsdoubled/> 704"
+                                            sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
+                                            >
+                                <#else>
+                                    <img class="ds_aspect-box__inner" src="<@hst.link hippobean=document2.image />" alt="${document2.alt}"/>
+                                </#if>
                             </div>
                         </div>
                     </#if>
@@ -106,7 +140,24 @@
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <div class="ds_aspect-box">
-                                <img class="ds_aspect-box__inner" src="<@hst.link hippobean=document3.image />" alt="${document3.alt}"/>
+                                <#if document1.image.xlargefourcolumns??>
+                                    <img class="" alt="${document3.alt}" src="<@hst.link hippobean=document3.image.xlargefourcolumns />"
+                                            width="${document3.image.xlargefourcolumns.width?c}"
+                                            height="${document3.image.xlargefourcolumns.height?c}"
+                                            srcset="
+                                            <@hst.link hippobean=document3.image.smalltwelvecolumns/> 448w,
+                                            <@hst.link hippobean=document3.image.smalltwelvecolumnsdoubled/> 896w,
+                                            <@hst.link hippobean=document3.image.mediumfourcolumns/> 224w,
+                                            <@hst.link hippobean=document3.image.mediumfourcolumnsdoubled/> 448w,
+                                            <@hst.link hippobean=document3.image.largefourcolumns/> 288w,
+                                            <@hst.link hippobean=document3.image.largefourcolumnsdoubled/> 576w,
+                                            <@hst.link hippobean=document3.image.xlargefourcolumns/> 352w,
+                                            <@hst.link hippobean=document3.image.xlargefourcolumnsdoubled/> 704"
+                                            sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
+                                            >
+                                <#else>
+                                    <img class="ds_aspect-box__inner" src="<@hst.link hippobean=document3.image />" alt="${document3.alt}"/>
+                                </#if>
                             </div>
                         </div>
                     </#if>

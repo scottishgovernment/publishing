@@ -41,7 +41,6 @@ $site-prefix: "mg_";
 @import "components/document-info";
 @import "components/editable-table";
 @import "components/feedback";
-@import "components/file-icon";
 @import "components/form-pieces";
 @import "components/homepage-hero";
 @import "components/old-ds-tabs";
@@ -57,6 +56,8 @@ $site-prefix: "mg_";
 @import "components/summary-list";
 @import "components/summary-table";
 @import "legacy/business-rates-results";
+
+@import "overrides/file-info";
 
 @import "mg_address-reveal";
 

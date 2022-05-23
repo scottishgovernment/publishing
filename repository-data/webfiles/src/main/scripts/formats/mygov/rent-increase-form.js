@@ -162,7 +162,8 @@ const rentIncreaseForm = {
         }
         const overviewContent = formTemplateContainer.innerHTML;
         formTemplateContainer.innerHTML = formTemplate.render({
-            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg')
+            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
+            webfilesPath: bloomreachWebfile()
         });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 

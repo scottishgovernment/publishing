@@ -126,6 +126,7 @@ import PostcodeLookup from '../../components/postcode-lookup';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
+import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/overseas-travel-declaration-form');
 const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
@@ -162,7 +163,7 @@ const overseasTravelForm = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
-        formTemplateContainer.innerHTML = formTemplate.render();
+        formTemplateContainer.innerHTML = formTemplate.render({webfilesPath: bloomreachWebfile()});
         formTemplateContainer.querySelector('#overview').innerHTML = formTemplateContainer.querySelector('#overview').innerHTML + overviewContent;
 
         commonForms.appendCaptchaScript();

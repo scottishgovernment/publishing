@@ -85,7 +85,7 @@ definitions:
       compression: 0.8
       cropping: true
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardaixteennineL:
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:cardsixteennineL:
       jcr:primaryType: frontend:pluginconfig
       height: 171
       upscaling: true
@@ -224,7 +224,1680 @@ definitions:
       compression: 1.0
       cropping: false
       optimize: quality
-    /hippo:configuration/hippo:frontend/cms/cms-dashshortcuts/vavancies:
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smallfourcolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smallfourcolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 264
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smalltwelvecolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smalltwelvecolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 896
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumonecolumn:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 32
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumonecolumndoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 64
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwocolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 96
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwocolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 192
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumthreecolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 160
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumthreecolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 320
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumfourcolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 224
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumfourcolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumsixcolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 352
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumsixcolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 704
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwelvecolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 736
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwelvecolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1472
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeonecolumn:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 48
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeonecolumndoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 96
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largetwocolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largetwocolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 256
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largethreecolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 208
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largethreecolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 416
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largefourcolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 288
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largefourcolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 576
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesixcolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesixcolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 896
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesevencolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 528
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesevencolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1056
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeeightcolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 608
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeeightcolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1216
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeonecolumn:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 64
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeonecolumndoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargetwocolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 160
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargetwocolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 320
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargethreecolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 256
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargethreecolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 512
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargefourcolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 352
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargefourcolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 704
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesixcolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 544
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesixcolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1088
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesevencolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 640
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesevencolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1280
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeeightcolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 736
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeeightcolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1472
+      compression: 0.6
+      optimize: quality
+
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smallfourcolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      height: 72
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smallfourcolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 264
+      height: 148
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smalltwelvecolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      height: 252
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smalltwelvecolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 896
+      height: 504
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumonecolumnsixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 32
+      height: 18
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumonecolumnsixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 64
+      height: 36
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwocolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 96
+      height: 54
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwocolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 192
+      height: 108
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumthreecolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 160
+      height: 90
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumthreecolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 320
+      height: 180
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumfourcolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 224
+      height: 126
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumfourcolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      height: 252
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumsixcolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 352
+      height: 198
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumsixcolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 704
+      height: 396
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwelvecolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 736
+      height: 414
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwelvecolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1472
+      height: 828
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeonecolumnsixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 48
+      height: 27
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeonecolumnsixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 96
+      height: 54
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largetwocolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      height: 72
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largetwocolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 256
+      height: 144
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largethreecolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 208
+      height: 117
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largethreecolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 416
+      height: 234
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largefourcolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 288
+      height: 162
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largefourcolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 576
+      height: 324
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesixcolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      height: 252
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesixcolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 896
+      height: 504
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesevencolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 528
+      height: 297
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesevencolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1056
+      height: 594
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeeightcolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 608
+      height: 324
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeeightcolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1216
+      height: 648
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeonecolumnsixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 64
+      height: 36
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeonecolumnsixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      height: 72
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargetwocolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 160
+      height: 90
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargetwocolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 320
+      height: 180
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargethreecolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 256
+      height: 144
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargethreecolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 512
+      height: 288
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargefourcolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 352
+      height: 198
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargefourcolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 704
+      height: 396
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesixcolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 544
+      height: 306
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesixcolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1088
+      height: 612
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesevencolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 640
+      height: 360
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesevencolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1280
+      height: 720
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeeightcolumnssixteennine:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 736
+      height: 414
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeeightcolumnssixteenninedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1472
+      height: 828
+      cropping: true
+      compression: 0.6
+      optimize: quality
+
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smallfourcolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      height: 96
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smallfourcolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 264
+      height: 198
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smalltwelvecolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      height: 336
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smalltwelvecolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 896
+      height: 672
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumonecolumnfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 32
+      height: 24
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumonecolumnfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 64
+      height: 48
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwocolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 96
+      height: 72
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwocolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 192
+      height: 144
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumthreecolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 160
+      height: 120
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumthreecolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 320
+      height: 240
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumfourcolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 224
+      height: 168
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumfourcolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      height: 336
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumsixcolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 352
+      height: 264
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumsixcolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 704
+      height: 528
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwelvecolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 736
+      height: 552
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwelvecolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1472
+      height: 1104
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeonecolumnfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 48
+      height: 36
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeonecolumnfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 96
+      height: 72
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largetwocolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      height: 96
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largetwocolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 256
+      height: 192
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largethreecolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 208
+      height: 156
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largethreecolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 416
+      height: 312
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largefourcolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 288
+      height: 216
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largefourcolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 576
+      height: 432
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesixcolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      height: 336
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesixcolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 896
+      height: 672
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesevencolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 528
+      height: 396
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesevencolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1056
+      height: 792
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeeightcolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 608
+      height: 456
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeeightcolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1216
+      height: 912
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeonecolumnfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 64
+      height: 48
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeonecolumnfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      height: 96
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargetwocolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 160
+      height: 120
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargetwocolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 320
+      height: 240
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargethreecolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 256
+      height: 192
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargethreecolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 512
+      height: 384
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargefourcolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 352
+      height: 264
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargefourcolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 704
+      height: 528
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesixcolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 544
+      height: 408
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesixcolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1088
+      height: 816
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesevencolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 640
+      height: 480
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesevencolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1280
+      height: 960
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeeightcolumnsfourthree:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 736
+      height: 552
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeeightcolumnsfourthreedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1472
+      height: 1104
+      cropping: true
+      compression: 0.6
+      optimize: quality
+
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smallfourcolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      height: 54
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smallfourcolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 264
+      height: 112
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smalltwelvecolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      height: 191
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smalltwelvecolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 896
+      height: 381
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumonecolumntwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 32
+      height: 14
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumonecolumntwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 64
+      height: 27
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwocolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 96
+      height: 41
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwocolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 192
+      height: 82
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumthreecolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 160
+      height: 68
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumthreecolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 320
+      height: 136
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumfourcolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 224
+      height: 95
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumfourcolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      height: 191
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumsixcolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 352
+      height: 150
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumsixcolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 704
+      height: 300
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwelvecolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 736
+      height: 313
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwelvecolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1472
+      height: 626
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeonecolumntwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 48
+      height: 20
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeonecolumntwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 96
+      height: 41
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largetwocolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      height: 54
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largetwocolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 256
+      height: 109
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largethreecolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 208
+      height: 89
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largethreecolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 416
+      height: 177
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largefourcolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 288
+      height: 123
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largefourcolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 576
+      height: 245
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesixcolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      height: 191
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesixcolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 896
+      height: 381
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesevencolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 528
+      height: 225
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesevencolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1056
+      height: 450
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeeightcolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 608
+      height: 259
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeeightcolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1216
+      height: 517
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeonecolumntwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 64
+      height: 27
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeonecolumntwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      height: 54
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargetwocolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 160
+      height: 68
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargetwocolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 320
+      height: 136
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargethreecolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 256
+      height: 109
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargethreecolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 512
+      height: 218
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargefourcolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 352
+      height: 150
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargefourcolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 704
+      height: 300
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesixcolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 544
+      height: 231
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesixcolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1088
+      height: 463
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesevencolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 640
+      height: 272
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesevencolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1280
+      height: 545
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeeightcolumnstwothreefive:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 736
+      height: 313
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeeightcolumnstwothreefivedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1472
+      height: 626
+      cropping: true
+      compression: 0.6
+      optimize: quality
+
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smallfourcolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      height: 128
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smallfourcolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 264
+      height: 264
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smalltwelvecolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      height: 448
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smalltwelvecolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 896
+      height: 896
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumonecolumnoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 32
+      height: 32
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumonecolumnoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 64
+      height: 64
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwocolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 96
+      height: 96
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwocolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 192
+      height: 192
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumthreecolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 160
+      height: 160
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumthreecolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 320
+      height: 320
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumfourcolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 224
+      height: 224
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumfourcolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      height: 448
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumsixcolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 352
+      height: 352
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumsixcolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 704
+      height: 704
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwelvecolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 736
+      height: 736
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:mediumtwelvecolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1472
+      height: 1472
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeonecolumnoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 48
+      height: 48
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeonecolumnoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 96
+      height: 96
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largetwocolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      height: 128
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largetwocolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 256
+      height: 256
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largethreecolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 208
+      height: 208
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largethreecolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 416
+      height: 416
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largefourcolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 288
+      height: 288
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largefourcolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 576
+      height: 576
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesixcolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 448
+      height: 448
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesixcolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 896
+      height: 896
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesevencolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 528
+      height: 528
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largesevencolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1056
+      height: 1056
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeeightcolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 608
+      height: 608
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:largeeightcolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1216
+      height: 1216
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeonecolumnoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 64
+      height: 64
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeonecolumnoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 128
+      height: 128
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargetwocolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 160
+      height: 160
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargetwocolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 320
+      height: 320
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargethreecolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 256
+      height: 256
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargethreecolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 512
+      height: 512
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargefourcolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 352
+      height: 352
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargefourcolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 704
+      height: 704
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesixcolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 544
+      height: 544
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesixcolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1088
+      height: 1088
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesevencolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 640
+      height: 640
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargesevencolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1280
+      height: 1280
+      cropping: true
+      compression: 0.6
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeeightcolumnsoneone:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 736
+      height: 736
+      cropping: true
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:xlargeeightcolumnsoneonedoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: true
+      width: 1472
+      height: 1472
+      cropping: true
+      compression: 0.6
+      optimize: quality
+
+    /hippo:configuration/hippo:frontend/cms/cms-dashshortcuts/vacancies:
       jcr:primaryType: frontend:plugin
       baseFolder: /content/documents/ddat/vacancies
       browser.id: service.browse

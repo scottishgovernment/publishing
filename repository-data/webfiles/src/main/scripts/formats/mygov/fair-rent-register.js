@@ -5,6 +5,7 @@ import gup from '../../tools/gup';
 import Paginator from '../../tools/paginator';
 import currency from '../../templates/currency.js';
 import date from '../../templates/date.js';
+import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 
 
@@ -208,7 +209,7 @@ const fairRentRegister = {
 
                         <button type="submit" class="ds_button  ds_button--icon-only  js-site-search-button">
                             <span class="visually-hidden">Search the Fair Rent Register</span>
-                            <svg class="ds_icon" role="img"><use href="/assets/images/icons/icons.stack.svg#search"></use></svg>
+                            <svg class="ds_icon" role="img"><use href="${bloomreachWebfile('/assets/images/icons/icons.stack.svg')}#search"></use></svg>
                         </button>
                     </div>
                 </form>
