@@ -58,7 +58,7 @@
             </div>
         </#if>
         <!--endnoindex-->
-        
+
         <div class="ds_page">
             <!--noindex-->
             <div class="ds_page__top">
@@ -81,8 +81,5 @@
         </div>
 
         <@hst.headContributions categoryIncludes="footerScripts" xhtml=true/>
-
-        <script async defer src="https://sa.mygov.scot/app.js"></script>
-        <noscript><img src="https://sa.mygov.scot/image.gif" alt=""></noscript>
     </body>
 </html>
