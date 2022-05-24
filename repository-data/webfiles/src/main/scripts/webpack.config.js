@@ -3,7 +3,7 @@
 const path = require('path');
 
 const commonItems = {
-    mode: 'production',
+    mode: 'development',
 
     entry: {
         'global':                       path.resolve(__dirname, './global.js'),
@@ -17,6 +17,7 @@ const commonItems = {
         'home':                         path.resolve(__dirname, './formats/home.js'),
         'organisation':                 path.resolve(__dirname, './formats/organisation.js'),
         'organisation-list':            path.resolve(__dirname, './formats/organisation-list.js'),
+        'search':                       path.resolve(__dirname, './formats/search.js'),
         'smart-answer':                 path.resolve(__dirname, './formats/smart-answer.js'),
 
         // mygov-specific formats

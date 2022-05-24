@@ -69,7 +69,7 @@ public class FunnelbackService {
     public List<String> getSuggestions(String partialQuery) {
         Map<String, Object> params = Collections.singletonMap("partial_query", partialQuery);
         ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
-        Resource results = broker.findResources("funnelback", "/suggest.json?partial_query={partial_query}&collection=govscot~sp-mygov&format=json", params);
+        Resource results = broker.findResources("funnelback", "/suggest.json?partial_query={partial_query}&collection=govscot~sp-mygov&format=json&show=6", params);
         ResourceCollection col = results.getChildren();
         List<String> suggestions = new ArrayList<>();
         col.forEach(res -> suggestions.add(((TextNode) res.getNodeData()).textValue()));

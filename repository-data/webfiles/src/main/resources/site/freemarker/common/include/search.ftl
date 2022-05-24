@@ -15,7 +15,7 @@
             <input
                 aria-autocomplete="list"
                 aria-expanded="false"
-                aria-owns="autocomplete-suggestions"
+                aria-owns="autocomplete-suggestions-large"
                 autocomplete="off"
                 class="ds_input  ds_site-search__input  js-autocomplete-input"
                 haspopup="true"
@@ -32,7 +32,7 @@
                 <svg class="ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#search"></use></svg>
             </button>
 
-            <div id="autocomplete-suggestions" class="ds_autocomplete__suggestions">
+            <div id="autocomplete-suggestions-large" class="ds_autocomplete__suggestions">
                 <ol class="ds_autocomplete__suggestions-list" role="listbox" aria-labelledby="site-search-label"></ol>
             </div>
         </div>

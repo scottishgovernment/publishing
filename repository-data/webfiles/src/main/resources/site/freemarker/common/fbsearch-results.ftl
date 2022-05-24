@@ -1,9 +1,24 @@
 <#ftl output_format="HTML">
-<#include 'include/search.ftl'/>
+<#include "include/imports.ftl">
+<@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
-<p>
-    ${implementation}
-</p>
+<div>
+    <#if implementation == 'funnelback'>🟢<#else>🔴</#if> <span class="ds_content-label">${implementation}</span>
+</div>
+
+<#assign pattern = "(?i)(" + response.resultPacket.queryHighlightRegex?replace("(?i)","") + ")" />
+
+<#assign page = 1 />
+<#assign resultsPerPage = 10 />
+
+<#if hstRequestContext.servletRequest.getParameter("page")??>
+    <#assign page = hstRequestContext.servletRequest.getParameter("page") />
+</#if>
+
+<#assign start = page?number * resultsPerPage - (resultsPerPage - 1) />
+
+
+
 
 <#if (response.resultPacket.qsups)!?size &gt; 0>
     <#list response.resultPacket.qsups as qsup>
@@ -14,31 +29,28 @@
     </#list>
 </#if>
 
-<ol id="search-results-list" class="ds_search-results__list">
+<ol start="${start}" id="search-results-list" class="ds_search-results__list">
     <#list response.resultPacket.results as result>
 
         <li class="ds_search-result">
-            <h3 class="ds_search-result__title">
-
             <#if result.bean??>
                 <h3 class="ds_search-result__title">
                     <@hst.link var="link" hippobean=result.bean/>
                     <a class="ds_search-result__link" href="${link}">${result.bean.title}</a>
                 </h3>
                 <p class="ds_search-result__summary">
-                   ${result.bean.summary}
+                   ${result.bean.summary?replace(pattern, "<mark>$1</mark>", 'ri')?no_esc}
                 </p>
             <#else>
                 <h3 class="ds_search-result__title">
                     <a class="ds_search-result__link" href="${result.liveUrl}">${result.title}</a>
                 </h3>
                 <p class="ds_search-result__summary">
-
-                <#if (result.listMetadata["c"]?first)!?has_content>
-                    ${(result.listMetadata["c"]?first)!}
-                <#else>
-                    ${result.summary!}
-                </#if>
+                    <#if (result.listMetadata["c"]?first)!?has_content>
+                        ${(result.listMetadata["c"]?first)?replace(pattern, "<mark>$1</mark>", 'ri')?no_esc!}
+                    <#else>
+                        ${result.summary?replace(pattern, "<mark>$1</mark>", 'ri')?no_esc!}
+                    </#if>
                 </p>
 
                 <#if (result.listMetadata["titleSeriesLink"]?first)!?has_content>
@@ -59,7 +71,7 @@
         <li class="ds_pagination__item">
             <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${(response.customData.stencils.pagination.previous.url)!}">
                 <svg class="ds_icon" aria-hidden="true" role="img">
-                    <use href="#chevron_left"></use>
+                    <use href="${iconspath}#chevron_left"></use>
                 </svg>
                 <span class="ds_pagination__link-label">Previous</span>
             </a>
@@ -91,7 +103,7 @@
                 <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${(response.customData.stencils.pagination.next.url)!}">
                     <span class="ds_pagination__link-label">Next</span>
                     <svg class="ds_icon" aria-hidden="true" role="img">
-                        <use href="#chevron_right"></use>
+                        <use href="${iconspath}#chevron_right"></use>
                     </svg>
                 </a>
             </li>

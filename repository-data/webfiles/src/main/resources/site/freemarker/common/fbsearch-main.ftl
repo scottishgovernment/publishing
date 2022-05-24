@@ -18,6 +18,7 @@
             <div class="ds_layout__content">
 
             <@hst.html hippohtml=document.content/>
+                <#include 'include/search.ftl'/>
 
                 <section id="search-results" class="ds_search-results">
 
@@ -28,4 +29,5 @@
     </div>
 </div>
 
+<#assign scriptName="search">
 <#include 'scripts.ftl'/>

@@ -63,9 +63,10 @@ const global = {
 
         const autocompletes = [].slice.call(document.querySelectorAll('[data-module="ds-autocomplete"]'));
         autocompletes.forEach(autocomplete => {
-            const url = '/site/mygov/suggestions?partial_query=';
+            let url = document.getElementById('site-root-path').value;
+            url += '/suggestions?partial_query=';
             const mapping = ppp => {
-                const suggestionsObj = JSON.parse(ppp.responseText).splice(0, 6);
+                const suggestionsObj = JSON.parse(ppp.responseText);
                 return suggestionsObj.map(suggestionsObj => ({
                     key: suggestionsObj,
                     displayText: suggestionsObj,
