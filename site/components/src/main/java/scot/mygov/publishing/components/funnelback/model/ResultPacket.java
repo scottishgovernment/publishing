@@ -22,6 +22,8 @@ public class ResultPacket {
 
     List<QSup> qsups = new ArrayList<>();
 
+    String queryHighlightRegex = "";
+
     public String getQuery() {
         return query;
     }
@@ -76,5 +78,13 @@ public class ResultPacket {
 
     public void setQsups(List<QSup> qsups) {
         this.qsups = qsups;
+    }
+
+    public String getQueryHighlightRegex() {
+        return queryHighlightRegex;
+    }
+
+    public void setQueryHighlightRegex(String queryHighlightRegex) {
+        this.queryHighlightRegex = queryHighlightRegex;
     }
 }
