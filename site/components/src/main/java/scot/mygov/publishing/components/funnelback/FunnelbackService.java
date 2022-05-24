@@ -69,7 +69,7 @@ public class FunnelbackService {
     public List<String> getSuggestions(String partialQuery) {
         Map<String, Object> params = Collections.singletonMap("partial_query", partialQuery);
         ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
-        Resource results = broker.findResources("funnelback", "/suggest.json?partial_query={partial_query}&collection=govscot~sp-mygov", params);
+        Resource results = broker.findResources("funnelback", "/suggest.json?partial_query={partial_query}&collection=govscot~sp-mygov&format=json", params);
         ResourceCollection col = results.getChildren();
         List<String> suggestions = new ArrayList<>();
         col.forEach(res -> suggestions.add(((TextNode) res.getNodeData()).textValue()));
@@ -83,8 +83,7 @@ public class FunnelbackService {
             }
     )
     public FunnelbackSearchResponse getSearchResponse(HstRequest request, String query, String page) {
-        request.setAttribute("implementation", "fallback");
-
+        request.setAttribute("implementation", "funnelback");
         int rank = ((Integer.parseInt(page) - 1) * 10) + 1;
         Map<String, Object> params = paramMap(query, rank);
         ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
@@ -110,6 +109,7 @@ public class FunnelbackService {
 
         FunnelbackSearchResponse response = new FunnelbackSearchResponse();
         request.setAttribute("implementation", "fallback");
+        LOG.info("using fallback implementation");
 
         int pageSize = 10;
         int page = Integer.parseInt(pageStr);
@@ -125,7 +125,6 @@ public class FunnelbackService {
         try {
             HstQueryResult result = query.execute();
             HippoBeanIterator it = result.getHippoBeans();
-            response.getResponse().setTest(it);
             while (it.hasNext()) {
                 HippoBean bean = it.nextHippoBean();
                 Result res = new Result();

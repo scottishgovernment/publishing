@@ -279,3 +279,9 @@ definitions:
         hst:hiddeninchannelmanager: true
         hst:relativecontentpath: site-furniture/search/search-results
         hst:sitemapitemhandlerids: [trailing-slash]
+      /search-results-only:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/fbsearch-results-only
+        hst:hiddeninchannelmanager: true
+        hst:relativecontentpath: site-furniture/search/search-results
+        hst:sitemapitemhandlerids: [trailing-slash]

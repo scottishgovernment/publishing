@@ -24,7 +24,6 @@ public class SearchComponent extends EssentialsContentComponent {
         super.doBeforeRender(request, response);
 
         // if there is a search then call funnelback
-
         String query = param(request, "query", "");
         if (StringUtils.isBlank(query)) {
             query = param(request, "q", "");
@@ -33,6 +32,7 @@ public class SearchComponent extends EssentialsContentComponent {
         if (StringUtils.isNotBlank(query)) {
             FunnelbackSearchResponse funnelbackSearchResponse = funnelbackService.getSearchResponse(request, query, page);
             request.setAttribute("response", funnelbackSearchResponse.getResponse());
+            request.setAttribute("question", funnelbackSearchResponse.getQuestion());
         }
     }
 

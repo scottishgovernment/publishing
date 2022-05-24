@@ -1,6 +1,19 @@
 <#ftl output_format="HTML">
 <#include 'include/search.ftl'/>
 
+<p>
+    ${implementation}
+</p>
+
+<#if (response.resultPacket.qsups)!?size &gt; 0>
+    <#list response.resultPacket.qsups as qsup>
+    <nav class="ds_search-suggestions" aria-label="Alternative search suggestions">
+        <p>Also showing results for <a href="?${removeParam(QueryString, "query")}&query=${qsup.query}"> ${qsup.query}<#if qsup_has_next>, </#if></a><br />
+            Show results only for <a href="?${QueryString}&amp;qsup=off">${question.originalQuery}</a></p>
+    </nav>
+    </#list>
+</#if>
+
 <ol id="search-results-list" class="ds_search-results__list">
     <#list response.resultPacket.results as result>
 

@@ -20,6 +20,8 @@ public class ResultPacket {
 
     List<Result> results = new ArrayList<>();
 
+    List<QSup> qsups = new ArrayList<>();
+
     public String getQuery() {
         return query;
     }
@@ -66,5 +68,13 @@ public class ResultPacket {
 
     public void setResults(List<Result> results) {
         this.results = results;
+    }
+
+    public List<QSup> getQsups() {
+        return qsups;
+    }
+
+    public void setQsups(List<QSup> qsups) {
+        this.qsups = qsups;
     }
 }

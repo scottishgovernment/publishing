@@ -3,6 +3,9 @@ package scot.mygov.publishing.components.funnelback.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Response {
 
@@ -10,7 +13,6 @@ public class Response {
 
     CustomData customData = new CustomData();
 
-    HippoBeanIterator test;
     public ResultPacket getResultPacket() {
         return resultPacket;
     }
@@ -27,11 +29,4 @@ public class Response {
         this.customData = customData;
     }
 
-    public HippoBeanIterator getTest() {
-        return test;
-    }
-
-    public void setTest(HippoBeanIterator test) {
-        this.test = test;
-    }
 }
