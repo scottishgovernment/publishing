@@ -3,6 +3,7 @@ package scot.mygov.publishing.components.funnelback;
 import com.fasterxml.jackson.databind.node.TextNode;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+import org.apache.commons.lang3.time.StopWatch;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.Constraint;
@@ -66,32 +67,39 @@ public class FunnelbackService {
         );
     }
 
+
+
     public List<String> getSuggestions(String partialQuery) {
         Map<String, Object> params = Collections.singletonMap("partial_query", partialQuery);
         ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
-        Resource results = broker.findResources("funnelback", "/suggest.json?partial_query={partial_query}&collection=govscot~sp-mygov&format=json&show=6", params);
+        Resource results = broker.findResources("funnelback", "/suggest.json?partial_query={partial_query}&collection=govscot~sp-mygov&format=json++&show=6", params);
         ResourceCollection col = results.getChildren();
         List<String> suggestions = new ArrayList<>();
         col.forEach(res -> suggestions.add(((TextNode) res.getNodeData()).textValue()));
         return suggestions;
     }
 
-    @HystrixCommand(
-            fallbackMethod = "getFallbackSearchResponse",
-            commandProperties = {
-                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500")
-            }
-    )
+//    @HystrixCommand(
+//            fallbackMethod = "getFallbackSearchResponse",
+//            commandProperties = {
+//                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500")
+//            }
+//    )
     public FunnelbackSearchResponse getSearchResponse(HstRequest request, String query, String page) {
         request.setAttribute("implementation", "funnelback");
         int rank = ((Integer.parseInt(page) - 1) * 10) + 1;
         Map<String, Object> params = paramMap(query, rank);
+
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
         ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
         Resource results = broker.resolve("funnelback", "/search.json?query={query}&start_rank={rank}&collection=govscot~sp-mygov&cat=sitesearch&profile=_default", params);
         ResourceBeanMapper resourceBeanMapper = broker.getResourceBeanMapper("funnelback");
+        stopWatch.stop();
         FunnelbackSearchResponse response = resourceBeanMapper.map(results, FunnelbackSearchResponse.class);
         PostProcessor postProcessor = CompositePostProcessor.processor(new PaginationProcessor());
         postProcessor.process(response);
+        LOG.info("funnelback search \"{}\" took {}, {} results", query, stopWatch.getTime(), response.getResponse().getResultPacket().getResultsSummary().getTotalMatching());
         return response;
     }
 
