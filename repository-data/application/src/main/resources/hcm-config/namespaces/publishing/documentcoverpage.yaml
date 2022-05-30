@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a8456bce-d865-412c-b7f4-768c1769f535
+          jcr:uuid: d7c49080-f4ca-47ac-a9b7-3c487a2e73c4
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -68,7 +68,7 @@ definitions:
           publishing:title: ''
           publishing:reportingtags: []
           publishing:metaDescription: ''
-          jcr:uuid: b59f3bbf-b631-4795-9616-baf4b25c14fb
+          jcr:uuid: 3c564fcd-1730-413c-ad5a-b9754b06d220
           hippostdpubwf:lastModificationDate: 2020-08-04T08:51:01.604+01:00
           hippostdpubwf:creationDate: 2020-08-04T08:51:01.604+01:00
           publishing:serviceproviders: []
@@ -324,6 +324,15 @@ definitions:
             field: noindex
             hint: Check if this page should not be indexed for search (both internal
               and on search engines)
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /lifeEvents:
+            jcr:primaryType: frontend:plugin
+            caption: Life events
+            field: lifeEvents
+            hint: Life events migrated from Rubric
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
