@@ -17,8 +17,8 @@
 
 <#assign start = page?number * resultsPerPage - (resultsPerPage - 1) />
 
-
-
+<#assign totalResults = response.resultPacket.resultsSummary.totalMatching />
+<#assign perPage = response.resultPacket.resultsSummary.numRanks />
 
 <#if (response.resultPacket.qsups)!?size &gt; 0>
     <#list response.resultPacket.qsups as qsup>
@@ -29,7 +29,18 @@
     </#list>
 </#if>
 
-<ol start="${start}" id="search-results-list" class="ds_search-results__list">
+<h2 class="ds_search-results__title"><span class="ds_search-results__title-count">${totalResults}</span> results for <span class="ds_search-results__title-query">${question.originalQuery}</span></h2>
+
+<#if (response.resultPacket.qsups)!?size &gt; 0>
+    <#list response.resultPacket.qsups as qsup>
+    <nav class="ds_search-suggestions" aria-label="Alternative search suggestions">
+        <p>Also showing results for <a href="?${removeParam(QueryString, "query")}&query=${qsup.query}"> ${qsup.query}<#if qsup_has_next>, </#if></a><br />
+            Show results only for <a href="?${QueryString}&amp;qsup=off">${question.originalQuery}</a></p>
+    </nav>
+    </#list>
+</#if>
+
+<ol start="${start}" id="search-results-list" class="ds_search-results__list" data-total="${totalResults}">
     <#list response.resultPacket.results as result>
 
         <li class="ds_search-result">
@@ -65,20 +76,50 @@
 </ol>
 
 <!-- base.Paging -->
+
+
+
+
 <nav class="ds_pagination" aria-label="">
     <ul class="ds_pagination__list">
-    <#if (response.customData.stencils.pagination.previous)??>
+
+    <#if (response.customData.stencils.pagination.pages)!?has_content &&
+    response.customData.stencils.pagination.pages?size gt 1>
+        <#assign firstPageInGroup = response.customData.stencils.pagination.pages[0].label?number />
+        <#assign lastPageInGroup = response.customData.stencils.pagination.pages[response.customData.stencils.pagination.pages?size - 1].label?number />
+        <#assign lastPage = (totalResults / perPage)?ceiling />
+
+        <#if (response.customData.stencils.pagination.previous)??>
         <li class="ds_pagination__item">
-            <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${(response.customData.stencils.pagination.previous.url)!}">
+            <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${(response.customData.stencils.pagination.first.url)!}">
                 <svg class="ds_icon" aria-hidden="true" role="img">
                     <use href="${iconspath}#chevron_left"></use>
                 </svg>
                 <span class="ds_pagination__link-label">Previous</span>
             </a>
         </li>
-    </#if>
-    <#if (response.customData.stencils.pagination.pages)!?has_content &&
-    response.customData.stencils.pagination.pages?size gt 1>
+        </#if>
+
+        <#if (firstPageInGroup == 2)>
+            <li class="ds_pagination__item">
+                <a class="ds_pagination__link" href="${(response.customData.stencils.pagination.first.url)!}">
+                    <span class="ds_pagination__link-label">1</span>
+                </a>
+            </li>
+        </#if>
+
+        <#if (firstPageInGroup > 2)>
+            <li class="ds_pagination__item">
+                <a class="ds_pagination__link" href="${(response.customData.stencils.pagination.first.url)!}">
+                    <span class="ds_pagination__link-label">1</span>
+                </a>
+            </li>
+
+            <li class="ds_pagination__item" aria-hidden="true">
+                <span class="ds_pagination__link  ds_pagination__link--ellipsis">&hellip;</span>
+            </li>
+        </#if>
+
         <#list response.customData.stencils.pagination.pages as page>
             <#if page.selected>
                 <li class="ds_pagination__item" aria-current="page">
@@ -98,6 +139,27 @@
                 <span class="ds_pagination__link  ds_pagination__link--ellipsis">&hellip;</span>
             </li>
         </#if>
+
+        <#if (lastPageInGroup < (lastPage - 1))>
+            <li class="ds_pagination__item" aria-hidden="true">
+                <span class="ds_pagination__link  ds_pagination__link--ellipsis">&hellip;</span>
+            </li>
+
+            <li class="ds_pagination__item">
+                <a class="ds_pagination__link" href="${(response.customData.stencils.pagination.first.url)!}&page=${lastPage}">
+                    <span class="ds_pagination__link-label">${lastPage}</span>
+                </a>
+            </li>
+        </#if>
+
+        <#if (lastPageInGroup == (lastPage - 1))>
+            <li class="ds_pagination__item">
+                <a class="ds_pagination__link" href="${(response.customData.stencils.pagination.first.url)!}&page=${lastPage}">
+                    <span class="ds_pagination__link-label">${lastPage}</span>
+                </a>
+            </li>
+        </#if>
+
         <#if (response.customData.stencils.pagination.next)??>
             <li class="ds_pagination__item">
                 <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${(response.customData.stencils.pagination.next.url)!}">

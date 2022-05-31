@@ -34,7 +34,8 @@ class AsyncSearch {
                         this.populateResults(value.responseText);
                     })
                     .catch(error => {
-                        console.log('failed to fetch additional results ', error);
+                        console.log('Failed to fetch additional results. Navigating normally. ', error);
+                        window.location = targetHref;
                     });
             }
         });
@@ -46,7 +47,8 @@ class AsyncSearch {
                     this.populateResults(value.responseText);
                 })
                 .catch(error => {
-                    console.log('failed to fetch additional results ', error);
+                    console.log('Failed to fetch additional results. Navigating normally. ', error);
+                    window.location = targetHref;
                 });
         });
     }

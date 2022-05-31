@@ -13,6 +13,8 @@ public class Pagination {
 
     Page previous;
 
+    Page next;
+
     List<Page> pages;
 
     public Page getFirst() {
@@ -37,6 +39,14 @@ public class Pagination {
 
     public void setPrevious(Page previous) {
         this.previous = previous;
+    }
+
+    public Page getNext() {
+        return next;
+    }
+
+    public void setNext(Page next) {
+        this.next = next;
     }
 
     public List<Page> getPages() {
