@@ -91,7 +91,7 @@
 
         <#if (response.customData.stencils.pagination.previous)??>
         <li class="ds_pagination__item">
-            <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${(response.customData.stencils.pagination.first.url)!}">
+            <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${(response.customData.stencils.pagination.previous.url)!}">
                 <svg class="ds_icon" aria-hidden="true" role="img">
                     <use href="${iconspath}#chevron_left"></use>
                 </svg>

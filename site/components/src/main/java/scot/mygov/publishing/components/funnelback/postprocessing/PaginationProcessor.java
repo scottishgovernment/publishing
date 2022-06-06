@@ -20,6 +20,7 @@ public class PaginationProcessor implements PostProcessor {
         rewrite(pagination.getFirst());
         rewrite(pagination.getLast());
         rewrite(pagination.getPrevious());
+        rewrite(pagination.getNext());
         pagination.getPages().stream().forEach(this::rewrite);
     }
 

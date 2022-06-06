@@ -16,14 +16,21 @@ class AsyncSearch {
     bindEvents() {
 
         this.resultsContainer.addEventListener('click', event => {
-            event.preventDefault();
-
             if (event.target.classList.contains('ds_pagination__link')) {
+                event.preventDefault();
+
                 const targetHref = event.target.href;
 
                 var targetUrlParams = new URLSearchParams(targetHref);
                 var currentUrlParams = new URLSearchParams(window.location.search);
-                currentUrlParams.set('page', targetUrlParams.get('page') ? targetUrlParams.get('page') : 1);
+
+                let page = 1;
+
+                if (targetUrlParams.get('page')) {
+                    page = targetUrlParams.get('page');
+                }
+
+                currentUrlParams.set('page', page);
 
                 const pageUrl = `${window.location.pathname}?${currentUrlParams.toString()}`;
                 const resultsUrl = pageUrl.replace('/search?', '/search-results-only?');
@@ -68,8 +75,6 @@ class AsyncSearch {
 
         temporaryFocus(this.resultsContainer);
     }
-
-
 }
 
 export default AsyncSearch;
