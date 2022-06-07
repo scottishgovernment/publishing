@@ -46,7 +46,7 @@ public class FunnelbackService {
     }
 
     @HystrixCommand(
-            fallbackMethod = "getFallbackSearchResponse",
+            fallbackMethod = "getSearchResponseFallback",
             commandProperties = {
                     @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")
             }
