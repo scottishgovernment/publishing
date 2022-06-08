@@ -55,8 +55,9 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
 
     //When required to add a new property in the CSV export add displayed label and corresponding property in the two lists below.
     //You might have to change #constructPropertiesList method below to add your property if it requires special handling.
-    private static final String[] headers = new String[]{"fact_checkers", "format" , "content_owner", "title", "created_by", "url", "review_date", "official_last_modified", "date_modified", "modified_by", "id", "state", "life_events"};
-    private static final String[] documentProperties = new String[]{"publishing:factCheckers", "format" , "publishing:contentOwner", "title", HIPPOSTDPUBWF_CREATED_BY, "url", REVIEW_DATE_PROP, "publishing:lastUpdatedDate",HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents"};
+
+    private static final String[] headers = new String[]{"title", "url", "content_owner", "fact_checkers", "review_date", "official_last_modified", "created_by", "date_modified", "modified_by", "id", "state", "life_events", "format" };
+    private static final String[] documentProperties = new String[]{"title", "url", "publishing:contentOwner", "publishing:factCheckers", REVIEW_DATE_PROP, "publishing:lastUpdatedDate", HIPPOSTDPUBWF_CREATED_BY, HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents", "format" };
 
     private final ResourceLink<String> exportCSVLink;
     private final ISearchContext searcher;
