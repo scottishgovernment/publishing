@@ -107,6 +107,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     }
 
     @Override
+
     public void renderHead(final IHeaderResponse response) {
         super.renderHead(response);
         response.render(CssHeaderItem.forReference(CSS));
@@ -225,11 +226,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                 }
                 break;
             case "publishing:lifeEvents":
-                if (variant.hasProperty(property)) {
-                    props.add(extractLifeEvents(variant.getProperty(property)));
-                } else {
-                    props.add("");
-                }
+                props.add(lifeEvents(variant, property));
                 break;
             case REVIEW_DATE_PROP :
             case "publishing:lastUpdatedDate":
@@ -302,6 +299,19 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
             }
         }
         return String.join(", ", contactEmails);
+    }
+
+    private String lifeEvents(Node variant, String property) throws RepositoryException {
+        if (variant.isNodeType("publishing:guidepage")) {
+            Node guideHandle = variant.getParent().getParent().getNode("index");
+            variant = getVariant(guideHandle, getNodeStateSummary(guideHandle));
+        }
+
+        if (!variant.hasProperty(property)) {
+            return "";
+        }
+
+        return extractLifeEvents(variant.getProperty(property));
     }
 
     private String extractLifeEvents(final Property property){
