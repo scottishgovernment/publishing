@@ -148,7 +148,7 @@ definitions:
       workflow.categories: [collections, export]
     /hippo:configuration/hippo:frontend/cms/cms-advanced-search/genericFilters:
       document.type.excluded: ['publishing:analytics', 'resourcebundle:resourcebundle',
-        'robotstxt:robotstxt', 'publishing:organisation', 'publishing:notificationbanner',
+        'robotstxt:robotstxt', 'publishing:orginisation', 'publishing:notificationbanner',
         'publishing:describedlink', 'publishing:contentcontact', 'publishing:mirror',
         'selection:valuelist', 'urlrewriter:rule', 'urlrewriter:advancedrule', 'urlrewriter:xmlrule',
         'hippo:deleted', 'hippogallery:stdAssetGallery', 'hippogallery:stdImageGallery',
@@ -156,7 +156,8 @@ definitions:
         'hipposysedit:nodetype', 'hippotaxonomy:container', 'hippogallery:exampleImageSet',
         'hippogallery:imageset', 'reporting:report', 'urlrewriter:ruleset', 'selection:basedocument',
         'hippotaxonomy:taxonomy', 'hippostd:directory', 'urlrewriter:basedocument',
-        'hippo:document', 'hippogallery:exampleAssetSet', 'hippostd:folder', 'hippocollection:collection']
+        'hippo:document', 'hippogallery:exampleAssetSet', 'hippostd:folder', 'hippocollection:collection',
+        'publishing:PublishingDocument', 'publishing:Fragment', 'publishing:smartansweragequestion']
       document.subtypes.included: true
     /hippo:configuration/hippo:frontend/cms/cms-static/advancedSearchController:
       query.limit: '5000'

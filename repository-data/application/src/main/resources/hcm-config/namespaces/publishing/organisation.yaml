@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 47d90130-94ca-4ebd-80fe-ea56b925a64d
+          jcr:uuid: 9a44bd50-fae6-4bf5-8420-fd77f26a4021
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -252,7 +252,7 @@ definitions:
           publishing:authorNotes: ''
           publishing:serviceproviders: []
           publishing:metaDescription: ''
-          jcr:uuid: f494ed69-9a49-4211-9446-8cdaeb260724
+          jcr:uuid: c7150548-ef8c-4483-80bb-f946201319b5
           hippostdpubwf:lastModificationDate: 2020-06-30T08:47:27.466+01:00
           hippostdpubwf:creationDate: 2020-06-30T08:47:27.466+01:00
           publishing:serviceprovider: ''
@@ -642,6 +642,25 @@ definitions:
             field: authorNotes
             hint: Enter any notes relevant to this content item.  This will not appear
               on the page itself.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /lastUpdatedDate:
+            jcr:primaryType: frontend:plugin
+            caption: Last updated date
+            field: lastUpdatedDate
+            hint: The 'Last updated' date displayed in the article heading. If left
+              blank no date will be displayed
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /reviewDate:
+            jcr:primaryType: frontend:plugin
+            caption: Review date
+            field: reviewDate
+            hint: The date on which this content item should next be reviewed
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
