@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4d7ac8fa-41d8-4995-84a2-0db433ff97fd
+          jcr:uuid: 31d3ea6a-c19b-491f-b973-b346a38664d3
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -47,7 +47,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
-          jcr:uuid: 3b8ef68e-0b18-4869-bfc6-f582ea4fba9d
+          jcr:uuid: 12d205b4-0000-481e-bb8c-b3d5b6404cc6
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -215,6 +215,17 @@ definitions:
             field: noindex
             hint: Check if this page should not be indexed for search (both internal
               and on search engines)
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /reviewDate:
+            jcr:primaryType: frontend:plugin
+            caption: Review date
+            field: reviewDate
+            mode: view
+            hint: The date on which this content item should next be reviewed.  For
+              guide pages this is read only and tied to the review date of the guide.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

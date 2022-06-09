@@ -20,17 +20,21 @@ public class ListenersModule implements DaemonModule {
 
     ThumbnailsEventListener thumbnailsEventListener;
 
+    GuidePageReviewDateEventsListener guidePageLifeEventsListener;
+
     @Override
     public void initialize(Session session) throws RepositoryException {
         slugMaintainenceListener = new SlugMaintenanceListener(session);
         folderTypesEventListener = new AddEventListener(session, new HippoUtils());
         updateMirrorNameEventListener = new MirrorEventListener(session);
         thumbnailsEventListener = new ThumbnailsEventListener(session);
+        guidePageLifeEventsListener = new GuidePageReviewDateEventsListener(session);
 
         HippoEventListenerRegistry.get().register(slugMaintainenceListener);
         HippoEventListenerRegistry.get().register(folderTypesEventListener);
         HippoEventListenerRegistry.get().register(updateMirrorNameEventListener);
         HippoEventListenerRegistry.get().register(thumbnailsEventListener);
+        HippoEventListenerRegistry.get().register(guidePageLifeEventsListener);
     }
 
     @Override
@@ -39,5 +43,6 @@ public class ListenersModule implements DaemonModule {
         HippoEventListenerRegistry.get().unregister(folderTypesEventListener);
         HippoEventListenerRegistry.get().unregister(updateMirrorNameEventListener);
         HippoEventListenerRegistry.get().unregister(thumbnailsEventListener);
+        HippoEventListenerRegistry.get().unregister(guidePageLifeEventsListener);
     }
 }
