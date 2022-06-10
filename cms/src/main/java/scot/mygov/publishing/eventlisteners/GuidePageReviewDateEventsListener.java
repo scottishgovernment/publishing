@@ -89,7 +89,7 @@ public class GuidePageReviewDateEventsListener {
     }
 
     boolean isGuidePage(Node node) throws RepositoryException {
-        return node.getNode(node.getName()).isNodeType("publishing:guidepage");
+        return node.hasNode(node.getName()) && node.getNode(node.getName()).isNodeType("publishing:guidepage");
     }
 
     boolean isGuideEdit(HippoWorkflowEvent event) {
