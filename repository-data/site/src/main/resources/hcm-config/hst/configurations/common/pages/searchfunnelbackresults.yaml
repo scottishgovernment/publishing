@@ -1,0 +1,8 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/searchfunnelbackresults:
+      jcr:primaryType: hst:component
+      hst:componentclassname: scot.mygov.publishing.components.funnelback.SearchComponent
+      hst:parameternames: [collection, profile]
+      hst:parametervalues: [govscot~sp-mygov, _default_preview]
+      hst:template: search-funnelback-results
