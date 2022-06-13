@@ -23,34 +23,50 @@
         jcr:uuid: 1a5e1954-6245-49c7-b107-81673999b135
         hippo:availability: []
         hippo:name: Search results
+        hippostd:retainable: false
         hippostd:state: draft
         hippostd:tags: []
+        hippostd:transferable: false
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
-        hippostdpubwf:lastModificationDate: 2020-08-17T07:16:07.324+01:00
-        hippostdpubwf:lastModifiedBy: system
+        hippostdpubwf:lastModificationDate: 2022-06-17T10:15:07.482+01:00
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
         publishing:metaDescription: ''
         publishing:mygovid: MYGOV-585
+        publishing:noindex: false
         publishing:relatedmygovids: ''
         publishing:reportingtags: []
         publishing:sensitive: false
         publishing:seoTitle: Search results
         publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: false
         publishing:slug: search
         publishing:summary: ''
         publishing:title: Search results
         publishing:urlAliases:
           type: double
           value: []
+        publishing:userneed: ''
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: ''
         /publishing:relateditems:
           jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /search-results[2]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
