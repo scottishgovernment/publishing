@@ -19,9 +19,6 @@
             <meta name="dc.date.modified" content="<@fmt.formatDate value=contentBean.lastUpdatedDate.time type="both" pattern="YYYY-MM-dd"/>"/>
         </@hst.headContribution>
     </#if>
-    <@hst.headContribution category="title">
-    <title>${titletag}</title>
-    </@hst.headContribution>
     <#if contentBean?? && contentBean.metaDescription??>
         <@hst.headContribution category="meta">
         <meta name="description" content="${contentBean.metaDescription}"/>
@@ -84,6 +81,9 @@
         <meta name="twitter:image" content="<@hst.link hippobean=cardImage.original fullyQualified=true />" />
         </@hst.headContribution>
     </#if>
+    <@hst.headContribution category="title">
+    <title>${titletag}</title>
+    </@hst.headContribution>
     <#if hstRequestContext.preview>
         <div class="ds_wrapper  cms-visible-if-show-components" style="padding: 5px 0; position: relative;">
             <img class="ds_icon ds_icon--40" ng-src="/site/icons/seo.svg" src="/site/icons/seo.svg"> <small class="">Click to edit SEO parameters</small>
