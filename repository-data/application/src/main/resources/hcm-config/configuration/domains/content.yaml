@@ -31,6 +31,13 @@ definitions:
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/rentersrights/site-furniture/banners
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-costofliving-banners-folder:
+      jcr:primaryType: hipposys:facetrule
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:filter: false
+      hipposys:type: Reference
+      hipposys:value: /content/documents/costofliving/site-furniture/banners
     /hippo:configuration/hippo:domains/content/content-domain/exclude-mygov-banners-folder:
       jcr:primaryType: hipposys:facetrule
       hipposys:equals: false
