@@ -17,7 +17,7 @@
                     <tr data-summary-field="property-address-postcode-search property-address-postcode-results">
                         <th>Address</th>
                         <td>
-                            <div class="hide-if-empty"><a href="#!/address/property-address-postcode-search/" class="summary__link  summary__user-input">{{ address | notspecified | safe }}</a></div>
+                            <div class="hide-if-empty">{{ address | notspecified | safe }}</div>
                         </td>
                         <td class="summary-table__edit"><a href="#!/address/" class="edit">edit</a></td>
                     </tr>
@@ -55,26 +55,26 @@
                             <dl class="summary-list">
                                 <dt class="summary-list__label">Name</dt>
                                 <dd>
-                                    <a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-name/" class="summary__link  summary__user-input">{{ landlord.name | notspecified | safe }}</a>
+                                    {{ landlord.name | notspecified | safe }}
                                 </dd>
 
                                 <dt class="summary-list__label">Address</dt>
                                 <dd>
-                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-building/" class="summary__link  summary__user-input">{{landlord.address.building}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-street/" class="summary__link  summary__user-input">{{landlord.address.street}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-town/" class="summary__link  summary__user-input">{{landlord.address.town}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-region/" class="summary__link  summary__user-input">{{landlord.address.region}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-postcode/" class="summary__link  summary__user-input">{{landlord.address.postcode}}</a></div>
+                                    <div class="hide-if-empty">{{landlord.address.building}}</div>
+                                    <div class="hide-if-empty">{{landlord.address.street}}</div>
+                                    <div class="hide-if-empty">{{landlord.address.town}}</div>
+                                    <div class="hide-if-empty">{{landlord.address.region}}</div>
+                                    <div class="hide-if-empty">{{landlord.address.postcode}}</div>
                                 </dd>
 
                                 <dt class="summary-list__label">Email</dt>
                                 <dd>
-                                    <a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-email/" class="summary__link  summary__user-input">{{ landlord.email | notspecified | safe }}</a>
+                                    {{ landlord.email | notspecified | safe }}
                                 </dd>
 
                                 <dt class="summary-list__label">Telephone</dt>
                                 <dd>
-                                    <a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-telephone/" class="summary__link  summary__user-input">{{ landlord.telephone | notspecified | safe }}</a>
+                                    {{ landlord.telephone | notspecified | safe }}
                                 </dd>
                             </dl>
                         </td>
@@ -90,32 +90,32 @@
                             <dl class="summary-list">
                                 <dt class="summary-list__label">Name</dt>
                                 <dd>
-                                    <a href="#!/landlords/letting-agent/letting-agent-name/" class="summary__link  summary__user-input">{{ landlordsAgent.name | notspecified | safe}}</a>
+                                    {{ landlordsAgent.name | notspecified | safe}}
                                 </dd>
 
                                 <dt class="summary-list__label">Address</dt>
                                 <dd>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-building/" class="summary__link  summary__user-input">{{landlordsAgent.address.building}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-street/" class="summary__link  summary__user-input">{{landlordsAgent.address.street}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-town/" class="summary__link  summary__user-input">{{landlordsAgent.address.town}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-region/" class="summary__link  summary__user-input">{{landlordsAgent.address.region}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-postcode/" class="summary__link  summary__user-input">{{landlordsAgent.address.postcode}}</a></div>
+                                    <div class="hide-if-empty">{{landlordsAgent.address.building}}</div>
+                                    <div class="hide-if-empty">{{landlordsAgent.address.street}}</div>
+                                    <div class="hide-if-empty">{{landlordsAgent.address.town}}</div>
+                                    <div class="hide-if-empty">{{landlordsAgent.address.region}}</div>
+                                    <div class="hide-if-empty">{{landlordsAgent.address.postcode}}</div>
                                 </dd>
 
                                 <dt class="summary-list__label">Email</dt>
                                 <dd>
-                                    <a href="#!/landlords/letting-agent/letting-agent-email/" class="summary__link  summary__user-input">{{ landlordsAgent.email | notspecified | safe}}</a>
+                                    {{ landlordsAgent.email | notspecified | safe}}
                                 </dd>
 
                                 <dt class="summary-list__label">Telephone</dt>
                                 <dd>
-                                    <a href="#!/landlords/letting-agent/letting-agent-telephone/" class="summary__link  summary__user-input">{{ landlordsAgent.telephone | notspecified | safe}}</a>
+                                    {{ landlordsAgent.telephone | notspecified | safe}}
                                 </dd>
                             </dl>
                         </td>
                         {% endif %}
                         {% if hasLettingAgent == "no" %}
-                        <td><a href="#!/landlords/letting-agent/letting-agent--query/" class="summary__link  summary__user-input">None</a></td>
+                        <td>None</td>
                         {% endif %}
                         {% if hasLettingAgent == null %}
                         <td></td>
@@ -156,17 +156,17 @@
                         <dl class="summary-list">
                             <dt class="summary-list__label">Name</dt>
                             <dd>
-                                <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-name/" class="summary__link  summary__user-input">{{ tenant.name | notspecified | safe }}</a>
+                                {{ tenant.name | notspecified | safe }}
                             </dd>
 
                             <dt class="summary-list__label">Email</dt>
                             <dd>
-                                <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-email/" class="summary__link  summary__user-input">{{ tenant.email | notspecified | safe }}</a>
+                                {{ tenant.email | notspecified | safe }}
                             </dd>
 
                             <dt class="summary-list__label">Telephone</dt>
                             <dd>
-                                <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-telephone/" class="summary__link  summary__user-input">{{ tenant.telephone | notspecified | safe }}</a>
+                                {{ tenant.telephone | notspecified | safe }}
                             </dd>
                         </dl>
                     </td>
@@ -193,7 +193,7 @@
                     <tr data-summary-field="improvements improvements-details">
                         <th>Property improvements</th>
                         <td>
-                            <a href="#!/improvements/property-improvements/improvements-details" class="summary__link  summary__user-input">{{ improvements | notspecified | safe }}</a>
+                            {{ improvements | notspecified | safe }}
                         </td>
                         <td class="summary-table__edit"><a href="#!/improvements/property-improvements/" class="edit">edit</a></td>
                     </tr>
@@ -206,18 +206,18 @@
                                 <dt class="summary-list__label">Copies of invoices or receipts attached</dt>
                                 <dd>
                                     {% if includesReceipts %}
-                                    <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-telephone/" class="summary__link  summary__user-input">Yes</a>
+                                    Yes
                                     {% else %}
-                                    <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-telephone/" class="summary__link  summary__user-input">No</a>
+                                    No
                                     {% endif %}
                                 </dd>
 
                                 <dt class="summary-list__label">Photos of work attached</dt>
                                 <dd>
                                     {% if includesBeforeAndAfterPictures %}
-                                    <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-telephone/" class="summary__link  summary__user-input">Yes</a>
+                                    Yes
                                     {% else %}
-                                    <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-telephone/" class="summary__link  summary__user-input">No</a>
+                                    No
                                     {% endif %}
                                 </dd>
                             </dl>
@@ -245,15 +245,14 @@
                     <tr data-summary-field="rent-increase-amount">
                         <th>Rent increase amount</th>
                         <td>
-                            <a href="#!/rent-increase/rent-increase/rent-increase-amount/" class="summary__link  summary__user-input">{{ rentIncreaseAmount | currency | notspecified | safe }}</a>
-
+                            {{ rentIncreaseAmount | currency | notspecified | safe }}<
                         </td>
                         <td class="summary-table__edit"><a href="#!/rent-increase/rent-increase/" class="edit">edit</a></td>
                     </tr>
                     <tr data-summary-field="rent-payment-frequency">
                         <th>Rent payment frequency</th>
                         <td>
-                            <a href="#!/rent-increase/rent-increase/rent-payment-frequency/" class="summary__link  summary__user-input">{{rentIncreaseFrequency_text}}</a>
+                            {{rentIncreaseFrequency_text}}
                         </td>
                         <td class="summary-table__edit"><a href="#!/rent-increase/rent-increase/" class="edit">edit</a></td>
                     </tr>

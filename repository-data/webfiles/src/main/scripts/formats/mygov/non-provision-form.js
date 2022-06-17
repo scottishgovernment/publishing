@@ -252,9 +252,9 @@ const formMapping = {
     'section11Details': '#missing-notes-details',
     'section16Failure': '[name="payment-order-query"]',
     'hasChangedTerms': '[name="changed-terms-query"]',
-    'changedTermsDate': '#changed-terms-date-picker',
+    'changedTermsDate': '#changed-terms-date',
     'communicationMethod': '[name="communication-query"]',
-    'noticeDate': '#notice-date-picker'
+    'noticeDate': '#notice-date'
 };
 
 import $ from 'jquery';
@@ -274,10 +274,44 @@ const sectionNavTemplate = require('../../templates/visited-only-section-nav');
 const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 const noticeTemplate = require('../../templates/mygov/non-provision-notice-end');
 
-/*
-    * Calculate the end date of the notice period the landlord has to respond.
-    */
+const adjustDate = function (date, adjustment, capMonth) {
+    if (!adjustment) {
+        return date;
+    }
 
+    const newDate = new Date(date.getTime());
+
+    if (adjustment.years) {
+        newDate.setFullYear(date.getFullYear() + adjustment.years);
+    }
+
+    if (adjustment.months) {
+        newDate.setMonth(date.getMonth() + adjustment.months);
+
+        // capMonth: true will prevent the date being set beyond the end of a month
+        // (e.g. 31 Jan -> 28 Feb instead of 31 Jan -> 3 Mar)
+        if (capMonth && newDate.getMonth() > (12 + date.getMonth() + adjustment.months) % 12) {
+            newDate.setDate(0);
+        }
+    }
+
+    if (adjustment.days) {
+        newDate.setDate(newDate.getDate() + adjustment.days);
+    }
+
+    return newDate;
+};
+
+const diffDateDays = function (a, b) {
+    const aUTC = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+    const bUTC = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+    return Math.floor((bUTC - aUTC) / (1000 * 60 * 60 * 24));
+};
+
+/*
+ * Calculate the end date of the notice period the landlord has to respond.
+ */
 const calcNoticeEnd = function(){
     // Standard notice period is 28 days
     let noticePeriod = 28;
@@ -287,9 +321,9 @@ const calcNoticeEnd = function(){
     if (formObject.section10bFailure && formObject.hasChangedTerms === 'true'){
         const lastChangedDate = formObject.changedTermsDate.split('/').reverse().join('-');
 
-        const daysBetween = dateNoticeGiven.diff(lastChangedDate, 'days');
+        const daysBetween = diffDateDays(new Date(lastChangedDate), new Date(dateNoticeGiven));
 
-        if (daysBetween <= 28){
+        if (daysBetween <= 28) {
             const daysOfPeriodRemaining = 28 - daysBetween;
             noticePeriod = noticePeriod + daysOfPeriodRemaining;
         }
@@ -301,8 +335,8 @@ const calcNoticeEnd = function(){
     }
 
     // Add the notice period to the date notice is given
-    if (formObject.noticeDate){
-        formObject.intendedReferralDate = dateNoticeGiven.add(noticePeriod, 'days').format('DD/MM/YYYY');
+    if (formObject.noticeDate) {
+        formObject.intendedReferralDate = commonForms.dateToString(adjustDate(new Date(dateNoticeGiven), { days: noticePeriod }, true));
     }
 };
 
@@ -327,7 +361,7 @@ const nonProvisionForm = {
 
                 commonHousing.validateSummary();
                 commonHousing.summaryAccordion(document.getElementById('summary-container'));
-                window.DS.tracking.init(summaryContainer);
+                window.DS.tracking.init(document.getElementById('summary-container'));
             },
             updateNoticeEndDate: function () {
                 calcNoticeEnd();
@@ -460,15 +494,13 @@ const nonProvisionForm = {
                 fieldMappings: function(number) {
                     const fieldMappings = {};
                     fieldMappings['landlords[\'landlord-' + number + '\'].name'] = `#landlord-${number}-name`;
+                    fieldMappings['landlords[\'landlord-' + number + '\'].address'] = new PostcodeLookup(document.getElementById(`landlord-${number}-postcode-lookup`), { rpz: false });
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.building'] = `#landlord-${number}-address-building`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.street'] = `#landlord-${number}-address-street`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.town'] = `#landlord-${number}-address-town`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.region'] = `#landlord-${number}-address-region`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.postcode'] = `#landlord-${number}-postcode`;
                     return fieldMappings;
-                },
-                initPostcodeLookups: function(number) {
-                    new PostcodeLookup({ rpz: false, lookupId: `landlord-${number}-postcode-lookup` }); // NOSONAR
                 }
             }
         ];
@@ -539,9 +571,9 @@ const nonProvisionForm = {
     },
 
     setupPostcodeLookups: function() {
-        new PostcodeLookup({ rpz: false, lookupId: 'property-postcode-lookup' }); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'tenants-agent-postcode-lookup' }); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'letting-agent-postcode-lookup' }); // NOSONAR
+        nonProvisionForm.form.settings.formMapping['address'] = new PostcodeLookup(document.getElementById('property-postcode-lookup'), { rpz: false });
+        nonProvisionForm.form.settings.formMapping['tenantsAgent.address'] = new PostcodeLookup(document.getElementById('tenants-agent-postcode-lookup'), { rpz: false });
+        nonProvisionForm.form.settings.formMapping['landlordsAgent.address'] = new PostcodeLookup(document.getElementById('letting-agent-postcode-lookup'), { rpz: false });
     },
 
     validateStep: function () {

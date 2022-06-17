@@ -42,6 +42,11 @@ const formMapping = {
     'newRentFrequency': '#new-payment-frequency',
     'givingThisNotice': '[name="giving-notice-query"]',
     'address': '#property-address-property-address',
+    'address.building': '#property-address-address-building',
+    'address.street': '#property-address-address-street',
+    'address.town': '#property-address-address-town',
+    'address.region': '#property-address-address-region',
+    'address.postcode': '#property-address-postcode',
     'improvementsIncrease': '#improvements-increase',
     'improvementsQuery': '[name="improvements-query"]',
     'dateOfIncrease': '#rent-increase-date',
@@ -204,6 +209,7 @@ const rentIncreaseForm = {
                     fieldMappings['landlords[\'landlord-' + number + '\'].email'] = `#landlord-${number}-email`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].telephone'] = `#landlord-${number}-phone`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].registrationNumber'] = `#landlord-${number}-registration`;
+                    fieldMappings[`landlords[landlord-${number}].address`] = new PostcodeLookup(document.getElementById(`landlord-${number}-postcode-lookup`));
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.building'] = `#landlord-${number}-address-building`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.street'] = `#landlord-${number}-address-street`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.town'] = `#landlord-${number}-address-town`;
@@ -211,9 +217,6 @@ const rentIncreaseForm = {
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.postcode'] = `#landlord-${number}-postcode`;
 
                     return fieldMappings;
-                },
-                initPostcodeLookups: function (number) {
-                    new PostcodeLookup({ rpz: false, lookupId: `landlord-${number}-postcode-lookup` }); // NOSONAR
                 }
             }
         ];
@@ -321,8 +324,8 @@ const rentIncreaseForm = {
             '<p>You\'ll need to give us some details about your property so that we can check' +
             ' your increase is allowed within your RPZ.</p>';
 
-        new PostcodeLookup({ readOnly: true, rpz: true, lookupId: 'property-address-postcode-lookup', infoNoteHtml: addressInfoNoteHtml, rpzComplete: this.rpzComplete, storeResultAs: 'propertyAddressResult'}); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'letting-agent-postcode-lookup' }); // NOSONAR
+        rentIncreaseForm.form.settings.formMapping['address'] = new PostcodeLookup(document.getElementById('property-address-postcode-lookup'), { readOnly: true, rpz: true, infoNoteHtml: addressInfoNoteHtml, rpzComplete: this.rpzComplete, storeResultAs: 'propertyAddressResult'});
+        rentIncreaseForm.form.settings.formMapping['lettingAgent.address'] = new PostcodeLookup(document.getElementById('letting-agent-postcode-lookup'), { rpz: false, });
     },
 
     setupCustomFieldEvents: function () {
@@ -588,7 +591,7 @@ const rentIncreaseForm = {
             };
         }
 
-        let propertyAddress = window.storedAddresses.propertyAddressResult;
+        let propertyAddress = rentIncreaseForm.form.settings.formMapping.address.getAddressAsObject();
         let org = propertyAddress.org;
         let building = propertyAddress.building;
         let locality = propertyAddress.locality;

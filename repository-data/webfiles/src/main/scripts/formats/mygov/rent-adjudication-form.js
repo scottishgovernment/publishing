@@ -71,6 +71,11 @@ const formObject = {
 
 const formMapping = {
     'propertyAddress': '#rpz-property-address',
+    'propertyAddress.building': '#rpz-address-building',
+    'propertyAddress.street': '#rpz-address-street',
+    'propertyAddress.town': '#rpz-address-town',
+    'propertyAddress.region': '#rpz-address-region',
+    'propertyAddress.postcode': '#rpz-postcode',
     'hasTenantAgent': '[name="tenant-agent-query"]',
     'tenantAgent.name': '#tenant-agent-name',
     'tenantAgent.email': '#tenant-agent-email',
@@ -161,11 +166,13 @@ const rentAdjudicationForm = {
                 commonHousing.summaryAccordion(summaryContainer);
                 window.DS.tracking.init(summaryContainer);
             },
-            insertPropertyAddress: function() {
-                const propertySpan = $('.js-declaration-address');
-                const addressToInsert = rentAdjudicationForm.form.settings.formObject.propertyAddress || '_______';
+            insertPropertyAddress: function () {
+                if (typeof rentAdjudicationForm.form.settings.formMapping.propertyAddress.getAddressAsString === 'function') {
+                    const propertySpan = $('.js-declaration-address');
+                    const addressToInsert = rentAdjudicationForm.form.settings.formMapping.propertyAddress.getAddressAsString() || '_______';
 
-                propertySpan.text(addressToInsert);
+                    propertySpan.text(addressToInsert);
+                }
             },
             checkInventory: function() {
                 const elementToHide = $('.js-hide-if-no-inventory');
@@ -265,6 +272,7 @@ const rentAdjudicationForm = {
                     fieldMappings['tenants[\'tenant-' + number + '\'].name'] = `#tenant-${number}-name`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].email'] = `#tenant-${number}-email`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].telephone'] = `#tenant-${number}-phone`;
+                    fieldMappings['tenants[\'tenant-' + number + '\'].address'] = new PostcodeLookup(document.getElementById(`tenant-${number}-postcode-lookup`), { rpz: false });
                     fieldMappings['tenants[\'tenant-' + number + '\'].address.building'] = `#tenant-${number}-address-building`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].address.street'] = `#tenant-${number}-address-street`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].address.town'] = `#tenant-${number}-address-town`;
@@ -272,10 +280,6 @@ const rentAdjudicationForm = {
                     fieldMappings['tenants[\'tenant-' + number + '\'].address.postcode'] = `#tenant-${number}-postcode`;
 
                     return fieldMappings;
-                },
-                initPostcodeLookups: function(number) {
-                    new PostcodeLookup({ rpz: false, lookupId: `tenant-${number}-postcode-lookup`, dataFrom: 'propertyAddressResult' }); // NOSONAR
-                    new PostcodeLookup({ rpz: false, lookupId: `guarantor-${number}-postcode-lookup` }); // NOSONAR
                 }
             }, {
                 name: 'landlords',
@@ -295,6 +299,7 @@ const rentAdjudicationForm = {
                     fieldMappings['landlords[\'landlord-' + number + '\'].email'] = `#landlord-${number}-email`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].telephone'] = `#landlord-${number}-phone`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].registrationNumber'] = `#landlord-${number}-registration`;
+                    fieldMappings['landlords[\'landlord-' + number + '\'].address'] = new PostcodeLookup(document.getElementById(`landlord-${number}-postcode-lookup`), { rpz: false });
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.building'] = `#landlord-${number}-address-building`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.street'] = `#landlord-${number}-address-street`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.town'] = `#landlord-${number}-address-town`;
@@ -302,9 +307,6 @@ const rentAdjudicationForm = {
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.postcode'] = `#landlord-${number}-postcode`;
 
                     return fieldMappings;
-                },
-                initPostcodeLookups: function(number) {
-                    new PostcodeLookup({ rpz: false, lookupId: `landlord-${number}-postcode-lookup` }); // NOSONAR
                 }
             }
         ];
@@ -348,11 +350,9 @@ const rentAdjudicationForm = {
             '<a href="https://www.mygov.scot/rent-pressure-zone-checker/" target="_blank">' +
             'find out what the RPZ limit for your home is</a>.</p>';
 
-        new PostcodeLookup({ readOnly: true, rpz: true, lookupId: 'rpz-postcode-lookup', infoNoteHtml: addressInfoNoteHtml, storeResultAs: 'propertyAddressResult' }); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'tenant-1-postcode-lookup' }); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'tenant-agent-postcode-lookup' }); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'landlord-1-postcode-lookup' }); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'letting-agent-postcode-lookup' }); // NOSONAR
+        rentAdjudicationForm.form.settings.formMapping['propertyAddress'] = new PostcodeLookup(document.getElementById('rpz-postcode-lookup'), { readOnly: true, rpz: true, infoNoteHtml: addressInfoNoteHtml, storeResultAs: 'propertyAddressResult' });
+        rentAdjudicationForm.form.settings.formMapping['tenantAgent.address'] = new PostcodeLookup(document.getElementById('tenant-agent-postcode-lookup'), { rpz: false });
+        rentAdjudicationForm.form.settings.formMapping['lettingAgent.address'] = new PostcodeLookup(document.getElementById('letting-agent-postcode-lookup'), { rpz: false });
     },
 
     setupCustomFieldEvents: function () {

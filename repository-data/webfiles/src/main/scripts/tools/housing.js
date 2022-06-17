@@ -179,7 +179,11 @@ const commonHousing = {
             for (const key in fieldMappings) {
                 if (!fieldMappings.hasOwnProperty(key)) { continue; }
 
-                form.mapField(key, fieldMappings[key]);
+                if (typeof fieldMappings[key] === 'object' && fieldMappings[key].name && fieldMappings[key].name === 'PostcodeLookup') {
+                    form.mapPostcodeLookup(key, fieldMappings[key]);
+                } else {
+                    form.mapField(key, fieldMappings[key]);
+                }
             }
 
             // add section to navigation

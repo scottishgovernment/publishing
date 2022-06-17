@@ -479,19 +479,18 @@ const commonForms = {
     /**
      *  Requires an address to have either building or street address.
      */
-     requiredBuildingOrStreet: function (field) {
+    requiredBuildingOrStreet: function (field) {
         const message = 'Enter an address, including building or street';
 
-        const parentQuestion = field.closest('.building-street');
+        const parentQuestion = field.closest('.js-building-street');
 
-        const buildingEl = parentQuestion.querySelector('.building');
-        const streetEl = parentQuestion.querySelector('.street');
+        const buildingEl = parentQuestion.querySelector('.js-manual-building');
+        const streetEl = parentQuestion.querySelector('.js-manual-street');
 
         let valid = !!(buildingEl.value.trim() || streetEl.value.trim());
 
         commonForms.toggleFormErrors(buildingEl, valid, 'invalid-required-address', 'Address', message);
         commonForms.toggleCurrentErrors(buildingEl, valid, 'invalid-required-address', message);
-        commonForms.toggleCurrentErrors(streetEl, valid, 'invalid-required-address', message);
 
         return valid;
     },
@@ -500,22 +499,43 @@ const commonForms = {
      *  For a required postcode lookup, invalid unless address fields are showing
      *  (either will have been filled when address chosen, or will trigger their own validations if empty)
      */
-    requiredPostcodeLookup: function (field) {
-        const manualAddress = field.closest('.js-postcode-lookup').querySelector('.address-manual');
-        const addressDropdown = field.closest('.js-postcode-lookup').querySelector('.postcode-results');
+    requiredPostcodeLookup(field) {
+        /*
+         if manual area visible, validate manual fields
+         if results area visible, validate results
+         if search area visible, validate search
+        */
+        const element = field.closest('.js-postcode-lookup');
 
-        let message = 'Enter a postcode and click "Find address"';
+        const lookupElement = element.querySelector('.ds_address__lookup');
+        const resultsElement = element.querySelector('.ds_address__results');
+        const manualElement = element.querySelector('.ds_address__manual');
 
-        if (manualAddress) {
-            message += ', or enter an address manually';
+        let valid = false;
+
+        if (!lookupElement.classList.contains('fully-hidden')) {
+            let message = "Enter a postcode and click 'Find address'";
+
+            // todo: this should be a check for readonly mode
+            if (true) {
+                message += ', or enter an address manually';
+            }
+
+            const field = lookupElement.querySelector('.js-postcode-input');
+
+            commonForms.toggleFormErrors(field, valid, 'invalid-postcode-lookup', 'Postcode lookup', message);
+            commonForms.toggleCurrentErrors(field, valid, 'invalid-postcode-lookup', message);
+        } else if (!resultsElement.classList.contains('fully-hidden')) {
+            const value = resultsElement.querySelector('.js-results-select').value;
+
+            if (!isNaN(+value) && +value > -1) {
+                valid = true;
+            }
+        } else if (!manualElement.classList.contains('fully-hidden')) {
+
         }
 
-        const valid = (manualAddress && !manualAddress.classList.contains('fully-hidden')) ||
-            (addressDropdown && !addressDropdown.classList.contains('fully-hidden'));
-
-        commonForms.toggleFormErrors(field, valid, 'invalid-required-postcode', 'Postcode lookup', message);
-        commonForms.toggleCurrentErrors(field, valid, 'invalid-required-postcode', message);
-
+        // const valid = false;
         return valid;
     },
 
@@ -596,7 +616,6 @@ const commonForms = {
      *  Shows or hides individual field's current errors box (box below each field)
      */
     toggleCurrentErrors: function (field, valid, errorClass, message) {
-
         // add error to field's errors object
         field.errors = field.errors || {};
         if (!valid) {

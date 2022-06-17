@@ -1,3 +1,5 @@
+{% from "../macros.njk" import postcodeLookup %}
+
 <section data-group="landlords" data-step="landlord-{{index}}" id="landlord-{{index}}" class="fully-hidden form-step">
     <h2>Landlord: <span class="js-dynamic-title"></span></h2>
     <button class="js-remove-repeating-section  repeating-container__remove  ds_button  ds_button--cancel">Remove this landlord</button>
@@ -7,65 +9,11 @@
         <input type="text" id="landlord-{{index}}-name" class="js-dynamic-title-input ds_input" data-validation="requiredField">
     </div>
 
-    <div id="landlord-{{index}}-postcode-lookup" class="js-postcode-lookup">
-        <div class="ds_question">
-            <label class="ds_label" for="landlord-{{index}}-postcode-search">Postcode (UK only)</label>
+    {{ postcodeLookup('landlord-' + index) }}
 
-            <div class="ds_input__wrapper">
-                <input type="text" id="landlord-{{index}}-postcode-search" class="ds_input  ds_input--fixed-10  postcode-search" data-validation="requiredPostcodeLookup">
-                <button class="js-find-address-button  ds_button">Find address</button>
-            </div>
-
-            <p>
-                <a href="#landlord-{{index}}-manual-address" class="js-address-manual-link">Enter the address manually</a>
-            </p>
-        </div>
-
-        <div class="postcode-results fully-hidden">
-            <label class="ds_label" for="landlord-{{index}}-postcode-results">Please select your address</label>
-
-            <div class="ds_select-wrapper">
-                <select class="ds_select" id="landlord-{{index}}-postcode-results" data-validation="requiredDropdown"></select>
-                </select>
-                <span class="ds_select-arrow" aria-hidden="true"></span>
-            </div>
-        </div>
-
-        <div class="postcode-info-note  ds_inset-text  fully-hidden"></div>
-
-        <div id="landlord-{{index}}-manual-address" class="address-manual  fully-hidden">
-            <div id="landlord-{{index}}-building-street" class="building-street">
-                <div class="ds_question">
-                    <label class="ds_label" for="landlord-{{index}}-address-building">Building</label>
-                    <input type="text" id="landlord-{{index}}-address-building" class="ds_input  building" data-validation="requiredBuildingOrStreet">
-                </div>
-
-                <div class="ds_question">
-                    <label class="ds_label" for="landlord-{{index}}-address-street">Street address</label>
-                    <input type="text" id="landlord-{{index}}-address-street" class="ds_input  street">
-                </div>
-            </div>
-
-            <div class="ds_question">
-                <label class="ds_label" for="landlord-{{index}}-address-town">Town or city</label>
-                <input type="text" id="landlord-{{index}}-address-town" class="ds_input  town" data-validation="requiredField">
-            </div>
-
-            <div class="ds_question">
-                <label class="ds_label" for="landlord-{{index}}-address-region">Region or province</label>
-                <input type="text" id="landlord-{{index}}-address-region" class="ds_input  region">
-            </div>
-
-            <div class="ds_question">
-                <label class="ds_label" for="landlord-{{index}}-postcode">Postcode</label>
-                <input type="text" id="landlord-{{index}}-postcode" class="ds_input  uppercase  ds_input--fixed-10  postcode" data-validation="requiredField>
-            </div>
-        </div>
-
-        <div class="ds_inset-text">
-            <div class="ds_inset-text__text">
-                If you don't know your landlord's address, you might be able to find it on the <a href="https://www.landlordregistrationscotland.gov.uk/" target="_blank">Scottish Landlord Register (opens in a new window)</a>
-            </div>
+    <div class="ds_inset-text">
+        <div class="ds_inset-text__text">
+            If you don't know your landlord's address, you might be able to find it on the <a href="https://www.landlordregistrationscotland.gov.uk/" target="_blank">Scottish Landlord Register (opens in a new window)</a>
         </div>
     </div>
 </section>

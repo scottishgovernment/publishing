@@ -30,6 +30,7 @@ const MultiPageForm = function (settings) {
     this.removeStep = removeStep;
     this.renameStep = renameStep;
     this.configureFieldMapping = configureFieldMapping;
+    this.mapPostcodeLookup = mapPostcodeLookup;
     this.mapField = mapField;
     this.setupStepValidation = setupStepValidation;
     this.setupBackToSummary = setupBackToSummary;
@@ -643,32 +644,49 @@ function configureFieldMapping () {
     for (const key in this.settings.formMapping) {
         if (!this.settings.formMapping.hasOwnProperty(key)) { continue; }
 
-        // populate initial values
-        let value = _.get(this.settings.formObject, key) || '';
-        let elements = [].slice.call(document.querySelectorAll(this.settings.formMapping[key]));
-
-        if (elements.length > 1 && elements[0].type === 'radio') {
-            // special case: radio buttons
-            for (let i = 0, il = elements.length; i < il; i++) {
-                if (elements[i].value === value) {
-                    elements[i].checked = true;
-                    break;
-                }
-            }
-        } else if (elements.length > 1 && elements[0].type === 'checkbox') {
-            // special case: checkbox group
+        if (this.settings.formMapping[key].constructor.name === 'PostcodeLookup') {
+            this.mapPostcodeLookup(key, this.settings.formMapping[key]);
         } else {
-            if (elements.length) {
-                elements[0].value = value;
-                // trigger change to resize MTA textareas
-                if (elements[0].type === 'textarea'){
-                    $(elements[0]).trigger('change');
+            // populate initial values
+            let value = _.get(this.settings.formObject, key) || '';
+            let elements = [].slice.call(document.querySelectorAll(this.settings.formMapping[key]));
+
+            if (elements.length > 1 && elements[0].type === 'radio') {
+                // special case: radio buttons
+                for (let i = 0, il = elements.length; i < il; i++) {
+                    if (elements[i].value === value) {
+                        elements[i].checked = true;
+                        break;
+                    }
+                }
+            } else if (elements.length > 1 && elements[0].type === 'checkbox') {
+                // special case: checkbox group
+            } else {
+                if (elements.length) {
+                    elements[0].value = value;
+                    // trigger change to resize MTA textareas
+                    if (elements[0].type === 'textarea') {
+                        $(elements[0]).trigger('change');
+                    }
                 }
             }
+
+            this.mapField(key, this.settings.formMapping[key]);
         }
 
-        this.mapField(key, this.settings.formMapping[key]);
     }
+}
+
+function mapPostcodeLookup(dataPath, lookup) {
+    const that = this;
+
+    lookup.resultsSelectElement.addEventListener('selected', event => {
+        if (lookup.options.readOnly) {
+            _.set(that.settings.formObject, dataPath, lookup.getAddressAsString());
+        } else {
+            _.set(that.settings.formObject, dataPath, lookup.getAddressAsObject());
+        }
+    });
 }
 
 /**
@@ -677,6 +695,7 @@ function configureFieldMapping () {
  */
 function mapField (dataPath, selector) {
     const that = this;
+
     const el = [].slice.call(document.querySelectorAll(selector));
     let value;
     let text;
@@ -688,9 +707,8 @@ function mapField (dataPath, selector) {
             break;
         }
     }
-
-    // special case: radio
     if (el.length > 1 && el[0].type === 'radio') {
+        // special case: radio
         const changeFunction = function (event) {
             const checkedRadio = $('[name="' + event.target.name + '"]:checked');
             value = checkedRadio.val();
@@ -718,8 +736,8 @@ function mapField (dataPath, selector) {
 
             $(element).on('change', changeFunction);
         }
-    // special case: checkbox group
     } else if (el.length > 1 && el[0].type === 'checkbox') {
+        // special case: checkbox group
         $(el).on('change', function () {
             let selectedItems = el.filter(el => el.checked);
             let itemsArray = [];
@@ -733,15 +751,14 @@ function mapField (dataPath, selector) {
 
             _.set(that.settings.formObject, dataPath, itemsArray);
         });
-    // special case: checkbox
     } else if (el.length > 0 && el[0].type === 'checkbox') {
+        // special case: checkbox
 
         $(el[0]).on('change', function () {
             value = el[0].checked;
 
             _.set(that.settings.formObject, dataPath, value);
         });
-
     } else {
         // bind DOM changes to the formObject's data
         if (el.length > 0) {

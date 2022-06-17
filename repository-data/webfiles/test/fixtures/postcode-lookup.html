@@ -1,49 +1,95 @@
-<div id="property-postcode-lookup">
-    <div class="ds_question  js-postcode-lookup">
-        <label class="ds_label" for="property-postcode-search">Postcode</label>
+<div id="property-postcode-lookup" class="js-postcode-lookup">
+    <div class="ds_address__lookup">
+        <fieldset>
+            <div class="ds_question">
+                <label class="ds_label" for="property-postcode-search">
+                    Postcode
+                </label>
+                <input
+                    autocomplete="postal-code"
+                    class="ds_input  ds_input--fixed-10  js-postcode-input"
+                    data-validation="requiredPostcodeLookup"
+                    id="property-postcode-search"
+                    name="property-postcode-search"
+                    type="text"
+                />
 
-        <div class="ds_input__wrapper">
-            <input class="ds_input  ds_input--fixed-10  postcode-search" data-validation="validPostcode" type="text" id="property-postcode-search" data-form="textinput-property-postcode-search">
-            <button class="js-find-address-button  ds_button">Find address</button>
-        </div>
+                <button class="ds_button  ds_no-margin--top  js-postcode-search" type="submit">Find address</button>
 
-        <p><a href="#property-manual-address" class="js-address-manual-link">Enter the address manually</a></p>
+                <p><button class="ds_link  ds_no-margin  js-show-manual-entry">Or type in the full address</button></p>
+            </div>
+        </fieldset>
+
+
     </div>
 
-    <div class="ds_question  postcode-results  fully-hidden">
-        <label for="property-postcode-results" class="ds_label">Select an address</label>
-
-        <div class="ds_select-wrapper">
-        <select class="ds_select" id="property-postcode-results" data-validation=""></select>
-
-        <span class="ds_select-arrow" aria-hidden="true"></span>
+    <div class="ds_address__results  fully-hidden">
+        <dl class="ds_prefilled-value-list" aria-label="Your current answers">
+            <dt class="ds_prefilled-value-list__key">Postcode</dt>
+            <dd class="ds_prefilled-value-list__value">
+                <div class="js-postcode-value"></div>
+                <button class="ds_link  ds_prefilled-value-list__value-actions  js-show-postcode-lookup">Change <span class="visually-hidden">your answer for: <q>Postcode</q></span></button>
+            </dd>
+        </dl>
+        <div class="ds_question">
+            <label class="ds_label" for="property-postcode-results">
+                Select an address
+            </label>
+            <div class="ds_select-wrapper">
+                <select
+                    class="ds_select  js-results-select"
+                    data-validation="requiredDropdown noAddressNotListed requiredRPZAddress"
+                    id="property-postcode-results"
+                    name="property-postcode-results"
+                >
+                    <option value=""></option>
+                </select>
+                <span class="ds_select-arrow" aria-hidden="true"></span>
+            </div>
         </div>
+
+        <div class="js-postcode-info-text  ds_inset-text  fully-hidden"></div>
+
+        <p><button class="ds_link  ds_no-margin  js-show-manual-entry">Or type in the full address</button></p>
     </div>
 
-    <div class="postcode-info-note  ds_inset-text  fully-hidden"></div>
+    <div class="ds_address__manual  fully-hidden">
 
-    <div id="property-manual-address" class="address-manual  fully-hidden">
-        <label class="ds_label" for="property-address-building">Building</label>
-        <input type="text" id="property-address-building" class="ds_input  building" data-form="textinput-property-address-building">
+        <div id="property-manual-address">
+            <fieldset>
+                <legend>Tell us the full address</legend>
 
-        <label class="ds_label" for="property-address-street">Street address</label>
-        <input type="text" id="property-address-street" class="ds_input  street" data-form="textinput-property-address-street">
+                <p><button class="ds_link  ds_no-margin  js-show-postcode-lookup">Use address lookup</button></p>
 
-        <div class="ds_question">
-            <label class="ds_label" for="property-address-town">Town or city</label>
-            <input type="text" id="property-address-town" class="ds_input  town " data-form="textinput-property-address-town">
-        </div>
+                <div id="property-building-street" class="js-building-street">
+                    <div class="ds_question">
+                        <label class="ds_label" for="property-address-building">
+                            Building and street <span class="visually-hidden">line 1 of 2</span>
+                        </label>
+                        <input autocomplete="address-line1" type="text" id="property-address-building" name="property-address-building" class="ds_input  js-manual-building" data-validation="requiredBuildingOrStreet">
 
-        <div class="ds_question">
-            <label class="ds_label" for="property-address-region">Region or province</label>
-            <input type="text" id="property-address-region" class="ds_input  region" data-form="textinput-{for}}-address-region">
-        </div>
+                        <label class="ds_label  visually-hidden" for="property-address-street">
+                            Building and street line 2 of 2
+                        </label>
+                        <input autocomplete="address-line2"type="text" id="property-address-street" name="property-address-street" class="ds_input  js-manual-street">
+                    </div>
+                </div>
 
-        <div class="ds_question">
-            <label class="ds_label" for="property-postcode">Postcode</label>
-            <input type="text" id="property-postcode" class="ds_input  uppercase  ds_input--fixed-10  postcode" data-form="textinput-property-postcode">
+                <div class="ds_question">
+                    <label class="ds_label" for="property-address-town">City or town</label>
+                    <input autocomplete="address-level2"type="text" id="property-address-town" name="property-address-town" class="ds_input  js-manual-town" data-validation="requiredField">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="property-address-region">County</label>
+                    <input autocomplete="address-county" type="text" id="property-address-region" name="property-address-region" class="ds_input  js-manual-region">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="property-postcode">Postcode</label>
+                    <input autocomplete="postcode" type="text" id="property-postcode" name="property-postcode" class="ds_input  uppercase  ds_input--fixed-10  js-manual-postcode" data-validation="requiredField">
+                </div>
+            </fieldset>
         </div>
     </div>
-
-    <textarea class="address-display  ds_input  fully-hidden" id="{{for}}-property-address" disabled="true" title="Property address" data-form="textarea-{{for}}-property-address"></textarea>
 </div>
