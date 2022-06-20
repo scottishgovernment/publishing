@@ -6,6 +6,7 @@ import $ from 'jquery';
 import '../vendor/jquery.routes';
 import _ from '../vendor/lodash/dist/tinydash.es6';
 import bloomreachWebfile from '../tools/bloomreach-webfile';
+import temporaryFocus from '../../../../node_modules/@scottish-government/pattern-library/src/base/tools/temporary-focus/temporary-focus';
 
 const MultiPageForm = function (settings) {
     this.settings = {};
@@ -363,10 +364,12 @@ function goToStep (step) {
         }
     }
 
-    let stepElToFocus = document.querySelector(`section[data-step="${step.slug}"]`);
-    if (stepElToFocus) {
-        stepElToFocus.focus();
-    }
+    // let stepElToFocus = document.querySelector(`section[data-step="${step.slug}"]`);
+    // if (stepElToFocus) {
+    //     stepElToFocus.focus();
+    // }
+    console.log(1, subsection, subsection[0])
+    temporaryFocus(subsection[0]);
 
     if ($('#section-progess-indicator').length > 0) {
         const formTopOffset = $('#section-progess-indicator').offset().top;
@@ -644,7 +647,7 @@ function configureFieldMapping () {
     for (const key in this.settings.formMapping) {
         if (!this.settings.formMapping.hasOwnProperty(key)) { continue; }
 
-        if (this.settings.formMapping[key].constructor.name === 'PostcodeLookup') {
+        if (this.settings.formMapping[key].name === 'PostcodeLookup') {
             this.mapPostcodeLookup(key, this.settings.formMapping[key]);
         } else {
             // populate initial values
@@ -680,7 +683,7 @@ function configureFieldMapping () {
 function mapPostcodeLookup(dataPath, lookup) {
     const that = this;
 
-    lookup.resultsSelectElement.addEventListener('selected', event => {
+    lookup.resultsSelectElement.addEventListener('change', event => {
         if (lookup.options.readOnly) {
             _.set(that.settings.formObject, dataPath, lookup.getAddressAsString());
         } else {

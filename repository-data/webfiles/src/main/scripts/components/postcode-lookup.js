@@ -28,11 +28,13 @@ class PostcodeLookup {
         this.resultsSelectElement = this.resultsElement.querySelector('.js-results-select');
         this.resultsInfoText = element.querySelector('.js-postcode-info-text');
 
+        this.postcodeInput = this.lookupElement.querySelector('.js-postcode-input');
+
         this.buildingInput = this.manualElement.querySelector('.js-manual-building');
         this.streetInput = this.manualElement.querySelector('.js-manual-street');
         this.townInput = this.manualElement.querySelector('.js-manual-town');
         this.regionInput = this.manualElement.querySelector('.js-manual-region');
-        this.postcodeInput = this.manualElement.querySelector('.js-manual-postcode');
+        this.manualPostcodeInput = this.manualElement.querySelector('.js-manual-postcode');
 
         this.endpointUrl = '/service/housing/postcode/address-lookup';
 
@@ -62,6 +64,13 @@ class PostcodeLookup {
             }
         });
 
+        this.postcodeInput.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                this.submitPostcodeSearch();
+            }
+        });
+
         this.resultsSelectElement.addEventListener('change', event => {
             const index = parseInt(event.target.value);
 
@@ -77,14 +86,14 @@ class PostcodeLookup {
                 this.buildingInput.value = this.selectedAddress.building;
                 this.streetInput.value = this.selectedAddress.street;
                 this.townInput.value = this.selectedAddress.town;
-                this.postcodeInput.value = this.selectedAddress.postcode;
+                this.manualPostcodeInput.value = this.selectedAddress.postcode;
 
                 // trigger change events on those fields
                 const changeEvent = new Event('change');
                 this.buildingInput.dispatchEvent(changeEvent);
                 this.streetInput.dispatchEvent(changeEvent);
                 this.townInput.dispatchEvent(changeEvent);
-                this.postcodeInput.dispatchEvent(changeEvent);
+                this.manualPostcodeInput.dispatchEvent(changeEvent);
             }
         });
     }
@@ -269,31 +278,33 @@ class PostcodeLookup {
     }
 
     submitPostcodeSearch() {
-        const postcodeInput = this.lookupElement.querySelector('.js-postcode-input');
-        const postcodeValue = postcodeInput.value;
+
+        const postcodeValue = this.postcodeInput.value;
 
         if (!postcodeValue) {
-            postcodeInput.focus();
+            this.postcodeInput.focus();
             return;
         }
 
         if (this.validatePostcode(postcodeValue)) {
             this.fetchPostcodeResults(postcodeValue)
                 .then(data => {
-                    postcodeInput.value = this.formatPostcode(postcodeValue);
-                    this.resultsObject = data.results;
-                    this.showResults(data.results, postcodeValue);
+                    this.postcodeInput.value = this.formatPostcode(postcodeValue);
+                    if (data && data.results) {
+                        this.resultsObject = data.results;
+                        this.showResults(data.results, postcodeValue);
+                    }
                 });
         } else {
-            postcodeInput.classList.add('ds_input--error');
-            postcodeInput.setAttribute('aria-invalid', true);
-            postcodeInput.closest('.ds_question').classList.add('ds_question--error');
+            this.postcodeInput.classList.add('ds_input--error');
+            this.postcodeInput.setAttribute('aria-invalid', true);
+            this.postcodeInput.closest('.ds_question').classList.add('ds_question--error');
 
             // insert message
             const messageElement = document.createElement('p');
             messageElement.innerText = "Enter a valid postcode, for example 'EH6 6QQ'";
             messageElement.classList.add('ds_question__error-message');
-            postcodeInput.insertAdjacentElement('beforebegin', messageElement);
+            this.postcodeInput.insertAdjacentElement('beforebegin', messageElement);
         }
     }
 
