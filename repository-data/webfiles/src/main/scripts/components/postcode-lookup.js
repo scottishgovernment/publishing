@@ -139,7 +139,7 @@ class PostcodeLookup {
             });
     }
 
-    async fetchPostcodeResults(postcode) {
+    fetchPostcodeResults(postcode) {
         return this.PromiseRequest(`${this.endpointUrl}?postcode=${postcode}`)
             .then(data => JSON.parse(data.responseText))
             .catch(result => {
