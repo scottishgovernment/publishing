@@ -199,8 +199,10 @@ class PostcodeLookup {
             });
 
             question.classList.remove('ds_question--error');
-            const message = question.querySelector('.ds_question__error-message');
-            message.parentNode.removeChild(message);
+            const messages = [].slice.call(question.querySelectorAll('.ds_question__error-message, .js-error-message'));
+            messages.forEach(message => {
+                message.parentNode.removeChild(message);
+            });
         });
     }
 
@@ -296,6 +298,8 @@ class PostcodeLookup {
                     }
                 });
         } else {
+            this.removeErrors();
+
             this.postcodeInput.classList.add('ds_input--error');
             this.postcodeInput.setAttribute('aria-invalid', true);
             this.postcodeInput.closest('.ds_question').classList.add('ds_question--error');
