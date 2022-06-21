@@ -364,12 +364,9 @@ function goToStep (step) {
         }
     }
 
-    // let stepElToFocus = document.querySelector(`section[data-step="${step.slug}"]`);
-    // if (stepElToFocus) {
-    //     stepElToFocus.focus();
-    // }
-    console.log(1, subsection, subsection[0])
-    temporaryFocus(subsection[0]);
+    if (this.focusOnStepFromNowOn) {
+        temporaryFocus(subsection[0]);
+    }
 
     if ($('#section-progess-indicator').length > 0) {
         const formTopOffset = $('#section-progess-indicator').offset().top;
@@ -395,6 +392,8 @@ function goToStep (step) {
             console.log('Cannot find form event "' + step.triggerEvent + '"');
         }
     }
+
+    this.focusOnStepFromNowOn = true;
 
     window.DS.tracking.init();
 }
