@@ -1055,6 +1055,14 @@
         jcr:primaryType: selection:listitem
         selection:key: dropdown
         selection:label: Dropdown list
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: confirm
+        selection:label: Confirmation
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: confirmcheckbox
+        selection:label: Confirmation with checkbox
   /localauthorities:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']

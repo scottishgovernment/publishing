@@ -39,14 +39,23 @@
 
                     <form class="mg_smart-answer__form">
                         <#list questions as question>
-                            <section class="mg_smart-answer__question  mg_smart-answer__step" id="step-${question.name}">
+                            <section class="mg_smart-answer__question  mg_smart-answer__step" data-type="${question.style}" id="step-${question.name}">
+
+                                <#if question.style == 'confirm' || question.style == 'confirmcheckbox'>
+                                    <#assign fieldsetElName = 'div'/>
+                                    <#assign legendElName = 'div'/>
+                                <#else>
+                                    <#assign fieldsetElName = 'fieldset'/>
+                                    <#assign legendElName = 'legend'/>
+                                </#if>
+
                                 <div class="ds_question">
 
-                                    <fieldset class="mg_no-margin--last-child  " id="question-${question.name}" data-validation="<#if question.style='radiobuttons'>requiredRadio</#if>">
-                                        <legend class="ds_page-header">
+                                    <${fieldsetElName} class="mg_no-margin--last-child  " id="question-${question.name}" data-validation="<#if question.style='radiobuttons'>requiredRadio</#if>">
+                                        <${legendElName} class="ds_page-header">
                                             <span class="mg_smart-answer__parent-title">${document.title}</span>
                                             <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">${question.title}</h1>
-                                        </legend>
+                                        </${legendElName}>
 
                                         <@hst.html hippohtml=question.content/>
 
@@ -75,11 +84,26 @@
                                                     </div>
                                                 </#list>
                                             <#break>
+                                            <#case 'confirm'>
+                                                <input type="hidden" value="confirm" data-nextstep="step-${question.defaultNextPage.name}" />
+                                            <#break>
+                                            <#case 'confirmcheckbox'>
+                                                <div class="ds_checkbox">
+                                                    <input required data-validation="requiredCheckbox" data-form="checkbox-step-${question.name}-confirm" class="ds_checkbox__input" type="checkbox" id="step-${question.name}-confirm" name="question-${question.name}" value="confirm" data-nextstep="step-${question.defaultNextPage.name}">
+                                                    <label class="ds_checkbox__label" for="step-${question.name}-confirm">
+                                                        <#if question.confirmLabel?has_content>
+                                                            ${question.confirmLabel}
+                                                        <#else>
+                                                            I understand
+                                                        </#if>
+                                                    </label>
+                                                </div>
+                                            <#break>
                                         </#switch>
-                                    </fieldset>
+                                    </${fieldsetElName}>
                                 </div>
 
-                                <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin">
+                                <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin--bottom">
                                     Next
                                     <svg class="ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#chevron_right"></use></svg>
                                 </button>

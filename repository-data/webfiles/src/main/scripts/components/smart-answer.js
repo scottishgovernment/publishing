@@ -32,14 +32,24 @@ class SmartAnswer {
                 const stepContainer = event.target.closest('.mg_smart-answer__step');
                 const responses = this.getResponsesFromUrl();
 
-                if (this.validateStep(stepContainer)) {
-                    let selectedOption = stepContainer.querySelector("input[type='radio']:checked");
+                let selectedOption;
 
-                    if (selectedOption != null) {
-                        responses.push(selectedOption.value);
-                    } else {
-                        selectedOption = stepContainer.querySelector("select");
-                        responses.push(selectedOption[selectedOption.selectedIndex].value);
+                if (this.validateStep(stepContainer)) {
+                    switch (stepContainer.dataset.type) {
+                        case 'radiobuttons':
+                            selectedOption = stepContainer.querySelector("input[type='radio']:checked");
+                            responses.push(selectedOption.value);
+                            break;
+                        case 'dropdown':
+                            selectedOption = stepContainer.querySelector("select");
+                            responses.push(selectedOption[selectedOption.selectedIndex].value);
+                            break;
+                        case 'confirm':
+                            responses.push('confirm');
+                            break;
+                        case 'confirmcheckbox':
+                            responses.push('confirm');
+                            break;
                     }
 
                     history.pushState('', '', this.buildUrl(responses));
@@ -196,14 +206,15 @@ class SmartAnswer {
                 let answerData = {
                     id: this.currentStepElement.id.replace('step-',''),
                     title: this.currentStepElement.querySelector('.mg_smart-answer__step-title').innerText,
-                    path: answerpath
+                    path: answerpath,
+                    type: this.currentStepElement.dataset.type
                 };
 
                 if (chosenAnswer.nodeName === 'OPTION') {
                     answerData.text = chosenAnswer.innerText;
                     answerData.value = chosenAnswer.value;
                     chosenAnswer.selected = true;
-                } else {
+                } else if (chosenAnswer.nodeName === 'INPUT' && chosenAnswer.type === 'radio') {
                     answerData.text = this.currentStepElement.querySelector(`[for="${chosenAnswer.id}"]`).innerText;
                     answerData.value = this.currentStepElement.querySelector('#' + chosenAnswer.id).value;
                     chosenAnswer.checked = true;

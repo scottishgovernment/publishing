@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 6297199d-32d0-4160-a1eb-d43ddb4ce219
+          jcr:uuid: e4422f66-a78a-4016-bd10-8e899d7264e6
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:smartanswerquestion', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -50,6 +50,14 @@ definitions:
             hipposysedit:path: publishing:dropdownLabel
             hipposysedit:primary: false
             hipposysedit:type: String
+          /confirmLabel:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:confirmLabel
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -63,11 +71,12 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           publishing:exitFunction: ''
           publishing:title: ''
-          jcr:uuid: b46d5902-910f-450a-9ae0-1ea2132a7cd1
+          jcr:uuid: 81f39efa-e1d5-4465-a0ea-ac5d0131111c
           hippostdpubwf:lastModificationDate: 2021-05-17T11:10:32.548+01:00
           hippostdpubwf:creationDate: 2021-05-17T11:10:32.549+01:00
           publishing:style: radiobuttons
           publishing:dropdownLabel: Choose an option
+          publishing:confirmLabel: ''
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -137,6 +146,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Label for dropdown list
             field: dropdownLabel
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /confirmLabel:
+            jcr:primaryType: frontend:plugin
+            caption: Label for confirmation checkbox
+            field: confirmLabel
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
