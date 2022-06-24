@@ -33,6 +33,11 @@ definitions:
           hst:componentconfigurationid: hst:pages/searchbloomreachresults
           hst:relativecontentpath: site-furniture/search/search-results
           hst:sitemapitemhandlerids: [trailing-slash]
+        /suggestions:
+          jcr:primaryType: hst:sitemapitem
+          hst:excludedforlinkrewriting: true
+          hst:hiddeninchannelmanager: true
+          hst:namedpipeline: JaxrsRestPlainPipeline
       /site-furniture:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',

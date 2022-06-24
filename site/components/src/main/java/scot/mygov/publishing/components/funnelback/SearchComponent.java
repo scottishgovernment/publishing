@@ -31,10 +31,10 @@ public class SearchComponent extends EssentialsContentComponent {
         String query = param(request, "q", "");
         String qsup = param(request, "qsup", "");
         int rank = getRank(request);
-
         // the qsup paramater should either be 'off' to disable or omited from the URL to use the default configured
         // query blending
         boolean qsupOff = "off".equals(qsup);
+
         funnelbackService.performSearch(query, qsupOff, rank, request);
     }
 
