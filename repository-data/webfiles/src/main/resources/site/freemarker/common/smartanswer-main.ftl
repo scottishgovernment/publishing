@@ -2,6 +2,18 @@
 <#include "include/imports.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
+<#macro dynamicResultsForItem item>
+  <#list item.dynamicresults as dynamicresult>
+        <@hst.html hippohtml=dynamicresult.prologue/>
+        <div class="mg_smart-answer__dynamic-result"
+            id="dynamic-result-${answer.name}-${dynamicresult.question.name}"
+            data-location="<@hst.link fullyQualified=true hippobean=root/>/fragments${dynamicresult.folder.path}"
+            data-question="${dynamicresult.question.name}">
+        </div>
+        <@hst.html hippohtml=dynamicresult.epilogue/>
+    </#list>
+</#macro>
+
 <#if document??>
 <div class="cms-editable" xmlns="http://www.w3.org/1999/html">
     <@hst.manageContent hippobean=document />
@@ -85,9 +97,13 @@
                                                 </#list>
                                             <#break>
                                             <#case 'confirm'>
+                                                <@dynamicResultsForItem question />
+
                                                 <input type="hidden" value="confirm" data-nextstep="step-${question.defaultNextPage.name}" />
                                             <#break>
                                             <#case 'confirmcheckbox'>
+                                                <@dynamicResultsForItem question />
+
                                                 <div class="ds_checkbox">
                                                     <input required data-validation="requiredCheckbox" data-form="checkbox-step-${question.name}-confirm" class="ds_checkbox__input" type="checkbox" id="step-${question.name}-confirm" name="question-${question.name}" value="confirm" data-nextstep="step-${question.defaultNextPage.name}">
                                                     <label class="ds_checkbox__label" for="step-${question.name}-confirm">
@@ -115,17 +131,10 @@
                                 <header class="ds_page-header">
                                     <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">${answer.title}</h1>
                                 </header>
+
                                 <@hst.html hippohtml=answer.answer/>
 
-                                <#list answer.dynamicresults as dynamicresult>
-                                    <@hst.html hippohtml=dynamicresult.prologue/>
-                                    <div class="mg_smart-answer__dynamic-result"
-                                        id="dynamic-result-${answer.name}-${dynamicresult.question.name}"
-                                        data-location="<@hst.link fullyQualified=true hippobean=root/>/fragments${dynamicresult.folder.path}"
-                                        data-question="${dynamicresult.question.name}">
-                                    </div>
-                                    <@hst.html hippohtml=dynamicresult.epilogue/>
-                                </#list>
+                                <@dynamicResultsForItem answer />
                             </section>
                         </#list>
                     </form>

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: e4422f66-a78a-4016-bd10-8e899d7264e6
+          jcr:uuid: 8fed36fd-98b0-4b03-ac9c-4d35beaffb51
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:smartanswerquestion', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -58,6 +58,14 @@ definitions:
             hipposysedit:path: publishing:confirmLabel
             hipposysedit:primary: false
             hipposysedit:type: String
+          /dynamicresults:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:dynamicresults
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:smartanswerresultdynamicselector
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -71,18 +79,32 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           publishing:exitFunction: ''
           publishing:title: ''
-          jcr:uuid: 81f39efa-e1d5-4465-a0ea-ac5d0131111c
+          jcr:uuid: 59d9c629-62df-4f77-97fc-5eca15cabc51
           hippostdpubwf:lastModificationDate: 2021-05-17T11:10:32.548+01:00
           hippostdpubwf:creationDate: 2021-05-17T11:10:32.549+01:00
           publishing:style: radiobuttons
           publishing:dropdownLabel: Choose an option
-          publishing:confirmLabel: ''
+          publishing:confirmLabel: I understand
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
           /publishing:defaultNextPage:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:dynamicresults:
+            jcr:primaryType: publishing:smartanswerresultdynamicselector
+            /publishing:question:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            /publishing:folder:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            /publishing:prologue:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
+            /publishing:epilogue:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -157,6 +179,15 @@ definitions:
             field: confirmLabel
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /dynamicresults:
+            jcr:primaryType: frontend:plugin
+            caption: Dynamic content for confirmation pages
+            field: dynamicresults
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
