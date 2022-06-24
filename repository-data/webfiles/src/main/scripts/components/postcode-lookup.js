@@ -83,6 +83,12 @@ class PostcodeLookup {
                 this.selectedAddress = this.resultsObject[index];
 
                 // populate address fields
+                if (this.selectedAddress.org && this.selectedAddress.building) {
+                    this.selectedAddress.building = `${this.selectedAddress.org}, ${this.selectedAddress.building}`;
+                } else if (this.selectedAddress.org) {
+                    this.selectedAddress.building = this.selectedAddress.org;
+                }
+
                 this.buildingInput.value = this.selectedAddress.building;
                 this.streetInput.value = this.selectedAddress.street;
                 this.townInput.value = this.selectedAddress.town;
