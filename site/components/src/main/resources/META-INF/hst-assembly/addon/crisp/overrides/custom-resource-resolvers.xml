@@ -4,7 +4,7 @@
 
     <bean id="funnelback" parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
           class="org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver">
-        <property name="cacheEnabled" value="false" />
+        <property name="cacheEnabled" value="true" />
         <property name="baseUri" value="${funnelback.url}" />
         <property name="restTemplate">
             <bean class="org.springframework.web.client.RestTemplate">
