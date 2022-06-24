@@ -1,7 +1,6 @@
 package scot.mygov.publishing.components.funnelback.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FunnelbackSearchResponse {
