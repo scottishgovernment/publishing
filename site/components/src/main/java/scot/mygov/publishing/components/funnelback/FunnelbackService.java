@@ -26,7 +26,7 @@ public class FunnelbackService {
     private static final String URL_TEMPLATE
             = "/search.json?query={query}&start_rank={rank}&collection={collection}&profile={profile}";
 
-    List<String> sites = Arrays.asList("www.mygov.scot");
+    static List<String> SITES = Arrays.asList("www.mygov.scot");
 
     public FunnelbackSearchResponse getSearchResponse(
             String query,
@@ -57,7 +57,7 @@ public class FunnelbackService {
         VirtualHost virtualHost = RequestContextProvider.get().getResolvedMount().getMount().getVirtualHost();
         String hostGroupName = virtualHost.getHostGroupName();
         if (useRewriter(hostGroupName)) {
-            PostProcessor postProcessor = new ResultLinkRewriter(virtualHost.getName(), sites);
+            PostProcessor postProcessor = new ResultLinkRewriter(virtualHost.getName(), SITES);
             postProcessor.process(response);
         }
     }

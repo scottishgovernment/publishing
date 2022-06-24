@@ -23,6 +23,16 @@ definitions:
           hst:componentconfigurationid: hst:pages/searchfunnelbackresults
           hst:relativecontentpath: site-furniture/search/search-results
           hst:sitemapitemhandlerids: [trailing-slash]
+        /bloomreach:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/searchbloomreach
+          hst:relativecontentpath: site-furniture/search/search-results
+          hst:sitemapitemhandlerids: [trailing-slash]
+        /bloomreachresults:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/searchbloomreachresults
+          hst:relativecontentpath: site-furniture/search/search-results
+          hst:sitemapitemhandlerids: [trailing-slash]
       /site-furniture:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',

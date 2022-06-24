@@ -1,7 +1,5 @@
 package scot.mygov.publishing.components.funnelback;
 
-import org.apache.commons.lang3.StringUtils;
-import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -17,6 +15,8 @@ import org.springframework.stereotype.Service;
 import scot.gov.publishing.hippo.funnelback.model.FunnelbackSearchResponse;
 
 import javax.servlet.http.HttpServletRequest;
+
+import static scot.mygov.publishing.components.SearchComponent.param;
 
 @Service
 @Component("scot.mygov.publishing.components.funnelback.SearchComponent")
@@ -62,20 +62,4 @@ public class SearchComponent extends EssentialsContentComponent {
         }
     }
 
-    String getFunnelbackEnvFromMount(HstRequest request) {
-        Mount mount = request
-                .getRequestContext()
-                .getResolvedSiteMapItem()
-                .getResolvedMount()
-                .getMount();
-        return mount.getProperty("publishing:funnelbackenv");
-    }
-
-    private String param(HstRequest request, String param, String defaultValue) {
-        String paramValue = request
-                .getRequestContext()
-                .getServletRequest()
-                .getParameter(param);
-        return StringUtils.isBlank(paramValue) ? defaultValue : paramValue;
-    }
 }

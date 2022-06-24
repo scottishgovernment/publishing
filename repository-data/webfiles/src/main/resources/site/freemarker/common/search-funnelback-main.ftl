@@ -13,11 +13,11 @@
 
             <div class="ds_layout__content">
 
-            <@hst.html hippohtml=document.content/>
-            <#include 'include/search-funnelback.ftl'/>
+                <@hst.html hippohtml=document.content/>
+                <#include 'include/search.ftl'/>
 
                 <section id="search-results" class="ds_search-results">
-                <@hst.include ref="results"/>
+                    <@hst.include ref="results"/>
                 </section>
             </div>
         </main>
