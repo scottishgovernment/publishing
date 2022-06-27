@@ -14,7 +14,7 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import scot.gov.publishing.hippo.funnelback.FunnelbackSearchResponse;
+import scot.gov.publishing.hippo.funnelback.model.FunnelbackSearchResponse;
 
 import javax.servlet.http.HttpServletRequest;
 

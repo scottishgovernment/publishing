@@ -2,10 +2,10 @@ package scot.mygov.publishing.components.funnelback.postprocess;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scot.gov.publishing.hippo.funnelback.FunnelbackSearchResponse;
-import scot.gov.publishing.hippo.funnelback.Page;
-import scot.gov.publishing.hippo.funnelback.Pagination;
-import scot.gov.publishing.hippo.funnelback.ResultsSummary;
+import scot.gov.publishing.hippo.funnelback.model.FunnelbackSearchResponse;
+import scot.gov.publishing.hippo.funnelback.model.Page;
+import scot.gov.publishing.hippo.funnelback.model.Pagination;
+import scot.gov.publishing.hippo.funnelback.model.ResultsSummary;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

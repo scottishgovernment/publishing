@@ -8,7 +8,7 @@ import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.api.resource.ResourceBeanMapper;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
 import org.springframework.stereotype.Service;
-import scot.gov.publishing.hippo.funnelback.FunnelbackSearchResponse;
+import scot.gov.publishing.hippo.funnelback.model.FunnelbackSearchResponse;
 import scot.mygov.publishing.components.funnelback.postprocess.PaginationProcessor;
 import scot.mygov.publishing.components.funnelback.postprocess.PostProcessor;
 import scot.mygov.publishing.components.funnelback.postprocess.ResultLinkRewriter;

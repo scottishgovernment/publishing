@@ -1,7 +1,7 @@
 package scot.mygov.publishing.components.funnelback.postprocess;
 
 import org.junit.Test;
-import scot.gov.publishing.hippo.funnelback.*;
+import scot.gov.publishing.hippo.funnelback.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
