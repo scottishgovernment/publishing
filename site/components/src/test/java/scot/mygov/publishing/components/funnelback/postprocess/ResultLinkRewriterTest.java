@@ -3,7 +3,6 @@ package scot.mygov.publishing.components.funnelback.postprocess;
 import org.junit.Test;
 import scot.gov.publishing.hippo.funnelback.FunnelbackSearchResponse;
 import scot.gov.publishing.hippo.funnelback.Result;
-import scot.gov.publishing.hippo.funnelback.model.Result;
 
 import java.util.ArrayList;
 import java.util.Arrays;
