@@ -6,16 +6,17 @@ import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.api.resource.ResourceBeanMapper;
-
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
-
 import org.springframework.stereotype.Service;
-import scot.mygov.publishing.components.funnelback.model.FunnelbackSearchResponse;
+import scot.gov.publishing.hippo.funnelback.FunnelbackSearchResponse;
 import scot.mygov.publishing.components.funnelback.postprocess.PaginationProcessor;
 import scot.mygov.publishing.components.funnelback.postprocess.PostProcessor;
 import scot.mygov.publishing.components.funnelback.postprocess.ResultLinkRewriter;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static org.apache.commons.lang3.StringUtils.equalsAny;
 

@@ -2,8 +2,8 @@ package scot.mygov.publishing.components.funnelback.postprocess;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scot.mygov.publishing.components.funnelback.model.FunnelbackSearchResponse;
-import scot.mygov.publishing.components.funnelback.model.Result;
+import scot.gov.publishing.hippo.funnelback.FunnelbackSearchResponse;
+import scot.gov.publishing.hippo.funnelback.Result;
 
 import java.net.URI;
 import java.net.URISyntaxException;

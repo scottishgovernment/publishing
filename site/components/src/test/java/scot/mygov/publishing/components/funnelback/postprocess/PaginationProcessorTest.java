@@ -1,6 +1,5 @@
 package scot.mygov.publishing.components.funnelback.postprocess;
 
-import org.junit.Assert;
 import org.junit.Test;
 import scot.mygov.publishing.components.funnelback.model.*;
 

@@ -1,6 +1,6 @@
 package scot.mygov.publishing.components.funnelback.postprocess;
 
-import scot.mygov.publishing.components.funnelback.model.FunnelbackSearchResponse;
+import scot.gov.publishing.hippo.funnelback.FunnelbackSearchResponse;
 
 /**
  * Interface for class capablke of post processing a funnelback response.
