@@ -57,14 +57,17 @@
     <ol start="${response.resultPacket.resultsSummary.currStart}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching}">
         <#if response.pagination.currentPageIndex = 1>
             <#list response.curator.exhibits as exhibit>
-                <li class="ds_search-result">
-                    <h3 class="ds_search-result__title">
-                        CURATOR ${exhibit.category} <a class="ds_search-result__link" href="${exhibit.displayUrl}">${exhibit.titleHtml?no_esc}</a>
-                    </h3>
+                <li class="ds_search-result  ds_search-result--promoted">
+                    <div class="ds_search-result--promoted-content">
+                        <header class="ds_search-result--promoted-title">Recommended</header>
+                        <h3 class="ds_search-result__title">
+                            ${exhibit.category} <a class="ds_search-result__link" href="${exhibit.displayUrl}">${exhibit.titleHtml?no_esc}</a>
+                        </h3>
 
-                    <p class="ds_search-result__summary">
-                        ${exhibit.descriptionHtml?no_esc}
-                    </p>
+                        <p class="ds_search-result__summary">
+                            ${exhibit.descriptionHtml?no_esc}
+                        </p>
+                    </div>
                 </li>
             </#list>
         </#if>
