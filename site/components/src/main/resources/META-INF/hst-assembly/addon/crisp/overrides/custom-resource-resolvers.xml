@@ -11,7 +11,7 @@
                 <property name="interceptors">
                     <list>
                         <bean class="scot.mygov.publishing.components.funnelback.SecurityTokenInterceptor">
-                            <property name="token" value="${funnelback.token}}" />
+                            <property name="token" value="${funnelback.token}" />
                         </bean>
                     </list>
                 </property>
