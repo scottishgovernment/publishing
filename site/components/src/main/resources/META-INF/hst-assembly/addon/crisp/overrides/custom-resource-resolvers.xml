@@ -10,7 +10,7 @@
             <bean class="org.springframework.web.client.RestTemplate">
                 <property name="interceptors">
                     <list>
-                        <bean class="scot.mygov.publishing.components.funnelback.SecurityTokenInterceptor">
+                        <bean class="scot.gov.publishing.hippo.funnelback.client.SecurityTokenInterceptor">
                             <property name="token" value="${funnelback.token}" />
                         </bean>
                     </list>
