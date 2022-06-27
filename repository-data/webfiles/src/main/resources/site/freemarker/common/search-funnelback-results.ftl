@@ -56,11 +56,11 @@ response.resultPacket.resultsSummary.totalMatching == 0>
         <#list response.curator.exhibits as exhibit>
             <li>
                 <h3>
-                    CURATOR ${exhibit.category} <a href="${exhibit.displayUrl}">${exhibit.titleHtml}</a>
+                    CURATOR ${exhibit.category} <a href="${exhibit.displayUrl}">${exhibit.titleHtml?no_esc}</a>
                 </h3>
 
                 <p>
-                ${exhibit.descriptionHtml}
+                    ${exhibit.descriptionHtml?no_esc}
                 </p>
             </li>
         </#list>
