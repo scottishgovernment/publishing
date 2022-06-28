@@ -129,7 +129,7 @@
                 </a>
             </li>
             <li class="ds_pagination__item" aria-hidden="true">
-                <span class="ds_pagination__link">&hellip;</span>
+                <span class="ds_pagination__link  ds_pagination__link--ellipsis">&hellip;</span>
             </li>
         </#if>
 
@@ -147,7 +147,7 @@
 
         <#if response.pagination.last??>
             <li class="ds_pagination__item" aria-hidden="true">
-                <span class="ds_pagination__link">&hellip;</span>
+                <span class="ds_pagination__link  ds_pagination__link--ellipsis">&hellip;</span>
             </li>
             <li class="ds_pagination__item">
                 <a class="ds_pagination__link" href="${response.pagination.last.url}">${response.pagination.last.label}</a>

@@ -16,7 +16,7 @@ public class PaginationProcessor implements PostProcessor {
 
     private static final Logger LOG = LoggerFactory.getLogger(PaginationProcessor.class);
 
-    private static final int PAGES = 5;
+    private static final int PAGES = 3;
 
     String baseUrl;
 
