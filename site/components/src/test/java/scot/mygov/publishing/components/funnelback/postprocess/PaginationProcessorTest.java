@@ -34,11 +34,11 @@ public class PaginationProcessorTest {
     }
 
     @Test
-    public void fivePagesOfResultsWithCurrentPage1() {
+    public void threePagesOfResultsWithCurrentPage1() {
         // ARRANGE
         FunnelbackSearchResponse response = new FunnelbackSearchResponse();
         response.getQuestion().setOriginalQuery(anyQuery());
-        response.getResponse().setResultPacket(resultPacket(45));
+        response.getResponse().setResultPacket(resultPacket(25));
         response.getResponse().getResultPacket().getResultsSummary().setCurrStart(1);
 
         // ACT
@@ -46,7 +46,7 @@ public class PaginationProcessorTest {
 
         // ASSERT
         Pagination pagination = response.getResponse().getPagination();
-        assertEquals("wrong number of pages", 5, pagination.getPages().size());
+        assertEquals("wrong number of pages", 3, pagination.getPages().size());
         assertTrue("wrong item selected", pagination.getPages().get(0).isSelected());
         assertEquals("https://www.mygov.scot/search?q=anyQuery&page=1", pagination.getPages().get(0).getUrl());
         assertNull(pagination.getFirst());
@@ -66,50 +66,50 @@ public class PaginationProcessorTest {
 
         // ASSERT
         Pagination pagination = response.getResponse().getPagination();
-        assertEquals("wrong number of pages", 5, pagination.getPages().size());
-        assertTrue("wrong item selected", pagination.getPages().get(2).isSelected());
-        assertEquals("https://www.mygov.scot/search?q=anyQuery&page=5", pagination.getPages().get(2).getUrl());
+        assertEquals("wrong number of pages", 3, pagination.getPages().size());
+        assertTrue("wrong item selected", pagination.getPages().get(1).isSelected());
+        assertEquals("https://www.mygov.scot/search?q=anyQuery&page=5", pagination.getPages().get(1).getUrl());
 
         assertEquals(pagination.getFirst().getUrl(), "https://www.mygov.scot/search?q=anyQuery&page=1");
         assertEquals(pagination.getLast().getUrl(), "https://www.mygov.scot/search?q=anyQuery&page=10");
     }
 
     @Test
-    public void tenPagesOfResultsWithCurrentPage4() {
+    public void tenPagesOfResultsWithCurrentPage3() {
         // ARRANGE
         FunnelbackSearchResponse response = new FunnelbackSearchResponse();
         response.getQuestion().setOriginalQuery(anyQuery());
         response.getResponse().setResultPacket(resultPacket(95));
-        response.getResponse().getResultPacket().getResultsSummary().setCurrStart(31);
+        response.getResponse().getResultPacket().getResultsSummary().setCurrStart(21);
 
         // ACT
         sut.process(response);
 
         // ASSERT
         Pagination pagination = response.getResponse().getPagination();
-        assertEquals("wrong number of pages", 5, pagination.getPages().size());
-        assertTrue("wrong item selected", pagination.getPages().get(3).isSelected());
-        assertEquals("https://www.mygov.scot/search?q=anyQuery&page=4", pagination.getPages().get(3).getUrl());
+        assertEquals("wrong number of pages", 3, pagination.getPages().size());
+        assertTrue("wrong item selected", pagination.getPages().get(2).isSelected());
+        assertEquals("https://www.mygov.scot/search?q=anyQuery&page=3", pagination.getPages().get(2).getUrl());
         assertNull("first should be null", pagination.getFirst());
         assertEquals("https://www.mygov.scot/search?q=anyQuery&page=10", pagination.getLast().getUrl());
     }
 
     @Test
-    public void tenPagesOfResultsWithCurrentPage6() {
+    public void tenPagesOfResultsWithCurrentPage7() {
         // ARRANGE
         FunnelbackSearchResponse response = new FunnelbackSearchResponse();
         response.getQuestion().setOriginalQuery(anyQuery());
         response.getResponse().setResultPacket(resultPacket(95));
-        response.getResponse().getResultPacket().getResultsSummary().setCurrStart(61);
+        response.getResponse().getResultPacket().getResultsSummary().setCurrStart(71);
 
         // ACT
         sut.process(response);
 
         // ASSERT
         Pagination pagination = response.getResponse().getPagination();
-        assertEquals("wrong number of pages", 6, pagination.getPages().size());
-        assertTrue("wrong item selected", pagination.getPages().get(2).isSelected());
-        assertEquals("https://www.mygov.scot/search?q=anyQuery&page=7", pagination.getPages().get(2).getUrl());
+        assertEquals("wrong number of pages", 4, pagination.getPages().size());
+        assertTrue("wrong item selected", pagination.getPages().get(1).isSelected());
+        assertEquals("https://www.mygov.scot/search?q=anyQuery&page=8", pagination.getPages().get(1).getUrl());
         assertNull("last should be null", pagination.getLast());
         assertEquals("https://www.mygov.scot/search?q=anyQuery&page=1", pagination.getFirst().getUrl());
     }
