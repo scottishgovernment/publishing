@@ -60,7 +60,7 @@
     </#if>
 
 <ol start="${response.resultPacket.resultsSummary.currStart}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching}">
-    <#if response.pagination.currentPageIndex = 1>
+    <#if pagination.currentPageIndex = 1>
         <#list response.curator.exhibits as exhibit>
             <li class="ds_search-result  ds_search-result--promoted">
                 <div class="ds_search-result--promoted-content">
@@ -76,18 +76,22 @@
             </li>
         </#list>
     </#if>
-    <#list response.resultPacket.results as result>
-        <li class="ds_search-result">
 
-            <#if result.bean??>
+    <#if bloomreachresults??>
+        <#list bloomreachresults as result>
+            <li class="ds_search-result">
                 <h3 class="ds_search-result__title">
-                    <@hst.link var="link" hippobean=result.bean/>
-                    <a href="${link}">${result.bean.title}</a>
+                    <@hst.link var="link" hippobean=result/>
+                    <a href="${link}">${result.title}</a>
                 </h3>
                 <p class="ds_search-result__summary">
-                ${result.bean.summary}
+                    ${result.summary}
                 </p>
-            <#else>
+            </li>
+        </#list>
+    <#else>
+        <#list response.resultPacket.results as result>
+            <li class="ds_search-result">
                 <h3 class="ds_search-result__title">
                     <a class="ds_search-result__link" href="${result.liveUrl}">${result.listMetadata["t"]?first!}</a>
                 </h3>
@@ -104,28 +108,28 @@
                         </dd>
                     </dl>
                 </#if>
-            </#if>
-        </li>
-    </#list>
+            </li>
+        </#list>
+    </#if>
 </ol>
 
 <nav id="pagination" class="ds_pagination" aria-label="Search result pages">
     <ul class="ds_pagination__list">
-        <#if response.pagination.previous??>
+        <#if pagination.previous??>
             <li class="ds_pagination__item">
-                <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${response.pagination.previous.url}">
+                <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${pagination.previous.url}">
                     <svg class="ds_icon" aria-hidden="true" role="img">
                         <use href="${iconspath}#chevron_left"></use>
                     </svg>
-                    <span class="ds_pagination__link-label">${response.pagination.previous.label}</span>
+                    <span class="ds_pagination__link-label">${pagination.previous.label}</span>
                 </a>
             </li>
         </#if>
 
-        <#if response.pagination.first??>
+        <#if pagination.first??>
             <li class="ds_pagination__item">
-                <a class="ds_pagination__link" href="${response.pagination.first.url}">
-                    <span class="ds_pagination__link-label">${response.pagination.first.label}</span>
+                <a class="ds_pagination__link" href="${pagination.first.url}">
+                    <span class="ds_pagination__link-label">${pagination.first.label}</span>
                 </a>
             </li>
             <li class="ds_pagination__item" aria-hidden="true">
@@ -133,7 +137,7 @@
             </li>
         </#if>
 
-        <#list response.pagination.pages as page>
+        <#list pagination.pages as page>
             <li class="ds_pagination__item">
                 <#if page.selected>
                     <span class="ds_pagination__link  ds_current">${page.label}</span>
@@ -145,19 +149,19 @@
             </li>
         </#list>
 
-        <#if response.pagination.last??>
+        <#if pagination.last??>
             <li class="ds_pagination__item" aria-hidden="true">
                 <span class="ds_pagination__link  ds_pagination__link--ellipsis">&hellip;</span>
             </li>
             <li class="ds_pagination__item">
-                <a class="ds_pagination__link" href="${response.pagination.last.url}">${response.pagination.last.label}</a>
+                <a class="ds_pagination__link" href="${pagination.last.url}">${pagination.last.label}</a>
             </li>
         </#if>
 
-        <#if response.pagination.next??>
+        <#if pagination.next??>
             <li class="ds_pagination__item">
-                <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${response.pagination.next.url}">
-                    <span class="ds_pagination__link-label">${response.pagination.next.label}</span>
+                <a class="ds_pagination__link  ds_pagination__link--text  ds_pagination__link--icon" href="${pagination.next.url}">
+                    <span class="ds_pagination__link-label">${pagination.next.label}</span>
                     <svg class="ds_icon" aria-hidden="true" role="img">
                         <use href="${iconspath}#chevron_right"></use>
                     </svg>

@@ -2,7 +2,6 @@ package scot.mygov.publishing.components.funnelback.postprocess;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scot.gov.publishing.hippo.funnelback.model.FunnelbackSearchResponse;
 import scot.gov.publishing.hippo.funnelback.model.Page;
 import scot.gov.publishing.hippo.funnelback.model.Pagination;
 import scot.gov.publishing.hippo.funnelback.model.ResultsSummary;
@@ -12,28 +11,25 @@ import java.net.URLEncoder;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PaginationProcessor implements PostProcessor {
+public class PaginationBuilder {
 
-    private static final Logger LOG = LoggerFactory.getLogger(PaginationProcessor.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PaginationBuilder.class);
 
     private static final int PAGES = 3;
 
     String baseUrl;
 
-    public PaginationProcessor(String baseUrl) {
+    public PaginationBuilder(String baseUrl) {
         this.baseUrl = baseUrl;
     }
 
-    @Override
-    public void process(FunnelbackSearchResponse response) {
+    public Pagination getPagination(ResultsSummary resultsSummary, String query) {
 
-        ResultsSummary resultsSummary = response.getResponse().getResultPacket().getResultsSummary();
         if (resultsSummary.getTotalMatching() <= resultsSummary.getNumRanks()) {
-            return;
+            return new Pagination();
         }
 
-        Pagination pagination = response.getResponse().getPagination();
-        String query = response.getQuestion().getOriginalQuery();
+        Pagination pagination = new Pagination();
         int currentPage = rankToPage(resultsSummary.getCurrStart(), resultsSummary.getNumRanks());
         pagination.setCurrentPageIndex(currentPage);
         int maxPage = rankToPage(resultsSummary.getTotalMatching(), resultsSummary.getNumRanks());
@@ -69,6 +65,8 @@ public class PaginationProcessor implements PostProcessor {
             next.setLabel("Next");
             pagination.setNext(next);
         }
+
+        return pagination;
     }
 
     int rankToPage(int rank, int pageSize) {

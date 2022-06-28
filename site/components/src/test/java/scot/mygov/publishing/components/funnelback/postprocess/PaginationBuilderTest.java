@@ -11,23 +11,20 @@ import static org.junit.Assert.*;
 /**
  * Created by z418868 on 17/06/2022.
  */
-public class PaginationProcessorTest {
+public class PaginationBuilderTest {
 
-    PaginationProcessor sut = new PaginationProcessor("https://www.mygov.scot/search");
+    PaginationBuilder sut = new PaginationBuilder("https://www.mygov.scot/search");
 
     @Test
     public void resultsLessThanPageSize() {
 
         // ARRANGE
-        FunnelbackSearchResponse response = new FunnelbackSearchResponse();
-        response.getResponse().setResultPacket(resultPacket(5));
-        response.getResponse().getResultPacket().getResultsSummary().setCurrStart(1);
+        ResultsSummary resultsSummary = resultsSummary(5, 1);
 
         // ACT
-        sut.process(response);
+        Pagination pagination = sut.getPagination(resultsSummary, anyQuery());
 
         // ASSERT
-        Pagination pagination = response.getResponse().getPagination();
         assertTrue("no pagination should be present for 5 results", pagination.getPages().isEmpty());
         assertNull(pagination.getFirst());
         assertNull(pagination.getLast());
@@ -36,16 +33,12 @@ public class PaginationProcessorTest {
     @Test
     public void threePagesOfResultsWithCurrentPage1() {
         // ARRANGE
-        FunnelbackSearchResponse response = new FunnelbackSearchResponse();
-        response.getQuestion().setOriginalQuery(anyQuery());
-        response.getResponse().setResultPacket(resultPacket(25));
-        response.getResponse().getResultPacket().getResultsSummary().setCurrStart(1);
+        ResultsSummary resultsSummary = resultsSummary(25, 1);
 
         // ACT
-        sut.process(response);
+        Pagination pagination = sut.getPagination(resultsSummary, anyQuery());
 
         // ASSERT
-        Pagination pagination = response.getResponse().getPagination();
         assertEquals("wrong number of pages", 3, pagination.getPages().size());
         assertTrue("wrong item selected", pagination.getPages().get(0).isSelected());
         assertEquals("https://www.mygov.scot/search?q=anyQuery&page=1", pagination.getPages().get(0).getUrl());
@@ -56,20 +49,15 @@ public class PaginationProcessorTest {
     @Test
     public void tenPagesOfResultsWithCurrentPage5() {
         // ARRANGE
-        FunnelbackSearchResponse response = new FunnelbackSearchResponse();
-        response.getQuestion().setOriginalQuery(anyQuery());
-        response.getResponse().setResultPacket(resultPacket(95));
-        response.getResponse().getResultPacket().getResultsSummary().setCurrStart(41);
+        ResultsSummary resultsSummary = resultsSummary(95, 41);
 
         // ACT
-        sut.process(response);
+        Pagination pagination = sut.getPagination(resultsSummary, anyQuery());
 
         // ASSERT
-        Pagination pagination = response.getResponse().getPagination();
         assertEquals("wrong number of pages", 3, pagination.getPages().size());
         assertTrue("wrong item selected", pagination.getPages().get(1).isSelected());
         assertEquals("https://www.mygov.scot/search?q=anyQuery&page=5", pagination.getPages().get(1).getUrl());
-
         assertEquals(pagination.getFirst().getUrl(), "https://www.mygov.scot/search?q=anyQuery&page=1");
         assertEquals(pagination.getLast().getUrl(), "https://www.mygov.scot/search?q=anyQuery&page=10");
     }
@@ -77,16 +65,12 @@ public class PaginationProcessorTest {
     @Test
     public void tenPagesOfResultsWithCurrentPage3() {
         // ARRANGE
-        FunnelbackSearchResponse response = new FunnelbackSearchResponse();
-        response.getQuestion().setOriginalQuery(anyQuery());
-        response.getResponse().setResultPacket(resultPacket(95));
-        response.getResponse().getResultPacket().getResultsSummary().setCurrStart(21);
+        ResultsSummary resultsSummary = resultsSummary(95, 21);
 
         // ACT
-        sut.process(response);
+        Pagination pagination = sut.getPagination(resultsSummary, anyQuery());
 
         // ASSERT
-        Pagination pagination = response.getResponse().getPagination();
         assertEquals("wrong number of pages", 3, pagination.getPages().size());
         assertTrue("wrong item selected", pagination.getPages().get(2).isSelected());
         assertEquals("https://www.mygov.scot/search?q=anyQuery&page=3", pagination.getPages().get(2).getUrl());
@@ -97,16 +81,12 @@ public class PaginationProcessorTest {
     @Test
     public void tenPagesOfResultsWithCurrentPage7() {
         // ARRANGE
-        FunnelbackSearchResponse response = new FunnelbackSearchResponse();
-        response.getQuestion().setOriginalQuery(anyQuery());
-        response.getResponse().setResultPacket(resultPacket(95));
-        response.getResponse().getResultPacket().getResultsSummary().setCurrStart(71);
+        ResultsSummary resultsSummary = resultsSummary(95, 71);
 
         // ACT
-        sut.process(response);
+        Pagination pagination = sut.getPagination(resultsSummary, anyQuery());
 
         // ASSERT
-        Pagination pagination = response.getResponse().getPagination();
         assertEquals("wrong number of pages", 4, pagination.getPages().size());
         assertTrue("wrong item selected", pagination.getPages().get(1).isSelected());
         assertEquals("https://www.mygov.scot/search?q=anyQuery&page=8", pagination.getPages().get(1).getUrl());
@@ -120,7 +100,7 @@ public class PaginationProcessorTest {
 
     ResultPacket resultPacket(int matches) {
         ResultPacket resultPacket = new ResultPacket();
-        resultPacket.setResults(results(matches));
+        //resultPacket.setResults(results(matches));
         resultPacket.setResultsSummary(summary(matches));
         return resultPacket;
     }
@@ -132,26 +112,12 @@ public class PaginationProcessorTest {
         return summary;
     }
 
-    List<Result> results(int count) {
-        List<Result> results = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            results.add(anyResult());
-        }
-        return results;
+    ResultsSummary resultsSummary(int matches, int start) {
+        ResultsSummary resultsSummary = new ResultsSummary();
+        resultsSummary.setTotalMatching(matches);
+        resultsSummary.setCurrStart(start);
+        resultsSummary.setNumRanks(10);
+        return resultsSummary;
     }
 
-    Result anyResult() {
-        Result result = new Result();
-        result.setLiveUrl(anyUrl());
-        result.setTitle(anyTitle());
-        return result;
-    }
-
-    String anyTitle() {
-        return "title";
-    }
-
-    String anyUrl() {
-        return "https://www.mygov.scot/url";
-    }
 }
