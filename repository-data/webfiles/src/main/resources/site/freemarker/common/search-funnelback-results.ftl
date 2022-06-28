@@ -5,6 +5,11 @@
 <#assign queryString = hstRequestContext.servletRequest.getQueryString() />
 <#assign query = hstRequestContext.servletRequest.getParameter('q') />
 
+<#assign pattern = "(?i)(" + response.resultPacket.queryHighlightRegex?replace("(?i)","") + ")" />
+<#macro highlightSearchTerm text>
+    ${text?replace(pattern, "<mark>$1</mark>", 'ri')?no_esc!}
+</#macro>
+
 <#if response??>
     <#if (response.resultPacket.resultsSummary.totalMatching)!?has_content &&
     response.resultPacket.resultsSummary.totalMatching == 0>
@@ -65,7 +70,7 @@
                     </h3>
 
                     <p class="ds_search-result__summary">
-                    ${exhibit.descriptionHtml?no_esc}
+                        <@highlightSearchTerm exhibit.descriptionHtml />
                     </p>
                 </div>
             </li>
@@ -88,7 +93,7 @@
                 </h3>
 
                 <p class="ds_search-result__summary">
-                ${result.listMetadata["c"]?first}
+                    <@highlightSearchTerm result.listMetadata["c"]?first />
                 </p>
 
                 <#if (result.listMetadata["titleSeriesLink"]?first)!?has_content>
