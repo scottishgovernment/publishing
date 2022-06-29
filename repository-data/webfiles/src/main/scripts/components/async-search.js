@@ -31,9 +31,10 @@ class AsyncSearch {
 
                 currentUrlParams.set('page', page);
 
-                const pageUrl = `${window.location.pathname}?${currentUrlParams.toString()}`;
-                const resultsUrl = pageUrl.replace('/funnelback?', '/funnelbackresults?');
-
+                const pageUrl = `${window.location.pathname}?${currentUrlParams.toString()}`
+                const lastPathElement = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
+                const urlWithReplacement = window.location.pathname.replace(lastPathElement, lastPathElement + 'results');
+                const resultsUrl = `${urlWithReplacement}?${currentUrlParams.toString()}`;
                 this.loadResults(resultsUrl)
                     .then(value => {
                         window.history.pushState({}, '', pageUrl);
