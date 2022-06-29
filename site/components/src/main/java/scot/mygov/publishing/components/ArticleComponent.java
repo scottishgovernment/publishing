@@ -22,6 +22,7 @@ public class ArticleComponent extends CategoryComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+        redirectIfNonCanonicalUrl(request, response);
         setArticleAttributes(request, response);
     }
 
@@ -31,15 +32,18 @@ public class ArticleComponent extends CategoryComponent {
         }
 
         // if this is not the canonical url then redirect to that url
-        String canonicalUrl = canonicalUrl(request);
-        if (!canonicalUrl.equals(request.getPathInfo())) {
-            redirector.sendPermanentRedirect(request, response, canonicalUrl);
-            return;
-        }
+        redirectIfNonCanonicalUrl(request, response);
 
         // CategoryComponent has set an attribute "children" that will list all of the navigable children of the
         // parent page.
         doSetArticleAttributes(request);
+    }
+
+    static void redirectIfNonCanonicalUrl(HstRequest request, HstResponse response) {
+        String canonicalUrl = canonicalUrl(request);
+        if (!canonicalUrl.equals(request.getPathInfo())) {
+            redirector.sendPermanentRedirect(request, response, canonicalUrl);
+        }
     }
 
     static void doSetArticleAttributes(HstRequest request) {
@@ -70,7 +74,7 @@ public class ArticleComponent extends CategoryComponent {
     }
 
     static String canonicalUrl(HstRequest request ) {
-        HippoBean document = request.getRequestContext().getContentBean();
+        HippoBean document = getDocumentBean(request);
         return canonicalUrl(request, document);
     }
 
