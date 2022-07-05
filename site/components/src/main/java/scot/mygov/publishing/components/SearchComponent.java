@@ -1,6 +1,5 @@
 package scot.mygov.publishing.components;
 
-import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -19,7 +18,7 @@ public class SearchComponent extends EssentialsListComponent {
     protected <T extends EssentialsListComponentInfo>
     HstQuery buildQuery(final HstRequest request, final T paramInfo, final HippoBean scope) {
 
-        String term = param(request, "q", "");
+        String term = getAnyParameter(request, "q");
         String parsedTerm = SearchInputParsingUtils.parse(term, false);
         if (isBlank(parsedTerm)) {
             return null;
@@ -32,11 +31,4 @@ public class SearchComponent extends EssentialsListComponent {
         return new BloomreachSearchService().query(parsedTerm, offset, request);
     }
 
-    public static String param(HstRequest request, String param, String defaultValue) {
-        String paramValue = request
-                .getRequestContext()
-                .getServletRequest()
-                .getParameter(param);
-        return StringUtils.isBlank(paramValue) ? defaultValue : paramValue;
-    }
 }

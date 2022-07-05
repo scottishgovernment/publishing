@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hst:hst/hst:configurations/common/hst:pages/searchfunnelback:
+    /hst:hst/hst:configurations/common/hst:pages/searchresilient:
       jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/base
       /main:
@@ -14,4 +14,4 @@ definitions:
           hst:componentclassname: scot.mygov.publishing.components.funnelback.ResilientSearchComponent
           hst:template: search-funnelback-results
           hst:parameternames: [searchtype]
-          hst:parametervalues: [funnelback]
+          hst:parametervalues: [resilient]

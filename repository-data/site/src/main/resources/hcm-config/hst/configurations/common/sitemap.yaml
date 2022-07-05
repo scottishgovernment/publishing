@@ -23,6 +23,8 @@ definitions:
           hst:componentconfigurationid: hst:pages/searchfunnelbackresults
           hst:relativecontentpath: site-furniture/search/search-results
           hst:sitemapitemhandlerids: [trailing-slash]
+          hst:parameternames: [searchtype]
+          hst:parametervalues: [resilient]
         /bloomreach:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/searchbloomreach
@@ -38,6 +40,16 @@ definitions:
           hst:excludedforlinkrewriting: true
           hst:hiddeninchannelmanager: true
           hst:namedpipeline: JaxrsRestPlainPipeline
+        /resilient:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/searchresilient
+          hst:relativecontentpath: site-furniture/search/search-results
+          hst:sitemapitemhandlerids: [trailing-slash]
+        /resilientresults:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/searchresilientresults
+          hst:relativecontentpath: site-furniture/search/search-results
+          hst:sitemapitemhandlerids: [trailing-slash]
       /site-furniture:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',

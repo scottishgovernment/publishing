@@ -20,12 +20,12 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 public class SuggestionsResource {
 
     @Autowired
-    private FunnelbackService funnelbackService;
+    private FunnelbackSearchService funnelbackSearchService;
 
     @Path("search/suggestions")
     @Produces(APPLICATION_JSON)
     @GET
     public List<String> getSuggestions(@QueryParam("partial_query") String partialQuery) {
-        return funnelbackService.getSuggestions(partialQuery);
+        return funnelbackSearchService.getSuggestions(partialQuery);
     }
 }

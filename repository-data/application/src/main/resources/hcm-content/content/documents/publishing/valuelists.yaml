@@ -1202,3 +1202,27 @@
         jcr:primaryType: selection:listitem
         selection:key: west-lothian-council
         selection:label: West Lothian Council
+  /searchtypes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 471b5eaf-fca9-4abb-8013-6f95acf09a9a
+    hippo:name: searchTypes
+    /searchtypes:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: bd5a99c3-db67-485c-b148-7e364cdb40be
+      hippo:availability: [live, preview]
+      hippotranslation:id: 3bd1fbea-09c6-4d36-abe0-1642169e36a6
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: bloomreach
+        selection:label: Bloomreach
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: funnelback
+        selection:label: Funnelback
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: resilient
+        selection:label: Resilient (Funnleback with bloomreach fallback)

@@ -12,7 +12,7 @@
     <context:component-scan
             base-package="scot.mygov.publishing.components.funnelback" />
 
-    <bean id="funnelbackService" class="scot.mygov.publishing.components.funnelback.FunnelbackService">
+    <bean id="funnelbackSearchService" class="scot.mygov.publishing.components.funnelback.FunnelbackSearchService">
         <property name="collection" value="govscot~sp-mygov"/>
         <property name="sites">
             <list>

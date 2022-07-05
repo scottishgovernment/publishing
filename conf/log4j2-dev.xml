@@ -119,6 +119,10 @@
       <AppenderRef ref="messages"/>
     </Logger>
 
+    <!--
+    <Logger name="com.netflix.hystrix" level="debug"/>
+    -->
+
     <!-- project logging -->
     <Logger name="scot.mygov.publishing" level="debug"/>
     <Logger name="com.onehippo.cms.wpm.hst.configuration.branch" level="warn"/>

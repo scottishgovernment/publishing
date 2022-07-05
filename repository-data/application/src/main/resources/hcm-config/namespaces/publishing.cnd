@@ -104,6 +104,9 @@
 [publishing:search] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:searchsettings] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:sector] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
@@ -113,10 +116,10 @@
 [publishing:smartanswer] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
-[publishing:smartanswerquestion] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+[publishing:smartanswermultiplechoiceoption] > hippo:compound, hippostd:relaxed
   orderable
 
-[publishing:smartanswermultiplechoiceoption] > hippo:compound, hippostd:relaxed
+[publishing:smartanswerquestion] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:smartanswermultiplechoicequestion] > hippostd:relaxed, hippotranslation:translated, publishing:smartanswerquestion
