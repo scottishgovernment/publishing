@@ -12,8 +12,9 @@
             </div>
 
             <div class="ds_layout__content">
-
                 <@hst.html hippohtml=document.content/>
+
+                <#assign ds_autocomplete = true />
                 <#include 'include/search.ftl'/>
 
                 <section id="search-results" class="ds_search-results">

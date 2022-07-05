@@ -38,7 +38,7 @@ public class SiteHeaderComponent extends BaseHstComponent {
                 .getHstComponentConfiguration();
         String formatName = componentConfig.getName();
         // hide search for home or search pages
-        request.setAttribute("hideSearch", equalsAny(formatName, "home", "search"));
+        request.setAttribute("hideSearch", equalsAny(formatName, "home", "search", "searchfunnelback"));
     }
 
     void setSiteTitle(HstRequest request) {

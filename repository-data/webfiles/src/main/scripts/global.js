@@ -102,6 +102,24 @@ const global = {
 
         filteredAccordions.forEach(accordion => new window.DS.components.Accordion(accordion).init());
 
+        const autocompletes = [].slice.call(document.querySelectorAll('[data-module="ds-autocomplete"]'));
+        autocompletes.forEach(autocomplete => {
+            let url = document.getElementById('site-root-path').value;
+            url += '/search/suggestions?partial_query=';
+            const mapping = ppp => {
+                const suggestionsObj = JSON.parse(ppp.responseText);
+                return suggestionsObj.map(suggestionsObj => ({
+                    key: suggestionsObj,
+                    displayText: suggestionsObj,
+                    weight: null,
+                    type: null,
+                    category: null
+                }));
+            };
+            const autocompleteModule = new window.DS.components.Autocomplete(autocomplete, url, { suggestionMappingFunction: mapping });
+            autocompleteModule.init();
+        });
+
         const cookieNotificationEl = document.querySelector('[data-module="ds-cookie-notification"]');
         if (cookieNotificationEl) {
             const cookieNotification = new window.DS.components.CookieNotification(cookieNotificationEl);
