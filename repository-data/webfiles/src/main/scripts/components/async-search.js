@@ -73,6 +73,8 @@ class AsyncSearch {
         }, 0);
 
         temporaryFocus(this.resultsContainer);
+
+        window.DS.tracking.init(this.resultsContainer);
     }
 }
 

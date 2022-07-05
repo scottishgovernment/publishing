@@ -32,34 +32,35 @@
 
     <#if (response.resultPacket.qsups)!?size &gt; 0>
         <#list response.resultPacket.qsups as qsup>
-        <nav>
-            <p>Also showing results for <a href="?q=${qsup.query?url('UTF-8')}"> ${qsup.query}<#if qsup_has_next>, </#if></a><br />
-                Show results only for <a href="?${queryString}&amp;qsup=off">${question.originalQuery}</a></p>
+        <nav class="ds_search-suggestions" aria-label="Alternative search suggestions">
+            <h2 class="visually-hidden">Also showing results for ${qsup.query}</h2>
+            <p><span aria-hidden="true">Also showing results for</span> <a aria-label="Show results only for ${qsup.query}" href="?q=${qsup.query?url('UTF-8')}">${qsup.query}<#if qsup_has_next>, </#if></a><br />
+               <span aria-hidden="true">Show results only for</span> <a aria-label="Show results only for ${question.originalQuery}" href="?${queryString}&amp;qsup=off">${question.originalQuery}</a></p>
         </nav>
         </#list>
     </#if>
 
     <#if (response.resultPacket.resultsSummary.totalMatching)!?has_content &&
     response.resultPacket.resultsSummary.totalMatching &gt; 0>
-    <p>
-        <#if response.resultPacket.resultsSummary.fullyMatching <= response.resultPacket.resultsSummary.numRanks ||
-        response.resultPacket.resultsSummary.currStart <= response.resultPacket.resultsSummary.numRanks >
+        <h2 class="ds_search-results__title">
+            <#if response.resultPacket.resultsSummary.fullyMatching <= response.resultPacket.resultsSummary.numRanks ||
+            response.resultPacket.resultsSummary.currStart <= response.resultPacket.resultsSummary.numRanks >
 
-        ${response.resultPacket.resultsSummary.totalMatching} results for <b>${question.originalQuery}</b>
-            <#if (response.resultPacket.qsups)!?size &gt; 0>
-                <#list response.resultPacket.qsups as qsup>or <b>${qsup.query}</b></#list>
+            ${response.resultPacket.resultsSummary.totalMatching} results for <span class="ds_search-results__title-query">${question.originalQuery}</span>
+                <#if (response.resultPacket.qsups)!?size &gt; 0>
+                    <#list response.resultPacket.qsups as qsup>or <span class="ds_search-results__title-query">${qsup.query}</span></#list>
+                </#if>
+            <#else>
+                Showing ${response.resultPacket.resultsSummary.currStart} to ${response.resultPacket.resultsSummary.currEnd}
+                of ${response.resultPacket.resultsSummary.totalMatching} results for <span class="ds_search-results__title-query">${question.originalQuery}</span>
+                <#if (response.resultPacket.qsups)!?size &gt; 0>
+                    <#list response.resultPacket.qsups as qsup>or <span class="ds_search-results__title-query">${qsup.query}</span></#list>
+                </#if>
             </#if>
-        <#else>
-            Showing ${response.resultPacket.resultsSummary.currStart} to ${response.resultPacket.resultsSummary.currEnd}
-            of ${response.resultPacket.resultsSummary.totalMatching} results for <b>${question.originalQuery}</b>
-            <#if (response.resultPacket.qsups)!?size &gt; 0>
-                <#list response.resultPacket.qsups as qsup>or <b>${qsup.query}</b></#list>
-            </#if>
-        </#if>
-    </p>
+        </h2>
     </#if>
 
-<ol start="${response.resultPacket.resultsSummary.currStart}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching}">
+<ol start="${response.resultPacket.resultsSummary.currStart}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching?c}">
     <#if pagination.currentPageIndex = 1>
         <#list response.curator.exhibits as exhibit>
             <li class="ds_search-result  ds_search-result--promoted">

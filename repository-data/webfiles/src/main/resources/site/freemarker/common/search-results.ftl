@@ -29,7 +29,7 @@
 </#if>
 
 <#if pageable??>
-<ol id="search-results-list" class="ds_search-results__list" data-total="${pageable.total}">
+<ol id="search-results-list" class="ds_search-results__list" data-total="${pageable.total?c}">
     <#list pageable.items as item>
         <@hst.manageContent hippobean=item/>
         <@hst.link var="link" hippobean=item/>
