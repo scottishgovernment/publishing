@@ -10,7 +10,7 @@
 <div class="ds_site-search  <#if ds_autocomplete??>ds_autocomplete</#if>" <#if ds_autocomplete??>data-module="ds-autocomplete"</#if>>
     <form role="search" class="ds_site-search__form" method="GET">
         <label class="ds_label  visually-hidden" for="site-search">Search</label>
-
+        <div id="autocomplete-status" class="visually-hidden"></div>
         <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
 
             <#if ds_autocomplete??>
