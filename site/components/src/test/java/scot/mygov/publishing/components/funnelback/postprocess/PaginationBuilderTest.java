@@ -39,7 +39,7 @@ public class PaginationBuilderTest {
         Pagination pagination = sut.getPagination(resultsSummary, anyQuery());
 
         // ASSERT
-        assertEquals("wrong number of pages", 3, pagination.getPages().size());
+        assertEquals("wrong number of pages", 4, pagination.getPages().size());
         assertTrue("wrong item selected", pagination.getPages().get(0).isSelected());
         assertEquals("https://www.mygov.scot/search?q=anyQuery&page=1", pagination.getPages().get(0).getUrl());
         assertNull(pagination.getFirst());
@@ -71,7 +71,7 @@ public class PaginationBuilderTest {
         Pagination pagination = sut.getPagination(resultsSummary, anyQuery());
 
         // ASSERT
-        assertEquals("wrong number of pages", 3, pagination.getPages().size());
+        assertEquals("wrong number of pages", 4, pagination.getPages().size());
         assertTrue("wrong item selected", pagination.getPages().get(2).isSelected());
         assertEquals("https://www.mygov.scot/search?q=anyQuery&page=3", pagination.getPages().get(2).getUrl());
         assertNull("first should be null", pagination.getFirst());

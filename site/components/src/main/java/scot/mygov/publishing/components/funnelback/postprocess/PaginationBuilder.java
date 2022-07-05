@@ -81,16 +81,22 @@ public class PaginationBuilder {
         }
 
         if (currentPage + minBeforeCount >= maxPage) {
-            return Math.max(1, maxPage - PAGES + 1);
+            return Math.max(1, maxPage - PAGES);
         }
 
-        // if the first page is 2 then juts make it 1
+        // if the first page is 2 then just make it 1
         int page = currentPage - minBeforeCount;
         return page == 2 ? 1 : page;
     }
 
     int lastPage(int firstPage, int maxPage) {
+
         int page = Math.min(firstPage + PAGES - 1, maxPage);
+
+        // if the page number is
+        if (page <= PAGES) {
+            return firstPage + PAGES;
+        }
 
         // if the first page the second to last then make it the last one
         if (page == maxPage - 1) {
