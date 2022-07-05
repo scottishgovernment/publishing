@@ -17,6 +17,7 @@
     <sonar.exclusions>target/**</sonar.exclusions>
     <sonar.coverage.exclusions>
       **/SearchComponent.java,
+      **/ResilientSearchComponent.java,
       **/FunnelbackService.java,
       **/BloomreachSearchService.java,
       **/DetermineStylingComponent.java,
@@ -32,7 +33,9 @@
       **/MountUtils.java,
       **/FragmentInjectingHtmlRewriter.java,
       **/FragmentsComponent.java,
-      **/BreadcrumbComponent.java
+      **/BreadcrumbComponent.java,
+      **/ResilientSearchComponent.java,
+      **/ResilientSearchService.java
     </sonar.coverage.exclusions>
   </properties>
 
@@ -50,6 +53,10 @@
     <dependency>
       <groupId>org.onehippo.cms7.hst.client-modules</groupId>
       <artifactId>hst-google-analytics-hst</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.netflix.hystrix</groupId>
+      <artifactId>hystrix-javanica</artifactId>
     </dependency>
   </dependencies>
 

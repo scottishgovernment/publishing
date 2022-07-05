@@ -7,23 +7,23 @@ import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.hippoecm.hst.util.HstRequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scot.gov.publishing.hippo.funnelback.model.*;
+import scot.mygov.publishing.beans.Searchsettings;
 import scot.mygov.publishing.components.funnelback.postprocess.PaginationBuilder;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.and;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
 
 import static org.onehippo.repository.util.JcrConstants.JCR_PRIMARY_TYPE;
 
-public class BloomreachSearchService {
+public class BloomreachSearchService implements SearchService {
 
     private static final Logger LOG = LoggerFactory.getLogger(BloomreachSearchService.class);
 
@@ -54,17 +54,40 @@ public class BloomreachSearchService {
         );
     }
 
-    public void performSearch(String query, HstRequest request, int page) {
+    @Override
+    public SearchResponse performSearch(Search search, Searchsettings searchsettings) {
 
-        int offset = (page - 1) * PAGE_SIZE;
-        populateQuestion(request, query);
+        String query = defaultIfBlank(search.getQuery(), "");
+        int offset = (search.getPage() - 1) * PAGE_SIZE;
 
-        HstQuery hstQuery = query(query, offset, request);
+        HstQuery hstQuery = query(query, offset, search.getRequest());
         try {
-            doExecuteQueryAndPopulateResults(hstQuery, query, offset, request);
+            HstQueryResult result = hstQuery.execute();
+            return response(result, query, offset, search.getRequestUrl());
         } catch (QueryException e) {
             LOG.error("Query exceptions in fallback", e);
+            return null;
         }
+    }
+
+    SearchResponse response(HstQueryResult result, String query, int offset, String url) {
+        SearchResponse searchResponse = new SearchResponse();
+        searchResponse.setType(SearchResponse.Type.BLOOMREACH);
+
+        Question question = getQuestion(query);
+        searchResponse.setQuestion(question);
+
+        Response response = new Response();
+        ResultsSummary resultsSummary = buildResultsSummary(result, offset);
+        response.getResultPacket().setResultsSummary(resultsSummary);
+        searchResponse.setResponse(response);
+
+        Pagination pagination = new PaginationBuilder(url).getPagination(resultsSummary, query);
+        searchResponse.setPagination(pagination);
+
+        searchResponse.setBloomreachResults(result.getHippoBeans());
+
+        return searchResponse;
     }
 
     public HstQuery query(String queryStr, int offset, HstRequest request) {
@@ -77,31 +100,11 @@ public class BloomreachSearchService {
                 .build(context.getQueryManager());
     }
 
-    void populateQuestion(HstRequest request, String query) {
+    Question getQuestion(String query) {
         Question question = new Question();
         question.setOriginalQuery(query);
         question.setQuery(query);
-        request.setAttribute("question", question);
-    }
-
-    void doExecuteQueryAndPopulateResults(HstQuery query, String queryString, int offset, HstRequest request) throws QueryException {
-        HstQueryResult result = query.execute();
-        request.setAttribute("bloomreachresults", result.getHippoBeans());
-
-        Response response = new Response();
-        ResultsSummary resultsSummary = buildResultsSummary(result, offset);
-        response.getResultPacket().setResultsSummary(resultsSummary);
-        request.setAttribute("response", response);
-
-        String url = requestUrl(request);
-        Pagination pagination = new PaginationBuilder(url).getPagination(resultsSummary, queryString);
-        request.setAttribute("pagination", pagination);
-    }
-
-    String requestUrl(HstRequest request) {
-        HstRequestContext context = request.getRequestContext();
-        HttpServletRequest servletRequest = context.getServletRequest();
-        return HstRequestUtils.getExternalRequestUrl(servletRequest, false);
+        return question;
     }
 
     ResultsSummary buildResultsSummary(HstQueryResult result, int offset) {
@@ -167,4 +170,5 @@ public class BloomreachSearchService {
     Constraint fieldConstraint(String field, String term) {
         return constraint(field).contains(term);
     }
+
 }

@@ -4,32 +4,36 @@ import org.hippoecm.hst.configuration.hosting.VirtualHost;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.site.HstServices;
-import org.hippoecm.hst.util.HstRequestUtils;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.api.resource.ResourceBeanMapper;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import scot.gov.publishing.hippo.funnelback.model.FunnelbackSearchResponse;
 
 import scot.gov.publishing.hippo.funnelback.model.Pagination;
-import scot.gov.publishing.hippo.funnelback.model.ResultsSummary;
 import scot.gov.publishing.hippo.funnelback.model.Suggestion;
+import scot.mygov.publishing.beans.Searchsettings;
 import scot.mygov.publishing.components.funnelback.postprocess.PaginationBuilder;
 import scot.mygov.publishing.components.funnelback.postprocess.PostProcessor;
 import scot.mygov.publishing.components.funnelback.postprocess.ResultLinkRewriter;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 import static org.apache.commons.lang3.StringUtils.equalsAny;
 
 @Service
-public class FunnelbackService {
+@Component("scot.mygov.publishing.components.funnelback.FunnelbackService")
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+public class FunnelbackSearchService implements SearchService {
 
     private static final String URL_TEMPLATE
             = "/search.json?query={query}&start_rank={rank}&collection={collection}";
@@ -43,18 +47,30 @@ public class FunnelbackService {
 
     private List<String> sites;
 
-    public void performSearch(String query, boolean qsupOff, int rank, HstRequest request) {
-        Map<String, Object> params = searchParamMap(query, rank);
+    @Override
+    public SearchResponse performSearch(Search search, Searchsettings searchsettings) {
+        int rank = getRank(search.getPage());
+        Map<String, Object> params = searchParamMap(search.getQuery(), rank);
         ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
-        String urlTemplate = getUrlTemplate(qsupOff);
+        String urlTemplate = getUrlTemplate(search.isEnableSuplimentaryQueries());
         Resource results = broker.resolve(FUNNELBACK_RESOURCE_SPACE, urlTemplate, params);
         ResourceBeanMapper resourceBeanMapper = broker.getResourceBeanMapper(FUNNELBACK_RESOURCE_SPACE);
         FunnelbackSearchResponse response = resourceBeanMapper.map(results, FunnelbackSearchResponse.class);
 
-        rewriteLinks(request, response);
-        request.setAttribute("response", response.getResponse());
-        request.setAttribute("question", response.getQuestion());
-        populatePagination(request, response.getResponse().getResultPacket().getResultsSummary(), query);
+        rewriteLinks(response, search.getRequest());
+        Pagination pagination = new PaginationBuilder(search.getRequestUrl())
+                .getPagination(response.getResponse().getResultPacket().getResultsSummary(), search.getQuery());
+
+        SearchResponse searchResponse = new SearchResponse();
+        searchResponse.setType(SearchResponse.Type.FUNNELBACK);
+        searchResponse.setQuestion(response.getQuestion());
+        searchResponse.setResponse(response.getResponse());
+        searchResponse.setPagination(pagination);
+        return searchResponse;
+    }
+
+    int getRank(int page) {
+        return ((page - 1) * 10) + 1;
     }
 
     public List<String> getSuggestions(String partialQuery) {
@@ -71,14 +87,7 @@ public class FunnelbackService {
         return qsupOff ? URL_TEMPLATE + "&qsup=off" : URL_TEMPLATE;
     }
 
-    void populatePagination(HstRequest request, ResultsSummary summary, String query) {
-        HttpServletRequest servletRequest = request.getRequestContext().getServletRequest();
-        String url = HstRequestUtils.getExternalRequestUrl(servletRequest, false);
-        Pagination pagination = new PaginationBuilder(url).getPagination(summary, query);
-        request.setAttribute("pagination", pagination);
-    }
-
-    void rewriteLinks(HstRequest request, FunnelbackSearchResponse response) {
+    void rewriteLinks(FunnelbackSearchResponse response, HstRequest request) {
         HstRequestContext context = request.getRequestContext();
         VirtualHost virtualHost = context.getResolvedMount().getMount().getVirtualHost();
         String hostGroupName = virtualHost.getHostGroupName();
@@ -95,7 +104,7 @@ public class FunnelbackService {
     Map<String, Object> searchParamMap(String query, int rank) {
 
         Map<String, Object> params = new HashMap<>();
-        params.put("query", query);
+        params.put("query", defaultIfBlank(query, ""));
         params.put("rank", rank);
         params.put("collection", collection);
         return params;
@@ -119,7 +128,7 @@ public class FunnelbackService {
 
     Map<String, Object> suggestionsParamMap(String partialQuery) {
         Map<String, Object> params = new HashMap<>();
-        params.put("partial_query", partialQuery);
+        params.put("partial_query", defaultIfBlank(partialQuery, ""));
         params.put("collection", collection);
         params.put("show", 6);
         params.put("sort", 0);

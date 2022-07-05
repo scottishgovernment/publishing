@@ -10,6 +10,7 @@
     ${text?replace(pattern, "<mark>$1</mark>", 'ri')?no_esc!}
 </#macro>
 
+<#if enabled>
 <#if response??>
     <#if (response.resultPacket.resultsSummary.totalMatching)!?has_content &&
     response.resultPacket.resultsSummary.totalMatching == 0>
@@ -186,4 +187,7 @@
         </ul>
     </aside>
     </#if>
+</#if>
+<#else>
+<p>This page has been temporarily disabled.</p>
 </#if>
