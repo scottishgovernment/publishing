@@ -486,10 +486,10 @@ const rentIncreaseForm = {
     },
 
     addNotificationDate: function () {
-        if (document.querySelector('#rent-increase-date').classList.contains('ds_input--error')) {
+       /* if (document.querySelector('#rent-increase-date').classList.contains('ds_input--error')) {
             document.getElementById('date-increase-notification-alert').innerHTML = '';
             return;
-        }
+        }*/
 
         let notificationDate = commonForms.stringToDate(rentIncreaseForm.form.settings.formObject.dateOfIncrease);
 
