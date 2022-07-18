@@ -479,18 +479,17 @@ const rentIncreaseForm = {
                 return;
             }
 
-            window.setTimeout(function () {
-                rentIncreaseForm.addNotificationDate();
-            }, 0);
+            let validations = rentIncreaseDate.getAttribute('data-validation').split(' ');
+            const validationChecks = validations.map(validation => commonForms[validation]);
+            if (commonForms.validateInput(rentIncreaseDate, validationChecks)) {
+                window.setTimeout(function () {
+                    rentIncreaseForm.addNotificationDate();
+                }, 0);
+            }
         });
     },
 
     addNotificationDate: function () {
-       /* if (document.querySelector('#rent-increase-date').classList.contains('ds_input--error')) {
-            document.getElementById('date-increase-notification-alert').innerHTML = '';
-            return;
-        }*/
-
         let notificationDate = commonForms.stringToDate(rentIncreaseForm.form.settings.formObject.dateOfIncrease);
 
         notificationDate = adjustDate(notificationDate, {months: -3}, true);
@@ -534,7 +533,7 @@ const rentIncreaseForm = {
             </div>
             <div id="rent-increase-send-date-picker" data-module="ds-datepicker" class="ds_datepicker">
                 <div class="ds_input__wrapper">
-                    <input data-mindate="${templateData.today}" data-maxDate="${templateData.notificationDate}" class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex beforeDate requiredField" type="text" id="rent-increase-send-date" placeholder="e.g. ${templateData.today}" value="${rentIncreaseForm.notificationSendDate}">
+                    <input data-mindate="${templateData.today}" data-maxDate="${templateData.notificationDate}" class="ds_input  ds_input--fixed-10  js-end-date-input" data-validation="dateRegex beforeDate afterDate requiredField" type="text" id="rent-increase-send-date" placeholder="e.g. ${templateData.today}" value="${rentIncreaseForm.notificationSendDate}">
                 </div>
             </div>`;
 
