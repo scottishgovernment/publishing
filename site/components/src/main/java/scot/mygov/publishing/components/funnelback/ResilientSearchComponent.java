@@ -57,7 +57,6 @@ public class ResilientSearchComponent extends EssentialsContentComponent {
                 hystrixPropertiesStrategySet = true;
                 HystrixPropertiesStrategy newStrategy = new HystrixPropertiesStrategyWithReloadableCache();
                 HystrixPlugins.getInstance().registerPropertiesStrategy(newStrategy);
-
             }
         }
     }
@@ -69,7 +68,10 @@ public class ResilientSearchComponent extends EssentialsContentComponent {
         Searchsettings searchsettings = searchSettings(request);
         if (isEnabled(searchsettings) ) {
             Search search = search(request);
-            SearchService searchService = searchService(searchsettings);
+            String searchType = searchType(searchsettings);
+            SearchService searchService = searchService(searchType);
+            request.setAttribute("enabled", searchsettings.getEnabled().booleanValue());
+            request.setAttribute("searchType", searchType);
             SearchResponse searchResponse = searchService.performSearch(search, searchsettings);
             populateRequestAttributes(request, searchResponse, searchsettings);
         } else {
@@ -98,15 +100,16 @@ public class ResilientSearchComponent extends EssentialsContentComponent {
         return baseBean.getBean("administration/search-settings", Searchsettings.class);
     }
 
-    SearchService searchService(Searchsettings searchsettings) {
-
+    String searchType(Searchsettings searchsettings) {
         // if this component is configured to provide a 'resilient' search then the search type should be the one
         // specified in the searchsettings - this allows us to provide an override.
-        String type = SEARCH_TYPE_RESILIENT.equals(searchType)
+        return SEARCH_TYPE_RESILIENT.equals(searchType)
                 ? searchsettings.getSearchtype()
                 : searchType;
+    }
 
-        switch (type) {
+    SearchService searchService(String searchtype) {
+        switch (searchtype) {
             case SEARCH_TYPE_FUNNELBACK: return funnelbackSearchService;
             case SEARCH_TYPE_BLOOMREACH: return bloomreachSearchService;
             case SEARCH_TYPE_RESILIENT :
@@ -116,12 +119,10 @@ public class ResilientSearchComponent extends EssentialsContentComponent {
     }
 
     void populateRequestAttributes(HstRequest request, SearchResponse searchResponse, Searchsettings searchsettings) {
-        request.setAttribute("enabled", searchsettings.getEnabled().booleanValue());
         request.setAttribute("searchType", searchResponse.getType().toString());
         request.setAttribute("question", searchResponse.getQuestion());
         request.setAttribute("response", searchResponse.getResponse());
         request.setAttribute("bloomreachresults", searchResponse.getBloomreachResults());
         request.setAttribute("pagination", searchResponse.getPagination());
     }
-
 }
