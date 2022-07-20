@@ -10,6 +10,17 @@
     ${text?replace(pattern, "<mark>$1</mark>", 'ri')?no_esc!}
 </#macro>
 
+<@hst.headContribution category="googleTagManagerDataLayer">
+<script id="gtm-datalayer-search">
+    window.dataLayer = window.dataLayer || [];
+    if (window.dataLayer == 0) {
+        window.dataLayer.push({});
+    }
+    window.dataLayer[0].searchEnabled = '${enabled?c}';
+    window.dataLayer[0].searchType = '${searchType}';
+</script>
+</@hst.headContribution>
+
 <#if enabled>
 <#if response??>
     <#if (response.resultPacket.resultsSummary.totalMatching)!?has_content &&
@@ -84,7 +95,7 @@
             <li class="ds_search-result">
                 <h3 class="ds_search-result__title">
                     <@hst.link var="link" hippobean=result/>
-                    <a href="${link}">${result.title}</a>
+                    <a class="ds_search-result__link" href="${link}">${result.title}</a>
                 </h3>
                 <p class="ds_search-result__summary">
                     ${result.summary}
