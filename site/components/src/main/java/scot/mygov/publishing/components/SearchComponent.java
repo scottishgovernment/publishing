@@ -19,8 +19,7 @@ public class SearchComponent extends EssentialsListComponent {
     HstQuery buildQuery(final HstRequest request, final T paramInfo, final HippoBean scope) {
 
         String term = getAnyParameter(request, "q");
-        String parsedTerm = SearchInputParsingUtils.parse(term, false);
-        if (isBlank(parsedTerm)) {
+        if (isBlank(term)) {
             return null;
         }
 
@@ -28,7 +27,7 @@ public class SearchComponent extends EssentialsListComponent {
         final int page = getCurrentPage(request);
         final int offset = (page - 1) * pageSize;
 
-        return new BloomreachSearchService().query(parsedTerm, offset, request);
+        return new BloomreachSearchService().query(term, offset, request);
     }
 
 }

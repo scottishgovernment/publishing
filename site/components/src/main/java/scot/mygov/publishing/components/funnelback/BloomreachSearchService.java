@@ -7,6 +7,7 @@ import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scot.gov.publishing.hippo.funnelback.model.*;
@@ -91,10 +92,11 @@ public class BloomreachSearchService implements SearchService {
     }
 
     public HstQuery query(String queryStr, int offset, HstRequest request) {
+        String parsedQueryStr = SearchInputParsingUtils.parse(queryStr, false);
         HstRequestContext context = request.getRequestContext();
         return HstQueryBuilder
                 .create(context.getSiteContentBaseBean())
-                .where(whereConstraint(queryStr))
+                .where(whereConstraint(parsedQueryStr))
                 .limit(PAGE_SIZE)
                 .offset(offset)
                 .build(context.getQueryManager());
