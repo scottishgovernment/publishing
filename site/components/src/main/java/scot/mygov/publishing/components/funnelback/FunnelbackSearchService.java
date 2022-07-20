@@ -7,7 +7,10 @@ import org.hippoecm.hst.site.HstServices;
 import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
 import org.onehippo.cms7.crisp.api.resource.Resource;
 import org.onehippo.cms7.crisp.api.resource.ResourceBeanMapper;
+import org.onehippo.cms7.crisp.api.resource.ResourceException;
 import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -21,10 +24,7 @@ import scot.mygov.publishing.components.funnelback.postprocess.PaginationBuilder
 import scot.mygov.publishing.components.funnelback.postprocess.PostProcessor;
 import scot.mygov.publishing.components.funnelback.postprocess.ResultLinkRewriter;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
@@ -34,6 +34,8 @@ import static org.apache.commons.lang3.StringUtils.equalsAny;
 @Component("scot.mygov.publishing.components.funnelback.FunnelbackService")
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class FunnelbackSearchService implements SearchService {
+
+    private static final Logger LOG = LoggerFactory.getLogger(FunnelbackSearchService.class);
 
     private static final String URL_TEMPLATE
             = "/search.json?query={query}&start_rank={rank}&collection={collection}";
@@ -74,6 +76,15 @@ public class FunnelbackSearchService implements SearchService {
     }
 
     public List<String> getSuggestions(String partialQuery) {
+        try {
+            return doGetSuggestions(partialQuery);
+        } catch (ResourceException e) {
+            LOG.error("getSuggestions failed", e);
+            return Collections.emptyList();
+        }
+    }
+
+    List<String> doGetSuggestions(String partialQuery) {
         Map<String, Object> params = suggestionsParamMap(partialQuery);
         ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
         Resource results = broker.findResources(FUNNELBACK_RESOURCE_SPACE, SUGGEST_URL, params);
