@@ -68,10 +68,10 @@ public class ResilientSearchComponent extends EssentialsContentComponent {
         Searchsettings searchsettings = searchSettings(request);
         if (isEnabled(searchsettings) ) {
             Search search = search(request);
-            String searchType = searchType(searchsettings);
-            SearchService searchService = searchService(searchType);
+            String useSearchType = searchType(searchsettings);
+            SearchService searchService = searchService(useSearchType);
             request.setAttribute("enabled", searchsettings.getEnabled().booleanValue());
-            request.setAttribute("searchType", searchType);
+            request.setAttribute("searchType", useSearchType);
             SearchResponse searchResponse = searchService.performSearch(search, searchsettings);
             populateRequestAttributes(request, searchResponse, searchsettings);
         } else {
