@@ -95,7 +95,7 @@
             <li class="ds_search-result">
                 <h3 class="ds_search-result__title">
                     <@hst.link var="link" hippobean=result/>
-                    <a class="ds_search-result__link" href="${link}">${result.title}</a>
+                    <a class="ds_search-result__link"href="${link}">${result.title}</a>
                 </h3>
                 <p class="ds_search-result__summary">
                     ${result.summary}
@@ -106,7 +106,7 @@
         <#list response.resultPacket.results as result>
             <li class="ds_search-result">
                 <h3 class="ds_search-result__title">
-                    <a class="ds_search-result__link" href="${result.liveUrl}">${result.listMetadata["t"]?first!}</a>
+                    <a class="ds_search-result__link" href="${result.liveUrl}">${result.listMetadata["dcTitle"]?first!}</a>
                 </h3>
 
                 <p class="ds_search-result__summary">
