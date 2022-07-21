@@ -106,7 +106,13 @@
         <#list response.resultPacket.results as result>
             <li class="ds_search-result">
                 <h3 class="ds_search-result__title">
-                    <a class="ds_search-result__link" href="${result.liveUrl}">${result.listMetadata["dcTitle"]?first!}</a>
+                    <a class="ds_search-result__link" href="${result.liveUrl}">
+                    <#if (result.listMetadata["dcTitle"]?first)?has_content>
+                        ${result.listMetadata["dcTitle"]?first!}
+                    <#else>
+                        ${result.listMetadata["t"]?first!}   
+                    </#if>
+                    </a>
                 </h3>
 
                 <p class="ds_search-result__summary">
