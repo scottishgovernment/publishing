@@ -1,4 +1,4 @@
-//global.js
+/* global document, window */
 /*
  Contains functionality required for all pages
  */
@@ -101,6 +101,9 @@ const global = {
         });
 
         filteredAccordions.forEach(accordion => new window.DS.components.Accordion(accordion).init());
+
+        const aspectBoxes = [].slice.call(document.querySelectorAll('.ds_aspect-box:not(.ds_aspect-box--fallback)'));
+        aspectBoxes.forEach(aspectBox => new window.DS.components.AspectBox(aspectBox).init());
 
         const autocompletes = [].slice.call(document.querySelectorAll('[data-module="ds-autocomplete"]'));
         autocompletes.forEach(autocomplete => {
