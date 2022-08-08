@@ -15,7 +15,7 @@
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <div class="ds_aspect-box">
                                 <#if document1.image.xlargefourcolumns??>
-                                    <img class="" alt="${document1.alt}" src="<@hst.link hippobean=document1.image.xlargefourcolumns />"
+                                    <img class="ds_aspect-box__inner" alt="${document1.alt}" src="<@hst.link hippobean=document1.image.xlargefourcolumns />"
                                             width="${document1.image.xlargefourcolumns.width?c}"
                                             height="${document1.image.xlargefourcolumns.height?c}"
                                             srcset="
@@ -78,7 +78,7 @@
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <div class="ds_aspect-box">
                                 <#if document2.image.xlargefourcolumns??>
-                                    <img class="" alt="${document2.alt}" src="<@hst.link hippobean=document2.image.xlargefourcolumns />"
+                                    <img class="ds_aspect-box__inner" alt="${document2.alt}" src="<@hst.link hippobean=document2.image.xlargefourcolumns />"
                                             width="${document2.image.xlargefourcolumns.width?c}"
                                             height="${document2.image.xlargefourcolumns.height?c}"
                                             srcset="
@@ -141,7 +141,7 @@
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <div class="ds_aspect-box">
                                 <#if document1.image.xlargefourcolumns??>
-                                    <img class="" alt="${document3.alt}" src="<@hst.link hippobean=document3.image.xlargefourcolumns />"
+                                    <img class="ds_aspect-box__inner" alt="${document3.alt}" src="<@hst.link hippobean=document3.image.xlargefourcolumns />"
                                             width="${document3.image.xlargefourcolumns.width?c}"
                                             height="${document3.image.xlargefourcolumns.height?c}"
                                             srcset="

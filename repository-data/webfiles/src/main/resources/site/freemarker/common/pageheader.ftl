@@ -21,7 +21,7 @@
 
             <#if document.image??>
                 <div class="ds_cb__poster">
-                    <#if document.image.smalltwelvecolumns??>
+                    <#if document.image.xlargesixcolumns??>
                         <img class="" alt="${document.alt}" src="<@hst.link hippobean=document.image.smalltwelvecolumns />"
                                 width="${document.image.smalltwelvecolumns.width?c}"
                                 height="${document.image.smalltwelvecolumns.height?c}"

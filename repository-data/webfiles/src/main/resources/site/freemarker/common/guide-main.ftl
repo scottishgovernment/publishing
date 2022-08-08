@@ -57,7 +57,22 @@
 
             <#if guide.logo??>
                 <div class="ds_layout__partner  mg_partner-logo">
-                    <img alt="" src="<@hst.link hippobean=guide.logo/>" />
+                    <#if guide.logo.xlargefourcolumns??>
+                        <img alt="" src="<@hst.link hippobean=guide.logo.xlargefourcolumns />"
+                            srcset="
+                            <@hst.link hippobean=guide.logo.smalltwelvecolumns/> 448w,
+                            <@hst.link hippobean=guide.logo.smalltwelvecolumnsdoubled/> 896w,
+                            <@hst.link hippobean=guide.logo.mediumfourcolumns/> 224w,
+                            <@hst.link hippobean=guide.logo.mediumfourcolumnsdoubled/> 448w,
+                            <@hst.link hippobean=guide.logo.largefourcolumns/> 288w,
+                            <@hst.link hippobean=guide.logo.largefourcolumnsdoubled/> 576w,
+                            <@hst.link hippobean=guide.logo.xlargefourcolumns/> 352w,
+                            <@hst.link hippobean=guide.logo.xlargefourcolumnsdoubled/> 704"
+                            sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
+                            >
+                    <#else>
+                        <img alt="" src="<@hst.link hippobean=guide.logo/>" />
+                    </#if>
                 </div>
             </#if>
 
