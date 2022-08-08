@@ -256,6 +256,14 @@
                                     </a>
                                 </dd>
                             </#if>
+                            <#if document.linkedin?has_content>
+                                <dd class="ds_contact-details__social-item">
+                                    <a class="ds_contact-details__social-link" href="${document.linkedin}">
+                                        <svg class="ds_contact-details__social-icon  ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#linkedin"></use></svg>
+                                        LinkedIn
+                                    </a>
+                                </dd>
+                            </#if>
                             <#if document.youtube?has_content>
                                 <dd class="ds_contact-details__social-item">
                                     <a class="ds_contact-details__social-link" href="${document.youtube}">

@@ -17,6 +17,7 @@ const commonItems = {
         'home':                         path.resolve(__dirname, './formats/home.js'),
         'organisation':                 path.resolve(__dirname, './formats/organisation.js'),
         'organisation-list':            path.resolve(__dirname, './formats/organisation-list.js'),
+        'search':                       path.resolve(__dirname, './formats/search.js'),
         'smart-answer':                 path.resolve(__dirname, './formats/smart-answer.js'),
 
         // mygov-specific formats
@@ -31,10 +32,7 @@ const commonItems = {
         'rent-improvements-form':       path.resolve(__dirname, './formats/mygov/rent-improvements-form.js'),
         'rent-increase-form':           path.resolve(__dirname, './formats/mygov/rent-increase-form.js'),
         'rent-pressure-zone-checker':   path.resolve(__dirname, './formats/mygov/rent-pressure-zone-checker.js'),
-        'subtenant-notice-to-leave-form': path.resolve(__dirname, './formats/mygov/subtenant-notice-to-leave-form.js'),
-
-        // simple analytics additional
-        'simple-analytics':             path.resolve(__dirname, './vendor/simple-analytics.js')
+        'subtenant-notice-to-leave-form': path.resolve(__dirname, './formats/mygov/subtenant-notice-to-leave-form.js')
     },
 
     externals: {

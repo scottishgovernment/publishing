@@ -17,7 +17,7 @@
                     <tr>
                         <th>Start date</th>
                         <td>
-                            <div class="hide-if-empty"><a href="#!/tenancy/start-date/tenancy-start-date/" class="summary__link  summary__user-input">{{tenancyStartDate | notspecified | safe}}</a></div>
+                            <div class="hide-if-empty">{{tenancyStartDate | notspecified | safe}}</div>
                         </td>
                         <td class="summary-table__edit"><a href="#!/tenancy/start-date/tenancy-start-date" class="edit">edit</a></td>
                     </tr>
@@ -25,7 +25,7 @@
                         <tr>
                             <th>Date of last rent increase</th>
                             <td>
-                                <div class="hide-if-empty"><a href="#!/tenancy/first-increase/last-increase-date/" class="summary__link  summary__user-input">{{lastIncreaseDate | notspecified | safe}}</a></div>
+                                <div class="hide-if-empty">{{lastIncreaseDate | notspecified | safe}}</div>
                             </td>
                             <td class="summary-table__edit"><a href="#!/tenancy/first-increase/" class="edit">edit</a></td>
                         </tr>
@@ -33,8 +33,8 @@
                     <tr>
                         <th>Current rent</th>
                         <td>
-                            <a href="#!/tenancy/current-rent/current-rent-amount/" class="summary__link  summary__user-input">{{currentRentAmount | currency | notspecified | safe}}</a>
-                            <a href="#!/tenancy/current-rent/current-payment-frequency/" class="summary__link  summary__user-input">{{currentRentFrequency_text}}</a>
+                            {{currentRentAmount | currency | notspecified | safe}}
+                            {{currentRentFrequency_text}}
                         </td>
                         <td class="summary-table__edit"><a href="#!/tenancy/current-rent/" class="edit">edit</a></td>
                     </tr>
@@ -59,7 +59,7 @@
                     <tr>
                         <th>Method</th>
                         <td>
-                            <div class="hide-if-empty"><a href="#!/giving-this-notice/giving-this-notice/giving-notice-query/" class="summary__link  summary__user-input">{{givingThisNotice_text | notspecified | safe}}</a></div>
+                            <div class="hide-if-empty">{{givingThisNotice_text | notspecified | safe}}</div>
                         </td>
                         <td class="summary-table__edit"><a href="#!/giving-this-notice/giving-this-notice/" class="edit">edit</a></td>
                     </tr>
@@ -84,7 +84,11 @@
                     <tr>
                         <th>Address</th>
                         <td>
-                            <div class="hide-if-empty"><a href="#!/address/address/property-address-postcode-search/" class="summary__link  summary__user-input">{{address | notspecified | safe}}</a></div>
+                            <div class="hide-if-empty">{{address.building}}</div>
+                            <div class="hide-if-empty">{{address.street}}</div>
+                            <div class="hide-if-empty">{{address.town}}</div>
+                            <div class="hide-if-empty">{{address.region}}</div>
+                            <div class="hide-if-empty">{{address.postcode}}</div>
                         </td>
                         <td class="summary-table__edit"><a href="#!/address/address/" class="edit">edit</a></td>
                     </tr>
@@ -110,7 +114,7 @@
                     <tr>
                         <th>Improvements</th>
                         <td>
-                            <div class="hide-if-empty"><a href="#!/increase/improvements/improvements-increase/" class="summary__link  summary__user-input">{{improvementsIncrease | currency | notspecified | safe}}</a></div>
+                            <div class="hide-if-empty">{{improvementsIncrease | currency | notspecified | safe}}</div>
                         </td>
                         <td class="summary-table__edit"><a href="#!/increase/improvements/" class="edit">edit</a></td>
                     </tr>
@@ -118,15 +122,15 @@
                     <tr>
                         <th>New rent</th>
                         <td>
-                            <a href="#!/increase/new-rent/new-rent-amount/" class="summary__link  summary__user-input">{{newRentAmount | currency | notspecified | safe}}</a>
-                            <a href="#!/increase/new-rent/new-payment-frequency/" class="summary__link  summary__user-input">{{newRentFrequency_text}}</a>
+                            {{newRentAmount | currency | notspecified | safe}}
+                            {{newRentFrequency_text}}
                         </td>
                         <td class="summary-table__edit"><a href="#!/increase/new-rent/" class="edit">edit</a></td>
                     </tr>
                     <tr>
                         <th>Date of increase</th>
                         <td>
-                            <div class="hide-if-empty"><a href="#!/increase/date-of-increase/rent-increase-date/" class="summary__link  summary__user-input">{{dateOfIncrease | notspecified | safe}}</a></div>
+                            <div class="hide-if-empty">{{dateOfIncrease | notspecified | safe}}</div>
                         </td>
                         <td class="summary-table__edit"><a href="#!/increase/date-of-increase/" class="edit">edit</a></td>
                     </tr>
@@ -145,7 +149,7 @@
             <label class="ds_accordion-item__label" for="panel-landlord"><span class="visually-hidden">Show this section</span></label>
         </div>
 
-        <div class="ds_accordion-item__body" id="accordion-item-property">
+        <div class="ds_accordion-item__body" id="accordion-item-landlords">
             <table class="ds_table  summary-table">
                 <tbody>
                     {% if hasLandlords %}
@@ -165,16 +169,16 @@
                                 <dl class="summary-list">
                                     <dt class="summary-list__label">Name</dt>
                                     <dd>
-                                        <a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-name/" class="summary__link  summary__user-input">{{ landlord.name | notspecified | safe}}</a>
+                                        {{ landlord.name | notspecified | safe}}
                                     </dd>
 
                                     <dt class="summary-list__label">Address</dt>
                                     <dd>
-                                        <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-building/" class="summary__link  summary__user-input">{{landlord.address.building}}</a></div>
-                                        <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-street/" class="summary__link  summary__user-input">{{landlord.address.street}}</a></div>
-                                        <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-town/" class="summary__link  summary__user-input">{{landlord.address.town}}</a></div>
-                                        <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-region/" class="summary__link  summary__user-input">{{landlord.address.region}}</a></div>
-                                        <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-postcode/" class="summary__link  summary__user-input">{{landlord.address.postcode}}</a></div>
+                                        <div class="hide-if-empty">{{landlord.address.building}}</div>
+                                        <div class="hide-if-empty">{{landlord.address.street}}</div>
+                                        <div class="hide-if-empty">{{landlord.address.town}}</div>
+                                        <div class="hide-if-empty">{{landlord.address.region}}</div>
+                                        <div class="hide-if-empty">{{landlord.address.postcode}}</div>
                                     </dd>
                                 </dl>
                             </td>
@@ -190,16 +194,16 @@
                             <dl class="summary-list">
                                 <dt class="summary-list__label">Name</dt>
                                 <dd>
-                                    <a href="#!/landlords/letting-agent/letting-agent-name/" class="summary__link  summary__user-input">{{lettingAgent.name | notspecified | safe}}</a>
+                                    {{lettingAgent.name | notspecified | safe}}
                                 </dd>
 
                                 <dt class="summary-list__label">Address</dt>
                                 <dd>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-building/" class="summary__link  summary__user-input">{{lettingAgent.address.building}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-street/" class="summary__link  summary__user-input">{{lettingAgent.address.street}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-town/" class="summary__link  summary__user-input">{{lettingAgent.address.town}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-region/" class="summary__link  summary__user-input">{{lettingAgent.address.region}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-postcode/" class="summary__link  summary__user-input">{{lettingAgent.address.postcode}}</a></div>
+                                    <div class="hide-if-empty">{{lettingAgent.address.building}}</div>
+                                    <div class="hide-if-empty">{{lettingAgent.address.street}}</div>
+                                    <div class="hide-if-empty">{{lettingAgent.address.town}}</div>
+                                    <div class="hide-if-empty">{{lettingAgent.address.region}}</div>
+                                    <div class="hide-if-empty">{{lettingAgent.address.postcode}}</div>
                                 </dd>
                             </dl>
                         </td>
@@ -221,14 +225,14 @@
             <label class="ds_accordion-item__label" for="panel-tenants"><span class="visually-hidden">Show this section</span></label>
         </div>
 
-        <div class="ds_accordion-item__body" id="accordion-item-property">
+        <div class="ds_accordion-item__body" id="accordion-item-tenants">
             <table class="ds_table  summary-table">
                 <tbody>
                     <tr data-summary-field="tenant-1-name">
                         <th>Tenant name(s)</th>
                         <td>
                             {% for key, name in tenantNames %}
-                            <a href="#!/tenants/tenant-names/tenant-{{loop.index}}-name/" class="summary__link  summary__user-input">{{name}}</a>
+                            {{name}}
                             {% endfor %}
                         </td>
                         <td class="summary-table__edit"><a href="#!/tenants/" class="edit">edit</a></td>

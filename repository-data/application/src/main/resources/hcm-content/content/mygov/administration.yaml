@@ -2,7 +2,7 @@
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
   jcr:uuid: c5fe3727-5e10-4962-a719-d700ecaa1a7d
-  hippostd:foldertype: [new-resource-bundle, new-untranslated-folder]
+  hippostd:foldertype: [new-resource-bundle, new-untranslated-folder, new-searchsettings-document]
   /robots:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -648,3 +648,58 @@
         publishing:containerid: ''
         publishing:env: ''
         publishing:notes: For live we do not include the env or auth in the url.
+  /search-settings:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 495eb140-e59d-443d-8ca1-bc8048d6921e
+    hippo:name: Search settings
+    hippo:versionHistory: d8e52242-9211-4dc9-958c-9e7c2af609d5
+    /search-settings[1]:
+      jcr:primaryType: publishing:searchsettings
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: c7677c73-77de-4a1e-a02a-ae08aa72e686
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-07-01T16:18:15.292+01:00
+      hippostdpubwf:lastModificationDate: 2022-07-14T14:27:54.824+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: d2b125ad-da3d-4ebe-8631-3ee9a38718c4
+      hippotranslation:locale: document-type-locale
+      publishing:enabled: true
+      publishing:searchtype: resilient
+      publishing:timeoutMillis: 1000
+    /search-settings[2]:
+      jcr:primaryType: publishing:searchsettings
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 7f79bacc-b233-4d22-b674-4af70d19b78b
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-07-01T16:18:15.292+01:00
+      hippostdpubwf:lastModificationDate: 2022-07-14T14:28:00.341+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: d2b125ad-da3d-4ebe-8631-3ee9a38718c4
+      hippotranslation:locale: document-type-locale
+      publishing:enabled: true
+      publishing:searchtype: resilient
+      publishing:timeoutMillis: 1000
+    /search-settings[3]:
+      jcr:primaryType: publishing:searchsettings
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 260bd02e-dde6-4b8f-8a86-13e0be39ce8c
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-07-01T16:18:15.292+01:00
+      hippostdpubwf:lastModificationDate: 2022-07-14T14:28:00.341+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2022-07-14T14:28:02.180+01:00
+      hippotranslation:id: d2b125ad-da3d-4ebe-8631-3ee9a38718c4
+      hippotranslation:locale: document-type-locale
+      publishing:enabled: true
+      publishing:searchtype: resilient
+      publishing:timeoutMillis: 1000

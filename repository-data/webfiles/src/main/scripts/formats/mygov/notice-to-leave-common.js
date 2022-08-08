@@ -270,6 +270,7 @@ const noticeToLeaveForm = {
                     const fieldMappings = {};
 
                     fieldMappings['landlords[\'landlord-' + number + '\'].name'] = '#landlord-' + number + '-name';
+                    fieldMappings['landlords[\'landlord-' + number + '\'].address'] = new PostcodeLookup(document.getElementById('landlord-' + number + '-postcode-lookup'));
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.building'] = '#landlord-' + number + '-address-building';
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.street'] = '#landlord-' + number + '-address-street';
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.town'] = '#landlord-' + number + '-address-town';
@@ -278,9 +279,6 @@ const noticeToLeaveForm = {
                     fieldMappings['landlords[\'landlord-' + number + '\'].telephone'] = '#landlord-' + number + '-phone';
 
                     return fieldMappings;
-                },
-                initPostcodeLookups: function(number) {
-                    new PostcodeLookup({ rpz: false, lookupId: 'landlord-' + number + '-postcode-lookup' }); // NOSONAR
                 }
             }
         ];
@@ -355,8 +353,8 @@ const noticeToLeaveForm = {
     },
 
     setupPostcodeLookups: function() {
-        new PostcodeLookup({ required: true, rpz: false, lookupId: 'property-postcode-lookup' }); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'letting-agent-postcode-lookup' }); // NOSONAR
+        new PostcodeLookup(document.getElementById('property-postcode-lookup'), { required: true });
+        new PostcodeLookup(document.getElementById('letting-agent-postcode-lookup'));
     },
 
     validateStep: function () {

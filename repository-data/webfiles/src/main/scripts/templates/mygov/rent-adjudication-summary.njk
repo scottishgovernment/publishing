@@ -17,7 +17,11 @@
                     <tr data-summary-field="rpz-postcode-search rpz-postcode-results">
                         <th>Address</th>
                         <td>
-                            <div class="hide-if-empty"><a href="#!/address/address/rpz-postcode-search/" class="summary__link  summary__user-input">{{propertyAddress}}</a></div>
+                            <div class="hide-if-empty">{{propertyAddress.building}}</div>
+                            <div class="hide-if-empty">{{propertyAddress.street}}</div>
+                            <div class="hide-if-empty">{{propertyAddress.town}}</div>
+                            <div class="hide-if-empty">{{propertyAddress.region}}</div>
+                            <div class="hide-if-empty">{{propertyAddress.postcode}}</div>
                         </td>
                         <td class="summary-table__edit"><a href="#!/address/" class="edit">edit</a></td>
                     </tr>
@@ -48,33 +52,33 @@
                     </tr>
                 {% endif %}
 
-                {% for key, tenant in tenans %}
+                {% for key, tenant in tenants %}
                 <tr data-summary-field="tenant-{{loop.index}}-address-building tenant-{{loop.index}}-address-street tenant-{{loop.index}}-address-town tenant-{{loop.index}}-address-region tenant-{{loop.index}}-postcode-search tenant-{{loop.index}}-postcode-results tenant-{{loop.index}}-postcode tenant-{{loop.index}}-name tenant-{{loop.index}}-email tenant-{{loop.index}}-telephone tenant-{{loop.index}}-building-street">
                     <th>Tenant {{loop.index}}</th>
                     <td>
                         <dl class="summary-list">
                             <dt class="summary-list__label">Name</dt>
                             <dd>
-                                <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-name/" class="summary__link  summary__user-input">{{tenant.name | notspecified | safe }}</a>
+                                {{tenant.name | notspecified | safe }}
                             </dd>
 
                             <dt class="summary-list__label">Address</dt>
                             <dd>
-                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-address-building/" class="summary__link  summary__user-input">{{tenant.address.building}}</a></div>
-                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-address-street/" class="summary__link  summary__user-input">{{tenant.address.street}}</a></div>
-                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-address-town/" class="summary__link  summary__user-input">{{tenant.address.town}}</a></div>
-                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-address-region/" class="summary__link  summary__user-input">{{tenant.address.region}}</a></div>
-                                <div class="hide-if-empty"><a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-postcode/" class="summary__link  summary__user-input">{{tenant.address.postcode}}</a></div>
+                                <div class="hide-if-empty">{{tenant.address.building}}</div>
+                                <div class="hide-if-empty">{{tenant.address.street}}</div>
+                                <div class="hide-if-empty">{{tenant.address.town}}</div>
+                                <div class="hide-if-empty">{{tenant.address.region}}</div>
+                                <div class="hide-if-empty">{{tenant.address.postcode}}</div>
                             </dd>
 
                             <dt class="summary-list__label">Email</dt>
                             <dd>
-                                <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-email/" class="summary__link  summary__user-input">{{tenant.email | notspecified | safe }}</a>
+                                {{tenant.email | notspecified | safe }}
                             </dd>
 
                             <dt class="summary-list__label">Telephone</dt>
                             <dd>
-                                <a href="#!/tenants/tenant-{{loop.index}}/tenant-{{loop.index}}-telephone/" class="summary__link  summary__user-input">{{tenant.telephone | notspecified | safe }}</a>
+                                {{tenant.telephone | notspecified | safe }}
                             </dd>
 
 
@@ -92,31 +96,31 @@
                         <dl class="summary-list">
                             <dt class="summary-list__label">Name</dt>
                             <dd>
-                                <a href="#!/tenants/tenants-agent/tenant-agent-name/" class="summary__link  summary__user-input">{{tenantAgent.name | notspecified | safe }}</a>
+                                {{tenantAgent.name | notspecified | safe }}
                             </dd>
 
                             <dt class="summary-list__label">Address</dt>
                             <dd>
-                                <div class="hide-if-empty"><a href="#!/tenants/tenants-agent/tenant-agent-address-building/" class="summary__link  summary__user-input">{{tenantAgent.address.building}}</a></div>
-                                <div class="hide-if-empty"><a href="#!/tenants/tenants-agent/tenant-agent-address-street/" class="summary__link  summary__user-input">{{tenantAgent.address.street}}</a></div>
-                                <div class="hide-if-empty"><a href="#!/tenants/tenants-agent/tenant-agent-address-town/" class="summary__link  summary__user-input">{{tenantAgent.address.town}}</a></div>
-                                <div class="hide-if-empty"><a href="#!/tenants/tenants-agent/tenant-agent-address-region/" class="summary__link  summary__user-input">{{tenantAgent.address.region}}</a></div>
-                                <div class="hide-if-empty"><a href="#!/tenants/tenants-agent/tenant-agent-postcode/" class="summary__link  summary__user-input">{{tenantAgent.address.postcode}}</a></div>
+                                <div class="hide-if-empty">{{tenantAgent.address.building}}</div>
+                                <div class="hide-if-empty">{{tenantAgent.address.street}}</div>
+                                <div class="hide-if-empty">{{tenantAgent.address.town}}</div>
+                                <div class="hide-if-empty">{{tenantAgent.address.region}}</div>
+                                <div class="hide-if-empty">{{tenantAgent.address.postcode}}</div>
                             </dd>
 
                             <dt class="summary-list__label">Email</dt>
                             <dd>
-                                <a href="#!/tenants/tenants-agent/tenant-agent-email/" class="summary__link  summary__user-input">{{email | notspecified | safe }}</a>
+                                {{email | notspecified | safe }}
                             </dd>
 
                             <dt class="summary-list__label">Telephone</dt>
                             <dd>
-                                <a href="#!/tenants/tenants-agent/tenant-agent-telephone/" class="summary__link  summary__user-input">{{telephone | notspecified | safe }}</a>
+                                {{telephone | notspecified | safe }}
                             </dd>
                         </dl>
                         {% endif %}
                         {% if hasTenantAgent == 'no' %}
-                            <a href="#!/tenants/tenants-agent/tenant-agent--query/" class="summary__link  summary__user-input">None</a>
+                            None
                         {% endif %}
                     </td>
                     <td class="summary-table__edit"><a class="edit" href="#!/tenants/tenants-agent/">edit</a></td>
@@ -142,15 +146,15 @@
                         <th>Type of home</th>
                         <td>
                             {% if propertyType %}
-                                <a href="#!/about-the-home/type/property-building/" class="summary__link  summary__user-input">{{propertyType_text}}</a>
+                                {{propertyType_text}}
 
                                 {% if propertyType == 'OTHER' %}
                                     {% if buildingOther %}
-                                        (<a href="#!/about-the-home/type/building-other/" class="summary__link  summary__user-input">{{buildingOther}}</a>)
+                                        ({{buildingOther}})
                                     {% endif %}
                                 {% endif %}
                             {% else %}
-                                <a href="#!/about-the-home/type/property-building/" class="summary__link  summary__user-input">Not specified</a>
+                                Not specified
                             {% endif %}
                         </td>
                         <td class="summary-table__edit"><a href="#!/about-the-home/type/" class="edit">edit</a></td>
@@ -173,12 +177,12 @@
 
                         <td>
                             {% if sharedAreasQuery == 'yes' %}
-                                <a href="#!/about-the-home/shared-areas/shared-areas-details/" class="summary__link  summary__user-input">{{sharedAreas | notspecified | safe }}</a>
+                                {{sharedAreas | notspecified | safe }}
                             {% else %}
                                 {% if sharedAreasQuery == 'no' %}
-                                    <a href="#!/about-the-home/shared-areas/shared-areas-query/" class="summary__link  summary__user-input">No shared areas</a>
+                                    No shared areas
                                 {% else %}
-                                    <a href="#!/about-the-home/shared-areas/shared-areas-query/" class="summary__link  summary__user-input">Not specified</a>
+                                    Not specified
                                 {% endif %}
                             {% endif %}
                         </td>
@@ -189,12 +193,12 @@
                         <th>Outside space</th>
                         <td>
                             {% if includedQuery == 'yes' %}
-                                <a href="#!/about-the-home/outside-space/included-details/" class="summary__link  summary__user-input">{{included | notspecified | safe }}</a>
+                                {{included | notspecified | safe }}
                             {% else %}
                                 {% if includedQuery == 'no' %}
-                                    <a href="#!/about-the-home/outside-space/included-query/" class="summary__link  summary__user-input">No outside space</a>
+                                    No outside space
                                 {% else %}
-                                    <a href="#!/about-the-home/outside-space/included-query/" class="summary__link  summary__user-input">Not specified</a>
+                                    Not specified
                                 {% endif %}
                             {% endif %}
                         </td>
@@ -206,9 +210,9 @@
                         <th>Heating</th>
                         <td>
                             {% if heating %}
-                                <a href="#!/about-the-home/heating/property-heating/" class="summary__link  summary__user-input">{{heating_text}}</a>
+                                {{heating_text}}
                             {% else %}
-                                <a href="#!/about-the-home/heating/property-heating/" class="summary__link  summary__user-input">Not specified</a>
+                                Not specified
                             {% endif %}
                         </td>
                         <td class="summary-table__edit"><a href="#!/about-the-home/heating/" class="edit">edit</a></td>
@@ -218,9 +222,9 @@
                         <th>Double glazing</th>
                         <td>
                             {% if doubleGlazing %}
-                                <a href="#!/about-the-home/double-glazing/property-double-glazing/" class="summary__link  summary__user-input">{{doubleGlazing_text}}</a>
+                                {{doubleGlazing_text}}
                             {% else %}
-                                <a href="#!/about-the-home/double-glazing/property-double-glazing/" class="summary__link  summary__user-input">Not specified</a>
+                                Not specified
                             {% endif %}
                         </td>
                         <td class="summary-table__edit"><a href="#!/about-the-home/double-glazing" class="edit">edit</a></td>
@@ -232,16 +236,16 @@
                             {% if servicesQuery == 'yes' %}
                             <dl>
                                 <dt>Services included in rent</dt>
-                                <dd><a href="#!/about-the-home/services/services-details/" class="summary__link  summary__user-input">{{servicesDetails | notspecified | safe }}</a></dd>
+                                <dd>{{servicesDetails | notspecified | safe }}</dd>
 
                                 <dt>How much is charged for services</dt>
-                                <dd><a href="#!/about-the-home/services/services-cost-details/" class="summary__link  summary__user-input">{{servicesCostDetails | notspecified | safe }}</a></dd>
+                                <dd>{{servicesCostDetails | notspecified | safe }}</dd>
                             </dl>
                             {% else %}
                                 {% if servicesQuery == 'no' %}
-                                    <a href="#!/about-the-home/services/services-query/" class="summary__link  summary__user-input">No services included in rent</a>
+                                    No services included in rent
                                 {% else %}
-                                    <a href="#!/about-the-home/services/services-query/" class="summary__link  summary__user-input">Not specified</a>
+                                    Not specified
                                 {% endif %}
                             {% endif %}
                         </td>
@@ -253,12 +257,12 @@
                         <td>
 
                             {% if furnished == 'no' %}
-                                <a href="#!/about-the-home/furniture/furnished-query/" class="summary__link  summary__user-input">Unfurnished</a>
+                                Unfurnished
                             {% else %}
                                 {% if furnished == 'yes' %}
-                                    <a href="#!/about-the-home/furniture/furnished-query/" class="summary__link  summary__user-input">Furnished</a>
+                                    Furnished
                                 {% else %}
-                                    <a href="#!/about-the-home/furniture/furnished-query/" class="summary__link  summary__user-input">Not specified</a>
+                                    Not specified
                                 {% endif %}
                             {% endif %}
 
@@ -273,12 +277,12 @@
                                 <dt>Improvements by tenant</dt>
                                 <dd>
                                     {% if tenantImprovementsQuery == 'yes' %}
-                                        <a href="#!/about-the-home/improvements/tenant-improvements-details/" class="summary__link  summary__user-input">{{improvementsTenant | notspecified | safe }}</a>
+                                        {{improvementsTenant | notspecified | safe }}
                                     {% else %}
                                         {% if tenantImprovementsQuery == 'no' %}
-                                            <a href="#!/about-the-home/improvements/tenant-improvements-details/" class="summary__link  summary__user-input">None</a>
+                                            None
                                         {% else %}
-                                            <a href="#!/about-the-home/improvements/tenant-improvements-details/" class="summary__link  summary__user-input">Not specified</a>
+                                            Not specified
                                         {% endif %}
                                     {% endif %}
                                 </dd>
@@ -286,12 +290,12 @@
                                 <dt>Improvements by landlord</dt>
                                 <dd>
                                     {% if landlordImprovementsQuery == 'yes' %}
-                                        <a href="#!/about-the-home/improvements/landlord-improvements-details/" class="summary__link  summary__user-input">{{improvementsLandlord | notspecified | safe }}</a>
+                                        {{improvementsLandlord | notspecified | safe }}
                                     {% else %}
                                         {% if landlordImprovementsQuery == 'no' %}
-                                            <a href="#!/about-the-home/improvements/landlord-improvements-details/" class="summary__link  summary__user-input">None</a>
+                                            None
                                         {% else %}
-                                            <a href="#!/about-the-home/improvements/landlord-improvements-details/" class="summary__link  summary__user-input">Not specified</a>
+                                            Not specified
                                         {% endif %}
                                     {% endif %}
                                 </dd>
@@ -304,12 +308,12 @@
                         <th>Damage</th>
                         <td>
                             {% if damagesQuery == 'yes' %}
-                                <a href="#!/about-the-home/damage/damages-details/" class="summary__link  summary__user-input">{{damage | notspecified | safe }}</a>
+                                {{damage | notspecified | safe }}
                             {% else %}
                                 {% if damagesQuery == 'no' %}
-                                    <a href="#!/about-the-home/damage/damages-details/" class="summary__link  summary__user-input">None</a>
+                                    None
                                 {% else %}
-                                    <a href="#!/about-the-home/damage/damages-details/" class="summary__link  summary__user-input">Not specified</a>
+                                    Not specified
                                 {% endif %}
                             {% endif %}
                         </td>
@@ -336,8 +340,8 @@
                     <tr data-summary-field="current-rent-amount current-payment-frequency">
                         <th>Current rent</th>
                         <td>
-                            <a href="#!/rent/current-rent/current-rent-amount/" class="summary__link  summary__user-input">{{currentRentAmount | currency | notspecified | safe}}</a>
-                            <a href="#!/rent/current-rent/current-payment-frequency/" class="summary__link  summary__user-input">{{currentRentFrequency_text}}</a>
+                            {{currentRentAmount | currency | notspecified | safe}}
+                            {{currentRentFrequency_text}}
                         </td>
                         <td class="summary-table__edit"><a href="#!/rent/current-rent/" class="edit">edit</a></td>
                     </tr>
@@ -345,8 +349,8 @@
                     <tr data-summary-field="new-rent-amount new-payment-frequency">
                         <th>New rent</th>
                         <td>
-                            <a href="#!/rent/new-rent/new-rent-amount/" class="summary__link  summary__user-input">{{newRentAmount | currency | notspecified | safe}}</a>
-                            <a href="#!/rent/new-rent/new-payment-frequency/" class="summary__link  summary__user-input">{{newRentFrequency_text}}</a>
+                            {{newRentAmount | currency | notspecified | safe}}
+                            {{newRentFrequency_text}}
                         </td>
                         <td class="summary-table__edit"><a href="#!/rent/new-rent/" class="edit">edit</a></td>
                     </tr>
@@ -384,30 +388,30 @@
                             <dl class="summary-list">
                                 <dt class="summary-list__label">Name</dt>
                                 <dd>
-                                    <a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-name/" class="summary__link  summary__user-input">{{landlord.name | notspecified | safe }}</a>
+                                    {{landlord.name | notspecified | safe }}
                                 </dd>
 
                                 <dt class="summary-list__label">Address</dt>
                                 <dd>
-                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-building/" class="summary__link  summary__user-input">{{landlord.address.building}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-street/" class="summary__link  summary__user-input">{{landlord.address.street}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-town/" class="summary__link  summary__user-input">{{landlord.address.town}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-region/" class="summary__link  summary__user-input">{{landlord.address.region}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-postcode/" class="summary__link  summary__user-input">{{landlord.address.postcode}}</a></div>
+                                    <div class="hide-if-empty">{{landlord.address.building}}</div>
+                                    <div class="hide-if-empty">{{landlord.address.street}}</div>
+                                    <div class="hide-if-empty">{{landlord.address.town}}</div>
+                                    <div class="hide-if-empty">{{landlord.address.region}}</div>
+                                    <div class="hide-if-empty">{{landlord.address.postcode}}</div>
                                 </dd>
 
                                 <dt class="summary-list__label">Email</dt>
                                 <dd>
-                                    <a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-email/" class="summary__link  summary__user-input">{{landlord.email | notspecified | safe }}</a>
+                                    {{landlord.email | notspecified | safe }}
                                 </dd>
 
                                 <dt class="summary-list__label">Telephone</dt>
                                 <dd>
-                                    <a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-telephone/" class="summary__link  summary__user-input">{{landlord.telephone | notspecified | safe }}</a>
+                                    {{landlord.telephone | notspecified | safe }}</a>
                                 </dd>
                             </dl>
                         </td>
-                        <td class="summary-table__edit"><a href="#!/landlords/landlord-{{loop.index}}/" class="edit">edit</a></td>
+                        <td class="summary-table__edit"><a href="#!/landlords/landlord-{{loop.index}}/" class="edit">edit</td>
                     </tr>
                     {% endfor %}
 
@@ -419,32 +423,32 @@
                             <dl class="summary-list">
                                 <dt class="summary-list__label">Name</dt>
                                 <dd>
-                                    <a href="#!/landlords/letting-agent/letting-agent-name/" class="summary__link  summary__user-input">{{lettingAgent.name | notspecified | safe }}</a>
+                                    {{lettingAgent.name | notspecified | safe }}
                                 </dd>
 
                                 <dt class="summary-list__label">Address</dt>
                                 <dd>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-building/" class="summary__link  summary__user-input">{{lettingAgent.address.building}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-street/" class="summary__link  summary__user-input">{{lettingAgent.address.street}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-town/" class="summary__link  summary__user-input">{{lettingAgent.address.town}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-address-region/" class="summary__link  summary__user-input">{{lettingAgent.address.region}}</a></div>
-                                    <div class="hide-if-empty"><a href="#!/landlords/letting-agent/letting-agent-postcode/" class="summary__link  summary__user-input">{{lettingAgent.address.postcode}}</a></div>
+                                    <div class="hide-if-empty">{{lettingAgent.address.building}}</div>
+                                    <div class="hide-if-empty">{{lettingAgent.address.street}}</div>
+                                    <div class="hide-if-empty">{{lettingAgent.address.town}}</div>
+                                    <div class="hide-if-empty">{{lettingAgent.address.region}}</div>
+                                    <div class="hide-if-empty">{{lettingAgent.address.postcode}}</div>
                                 </dd>
 
                                 <dt class="summary-list__label">Email</dt>
                                 <dd>
-                                    <a href="#!/landlords/letting-agent/letting-agent-email/" class="summary__link  summary__user-input">{{lettingAgent.email | notspecified | safe }}</a>
+                                    {{lettingAgent.email | notspecified | safe }}
                                 </dd>
 
                                 <dt class="summary-list__label">Telephone</dt>
                                 <dd>
-                                    <a href="#!/landlords/letting-agent/letting-agent-telephone/" class="summary__link  summary__user-input">{{lettingAgent.telephone | notspecified | safe }}</a>
+                                    {{lettingAgent.telephone | notspecified | safe }}
                                 </dd>
                             </dl>
                         </td>
                         {% endif %}
                         {% if hasLettingAgent == 'no' %}
-                        <td><a href="#!/landlords/letting-agent/letting-agent--query/" class="summary__link  summary__user-input">None</a></td>
+                        <td>None</td>
                         {% endif %}
                         {% if hasLettingAgent == null %}
                         <td></td>
@@ -472,7 +476,7 @@
                     <tr data-summary-field="property-inspection-dates">
                         <th>Unavailable dates</th>
                         <td>
-                            <a href="#!/property-visit/property-visit/property-inspection-dates/" class="summary__link  summary__user-input">{{notAvailableForInspection | notspecified | safe}}</a>
+                            {{notAvailableForInspection | notspecified | safe}}
                         </td>
                         <td class="summary-table__edit"><a href="#!/property-visit/" class="edit">edit</a></td>
                     </tr>

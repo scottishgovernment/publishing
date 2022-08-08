@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 546e5085-fe21-414a-b3cf-5a4bb936a4ef
+          jcr:uuid: c78a5ab3-d0fc-4a2d-a0c2-8fdbdccc8175
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -71,7 +71,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: e5550f54-c411-47b9-820e-0cd9e1f1ed4f
+          jcr:uuid: 63f40ce0-07f5-4c80-a434-8918dc7be556
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -87,6 +87,7 @@ definitions:
           publishing:showFeedback: true
           publishing:showInParent: true
           publishing:lifeEvents: []
+          publishing:noindex: false
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -372,6 +373,16 @@ definitions:
             field: showInParent
             hint: Indicates whether the page should appear in the site navigation
               and site search results
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /noindex:
+            jcr:primaryType: frontend:plugin
+            caption: Noindex
+            field: noindex
+            hint: Check if this page should not be indexed for search (both internal
+              and on search engines)
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

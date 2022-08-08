@@ -1,10 +1,16 @@
 <#ftl output_format="HTML">
 <#include 'include/search.ftl'/>
 
+<#assign term = hstRequestContext.servletRequest.getParameter("q") />
+<#assign pattern = "(?i)(" + term + ")" />
+<#macro highlightSearchTerm text>
+    ${text?replace(pattern, "<mark>$1</mark>", 'ri')?no_esc!}
+</#macro>
+
 <#if pageable??>
     <#if pageable.total gt 0>
     <h2 class="ds_search-results__title">
-        <span class="ds_search-results__title-count">${pageable.total}</span> results
+        <span class="ds_search-results__title-count">${pageable.total}</span> results for <b>${term}</b>
     </h2>
     <#else>
     <h2 class="visually-hidden" id="search-results__heading">Search results</h2>
@@ -18,12 +24,12 @@
         </ul>
     </div>
     </#if>
-<#else>   
+<#else>
 <span class="ds_search-results__title-count">0</span> results, please fill in the search field.
 </#if>
 
 <#if pageable??>
-<ol id="search-results-list" class="ds_search-results__list" data-total="${pageable.total}">
+<ol id="search-results-list" class="ds_search-results__list" data-total="${pageable.total?c}">
     <#list pageable.items as item>
         <@hst.manageContent hippobean=item/>
         <@hst.link var="link" hippobean=item/>
@@ -32,7 +38,9 @@
             <h3 class="ds_search-result__title">
                 <a class="ds_search-result__link" href="${link}">${item.title}</a>
             </h3>
-            <p class="ds_search-result__summary">${item.summary}</p>
+            <p class="ds_search-result__summary">
+                <@highlightSearchTerm item.summary />
+            </p>
         </li>
     </#list>
 </ol>

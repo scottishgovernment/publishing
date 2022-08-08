@@ -13,6 +13,43 @@ definitions:
         hst:relativecontentpath: site-furniture/search/search-results
         hst:sitemapitemhandlerids: [trailing-slash]
         hst:hiddeninchannelmanager: true
+        /funnelback:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/searchfunnelback
+          hst:sitemapitemhandlerids: [trailing-slash]
+          hst:relativecontentpath: site-furniture/search/search-results
+        /funnelbackresults:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/searchfunnelbackresults
+          hst:relativecontentpath: site-furniture/search/search-results
+          hst:sitemapitemhandlerids: [trailing-slash]
+          hst:parameternames: [searchtype]
+          hst:parametervalues: [resilient]
+        /bloomreach:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/searchbloomreach
+          hst:relativecontentpath: site-furniture/search/search-results
+          hst:sitemapitemhandlerids: [trailing-slash]
+        /bloomreachresults:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/searchbloomreachresults
+          hst:relativecontentpath: site-furniture/search/search-results
+          hst:sitemapitemhandlerids: [trailing-slash]
+        /suggestions:
+          jcr:primaryType: hst:sitemapitem
+          hst:excludedforlinkrewriting: true
+          hst:hiddeninchannelmanager: true
+          hst:namedpipeline: JaxrsRestPlainPipeline
+        /resilient:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/searchresilient
+          hst:relativecontentpath: site-furniture/search/search-results
+          hst:sitemapitemhandlerids: [trailing-slash]
+        /resilientresults:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/searchresilientresults
+          hst:relativecontentpath: site-furniture/search/search-results
+          hst:sitemapitemhandlerids: [trailing-slash]
       /site-furniture:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
@@ -272,3 +309,9 @@ definitions:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/fragments
           hst:relativecontentpath: abuse-support
+      /cookies:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/cookiepreferences
+        hst:refId: cookies
+        hst:relativecontentpath: site-furniture/footer/cookies
+        hst:sitemapitemhandlerids: [trailing-slash]

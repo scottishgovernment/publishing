@@ -4,292 +4,328 @@
 
 'use strict';
 
-import $ from 'jquery';
-import commonForms from '../tools/forms';
+import PromiseRequest from '../../../../node_modules/@scottish-government/pattern-library/src/base/tools/promise-request/promise-request';
+import temporaryFocus from '../../../../node_modules/@scottish-government/pattern-library/src/base/tools/temporary-focus/temporary-focus';
 
 const postcodeResultsTemplate = require('../templates/postcode-results');
-const addressTemplate = require('../templates/address');
 
-const PostcodeLookup = function(settings){
-    this.settings = settings || {};
-    this.init = init;
-    this.displayStaticAddress = displayStaticAddress;
-    this.displayEditableAddress = displayEditableAddress;
-    this.displayRpzStatus = displayRpzStatus;
-    this.findAddresses = findAddresses;
-    this.clearAddresses = clearAddresses;
-
-    // self-init
-    this.init();
-};
-
-function init() {
-    const self = this;
-
-    if (!this.settings.lookupId) {
-        return;
-    }
-
-    this.rpzComplete = this.settings.rpzComplete;
-    this.settings.lookupId = '#' + this.settings.lookupId;
-    this.isRpzLookup = this.settings.rpz;
-    this.readOnly = this.settings.readOnly;
-
-    this.addressDisplay = $(self.settings.lookupId + ' .address-display');
-    this.postcodeResults = $(self.settings.lookupId + ' .postcode-results');
-    this.postcodeSearch = $(self.settings.lookupId + ' .postcode-search');
-    this.infoNote = $(self.settings.lookupId + ' .postcode-info-note');
-    this.manualAddress = $(this.settings.lookupId + ' .address-manual');
-
-
-    const select = $(self.settings.lookupId + ' select')[0];
-
-    window.storedAddresses = window.storedAddresses || {};
-
-    const storedAddressForThisPostcodeLookup = window.storedAddresses[self.settings.dataFrom];
-
-    if (self.settings.dataFrom && storedAddressForThisPostcodeLookup) {
-        self.postcodeResults.find('select').addClass('no-validate');
-
-        if (storedAddressForThisPostcodeLookup.postcode) {
-            self.postcodeSearch.val(storedAddressForThisPostcodeLookup.postcode);
-        }
-
-        if (self.readOnly) {
-            self.displayStaticAddress(0, [storedAddressForThisPostcodeLookup]);
-        } else {
-            self.displayEditableAddress(0, [storedAddressForThisPostcodeLookup]);
-        }
-    }
-
-    // binding events
-    // 1. submit search
-    function submitSearch() {
-        // Remove any previous error messages
-        self.infoNote.html('').addClass('fully-hidden');
-
-        const input = $(self.settings.lookupId + ' .postcode-search').val();
-        const select = $(self.settings.lookupId + ' select')[0];
-
-        if (!input) {
-            $(self.settings.lookupId + ' .postcode-search')[0].focus();
+class PostcodeLookup {
+    constructor(element, options = {}) {
+        if (!element) {
             return;
         }
 
-        self.clearAddresses();
-        self.findAddresses(input, select);
+        // this.name is used in other modules
+        this.name = 'PostcodeLookup';
+
+        this.element = element;
+        this.options = options;
+
+        this.lookupElement = element.querySelector('.ds_address__lookup');
+        this.resultsElement = element.querySelector('.ds_address__results');
+        this.manualElement = element.querySelector('.ds_address__manual');
+
+        this.resultsSelectElement = this.resultsElement.querySelector('.js-results-select');
+        this.resultsInfoText = element.querySelector('.js-postcode-info-text');
+
+        this.postcodeInput = this.lookupElement.querySelector('.js-postcode-input');
+
+        this.buildingInput = this.manualElement.querySelector('.js-manual-building');
+        this.streetInput = this.manualElement.querySelector('.js-manual-street');
+        this.townInput = this.manualElement.querySelector('.js-manual-town');
+        this.regionInput = this.manualElement.querySelector('.js-manual-region');
+        this.manualPostcodeInput = this.manualElement.querySelector('.js-manual-postcode');
+
+        this.endpointUrl = '/service/housing/postcode/address-lookup';
+
+        this.PromiseRequest = PromiseRequest;
+
+        // auto-init
+        this.init();
     }
 
-    $('body').on('click', self.settings.lookupId + ' .js-find-address-button', function (event) {
-        event.preventDefault();
-        submitSearch();
-    });
-
-    $(self.settings.lookupId + ' .postcode-search').on('keydown', function(event){
-        // submit when return key pressed while in search box
-        if (event.keyCode === 13){
-            event.preventDefault();
-            submitSearch();
-        }
-    });
-
-    // 2. choose and display an address
-    $(select).on('change', function(){
-        const index = parseInt($(this).val());
-
-        self.infoNote.addClass('fully-hidden');
-
-        if (self.settings.storeResultAs) {
-            window.storedAddresses[self.settings.storeResultAs] = self.addressesAtPostcode[index];
-        }
-
-        if (self.readOnly) {
-            self.displayStaticAddress(index, self.addressesAtPostcode);
-        } else {
-            self.displayEditableAddress(index, self.addressesAtPostcode);
-        }
-
-        if (self.isRpzLookup) {
-            self.displayRpzStatus(index, self.addressesAtPostcode);
-        }
-    });
-}
-
-function displayStaticAddress (index, results) {
-    if (index > -1) {
-        const result = results[index];
-        const address = addressTemplate.render(result);
-
-        this.addressDisplay.removeClass('fully-hidden no-validate').val(address).trigger('change');
-        this.addressDisplay.height(this.addressDisplay[0].scrollHeight);
-    }
-}
-
-function displayEditableAddress(index, results) {
-    const manualAddressLink = $(this.settings.lookupId + ' .js-address-manual-link');
-    const postcode = results[0].postcode;
-
-    if (index > -1) {
-        const org = results[index].org;
-        let building = results[index].building;
-        const street = results[index].street;
-        const locality = results[index].locality;
-        const region = results[index].region;
-        let town = results[index].town;
-
-        if (locality) {
-            town = `${locality}, ${town}`;
-        }
-        if (org && building) {
-            building = `${org}, ${building}`;
-        } else if (org) {
-            building = org;
-        }
-
-        this.manualAddress.find('.building').val(building).trigger('change');
-        this.manualAddress.find('.street').val(street).trigger('change');
-        this.manualAddress.find('.town').val(town).trigger('change');
-        this.manualAddress.find('.region').val(region).trigger('change');
-        this.manualAddress.find('.postcode').val(postcode).trigger('change');
-    } else {
-        this.manualAddress.find('.building, .street, .town, .region, .postcode').val('');
-    }
-
-    this.manualAddress.removeClass('fully-hidden');
-    manualAddressLink.addClass('fully-hidden');
-}
-
-function displayRpzStatus (index, results) {
-    const self = this;
-
-    // if 'My address is not listed' chosen
-    if (index < 0) {
-        self.addressDisplay.val('').trigger('change').addClass('fully-hidden');
-        self.infoNote.removeClass('fully-hidden').html('If you can’t find your address, you should check whether it\'s listed' +
-            ' with <a href="https://www.royalmail.com/find-a-postcode" target="_blank">' +
-            'Royal Mail (opens in a new window)</a>. If your address is listed with' +
-            ' Royal Mail, but we still can’t find it, you should send your address to us:' +
-            ' <a href="mailto:PostcodeQuery@gov.scot">PostcodeQuery@gov.scot</a>.');
-        self.manualAddress.find('.building, .street, .town, .region').val('');
-        return;
-    }
-
-    const uprn = results[index].uprn;
-    const dateString = new Date().toJSON().slice(0,10);
-
-    $.ajax(`/service/housing/rpz?uprn=${uprn}&date=${dateString}`)
-        .done(function(data){
-            if (data.inRentPressureZone) {
-                self.postcodeResults.find('select').addClass('js-in-rpz');
-
-                self.infoNote.html(self.settings.infoNoteHtml ? self.settings.infoNoteHtml : 'This address is in a Rent Pressure Zone.');
-                self.infoNote.removeClass('fully-hidden');
-                if (typeof self.rpzComplete === 'function') {
-                    self.rpzComplete(data);
-                }
-            } else {
-                self.postcodeResults.find('select').removeClass('js-in-rpz');
-
-                if(self.settings.displayNotRPZ){
-                    self.infoNote.removeClass('fully-hidden').html(
-                        '<strong>This address is not in a Rent Pressure Zone.</strong>' +
-                        '<br>This means there\'s no limit on how much rent can be increased at this property.');
-                }
-                if (typeof self.rpzComplete === 'function') {
-                    self.rpzComplete(data);
-                }
+    init() {
+        this.element.addEventListener('click', event => {
+            if (event.target.classList.contains('js-postcode-search')) {
+                event.preventDefault();
+                this.submitPostcodeSearch();
             }
-        })
-        .fail(function(){
-            self.infoNote.removeClass('fully-hidden').html(
-                'Sorry, we were unable to check if this address is in a Rent Pressure Zone.');
+
+            if (event.target.classList.contains('js-show-manual-entry')) {
+                event.preventDefault();
+                this.showSection(this.manualElement);
+            }
+
+            if (event.target.classList.contains('js-show-postcode-lookup')) {
+                event.preventDefault();
+                delete this.selectedAddress;
+                this.resultsSelectElement.html = '';
+                this.showSection(this.lookupElement);
+            }
         });
-}
 
-function clearAddresses () {
-    // Clear any previously chosen address
-    this.addressDisplay.val('').trigger('change').addClass('fully-hidden');
-    this.infoNote.addClass('fully-hidden');
-    this.postcodeResults.addClass('fully-hidden');
+        this.postcodeInput.addEventListener('keydown', event => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                this.submitPostcodeSearch();
+            }
+        });
 
-    $(this.settings.lookupId + ' .address-manual div input').val('');
-    $($(this.settings.lookupId + ' select')[0]).html('');
-}
+        this.resultsSelectElement.addEventListener('change', event => {
+            const index = parseInt(event.target.value);
 
-function findAddresses (input, select) {
-    const self = this;
+            // display RPZ status
+            if (this.options.rpz) {
+                this.displayRpzStatus(index, this.resultsObject);
+            }
 
-    const field = document.querySelector(`${this.settings.lookupId} .postcode-search`);
-    field.classList.remove('no-validate');
+            if (index > -1) {
+                this.selectedAddress = this.resultsObject[index];
 
-    const valid = commonForms.validateInput(field, [commonForms.validPostcode]);
-    if (!valid) {
-        return;
+                // populate address fields
+                if (this.selectedAddress.org && this.selectedAddress.building) {
+                    this.selectedAddress.building = `${this.selectedAddress.org}, ${this.selectedAddress.building}`;
+                } else if (this.selectedAddress.org) {
+                    this.selectedAddress.building = this.selectedAddress.org;
+                }
+
+                this.buildingInput.value = this.selectedAddress.building;
+                this.streetInput.value = this.selectedAddress.street;
+                this.townInput.value = this.selectedAddress.town;
+                this.manualPostcodeInput.value = this.selectedAddress.postcode;
+
+                // trigger change events on those fields
+                const changeEvent = new Event('change');
+                this.buildingInput.dispatchEvent(changeEvent);
+                this.streetInput.dispatchEvent(changeEvent);
+                this.townInput.dispatchEvent(changeEvent);
+                this.manualPostcodeInput.dispatchEvent(changeEvent);
+            }
+        });
     }
 
-    commonForms.toggleFormErrors(field, valid, 'invalid-required-postcode', 'Postcode lookup', '');
-    commonForms.toggleCurrentErrors(field, valid, 'invalid-required-postcode', 'Please enter a postcode and click "Find address"');
+    displayRpzStatus(index, results) {
+        // if 'The address is not listed' chosen
+        if (index < 0) {
+            // self.addressDisplay.val('').trigger('change').addClass('fully-hidden');
+            this.resultsInfoText.classList.remove('fully-hidden');
+            this.resultsInfoText.innerHTML = 'If you can’t find your address, you should check whether it\'s listed' +
+                ' with <a href="https://www.royalmail.com/find-a-postcode" target="_blank">' +
+                'Royal Mail (opens in a new window)</a>. If your address is listed with' +
+                ' Royal Mail, but we still can’t find it, you should send your address to us:' +
+                ' <a href="mailto:PostcodeQuery@gov.scot">PostcodeQuery@gov.scot</a>.';
+            // self.manualAddress.find('.building, .street, .town, .region').val('');
+            return;
+        }
 
-    $.ajax(`/service/housing/postcode/address-lookup?postcode=${input}`)
-        .done(function(data){
-            // Clear any previously chosen address
-            self.clearAddresses();
+        const uprn = results[index].uprn;
+        const dateString = new Date().toJSON().slice(0, 10);
 
-            if (data.results.length < 1){
-                // If no initial results, display message
-                self.postcodeResults.addClass('fully-hidden no-validate');
-                self.infoNote.removeClass('fully-hidden').html('No results found for this postcode.' +
-                '<br>If you can\'t find your address, you should check whether it\'s listed' +
+        this.PromiseRequest(`/service/housing/rpz?uprn=${uprn}&date=${dateString}`)
+            .then(data => JSON.parse(data.responseText))
+            .then(data => {
+                if (data.inRentPressureZone) {
+                    this.resultsInfoText.classList.remove('fully-hidden');
+                    this.resultsInfoText.innerHTML = 'This address is in a Rent Pressure Zone.';
+                } else {
+                    if (this.options.displayNotRPZ) {
+                        this.resultsInfoText.classList.remove('fully-hidden');
+                        this.resultsInfoText.innerHTML = '<strong>This address is not in a Rent Pressure Zone.</strong>' +
+                            '<br>This means there\'s no limit on how much rent can be increased at this property.';
+                    }
+                }
+
+                if (typeof this.options.rpzComplete === 'function') {
+                    this.options.rpzComplete(data);
+                }
+            })
+            .catch(error => {
+                this.resultsInfoText.classList.remove('fully-hidden');
+                this.resultsInfoText.innerHTML = 'Sorry, we were unable to check if this address is in a Rent Pressure Zone.';
+            });
+    }
+
+    fetchPostcodeResults(postcode) {
+        return this.PromiseRequest(`${this.endpointUrl}?postcode=${postcode}`)
+            .then(data => JSON.parse(data.responseText))
+            .catch(result => {
+                this.removeLookupError();
+                this.showLookupError(
+                    'Unable to fetch results',
+                    'Sorry, we can not fetch results for this postcode. Please try again later.'
+                );
+            });
+    }
+
+    formatPostcode(postcode) {
+        return postcode.toUpperCase();
+    }
+
+    getAddressAsObject() {
+        return {
+            building: this.selectedAddress.building,
+            street: this.selectedAddress.street,
+            town: this.selectedAddress.town,
+            region: this.selectedAddress.region,
+            postcode: this.selectedAddress.postcode
+        };
+    }
+
+    getAddressAsString() {
+        return Object.values(this.getAddressAsObject()).filter(value => value && value.trim() != '').join('\n');
+    }
+
+    removeLookupError() {
+        let titleElement = this.lookupElement.querySelector('.js-error-title');
+        let messageElement = this.lookupElement.querySelector('.js-error-message');
+
+        const questionElement = this.lookupElement.querySelector('.ds_question');
+        const inputElement = this.lookupElement.querySelector('.js-postcode-input');
+
+        if (titleElement) {
+            titleElement.parentNode.removeChild(titleElement);
+        }
+
+        if (messageElement) {
+            messageElement.parentNode.removeChild(messageElement);
+        }
+
+        questionElement.classList.remove('ds_question--error');
+        inputElement.classList.remove('ds_input--error');
+    }
+
+    removeErrors() {
+        const errorQuestions = [].slice.call(this.element.querySelectorAll('.ds_question--error'));
+
+        errorQuestions.forEach(question => {
+            const errorInputs = [].slice.call(question.querySelectorAll('.ds_input--error'));
+            errorInputs.forEach(input => {
+                input.classList.remove('ds_input--error');
+                input.removeAttribute('aria-invalid');
+            });
+
+            question.classList.remove('ds_question--error');
+            const messages = [].slice.call(question.querySelectorAll('.ds_question__error-message, .js-error-message'));
+            messages.forEach(message => {
+                message.parentNode.removeChild(message);
+            });
+        });
+    }
+
+    showResults(results, postcode) {
+        const scottishResults = results.filter(result => result.country === 'Scotland');
+
+        // cases to cover:
+        if (results.length < 1) {
+            // 1. no results
+            this.removeLookupError();
+            this.showLookupError(
+                'No results found for this postcode.',
+                'If you can\'t find your address, you should check whether it\'s listed' +
                 ' with <a href="https://www.royalmail.com/find-a-postcode" target="_blank">' +
                 'Royal Mail (opens in a new window)</a>. If your address is listed with' +
                 ' Royal Mail, but we still can\'t find it, you should send your address to us:' +
-                ' <a href="mailto:PostcodeQuery@gov.scot">PostcodeQuery@gov.scot</a>.');
-                self.manualAddress.find('.building, .street, .town, .region').val('');
-                return;
-            }
+                ' <a href="mailto:PostcodeQuery@gov.scot">PostcodeQuery@gov.scot</a>.'
+            );
+        } else if (this.options.rpz && scottishResults.length < 1) {
+            // 2. no scottish results
+            this.removeLookupError();
+            this.showLookupError(
+                'No Scottish results found for this postcode.',
+                this.options.notScottishMessage || 'The postcode you\'ve entered ' +
+                'is not a Scottish postcode. Rent Pressure Zones only apply in Scotland.'
+            );
+        } else {
+            // 3. has results
+            const options = postcodeResultsTemplate.render({ results: results });
+            this.resultsSelectElement.closest('.ds_question').classList.remove('fully-hidden');
+            this.resultsSelectElement.innerHTML = options;
 
-            // if RPZ checker lookup, remove any non-Scottish results
-            if (self.isRpzLookup){
-                data.results = data.results.filter(function(result){
-                    return result.country === 'Scotland';
-                });
-            }
+            this.resultsElement.querySelector('.js-postcode-value').innerText = this.formatPostcode(postcode);
 
-            if (data.results.length < 1){
-                // If no results after non-Scottish filtered out, display message
-                const defaultString = 'The postcode you\'ve entered ' +
-                'is not a Scottish postcode. Rent Pressure Zones only apply in Scotland.';
-                const htmlString = self.settings.notScottishMessage || defaultString;
+            this.showSection(this.resultsElement);
+        }
+    }
 
-                self.postcodeResults.addClass('fully-hidden no-validate');
-                self.infoNote.removeClass('fully-hidden').html(htmlString);
+    showSection(targetSection) {
+        this.removeErrors();
+
+        [this.lookupElement, this.resultsElement, this.manualElement].forEach(thisSection => {
+            if (thisSection === targetSection) {
+                thisSection.classList.remove('fully-hidden');
             } else {
-                // If there are results, put them into the dropdown menu
-                const options = postcodeResultsTemplate.render(data);
-                self.postcodeResults.removeClass('fully-hidden no-validate');
-                $(select).html(options);
-
-                self.addressesAtPostcode = data.results;
-
-                field.classList.add('no-validate');
+                thisSection.classList.add('fully-hidden');
             }
 
-            if (window.DS && window.DS.tracking) {
-                window.DS.tracking.init(document.querySelector(self.settings.lookupId));
-            }
-        })
-        .fail(function(response){
-            self.clearAddresses();
-
-            const responseJSON = response.responseJSON;
-
-            if (responseJSON && responseJSON.issues.postcode) {
-                self.postcodeResults.addClass('fully-hidden no-validate');
-                self.addressDisplay.val('').trigger('change').height(0);
-            } else {
-                self.infoNote.removeClass('fully-hidden').html('Could not fetch address data, please try again');
-            }
+            temporaryFocus(targetSection);
         });
+    }
+
+    showLookupError(title, message) {
+        const questionElement = this.lookupElement.querySelector('.ds_question');
+        const inputElement = this.lookupElement.querySelector('.js-postcode-input');
+
+        let titleElement = this.lookupElement.querySelector('.js-error-title');
+        let messageElement = this.lookupElement.querySelector('.js-error-message');
+
+        titleElement = document.createElement('p');
+        titleElement.classList.add('ds_question__error-message');
+        titleElement.classList.add('js-error-title');
+        inputElement.insertAdjacentElement('beforebegin', titleElement);
+
+        messageElement = document.createElement('p');
+        messageElement.classList.add('ds_hint-text');
+        messageElement.classList.add('js-error-message');
+        titleElement.insertAdjacentElement('afterend', messageElement);
+
+        titleElement.innerHTML = title;
+        messageElement.innerHTML = message;
+
+        questionElement.classList.add('ds_question--error');
+        inputElement.classList.add('ds_input--error');
+    }
+
+    submitPostcodeSearch() {
+
+        const postcodeValue = this.postcodeInput.value;
+
+        if (!postcodeValue) {
+            this.postcodeInput.focus();
+            return;
+        }
+
+        if (this.validatePostcode(postcodeValue)) {
+            this.fetchPostcodeResults(postcodeValue)
+                .then(data => {
+                    this.postcodeInput.value = this.formatPostcode(postcodeValue);
+                    if (data && data.results) {
+                        this.resultsObject = data.results;
+                        this.showResults(data.results, postcodeValue);
+                    }
+                });
+        } else {
+            this.removeErrors();
+
+            this.postcodeInput.classList.add('ds_input--error');
+            this.postcodeInput.setAttribute('aria-invalid', true);
+            this.postcodeInput.closest('.ds_question').classList.add('ds_question--error');
+
+            // insert message
+            const messageElement = document.createElement('p');
+            messageElement.innerText = "Enter a valid postcode, for example 'EH6 6QQ'";
+            messageElement.classList.add('ds_question__error-message');
+            this.postcodeInput.insertAdjacentElement('beforebegin', messageElement);
+        }
+    }
+
+    validatePostcode(postcode) {
+        let trimmedValue = postcode;
+
+        let postcodeRegExp = new RegExp('^[A-Z]{1,2}[0-9R][0-9A-Z]?[0-9][ABD-HJLNP-UW-Z]{2}$');
+        let postcodeValue = trimmedValue.toUpperCase().replace(/\s+/g, '');
+
+        return trimmedValue === '' || postcodeValue.match(postcodeRegExp) !== null;
+    }
 }
 
 export default PostcodeLookup;

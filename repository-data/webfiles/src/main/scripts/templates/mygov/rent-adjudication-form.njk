@@ -9,10 +9,9 @@
     <section data-step="address" class="form-section  fully-hidden">
         <h2>Property address</h2>
 
-        <p>Enter a postcode to find the rental property's address.</p>
+        <p>Search for or enter the rental property's address.</p>
 
-        {{ postcodeLookup('rpz', required=true, readonly=true, noRPZAllowed=true, note=true) }}
-
+        {{ postcodeLookup('rpz', required=true, noRPZAllowed=true, note=true) }}
     </section>
 
     <section data-step="tenants" class="form-section  fully-hidden">
@@ -544,12 +543,19 @@
     <section data-step="declaration" class="fully-hidden form-step">
         <h2>Declaration</h2>
 
-        <fieldset id="declaration-checkbox" data-validation="atLeastOneCheckbox" data-message="You must confirm the declaration to complete this form." class="no-validate">
-            <legend class="visually-hidden">Form Declaration</legend>
-
-            <input id="form-declaration" class="fancy-checkbox" type="checkbox" />
-            <label for="form-declaration" class="fancy-checkbox">I apply to a Rent Officer for a determination of the open market rent for the property at <span class="js-declaration-address summary__user-input"></span>.<br><br>I confirm I have sent Part 3 of the rent increase notice to my Landlord to let them know that I am applying to a Rent Officer.<br><br>I apply to a Rent Officer for a decision on the amount of additional rent that can be charged as a result of improvements made to the let property.</label>
-        </fieldset>
+        <div class="ds_question">
+            <fieldset id="declaration-checkbox" data-validation="atLeastOneCheckbox" data-message="You must confirm the declaration to complete this form." class="no-validate">
+                <legend class="visually-hidden">Form Declaration</legend>
+                <div class="ds_checkbox  ds_checkbox--small">
+                    <input class="ds_checkbox__input" id="form-declaration" type="checkbox" />
+                    <label class="ds_checkbox__label" for="form-declaration">
+                        <p>I apply to a Rent Officer for a determination of the open market rent for the property at <span class="js-declaration-address summary__user-input"></span>.</p>
+                        <p>I confirm I have sent Part 3 of the rent increase notice to my Landlord to let them know that I am applying to a Rent Officer.</p>
+                        <p>I apply to a Rent Officer for a decision on the amount of additional rent that can be charged as a result of improvements made to the let property.</p>
+                    </label>
+                </div>
+            </fieldset>
+        </div>
     </section>
 
     <section data-step="download" class="form-section  fully-hidden">

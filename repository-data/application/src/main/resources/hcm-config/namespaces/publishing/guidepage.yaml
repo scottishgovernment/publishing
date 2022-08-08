@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 94f0e893-88fa-477c-8fbe-e6c403720467
+          jcr:uuid: 31d3ea6a-c19b-491f-b973-b346a38664d3
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -47,7 +47,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
-          jcr:uuid: 3e017116-2e85-4a81-a8fc-214675dfa9ca
+          jcr:uuid: 12d205b4-0000-481e-bb8c-b3d5b6404cc6
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -56,6 +56,7 @@ definitions:
           publishing:reportingtags: []
           publishing:showFeedback: true
           publishing:organisationtags: []
+          publishing:noindex: false
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -204,6 +205,27 @@ definitions:
             field: organisationtags
             hint: List of organisations able to edit and publish the content in this
               document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /noindex:
+            jcr:primaryType: frontend:plugin
+            caption: Noindex
+            field: noindex
+            hint: Check if this page should not be indexed for search (both internal
+              and on search engines)
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /reviewDate:
+            jcr:primaryType: frontend:plugin
+            caption: Review date
+            field: reviewDate
+            mode: view
+            hint: The date on which this content item should next be reviewed.  For
+              guide pages this is read only and tied to the review date of the guide.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

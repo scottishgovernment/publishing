@@ -2,7 +2,7 @@
 <#include "./include/imports.ftl">
 
 <#if document??>
-    <@hst.headContribution category="googleTagManager">
+    <@hst.headContribution category="googleTagManagerDataLayer">
 
     <!-- Google Tag Manager (GTM) -->
     <script id="gtm-datalayer">

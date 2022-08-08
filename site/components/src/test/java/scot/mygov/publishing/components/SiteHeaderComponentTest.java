@@ -15,7 +15,9 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 import javax.jcr.Session;
 
 import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class SiteHeaderComponentTest {
@@ -114,23 +116,31 @@ public class SiteHeaderComponentTest {
         when(info.getSiteTitle()).thenReturn("Site title");
 
         sut.setSiteTitle(request);
-
     }
 
     @Test
-    public void getFormatName() {
+    public void displaysSearchBarInHeaderForRightFormats() {
+        assertFormatHosdesSearch("home", true);
+        assertFormatHosdesSearch("search", true);
+        assertFormatHosdesSearch("searchbloomreach", true);
+        assertFormatHosdesSearch("searchfunnelback", true);
+        assertFormatHosdesSearch("searchresilient", true);
+        assertFormatHosdesSearch("category", false);
+        assertFormatHosdesSearch("article", false);
+        assertFormatHosdesSearch("guide", false);
+    }
+
+    void assertFormatHosdesSearch(String format, boolean expected) {
         SiteHeaderComponent sut = new SiteHeaderComponent();
-        HstComponentConfiguration componentConfig = mock(HstComponentConfiguration.class);
         ResolvedSiteMapItem resolvedSiteMapItem = mock(ResolvedSiteMapItem.class);
         HstComponentConfiguration hstComponentConfiguration = mock(HstComponentConfiguration.class);
         HstRequest request = mock(HstRequest.class);
         HstRequestContext context = mock(HstRequestContext.class);
-
-
         when(request.getRequestContext()).thenReturn(context);
         when(context.getResolvedSiteMapItem()).thenReturn(resolvedSiteMapItem);
         when(resolvedSiteMapItem.getHstComponentConfiguration()).thenReturn(hstComponentConfiguration);
-
-        sut.hideFormatName(request);
+        when(hstComponentConfiguration.getName()).thenReturn(format);
+        sut.setSearchVisibility(request);
+        verify(request).setAttribute(eq("hideSearch"), eq(expected));
     }
 }

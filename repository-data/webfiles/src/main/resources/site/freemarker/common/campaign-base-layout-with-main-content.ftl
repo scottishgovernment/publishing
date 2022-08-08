@@ -8,9 +8,9 @@
         <!-- dataLayer code MUST be higher than google tag manager code -->
         <@hst.headContributions categoryIncludes="googleTagManager"/>
         <@hst.headContributions categoryIncludes="resourcehints"/>
-        <@hst.headContributions categoryIncludes="title"/>
-        <@hst.headContributions categoryIncludes="schema"/>
         <@hst.headContributions categoryIncludes="meta"/>
+        <@hst.headContributions categoryIncludes="schema"/>
+        <@hst.headContributions categoryIncludes="title"/>
         <@hst.headContributions categoryIncludes="facebookMeta"/>
         <@hst.headContributions categoryIncludes="twitterMeta"/>
 
@@ -91,8 +91,5 @@
         </div>
 
         <@hst.headContributions categoryIncludes="footerScripts" xhtml=true/>
-
-        <script async defer src="https://sa.mygov.scot/app.js"></script>
-        <noscript><img src="https://sa.mygov.scot/image.gif" alt=""></noscript>
     </body>
 </html>

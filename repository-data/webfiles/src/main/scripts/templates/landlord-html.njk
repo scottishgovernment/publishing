@@ -1,3 +1,5 @@
+{% from "./macros.njk" import postcodeLookup %}
+
 <section data-group="landlords" data-step="landlord-{{index}}" id="landlord-{{index}}" class="fully-hidden  form-step">
     <h2>Landlord: <span class="js-dynamic-title"></span></h2>
     <button class="js-remove-repeating-section  repeating-container__remove  ds_button  ds_button--cancel">Remove this landlord</button>
@@ -41,59 +43,5 @@
         {% endif %}
     </div>
 
-    <div id="landlord-{{index}}-postcode-lookup" class="js-postcode-lookup">
-        <div class="form-group">
-            <div class="ds_question">
-                <h3 class="beta">Landlord address</h3>
-                <label class="ds_label" for="landlord-{{index}}-postcode-search">Postcode (UK only)</label>
-                <div class="ds_input__wrapper">
-                    <input {% if addressrequired %}data-validation="requiredPostcodeLookup"{% endif %} type="text" id="landlord-{{index}}-postcode-search" class="ds_input  ds_input--fixed-10  postcode-search" data-form="landlord-{{index}}-postcode-search">
-                    <button class="js-find-address-button  ds_button">Find address</button>
-                </div>
-                <p>
-                    <a href="#" class="js-address-manual-link">Enter the address manually</a>
-                </p>
-            </div>
-
-            <div class="ds_question  postcode-results  fully-hidden">
-                <label class="ds_label" for="landlord-{{index}}-postcode-results">Please select your address</label>
-                <div class="ds_select-wrapper">
-                    <select class="ds_select" id="landlord-{{index}}-postcode-results" {% if addressrequired %}data-validation="requiredDropdown"{% endif %}>
-                    </select>
-                    <span class="ds_select-arrow" aria-hidden="true"></span>
-                </div>
-            </div>
-
-            <div class="postcode-info-note  ds_inset-text  fully-hidden"></div>
-
-            <div class="address-manual  fully-hidden">
-                <div id="landlord-{{index}}-building-street" class="building-street">
-                    <div class="ds_question">
-                        <label class="ds_label" for="landlord-{{index}}-address-building">Building</label>
-                        <input type="text" id="landlord-{{index}}-address-building" class="ds_input  building" {% if addressrequired %}data-validation="requiredBuildingOrStreet"{% endif %}>
-                    </div>
-
-                    <div class="ds_question">
-                        <label class="ds_label" for="landlord-{{index}}-address-street">Street address</label>
-                        <input type="text" id="landlord-{{index}}-address-street" class="ds_input  street">
-                    </div>
-                </div>
-
-                <div class="ds_question">
-                    <label class="ds_label" for="landlord-{{index}}-address-town">Town or city</label>
-                    <input type="text" id="landlord-{{index}}-address-town" class="ds_input town"  {% if addressrequired %}data-validation="requiredField"{% endif %}>
-                </div>
-
-                <div class="ds_question">
-                    <label class="ds_label" for="landlord-{{index}}-region">Region or province</label>
-                    <input type="text" id="landlord-{{index}}-address-region" class="ds_input region">
-                </div>
-
-                <div class="ds_question">
-                    <label class="ds_label" for="landlord-{{index}}-postcode">Postcode</label>
-                    <input type="text" id="landlord-{{index}}-postcode" class="ds_input ds_input--fixed-10 postcode" {% if addressrequired %}data-validation="requiredField"{% endif %}>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{ postcodeLookup('landlord-' + index) }}
 </section>

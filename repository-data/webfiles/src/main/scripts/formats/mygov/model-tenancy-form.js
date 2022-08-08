@@ -356,6 +356,7 @@ const modelTenancyForm = {
                     fieldMappings['tenants[\'tenant-' + number + '\'].name'] = `#tenant-${number}-name`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].email'] = `#tenant-${number}-email`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].telephone'] = `#tenant-${number}-phone`;
+                    fieldMappings[`tenants[tenant-${number}].address`] = new PostcodeLookup(document.getElementById(`tenant-${number}-postcode-lookup`));
                     fieldMappings['tenants[\'tenant-' + number + '\'].address.building'] = `#tenant-${number}-address-building`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].address.street'] = `#tenant-${number}-address-street`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].address.town'] = `#tenant-${number}-address-town`;
@@ -363,16 +364,13 @@ const modelTenancyForm = {
                     fieldMappings['tenants[\'tenant-' + number + '\'].address.postcode'] = `#tenant-${number}-postcode`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.name'] = `#guarantor-${number}-name`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].hasGuarantor'] = `[name="guarantor-${number}-query"]`;
+                    fieldMappings[`tenants[tenant-${number}].guarantor.address`] = new PostcodeLookup(document.getElementById(`guarantor-${number}-postcode-lookup`));
                     fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.building'] = `#guarantor-${number}-address-building`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.street'] = `#guarantor-${number}-address-street`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.town'] = `#guarantor-${number}-address-town`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.region'] = `#guarantor-${number}-address-region`;
                     fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.postcode'] = `#guarantor-${number}-postcode`;
                     return fieldMappings;
-                },
-                initPostcodeLookups: function(number) {
-                    new PostcodeLookup({ rpz: false, lookupId: `tenant-${number}-postcode-lookup` }); // NOSONAR
-                    new PostcodeLookup({ rpz: false, lookupId: `guarantor-${number}-postcode-lookup` }); // NOSONAR
                 }
             },
             {
@@ -388,6 +386,7 @@ const modelTenancyForm = {
                     fieldMappings['landlords[\'landlord-' + number + '\'].name'] = `#landlord-${number}-name`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].email'] = `#landlord-${number}-email`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].telephone'] = `#landlord-${number}-phone`;
+                    fieldMappings[`landlords[landlord-${number}].address`] = new PostcodeLookup(document.getElementById(`landlord-${number}-postcode-lookup`));
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.building'] = `#landlord-${number}-address-building`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.street'] = `#landlord-${number}-address-street`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.town'] = `#landlord-${number}-address-town`;
@@ -395,9 +394,6 @@ const modelTenancyForm = {
                     fieldMappings['landlords[\'landlord-' + number + '\'].address.postcode'] = `#landlord-${number}-postcode`;
                     fieldMappings['landlords[\'landlord-' + number + '\'].registrationNumber'] = `#landlord-${number}-registration`;
                     return fieldMappings;
-                },
-                initPostcodeLookups: function(number) {
-                    new PostcodeLookup({ rpz: false, lookupId: `landlord-${number}-postcode-lookup` }); // NOSONAR
                 }
             },
             {
@@ -491,18 +487,16 @@ const modelTenancyForm = {
         '-landlords" target="_blank">Find out more about UK tenancy agreements' +
         ' (opens in a new window)</a>.';
 
-        new PostcodeLookup({ rpz: true, // NOSONAR
-            lookupId: 'property-postcode-lookup',
-            rpzComplete: rpzComplete,
-            notScottishMessage: notScottishMessage,
-            readOnly: true
-        });
-        new PostcodeLookup({ rpz: false, lookupId: 'landlord-1-postcode-lookup' }); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'letting-agent-postcode-lookup' }); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'agent-postcode-lookup' }); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'property-factor-postcode-lookup' }); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'tenant-1-postcode-lookup' }); // NOSONAR
-        new PostcodeLookup({ rpz: false, lookupId: 'guarantor-1-postcode-lookup' }); // NOSONAR
+        modelTenancyForm.form.settings.formMapping.propertyAddress = new PostcodeLookup(
+            document.getElementById('property-postcode-lookup'),
+            {
+                rpz: true, // NOSONAR
+                rpzComplete: rpzComplete,
+                notScottishMessage: notScottishMessage,
+                readOnly: true
+            }
+        );
+        modelTenancyForm.form.settings.formMapping['lettingAgent.address'] = new PostcodeLookup(document.getElementById('letting-agent-postcode-lookup'));
     },
 
     setupPaymentDatePickers: function() {

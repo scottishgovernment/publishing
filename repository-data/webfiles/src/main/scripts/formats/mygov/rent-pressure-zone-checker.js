@@ -6,6 +6,7 @@ import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
 import feedback from '../../components/feedback';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
+import commonForms from '../../tools/forms';
 
 const formTemplate = require('../../templates/mygov/rent-pressure-zone-checker');
 
@@ -73,9 +74,10 @@ const rpzChecker = {
         this.form.init();
 
         const rpzComplete = function(){};
-        new PostcodeLookup({  // NOSONAR
+        new PostcodeLookup(
+            document.getElementById('rpz-checker-postcode-lookup'),
+            {  // NOSONAR
             rpz: true,
-            lookupId: 'rpz-checker-postcode-lookup',
             rpzComplete: rpzComplete,
             displayNotRPZ: true
         });

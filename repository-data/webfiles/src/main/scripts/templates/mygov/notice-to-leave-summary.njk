@@ -18,11 +18,11 @@
                         <th>Property Address</th>
                         <td>
                             <a name="property-postcode-search"></a>
-                            <div class="hide-if-empty"><a href="#!/address/address/property-address-building/" class="summary__link  summary__user-input">{{address.building}}</a></div>
-                            <div class="hide-if-empty"><a href="#!/address/address/property-address-street/" class="summary__link  summary__user-input">{{address.street}}</a></div>
-                            <div class="hide-if-empty"><a href="#!/address/address/property-address-town/" class="summary__link  summary__user-input">{{address.town}}</a></div>
-                            <div class="hide-if-empty"><a href="#!/address/address/property-address-region/" class="summary__link  summary__user-input">{{address.region}}</a></div>
-                            <div class="hide-if-empty"><a href="#!/address/address/property-postcode/" class="summary__link  summary__user-input">{{address.postcode}}</a></div>
+                            <div class="hide-if-empty">{{address.building}}</div>
+                            <div class="hide-if-empty">{{address.street}}</div>
+                            <div class="hide-if-empty">{{address.town}}</div>
+                            <div class="hide-if-empty">{{address.region}}</div>
+                            <div class="hide-if-empty">{{address.postcode}}</div>
                         </td>
                         <td class="summary-table__edit"><a href="#!/address/property-address/" class="edit">edit</a></td>
                     </tr>
@@ -54,26 +54,26 @@
                             {% if hasLandlordsAgent == 'yes' %}
                                 <dl class="summary-list">
                                     <dt class="summary-list__label">Name</dt>
-                                    <dd><a href="#!/letting-agent/letting-agent/letting-agent-name/" class="summary__link  summary__user-input">{{landlordsAgent.name}}</a></dd>
+                                    <dd>{{landlordsAgent.name}}</dd>
 
                                     <dt class="summary-list__label">Address</dt>
                                     <dd>
-                                        <div class="hide-if-empty"><a href="#!/letting-agent/letting-agent/letting-agent-address-building/" class="summary__link  summary__user-input">{{landlordsAgent.address.building}}</a></div>
-                                        <div class="hide-if-empty"><a href="#!/letting-agent/letting-agent/letting-agent-address-street/" class="summary__link  summary__user-input">{{landlordsAgent.address.street}}</a></div>
-                                        <div class="hide-if-empty"><a href="#!/letting-agent/letting-agent/letting-agent-address-town/" class="summary__link  summary__user-input">{{landlordsAgent.address.town}}</a></div>
-                                        <div class="hide-if-empty"><a href="#!/letting-agent/letting-agent/letting-agent-address-region/" class="summary__link  summary__user-input">{{landlordsAgent.address.region}}</a></div>
-                                        <div class="hide-if-empty"><a href="#!/letting-agent/letting-agent/letting-agent-postcode/" class="summary__link  summary__user-input">{{landlordsAgent.address.postcode}}</a></div>
+                                        <div class="hide-if-empty">{{landlordsAgent.address.building}}</div>
+                                        <div class="hide-if-empty">{{landlordsAgent.address.street}}</div>
+                                        <div class="hide-if-empty">{{landlordsAgent.address.town}}</div>
+                                        <div class="hide-if-empty">{{landlordsAgent.address.region}}</div>
+                                        <div class="hide-if-empty">{{landlordsAgent.address.postcode}}</div>
                                     </dd>
 
                                     <dt class="summary-list__label">Telephone</dt>
                                     <dd>
-                                        <div class="hide-if-empty"><a href="#!/letting-agent/letting-agent/letting-agent-phone/" class="summary__link  summary__user-input">{{landlordsAgent.telephone}}</a></div>
+                                        <div class="hide-if-empty">{{landlordsAgent.telephone}}</div>
                                     </dd>
                                 </dl>
 
                             {% endif %}
                             {% if hasLandlordsAgent == 'letting-agent-no' %}
-                                <a href="#!/letting-agent/letting-agent/letting-agent-query/" class="summary__link  summary__user-input">None</a>
+                                None
                             {% endif %}
                         </td>
                         <td class="summary-table__edit"><a class="edit" href="#!/letting-agent/letting-agent/">edit</a></td>
@@ -113,21 +113,21 @@
                                     <dl class="summary-list">
                                         <dt class="summary-list__label">Name</dt>
                                         <dd>
-                                            <a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-name/" class="summary__link  summary__user-input">{{ landlord.name | notspecified | safe}}</a>
+                                           {{ landlord.name | notspecified | safe}}
                                         </dd>
 
                                         <dt class="summary-list__label">Address</dt>
                                         <dd>
-                                            <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-building/" class="summary__link  summary__user-input">{{landlord.address.building}}</a></div>
-                                            <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-street/" class="summary__link  summary__user-input">{{landlord.address.street}}</a></div>
-                                            <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-town/" class="summary__link  summary__user-input">{{landlord.address.town}}</a></div>
-                                            <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-address-region/" class="summary__link  summary__user-input">{{landlord.address.region}}</a></div>
-                                            <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-postcode/" class="summary__link  summary__user-input">{{landlord.address.postcode}}</a></div>
+                                            <div class="hide-if-empty">{{landlord.address.building}}</div>
+                                            <div class="hide-if-empty">{{landlord.address.street}}</div>
+                                            <div class="hide-if-empty">{{landlord.address.town}}</div>
+                                            <div class="hide-if-empty">{{landlord.address.region}}</div>
+                                            <div class="hide-if-empty">{{landlord.address.postcode}}</div>
                                         </dd>
 
                                         <dt class="summary-list__label">Telephone</dt>
                                         <dd>
-                                            <div class="hide-if-empty"><a href="#!/landlords/landlord-{{loop.index}}/landlord-{{loop.index}}-phone/" class="summary__link  summary__user-input">{{landlord.telephone}}</a></div>
+                                            <div class="hide-if-empty">{{landlord.telephone}}</div>
                                         </dd>
                                     </dl>
                                 </td>
@@ -161,7 +161,7 @@
                         <th>Tenant name(s)</th>
                         <td><!--
                             {% for name in tenantNames %}
-                                -->{% if loop.index0 > 0 %}, {% endif %}<a href="#!/tenants/tenants/tenant-{{loop.index}}-name/" class="summary__link  summary__user-input">{{name}}</a><!--
+                                -->{% if loop.index0 > 0 %}, {% endif %}{{name}}<!--
                             {% endfor %}
                         --></td>
                         <td class="summary-table__edit"><a href="#!/tenants/tenants/" class="edit">edit</a></td>
@@ -191,7 +191,7 @@
                         <th>Subtenant name(s)</th>
                         <td><!--
                             {% for name in subtenantNames %}
-                                -->{% if loop.index0 > 0 %}, {% endif %}<a href="#!/subtenants/subtenants/subtenant-{{loop.index}}-name/" class="summary__link  summary__user-input">{{name}}</a><!--
+                                -->{% if loop.index0 > 0 %}, {% endif %}{{name}}<!--
                             {% endfor %}
                         --></td>
                         <td class="summary-table__edit"><a href="#!/subtenants/subtenants/" class="edit">edit</a></td>
@@ -235,7 +235,7 @@
                     <tr data-summary-field="eviction-details">
                         <th>Details</th>
                         <td>
-                            <div class="hide-if-empty"><a href="#!/end-date/details-and-evidence/eviction-details/" class="summary__link  summary__user-input">{{ reasonDetails | notspecified | safe}}</a></div>
+                            <div class="hide-if-empty">{{ reasonDetails | notspecified | safe}}</div>
                         </td>
                         <td class="summary-table__edit"><a href="#!/end-date/details-and-evidence/" class="edit">edit</a></td>
                     </tr>
@@ -243,9 +243,9 @@
                         <th>Tenancy start date</th>
                         <td>
                             {% if hasEndNoticeHelp == 'yes' %}
-                                <div class="hide-if-empty"><a href="#!/end-date/notice-period/tenancy-start-date-with-help/" class="summary__link  summary__user-input">{{entryDateWithHelp | notspecified | safe}}</a></div>
+                                <div class="hide-if-empty">{{entryDateWithHelp | notspecified | safe}}</div>
                             {% else %}
-                                <div class="hide-if-empty"><a href="#!/end-date/notice-period/tenancy-start-date/" class="summary__link  summary__user-input">{{entryDate | notspecified | safe}}</a></div>
+                                <div class="hide-if-empty">{{entryDate | notspecified | safe}}</div>
                             {% endif %}
                         <td class="summary-table__edit"><a href="#!/end-date/notice-period/" class="edit">edit</a></td>
                     </tr>
@@ -253,9 +253,9 @@
                         <th>Notice period end date</th>
                         <td>
                             {% if hasEndNoticeHelp == 'yes' %}
-                                <div class="hide-if-empty"><a href="#!/end-date/notice-period/earliest-tribunal-date-with-help/" class="summary__link  summary__user-input">{{noticePeriodEndDateWithHelp | notspecified | safe}}</a></div>
+                                <div class="hide-if-empty">{{noticePeriodEndDateWithHelp | notspecified | safe}}</div>
                             {% else %}
-                                <div class="hide-if-empty"><a href="#!/end-date/notice-period/earliest-tribunal-date/" class="summary__link  summary__user-input">{{noticePeriodEndDate | notspecified | safe}}</a></div>
+                                <div class="hide-if-empty">{{noticePeriodEndDate | notspecified | safe}}</div>
                             {% endif %}
                         </td>
                         <td class="summary-table__edit"><a href="#!/end-date/notice-period/" class="edit">edit</a></td>

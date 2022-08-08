@@ -6,11 +6,12 @@
         <@hst.headContributions categoryIncludes="dataLayer"/>
 
         <!-- dataLayer code MUST be higher than google tag manager code -->
+        <@hst.headContributions categoryIncludes="googleTagManagerDataLayer"/>
         <@hst.headContributions categoryIncludes="googleTagManager"/>
         <@hst.headContributions categoryIncludes="resourcehints"/>
-        <@hst.headContributions categoryIncludes="title"/>
-        <@hst.headContributions categoryIncludes="schema"/>
         <@hst.headContributions categoryIncludes="meta"/>
+        <@hst.headContributions categoryIncludes="schema"/>
+        <@hst.headContributions categoryIncludes="title"/>
         <@hst.headContributions categoryIncludes="facebookMeta"/>
         <@hst.headContributions categoryIncludes="twitterMeta"/>
         <@hst.headContributions categoryIncludes="noindex"/>
@@ -31,7 +32,6 @@
 
         <@hst.headContributions categoryIncludes="facebookVerification"/>
         <@hst.headContributions categoryIncludes="googleVerification"/>
-
         <@hst.headContributions categoryIncludes="canonical"/>
 
         <script>
@@ -43,6 +43,7 @@
     <@hst.include ref="seo"/>
     <body <#if document?? && document.sensitive?? &&document.sensitive>class="ds_has-hide-page"</#if>>
         <input type="hidden" id="br-webfile-path" value="<@hst.webfile path="/"/>" />
+        <input type="hidden" id="site-root-path" value="<@hst.link path="/"/>" />
 
         <@hst.include ref="googletagmanager"/>
 
@@ -59,7 +60,7 @@
             </div>
         </#if>
         <!--endnoindex-->
-        
+
         <div class="ds_page">
             <!--noindex-->
             <div class="ds_page__top">
@@ -82,8 +83,5 @@
         </div>
 
         <@hst.headContributions categoryIncludes="footerScripts" xhtml=true/>
-
-        <script async defer src="https://sa.mygov.scot/app.js"></script>
-        <noscript><img src="https://sa.mygov.scot/image.gif" alt=""></noscript>
     </body>
 </html>
