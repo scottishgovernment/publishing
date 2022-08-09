@@ -27,7 +27,7 @@
     response.resultPacket.resultsSummary.totalMatching == 0>
     <section id="search-results" class="ds_search-results">
 
-        <h2 class="visually-hidden">Search results</h2>
+        <h2 class="visually-hidden">Search</h2>
 
         <div class="ds_no-search-results">
             <p><strong>There are no matching results.</strong></p>
@@ -72,6 +72,7 @@
         </h2>
     </#if>
 
+<#if pagination??>
 <ol start="${response.resultPacket.resultsSummary.currStart}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching?c}">
     <#if pagination.currentPageIndex = 1>
         <#list response.curator.exhibits as exhibit>
@@ -189,7 +190,7 @@
         </#if>
     </ul>
 </nav>
-
+</#if>
     <#if (response.resultPacket.contextualNavigation.categories)!?size &gt; 0>
     <aside class="ds_search-results__related" aria-labelledby="search-results__related-title">
         <h2 class="ds_search-results__related-title" id="search-results__related-title">Related searches</h2>

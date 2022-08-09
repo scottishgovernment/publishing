@@ -16,6 +16,9 @@ import scot.mygov.publishing.beans.Searchsettings;
 
 import javax.servlet.ServletContext;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static scot.mygov.publishing.components.funnelback.SearchResponse.blankSearchResponse;
+
 @Service
 @Component("scot.mygov.publishing.components.funnelback.ResilientSearchComponent")
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
@@ -68,11 +71,16 @@ public class ResilientSearchComponent extends EssentialsContentComponent {
         Searchsettings searchsettings = searchSettings(request);
         if (isEnabled(searchsettings) ) {
             Search search = search(request);
+
             String useSearchType = searchType(searchsettings);
             SearchService searchService = searchService(useSearchType);
             request.setAttribute("enabled", searchsettings.getEnabled().booleanValue());
             request.setAttribute("searchType", useSearchType);
-            SearchResponse searchResponse = searchService.performSearch(search, searchsettings);
+
+            SearchResponse searchResponse =
+                    isBlank(search.getQuery())
+                    ? blankSearchResponse()
+                    : searchService.performSearch(search, searchsettings);
             populateRequestAttributes(request, searchResponse, searchsettings);
         } else {
             request.setAttribute("enabled", false);

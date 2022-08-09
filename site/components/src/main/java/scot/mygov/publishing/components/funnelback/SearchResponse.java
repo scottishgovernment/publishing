@@ -4,6 +4,7 @@ import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import scot.gov.publishing.hippo.funnelback.model.Pagination;
 import scot.gov.publishing.hippo.funnelback.model.Question;
 import scot.gov.publishing.hippo.funnelback.model.Response;
+import scot.gov.publishing.hippo.funnelback.model.ResultPacket;
 
 /**
  * Created by z418868 on 01/07/2022.
@@ -60,5 +61,25 @@ public class SearchResponse {
 
     public void setBloomreachResults(HippoBeanIterator bloomreachResults) {
         this.bloomreachResults = bloomreachResults;
+    }
+
+    public static SearchResponse blankSearchResponse() {
+        SearchResponse searchResponse = new SearchResponse();
+        searchResponse.setType(SearchResponse.Type.BLOOMREACH);
+
+        Question question = new Question();
+        question.setOriginalQuery("");
+        question.setQuery("");
+        searchResponse.setQuestion(question);
+
+        Response response = new Response();
+        searchResponse.setResponse(response);
+
+        ResultPacket resultPacket = new ResultPacket();
+        resultPacket.getResultsSummary().setTotalMatching(-1);
+        response.setResultPacket(resultPacket);
+        response.setPagination(new Pagination());
+
+        return searchResponse;
     }
 }
