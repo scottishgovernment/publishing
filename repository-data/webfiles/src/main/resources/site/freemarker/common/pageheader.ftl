@@ -22,9 +22,9 @@
             <#if document.image??>
                 <div class="ds_cb__poster">
                     <#if document.image.xlargesixcolumns??>
-                        <img class="" alt="${document.alt}" src="<@hst.link hippobean=document.image.smalltwelvecolumns />"
-                                width="${document.image.smalltwelvecolumns.width?c}"
-                                height="${document.image.smalltwelvecolumns.height?c}"
+                        <img alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
+                                width="${document.image.xlargesixcolumns.width?c}"
+                                height="${document.image.xlargesixcolumns.height?c}"
                                 srcset="
                                 <@hst.link hippobean=document.image.smalltwelvecolumns/> 448w,
                                 <@hst.link hippobean=document.image.smalltwelvecolumnsdoubled/> 896w,
