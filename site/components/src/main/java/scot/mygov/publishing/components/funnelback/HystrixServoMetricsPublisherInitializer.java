@@ -18,6 +18,6 @@ public class HystrixServoMetricsPublisherInitializer implements ServletContextLi
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-
+        // nothing required
     }
 }
