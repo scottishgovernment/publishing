@@ -2,9 +2,9 @@
 <#include "include/imports.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <#setting url_escaping_charset='utf-8'>
-<#assign queryString = hstRequestContext.servletRequest.getQueryString() />
-<#assign query = hstRequestContext.servletRequest.getParameter('q') />
-
+<#assign queryString>
+<#if hstRequestContext.servletRequest??>${hstRequestContext.servletRequest.getQueryString()}<#else></#if>
+</#assign>
 <#assign pattern = "(?i)(" + response.resultPacket.queryHighlightRegex?replace("(?i)","") + ")" />
 <#macro highlightSearchTerm text>
     ${text?replace(pattern, "<mark>$1</mark>", 'ri')?no_esc!}
