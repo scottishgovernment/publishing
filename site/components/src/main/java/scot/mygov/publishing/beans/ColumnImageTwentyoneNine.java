@@ -5,9 +5,9 @@ import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageBean;
 
-@HippoEssentialsGenerated(internalName = "publishing:ColumnImageTwoThreeFive")
-@Node(jcrType = "publishing:ColumnImageTwoThreeFive")
-public class ColumnImageTwoThreeFive extends HippoGalleryImageSet {
+@HippoEssentialsGenerated(internalName = "publishing:ColumnImageTwentyoneNine")
+@Node(jcrType = "publishing:ColumnImageTwentyoneNine")
+public class ColumnImageTwentyoneNine extends HippoGalleryImageSet {
     @HippoEssentialsGenerated(internalName = "publishing:mediumonecolumn")
     public HippoGalleryImageBean getMediumonecolumn() {
         return getBean("publishing:mediumonecolumn", HippoGalleryImageBean.class);

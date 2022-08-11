@@ -32,7 +32,7 @@
                                 sizes="(min-width:1200px) 544px, (min-width:992px) 448px, (min-width: 768px) 352px, 448px"
                                 >
                     <#else>
-                        <img src="<@hst.link hippobean=document.image />" alt="${document.alt}"/>
+                        <img loading="lazy" src="<@hst.link hippobean=document.image />" alt="${document.alt}"/>
                     </#if>
                 </div>
 

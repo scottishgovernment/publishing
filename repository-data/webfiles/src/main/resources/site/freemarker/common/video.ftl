@@ -18,6 +18,7 @@
                             <img class="ds_cb__poster-video" alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
                                     width="${document.image.xlargesixcolumns.width?c}"
                                     height="${document.image.xlargesixcolumns.height?c}"
+                                    loading="lazy"
                                     srcset="
                                     <@hst.link hippobean=document.image.smalltwelvecolumns/> 448w,
                                     <@hst.link hippobean=document.image.smalltwelvecolumnsdoubled/> 896w,
@@ -33,6 +34,7 @@
                             <img class="ds_cb__poster-video" alt="${document.alt}" src="<@hst.link hippobean=document.image />"
                                 width="${document.image.cardsixteenninexl.width?c}"
                                 height="${document.image.cardsixteenninexl.height?c}"
+                                loading="lazy"
                                 srcset="
                                 <@hst.link hippobean=document.image.cardsixteennines/> 730w,
                                 <@hst.link hippobean=document.image.cardsixteenninesdbl/> 1460w,

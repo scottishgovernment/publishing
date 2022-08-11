@@ -23,6 +23,7 @@
                             <img class="ds_category-header__media" alt="" src="<@hst.link hippobean=document.heroImage />"
                                 width="${document.heroImage.xlargefourcolumns.width?c}"
                                 height="${document.heroImage.xlargefourcolumns.height?c}"
+                                loading="lazy"
                                 srcset="
                                 <@hst.link hippobean=document.heroImage.mediumfourcolumns/> 224w,
                                 <@hst.link hippobean=document.heroImage.mediumfourcolumnsdoubled/> 448w,

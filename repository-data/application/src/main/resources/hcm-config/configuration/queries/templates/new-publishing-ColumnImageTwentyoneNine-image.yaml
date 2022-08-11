@@ -1,10 +1,10 @@
 definitions:
   config:
-    /hippo:configuration/hippo:queries/hippo:templates/new-publishing-ColumnImageTwoThreeFive-image:
+    /hippo:configuration/hippo:queries/hippo:templates/new-publishing-ColumnImageTwentyoneNine-image:
       jcr:primaryType: hippostd:templatequery
       hippostd:modify: [./_name, $name, ./_node/_name, $name]
       jcr:language: xpath
-      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-publishing-ColumnImageTwoThreeFive-image/hippostd:templates/node()
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-publishing-ColumnImageTwentyoneNine-image/hippostd:templates/node()
       /hippostd:templates:
         jcr:primaryType: hippostd:templates
         /image:
@@ -19,7 +19,7 @@ definitions:
               jcr:primaryType: hippogallery:image
               jcr:data:
                 type: binary
-                resource: /configuration/queries/templates/new-publishing-ColumnImageTwoThreeFive-image/templates/image/image_thumbnail.jpg
+                resource: /configuration/queries/templates/new-publishing-ColumnImageTwentyoneNine-image/templates/image/image_thumbnail.jpg
               jcr:encoding: UTF-8
               jcr:lastModified: 2008-03-26T12:03:00+01:00
               jcr:mimeType: image/jpeg

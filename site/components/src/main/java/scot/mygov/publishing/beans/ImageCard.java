@@ -56,51 +56,51 @@ public class ImageCard extends HippoGalleryImageSet {
                 HippoGalleryImageBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:cardtwothreefives")
-    public HippoGalleryImageBean getCardTwoThreeFiveS() {
-        return getBean("publishing:cardtwothreefives",
+    @HippoEssentialsGenerated(internalName = "publishing:cardtwentyonenines")
+    public HippoGalleryImageBean getCardTwentyoneNineS() {
+        return getBean("publishing:cardtwentyonenines",
                 HippoGalleryImageBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:cardtwothreefivem")
-    public HippoGalleryImageBean getCardTwoThreeFiveM() {
-        return getBean("publishing:cardtwothreefivem",
+    @HippoEssentialsGenerated(internalName = "publishing:cardtwentyoneninem")
+    public HippoGalleryImageBean getCardTwentyoneNineM() {
+        return getBean("publishing:cardtwentyoneninem",
                 HippoGalleryImageBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:cardtwothreefivel")
-    public HippoGalleryImageBean getCardTwoThreeFiveL() {
-        return getBean("publishing:cardtwothreefivel",
+    @HippoEssentialsGenerated(internalName = "publishing:cardtwentyoneninel")
+    public HippoGalleryImageBean getCardTwentyoneNineL() {
+        return getBean("publishing:cardtwentyoneninel",
                 HippoGalleryImageBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:cardtwothreefivexl")
-    public HippoGalleryImageBean getCardTwoThreeFiveXl() {
-        return getBean("publishing:cardtwothreefivexl",
+    @HippoEssentialsGenerated(internalName = "publishing:cardtwentyoneninexl")
+    public HippoGalleryImageBean getCardTwentyoneNineXl() {
+        return getBean("publishing:cardtwentyoneninexl",
                 HippoGalleryImageBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:cardtwothreefivesdbl")
-    public HippoGalleryImageBean getCardTwoThreeFiveSDbl() {
-        return getBean("publishing:cardtwothreefivesdbl",
+    @HippoEssentialsGenerated(internalName = "publishing:cardtwentyoneninesdbl")
+    public HippoGalleryImageBean getCardTwentyoneNineSDbl() {
+        return getBean("publishing:cardtwentyoneninesdbl",
                 HippoGalleryImageBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:cardtwothreefivemdbl")
-    public HippoGalleryImageBean getCardTwoThreeFiveMDbl() {
-        return getBean("publishing:cardtwothreefivemdbl",
+    @HippoEssentialsGenerated(internalName = "publishing:cardtwentyoneninemdbl")
+    public HippoGalleryImageBean getCardTwentyoneNineMDbl() {
+        return getBean("publishing:cardtwentyoneninemdbl",
                 HippoGalleryImageBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:cardtwothreefiveldbl")
-    public HippoGalleryImageBean getCardTwoThreeFiveLDbl() {
-        return getBean("publishing:cardtwothreefiveldbl",
+    @HippoEssentialsGenerated(internalName = "publishing:cardtwentyonenineldbl")
+    public HippoGalleryImageBean getCardTwentyoneNineLDbl() {
+        return getBean("publishing:cardtwentyonenineldbl",
                 HippoGalleryImageBean.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:cardtwothreefivexldbl")
-    public HippoGalleryImageBean getCardTwoThreeFiveXlDbl() {
-        return getBean("publishing:cardtwothreefivexldbl",
+    @HippoEssentialsGenerated(internalName = "publishing:cardtwentyoneninexldbl")
+    public HippoGalleryImageBean getCardTwentyoneNineXlDbl() {
+        return getBean("publishing:cardtwentyoneninexldbl",
                 HippoGalleryImageBean.class);
     }
 }

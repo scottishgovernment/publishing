@@ -5,7 +5,6 @@
 <#-- @ftlvariable name="document1" type="scot.mygov.publishing.beans.Navigationcard" -->
 <#-- @ftlvariable name="document2" type="scot.mygov.publishing.beans.Navigationcard" -->
 <#-- @ftlvariable name="document3" type="scot.mygov.publishing.beans.Navigationcard" -->
-
 <div class="ds_cb  ds_cb--cards  ds_cb--bg-grey  <#if fullwidth>ds_cb--fullwidth</#if>">
     <div class="ds_wrapper">
         <div class="ds_cb__inner">
@@ -18,6 +17,7 @@
                                     <img class="ds_aspect-box__inner" alt="${document1.alt}" src="<@hst.link hippobean=document1.image.xlargefourcolumns />"
                                             width="${document1.image.xlargefourcolumns.width?c}"
                                             height="${document1.image.xlargefourcolumns.height?c}"
+                                            loading="lazy"
                                             srcset="
                                             <@hst.link hippobean=document1.image.smalltwelvecolumns/> 448w,
                                             <@hst.link hippobean=document1.image.smalltwelvecolumnsdoubled/> 896w,
@@ -30,7 +30,7 @@
                                             sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
                                             >
                                 <#else>
-                                    <img class="ds_aspect-box__inner" src="<@hst.link hippobean=document1.image />" alt="${document1.alt}"/>
+                                    <img loading="lazy" class="ds_aspect-box__inner" src="<@hst.link hippobean=document1.image />" alt="${document1.alt}"/>
                                 </#if>
                             </div>
                         </div>
@@ -81,6 +81,7 @@
                                     <img class="ds_aspect-box__inner" alt="${document2.alt}" src="<@hst.link hippobean=document2.image.xlargefourcolumns />"
                                             width="${document2.image.xlargefourcolumns.width?c}"
                                             height="${document2.image.xlargefourcolumns.height?c}"
+                                            loading="lazy"
                                             srcset="
                                             <@hst.link hippobean=document2.image.smalltwelvecolumns/> 448w,
                                             <@hst.link hippobean=document2.image.smalltwelvecolumnsdoubled/> 896w,
@@ -93,7 +94,7 @@
                                             sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
                                             >
                                 <#else>
-                                    <img class="ds_aspect-box__inner" src="<@hst.link hippobean=document2.image />" alt="${document2.alt}"/>
+                                    <img loading="lazy" class="ds_aspect-box__inner" src="<@hst.link hippobean=document2.image />" alt="${document2.alt}"/>
                                 </#if>
                             </div>
                         </div>
@@ -144,6 +145,7 @@
                                     <img class="ds_aspect-box__inner" alt="${document3.alt}" src="<@hst.link hippobean=document3.image.xlargefourcolumns />"
                                             width="${document3.image.xlargefourcolumns.width?c}"
                                             height="${document3.image.xlargefourcolumns.height?c}"
+                                            loading="lazy"
                                             srcset="
                                             <@hst.link hippobean=document3.image.smalltwelvecolumns/> 448w,
                                             <@hst.link hippobean=document3.image.smalltwelvecolumnsdoubled/> 896w,
@@ -156,7 +158,7 @@
                                             sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
                                             >
                                 <#else>
-                                    <img class="ds_aspect-box__inner" src="<@hst.link hippobean=document3.image />" alt="${document3.alt}"/>
+                                    <img loading="lazy" class="ds_aspect-box__inner" src="<@hst.link hippobean=document3.image />" alt="${document3.alt}"/>
                                 </#if>
                             </div>
                         </div>

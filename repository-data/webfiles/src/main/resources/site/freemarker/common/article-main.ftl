@@ -35,6 +35,7 @@
                 <div class="ds_layout__partner  mg_partner-logo">
                     <#if document.logo.xlargefourcolumns??>
                         <img alt="" src="<@hst.link hippobean=document.logo.xlargefourcolumns />"
+                            loading="lazy"
                             srcset="
                             <@hst.link hippobean=document.logo.smalltwelvecolumns/> 448w,
                             <@hst.link hippobean=document.logo.smalltwelvecolumnsdoubled/> 896w,
@@ -47,7 +48,7 @@
                             sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
                             >
                     <#else>
-                        <img alt="" src="<@hst.link hippobean=document.logo/>" />
+                        <img loading="lazy" alt="" src="<@hst.link hippobean=document.logo/>" />
                     </#if>
                 </div>
             </#if>

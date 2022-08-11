@@ -28,6 +28,7 @@
                 <div class="ds_layout__partner  mg_partner-logo">
                     <#if document.logo.xlargefourcolumns??>
                         <img alt="" src="<@hst.link hippobean=document.logo.xlargefourcolumns />"
+                            loading="lazy"
                             srcset="
                             <@hst.link hippobean=document.logo.smalltwelvecolumns/> 448w,
                             <@hst.link hippobean=document.logo.smalltwelvecolumnsdoubled/> 896w,
@@ -40,7 +41,7 @@
                             sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
                             >
                     <#else>
-                        <img alt="" src="<@hst.link hippobean=document.logo/>" />
+                        <img loading="lazy" alt="" src="<@hst.link hippobean=document.logo/>" />
                     </#if>
                 </div>
             </#if>
@@ -123,6 +124,7 @@
                                                 <img class="ds_aspect-box__inner" alt="" src="<@hst.link hippobean=child.image.xlargethreecolumns />"
                                                     width="${child.image.xlargethreecolumns.width?c}"
                                                     height="${child.image.xlargethreecolumns.height?c}"
+                                                    loading="lazy"
                                                     srcset="
                                                     <@hst.link hippobean=child.image.smallsixcolumns/> 448w,
                                                     <@hst.link hippobean=child.image.smallsixcolumnsdoubled/> 896w,
@@ -135,7 +137,7 @@
                                                     sizes="(min-width:1200px) 256px, (min-width:992px) 208px, (min-width: 768px) 352px, 448px"
                                                     >
                                             <#else>
-                                                <img src="<@hst.link hippobean=child.image/>" alt="" class="ds_aspect-box__inner" />
+                                                <img loading="lazy" src="<@hst.link hippobean=child.image/>" alt="" class="ds_aspect-box__inner" />
                                             </#if>
                                         </div>
                                     </div>
@@ -167,6 +169,7 @@
                                 <#if document.featuredroleimage.xlargethreecolumns??>
                                     <img alt="${document.featuredrolename}" class="person__image"
                                     src="<@hst.link hippobean=document.featuredroleimage.xlargethreecolumns/>"
+                                    loading="lazy"
                                     srcset="<@hst.link hippobean=document.featuredroleimage.smallfourcolumnsdoubled/> 208w,
                                         <@hst.link hippobean=document.featuredroleimage.smallfourcolumnsdoubled/> 416w,
                                         <@hst.link hippobean=document.featuredroleimage.mediumfourcolumns/> 224w,
@@ -177,7 +180,7 @@
                                         <@hst.link hippobean=document.featuredroleimage.xlargethreecolumnsdoubled/> 512w"
                                     sizes="(min-width:1200px) 256px, (min-width:992px) 208px, (min-width:768px) 224px, 208px">
                                 <#else>
-                                    <img class="person__image" src="<@hst.link path='/assets/images/people/placeholder.png'/>" alt="${person.title}">
+                                    <img loading="lazy" class="person__image" src="<@hst.link path='/assets/images/people/placeholder.png'/>" alt="${person.title}">
                                 </#if>
                             </div>
 

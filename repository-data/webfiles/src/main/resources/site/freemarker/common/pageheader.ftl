@@ -25,6 +25,7 @@
                         <img alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
                                 width="${document.image.xlargesixcolumns.width?c}"
                                 height="${document.image.xlargesixcolumns.height?c}"
+                                loading="lazy"
                                 srcset="
                                 <@hst.link hippobean=document.image.smalltwelvecolumns/> 448w,
                                 <@hst.link hippobean=document.image.smalltwelvecolumnsdoubled/> 896w,
@@ -37,7 +38,7 @@
                                 sizes="(min-width:1200px) 544px, (min-width:992px) 448px, (min-width: 768px) 352px, 448px"
                                 >
                     <#else>
-                        <img src="<@hst.link hippobean=document.image />" alt="${document.alt}"/>
+                        <img loading="lazy" src="<@hst.link hippobean=document.image />" alt="${document.alt}"/>
                     </#if>
                 </div>
             </#if>

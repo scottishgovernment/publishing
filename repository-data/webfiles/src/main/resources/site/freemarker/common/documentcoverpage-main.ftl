@@ -45,16 +45,17 @@
                             <a href="${documentinline}" aria-labelledby="document-${index}-download-description" class="ds_file-info__thumbnail-link  js-download-file" aria-hidden="true">
                                 <#if filenameExtension == "PDF">
                                     <img
-                                        alt="t"
+                                        alt=""
                                         class="ds_file-info__thumbnail-image"
                                         src="<@hst.link hippobean=doc.thumbnails[0]/>"
+                                        loading="lazy"
                                         srcset="
                                             <#list doc.thumbnails as thumbnail>
                                                 <@hst.link hippobean=thumbnail/> ${thumbnail.filename?keep_before_last(".")?keep_after_last("_")}w<#sep>, </#sep>
                                             </#list>"
                                         sizes="(min-width: 768px) 165px, 107px" />
                                 <#else>
-                                    <img class="ds_file-info__thumbnail-image  ds_file-info__thumbnail-image--generic" src="<@hst.webfile path="/assets/images/documents/svg/pdf.svg" />" alt="">
+                                    <img loading="lazy" class="ds_file-info__thumbnail-image  ds_file-info__thumbnail-image--generic" src="<@hst.webfile path="/assets/images/documents/svg/pdf.svg" />" alt="">
                                 </#if>
                             </a>
                         </div>
@@ -96,6 +97,7 @@
                                                 alt="View this document"
                                                 class="document-info__thumbnail-image"
                                                 src="<@hst.link hippobean=doc.thumbnails[0]/>"
+                                                loading="lazy"
                                                 srcset="
                                                     <#list doc.thumbnails as thumbnail>
                                                         <@hst.link hippobean=thumbnail/> ${thumbnail.filename?keep_before_last(".")?keep_after_last("_")}w<#sep>, </#sep>

@@ -59,6 +59,7 @@
                 <div class="ds_layout__partner  mg_partner-logo">
                     <#if guide.logo.xlargefourcolumns??>
                         <img alt="" src="<@hst.link hippobean=guide.logo.xlargefourcolumns />"
+                            loading="lazy"
                             srcset="
                             <@hst.link hippobean=guide.logo.smalltwelvecolumns/> 448w,
                             <@hst.link hippobean=guide.logo.smalltwelvecolumnsdoubled/> 896w,
@@ -71,7 +72,7 @@
                             sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
                             >
                     <#else>
-                        <img alt="" src="<@hst.link hippobean=guide.logo/>" />
+                        <img loading="lazy" alt="" src="<@hst.link hippobean=guide.logo/>" />
                     </#if>
                 </div>
             </#if>
