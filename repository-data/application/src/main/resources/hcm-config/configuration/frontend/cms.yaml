@@ -161,6 +161,18 @@ definitions:
       document.subtypes.included: true
     /hippo:configuration/hippo:frontend/cms/cms-static/advancedSearchController:
       query.limit: '5000'
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smallcolumns:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: false
+      width: 360
+      compression: 0.8
+      optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:smallcolumnsdoubled:
+      jcr:primaryType: frontend:pluginconfig
+      upscaling: false
+      width: 720
+      compression: 0.6
+      optimize: quality
     /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService/publishing:columnimagefour:
       jcr:primaryType: frontend:pluginconfig
       height: 208
