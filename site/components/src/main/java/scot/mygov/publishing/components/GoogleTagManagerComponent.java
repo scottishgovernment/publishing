@@ -10,6 +10,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.gov.publishing.hippo.hst.request.UserTypeValve;
 import scot.mygov.publishing.HippoUtils;
 import scot.mygov.publishing.beans.Base;
 import scot.mygov.publishing.beans.Guide;
@@ -18,13 +19,13 @@ import scot.mygov.publishing.beans.GuidePage;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.apache.commons.lang3.StringUtils.*;
+import static org.apache.commons.lang3.StringUtils.defaultString;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 /**
  * Set fields required to correctly output google tag manager fields.
@@ -125,7 +126,8 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
     }
 
     void setUserType(HstRequest request) {
-        String headerUserType = request.getHeader("X-User-Type");
+        String headerUserType = (String) request.getAttribute(
+                UserTypeValve.USERTYPE_REQUEST_ATTR_NAME);
         String userType = defaultString(headerUserType, "internal");
         request.setAttribute("userType", userType);
     }
