@@ -10,6 +10,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.gov.publishing.hippo.hst.request.UserTypeValve;
 import scot.mygov.publishing.HippoUtils;
 import scot.mygov.publishing.beans.Base;
 import scot.mygov.publishing.beans.Guide;
@@ -125,7 +126,8 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
     }
 
     void setUserType(HstRequest request) {
-        String headerUserType = request.getHeader("X-User-Type");
+        String headerUserType = (String) request.getAttribute(
+                UserTypeValve.USERTYPE_REQUEST_ATTR_NAME);
         String userType = defaultString(headerUserType, "internal");
         request.setAttribute("userType", userType);
     }
