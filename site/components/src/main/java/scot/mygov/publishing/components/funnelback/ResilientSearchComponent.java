@@ -2,6 +2,7 @@ package scot.mygov.publishing.components.funnelback;
 
 import com.netflix.hystrix.strategy.HystrixPlugins;
 import com.netflix.hystrix.strategy.properties.HystrixPropertiesStrategy;
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -16,6 +17,7 @@ import scot.mygov.publishing.beans.Searchsettings;
 
 import javax.servlet.ServletContext;
 
+import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static scot.mygov.publishing.components.funnelback.SearchResponse.blankSearchResponse;
 
@@ -127,6 +129,7 @@ public class ResilientSearchComponent extends EssentialsContentComponent {
     }
 
     void populateRequestAttributes(HstRequest request, SearchResponse searchResponse, Searchsettings searchsettings) {
+        request.setAttribute("queryString", defaultString(request.getQueryString()));
         request.setAttribute("searchType", searchResponse.getType().toString());
         request.setAttribute("question", searchResponse.getQuestion());
         request.setAttribute("response", searchResponse.getResponse());
