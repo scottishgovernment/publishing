@@ -57,11 +57,4 @@ class ContentSelect {
     }
 }
 
-const contentSelects = {
-    init: () => {
-        const contentSelectEls = [].slice.call(document.querySelectorAll('.js-contentselect'));
-        contentSelectEls.forEach(contentSelect => new ContentSelect(contentSelect).init());
-    }
-};
-
-export default contentSelects;
+export default ContentSelect;

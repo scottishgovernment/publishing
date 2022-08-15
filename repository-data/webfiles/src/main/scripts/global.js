@@ -7,7 +7,7 @@
 
 import NotificationBanner from './components/notification';
 import storage from './tools/storage';
-import finders from './components/content-select';
+import ContentSelect from './components/content-select';
 import Tabs from './components/mygov/old-ds-tabs';
 import './vendor/polyfills';
 
@@ -21,9 +21,8 @@ const global = {
         this.setInitialCookiePermissions();
         this.initNotifications();
         this.initDesignSystemComponents();
+        this.initPublishingComponents();
         this.addTracking();
-
-        finders.init();
     },
 
     addTracking: function () {
@@ -152,6 +151,11 @@ const global = {
         tabSets.forEach(tabSet => new Tabs(tabSet).init());
 
         window.DS.components.skipLinks.init();
+    },
+
+    initPublishingComponents: function () {
+        const contentSelectEls = [].slice.call(document.querySelectorAll('.js-contentselect'));
+        contentSelectEls.forEach(contentSelect => new ContentSelect(contentSelect).init());
     },
 
     setInitialCookiePermissions: function () {

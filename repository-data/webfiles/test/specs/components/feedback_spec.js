@@ -1,4 +1,4 @@
-/* global describe beforeEach it expect spyOn $ */
+/* global describe, beforeEach, it, expect, spyOn, loadFixtures, fdescribe, fit, xdescribe, xit, $ */
 
 'use strict';
 
@@ -8,7 +8,7 @@ import feedback from '../../../src/main/scripts/components/feedback';
 
 feedback.init();
 
-xdescribe("Feedback object", function() {
+describe("Feedback object", function() {
 
     beforeEach(function() {
         loadFixtures('feedback.html');
@@ -38,59 +38,59 @@ xdescribe("Feedback object", function() {
     });
 
     it("accepts 'no' when valid", function() {
-        // spyOn($, 'ajax').and.returnValue({
-        //     then: function(cb, fail) {
-        //         fail({
-        //             status: 201
-        //         });
-        //     }
-        // });
         feedback.init();
-        //Click No
-        $('input:radio:eq(1)').trigger('click');
-        //Set the values
-        $("#comments").val('testing');
-        var sel = $("select.reason.no");
-        $("option:eq(1)", sel).attr("selected", "true");
 
-        $('#feedbackForm').trigger('submit');
-        expect($('#feedbackForm').find('.form-error').length).toEqual(0);
+        //Select No
+        document.querySelector('#needsmetno').checked = true;
+
+        //Set the values
+        $("#comments-no").val('testing');
+        document.querySelector('#reason-no option:nth-child(2)').selected = true;
+
+        const event = new Event('submit');
+        document.querySelector('#feedbackForm').dispatchEvent(event);
+
+        expect(document.querySelectorAll('#feedbackErrorSummary .ds_error-summary__list li').length).toEqual(0);
     });
 
     it("rejects 'no' when not valid", function() {
         feedback.init();
-        //Click No
-        $('input:radio:eq(1)').trigger('click');
-        $('#feedbackForm').trigger('submit');
-        expect($('.form-error').length).toEqual(2);
+
+        //Select No
+        document.querySelector('#needsmetno').checked = true;
+
+        const event = new Event('submit');
+        document.querySelector('#feedbackForm').dispatchEvent(event);
+
+        expect(document.querySelectorAll('#feedbackErrorSummary .ds_error-summary__list li').length).toEqual(2);
     });
 
     it("accepts 'yes, but' when valid", function() {
-        spyOn($, 'ajax').and.returnValue({
-            then: function(cb, fail) {
-                fail({
-                    status: 201
-                });
-            }
-        });
         feedback.init();
-        //Click No
-        $('input:radio:eq(2)').trigger('click');
-        //Set the values
-        $("#comments").val('testing');
 
-        $('#feedbackForm').trigger('submit');
-        expect($('#feedbackForm').find('.form-error').length).toEqual(0);
+        //Select No
+        document.querySelector('#needsmetyesbut').checked = true;
+
+        //Set the values
+        $("#comments-yesbut").val('testing');
+        document.querySelector('#reason-yesbut option:nth-child(2)').selected = true;
+
+        const event = new Event('submit');
+        document.querySelector('#feedbackForm').dispatchEvent(event);
+
+        expect(document.querySelectorAll('#feedbackErrorSummary .ds_error-summary__list li').length).toEqual(0);
     });
 
     it("rejects 'yes, but' when not valid", function() {
         feedback.init();
 
-        //Click YesBut
-        $('input:radio:eq(2)').trigger('click');
-        $('#feedbackForm').trigger('submit');
+        //Select YesBut
+        document.querySelector('#needsmetyesbut').checked = true;
 
-        expect($('.form-error').length).toEqual(1);
+        const event = new Event('submit');
+        document.querySelector('#feedbackForm').dispatchEvent(event);
+
+        expect(document.querySelectorAll('#feedbackErrorSummary .ds_error-summary__list li').length).toEqual(1);
     });
 
     it("can trigger a 'yes, but' feedback request", function() {
@@ -100,13 +100,16 @@ xdescribe("Feedback object", function() {
             }
         });
         feedback.init();
-        //Click Yes
-        $('input:radio:eq(0)').trigger('click');
-        $('#feedbackForm').trigger('submit');
-        expect($('#feedbackForm').find('.form-error').length).toEqual(0);
+        //Select Yes
+        document.querySelector('#needsmetyes').checked = true;
+
+        const event = new Event('submit');
+        document.querySelector('#feedbackForm').dispatchEvent(event);
+
+        expect(document.querySelectorAll('#feedbackErrorSummary .ds_error-summary__list li').length).toEqual(0);
     });
 
-    it("handles bad responses from the server", function() {
+    xit("handles bad responses from the server", function() {
         spyOn($, 'ajax').and.returnValue({
             then: function(cb, fail) {
                 fail({
@@ -115,13 +118,17 @@ xdescribe("Feedback object", function() {
             }
         });
         feedback.init();
-        //Click Yes
-        $('input:radio:eq(0)').trigger('click');
-        $('#feedbackForm').trigger('submit');
+
+        //Select Yes
+        document.querySelector('#needsmetyes').checked = true;
+
+        const event = new Event('submit');
+        document.querySelector('#feedbackForm').dispatchEvent(event);
+
         expect($('#feedbackForm .submit').hasClass('form-error')).toBeTruthy();
     });
 
-    it("handles good responses from the server", function() {
+    xit("handles good responses from the server", function() {
         spyOn($, 'ajax').and.returnValue({
             then: function(cb, fail) {
                 fail({

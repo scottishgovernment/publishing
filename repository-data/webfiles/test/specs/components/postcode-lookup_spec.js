@@ -14,7 +14,7 @@ function mockFetchPostcodeResults(response) {
     return function () {
         return Promise.resolve(response);
     };
-};
+}
 
 describe("Postcode lookup", function() {
 
@@ -178,7 +178,7 @@ describe("Postcode lookup", function() {
             expect(myLookup.streetInput.value).toEqual('');
             expect(myLookup.townInput.value).toEqual('LAUDER');
             expect(myLookup.regionInput.value).toEqual('');
-            expect(myLookup.postcodeInput.value).toEqual('TD2 6PU');
+            expect(myLookup.manualPostcodeInput.value).toEqual('TD2 6PU');
         });
 
         it('should not set the manual address input values if there isn\t a selected address', () => {
@@ -200,7 +200,7 @@ describe("Postcode lookup", function() {
             expect(myLookup.streetInput.value).toEqual('');
             expect(myLookup.townInput.value).toEqual('');
             expect(myLookup.regionInput.value).toEqual('');
-            expect(myLookup.postcodeInput.value).toEqual('');
+            expect(myLookup.manualPostcodeInput.value).toEqual('');
         });
 
         it('should not display the RPZ status of a property if this is a RPZ lookup', () => {
