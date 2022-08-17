@@ -56,8 +56,8 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     //When required to add a new property in the CSV export add displayed label and corresponding property in the two lists below.
     //You might have to change #constructPropertiesList method below to add your property if it requires special handling.
 
-    private static final String[] headers = new String[]{"title", "url", "content_owner", "fact_checkers", "review_date", "official_last_modified", "created_by", "date_modified", "modified_by", "id", "state", "life_events", "format" };
-    private static final String[] documentProperties = new String[]{"title", "url", "publishing:contentOwner", "publishing:factCheckers", REVIEW_DATE_PROP, "publishing:lastUpdatedDate", HIPPOSTDPUBWF_CREATED_BY, HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents", "format" };
+    private static final String[] headers = new String[]{"title", "url", "content_owner", "fact_checkers", "review_date", "official_last_modified", "created_by", "date_modified", "modified_by", "id", "state", "life_events", "organisation_tags", "format" };
+    private static final String[] documentProperties = new String[]{"title", "url", "publishing:contentOwner", "publishing:factCheckers", REVIEW_DATE_PROP, "publishing:lastUpdatedDate", HIPPOSTDPUBWF_CREATED_BY, HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:multiValueProperty", "publishing:organisationtags", "format" };
 
     private final ResourceLink<String> exportCSVLink;
     private final ISearchContext searcher;
@@ -164,7 +164,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                 addProperty(variant, property, stateSummary, props);
             } catch (RepositoryException e){
                 LOG.error("An exception occurred while exporting CSV for the property {} ", property, e);
-                props.add("---Exception occurred---");
+                props.add("---Exception occurred---" + e.getMessage());
             }
         }
 
@@ -225,8 +225,11 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                     props.add("");
                 }
                 break;
-            case "publishing:lifeEvents":
-                props.add(lifeEvents(variant, property));
+            case "publishing:multiValueProperty":
+                props.add(multiValueProperty(variant, property));
+                break;
+            case "publishing:organisationtags":
+                props.add(multiValueProperty(variant, property));
                 break;
             case REVIEW_DATE_PROP :
             case "publishing:lastUpdatedDate":
@@ -295,13 +298,13 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                     }
                 }
             } catch (RepositoryException e){
-                LOG.error("An exception occurred while trying to extra contact emails for one of the selected documents.", e);
+                LOG.error("An exception occurred while trying to extract contact emails for one of the selected documents.", e);
             }
         }
         return String.join(", ", contactEmails);
     }
 
-    private String lifeEvents(Node variant, String property) throws RepositoryException {
+    private String multiValueProperty(Node variant, String property) throws RepositoryException {
         if (variant.isNodeType("publishing:guidepage")) {
             Node guideHandle = variant.getParent().getParent().getNode("index");
             variant = getVariant(guideHandle, getNodeStateSummary(guideHandle));
@@ -311,10 +314,10 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
             return "";
         }
 
-        return extractLifeEvents(variant.getProperty(property));
+        return extractMultiValueProperty(variant.getProperty(property));
     }
 
-    private String extractLifeEvents(final Property property){
+    private String extractMultiValueProperty(final Property property){
         String lifeEvents = null;
 
         try {
@@ -325,7 +328,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
             }
             lifeEvents = String.join(", ", results);
         } catch (RepositoryException e) {
-            LOG.error("An exception occurred while trying to extra contact emails for one of the selected documents.", e);
+            LOG.error("An exception occurred while trying to extract multi valued property", e);
         }
 
         return lifeEvents;
