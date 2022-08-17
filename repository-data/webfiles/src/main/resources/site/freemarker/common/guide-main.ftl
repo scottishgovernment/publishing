@@ -61,8 +61,8 @@
                         <img alt="" src="<@hst.link hippobean=guide.logo.xlargefourcolumns />"
                             loading="lazy"
                             srcset="
-                            <@hst.link hippobean=guide.logo.smalltwelvecolumns/> 448w,
-                            <@hst.link hippobean=guide.logo.smalltwelvecolumnsdoubled/> 896w,
+                            <@hst.link hippobean=guide.logo.smallcolumns/> 448w,
+                            <@hst.link hippobean=guide.logo.smallcolumnsdoubled/> 896w,
                             <@hst.link hippobean=guide.logo.mediumfourcolumns/> 224w,
                             <@hst.link hippobean=guide.logo.mediumfourcolumnsdoubled/> 448w,
                             <@hst.link hippobean=guide.logo.largefourcolumns/> 288w,

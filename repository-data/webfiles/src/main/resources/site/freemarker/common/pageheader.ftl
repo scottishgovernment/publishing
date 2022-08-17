@@ -27,8 +27,8 @@
                                 height="${document.image.xlargesixcolumns.height?c}"
                                 loading="lazy"
                                 srcset="
-                                <@hst.link hippobean=document.image.smalltwelvecolumns/> 448w,
-                                <@hst.link hippobean=document.image.smalltwelvecolumnsdoubled/> 896w,
+                                <@hst.link hippobean=document.image.smallcolumns/> 448w,
+                                <@hst.link hippobean=document.image.smallcolumnsdoubled/> 896w,
                                 <@hst.link hippobean=document.image.mediumsixcolumns/> 352w,
                                 <@hst.link hippobean=document.image.mediumsixcolumnsdoubled/> 704w,
                                 <@hst.link hippobean=document.image.largesixcolumns/> 448w,

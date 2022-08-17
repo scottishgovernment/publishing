@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hippo:namespaces/publishing/Column Image 4 3:
+    /hippo:namespaces/publishing/ColumnImageFourThree:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
       jcr:uuid: 0488fe16-be56-46f0-b218-87a704d34d51
@@ -171,7 +171,7 @@ definitions:
             jcr:primaryType: hippogallery:image
             jcr:data:
               type: binary
-              resource: /namespaces/publishing/ColumnImageFourThree/prototypes/prototype/thumbnail/thumbnail.gif
+              resource: /namespaces/publishing/ColumnImage/prototypes/prototype/thumbnail/thumbnail.gif
             jcr:lastModified: 1970-01-01T00:00:00Z
             jcr:mimeType: image/gif
           /hippogallery:original:
@@ -180,7 +180,7 @@ definitions:
             hippogallery:width: 0
             jcr:data:
               type: binary
-              resource: /namespaces/publishing/ColumnImageFourThree/prototypes/prototype/original/original.gif
+              resource: /namespaces/publishing/ColumnImage/prototypes/prototype/original/original.gif
             jcr:lastModified: 1970-01-01T00:00:00Z
             jcr:mimeType: image/gif
       /editor:templates:

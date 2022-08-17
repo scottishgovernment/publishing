@@ -20,8 +20,8 @@
                                     height="${document.image.xlargesixcolumns.height?c}"
                                     loading="lazy"
                                     srcset="
-                                    <@hst.link hippobean=document.image.smalltwelvecolumns/> 448w,
-                                    <@hst.link hippobean=document.image.smalltwelvecolumnsdoubled/> 896w,
+                                    <@hst.link hippobean=document.image.smallcolumns/> 448w,
+                                    <@hst.link hippobean=document.image.smallcolumnsdoubled/> 896w,
                                     <@hst.link hippobean=document.image.mediumsixcolumns/> 352w,
                                     <@hst.link hippobean=document.image.mediumsixcolumnsdoubled/> 704w,
                                     <@hst.link hippobean=document.image.largesixcolumns/> 448w,
@@ -31,21 +31,7 @@
                                     sizes="(min-width:1200px) 544px, (min-width:992px) 448px, (min-width: 768px) 352px, 448px"
                                     >
                         <#else>
-                            <img class="ds_cb__poster-video" alt="${document.alt}" src="<@hst.link hippobean=document.image />"
-                                width="${document.image.cardsixteenninexl.width?c}"
-                                height="${document.image.cardsixteenninexl.height?c}"
-                                loading="lazy"
-                                srcset="
-                                <@hst.link hippobean=document.image.cardsixteennines/> 730w,
-                                <@hst.link hippobean=document.image.cardsixteenninesdbl/> 1460w,
-                                <@hst.link hippobean=document.image.cardsixteenninem/> 352w,
-                                <@hst.link hippobean=document.image.cardsixteenninedbl/> 704w,
-                                <@hst.link hippobean=document.image.cardsixteenninel/> 304w,
-                                <@hst.link hippobean=document.image.cardsixteennineldbl/> 608w,
-                                <@hst.link hippobean=document.image.cardsixteenninexl/> 371w,
-                                <@hst.link hippobean=document.image.cardsixteenninexldbl/> 742w"
-                                sizes="(min-width:1200px) 371px, (min-width:992px) 304px, (min-width:768px) 352px, 730px"
-                            >
+                            <img loading="lazy" src="<@hst.link hippobean=document.image />" alt="${document.alt}"/>
                         </#if>
                     </a>
                 </div>

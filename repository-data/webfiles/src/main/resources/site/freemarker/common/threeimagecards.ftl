@@ -19,8 +19,8 @@
                                             height="${document1.image.xlargefourcolumns.height?c}"
                                             loading="lazy"
                                             srcset="
-                                            <@hst.link hippobean=document1.image.smalltwelvecolumns/> 448w,
-                                            <@hst.link hippobean=document1.image.smalltwelvecolumnsdoubled/> 896w,
+                                            <@hst.link hippobean=document1.image.smallcolumns/> 448w,
+                                            <@hst.link hippobean=document1.image.smallcolumnsdoubled/> 896w,
                                             <@hst.link hippobean=document1.image.mediumfourcolumns/> 224w,
                                             <@hst.link hippobean=document1.image.mediumfourcolumnsdoubled/> 448w,
                                             <@hst.link hippobean=document1.image.largefourcolumns/> 288w,
@@ -83,8 +83,8 @@
                                             height="${document2.image.xlargefourcolumns.height?c}"
                                             loading="lazy"
                                             srcset="
-                                            <@hst.link hippobean=document2.image.smalltwelvecolumns/> 448w,
-                                            <@hst.link hippobean=document2.image.smalltwelvecolumnsdoubled/> 896w,
+                                            <@hst.link hippobean=document2.image.smallcolumns/> 448w,
+                                            <@hst.link hippobean=document2.image.smallcolumnsdoubled/> 896w,
                                             <@hst.link hippobean=document2.image.mediumfourcolumns/> 224w,
                                             <@hst.link hippobean=document2.image.mediumfourcolumnsdoubled/> 448w,
                                             <@hst.link hippobean=document2.image.largefourcolumns/> 288w,
@@ -147,8 +147,8 @@
                                             height="${document3.image.xlargefourcolumns.height?c}"
                                             loading="lazy"
                                             srcset="
-                                            <@hst.link hippobean=document3.image.smalltwelvecolumns/> 448w,
-                                            <@hst.link hippobean=document3.image.smalltwelvecolumnsdoubled/> 896w,
+                                            <@hst.link hippobean=document3.image.smallcolumns/> 448w,
+                                            <@hst.link hippobean=document3.image.smallcolumnsdoubled/> 896w,
                                             <@hst.link hippobean=document3.image.mediumfourcolumns/> 224w,
                                             <@hst.link hippobean=document3.image.mediumfourcolumnsdoubled/> 448w,
                                             <@hst.link hippobean=document3.image.largefourcolumns/> 288w,

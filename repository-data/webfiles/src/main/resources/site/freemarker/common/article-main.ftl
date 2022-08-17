@@ -37,8 +37,8 @@
                         <img alt="" src="<@hst.link hippobean=document.logo.xlargefourcolumns />"
                             loading="lazy"
                             srcset="
-                            <@hst.link hippobean=document.logo.smalltwelvecolumns/> 448w,
-                            <@hst.link hippobean=document.logo.smalltwelvecolumnsdoubled/> 896w,
+                            <@hst.link hippobean=document.logo.smallcolumns/> 448w,
+                            <@hst.link hippobean=document.logo.smallcolumnsdoubled/> 896w,
                             <@hst.link hippobean=document.logo.mediumfourcolumns/> 224w,
                             <@hst.link hippobean=document.logo.mediumfourcolumnsdoubled/> 448w,
                             <@hst.link hippobean=document.logo.largefourcolumns/> 288w,
