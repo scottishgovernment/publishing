@@ -1,6 +1,6 @@
 'use strict';
 
-import storage from '../tools/storage';
+import storage from '../../../../node_modules/@scottish-government/pattern-library/src/base/tools/storage/storage';
 
 const cookieForm = {
 

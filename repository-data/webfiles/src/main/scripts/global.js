@@ -6,7 +6,7 @@
 'use strict';
 
 import NotificationBanner from './components/notification';
-import storage from './tools/storage';
+import storage from '../../../node_modules/@scottish-government/pattern-library/src/base/tools/storage/storage';
 import ContentSelect from './components/content-select';
 import Tabs from './components/mygov/old-ds-tabs';
 import './vendor/polyfills';
