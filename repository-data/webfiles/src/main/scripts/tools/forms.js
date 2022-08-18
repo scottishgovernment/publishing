@@ -49,6 +49,8 @@ const commonForms = {
     setupRecaptcha: function () {
         let recaptchaSuccess = false;
 
+        const downloadLinks = [].slice.call(document.querySelectorAll('.js-document-container .js-download-file'));
+
         /* Exposes recaptcha validation function to global window object to allow reCAPTCHA to find it
             */
         window.checkRecaptcha = function () {
@@ -58,7 +60,6 @@ const commonForms = {
             if (!recaptchaSuccess) {
                 return false;
             } else {
-                const downloadLinks = [].slice.call(document.querySelectorAll('.js-document-container .js-download-file'));
                 downloadLinks.forEach(link => {
                     link.removeAttribute('disabled');
                 });
@@ -66,10 +67,10 @@ const commonForms = {
         };
 
         window.expireRecaptcha = function () {
-            const downloadLinks = [].slice.call(document.querySelectorAll('.js-document-container .js-download-file'));
             downloadLinks.forEach(link => {
                 link.setAttribute('disabled', true);
             });
+
             recaptchaSuccess = false;
             grecaptcha.reset();
         };

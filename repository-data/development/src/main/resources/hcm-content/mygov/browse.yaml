@@ -3179,16 +3179,17 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 25d9845c-e02c-4d45-8bb1-4f0773a78433
       hippo:name: Flying
-      hippo:versionHistory: 36b8fd08-ad31-4982-af4e-eb50aa4930fb
+      hippo:versionHistory: 02279702-d629-4174-afea-e396efaa9ccb
       /index[1]:
         jcr:primaryType: publishing:category
         jcr:mixinTypes: ['mix:versionable']
         jcr:uuid: 8cbe3547-63dd-475f-8eb8-06a5a318405b
         hippo:availability: [preview]
+        hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-10-01T10:06:38.730+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T10:08:25.722+01:00
+        hippostdpubwf:lastModificationDate: 2022-05-09T09:38:55.889+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
         hippotranslation:locale: document-type-locale
@@ -3198,12 +3199,13 @@
         publishing:reportingtags: []
         publishing:seoTitle: Flying
         publishing:sequenceable: true
+        publishing:showFeedback: false
         publishing:showSummaries: false
         publishing:summary: things that can fly
         publishing:title: Flying
         /publishing:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: 672485e1-5670-4a2c-97d3-b8f23bf51d8d
+          hippo:docbase: 0777affa-6f41-4a90-996d-d8eea4d78889
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -3221,12 +3223,13 @@
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: ee7c7138-1318-426c-94d4-d52bc45ee43f
         hippo:availability: [live]
+        hippostd:retainable: false
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-10-01T10:06:38.730+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T10:08:25.722+01:00
+        hippostdpubwf:lastModificationDate: 2022-05-09T09:38:55.889+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2020-10-01T10:08:28.140+01:00
+        hippostdpubwf:publicationDate: 2022-05-09T09:38:58.041+01:00
         hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
         hippotranslation:locale: document-type-locale
         publishing:authorNotes: ''
@@ -3235,12 +3238,13 @@
         publishing:reportingtags: []
         publishing:seoTitle: Flying
         publishing:sequenceable: true
+        publishing:showFeedback: false
         publishing:showSummaries: false
         publishing:summary: things that can fly
         publishing:title: Flying
         /publishing:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: 672485e1-5670-4a2c-97d3-b8f23bf51d8d
+          hippo:docbase: 0777affa-6f41-4a90-996d-d8eea4d78889
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
@@ -3258,10 +3262,11 @@
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: 3ba53ac0-d75c-472f-b9b5-31272cba28c0
         hippo:availability: []
+        hippostd:retainable: false
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-10-01T10:06:38.730+01:00
-        hippostdpubwf:lastModificationDate: 2020-10-01T10:08:25.753+01:00
+        hippostdpubwf:lastModificationDate: 2022-05-09T09:38:33.913+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 7b1bfa2f-b3b8-4f61-be09-e6737b2ffb6f
         hippotranslation:locale: document-type-locale
@@ -3271,12 +3276,13 @@
         publishing:reportingtags: []
         publishing:seoTitle: Flying
         publishing:sequenceable: true
+        publishing:showFeedback: false
         publishing:showSummaries: false
         publishing:summary: things that can fly
         publishing:title: Flying
         /publishing:heroImage:
           jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: 672485e1-5670-4a2c-97d3-b8f23bf51d8d
+          hippo:docbase: 0777affa-6f41-4a90-996d-d8eea4d78889
           hippo:facets: []
           hippo:modes: []
           hippo:values: []

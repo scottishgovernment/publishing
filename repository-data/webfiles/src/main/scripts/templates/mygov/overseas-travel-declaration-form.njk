@@ -154,31 +154,31 @@
         data-callback="checkRecaptcha"
         data-expired-callback="expireRecaptcha"></div>
 
-        <section class="document-section">
-            <div data-documenttype="PDF" class="js-document-container  document-info  document-info--limelight">
-                <div class="document-info__body">
-                    <div class="document-info__thumbnail  document-info__thumbnail--pdf">
-                        <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--PDF" title="View this document" href="#">
-                            <span class="mg_file__icon">
-                                <span class="mg_file__content">PDF</span>
-                            </span>
-                        </a>
-                    </div>
+        <section class="document-section  ds_!_margin-bottom--4  ds_!_margin-top--4">
+            <div class="ds_file-info  js-document-container" data-documenttype="PDF">
+                <div class="ds_file-info__thumbnail">
+                    <a href="#" aria-labelledby="pdf-download-description" disabled aria-disabled="true" class="ds_file-info__thumbnail-link  js-download-file  ds_link" aria-hidden="true">
+                        <img class="ds_file-info__thumbnail-image  ds_file-info__thumbnail-image--generic" src="{{ webfilesPath }}/assets/images/documents/svg/pdf.svg" alt="">
+                    </a>
                 </div>
 
-                <div class="document-info__text">
-                    <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your declaration form - PDF document</a></h3>
+                <div class="ds_file-info__content">
+                    <h3 id="pdf-download-description" class="ds_file-info__title">
+                        <a href="#" disabled aria-disabled="true" class="ds_link  js-download-file"><span class="visually-hidden">Download</span> Your declaration form - PDF document</a>
+                    </h3>
 
-                    <dl class="ds_metadata  ds_metadata--inline">
-                        <div class="ds_metadata__item">
-                            <dt class="ds_metadata__key  visually-hidden">File type</dt>
-                            <dd class="ds_metadata__value"><b>PDF document (.pdf)</b></dd>
-                        </div>
-                    </dl>
+                    <div class="ds_file-info__details">
+                        <dl class="ds_metadata  ds_metadata--inline">
+                            <div class="ds_metadata__item">
+                                <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                                <dd class="ds_metadata__value">PDF document (.pdf)</dd>
+                            </div>
+                        </dl>
+                    </div>
 
-                    <div class="document-info__download">
-                        <a disabled="true" href="#" class="ds_no-margin  ds_button  js-download-file">
-                            Download <span class="visually-hidden">PDF</span>
+                    <div>
+                        <a href="#" disabled aria-disabled="true" aria-labelledby="pdf-download-description" class="ds_file-info__download  ds_button  ds_button--small  ds_no-margin  js-download-file">
+                            Download
                         </a>
                     </div>
                 </div>

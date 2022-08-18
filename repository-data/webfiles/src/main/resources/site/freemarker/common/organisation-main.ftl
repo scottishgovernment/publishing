@@ -26,7 +26,23 @@
 
             <#if document.logo??>
                 <div class="ds_layout__partner  mg_partner-logo">
-                    <img alt="" src="<@hst.link hippobean=document.logo/>" />
+                    <#if document.logo.xlargefourcolumns??>
+                        <img alt="" src="<@hst.link hippobean=document.logo.xlargefourcolumns />"
+                            loading="lazy"
+                            srcset="
+                            <@hst.link hippobean=document.logo.smallcolumns/> 448w,
+                            <@hst.link hippobean=document.logo.smallcolumnsdoubled/> 896w,
+                            <@hst.link hippobean=document.logo.mediumfourcolumns/> 224w,
+                            <@hst.link hippobean=document.logo.mediumfourcolumnsdoubled/> 448w,
+                            <@hst.link hippobean=document.logo.largefourcolumns/> 288w,
+                            <@hst.link hippobean=document.logo.largefourcolumnsdoubled/> 576w,
+                            <@hst.link hippobean=document.logo.xlargefourcolumns/> 352w,
+                            <@hst.link hippobean=document.logo.xlargefourcolumnsdoubled/> 704"
+                            sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
+                            >
+                    <#else>
+                        <img loading="lazy" alt="" src="<@hst.link hippobean=document.logo/>" />
+                    </#if>
                 </div>
             </#if>
 
@@ -103,7 +119,27 @@
                             <#list document.featureditem as child>
                                 <div class="ds_card  ds_card--transparent">
                                     <div class="ds_card__media">
-                                        <img src="<@hst.link hippobean=child.image/>" alt="" class="ds_card__image" />
+                                        <div class="ds_aspect-box">
+                                            <#if child.image.xlargethreecolumns??>
+                                                <img class="ds_aspect-box__inner" alt="" src="<@hst.link hippobean=child.image.xlargethreecolumns />"
+                                                    width="${child.image.xlargethreecolumns.width?c}"
+                                                    height="${child.image.xlargethreecolumns.height?c}"
+                                                    loading="lazy"
+                                                    srcset="
+                                                    <@hst.link hippobean=child.image.smallsixcolumns/> 448w,
+                                                    <@hst.link hippobean=child.image.smallsixcolumnsdoubled/> 896w,
+                                                    <@hst.link hippobean=child.image.mediumsixcolumns/> 352w,
+                                                    <@hst.link hippobean=child.image.mediumsixcolumnsdoubled/> 704w,
+                                                    <@hst.link hippobean=child.image.largethreecolumns/> 208w,
+                                                    <@hst.link hippobean=child.image.largethreecolumnsdoubled/> 416w,
+                                                    <@hst.link hippobean=child.image.xlargethreecolumns/> 256w,
+                                                    <@hst.link hippobean=child.image.xlargethreecolumnsdoubled/> 512"
+                                                    sizes="(min-width:1200px) 256px, (min-width:992px) 208px, (min-width: 768px) 352px, 448px"
+                                                    >
+                                            <#else>
+                                                <img loading="lazy" src="<@hst.link hippobean=child.image/>" alt="" class="ds_aspect-box__inner" />
+                                            </#if>
+                                        </div>
                                     </div>
                                     <@hst.link var="link" hippobean=child.link/>
                                     <div class="ds_card__content  ds_category-item">
@@ -130,20 +166,21 @@
                         <!-- featured role -->
                         <div class="mg_org-person">
                             <div class="mg_org-person__image">
-                                <#if document.featuredroleimage??>
+                                <#if document.featuredroleimage.xlargethreecolumns??>
                                     <img alt="${document.featuredrolename}" class="person__image"
-                                    src="<@hst.link hippobean=document.featuredroleimage.columnimagefour/>"
-                                    srcset="<@hst.link hippobean=document.featuredroleimage.columnimagefour/> 208w,
-                                        <@hst.link hippobean=document.featuredroleimage.columnimagefourdbl/> 416w,
-                                        <@hst.link hippobean=document.featuredroleimage.columnimagefourmedium/> 224w,
-                                        <@hst.link hippobean=document.featuredroleimage.columnimagefourmediumdbl/> 448w,
-                                        <@hst.link hippobean=document.featuredroleimage.columnimagethreelarge/> 208w,
-                                        <@hst.link hippobean=document.featuredroleimage.columnimagethreelargedbl/> 416w,
-                                        <@hst.link hippobean=document.featuredroleimage.columnimagethreexl/> 256w,
-                                        <@hst.link hippobean=document.featuredroleimage.columnimagethreexldbl/> 512w"
+                                    src="<@hst.link hippobean=document.featuredroleimage.xlargethreecolumns/>"
+                                    loading="lazy"
+                                    srcset="<@hst.link hippobean=document.featuredroleimage.smallfourcolumnsdoubled/> 208w,
+                                        <@hst.link hippobean=document.featuredroleimage.smallfourcolumnsdoubled/> 416w,
+                                        <@hst.link hippobean=document.featuredroleimage.mediumfourcolumns/> 224w,
+                                        <@hst.link hippobean=document.featuredroleimage.mediumfourcolumnsdoubled/> 448w,
+                                        <@hst.link hippobean=document.featuredroleimage.largethreecolumns/> 208w,
+                                        <@hst.link hippobean=document.featuredroleimage.largethreecolumnsdoubled/> 416w,
+                                        <@hst.link hippobean=document.featuredroleimage.xlargethreecolumns/> 256w,
+                                        <@hst.link hippobean=document.featuredroleimage.xlargethreecolumnsdoubled/> 512w"
                                     sizes="(min-width:1200px) 256px, (min-width:992px) 208px, (min-width:768px) 224px, 208px">
                                 <#else>
-                                    <img class="person__image" src="<@hst.link path='/assets/images/people/placeholder.png'/>" alt="${person.title}">
+                                    <img loading="lazy" class="person__image" src="<@hst.link path='/assets/images/people/placeholder.png'/>" alt="${person.title}">
                                 </#if>
                             </div>
 
@@ -242,7 +279,7 @@
                             </#if>
                             <#if document.twitter?has_content>
                                 <dd class="ds_contact-details__social-item">
-                                    <a class="ds_contact-details__social-link" href="http://twitter.com/${document.twitter}">
+                                    <a class="ds_contact-details__social-link" href="https://twitter.com/${document.twitter}">
                                         <svg class="ds_contact-details__social-icon  ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#twitter"></use></svg>
                                         ${document.twitter}
                                     </a>
@@ -269,6 +306,14 @@
                                     <a class="ds_contact-details__social-link" href="${document.youtube}">
                                         <svg class="ds_contact-details__social-icon  ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#youtube"></use></svg>
                                         YouTube
+                                    </a>
+                                </dd>
+                            </#if>
+                            <#if document.linkedin?has_content>
+                                <dd class="ds_contact-details__social-item">
+                                    <a class="ds_contact-details__social-link" href="${document.linkedin}">
+                                        <svg class="ds_contact-details__social-icon  ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#linkedin"></use></svg>
+                                        LinkedIn
                                     </a>
                                 </dd>
                             </#if>

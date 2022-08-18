@@ -8,15 +8,16 @@
             <div class="ds_card__media">
                 <#if child.bean.cardImage??>
                     <img alt="${document.title}" class="ds_card__image"
-                        src="<@hst.link hippobean=child.bean.cardImage.cardTwoThreeFiveS/>"
-                        srcset="<@hst.link hippobean=child.bean.cardImage.cardTwoThreeFiveS/> 290w,
-                            <@hst.link hippobean=child.bean.cardImage.cardTwoThreeFiveSDbl/> 580w,
-                            <@hst.link hippobean=child.bean.cardImage.cardTwoThreeFiveM/> 355w,
-                            <@hst.link hippobean=child.bean.cardImage.cardTwoThreeFiveMDbl/> 710w,
-                            <@hst.link hippobean=child.bean.cardImage.cardTwoThreeFiveL/> 306w,
-                            <@hst.link hippobean=child.bean.cardImage.cardTwoThreeFiveLDbl/> 612w,
-                            <@hst.link hippobean=child.bean.cardImage.cardTwoThreeFiveXl/> 373w,
-                            <@hst.link hippobean=child.bean.cardImage.cardTwoThreeFiveXlDbl/> 746w"
+                        loading="lazy"
+                        src="<@hst.link hippobean=child.bean.cardImage.cardTwentyoneNineS/>"
+                        srcset="<@hst.link hippobean=child.bean.cardImage.cardTwentyoneNineS/> 290w,
+                            <@hst.link hippobean=child.bean.cardImage.cardTwentyoneNineSDbl/> 580w,
+                            <@hst.link hippobean=child.bean.cardImage.cardTwentyoneNineM/> 355w,
+                            <@hst.link hippobean=child.bean.cardImage.cardTwentyoneNineMDbl/> 710w,
+                            <@hst.link hippobean=child.bean.cardImage.cardTwentyoneNineL/> 306w,
+                            <@hst.link hippobean=child.bean.cardImage.cardTwentyoneNineLDbl/> 612w,
+                            <@hst.link hippobean=child.bean.cardImage.cardTwentyoneNineXl/> 373w,
+                            <@hst.link hippobean=child.bean.cardImage.cardTwentyoneNineXlDbl/> 746w"
                         sizes="(min-width:1200px) 373px, (min-width:920px) 306px, (min-width:768px) 355px, 290w"/>
                 </#if>
             </div>

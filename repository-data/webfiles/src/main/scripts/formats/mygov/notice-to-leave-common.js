@@ -134,6 +134,8 @@ const noticeToLeaveForm = {
             formTemplateData.subtenants = true;
         }
 
+        formTemplateData.webfilesPath = bloomreachWebfile();
+
         formTemplateContainer.innerHTML = formTemplate.render(formTemplateData);
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 

@@ -28,8 +28,8 @@ public class Home extends Base {
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:heroImage")
-    public HippoGalleryImageSet getHeroImage() {
-        return getLinkedBean("publishing:heroImage", HippoGalleryImageSet.class);
+    public ColumnImage getHeroImage() {
+        return getLinkedBean("publishing:heroImage", ColumnImage.class);
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:cardImage")

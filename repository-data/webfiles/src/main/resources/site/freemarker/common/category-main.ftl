@@ -20,8 +20,19 @@
                     </header>
                     <#if document.heroImage??>
                         <div class="ds_category-header__media-container">
-                                <img class="ds_category-header__media" alt=""
-                                    src="<@hst.link hippobean=document.heroImage/>" />
+                            <img class="ds_category-header__media" alt="" src="<@hst.link hippobean=document.heroImage />"
+                                width="${document.heroImage.xlargefourcolumns.width?c}"
+                                height="${document.heroImage.xlargefourcolumns.height?c}"
+                                loading="lazy"
+                                srcset="
+                                <@hst.link hippobean=document.heroImage.mediumfourcolumns/> 224w,
+                                <@hst.link hippobean=document.heroImage.mediumfourcolumnsdoubled/> 448w,
+                                <@hst.link hippobean=document.heroImage.largefourcolumns/> 288w,
+                                <@hst.link hippobean=document.heroImage.largefourcolumnsdoubled/> 576w,
+                                <@hst.link hippobean=document.heroImage.xlargefourcolumns/> 352w,
+                                <@hst.link hippobean=document.heroImage.xlargefourcolumnsdoubled/> 704w"
+                                sizes="(min-width:1200px) 352px, (min-width:992px) 288px, 224px"
+                                >
                         </div>
                     </#if>
                 </div>

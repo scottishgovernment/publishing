@@ -10,6 +10,12 @@
 [publishing:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
 
+[publishing:ColumnImage] > hippogallery:imageset, hippogallery:relaxed
+[publishing:ColumnImageFourThree] > hippogallery:imageset, hippogallery:relaxed
+[publishing:ColumnImageOneOne] > hippogallery:imageset, hippogallery:relaxed
+[publishing:ColumnImageSixteenNine] > hippogallery:imageset, hippogallery:relaxed
+[publishing:ColumnImageTwentyoneNine] > hippogallery:imageset, hippogallery:relaxed
+
 [publishing:Fragment] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, publishing:basedocument
   orderable
 
@@ -141,4 +147,3 @@
 
 [publishing:video] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
-
