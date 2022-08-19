@@ -9,16 +9,15 @@
 
         <div class="category-upper">
             <div class="ds_wrapper">
-                <div class="ds_category-header  mg_hero"">
-                    <header class="ds_category-header__header">
-                        <h1 class="ds_category-header__title">${document.title}</h1>
-                        <div class="ds_category-header__summary">
-                            <p>${document.summary}</p>
-                        </div>
-                    </header>
-                    <div class="ds_category-header__media-container">
-                        <#if document.heroImage??>
-                            <img class="ds_category-header__media" alt="" src="<@hst.link hippobean=document.heroImage />"
+                <header class="ds_feature-header  ds_feature-header--wide">
+                    <div class="ds_feature-header__primary">
+                        <h1 class="ds_feature-header__title">${document.title}</h1>
+                        <p>${document.summary}</p>
+                    </div>
+
+                    <#if document.heroImage??>
+                        <div class="ds_feature-header__secondary">
+                            <img class="ds_feature-header__image" alt="" src="<@hst.link hippobean=document.heroImage />"
                                 width="${document.heroImage.xlargefourcolumns.width?c}"
                                 height="${document.heroImage.xlargefourcolumns.height?c}"
                                 loading="lazy"
@@ -30,10 +29,10 @@
                                 <@hst.link hippobean=document.heroImage.xlargefourcolumns/> 352w,
                                 <@hst.link hippobean=document.heroImage.xlargefourcolumnsdoubled/> 704w"
                                 sizes="(min-width:1200px) 352px, (min-width:992px) 288px, 224px"
-                                >
-                        </#if>
-                    </div>
-                </div>
+                            >
+                        </div>
+                    </#if>
+                </header>
             </div>
         </div>
 

@@ -9,9 +9,11 @@
     <main id="main-content">
         <div class="category-upper">
             <div class="ds_wrapper">
-                <div class="ds_category-header  mg_hero">
-                    <header class="ds_category-header__header">
-                        <h1 class="ds_category-header__title">Access to public services in Scotland</h1>
+
+                <header class="ds_feature-header  ds_feature-header--wide  mg_hero">
+                    <div class="ds_feature-header__primary">
+                        <h1 class="ds_feature-header__title">Access to public services in Scotland</h1>
+
                         <div class="ds_site-search" data-module="ds-site-search">
                             <form role="search" class="ds_site-search__form" method="GET" action="<@hst.link path='/search/'/>">
                                 <label class="ds_label  visually-hidden" for="site-search">Search</label>
@@ -27,9 +29,9 @@
                                 </div>
                             </form>
                         </div>
-                    </header>
+                    </div>
 
-                    <div class="ds_category-header__aside  ds_category-header__media-container">
+                    <div class="ds_feature-header__secondary">
                         <div class="mg_hero-links">
                             <@hst.link var="about" path="/about-mygovscot"/>
                             <a class="mg_hero-links__link" href="${about}" data-navigation="link-hero">About</a>
@@ -50,9 +52,8 @@
 
                             <span class="mg_hero-az__icon"></span>
                         </a>
-
                     </div>
-                </div>
+                </header>
             </div>
         </div>
 

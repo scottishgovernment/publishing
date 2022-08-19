@@ -1,32 +1,31 @@
 .#{$site-prefix}hero {
     align-items: start;
-    margin-top: 32px;
+    margin-top: 48px;
 
-    .ds_category-header {
-        &__header {
-            border-left: 0;
-            margin-bottom: 0;
-            margin-top: 0;
-            padding-left: 0;
+    .ds_feature-header {
+        @include ds_responsive-margin(3, bottom);
 
+        &__primary {
             align-content: space-between;
             display: flex;
             flex-direction: column;
             height: 100%;
             justify-content: space-between;
+            padding: 0;
         }
 
         &__title {
             margin-bottom: 32px;
         }
+
+        &__secondary {
+            display: none;
+            font-size: $small-size;
+            line-height: 24px;
+        }
     }
 }
 
-.ds_category-header__aside {
-    display: none;
-    font-size: $small-size;
-    line-height: 24px;
-}
 
 
 
@@ -99,7 +98,7 @@
 }
 
 @include ds_media-query(medium) {
-    .ds_category-header__aside {
+    .mg_hero .ds_feature-header__secondary {
         display: block;
     }
 }

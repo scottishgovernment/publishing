@@ -1,0 +1,12 @@
+/*------------------------------------*\
+    FEATURE HEADER OVERRIDES
+\*------------------------------------*/
+
+.ds_feature-header {
+    margin-bottom: px-to-rem(8px);
+
+    @include ds_media-query(medium) {
+        margin-bottom: px-to-rem(56px);
+        margin-top: px-to-rem(48px);
+    }
+}
