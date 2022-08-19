@@ -40,53 +40,6 @@
                     <@hst.link var="documentinline" hippobean=doc.document>
                     </@hst.link>
 
-                    <div class="ds_file-info">
-                        <div class="ds_file-info__thumbnail">
-                            <a href="${documentinline}" aria-labelledby="document-${index}-download-description" class="ds_file-info__thumbnail-link  js-download-file" aria-hidden="true">
-                                <#if filenameExtension == "PDF">
-                                    <img
-                                        alt=""
-                                        class="ds_file-info__thumbnail-image"
-                                        src="<@hst.link hippobean=doc.thumbnails[0]/>"
-                                        loading="lazy"
-                                        srcset="
-                                            <#list doc.thumbnails as thumbnail>
-                                                <@hst.link hippobean=thumbnail/> ${thumbnail.filename?keep_before_last(".")?keep_after_last("_")}w<#sep>, </#sep>
-                                            </#list>"
-                                        sizes="(min-width: 768px) 165px, 107px" />
-                                <#else>
-                                    <img loading="lazy" class="ds_file-info__thumbnail-image  ds_file-info__thumbnail-image--generic" src="<@hst.webfile path="/assets/images/documents/svg/pdf.svg" />" alt="">
-                                </#if>
-                            </a>
-                        </div>
-
-                        <div class="ds_file-info__content">
-                            <h3 id="document-${index}-download-description" class="ds_file-info__title">
-                                <a href="${documentinline}" class="js-download-file"><span class="visually-hidden">Download</span> ${doc.title}</a>
-                            </h3>
-
-                            <div class="ds_file-info__details">
-                                <dl class="ds_metadata  ds_metadata--inline">
-                                    <div class="ds_metadata__item">
-                                        <dt class="ds_metadata__key  visually-hidden">File type</dt>
-                                        <dd class="ds_metadata__value"><b><#if doc.pageCount?? && doc.pageCount != 0 >${doc.pageCount} page </#if>${filenameExtension}</b></dd>
-                                    </div>
-
-                                    <div class="ds_metadata__item">
-                                        <dt class="ds_metadata__key  visually-hidden">File size</dt>
-                                        <dd class="ds_metadata__value"><@formatFileSize document=doc/></dd>
-                                    </div>
-                                </dl>
-                            </div>
-
-                            <div>
-                                <a href="${documentinline}" aria-labelledby="document-${index}-download-description" class="ds_file-info__download  ds_button  ds_button--small  ds_no-margin  js-download-file">
-                                    Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="document-info  document-info--limelight">
                         <div class="document-info__body">
                             <div class="document-info__thumbnail  document-info__thumbnail--${filenameExtension}">
