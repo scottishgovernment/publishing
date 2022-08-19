@@ -11,7 +11,7 @@
     }
 
     &__image > img {
-        max-width: 320px;
+        max-width: 100%;
     }
 
     @include ds_media-query(small) {
