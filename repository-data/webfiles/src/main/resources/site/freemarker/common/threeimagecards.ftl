@@ -26,7 +26,7 @@
                                             <@hst.link hippobean=document1.image.largefourcolumns/> 288w,
                                             <@hst.link hippobean=document1.image.largefourcolumnsdoubled/> 576w,
                                             <@hst.link hippobean=document1.image.xlargefourcolumns/> 352w,
-                                            <@hst.link hippobean=document1.image.xlargefourcolumnsdoubled/> 704"
+                                            <@hst.link hippobean=document1.image.xlargefourcolumnsdoubled/> 704w"
                                             sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
                                             >
                                 <#else>
@@ -90,7 +90,7 @@
                                             <@hst.link hippobean=document2.image.largefourcolumns/> 288w,
                                             <@hst.link hippobean=document2.image.largefourcolumnsdoubled/> 576w,
                                             <@hst.link hippobean=document2.image.xlargefourcolumns/> 352w,
-                                            <@hst.link hippobean=document2.image.xlargefourcolumnsdoubled/> 704"
+                                            <@hst.link hippobean=document2.image.xlargefourcolumnsdoubled/> 704w"
                                             sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
                                             >
                                 <#else>
@@ -154,7 +154,7 @@
                                             <@hst.link hippobean=document3.image.largefourcolumns/> 288w,
                                             <@hst.link hippobean=document3.image.largefourcolumnsdoubled/> 576w,
                                             <@hst.link hippobean=document3.image.xlargefourcolumns/> 352w,
-                                            <@hst.link hippobean=document3.image.xlargefourcolumnsdoubled/> 704"
+                                            <@hst.link hippobean=document3.image.xlargefourcolumnsdoubled/> 704w"
                                             sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
                                             >
                                 <#else>

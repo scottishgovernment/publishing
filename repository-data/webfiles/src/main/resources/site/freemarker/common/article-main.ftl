@@ -44,7 +44,7 @@
                             <@hst.link hippobean=document.logo.largefourcolumns/> 288w,
                             <@hst.link hippobean=document.logo.largefourcolumnsdoubled/> 576w,
                             <@hst.link hippobean=document.logo.xlargefourcolumns/> 352w,
-                            <@hst.link hippobean=document.logo.xlargefourcolumnsdoubled/> 704"
+                            <@hst.link hippobean=document.logo.xlargefourcolumnsdoubled/> 704w"
                             sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
                             >
                     <#else>

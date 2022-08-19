@@ -37,7 +37,7 @@
                             <@hst.link hippobean=document.logo.largefourcolumns/> 288w,
                             <@hst.link hippobean=document.logo.largefourcolumnsdoubled/> 576w,
                             <@hst.link hippobean=document.logo.xlargefourcolumns/> 352w,
-                            <@hst.link hippobean=document.logo.xlargefourcolumnsdoubled/> 704"
+                            <@hst.link hippobean=document.logo.xlargefourcolumnsdoubled/> 704w"
                             sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
                             >
                     <#else>
@@ -126,14 +126,14 @@
                                                     height="${child.image.xlargethreecolumns.height?c}"
                                                     loading="lazy"
                                                     srcset="
-                                                    <@hst.link hippobean=child.image.smallsixcolumns/> 448w,
-                                                    <@hst.link hippobean=child.image.smallsixcolumnsdoubled/> 896w,
+                                                    <@hst.link hippobean=child.image.smallcolumns/> 448w,
+                                                    <@hst.link hippobean=child.image.smallcolumnsdoubled/> 896w,
                                                     <@hst.link hippobean=child.image.mediumsixcolumns/> 352w,
                                                     <@hst.link hippobean=child.image.mediumsixcolumnsdoubled/> 704w,
                                                     <@hst.link hippobean=child.image.largethreecolumns/> 208w,
                                                     <@hst.link hippobean=child.image.largethreecolumnsdoubled/> 416w,
                                                     <@hst.link hippobean=child.image.xlargethreecolumns/> 256w,
-                                                    <@hst.link hippobean=child.image.xlargethreecolumnsdoubled/> 512"
+                                                    <@hst.link hippobean=child.image.xlargethreecolumnsdoubled/> 512w"
                                                     sizes="(min-width:1200px) 256px, (min-width:992px) 208px, (min-width: 768px) 352px, 448px"
                                                     >
                                             <#else>
@@ -170,8 +170,8 @@
                                     <img alt="${document.featuredrolename}" class="person__image"
                                     src="<@hst.link hippobean=document.featuredroleimage.xlargethreecolumns/>"
                                     loading="lazy"
-                                    srcset="<@hst.link hippobean=document.featuredroleimage.smallfourcolumnsdoubled/> 208w,
-                                        <@hst.link hippobean=document.featuredroleimage.smallfourcolumnsdoubled/> 416w,
+                                    srcset="<@hst.link hippobean=document.featuredroleimage.smallcolumnsdoubled/> 208w,
+                                        <@hst.link hippobean=document.featuredroleimage.smallcolumnsdoubled/> 416w,
                                         <@hst.link hippobean=document.featuredroleimage.mediumfourcolumns/> 224w,
                                         <@hst.link hippobean=document.featuredroleimage.mediumfourcolumnsdoubled/> 448w,
                                         <@hst.link hippobean=document.featuredroleimage.largethreecolumns/> 208w,
