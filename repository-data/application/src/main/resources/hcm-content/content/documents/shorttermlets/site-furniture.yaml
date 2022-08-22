@@ -1,0 +1,547 @@
+/content/documents/shorttermlets/site-furniture:
+  .meta:order-before: images
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['mix:versionable']
+  jcr:uuid: 58383bf4-ac09-4ed2-84ae-41e53b5d62f1
+  hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror]
+  /footer:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 4e2d30f7-8dac-48ce-8877-8cf886896f73
+    hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
+    /cookies:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: a8c44f83-6df4-4a2d-8c82-983a5b371f5d
+      hippo:name: cookies
+      hippo:versionHistory: 3c9343b5-5a7c-4573-a997-482dd3b62e23
+      /cookies[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: b5d5f67a-4ea1-427d-9b1b-957f029e397b
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:52.890Z
+        hippostdpubwf:lastModificationDate: 2022-08-22T14:53:59.547+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Cookies
+        publishing:noindex: false
+        publishing:permalink: /cookies/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookies
+        publishing:title: Cookies
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <h2>Why we use cookies</h2>
+
+            <p>We use shorttermlets.campaign.mygov.scot cookie tracking data to make informed decisions on whether the site is meeting your needs, which leads to us making improvements. For example, we monitor how much traffic each part of the site gets and work to improve areas which are not being found when they should be.</p>
+
+            <div class="ds_inset-text">
+            <div class="ds_inset-text__text">
+            <p>The cookies that we set on shorttermlets.campaign.mygov.scot cannot be used to identify you personally. <a href="https://ico.org.uk/your-data-matters/online/cookies/">Find out more about how to manage cookies for all websites</a></p>
+            </div>
+            </div>
+
+            <h2>Turn cookies on or off</h2>
+
+            <p>We use 3 main types of cookie on our website. You can choose which cookies you're happy for us to use.</p>
+
+            <p><a href="cookie-details_1">Find out more about the cookies we use</a></p>
+          /cookie-details_1:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 548ed0c7-8253-41c6-9173-3dbd4b24e630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /cookies[2]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:versionable']
+        jcr:uuid: 756d3b2b-312b-455c-adc4-aeb9211b0d54
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:52.890Z
+        hippostdpubwf:lastModificationDate: 2022-08-22T14:51:58.340+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Cookies
+        publishing:noindex: false
+        publishing:permalink: /cookies/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookies
+        publishing:title: Cookies
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <h2>Why we use cookies</h2>
+
+            <p>We use shorttermlets.campaign.mygov.scot cookie tracking data to make informed decisions on whether the site is meeting your needs, which leads to us making improvements. For example, we monitor how much traffic each part of the site gets and work to improve areas which are not being found when they should be.</p>
+
+            <div class="ds_inset-text">
+            <div class="ds_inset-text__text">
+            <p>The cookies that we set on shorttermlets.campaign.mygov.scot cannot be used to identify you personally. <a href="https://ico.org.uk/your-data-matters/online/cookies/">Find out more about how to manage cookies for all websites</a></p>
+            </div>
+            </div>
+
+            <h2>Turn cookies on or off</h2>
+
+            <p>We use 3 main types of cookie on our website. You can choose which cookies you're happy for us to use.</p>
+
+            <p><a href="cookie-details_1">Find out more about the cookies we use</a></p>
+          /cookie-details_1:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 548ed0c7-8253-41c6-9173-3dbd4b24e630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /cookies[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: dcbffb2e-c169-42b0-81da-1750f82a480c
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2019-12-04T11:13:52.890Z
+        hippostdpubwf:lastModificationDate: 2022-08-22T14:51:58.340+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2022-08-22T14:52:00.795+01:00
+        hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Cookies
+        publishing:noindex: false
+        publishing:permalink: /cookies/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookies
+        publishing:title: Cookies
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <h2>Why we use cookies</h2>
+
+            <p>We use shorttermlets.campaign.mygov.scot cookie tracking data to make informed decisions on whether the site is meeting your needs, which leads to us making improvements. For example, we monitor how much traffic each part of the site gets and work to improve areas which are not being found when they should be.</p>
+
+            <div class="ds_inset-text">
+            <div class="ds_inset-text__text">
+            <p>The cookies that we set on shorttermlets.campaign.mygov.scot cannot be used to identify you personally. <a href="https://ico.org.uk/your-data-matters/online/cookies/">Find out more about how to manage cookies for all websites</a></p>
+            </div>
+            </div>
+
+            <h2>Turn cookies on or off</h2>
+
+            <p>We use 3 main types of cookie on our website. You can choose which cookies you're happy for us to use.</p>
+
+            <p><a href="cookie-details_1">Find out more about the cookies we use</a></p>
+          /cookie-details_1:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 548ed0c7-8253-41c6-9173-3dbd4b24e630
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+  /cookie-details:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 548ed0c7-8253-41c6-9173-3dbd4b24e630
+    hippo:name: cookie-details
+    hippo:versionHistory: 086390e3-70ef-4a2c-b71d-fc25e38b22b8
+    /cookie-details[1]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: 83e55478-b7cd-44e9-be48-361d47d7d517
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-12-04T11:13:51.225Z
+      hippostdpubwf:lastModificationDate: 2022-08-22T14:54:14.924+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9f5cdc9d-b6b4-4c97-844b-095ef5919b6c
+      hippotranslation:locale: document-type-locale
+      publishing:audience: ''
+      publishing:authorNotes: ''
+      publishing:metaDescription: Cookies that we set
+      publishing:noindex: false
+      publishing:permalink: /cookie-details/
+      publishing:reportingtags: []
+      publishing:sensitive: false
+      publishing:seoTitle: Cookies that we set
+      publishing:serviceproviders: []
+      publishing:showFeedback: false
+      publishing:showInParent: false
+      publishing:slug: cookie-details
+      publishing:summary: Cookies that we set
+      publishing:title: Cookies that we set
+      publishing:userneed: ''
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <h2>Google Analytics</h2>
+
+          <p>We use Google Analytics to collect information about how you use shorttermlets.campaignt.mygov.scot.</p>
+
+          <p>We store information about:</p>
+
+          <ul>
+           <li>the pages you visit and how long you spend on each page</li>
+           <li>how you got to mygov.scot</li>
+           <li>what you click on while you're visiting mygov.scot</li>
+          </ul>
+
+          <p>We do not:</p>
+
+          <ul>
+           <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+           <li>make any attempt to find out the identities of people visiting mygov.scot</li>
+           <li>allow the tools that we use to do this either</li>
+           <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+          </ul>
+
+          <p>All information we get through cookies and analytics will be treated in confidence.</p>
+
+          <p>We anonymise the last 3 digits of all tradingnation.mygov.scot user IP addresses for Google Analytics, so that we can ensure that you are protected (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>). We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+
+          <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and privacy in Google Analytics.</a></p>
+
+          <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google analytics</a> cookies.</p>
+
+          <table>
+           <thead>
+            <tr>
+             <th>Name</th>
+             <th>Information</th>
+             <th>Expiry</th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+             <td>_ga</td>
+             <td>This is used to understand and differentiate between different users.</td>
+             <td>38 Months</td>
+            </tr>
+            <tr>
+             <td>_gid</td>
+             <td>_gid has a different ID for each page set on, and a timestamp. This assists with plotting user journeys.</td>
+             <td>24 Hours</td>
+            </tr>
+            <tr>
+             <td>_gat</td>
+             <td>We use Google Tag Manager to tailor our tracking in case we have different elements that are being tested. For example, setting a tag to track how far a user is having to scroll down a long page. The _gat tag pushes the request rate through quicker.</td>
+             <td>1 Minute</td>
+            </tr>
+           </tbody>
+          </table>
+
+          <h3>YouTube</h3>
+
+          <p>Pages on mygov.scot which contain YouTube videos will not set third-party cookies (we use YouTube-nocookie.com — <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+
+          <h2>Further information</h2>
+
+          <p>You can email the performance team for further information.</p>
+
+          <p>Email: <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
+
+          <div class="ds_inset-text">
+          <div class="ds_inset-text__text">
+          <p>This is a live document and will continue to be updated on a bi-monthly basis ensuring it complies with industry standards.</p>
+          </div>
+          </div>
+      /publishing:logo:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:contentOwner:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /cookie-details[2]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['hippostd:taggable', 'mix:versionable']
+      jcr:uuid: b33fdb67-c620-4408-9f2d-19fbb3dae8a2
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-12-04T11:13:51.225Z
+      hippostdpubwf:lastModificationDate: 2022-08-22T14:56:09.194+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 9f5cdc9d-b6b4-4c97-844b-095ef5919b6c
+      hippotranslation:locale: document-type-locale
+      publishing:audience: ''
+      publishing:authorNotes: ''
+      publishing:metaDescription: Cookies that we set
+      publishing:noindex: false
+      publishing:permalink: /cookie-details/
+      publishing:reportingtags: []
+      publishing:sensitive: false
+      publishing:seoTitle: Cookies that we set
+      publishing:serviceproviders: []
+      publishing:showFeedback: false
+      publishing:showInParent: false
+      publishing:slug: cookie-details
+      publishing:summary: Cookies that we set
+      publishing:title: Cookies that we set
+      publishing:userneed: ''
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <h2>Google Analytics</h2>
+
+          <p>We use Google Analytics to collect information about how you use shorttermlets.campaignt.mygov.scot.</p>
+
+          <p>We store information about:</p>
+
+          <ul>
+           <li>the pages you visit and how long you spend on each page</li>
+           <li>how you got to mygov.scot</li>
+           <li>what you click on while you're visiting mygov.scot</li>
+          </ul>
+
+          <p>We do not:</p>
+
+          <ul>
+           <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+           <li>make any attempt to find out the identities of people visiting mygov.scot</li>
+           <li>allow the tools that we use to do this either</li>
+           <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+          </ul>
+
+          <p>All information we get through cookies and analytics will be treated in confidence.</p>
+
+          <p>We anonymise the last 3 digits of all tradingnation.mygov.scot user IP addresses for Google Analytics, so that we can ensure that you are protected (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>). We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+
+          <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and privacy in Google Analytics.</a></p>
+
+          <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google analytics</a> cookies.</p>
+
+          <table>
+           <thead>
+            <tr>
+             <th>Name</th>
+             <th>Information</th>
+             <th>Expiry</th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+             <td>_ga</td>
+             <td>This is used to understand and differentiate between different users.</td>
+             <td>38 Months</td>
+            </tr>
+            <tr>
+             <td>_gid</td>
+             <td>_gid has a different ID for each page set on, and a timestamp. This assists with plotting user journeys.</td>
+             <td>24 Hours</td>
+            </tr>
+            <tr>
+             <td>_gat</td>
+             <td>We use Google Tag Manager to tailor our tracking in case we have different elements that are being tested. For example, setting a tag to track how far a user is having to scroll down a long page. The _gat tag pushes the request rate through quicker.</td>
+             <td>1 Minute</td>
+            </tr>
+           </tbody>
+          </table>
+
+          <h3>YouTube</h3>
+
+          <p>Pages on mygov.scot which contain YouTube videos will not set third-party cookies (we use YouTube-nocookie.com — <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+
+          <h2>Further information</h2>
+
+          <p>You can email the performance team for further information.</p>
+
+          <p>Email: <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
+
+          <div class="ds_inset-text">
+          <div class="ds_inset-text__text">
+          <p>This is a live document and will continue to be updated on a bi-monthly basis ensuring it complies with industry standards.</p>
+          </div>
+          </div>
+      /publishing:logo:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:contentOwner:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /cookie-details[3]:
+      jcr:primaryType: publishing:article
+      jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+      jcr:uuid: b9e1a312-32db-4a93-9b0f-b81a86ec0620
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: system
+      hippostdpubwf:creationDate: 2019-12-04T11:13:51.225Z
+      hippostdpubwf:lastModificationDate: 2022-08-22T14:56:09.194+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2022-08-22T14:56:10.992+01:00
+      hippotranslation:id: 9f5cdc9d-b6b4-4c97-844b-095ef5919b6c
+      hippotranslation:locale: document-type-locale
+      publishing:audience: ''
+      publishing:authorNotes: ''
+      publishing:metaDescription: Cookies that we set
+      publishing:noindex: false
+      publishing:permalink: /cookie-details/
+      publishing:reportingtags: []
+      publishing:sensitive: false
+      publishing:seoTitle: Cookies that we set
+      publishing:serviceproviders: []
+      publishing:showFeedback: false
+      publishing:showInParent: false
+      publishing:slug: cookie-details
+      publishing:summary: Cookies that we set
+      publishing:title: Cookies that we set
+      publishing:userneed: ''
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: |-
+          <h2>Google Analytics</h2>
+
+          <p>We use Google Analytics to collect information about how you use shorttermlets.campaignt.mygov.scot.</p>
+
+          <p>We store information about:</p>
+
+          <ul>
+           <li>the pages you visit and how long you spend on each page</li>
+           <li>how you got to mygov.scot</li>
+           <li>what you click on while you're visiting mygov.scot</li>
+          </ul>
+
+          <p>We do not:</p>
+
+          <ul>
+           <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+           <li>make any attempt to find out the identities of people visiting mygov.scot</li>
+           <li>allow the tools that we use to do this either</li>
+           <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+          </ul>
+
+          <p>All information we get through cookies and analytics will be treated in confidence.</p>
+
+          <p>We anonymise the last 3 digits of all tradingnation.mygov.scot user IP addresses for Google Analytics, so that we can ensure that you are protected (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>). We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+
+          <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and privacy in Google Analytics.</a></p>
+
+          <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google analytics</a> cookies.</p>
+
+          <table>
+           <thead>
+            <tr>
+             <th>Name</th>
+             <th>Information</th>
+             <th>Expiry</th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+             <td>_ga</td>
+             <td>This is used to understand and differentiate between different users.</td>
+             <td>38 Months</td>
+            </tr>
+            <tr>
+             <td>_gid</td>
+             <td>_gid has a different ID for each page set on, and a timestamp. This assists with plotting user journeys.</td>
+             <td>24 Hours</td>
+            </tr>
+            <tr>
+             <td>_gat</td>
+             <td>We use Google Tag Manager to tailor our tracking in case we have different elements that are being tested. For example, setting a tag to track how far a user is having to scroll down a long page. The _gat tag pushes the request rate through quicker.</td>
+             <td>1 Minute</td>
+            </tr>
+           </tbody>
+          </table>
+
+          <h3>YouTube</h3>
+
+          <p>Pages on mygov.scot which contain YouTube videos will not set third-party cookies (we use YouTube-nocookie.com — <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+
+          <h2>Further information</h2>
+
+          <p>You can email the performance team for further information.</p>
+
+          <p>Email: <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
+
+          <div class="ds_inset-text">
+          <div class="ds_inset-text__text">
+          <p>This is a live document and will continue to be updated on a bi-monthly basis ensuring it complies with industry standards.</p>
+          </div>
+          </div>
+      /publishing:logo:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:contentOwner:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+  /banners:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:versionable']
+    jcr:uuid: c0538f53-c7e1-4ece-a30a-7a23a6bef06f
+    hippo:name: banners
+    hippostd:foldertype: [new-notification-banner]
