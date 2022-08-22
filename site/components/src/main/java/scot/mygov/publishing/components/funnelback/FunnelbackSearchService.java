@@ -15,12 +15,16 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import scot.gov.publishing.hippo.funnelback.model.*;
+import scot.gov.publishing.hippo.funnelback.component.Search;
+import scot.gov.publishing.hippo.funnelback.component.SearchResponse;
+import scot.gov.publishing.hippo.funnelback.component.SearchService;
 
-import scot.mygov.publishing.beans.Searchsettings;
-import scot.mygov.publishing.components.funnelback.postprocess.PaginationBuilder;
-import scot.mygov.publishing.components.funnelback.postprocess.PostProcessor;
-import scot.mygov.publishing.components.funnelback.postprocess.ResultLinkRewriter;
+
+import scot.gov.publishing.hippo.funnelback.component.SearchSettings;
+import scot.gov.publishing.hippo.funnelback.component.postprocess.PaginationBuilder;
+import scot.gov.publishing.hippo.funnelback.component.postprocess.PostProcessor;
+import scot.gov.publishing.hippo.funnelback.component.postprocess.ResultLinkRewriter;
+import scot.gov.publishing.hippo.funnelback.model.*;
 
 import java.util.*;
 
@@ -48,7 +52,7 @@ public class FunnelbackSearchService implements SearchService {
     private List<String> sites;
 
     @Override
-    public SearchResponse performSearch(Search search, Searchsettings searchsettings) {
+    public SearchResponse performSearch(Search search, SearchSettings searchsettings) {
         int rank = getRank(search.getPage());
         Map<String, Object> params = searchParamMap(search.getQuery(), rank);
         ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());

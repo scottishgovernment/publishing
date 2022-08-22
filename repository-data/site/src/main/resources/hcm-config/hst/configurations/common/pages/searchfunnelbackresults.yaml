@@ -2,7 +2,7 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/searchfunnelbackresults:
       jcr:primaryType: hst:component
-      hst:componentclassname: scot.mygov.publishing.components.funnelback.ResilientSearchComponent
+      hst:componentclassname: scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent
       hst:template: search-funnelback-results
       hst:parameternames: [searchtype]
       hst:parametervalues: [funnelback]
