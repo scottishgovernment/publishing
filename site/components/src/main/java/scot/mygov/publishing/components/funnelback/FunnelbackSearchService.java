@@ -15,10 +15,8 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import scot.gov.publishing.hippo.funnelback.model.FunnelbackSearchResponse;
+import scot.gov.publishing.hippo.funnelback.model.*;
 
-import scot.gov.publishing.hippo.funnelback.model.Pagination;
-import scot.gov.publishing.hippo.funnelback.model.Suggestion;
 import scot.mygov.publishing.beans.Searchsettings;
 import scot.mygov.publishing.components.funnelback.postprocess.PaginationBuilder;
 import scot.mygov.publishing.components.funnelback.postprocess.PostProcessor;
@@ -58,11 +56,8 @@ public class FunnelbackSearchService implements SearchService {
         Resource results = broker.resolve(FUNNELBACK_RESOURCE_SPACE, urlTemplate, params);
         ResourceBeanMapper resourceBeanMapper = broker.getResourceBeanMapper(FUNNELBACK_RESOURCE_SPACE);
         FunnelbackSearchResponse response = resourceBeanMapper.map(results, FunnelbackSearchResponse.class);
-
-        rewriteLinks(response, search.getRequest());
-        Pagination pagination = new PaginationBuilder(search.getRequestUrl())
-                .getPagination(response.getResponse().getResultPacket().getResultsSummary(), search.getQuery());
-
+        postProcessSearchresponse(search, response);
+        Pagination pagination = createPagination(search, response);
         SearchResponse searchResponse = new SearchResponse();
         searchResponse.setType(SearchResponse.Type.FUNNELBACK);
         searchResponse.setQuestion(response.getQuestion());
@@ -96,6 +91,26 @@ public class FunnelbackSearchService implements SearchService {
     String getUrlTemplate(boolean qsupOff) {
         // add the qusup param if it is switched off.  Otherwise the param is omitted so that it defaults.
         return qsupOff ? URL_TEMPLATE + "&qsup=off" : URL_TEMPLATE;
+    }
+
+    Pagination createPagination(Search search, FunnelbackSearchResponse response) {
+        ResultsSummary summary = response.getResponse().getResultPacket().getResultsSummary();
+        return new PaginationBuilder(search.getRequestUrl()).getPagination(summary, search.getQuery());
+    }
+
+    void postProcessSearchresponse(Search search, FunnelbackSearchResponse response) {
+        rewriteLinks(response, search.getRequest());
+        removeDuplucateQSups(response);
+    }
+
+    void removeDuplucateQSups(FunnelbackSearchResponse response) {
+        ResultPacket resultPacket = response.getResponse().getResultPacket();
+        String query = resultPacket.getQuery();
+        List<QSup> filteredQsups = resultPacket.getQsups()
+                .stream()
+                .filter(qsup -> !qsup.getQuery().equals(query))
+                .collect(toList());
+        resultPacket.setQsups(filteredQsups);
     }
 
     void rewriteLinks(FunnelbackSearchResponse response, HstRequest request) {
