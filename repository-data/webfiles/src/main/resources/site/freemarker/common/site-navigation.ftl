@@ -13,8 +13,9 @@
                         </#list>
                     </ul>
                 </nav>
-                <@hst.cmseditmenu menu=menu/>
             </div>
         </div>
     </#if>
+
+    <@hst.cmseditmenu menu=menu/>
 </#if>
