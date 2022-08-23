@@ -4,12 +4,10 @@
   /home:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 503c5818-deb7-4f47-bf26-4209e1299e6c
     hippo:versionHistory: 85998f6d-e451-46ef-adb7-a5a112399a84
     /home[1]:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 62df8920-420b-4b2e-a287-19f44c8c1fb3
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
@@ -43,7 +41,6 @@
     /home[2]:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:versionable']
-      jcr:uuid: 1cab5859-e54e-49a4-a17e-09a780eb322e
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished
@@ -77,7 +74,6 @@
     /home[3]:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: c9ae1e64-b857-4dd0-ae7a-eeeedc2c53f7
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published

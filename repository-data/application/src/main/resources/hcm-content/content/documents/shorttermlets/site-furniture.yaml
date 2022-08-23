@@ -202,13 +202,11 @@
   /cookie-details:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 548ed0c7-8253-41c6-9173-3dbd4b24e630
     hippo:name: cookie-details
     hippo:versionHistory: 086390e3-70ef-4a2c-b71d-fc25e38b22b8
     /cookie-details[1]:
       jcr:primaryType: publishing:article
       jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
-      jcr:uuid: 83e55478-b7cd-44e9-be48-361d47d7d517
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
@@ -319,7 +317,6 @@
     /cookie-details[2]:
       jcr:primaryType: publishing:article
       jcr:mixinTypes: ['hippostd:taggable', 'mix:versionable']
-      jcr:uuid: b33fdb67-c620-4408-9f2d-19fbb3dae8a2
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished
@@ -430,7 +427,6 @@
     /cookie-details[3]:
       jcr:primaryType: publishing:article
       jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
-      jcr:uuid: b9e1a312-32db-4a93-9b0f-b81a86ec0620
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
@@ -542,6 +538,5 @@
   /banners:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:versionable']
-    jcr:uuid: c0538f53-c7e1-4ece-a30a-7a23a6bef06f
     hippo:name: banners
     hippostd:foldertype: [new-notification-banner]
