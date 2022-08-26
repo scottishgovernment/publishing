@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: 5e303b91-8896-4493-9fec-854b61c674b3
+          jcr:uuid: 589afe7a-ea2a-4ede-bca4-a3b6f2ba3f52
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -56,7 +56,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: a9034cd2-a933-4071-b74a-fa97c8cffc94
+          jcr:uuid: 8eba0e78-efd3-43ee-8383-293c76fb6be3
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -71,6 +71,7 @@ definitions:
           publishing:metaDescription: ''
           publishing:reportingtags: []
           publishing:sensitive: false
+          publishing:showInParent: true
           publishing:seoTitle: ''
           publishing:serviceproviders: []
           publishing:slug: ''
@@ -249,6 +250,16 @@ definitions:
             field: lastUpdatedDate
             hint: The 'Last updated' date displayed in the article heading. If left
               blank no date will be displayed
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showInParent:
+            jcr:primaryType: frontend:plugin
+            caption: Show in parent?
+            field: showInParent
+            hint: Indicates whether the page should appear in the site navigation
+              and site search results
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
