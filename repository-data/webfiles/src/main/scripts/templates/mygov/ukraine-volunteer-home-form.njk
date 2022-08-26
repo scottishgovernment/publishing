@@ -1,0 +1,32 @@
+<div id="uvh-form" autocomplete="false">
+    <section data-step="your-details" class="form-section  form-section--unpad">
+
+        <div id="cms-content"></div>
+
+        <h2>Your details</h2>
+
+        <form>
+            <div class="ds_question">
+                <label class="ds_label" for="name">Full name</label>
+                <input data-validation="requiredField" aria-required="true" type="text" id="name" class="ds_input">
+            </div>
+
+            <div class="ds_question">
+                <label class="ds_label" for="email">Email</label>
+                <input data-validation="validEmail requiredField" aria-required="true" type="text" id="email" class="ds_input">
+            </div>
+
+            <div id="recaptcha" class="g-recaptcha"
+            data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV"
+            data-callback="checkRecaptcha"
+            data-expired-callback="expireRecaptcha"></div>
+
+            <button class="ds_button  js-submit-form  ds_no-margin__bottom">Submit</button>
+        </form>
+    </section>
+
+    <section data-step="thank-you" class="fully-hidden form-section  form-section--unpad">
+        <h2 class="emphasis">Thank you</h2>
+        <p>content</p>
+    </section>
+</div>

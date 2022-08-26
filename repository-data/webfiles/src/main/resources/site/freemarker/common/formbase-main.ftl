@@ -43,6 +43,17 @@
                             <@hst.html hippohtml=document.content/>
                         </div>
                     </div>
+
+                    <noscript>
+                        <div class="ds_warning-text">
+                            <strong class="ds_warning-text__icon" aria-hidden="true"></strong>
+                            <strong class="visually-hidden">Warning</strong>
+                            <div class="ds_warning-text__text">
+                                We've detected from your browser that JavaScript is disabled.
+                                Please enable JavaScript to use this page.
+                            </div>
+                        </div>
+                    </noscript>
                 </div>
 
                 <div class="ds_layout__subsection-progress">
