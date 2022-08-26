@@ -16,6 +16,11 @@ public class FormBase extends Base {
         return getHippoHtml("publishing:content");
     }
 
+    @HippoEssentialsGenerated(internalName = "publishing:additionalContent")
+    public HippoHtml getAdditionalContent() {
+        return getHippoHtml("publishing:additionalContent");
+    }
+
     @HippoEssentialsGenerated(internalName = "publishing:slug")
     public String getSlug() {
         return getSingleProperty("publishing:slug");

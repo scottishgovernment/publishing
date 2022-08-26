@@ -71,11 +71,14 @@ const ukraineVolunteerHomeForm = {
         }
 
         const cmsContent = formTemplateContainer.innerHTML;
+        const cmsAdditionalContent = document.querySelector('#cms-additional-content-source').innerHTML;
+
         formTemplateContainer.innerHTML = formTemplate.render({
             iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
             webfilesPath: bloomreachWebfile()
         });
         formTemplateContainer.querySelector('#cms-content').innerHTML = cmsContent + formTemplateContainer.querySelector('#cms-content').innerHTML;
+        formTemplateContainer.querySelector('#cms-additional-content').innerHTML = cmsAdditionalContent;
 
         this.endpointUrl = '/service/form/ukraine';
         this.form.validateStep = this.validateStep;
