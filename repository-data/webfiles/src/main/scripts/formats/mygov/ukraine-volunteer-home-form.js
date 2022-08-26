@@ -70,6 +70,8 @@ const ukraineVolunteerHomeForm = {
             return false;
         }
 
+        document.querySelector('.multi-page-form').style.padding = 0;
+
         const cmsContent = formTemplateContainer.innerHTML;
         const cmsAdditionalContent = document.querySelector('#cms-additional-content-source').innerHTML;
 
@@ -113,35 +115,26 @@ const ukraineVolunteerHomeForm = {
             const formData = JSON.parse(JSON.stringify(ukraineVolunteerHomeForm.form.settings.formObject));
             formData.recaptcha = grecaptcha.getResponse();
 
-            const request = new XMLHttpRequest();
+            const promiseRequest = commonForms.promiseRequest(this.endpointUrl, 'POST', JSON.stringify(formData), 'application/json');
 
-            new Promise((resolve, reject) => {
-                request.onreadystatechange = () => {
-                    if (request.readyState !== 4) {
-                        return;
-                    }
-
-                    if (request.status >= 200 && request.status < 300) {
-                        resolve(request);
-                    } else {
-                        reject({
-                            status: request.status,
-                            statusText: request.statusText
-                        });
-                    }
-                };
-
-                request.open('POST', this.endpointUrl, true);
-                request.setRequestHeader('Content-Type', 'application/json');
-                request.send(JSON.stringify(formData));
-            })
+            promiseRequest
                 .then(() => {
                     this.form.goToStep(this.form.getNextStep());
                 })
                 .catch(() => {
-                    // todo: error messaging
-                    alert('fail');
-                    this.form.goToStep(this.form.getNextStep());
+                    // clunky
+                    const errorSummary = document.querySelector('.ds_error-summary');
+                    errorSummary.classList.remove('fully-hidden');
+                    errorSummary.innerHTML = `
+                    <h2 class="ds_error-summary__title" id="error-summary-title">There is a problem</h2>
+                    <div class="form-errors">
+                        <ul class="ds_error-summary__list send-errors">
+                            <li class="error">
+                                We are having technical difficulties at the moment. Please try again later.
+                            </li>
+                        </ul>
+                    </div>
+                    `;
                 });
 
             expireRecaptcha();

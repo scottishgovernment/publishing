@@ -720,6 +720,8 @@ const commonForms = {
                     fieldError.classList.remove('error-grey');
                 });
             }
+
+            document.querySelector('.client-error').classList.remove('fully-hidden');
         } else {
             if (document.querySelector('.client-error').classList.contains('fully-hidden')) {
                 fieldErrorContainer.parentNode.removeChild(fieldErrorContainer);
@@ -728,6 +730,8 @@ const commonForms = {
                     fieldError.classList.remove('error-grey');
                 });
             }
+
+            document.querySelector('.client-error').classList.add('fully-hidden');
         }
     },
 
@@ -930,7 +934,9 @@ const commonForms = {
         }
     },
 
-    promiseRequest(url, method = 'GET') {
+    promiseRequest(url, method, data, type) {
+        method = method || 'GET';
+
         const request = new XMLHttpRequest();
 
         return new Promise((resolve, reject) => {
@@ -950,7 +956,10 @@ const commonForms = {
             };
 
             request.open(method, url, true);
-            request.send();
+            if (type) {
+                request.setRequestHeader('Content-Type', type);
+            }
+            request.send(data);
         });
     }
 };
