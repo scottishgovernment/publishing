@@ -25,7 +25,7 @@ class ContentSelect {
             if (this.selectEl.value !== '') {
                 this.showButton();
             }
-        }, 0);
+        }, 10);
     }
 
     showButton() {
