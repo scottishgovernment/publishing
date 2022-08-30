@@ -7,7 +7,7 @@
             <h2 class="visually-hidden">Information</h2>
 
             <div class="ds_notification__text">
-                <p>You appear to be using an unsupported browser, and it may not be able to display this site properly. You may wish to <a href="/browsers/">upgrade your browser</a>.</p>
+                <p>You appear to be using an unsupported browser, and it may not be able to display this site properly. You may wish to <a href="/browsers">upgrade your browser</a>.</p>
             </div>
 
             <button class="ds_notification__close  js-close-notification" type="button">
