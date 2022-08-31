@@ -31,15 +31,15 @@ public class CategoryComponent extends EssentialsContentComponent {
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
 
-        if (hasContentBean(request)) {
-            setCategoryAttributes(request, response);
-        }
+        setCategoryAttributes(request, response);
     }
 
     static void setCategoryAttributes(HstRequest request, HstResponse response) {
 
-        HippoFolderBean folder = getChildrenFolder(request);
-        request.setAttribute("children", getChildren(folder));
+        if (hasContentBean(request)) {
+            HippoFolderBean folder = getChildrenFolder(request);
+            request.setAttribute("children", getChildren(folder));
+        }
     }
 
     static HippoFolderBean getChildrenFolder(HstRequest request) {
