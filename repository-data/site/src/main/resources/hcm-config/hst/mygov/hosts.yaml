@@ -6,6 +6,7 @@ definitions:
       hst:mountpoint: /hst:publishing/hst:sites/mygov
       hst:locale: en_GB
       publishing:gtm: /content/documents/mygov/administration/analytics/dev
+      publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
     /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/mygov-preview:
       .meta:residual-child-node-category: content
       jcr:primaryType: hst:mount
@@ -24,6 +25,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/lcl/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
@@ -38,6 +40,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/dev/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
@@ -48,6 +51,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/dev/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
@@ -62,6 +66,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/int/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
@@ -72,6 +77,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/int/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
@@ -86,6 +92,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/exp/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
@@ -96,6 +103,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/exp/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
@@ -110,6 +118,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/uat/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
@@ -120,6 +129,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/uat/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
@@ -134,6 +144,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/per/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
@@ -144,6 +155,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/per/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
@@ -158,6 +170,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/tst/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
@@ -168,6 +181,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/tst/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
@@ -182,6 +196,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/dev
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
           hst:locale: en_GB
     /hst:hst/hst:hosts/blu/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
@@ -192,6 +207,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
           hst:locale: en_GB
     /hst:hst/hst:hosts/blu/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
@@ -208,6 +224,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
           hst:locale: en_GB
     /hst:hst/hst:hosts/grn/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
@@ -218,6 +235,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
           hst:locale: en_GB
     /hst:hst/hst:hosts/grn/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
@@ -232,6 +250,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
           hst:locale: en_GB
     /hst:hst/hst:hosts/live/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
@@ -242,6 +261,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
           hst:locale: en_GB
     /hst:hst/hst:hosts/live/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
@@ -256,6 +276,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
           hst:locale: en_GB
     /hst:hst/hst:hosts/origin/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
@@ -266,6 +287,7 @@ definitions:
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
           hst:locale: en_GB
     /hst:hst/hst:hosts/origin/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
@@ -280,6 +302,7 @@ definitions:
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
           publishing:gtm: /content/documents/mygov/administration/analytics/live
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
           hst:locale: en_GB
     /hst:hst/hst:hosts/production/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
@@ -288,6 +311,7 @@ definitions:
         hst:mountpoint: /hst:publishing/hst:sites/mygov
         hst:schemeagnostic: true
         publishing:gtm: /content/documents/mygov/administration/analytics/live
+        publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
         hst:locale: en_GB
     /hst:hst/hst:hosts/production/scot/mygov/preview:
       jcr:primaryType: hst:virtualhost
@@ -300,4 +324,5 @@ definitions:
         preview-cookie-httponly: 'false'
         preview-cookie-secure: 'false'
         publishing:gtm: /content/documents/mygov/administration/analytics/live
+        publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
         hst:locale: en_GB
