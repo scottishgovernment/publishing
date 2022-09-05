@@ -57,7 +57,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     //You might have to change #constructPropertiesList method below to add your property if it requires special handling.
 
     private static final String[] headers = new String[]{"title", "url", "content_owner", "fact_checkers", "review_date", "official_last_modified", "created_by", "date_modified", "modified_by", "id", "state", "life_events", "organisation_tags", "format" };
-    private static final String[] documentProperties = new String[]{"title", "url", "publishing:contentOwner", "publishing:factCheckers", REVIEW_DATE_PROP, "publishing:lastUpdatedDate", HIPPOSTDPUBWF_CREATED_BY, HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:multiValueProperty", "publishing:organisationtags", "format" };
+    private static final String[] documentProperties = new String[]{"title", "url", "publishing:contentOwner", "publishing:factCheckers", REVIEW_DATE_PROP, "publishing:lastUpdatedDate", HIPPOSTDPUBWF_CREATED_BY, HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents", "publishing:organisationtags", "format" };
 
     private final ResourceLink<String> exportCSVLink;
     private final ISearchContext searcher;
@@ -225,7 +225,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                     props.add("");
                 }
                 break;
-            case "publishing:multiValueProperty":
+            case "publishing:lifeEvents":
                 props.add(multiValueProperty(variant, property));
                 break;
             case "publishing:organisationtags":
@@ -318,7 +318,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     }
 
     private String extractMultiValueProperty(final Property property){
-        String lifeEvents = null;
+        String valueString = null;
 
         try {
             Value[] values = property.getValues();
@@ -326,12 +326,12 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
             for (int i = 0; i < values.length; i++) {
                 results[i] = values[i].getString();
             }
-            lifeEvents = String.join(", ", results);
+            valueString = String.join(", ", results);
         } catch (RepositoryException e) {
-            LOG.error("An exception occurred while trying to extract multi valued property", e);
+            LOG.error("An exception occurred while trying to extract multi valued property {}", e);
         }
 
-        return lifeEvents;
+        return valueString;
     }
 
     private String getNodeStateSummary(final Node handle) {
