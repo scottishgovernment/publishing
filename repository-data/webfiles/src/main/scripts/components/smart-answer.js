@@ -130,6 +130,9 @@ class SmartAnswer {
                         });
 
                     dynamicContentPromises.push(promiseRequest);
+                } else {
+                    // clear any current content
+                    element.innerHTML = '';
                 }
             });
 
