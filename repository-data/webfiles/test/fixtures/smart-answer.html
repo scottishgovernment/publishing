@@ -74,6 +74,77 @@
             </button>
         </section>
 
+        <section class="mg_smart-answer__question mg_smart-answer__step  js-test-step__CHECKBOX" data-type="checkboxes" id="step-did-you-receive-benefits">
+            <div class="ds_question">
+                <fieldset class="mg_no-margin--last-child" id="question-did-you-receive-benefits" data-validation="atLeastOneCheckbox">
+                    <legend class="ds_page-header">
+                        <span class="mg_smart-answer__parent-title">Scottish Winter Heating Payment</span>
+                        <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">
+                            Did you receive any of the following benefits between the 21st and 27th of November 2022?
+                        </h1>
+                    </legend>
+
+                    <p>You can receive the benefit on any day during this period</p>
+
+                    <div class="ds_checkboxes mg_no-margin--last-child" data-module="ds-checkboxes" data-validation="atLeastOneCheckbox">
+                        <div class="ds_checkbox">
+                            <input data-form="checkbox-step-did-you-receive-benefits-universal-credit-checked" class="ds_checkbox__input js-has-tracking-event" type="checkbox" id="step-did-you-receive-benefits-universal-credit" name="question-did-you-receive-benefits" value="universal-credit" data-nextstep="step-residency-question-one">
+                            <label class="ds_checkbox__label" for="step-did-you-receive-benefits-universal-credit">Universal Credit</label>
+                        </div>
+
+                        <div class="ds_checkbox">
+                            <input data-form="checkbox-step-did-you-receive-benefits-pension-credit" class="ds_checkbox__input js-has-tracking-event" type="checkbox" id="step-did-you-receive-benefits-pension-credit" name="question-did-you-receive-benefits" value="pension-credit" data-nextstep="step-residency-question-one">
+                            <label class="ds_checkbox__label" for="step-did-you-receive-benefits-pension-credit">Pension Credit</label>
+                        </div>
+
+                        <div class="ds_checkbox">
+                            <input data-form="checkbox-step-did-you-receive-benefits-income-support" class="ds_checkbox__input js-has-tracking-event" type="checkbox" id="step-did-you-receive-benefits-income-support" name="question-did-you-receive-benefits" value="income-support" data-nextstep="step-residency-question-one">
+                            <label class="ds_checkbox__label" for="step-did-you-receive-benefits-income-support">Income Support</label>
+                        </div>
+
+                        <p class="ds_checkbox-separator">or</p>
+
+                        <div class="ds_checkbox">
+                            <input data-form="checkbox-step-did-you-receive-benefits-none" class="ds_checkbox__input js-has-tracking-event" type="checkbox" id="step-did-you-receive-benefits-none" name="question-did-you-receive-benefits" value="none" data-nextstep="step-residency-question-one" data-behaviour="exclusive">
+                            <label class="ds_checkbox__label" for="step-did-you-receive-benefits-none">I was not getting any of these benefits</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin--bottom" data-button="button-next">
+                Next
+                <svg class="ds_icon" aria-hidden="true" role="img"><use href="/site/webfiles/1662721666851/assets/images/icons/icons.stack.svg#chevron_right"></use></svg>
+            </button>
+        </section>
+
+        <section class="mg_smart-answer__question mg_smart-answer__step  js-test-step__CONFIRM" data-type="confirmcheckbox" id="step-confirmation">
+            <div class="ds_question">
+                <div class="mg_no-margin--last-child  " id="question-confirmation" data-validation="">
+                    <div class="ds_page-header">
+                        <span class="mg_smart-answer__parent-title">Scottish Winter Heating Payment</span>
+                        <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">
+                            confirmation
+                        </h1>
+                    </div>
+
+                    <p>You've said you get Pension Credit. Is that correct?</p>
+
+                    <div class="ds_checkbox">
+                        <input required="" data-validation="requiredCheckbox" data-form="checkbox-step-confirmation-confirm" class="ds_checkbox__input js-has-tracking-event" type="checkbox" id="step-confirmation-confirm" name="question-confirmation" value="confirm" data-nextstep="step-residency-question-one">
+                        <label class="ds_checkbox__label" for="step-confirmation-confirm">
+                            Yes it is correct
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="js-next-button  ds_button  ds_button--has-icon  ds_no-margin--bottom" data-button="button-next">
+                Next
+                <svg class="ds_icon" aria-hidden="true" role="img"><use href="/site/webfiles/1662721666851/assets/images/icons/icons.stack.svg#chevron_right"></use></svg>
+            </button>
+        </section>
+
         <section tabindex="-1" class="mg_smart-answer__question  mg_smart-answer__step" data-type="radiobuttons" id="step-residency-question-one">
             <div class="ds_question">
                 <fieldset class="mg_no-margin--last-child  " id="question-residency-question-one"

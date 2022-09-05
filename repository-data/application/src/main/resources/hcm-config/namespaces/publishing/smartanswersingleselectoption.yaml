@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hippo:namespaces/publishing/smartanswermultiplechoiceoption:
+    /hippo:namespaces/publishing/smartanswersingleselectoption:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
       jcr:uuid: 7cb502a3-18f3-4aff-be84-16c798e2616f
@@ -44,7 +44,7 @@ definitions:
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: publishing:smartanswermultiplechoiceoption
+          jcr:primaryType: publishing:smartanswersingleselectoption
           publishing:label: ''
           publishing:value: ''
           /publishing:nextPage:
