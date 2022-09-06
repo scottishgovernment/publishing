@@ -72,7 +72,15 @@
 <#if pagination??>
 <ol start="${response.resultPacket.resultsSummary.currStart}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching?c}">
     <#if pagination.currentPageIndex = 1>
-        <#list response.curator.exhibits as exhibit>
+        <#list response.curator.simpleHtmlExhibits as exhibit>
+            <li class="ds_search-result  ds_search-result--promoted">
+                <div class="ds_search-result--promoted-content">
+                    ${exhibit.messageHtml?no_esc}
+                </div>
+            </li>
+        </#list>
+
+        <#list response.curator.advertExhibits as exhibit>
             <li class="ds_search-result  ds_search-result--promoted">
                 <div class="ds_search-result--promoted-content">
                     <header class="ds_search-result--promoted-title">Recommended</header>

@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import scot.gov.publishing.hippo.funnelback.model.*;
 
 import scot.mygov.publishing.beans.Searchsettings;
+import scot.mygov.publishing.components.funnelback.postprocess.CuratorPostProcessor;
 import scot.mygov.publishing.components.funnelback.postprocess.PaginationBuilder;
 import scot.mygov.publishing.components.funnelback.postprocess.PostProcessor;
 import scot.mygov.publishing.components.funnelback.postprocess.ResultLinkRewriter;
@@ -42,6 +43,8 @@ public class FunnelbackSearchService implements SearchService {
             = "/suggest.json?partial_query={partial_query}&show={show}&sort={sort}&fmt={fmt}&collection={collection}";
 
     private static final String FUNNELBACK_RESOURCE_SPACE = "funnelback";
+
+    private static CuratorPostProcessor CURATOR_POST_PROCESSOR = new CuratorPostProcessor();
 
     private String collection;
 
@@ -101,6 +104,11 @@ public class FunnelbackSearchService implements SearchService {
     void postProcessSearchresponse(Search search, FunnelbackSearchResponse response) {
         rewriteLinks(response, search.getRequest());
         removeDuplucateQSups(response);
+        extractSimpleHtmlMessagesFromCurator(response);
+    }
+
+    void extractSimpleHtmlMessagesFromCurator(FunnelbackSearchResponse response) {
+        CURATOR_POST_PROCESSOR.process(response);
     }
 
     void removeDuplucateQSups(FunnelbackSearchResponse response) {
