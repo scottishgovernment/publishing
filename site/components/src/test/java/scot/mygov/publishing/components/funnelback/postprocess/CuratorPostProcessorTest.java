@@ -48,8 +48,8 @@ public class CuratorPostProcessorTest {
         sut.process(input);
 
         // ASSERT
-        assertEquals(cleanedMessage(), input.getResponse().getCurator().getAdvertExhibits().get(0).getTitleHtml());
-        assertEquals(cleanedMessage(), input.getResponse().getCurator().getAdvertExhibits().get(0).getDescriptionHtml());
+        assertEquals(strippedMessage(), input.getResponse().getCurator().getAdvertExhibits().get(0).getTitleHtml());
+        assertEquals(strippedMessage(), input.getResponse().getCurator().getAdvertExhibits().get(0).getDescriptionHtml());
     }
 
     FunnelbackSearchResponse responseWithHtmlMessages() {
@@ -60,11 +60,15 @@ public class CuratorPostProcessorTest {
     }
 
     String htmlMessage() {
-        return "<div>This is n <b>HTML</b> <span class=\"blah\">message</span> <img src=\"path\"/></div>";
+        return "<div>This is n <strong>HTML</strong> <small class=\"blah\">message</small> <img src=\"path\"/></div>";
     }
 
     String cleanedMessage() {
-        return "This is n <b>HTML</b> <span>message</span>";
+        return "This is n <strong>HTML</strong> <small>message</small>";
+    }
+
+    String strippedMessage() {
+        return "This is n HTML message";
     }
 
     FunnelbackSearchResponse responseWithMessagesAndAdverts() {

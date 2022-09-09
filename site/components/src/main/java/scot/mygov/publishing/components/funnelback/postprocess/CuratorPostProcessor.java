@@ -28,17 +28,37 @@ public class CuratorPostProcessor implements PostProcessor {
 
     private static final Duration CACHE_EXPIRY_DURATION = Duration.ofHours(1);
 
-    private CacheLoader<String, String> loader = new CacheLoader<String, String>() {
+    Safelist messageHtmlSafelist =
+            new Safelist()
+                .addTags("a", "dd", "dl", "dt", "em", "li", "ol", "p", "pre", "q", "small", "strong", "sub", "sup", "u", "ul")
+                .addAttributes("a", "href")
+                .addAttributes("q", "cite")
+                .addProtocols("a", "href", "http", "https", "mailto")
+                .addEnforcedAttribute("a", "rel", "nofollow");
+
+    private CacheLoader<String, String> messageHtmllLoader = new CacheLoader<String, String>() {
         @Override
         public String load(String key) {
-            return Jsoup.clean(key, Safelist.basic());
+            return Jsoup.clean(key, messageHtmlSafelist);
         }
     };
 
-    private LoadingCache<String, String> cache = CacheBuilder.newBuilder()
+    private LoadingCache<String, String> messageHtmlCache = CacheBuilder.newBuilder()
             .maximumSize(MAX_CACHE_SIZE)
             .expireAfterAccess(CACHE_EXPIRY_DURATION)
-            .build(loader);
+            .build(messageHtmllLoader);
+
+    private CacheLoader<String, String> stripHtmllLoader = new CacheLoader<String, String>() {
+        @Override
+        public String load(String key) {
+            return Jsoup.clean(key, Safelist.none());
+        }
+    };
+
+    private LoadingCache<String, String> stripAllHtmlCache = CacheBuilder.newBuilder()
+            .maximumSize(MAX_CACHE_SIZE)
+            .expireAfterAccess(CACHE_EXPIRY_DURATION)
+            .build(stripHtmllLoader);
 
     @Override
     public void process(FunnelbackSearchResponse response) {
@@ -55,17 +75,26 @@ public class CuratorPostProcessor implements PostProcessor {
     }
 
     Exhibit clean(Exhibit exhibit) {
-        exhibit.setDescriptionHtml(cleanStr(exhibit.getDescriptionHtml()));
-        exhibit.setMessageHtml(cleanStr(exhibit.getMessageHtml()));
-        exhibit.setTitleHtml(cleanStr(exhibit.getTitleHtml()));
+        exhibit.setMessageHtml(cleanMessageHtmlStr(exhibit.getMessageHtml()));
+        exhibit.setDescriptionHtml(stripAllHtml(exhibit.getDescriptionHtml()));
+        exhibit.setTitleHtml(stripAllHtml(exhibit.getTitleHtml()));
         return exhibit;
     }
 
-    String cleanStr(String str) {
+    String cleanMessageHtmlStr(String str) {
         try {
-            return StringUtils.isBlank(str) ? "" : cache.get(str);
+            return StringUtils.isBlank(str) ? "" : messageHtmlCache.get(str);
         } catch (ExecutionException e) {
-            LOG.error("Failed to get sanitised html from cache for \"{}\"", str, e);
+            LOG.error("Failed to get sanitised html from messageHtmlCache for \"{}\"", str, e);
+            return "";
+        }
+    }
+
+    String stripAllHtml(String str) {
+        try {
+            return StringUtils.isBlank(str) ? "" : stripAllHtmlCache.get(str);
+        } catch (ExecutionException e) {
+            LOG.error("Failed to get sanitised html from stripAllHtmlCache for \"{}\"", str, e);
             return "";
         }
     }
