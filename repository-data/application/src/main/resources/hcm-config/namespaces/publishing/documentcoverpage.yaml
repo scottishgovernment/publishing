@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: d7c49080-f4ca-47ac-a9b7-3c487a2e73c4
+          jcr:uuid: 16c2dfce-6523-4607-b8a2-351324f7efc4
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -68,7 +68,7 @@ definitions:
           publishing:title: ''
           publishing:reportingtags: []
           publishing:metaDescription: ''
-          jcr:uuid: 3c564fcd-1730-413c-ad5a-b9754b06d220
+          jcr:uuid: f6e8645f-bf15-4af1-986d-0d420f2dbe99
           hippostdpubwf:lastModificationDate: 2020-08-04T08:51:01.604+01:00
           hippostdpubwf:creationDate: 2020-08-04T08:51:01.604+01:00
           publishing:serviceproviders: []
@@ -76,6 +76,7 @@ definitions:
           publishing:organisationtags: []
           publishing:noindex: false
           publishing:showInParent: false
+          publishing:sensitive: false
           /publishing:documents:
             jcr:primaryType: publishing:document
             publishing:title: ''
@@ -143,6 +144,15 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
+          /sensitive:
+            jcr:primaryType: frontend:plugin
+            caption: Sensitive content?
+            field: sensitive
+            hint: Should the Hide this page feature be enabled on this page?
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /documents:
             jcr:primaryType: frontend:plugin
             caption: Documents

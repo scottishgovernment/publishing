@@ -10,6 +10,11 @@
 
     <div class="ds_wrapper">
         <main id="main-content" class="ds_layout  ds_layout--article">
+            <#if document.sensitive?? && document.sensitive>
+                <!--noindex-->
+                <#include "hide-this-page.ftl">
+                <!--endnoindex-->
+            </#if>
 
             <div class="ds_layout__header">
                 <header class="ds_page-header">
@@ -86,9 +91,9 @@
                 </#list>
             </div>
 
-            <#if document.relateditems?has_content >
-                <!--noindex-->
-                <aside class="ds_layout__sidebar">
+            <!--noindex-->
+            <div class="ds_layout__sidebar">
+                <#if document.relateditems?has_content >
                     <aside class="ds_article-aside">
                         <h2 class="gamma">Related content</h2>
                         <ul class="ds_no-bullets">
@@ -102,9 +107,20 @@
                             </#list>
                         </ul>
                     </aside>
-                </aside>
-                <!--endnoindex-->
-            </#if>
+                </#if>
+
+                <#if document.sensitive?? && document.sensitive>
+                    <aside class="ds_article-aside" id="stay-safe-online">
+                        <h3>Stay safe online &hellip;</h3>
+                        <ul class="ds_no-bullets">
+                            <li>
+                                <a href="/staying-safe-online/deleting-your-browser-history" data-navigation="staysafe-yes">Deleting your history and staying safe online</a>
+                            </li>
+                        </ul>
+                    </aside>
+                </#if>
+            </div>
+            <!--endnoindex-->
 
             <#include 'feedback-wrapper.ftl'>
         </main>
