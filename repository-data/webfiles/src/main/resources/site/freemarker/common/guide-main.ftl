@@ -106,9 +106,10 @@
                 <!--endnoindex-->
             </div>
 
-            <#if guide.relateditems?has_content >
-                <!--noindex-->
-                <div class="ds_layout__sidebar">
+
+            <!--noindex-->
+            <div class="ds_layout__sidebar">
+                <#if guide.relateditems?has_content >
                     <aside class="ds_article-aside">
                         <h2 class="gamma">Related content</h2>
                         <ul class="ds_no-bullets">
@@ -122,20 +123,21 @@
                             </#list>
                         </ul>
                     </aside>
+                </#if>
 
-                    <#if guide.sensitive?? && guide.sensitive>
-                        <aside class="ds_article-aside" id="stay-safe-online">
-                            <h3>Stay safe online &hellip;</h3>
-                            <ul class="ds_no-bullets">
-                                <li>
-                                    <a href="/staying-safe-online/deleting-your-browser-history" data-navigation="staysafe-yes">Deleting your history and staying safe online</a>
-                                </li>
-                            </ul>
-                        </aside>
-                    </#if>
-                </div>
-                <!--endnoindex-->
-            </#if>
+                <#if guide.sensitive?? && guide.sensitive>
+                    <aside class="ds_article-aside" id="stay-safe-online">
+                        <h3>Stay safe online &hellip;</h3>
+                        <ul class="ds_no-bullets">
+                            <li>
+                                <a href="/staying-safe-online/deleting-your-browser-history" data-navigation="staysafe-yes">Deleting your history and staying safe online</a>
+                            </li>
+                        </ul>
+                    </aside>
+                </#if>
+            </div>
+            <!--endnoindex-->
+
 
             <#include 'feedback-wrapper.ftl'>
         </main>
