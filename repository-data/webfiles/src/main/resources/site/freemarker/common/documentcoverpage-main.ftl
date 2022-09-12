@@ -130,9 +130,9 @@
                         </div>
 
                         <div class="ds_file-download__content">
-                            <p class="ds_file-download__title" id="file-title-1">${doc.title}</p>
+                            <p class="ds_file-download__title" id="file-title-${doc?counter}">${doc.title}</p>
 
-                            <div id="file-download-1" class="ds_file-download__details">
+                            <div id="file-download-${doc?counter}" class="ds_file-download__details">
                                 <dl class="ds_metadata  ds_metadata--inline">
                                     <div class="ds_metadata__item">
                                         <dt class="ds_metadata__key  visually-hidden">File type</dt>
@@ -147,7 +147,7 @@
                             </div>
 
                             <div>
-                                <a aria-hidden="true" aria-labelledby="file-title-1" aria-describedby="file-download-1" href="${documentinline}" class="ds_file-download__button  ds_button  ds_button--small  ds_button--secondary  ds_no-margin">
+                                <a aria-labelledby="file-title-${doc?counter}" aria-describedby="file-download-${doc?counter}" href="${documentinline}" class="ds_file-download__button  ds_button  ds_button--small  ds_button--secondary  ds_no-margin">
                                     Download
                                 </a>
                             </div>
