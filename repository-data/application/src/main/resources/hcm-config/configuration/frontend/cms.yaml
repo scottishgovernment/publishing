@@ -158,9 +158,8 @@ definitions:
         'hippotaxonomy:taxonomy', 'hippostd:directory', 'urlrewriter:basedocument',
         'hippo:document', 'hippogallery:exampleAssetSet', 'hippostd:folder', 'hippocollection:collection',
         'publishing:PublishingDocument', 'publishing:Fragment', 'publishing:smartansweragequestion',
-        "publishing:ColumnImage", "publishing:ColumnImageFourThree", "publishing:ColumnImageOneOne",
-        "publishing:ColumnImageSixteenNine", "publishing:ColumnImageTwentyoneNine"
-
+        'publishing:ColumnImage', 'publishing:ColumnImageFourThree', 'publishing:ColumnImageOneOne',
+        'publishing:ColumnImageSixteenNine', 'publishing:ColumnImageTwentyoneNine']
       document.subtypes.included: true
     /hippo:configuration/hippo:frontend/cms/cms-static/advancedSearchController:
       query.limit: '5000'
