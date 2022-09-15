@@ -1,0 +1,64 @@
+/*------------------------------------*\
+    #SHARED ELEMENT TRANSITION
+    experimental
+\*------------------------------------*/
+
+@keyframes transition-fade-in {
+    from { opacity: 0; }
+}
+
+@keyframes transition-fade-out {
+    to { opacity: 0; }
+}
+
+@keyframes transition-slide-from-right {
+    from { transform: translateX(30px); }
+}
+
+@keyframes transition-slide-to-left {
+    to { transform: translateX(-30px); }
+}
+
+@keyframes transition-slide-to-right {
+    to { transform: translateX(30px); }
+}
+
+@keyframes transition-slide-from-left {
+    from { transform: translateX(-30px); }
+}
+
+::page-transition-outgoing-image(root) {
+    animation: 90ms cubic-bezier(0.4, 0, 1, 1) both transition-fade-out,
+      300ms cubic-bezier(0.4, 0, 0.2, 1) both transition-slide-to-left;
+}
+
+::page-transition-incoming-image(root) {
+    animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both transition-fade-in,
+      300ms cubic-bezier(0.4, 0, 0.2, 1) both transition-slide-from-right;
+}
+
+.back-transition::page-transition-outgoing-image(root) {
+    animation-name: transition-fade-out, transition-slide-to-right;
+}
+
+.back-transition::page-transition-incoming-image(root) {
+    animation-name: transition-fade-in, transition-slide-from-left;
+}
+
+.ds_page__top {
+    page-transition-tag: page-top;
+    contain: paint;
+}
+
+.ds_page__bottom {
+    page-transition-tag: page-bottom;
+    contain: paint;
+}
+
+@media (prefers-reduced-motion) {
+    ::page-transition-container(*),
+    ::page-transition-outgoing-image(*),
+    ::page-transition-incoming-image(*) {
+        animation: none !important;
+    }
+}

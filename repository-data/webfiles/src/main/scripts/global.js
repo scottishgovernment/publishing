@@ -122,6 +122,9 @@ const global = {
             autocompleteModule.init();
         });
 
+        const checkboxesModules = [].slice.call(document.querySelectorAll('[data-module="ds-checkboxes"]'));
+        checkboxesModules.forEach(checkboxes => new window.DS.components.Checkboxes(checkboxes).init());
+
         const cookieNotificationEl = document.querySelector('[data-module="ds-cookie-notification"]');
         if (cookieNotificationEl) {
             const cookieNotification = new window.DS.components.CookieNotification(cookieNotificationEl);

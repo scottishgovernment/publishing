@@ -215,8 +215,13 @@ describe('smart-answer', function () {
         it('should get the selected answer from a radio button group', () => {
             const radioStep = document.querySelector('.js-test-step__RADIO');
             const selectStep = document.querySelector('.js-test-step__SELECT');
+            const checkboxStep = document.querySelector('.js-test-step__CHECKBOX');
+            const confirmStep = document.querySelector('.js-test-step__CONFIRM');
 
             selectStep.parentNode.removeChild(selectStep);
+            checkboxStep.parentNode.removeChild(checkboxStep);
+            confirmStep.parentNode.removeChild(confirmStep);
+
             testObj.smartAnswer.init();
 
             // select option
@@ -227,14 +232,43 @@ describe('smart-answer', function () {
             let button = document.querySelector('.js-next-button');
             button.click();
 
-            expect(testObj.smartAnswer.getResponsesFromUrl()).toEqual(['over-16']);
+            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual(['over-16']);
+        });
+
+        it('should get the selected answers (plural) from a checkbox question', () => {
+            const radioStep = document.querySelector('.js-test-step__RADIO');
+            const selectStep = document.querySelector('.js-test-step__SELECT');
+            const checkboxStep = document.querySelector('.js-test-step__CHECKBOX');
+            const confirmStep = document.querySelector('.js-test-step__CONFIRM');
+
+            radioStep.parentNode.removeChild(radioStep);
+            selectStep.parentNode.removeChild(selectStep);
+            confirmStep.parentNode.removeChild(confirmStep);
+
+            testObj.smartAnswer.init();
+
+            // select options
+            const checkboxes = [].slice.call(checkboxStep.querySelectorAll('.ds_checkbox__input'));
+            checkboxes[0].checked = true;
+            checkboxes[1].checked = true;
+
+            // move to step
+            let button = document.querySelector('.js-next-button');
+            button.click();
+
+            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual(['universal-credit', 'pension-credit']);
         });
 
         it('should get the selected answer from a SELECT element', () => {
             const radioStep = document.querySelector('.js-test-step__RADIO');
             const selectStep = document.querySelector('.js-test-step__SELECT');
+            const checkboxStep = document.querySelector('.js-test-step__CHECKBOX');
+            const confirmStep = document.querySelector('.js-test-step__CONFIRM');
 
             radioStep.parentNode.removeChild(radioStep);
+            checkboxStep.parentNode.removeChild(checkboxStep);
+            confirmStep.parentNode.removeChild(confirmStep);
+
             testObj.smartAnswer.init();
             spyOn(testObj.smartAnswer, 'goToPageFromUrl');
 
@@ -246,7 +280,59 @@ describe('smart-answer', function () {
             let button = selectStep.querySelector('.js-next-button');
             button.click();
 
-            expect(testObj.smartAnswer.getResponsesFromUrl()).toEqual(['over-16']);
+            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual(['over-16']);
+        });
+
+        it('should get the selected answer from a CONFIRM question', () => {
+            const radioStep = document.querySelector('.js-test-step__RADIO');
+            const selectStep = document.querySelector('.js-test-step__SELECT');
+            const checkboxStep = document.querySelector('.js-test-step__CHECKBOX');
+            const confirmStep = document.querySelector('.js-test-step__CONFIRM');
+
+            radioStep.parentNode.removeChild(radioStep);
+            selectStep.parentNode.removeChild(selectStep);
+            checkboxStep.parentNode.removeChild(checkboxStep);
+
+            testObj.smartAnswer.init();
+            spyOn(testObj.smartAnswer, 'goToPageFromUrl');
+
+            let checkbox = confirmStep.querySelector('.ds_checkbox__input');
+
+            // try to move to step
+            let button = confirmStep.querySelector('.js-next-button');
+            let responsesPreClick = testObj.smartAnswer.getResponsesFromUrl();
+            button.click();
+            expect(testObj.smartAnswer.getResponsesFromUrl()).toEqual(responsesPreClick);
+
+            // move to step
+            checkbox.checked = true;
+            button.click();
+
+            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual(['confirm']);
+        });
+
+        it('should get the selected answer from a CONFIRM question without checkbox', () => {
+            const radioStep = document.querySelector('.js-test-step__RADIO');
+            const selectStep = document.querySelector('.js-test-step__SELECT');
+            const checkboxStep = document.querySelector('.js-test-step__CHECKBOX');
+            const confirmStep = document.querySelector('.js-test-step__CONFIRM');
+
+            radioStep.parentNode.removeChild(radioStep);
+            selectStep.parentNode.removeChild(selectStep);
+            checkboxStep.parentNode.removeChild(checkboxStep);
+
+            confirmStep.dataset.type = 'confirm';
+            let checkboxContainer = confirmStep.querySelector('.ds_checkbox');
+            checkboxContainer.parentNode.removeChild(checkboxContainer);
+
+            testObj.smartAnswer.init();
+            spyOn(testObj.smartAnswer, 'goToPageFromUrl');
+
+            // move to step
+            let button = confirmStep.querySelector('.js-next-button');
+            button.click();
+
+            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual(['confirm']);
         });
 
         it('should set a pre-filled answer in a radio button group', () => {

@@ -122,18 +122,18 @@ definitions:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/article
         hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-          'publishing:formbase']
+          'publishing:formbase', 'publishing:fairrent']
         hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-          'hst:pages/formbase']
+          'hst:pages/formbase', 'hst:pages/fairrent']
         hst:relativecontentpath: browse
         hst:sitemapitemhandlerids: [trailing-slash]
         hst:hiddeninchannelmanager: true
         /_default_:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-            'publishing:formbase', 'publishing:fairrent']
+            'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage']
           hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-            'hst:pages/formbase', 'hst:pages/fairrent']
+            'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage']
           hst:relativecontentpath: ${parent}/${1}
           hst:sitemapitemhandlerids: [trailing-slash]
           hst:componentconfigurationid: hst:pages/article
@@ -141,149 +141,163 @@ definitions:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/article
             hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-              'publishing:formbase', 'publishing:fairrent']
+              'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage']
             hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-              'hst:pages/formbase', 'hst:pages/fairrent']
+              'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage']
             hst:relativecontentpath: ${parent}/${2}
             hst:sitemapitemhandlerids: [trailing-slash]
             /_default_:
               jcr:primaryType: hst:sitemapitem
               hst:componentconfigurationid: hst:pages/article
               hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-                'publishing:formbase']
+                'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage']
               hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-                'hst:pages/formbase']
+                'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage']
               hst:relativecontentpath: ${parent}/${3}
               hst:sitemapitemhandlerids: [trailing-slash]
               /_default_:
                 jcr:primaryType: hst:sitemapitem
                 hst:componentconfigurationid: hst:pages/article
                 hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-                  'publishing:formbase']
+                  'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage']
                 hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-                  'hst:pages/formbase']
+                  'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage']
                 hst:relativecontentpath: ${parent}/${4}
                 hst:sitemapitemhandlerids: [trailing-slash]
                 /_default_:
                   jcr:primaryType: hst:sitemapitem
                   hst:componentconfigurationid: hst:pages/article
                   hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-                    'publishing:formbase']
+                    'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage']
                   hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-                    'hst:pages/formbase']
+                    'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage']
                   hst:relativecontentpath: ${parent}/${5}
                   hst:sitemapitemhandlerids: [trailing-slash]
                   /_default_:
                     jcr:primaryType: hst:sitemapitem
                     hst:componentconfigurationid: hst:pages/article
                     hst:componentconfigurationmappingnames: ['publishing:article',
-                      'publishing:guidepage', 'publishing:formbase']
+                      'publishing:guidepage', 'publishing:formbase', 'publishing:fairrent',
+                      'publishing:documentcoverpage']
                     hst:componentconfigurationmappingvalues: ['hst:pages/article',
-                      'hst:pages/guidepage', 'hst:pages/formbase']
+                      'hst:pages/guidepage', 'hst:pages/formbase', 'hst:pages/fairrent',
+                      'hst:pages/documentcoverpage']
                     hst:relativecontentpath: ${parent}/${6}
                     hst:sitemapitemhandlerids: [trailing-slash]
                     /_default_:
                       jcr:primaryType: hst:sitemapitem
                       hst:componentconfigurationid: hst:pages/article
                       hst:componentconfigurationmappingnames: ['publishing:article',
-                        'publishing:guidepage', 'publishing:formbase']
+                        'publishing:guidepage', 'publishing:formbase', 'publishing:fairrent',
+                        'publishing:documentcoverpage']
                       hst:componentconfigurationmappingvalues: ['hst:pages/article',
-                        'hst:pages/guidepage', 'hst:pages/formbase']
+                        'hst:pages/guidepage', 'hst:pages/formbase', 'hst:pages/fairrent',
+                        'hst:pages/documentcoverpage']
                       hst:relativecontentpath: ${parent}/${7}
                       hst:sitemapitemhandlerids: [trailing-slash]
                       /_default_:
                         jcr:primaryType: hst:sitemapitem
                         hst:componentconfigurationid: hst:pages/article
                         hst:componentconfigurationmappingnames: ['publishing:article',
-                          'publishing:guidepage', 'publishing:formbase']
+                          'publishing:guidepage', 'publishing:formbase', 'publishing:fairrent',
+                          'publishing:documentcoverpage']
                         hst:componentconfigurationmappingvalues: ['hst:pages/article',
-                          'hst:pages/guidepage', 'hst:pages/formbase']
+                          'hst:pages/guidepage', 'hst:pages/formbase', 'hst:pages/fairrent',
+                          'hst:pages/documentcoverpage']
                         hst:relativecontentpath: ${parent}/${8}
                         hst:sitemapitemhandlerids: [trailing-slash]
                         /_default_:
                           jcr:primaryType: hst:sitemapitem
                           hst:componentconfigurationid: hst:pages/article
                           hst:componentconfigurationmappingnames: ['publishing:article',
-                            'publishing:guidepage', 'publishing:formbase']
+                            'publishing:guidepage', 'publishing:formbase', 'publishing:fairrent',
+                            'publishing:documentcoverpage']
                           hst:componentconfigurationmappingvalues: ['hst:pages/article',
-                            'hst:pages/guidepage', 'hst:pages/formbase']
+                            'hst:pages/guidepage', 'hst:pages/formbase', 'hst:pages/fairrent',
+                            'hst:pages/documentcoverpage']
                           hst:relativecontentpath: ${parent}/${9}
                           hst:sitemapitemhandlerids: [trailing-slash]
                           /_default_:
                             jcr:primaryType: hst:sitemapitem
                             hst:componentconfigurationid: hst:pages/article
                             hst:componentconfigurationmappingnames: ['publishing:article',
-                              'publishing:guidepage', 'publishing:formbase']
+                              'publishing:guidepage', 'publishing:formbase', 'publishing:fairrent',
+                              'publishing:documentcoverpage']
                             hst:componentconfigurationmappingvalues: ['hst:pages/article',
-                              'hst:pages/guidepage', 'hst:pages/formbase']
+                              'hst:pages/guidepage', 'hst:pages/formbase', 'hst:pages/fairrent',
+                              'hst:pages/documentcoverpage']
                             hst:relativecontentpath: ${parent}/${10}
                             hst:sitemapitemhandlerids: [trailing-slash]
                             /_index_:
                               jcr:primaryType: hst:sitemapitem
                               hst:componentconfigurationmappingnames: ['publishing:category',
-                                'publishing:guide']
+                                'publishing:guide', 'publishing:smartanswer']
                               hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                                'hst:pages/guide']
+                                'hst:pages/guide', 'hst:pages/smartanswer']
                               hst:relativecontentpath: ${parent}/index
                               hst:sitemapitemhandlerids: [trailing-slash]
                           /_index_:
                             jcr:primaryType: hst:sitemapitem
                             hst:componentconfigurationmappingnames: ['publishing:category',
-                              'publishing:guide']
+                              'publishing:guide', 'publishing:smartanswer']
                             hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                              'hst:pages/guide']
+                              'hst:pages/guide', 'hst:pages/smartanswer']
                             hst:relativecontentpath: ${parent}/index
                             hst:sitemapitemhandlerids: [trailing-slash]
                         /_index_:
                           jcr:primaryType: hst:sitemapitem
                           hst:componentconfigurationmappingnames: ['publishing:category',
-                            'publishing:guide']
+                            'publishing:guide', 'publishing:smartanswer']
                           hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                            'hst:pages/guide']
+                            'hst:pages/guide', 'hst:pages/smartanswer']
                           hst:relativecontentpath: ${parent}/index
                           hst:sitemapitemhandlerids: [trailing-slash]
                       /_index_:
                         jcr:primaryType: hst:sitemapitem
                         hst:componentconfigurationmappingnames: ['publishing:category',
-                          'publishing:guide']
+                          'publishing:guide', 'publishing:smartanswer']
                         hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                          'hst:pages/guide']
+                          'hst:pages/guide', 'hst:pages/smartanswer']
                         hst:relativecontentpath: ${parent}/index
                         hst:sitemapitemhandlerids: [trailing-slash]
                     /_index_:
                       jcr:primaryType: hst:sitemapitem
                       hst:componentconfigurationmappingnames: ['publishing:category',
-                        'publishing:guide']
+                        'publishing:guide', 'publishing:smartanswer']
                       hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                        'hst:pages/guide']
+                        'hst:pages/guide', 'hst:pages/smartanswer']
                       hst:relativecontentpath: ${parent}/index
                       hst:sitemapitemhandlerids: [trailing-slash]
                   /_index_:
                     jcr:primaryType: hst:sitemapitem
                     hst:componentconfigurationmappingnames: ['publishing:category',
-                      'publishing:guide']
+                      'publishing:guide', 'publishing:smartanswer']
                     hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                      'hst:pages/guide']
+                      'hst:pages/guide', 'hst:pages/smartanswer']
                     hst:relativecontentpath: ${parent}/index
                     hst:sitemapitemhandlerids: [trailing-slash]
                 /_index_:
                   jcr:primaryType: hst:sitemapitem
                   hst:componentconfigurationmappingnames: ['publishing:category',
-                    'publishing:guide']
+                    'publishing:guide', 'publishing:smartanswer']
                   hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                    'hst:pages/guide']
+                    'hst:pages/guide', 'hst:pages/smartanswer']
                   hst:relativecontentpath: ${parent}/index
                   hst:sitemapitemhandlerids: [trailing-slash]
               /_index_:
                 jcr:primaryType: hst:sitemapitem
-                hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide']
-                hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide']
+                hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
+                  'publishing:smartanswer']
+                hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
+                  'hst:pages/smartanswer']
                 hst:relativecontentpath: ${parent}/index
                 hst:sitemapitemhandlerids: [trailing-slash]
             /_index_:
               jcr:primaryType: hst:sitemapitem
-              hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide']
-              hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide']
+              hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
+                'publishing:smartanswer']
+              hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
+                'hst:pages/smartanswer']
               hst:relativecontentpath: ${parent}/index
               hst:sitemapitemhandlerids: [trailing-slash]
           /_index_:
@@ -296,8 +310,10 @@ definitions:
             hst:sitemapitemhandlerids: [trailing-slash]
         /_index_:
           jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide']
-          hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide']
+          hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
+            'publishing:smartanswer']
+          hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
+            'hst:pages/smartanswer']
           hst:relativecontentpath: ${parent}/index
           hst:sitemapitemhandlerids: [trailing-slash]
       /fragments:

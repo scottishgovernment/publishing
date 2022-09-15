@@ -5,16 +5,20 @@
 <'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
 
+[publishing:ColumnImage] > hippogallery:imageset, hippogallery:relaxed
+
+[publishing:ColumnImageFourThree] > hippogallery:imageset, hippogallery:relaxed
+
+[publishing:ColumnImageOneOne] > hippogallery:imageset, hippogallery:relaxed
+
+[publishing:ColumnImageSixteenNine] > hippogallery:imageset, hippogallery:relaxed
+
+[publishing:ColumnImageTwentyoneNine] > hippogallery:imageset, hippogallery:relaxed
+
 [publishing:FeaturedRole] > hippogallery:imageset, hippogallery:relaxed
 
 [publishing:basedocument] > hippo:document, hippostd:publishableSummary, hippostdpubwf:document
   orderable
-
-[publishing:ColumnImage] > hippogallery:imageset, hippogallery:relaxed
-[publishing:ColumnImageFourThree] > hippogallery:imageset, hippogallery:relaxed
-[publishing:ColumnImageOneOne] > hippogallery:imageset, hippogallery:relaxed
-[publishing:ColumnImageSixteenNine] > hippogallery:imageset, hippogallery:relaxed
-[publishing:ColumnImageTwentyoneNine] > hippogallery:imageset, hippogallery:relaxed
 
 [publishing:Fragment] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, publishing:basedocument
   orderable
@@ -122,13 +126,28 @@
 [publishing:smartanswer] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
-[publishing:smartanswermultiplechoiceoption] > hippo:compound, hippostd:relaxed
-  orderable
-
 [publishing:smartanswerquestion] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:smartanswerconfirmationpage] > hippostd:relaxed, hippotranslation:translated, publishing:smartanswerquestion
+  orderable
+
+[publishing:smartanswermultiplechoiceoption] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publishing:smartanswermultiplechoicequestion] > hippostd:relaxed, hippotranslation:translated, publishing:smartanswerquestion
+  orderable
+
+[publishing:smartanswersingleselectoption] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:smartanswersingleselectquestion] > hippostd:relaxed, hippotranslation:translated, publishing:smartanswerquestion
+  orderable
+
+[publishing:smartanswermultipleselectoption] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:smartanswermultipleselectquestion] > hippostd:relaxed, hippotranslation:translated, publishing:smartanswerquestion
   orderable
 
 [publishing:smartanswerresult] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument

@@ -3,7 +3,7 @@
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#macro dynamicResultsForItem item>
-  <#list item.dynamicresults as dynamicresult>
+    <#list item.dynamicresults as dynamicresult>
         <@hst.html hippohtml=dynamicresult.prologue/>
         <div class="mg_smart-answer__dynamic-result"
             id="dynamic-result-${item.name}-${dynamicresult.question.name}"
@@ -46,14 +46,20 @@
                     </div>
                 </noscript>
             </div>
+
             <div class="ds_layout__content">
                 <div class="mg_smart-answer" data-module="smartanswer" data-rooturl="<@hst.link hippobean=document />">
 
                     <form class="mg_smart-answer__form">
                         <#list questions as question>
-                            <section class="mg_smart-answer__question  mg_smart-answer__step" data-type="${question.style}" id="step-${question.name}">
+                            <#if question.style??>
+                                <#assign questionType = question.style />
+                            <#else>
+                                <#assign questionType = 'checkboxes' />
+                            </#if>
+                            <section class="mg_smart-answer__question  mg_smart-answer__step" data-type="${questionType}" id="step-${question.name}">
 
-                                <#if question.style == 'confirm' || question.style == 'confirmcheckbox'>
+                                <#if questionType == 'confirm' || questionType == 'confirmcheckbox'>
                                     <#assign fieldsetElName = 'div'/>
                                     <#assign legendElName = 'div'/>
                                 <#else>
@@ -63,18 +69,24 @@
 
                                 <div class="ds_question">
 
-                                    <${fieldsetElName} class="mg_no-margin--last-child  " id="question-${question.name}" data-validation="<#if question.style='radiobuttons'>requiredRadio</#if>">
+                                    <${fieldsetElName} class="mg_no-margin--last-child  " id="question-${question.name}" data-validation="<#if questionType='radiobuttons'>requiredRadio<#elseif questionType='checkboxes'>atLeastOneCheckbox</#if>">
                                         <${legendElName} class="ds_page-header">
                                             <span class="mg_smart-answer__parent-title">${document.title}</span>
-                                            <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">${question.title}</h1>
+                                            <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">
+                                                ${question.title}
+                                            </h1>
                                         </${legendElName}>
 
                                         <@hst.html hippohtml=question.content/>
 
-                                        <#switch question.style>
+                                        <#switch questionType>
                                             <#case 'dropdown'>
                                                 <div>
-                                                    <label class="ds_label" for="step-${question.name}-${question.name}"><#if question.dropdownLabel?has_content>${question.dropdownLabel}<#else>Choose an option</#if></label>
+                                                    <label class="ds_label" for="step-${question.name}-${question.name}">
+                                                        <#if question.dropdownLabel?has_content>
+                                                            ${question.dropdownLabel}<#else>Choose an option
+                                                        </#if>
+                                                    </label>
                                                     <div class="ds_select-wrapper  ds_input--fixed-20  ds_!_margin-bottom--0">
                                                         <select class="ds_select" id="step-${question.name}-${question.name}" data-validation="requiredDropdown">
                                                             <option></option>
@@ -86,26 +98,41 @@
                                                         <span class="ds_select-arrow" aria-hidden="true"></span>
                                                     </div>
                                                 </div>
-                                            <#break>
+                                                <#break>
                                             <#case 'radiobuttons'>
                                                 <#list question.options as option>
                                                     <div class="ds_radio">
                                                         <#assign nextStep><#if option.nextPage??>${option.nextPage.name}<#elseif question.defaultNextPage??>${question.defaultNextPage.name}<#else></#if></#assign>
-                                                        <input required data-form="radio-step-${question.name}-${option.value}" class="ds_radio__input" type="radio" id="step-${question.name}-${option.value}" name="question-${question.name}" value="${option.value}" data-nextstep="step-${nextStep}">
+                                                        <input required
+                                                            data-form="radio-step-${question.name}-${option.value}"
+                                                            class="ds_radio__input"
+                                                            type="radio"
+                                                            id="step-${question.name}-${option.value}"
+                                                            name="question-${question.name}"
+                                                            value="${option.value}"
+                                                            data-nextstep="step-${nextStep}">
                                                         <label class="ds_radio__label" for="step-${question.name}-${option.value}">${option.label}</label>
                                                     </div>
                                                 </#list>
-                                            <#break>
+                                                <#break>
                                             <#case 'confirm'>
                                                 <@dynamicResultsForItem question />
 
                                                 <input type="hidden" value="confirm" data-nextstep="step-${question.defaultNextPage.name}" />
-                                            <#break>
+                                                <#break>
                                             <#case 'confirmcheckbox'>
                                                 <@dynamicResultsForItem question />
 
                                                 <div class="ds_checkbox">
-                                                    <input required data-validation="requiredCheckbox" data-form="checkbox-step-${question.name}-confirm" class="ds_checkbox__input" type="checkbox" id="step-${question.name}-confirm" name="question-${question.name}" value="confirm" data-nextstep="step-${question.defaultNextPage.name}">
+                                                    <input required
+                                                        data-validation="requiredCheckbox"
+                                                        data-form="checkbox-step-${question.name}-confirm"
+                                                        class="ds_checkbox__input"
+                                                        type="checkbox"
+                                                        id="step-${question.name}-confirm"
+                                                        name="question-${question.name}"
+                                                        value="confirm"
+                                                        data-nextstep="step-${question.defaultNextPage.name}">
                                                     <label class="ds_checkbox__label" for="step-${question.name}-confirm">
                                                         <#if question.confirmLabel?has_content>
                                                             ${question.confirmLabel}
@@ -114,7 +141,31 @@
                                                         </#if>
                                                     </label>
                                                 </div>
-                                            <#break>
+                                                <#break>
+                                            <#case 'checkboxes'>
+                                                <div class="ds_checkboxes  mg_no-margin--last-child" data-module="ds-checkboxes" data-validation="atLeastOneCheckbox">
+                                                    <#list question.options?sort_by('exclusive') as option>
+                                                        <#if option.exclusive == true && question.options?size gt 1>
+                                                            <p class="ds_checkbox-separator">or</p>
+                                                        </#if>
+
+                                                        <div class="ds_checkbox">
+                                                            <#assign nextStep><#if option.nextPage??>${option.nextPage.name}<#elseif
+                                                                    question.defaultNextPage??>${question.defaultNextPage.name}<#else></#if></#assign>
+                                                            <input
+                                                                data-form="checkbox-step-${question.name}-${option.value}"
+                                                                class="ds_checkbox__input" type="checkbox"
+                                                                id="step-${question.name}-${option.value}"
+                                                                name="question-${question.name}"
+                                                                value="${option.value}"
+                                                                data-nextstep="step-${nextStep}"
+                                                                <#if option.exclusive>data-behaviour="exclusive"</#if>>
+                                                            <label class="ds_checkbox__label"
+                                                                for="step-${question.name}-${option.value}">${option.label}</label>
+                                                        </div>
+                                                    </#list>
+                                                </div>
+                                                <#break>
                                         </#switch>
                                     </${fieldsetElName}>
                                 </div>
@@ -127,14 +178,17 @@
                         </#list>
 
                         <#list answers as answer>
-                            <section class="mg_smart-answer__answer  mg_smart-answer__step" id="step-${answer.name}">
+                            <section class="mg_smart-answer__answer  mg_smart-answer__step" id="step-${answer.name}" <#if answer.eligible><#else>data-ineligible="true"</#if>>
                                 <header class="ds_page-header">
-                                    <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">${answer.title}</h1>
+                                    <span class="mg_smart-answer__parent-title">${document.title}</span>
+                                    <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">
+                                        ${answer.title}
+                                    </h1>
                                 </header>
 
                                 <@hst.html hippohtml=answer.answer/>
 
-                                <@dynamicResultsForItem answer />
+                                <@dynamicResultsForItem answer/>
                             </section>
                         </#list>
                     </form>
@@ -149,7 +203,7 @@
 
 <@hst.headContribution category="meta">
     <#if document??>
-    <meta name="description" content="${document.metaDescription}"/>
+        <meta name="description" content="${document.metaDescription}" />
     </#if>
 </@hst.headContribution>
 

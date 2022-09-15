@@ -1,87 +1,58 @@
 definitions:
   config:
-    /hippo:namespaces/publishing/smartanswerresult:
+    /hippo:namespaces/publishing/smartanswermultipleselectquestion:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: a7ec818b-6b44-465d-9f59-8fe9bc27e378
+      jcr:uuid: 61465bf4-ca88-4545-b0c5-70bb49e504bc
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 79fd9c05-9593-4b32-a606-a03cfd47943f
+        jcr:uuid: 5337743f-8c96-492f-9c26-f03d367d0ff4
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: de15e9c2-e8f6-435a-a736-bdf01f74fa34
+          jcr:uuid: 47b292a4-ad52-4db8-a6af-104a4e72544f
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
+          hipposysedit:supertype: ['publishing:smartanswerquestion', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          /answer:
+          /defaultNextPage:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:answer
+            hipposysedit:path: publishing:defaultNextPage
             hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /title:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /smartanswerresultdynamicselectors:
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators: [smartanwer-next-page]
+          /option:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:dynamicresults
+            hipposysedit:path: publishing:options
             hipposysedit:primary: false
-            hipposysedit:type: publishing:smartanswerresultdynamicselector
-          /eligible:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:eligible
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
+            hipposysedit:type: publishing:smartanswermultipleselectoption
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: publishing:smartanswerresult
-          hippostd:holder: holder
+          jcr:primaryType: publishing:smartanswermultipleselectquestion
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: c5bad653-d381-4fcc-8d6b-7b22193f6ad9
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2022-09-05T09:51:15.216+01:00
+          hippostdpubwf:lastModificationDate: 2022-09-05T09:51:15.216+01:00
           hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 1e2dcc10-ce74-4aae-bc98-621066bc1dc9
-          hippostdpubwf:lastModificationDate: 2021-05-17T11:00:50.806+01:00
-          hippostdpubwf:creationDate: 2021-05-17T11:00:50.806+01:00
+          hippotranslation:id: ''
+          hippotranslation:locale: ''
           publishing:title: ''
-          publishing:eligible: false
-          /publishing:answer:
+          /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
-          /publishing:dynamicresults:
-            jcr:primaryType: publishing:smartanswerresultdynamicselector
-            /publishing:question:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            /publishing:folder:
-              jcr:primaryType: hippo:mirror
-              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            /publishing:prologue:
-              jcr:primaryType: hippostd:html
-              hippostd:content: ''
-            /publishing:epilogue:
-              jcr:primaryType: hippostd:html
-              hippostd:content: ''
+          /publishing:defaultNextPage:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -97,32 +68,35 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Title
             field: title
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /answer:
+          /content:
             jcr:primaryType: frontend:plugin
             caption: Content
-            field: answer
+            field: content
+            hint: Content
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: Content displayed at the top of the results page.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /eligible:
+          /options:
             jcr:primaryType: frontend:plugin
-            caption: Eligible
-            field: eligible
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            caption: Options
+            field: option
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /dynamicresults:
+          /defaultNextPage:
             jcr:primaryType: frontend:plugin
-            caption: Dynamic results
-            field: smartanswerresultdynamicselectors
-            hint: ''
+            caption: Default next page
+            field: defaultNextPage
+            hint: This is the next page that will be used for any of the options that
+              do not specify one.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

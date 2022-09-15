@@ -1067,6 +1067,25 @@
         jcr:primaryType: selection:listitem
         selection:key: confirmcheckbox
         selection:label: Confirmation with checkbox
+  /smartanswersingleselectstyle:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 8a372e3c-0e46-419e-ad02-76634b5344bb
+    /smartanswersingleselectstyle:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 3587b57c-7a19-4e4d-aea6-1779396279dd
+      hippo:availability: [live, preview]
+      hippotranslation:id: 3d3a7c0a-2051-472d-b11f-b4c50bdd85d2
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: radiobuttons
+        selection:label: Radio buttons
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: dropdown
+        selection:label: Dropdown list
   /localauthorities:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -1230,3 +1249,22 @@
         jcr:primaryType: selection:listitem
         selection:key: resilient
         selection:label: Resilient (Funnleback with bloomreach fallback)
+  /smartanswerconfirmationstyle:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: cea362b2-ae4e-47aa-819d-f5d6a834ee77
+    /smartanswerconfirmationstyle:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: e032b187-f070-4791-8f67-5be07a6e25f4
+      hippo:availability: [live, preview]
+      hippotranslation:id: f1d8ad85-3b51-4f60-9246-efb977d402a3
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: confirm
+        selection:label: Confirmation
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: confirmcheckbox
+        selection:label: Confirmation with checkbox
