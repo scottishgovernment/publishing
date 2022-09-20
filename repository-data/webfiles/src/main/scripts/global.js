@@ -54,6 +54,8 @@ const global = {
     },
 
     initDesignSystemComponents: function () {
+        window.DS.base.page.init();
+
         const backToTopEl = document.querySelector('[data-module="ds-back-to-top"]');
         if (backToTopEl) {
             const backToTop = new window.DS.components.BackToTop(backToTopEl);

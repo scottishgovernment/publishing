@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <div class="category-lower">
+        <div class="category-lower  ds_pre-footer-background">
             <div class="ds_wrapper">
                 <#if document.prologue??>
                     <@hst.html hippohtml=document.prologue/>
