@@ -20,11 +20,7 @@ definitions:
           jcr:primaryType: hippostd:folder
           jcr:mixinTypes: ['mix:versionable']
           jcr:uuid: 0b2a0c90-5acb-49e5-9cff-11b0d3ff611a
-          hippostd:foldertype: [new-publishing-smartanswer-multiplechoicequestion,
-            new-publishing-smartanswer-singleselectquestion,
-            new-publishing-smartanswer-multipleselectquestion,
-            new-publishing-smartanswer-confirmationpage,
-            new-publishing-smartanswer-result]
+          hippostd:foldertype: [new-publishing-smartanswer-singleselectquestion, new-publishing-smartanswer-multipleselectquestion, new-publishing-smartanswer-confirmationpage, new-publishing-smartanswer-result, new-fragment-folder]
           /index:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
