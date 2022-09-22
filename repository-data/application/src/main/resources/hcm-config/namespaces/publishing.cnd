@@ -72,6 +72,9 @@
 [publishing:fragment] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:funnelbackcuratorchanges] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:googleverification] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
@@ -166,3 +169,4 @@
 
 [publishing:video] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
+
