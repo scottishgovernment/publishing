@@ -129,7 +129,7 @@ class SmartAnswer {
             }
 
             if (!!otherBranchStepElement) {
-                nextStep = otherBranchStepElement;
+                nextStep = this.getStepFromPotentialNextStep(otherBranchStepElement);
             }
         }
 
