@@ -181,7 +181,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     private void addProperty(Node variant, String property, String stateSummary, List<String> props) throws RepositoryException {
         switch (property) {
             case "title":
-                props.add(useFirstPresentProperty(variant, "publishing:title", "hippo:name"));
+                props.add(title(variant));
                 break;
             case "url":
                 List<String> urls = getDocumentSiteURL(variant);
@@ -246,13 +246,18 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
         }
     }
 
-    private String useFirstPresentProperty(Node node, String ... props) throws RepositoryException {
-        for (String prop : props) {
-            if (node.hasProperty(prop) && StringUtils.isNotBlank(node.getProperty(prop).getString())) {
-                return node.getProperty(prop).getString();
-            }
+    private String title(Node node) throws RepositoryException {
+
+        if (node.hasNode("publishing:title")) {
+            return node.getProperty("publishing:title").getString();
         }
-        return node.getName();
+
+        Node handle = node.getParent();
+        if (handle.hasProperty("hippo:name")) {
+            return handle.getProperty("hippo:name").getString();
+        }
+
+        return handle.getName();
     }
 
     /**
