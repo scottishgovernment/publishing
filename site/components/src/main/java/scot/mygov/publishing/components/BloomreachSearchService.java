@@ -1,4 +1,4 @@
-package scot.mygov.publishing.components.funnelback;
+package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
@@ -10,20 +10,30 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scot.gov.publishing.hippo.funnelback.model.*;
-import scot.mygov.publishing.beans.Searchsettings;
-import scot.mygov.publishing.components.funnelback.postprocess.PaginationBuilder;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import scot.gov.publishing.hippo.funnelback.component.Search;
+import scot.gov.publishing.hippo.funnelback.component.SearchResponse;
+import scot.gov.publishing.hippo.funnelback.component.SearchService;
+import scot.gov.publishing.hippo.funnelback.component.SearchSettings;
+import scot.gov.publishing.hippo.funnelback.component.postprocess.PaginationBuilder;
+import scot.gov.publishing.hippo.funnelback.model.Pagination;
+import scot.gov.publishing.hippo.funnelback.model.Question;
+import scot.gov.publishing.hippo.funnelback.model.Response;
+import scot.gov.publishing.hippo.funnelback.model.ResultsSummary;
 
 import java.util.*;
 
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.and;
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
-
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 import static org.onehippo.repository.util.JcrConstants.JCR_PRIMARY_TYPE;
 
+@Service
+@Component("scot.mygov.publishing.components.BloomreachSearchService")
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class BloomreachSearchService implements SearchService {
 
     private static final Logger LOG = LoggerFactory.getLogger(BloomreachSearchService.class);
@@ -37,9 +47,6 @@ public class BloomreachSearchService implements SearchService {
             "publishing:facebookverification",
             "publishing:smartanswerquestion",
             "publishing:smartanswermultiplechoicequestion",
-            "publishing:smartanswerconfirmationpage",
-            "publishing:smartanswermultipleselectquestion",
-            "publishing:smartanswersingleselectquestion",
             "publishing:smartanswerresult",
             "publishing:fragment",
             "publishing:mirror",
@@ -59,7 +66,7 @@ public class BloomreachSearchService implements SearchService {
     }
 
     @Override
-    public SearchResponse performSearch(Search search, Searchsettings searchsettings) {
+    public SearchResponse performSearch(Search search, SearchSettings searchsettings) {
 
         String query = defaultIfBlank(search.getQuery(), "");
         int offset = (search.getPage() - 1) * PAGE_SIZE;

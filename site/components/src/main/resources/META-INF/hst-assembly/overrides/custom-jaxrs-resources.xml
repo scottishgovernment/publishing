@@ -18,7 +18,7 @@
             <list>
                 <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
                     <constructor-arg>
-                        <bean class="scot.mygov.publishing.components.funnelback.SuggestionsResource" />
+                        <bean class="scot.gov.publishing.hippo.funnelback.component.SuggestionsResource" />
                     </constructor-arg>
                 </bean>
             </list>
