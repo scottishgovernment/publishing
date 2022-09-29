@@ -6,7 +6,6 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.cms7.essentials.components.EssentialsListComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
-import scot.mygov.publishing.components.funnelback.BloomreachSearchService;
 
 import static org.apache.commons.lang.StringUtils.isBlank;
 

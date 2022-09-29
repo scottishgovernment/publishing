@@ -41,10 +41,11 @@ public class PollFunnelbackCurator implements RepositoryJob {
         }
 
         Session session = context.createSystemSession();
+        String pollPath = context.getAttribute("pollPath");
 
         try {
             String storedHash = getStoredHash(session);
-            String newhash = getPageHash();
+            String newhash = getPageHash(pollPath);
             if (!storedHash.equals(newhash)) {
                 touchFunnelbackCacheFile(session, newhash);
             }
@@ -74,16 +75,16 @@ public class PollFunnelbackCurator implements RepositoryJob {
         return "published".equals(node.getProperty("hippostd:state").getString());
     }
 
-    String getPageHash() throws RepositoryException {
+    String getPageHash(String pollPath) throws RepositoryException {
         try {
-            return doGetPageContentHash();
+            return doGetPageContentHash(pollPath);
         } catch (IOException | URISyntaxException e) {
             throw new RepositoryException(e);
         }
     }
 
-    String doGetPageContentHash() throws IOException, URISyntaxException {
-        URI uri = curatorURI();
+    String doGetPageContentHash(String pollPath) throws IOException, URISyntaxException {
+        URI uri = curatorURI(pollPath);
         String token = HstServices.getComponentManager().getContainerConfiguration().getString("funnelback.token");
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet request = new HttpGet(uri);
@@ -102,12 +103,11 @@ public class PollFunnelbackCurator implements RepositoryJob {
         }
     }
 
-    URI curatorURI() throws URISyntaxException {
+    URI curatorURI(String pollPath) throws URISyntaxException {
         ContainerConfiguration containerConfiguration = HstServices.getComponentManager().getContainerConfiguration();
+        // "/admin-api/curator/v2/collections/govscot~sp-mygov/profiles/_default/curator/"
         String baseUrl = containerConfiguration.getString("funnelback.url");
-        return new URIBuilder(baseUrl)
-                .setPath("/admin-api/curator/v2/collections/govscot~sp-mygov/profiles/_default/curator/")
-                .build();
+        return new URIBuilder(baseUrl).setPath(pollPath).build();
     }
 
     void touchFunnelbackCacheFile(Session session, String hash) throws RepositoryException {
