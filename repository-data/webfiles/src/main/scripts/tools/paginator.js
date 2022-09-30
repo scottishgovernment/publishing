@@ -10,11 +10,6 @@ import Handlebars from '../vendor/hbs/handlebars';
 
 const paginatorTemplates = {
     full: '<nav aria-label="Search result pages" class="ds_pagination">' +
-        '{{#if canLoadMore}}' +
-        '<div class="ds_pagination__load-more">' +
-        '<button data-start="{{nextStart}}" id="load-more" class="ds_button">Load more</button>' +
-        '</div>' +
-        '{{/if}}' +
         '<ul class="ds_pagination__list">' +
         '{{#pages}}' +
         '<li {{#if isCurrentPage}}aria-current="page"{{/if}} class="ds_pagination__item {{#if isLink}}{{else}}ellipsis{{/if}}">' +

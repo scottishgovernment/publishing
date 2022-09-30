@@ -48,7 +48,7 @@ const fairRentRegister = {
 
         feedback.init();
 
-        this.paginator = new Paginator(document.getElementById('pagination'), 3, this);
+        this.paginator = new Paginator(document.getElementById('pagination'), 2, this);
     },
 
     /**

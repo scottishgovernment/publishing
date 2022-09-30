@@ -175,22 +175,6 @@ describe('a paginator', function () {
 
             expect(containerElement.html()).toEqual('');
         });
-
-        it('should show a "load more" button if there is another page of results to show', function () {
-            paginator.setParams(0, 10, 95);
-
-            paginator.renderPages();
-
-            expect(containerElement.find('#load-more').length).not.toEqual(0);
-        });
-
-        it('should not show a "load more" button if there is not another page of results to show', function () {
-            paginator.setParams(90, 10, 95);
-
-            paginator.renderPages();
-
-            expect(containerElement.find('#load-more').length).toEqual(0);
-        });
     });
 
     describe('pagination navigation events', function () {
@@ -251,16 +235,6 @@ describe('a paginator', function () {
 
             expect(fakeCaller.doSearch).toHaveBeenCalled();
             expect(fakeCaller.doSearch).toHaveBeenCalledWith(fakeCaller.searchParams, false);
-        });
-
-        it('should load more results on click of the "load more" link', function () {
-            spyOn(fakeCaller, 'doSearch');
-
-            containerElement.find('#load-more').trigger('click');
-
-            expect(fakeCaller.doSearch).toHaveBeenCalled();
-            expect(fakeCaller.doSearch).toHaveBeenCalledWith(fakeCaller.searchParams, true);
-            expect(fakeCaller.searchParams.from).toEqual(10);
         });
 
     });
