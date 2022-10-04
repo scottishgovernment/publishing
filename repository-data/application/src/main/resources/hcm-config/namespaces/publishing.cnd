@@ -30,10 +30,19 @@
 [publishing:PublishingDocument] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
-[publishing:analytics] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+[publishing:Step] > hippo:compound, hippostd:relaxed
   orderable
 
 [publishing:base] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:StepByStepGuide] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
+[publishing:StepLink] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:analytics] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:article] > hippostd:relaxed, hippotranslation:translated, publishing:base
@@ -141,12 +150,6 @@
 [publishing:smartanswermultiplechoicequestion] > hippostd:relaxed, hippotranslation:translated, publishing:smartanswerquestion
   orderable
 
-[publishing:smartanswersingleselectoption] > hippo:compound, hippostd:relaxed
-  orderable
-
-[publishing:smartanswersingleselectquestion] > hippostd:relaxed, hippotranslation:translated, publishing:smartanswerquestion
-  orderable
-
 [publishing:smartanswermultipleselectoption] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -156,6 +159,12 @@
 [publishing:smartanswerresult] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
 
 [publishing:smartanswerresultdynamicselector] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:smartanswersingleselectoption] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:smartanswersingleselectquestion] > hippostd:relaxed, hippotranslation:translated, publishing:smartanswerquestion
   orderable
 
 [publishing:status] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
