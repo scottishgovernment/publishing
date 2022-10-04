@@ -17,7 +17,7 @@
                                 <img class="ds_site-branding__logo-image" src="<@hst.link hippobean=document.logo/>" alt="The Scottish Government" />
                             </#if>
                         <#else>
-                            <img width="357" height="67" class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/scottish-government.svg"/>" alt="The Scottish Government" />
+                            <img width="269" height="40" class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/scottish-government.svg"/>" alt="The Scottish Government" />
                         </#if>
                     </#if>
                 </a>
