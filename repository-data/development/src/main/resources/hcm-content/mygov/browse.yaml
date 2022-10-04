@@ -4,7 +4,7 @@
   jcr:uuid: 2eeab6c1-a59a-45fc-8b15-c414f8ce4182
   hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
     new-publishing-mirror, new-publishing-smartanswer, new-document, new-publishing-smartanswer,
-    new-fragment-folder]
+    new-fragment-folder, new-StepByStepGuide-document]
   /mammals:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
@@ -42695,3 +42695,124 @@
           /publishing:authorNotes:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
+  /sztep-by-step:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 94ed1d3e-085a-438e-9a99-2edc7bcd21da
+    hippo:name: SZtep by step
+    hippo:versionHistory: 43e7179d-1b17-4491-87b9-acf2b752f000
+    /sztep-by-step[1]:
+      jcr:primaryType: publishing:StepByStepGuide
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 934a7cb7-0b3d-4c52-9b04-eb1da2c9bc48
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-10-04T13:30:20.307+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-04T13:38:01.541+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 493b1597-27a6-4bf7-a430-ecf2ae4ac738
+      hippotranslation:locale: document-type-locale
+      publishing:audience: ''
+      publishing:authorNotes: ''
+      publishing:metaDescription: step by sode example
+      publishing:noindex: false
+      publishing:reportingtags: []
+      publishing:sensitive: false
+      publishing:seoTitle: sdfsdf
+      publishing:serviceproviders: []
+      publishing:showFeedback: false
+      publishing:showInParent: false
+      publishing:slug: step-by-step
+      publishing:summary: step by step example page
+      publishing:title: Step by step example
+      publishing:userneed: ''
+      /publishing:contentOwner:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>step by step guide content</p>
+      /publishing:steps:
+        jcr:primaryType: publishing:Step
+        publishing:description: <p>this is step 1</p>
+        publishing:labeltype: numbered
+        publishing:title: Step 1
+    /sztep-by-step[2]:
+      jcr:primaryType: publishing:StepByStepGuide
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 98e20173-5a8b-4cfc-81f2-85f55f443422
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-10-04T13:30:20.307+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-04T13:37:29.867+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 493b1597-27a6-4bf7-a430-ecf2ae4ac738
+      hippotranslation:locale: document-type-locale
+      publishing:audience: ''
+      publishing:authorNotes: ''
+      publishing:metaDescription: step by sode example
+      publishing:noindex: false
+      publishing:reportingtags: []
+      publishing:sensitive: false
+      publishing:seoTitle: sdfsdf
+      publishing:serviceproviders: []
+      publishing:showFeedback: false
+      publishing:showInParent: false
+      publishing:slug: step-by-step
+      publishing:summary: step by step example page
+      publishing:title: Step by step example
+      publishing:userneed: ''
+      /publishing:contentOwner:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>step by step guide content</p>
+      /publishing:steps:
+        jcr:primaryType: publishing:Step
+        publishing:description: <p>this is step 1</p>
+        publishing:labeltype: numbered
+        publishing:title: Step 1
+    /sztep-by-step[3]:
+      jcr:primaryType: publishing:StepByStepGuide
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 74dec14f-e3cf-4867-94c3-6c072c821431
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-10-04T13:30:20.307+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-04T13:37:29.867+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2022-10-04T13:37:47.153+01:00
+      hippotranslation:id: 493b1597-27a6-4bf7-a430-ecf2ae4ac738
+      hippotranslation:locale: document-type-locale
+      publishing:audience: ''
+      publishing:authorNotes: ''
+      publishing:metaDescription: step by sode example
+      publishing:noindex: false
+      publishing:reportingtags: []
+      publishing:sensitive: false
+      publishing:seoTitle: sdfsdf
+      publishing:serviceproviders: []
+      publishing:showFeedback: false
+      publishing:showInParent: false
+      publishing:slug: step-by-step
+      publishing:summary: step by step example page
+      publishing:title: Step by step example
+      publishing:userneed: ''
+      /publishing:contentOwner:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>step by step guide content</p>
+      /publishing:steps:
+        jcr:primaryType: publishing:Step
+        publishing:description: <p>this is step 1</p>
+        publishing:labeltype: numbered
+        publishing:title: Step 1
