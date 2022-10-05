@@ -1,0 +1,80 @@
+.ds_step-navigation {
+    counter-reset: section;
+    margin-left: 48px;
+
+
+    .ds_accordion-item {
+        position: relative;
+    }
+
+    .ds_accordion-item__header-button::before,
+    .ds_accordion-item__header::before {
+        color: grey;
+        content: counter(section);
+        counter-increment: section;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: calc(32px - 2px);
+        text-align: center;
+
+        position: absolute;
+        left: -48px;
+        border: 1px solid grey;
+        border-radius: 20px;
+        top: 16px;
+        width: 30px;
+        height: 30px;
+        display: block;
+    }
+
+    .ds_accordion-item::before {
+        content: '';
+        display: block;
+        top: 46px;
+        bottom: -18px;
+        width: 1px;
+        background: grey;
+        position: absolute;
+        left: calc(-48px + 16px - 2px);
+    }
+
+    .ds_accordion-item:last-child::before {
+        bottom: 0;
+    }
+
+    .ds_accordion-item:last-child::after {
+        content: '';
+        display: block;
+        bottom: -1px;
+        width: 24px;
+        height: 1px;
+        background: grey;
+        position: absolute;
+        left: -46px;
+    }
+
+    &__or,
+    &__and {
+        counter-increment: section -1;
+    }
+
+    &__or .ds_accordion-item__header::before,
+    &__or .ds_accordion-item__header-button::before,
+    &__and .ds_accordion-item__header::before,
+    &__and .ds_accordion-item__header-button::before {
+        border: none;
+        color: #333;
+        font-weight: 700;
+        top: 17px;
+    }
+
+    &__or .ds_accordion-item__header::before,
+    &__or .ds_accordion-item__header-button::before {
+        content: 'or';
+    }
+
+    &__and .ds_accordion-item__header::before,
+    &__and .ds_accordion-item__header-button::before {
+        content: 'and';
+    }
+}
