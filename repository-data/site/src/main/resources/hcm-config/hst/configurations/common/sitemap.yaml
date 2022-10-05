@@ -9,7 +9,7 @@ definitions:
         hst:hiddeninchannelmanager: true
       /search:
         jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/search
+        hst:componentconfigurationid: hst:pages/searchresilient
         hst:relativecontentpath: site-furniture/search/search-results
         hst:sitemapitemhandlerids: [trailing-slash]
         hst:hiddeninchannelmanager: true
@@ -330,4 +330,9 @@ definitions:
         hst:componentconfigurationid: hst:pages/cookiepreferences
         hst:refId: cookies
         hst:relativecontentpath: site-furniture/footer/cookies
+        hst:sitemapitemhandlerids: [trailing-slash]
+      /searchresults:
+        jcr:primaryType: hst:sitemapitem
+        hst:componentconfigurationid: hst:pages/searchresilientresults
+        hst:relativecontentpath: site-furniture/search/search-results
         hst:sitemapitemhandlerids: [trailing-slash]

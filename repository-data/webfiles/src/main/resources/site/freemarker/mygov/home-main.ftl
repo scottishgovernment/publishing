@@ -14,6 +14,8 @@
                     <div class="ds_feature-header__primary">
                         <h1 class="ds_feature-header__title">Access to public services in Scotland</h1>
 
+
+                        <p>Activate autocomplete? ${autoCompleteEnabled?c}</p>
                         <div class="ds_site-search" data-module="ds-site-search">
                             <form role="search" class="ds_site-search__form" method="GET" action="<@hst.link path='/search/'/>">
                                 <label class="ds_label  visually-hidden" for="site-search">Search</label>

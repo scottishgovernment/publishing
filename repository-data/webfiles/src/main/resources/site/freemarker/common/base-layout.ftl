@@ -4,7 +4,6 @@
 <html lang="en">
     <head>
         <@hst.headContributions categoryIncludes="dataLayer"/>
-
         <!-- dataLayer code MUST be higher than google tag manager code -->
         <@hst.headContributions categoryIncludes="googleTagManagerDataLayer"/>
         <@hst.headContributions categoryIncludes="googleTagManager"/>

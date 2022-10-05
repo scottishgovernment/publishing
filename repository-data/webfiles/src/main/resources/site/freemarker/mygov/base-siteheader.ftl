@@ -11,10 +11,10 @@
                     <img width="300" height="58" class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/mygov.svg" />" alt="mygov.scot">
                 </a>
             </div>
-
             <#if hideSearch>
             <#else>
             <div class="ds_site-header__search">
+                <p>Activate autocomplete? ${autoCompleteEnabled?c}</p>
                 <div class="ds_site-search" data-module="ds-site-search">
                     <form role="search" class="ds_site-search__form" method="GET" action="<@hst.link path='/search/'/>">
                         <label class="ds_label  visually-hidden" for="site-search">Search</label>
