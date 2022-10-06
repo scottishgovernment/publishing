@@ -84,34 +84,7 @@
                 </#if>
             </div>
 
-            <div class="ds_layout__sidebar">
-                <#if document.relateditems?has_content >
-                    <aside class="ds_article-aside">
-                        <h2 class="gamma">Related content</h2>
-                        <ul class="ds_no-bullets">
-                            <#list document.relateditems as item>
-                                <#list item.relatedItem as link>
-                                    <@hst.link var="url" hippobean=link/>
-                                    <li>
-                                        <a href="${url}">${link.title}</a>
-                                    </li>
-                                </#list>
-                            </#list>
-                        </ul>
-                    </aside>
-                </#if>
-
-                <#if document.sensitive?? && document.sensitive>
-                    <aside class="ds_article-aside" id="stay-safe-online">
-                        <h3>Stay safe online &hellip;</h3>
-                        <ul class="ds_no-bullets">
-                            <li>
-                                <a href="/staying-safe-online/deleting-your-browser-history" data-navigation="staysafe-yes">Deleting your history and staying safe online</a>
-                            </li>
-                        </ul>
-                    </aside>
-                </#if>
-            </div>
+            <@hst.include ref="sidebar"/>
 
             <#include 'feedback-wrapper.ftl'>
 

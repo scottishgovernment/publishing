@@ -42695,124 +42695,216 @@
           /publishing:authorNotes:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
-  /sztep-by-step:
+  /stepbystep:
     jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 94ed1d3e-085a-438e-9a99-2edc7bcd21da
-    hippo:name: SZtep by step
-    hippo:versionHistory: 43e7179d-1b17-4491-87b9-acf2b752f000
-    /sztep-by-step[1]:
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: a643aa14-b029-4629-87a5-5b3a6f71cda7
+    hippo:versionHistory: 434c40c0-0a8d-430b-8a85-360a3204c120
+    /stepbystep[1]:
       jcr:primaryType: publishing:StepByStepGuide
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 934a7cb7-0b3d-4c52-9b04-eb1da2c9bc48
+      jcr:uuid: 0d28ce84-4f5f-4f18-a9a9-d3b908807ec6
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2022-10-04T13:30:20.307+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-04T13:38:01.541+01:00
+      hippostdpubwf:creationDate: 2022-10-05T16:35:14.459+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-05T17:25:15.841+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 493b1597-27a6-4bf7-a430-ecf2ae4ac738
+      hippotranslation:id: 0ed70094-f8bc-4542-addb-738d723760df
       hippotranslation:locale: document-type-locale
       publishing:audience: ''
       publishing:authorNotes: ''
-      publishing:metaDescription: step by sode example
+      publishing:metaDescription: asdasd
       publishing:noindex: false
       publishing:reportingtags: []
       publishing:sensitive: false
-      publishing:seoTitle: sdfsdf
+      publishing:seoTitle: asdasd
       publishing:serviceproviders: []
       publishing:showFeedback: false
       publishing:showInParent: false
-      publishing:slug: step-by-step
-      publishing:summary: step by step example page
-      publishing:title: Step by step example
+      publishing:slug: stepbystep
+      publishing:summary: sdfsdf
+      publishing:title: Step by step guide example
       publishing:userneed: ''
       /publishing:contentOwner:
         jcr:primaryType: hippo:mirror
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /publishing:content:
         jcr:primaryType: hippostd:html
-        hippostd:content: <p>step by step guide content</p>
-      /publishing:steps:
+        hippostd:content: <p>Some intro content to the step by step guide</p>
+      /publishing:steps[1]:
         jcr:primaryType: publishing:Step
-        publishing:description: <p>this is step 1</p>
+        publishing:description: ''
         publishing:labeltype: numbered
-        publishing:title: Step 1
-    /sztep-by-step[2]:
+        publishing:title: Turtles
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p><a href="turtles">look for turtles</a></p>
+          /turtles:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: dd386af5-48aa-462c-978d-963e8d3e5761
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /publishing:steps[2]:
+        jcr:primaryType: publishing:Step
+        publishing:labeltype: numbered
+        publishing:title: Snakes
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><a href="index">look for snakes</a></p>
+
+            <p><a href="pythons">or pythons</a></p>
+          /index:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 8088475d-a390-4b16-b734-b0a600fde29b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /pythons:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 40b8c00b-835f-4a81-83f4-dcf4fda7d7bc
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+    /stepbystep[2]:
       jcr:primaryType: publishing:StepByStepGuide
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: 98e20173-5a8b-4cfc-81f2-85f55f443422
+      jcr:uuid: 734e0d64-aa5d-485f-92fb-7866fd03b622
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2022-10-04T13:30:20.307+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-04T13:37:29.867+01:00
+      hippostdpubwf:creationDate: 2022-10-05T16:35:14.459+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-05T17:25:37.875+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 493b1597-27a6-4bf7-a430-ecf2ae4ac738
+      hippotranslation:id: 0ed70094-f8bc-4542-addb-738d723760df
       hippotranslation:locale: document-type-locale
       publishing:audience: ''
       publishing:authorNotes: ''
-      publishing:metaDescription: step by sode example
+      publishing:metaDescription: asdasd
       publishing:noindex: false
       publishing:reportingtags: []
       publishing:sensitive: false
-      publishing:seoTitle: sdfsdf
+      publishing:seoTitle: asdasd
       publishing:serviceproviders: []
       publishing:showFeedback: false
       publishing:showInParent: false
-      publishing:slug: step-by-step
-      publishing:summary: step by step example page
-      publishing:title: Step by step example
+      publishing:slug: stepbystep
+      publishing:summary: sdfsdf
+      publishing:title: Step by step guide example
       publishing:userneed: ''
       /publishing:contentOwner:
         jcr:primaryType: hippo:mirror
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /publishing:content:
         jcr:primaryType: hippostd:html
-        hippostd:content: <p>step by step guide content</p>
-      /publishing:steps:
+        hippostd:content: <p>Some intro content to the step by step guide</p>
+      /publishing:steps[1]:
         jcr:primaryType: publishing:Step
-        publishing:description: <p>this is step 1</p>
+        publishing:description: ''
         publishing:labeltype: numbered
-        publishing:title: Step 1
-    /sztep-by-step[3]:
+        publishing:title: Turtles
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p><a href="turtles">look for turtles</a></p>
+          /turtles:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: dd386af5-48aa-462c-978d-963e8d3e5761
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /publishing:steps[2]:
+        jcr:primaryType: publishing:Step
+        publishing:labeltype: numbered
+        publishing:title: Snakes
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><a href="index">look for snakes</a></p>
+
+            <p><a href="pythons">or pythons</a></p>
+          /index:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 8088475d-a390-4b16-b734-b0a600fde29b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /pythons:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 40b8c00b-835f-4a81-83f4-dcf4fda7d7bc
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+    /stepbystep[3]:
       jcr:primaryType: publishing:StepByStepGuide
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 74dec14f-e3cf-4867-94c3-6c072c821431
+      jcr:uuid: 387e8594-cd55-44e1-9f9d-f14b227a980d
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2022-10-04T13:30:20.307+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-04T13:37:29.867+01:00
+      hippostdpubwf:creationDate: 2022-10-05T16:35:14.459+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-05T17:25:37.875+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2022-10-04T13:37:47.153+01:00
-      hippotranslation:id: 493b1597-27a6-4bf7-a430-ecf2ae4ac738
+      hippostdpubwf:publicationDate: 2022-10-05T17:25:40.199+01:00
+      hippotranslation:id: 0ed70094-f8bc-4542-addb-738d723760df
       hippotranslation:locale: document-type-locale
       publishing:audience: ''
       publishing:authorNotes: ''
-      publishing:metaDescription: step by sode example
+      publishing:metaDescription: asdasd
       publishing:noindex: false
       publishing:reportingtags: []
       publishing:sensitive: false
-      publishing:seoTitle: sdfsdf
+      publishing:seoTitle: asdasd
       publishing:serviceproviders: []
       publishing:showFeedback: false
       publishing:showInParent: false
-      publishing:slug: step-by-step
-      publishing:summary: step by step example page
-      publishing:title: Step by step example
+      publishing:slug: stepbystep
+      publishing:summary: sdfsdf
+      publishing:title: Step by step guide example
       publishing:userneed: ''
       /publishing:contentOwner:
         jcr:primaryType: hippo:mirror
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /publishing:content:
         jcr:primaryType: hippostd:html
-        hippostd:content: <p>step by step guide content</p>
-      /publishing:steps:
+        hippostd:content: <p>Some intro content to the step by step guide</p>
+      /publishing:steps[1]:
         jcr:primaryType: publishing:Step
-        publishing:description: <p>this is step 1</p>
+        publishing:description: ''
         publishing:labeltype: numbered
-        publishing:title: Step 1
+        publishing:title: Turtles
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p><a href="turtles">look for turtles</a></p>
+          /turtles:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: dd386af5-48aa-462c-978d-963e8d3e5761
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /publishing:steps[2]:
+        jcr:primaryType: publishing:Step
+        publishing:labeltype: numbered
+        publishing:title: Snakes
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><a href="index">look for snakes</a></p>
+
+            <p><a href="pythons">or pythons</a></p>
+          /index:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 8088475d-a390-4b16-b734-b0a600fde29b
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /pythons:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: 40b8c00b-835f-4a81-83f4-dcf4fda7d7bc
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []

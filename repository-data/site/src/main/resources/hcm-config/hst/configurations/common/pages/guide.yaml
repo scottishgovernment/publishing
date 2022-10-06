@@ -13,3 +13,7 @@ definitions:
         /feedback:
           jcr:primaryType: hst:component
           hst:referencecomponent: hst:components/feedback
+        /sidebar:
+          jcr:primaryType: hst:component
+          hst:componentclassname: scot.mygov.publishing.components.SidebarComponent
+          hst:template: stepbystep-sidebar
