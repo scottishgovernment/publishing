@@ -27,6 +27,8 @@
                             </div>
                         </#if>
                     </dl>
+
+                    <@hst.include ref="stepbysteptopbar"/>
                 </header>
             </div>
 
