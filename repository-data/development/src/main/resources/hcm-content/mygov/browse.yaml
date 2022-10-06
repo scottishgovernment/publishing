@@ -4,7 +4,7 @@
   jcr:uuid: 2eeab6c1-a59a-45fc-8b15-c414f8ce4182
   hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
     new-publishing-mirror, new-publishing-smartanswer, new-document, new-publishing-smartanswer,
-    new-fragment-folder, new-StepByStepGuide-document]
+    new-fragment-folder, new-stepbystepguide]
   /mammals:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
@@ -42908,3 +42908,143 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+  /testcat:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: b269feb5-3e78-4d09-9efb-b97ae6913465
+    hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
+      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer,
+      new-publishing-stepbystepguide]
+    /index:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 3e6c30c6-07ba-45cc-b1e2-eb98907633e7
+      hippo:name: testcat
+      /index:
+        jcr:primaryType: publishing:category
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:versionable']
+        jcr:uuid: 0fa2aea5-01da-4b42-a9dd-fb3e9921bbb0
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-10-06T13:50:30.577+01:00
+        hippostdpubwf:lastModificationDate: 2022-10-06T13:50:30.577+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 6683db52-9796-43a2-8d82-7d9672190908
+        hippotranslation:locale: document-type-locale
+        publishing:authorNotes: ''
+        publishing:metaDescription: ''
+        publishing:navigationType: list
+        publishing:organisationtags: []
+        publishing:reportingtags: []
+        publishing:seoTitle: testcat
+        publishing:sequenceable: false
+        publishing:showSummaries: true
+        publishing:summary: ''
+        publishing:title: testcat
+        /publishing:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:epilogue:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:prologue:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+  /test2:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 7c2dbae7-1897-4e75-aa85-974efc8d334d
+    hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
+      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer,
+      new-publishing-stepbystepguide]
+    /index:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 7e5d3ace-26bc-4a1b-b3e7-bf1c39d8847a
+      hippo:name: test2
+      /index:
+        jcr:primaryType: publishing:category
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:versionable']
+        jcr:uuid: 38007ad8-f5d9-44c3-b023-11f4605dc7a1
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-10-06T13:55:39.467+01:00
+        hippostdpubwf:lastModificationDate: 2022-10-06T13:55:39.467+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 8ad7408b-1876-484f-84db-3d065066d70b
+        hippotranslation:locale: document-type-locale
+        publishing:authorNotes: ''
+        publishing:metaDescription: ''
+        publishing:navigationType: list
+        publishing:organisationtags: []
+        publishing:reportingtags: []
+        publishing:seoTitle: test2
+        publishing:sequenceable: false
+        publishing:showSummaries: true
+        publishing:summary: ''
+        publishing:title: test2
+        /publishing:heroImage:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:epilogue:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:prologue:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+    /asdasd:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 350d999b-90f5-4ad2-a713-b4b115ffec0c
+      /asdasd:
+        jcr:primaryType: publishing:StepByStepGuide
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c6ab2e99-8c6d-4a24-9efa-867967e2af4c
+        hippo:availability: []
+        hippostd:holder: admin
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2022-10-06T13:59:12.148+01:00
+        hippostdpubwf:lastModificationDate: 2022-10-06T13:59:12.148+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 6a87a28d-5c28-43a7-a3fd-1d359b126c73
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: ''
+        publishing:noindex: false
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: ''
+        publishing:serviceproviders: []
+        publishing:showFeedback: false
+        publishing:showInParent: false
+        publishing:slug: asdasd
+        publishing:summary: ''
+        publishing:title: ''
+        publishing:userneed: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:steps:
+          jcr:primaryType: publishing:Step
+          publishing:description: ''
+          publishing:labeltype: numbered
+          publishing:title: ''
