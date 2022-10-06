@@ -19,7 +19,7 @@
 
         <#list stepbystep.steps as step>
             <#assign isactivestep = step.identifier == currentStep.identifier />
-            <div class="<#if isactivestep>ds_accordion-item--open</#if>  ds_accordion-item  <#if step.labeltype != "numbered">ds_step-navigation__paused</#if>">
+            <div class="<#if isactivestep>ds_accordion-item--open</#if>  ds_accordion-item  <#if step.labeltype == "or">ds_step-navigation__or<#elseif step.labeltype == "and">ds_step-navigation__and</#if>">
                 <input <#if isactivestep>checked</#if> type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-${step?index}" aria-labelledby="panel-${step?index}-heading" />
                 <div class="ds_accordion-item__header">
                     <h3 id="panel-${step?index}-heading" class="ds_accordion-item__title">
