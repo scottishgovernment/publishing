@@ -28,6 +28,8 @@
                             </div>
                         </#if>
                     </dl>
+
+                    <@hst.include ref="stepbysteptopbar"/>
                 </header>
             </div>
 
@@ -52,6 +54,7 @@
                     </#if>
                 </div>
             </#if>
+
 
             <div class="ds_layout__content">
                 <@hst.html hippohtml=document.content/>

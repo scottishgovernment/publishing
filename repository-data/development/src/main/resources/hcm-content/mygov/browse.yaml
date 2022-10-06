@@ -42699,7 +42699,7 @@
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: a643aa14-b029-4629-87a5-5b3a6f71cda7
-    hippo:versionHistory: 434c40c0-0a8d-430b-8a85-360a3204c120
+    hippo:versionHistory: 550aeec0-85fd-498b-8755-acd5852e10d0
     /stepbystep[1]:
       jcr:primaryType: publishing:StepByStepGuide
       jcr:mixinTypes: ['mix:referenceable']
@@ -42709,7 +42709,7 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-10-05T16:35:14.459+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-05T17:25:15.841+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-06T15:43:52.762+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 0ed70094-f8bc-4542-addb-738d723760df
       hippotranslation:locale: document-type-locale
@@ -42736,7 +42736,7 @@
       /publishing:steps[1]:
         jcr:primaryType: publishing:Step
         publishing:description: ''
-        publishing:labeltype: numbered
+        publishing:labeltype: or
         publishing:title: Turtles
         /publishing:content:
           jcr:primaryType: hippostd:html
@@ -42754,18 +42754,40 @@
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |-
-            <p><a href="index">look for snakes</a></p>
+            <p><a href="index">snakes</a></p>
 
-            <p><a href="pythons">or pythons</a></p>
+            <p><a href="bats">bats</a></p>
           /index:
             jcr:primaryType: hippo:facetselect
             hippo:docbase: 8088475d-a390-4b16-b734-b0a600fde29b
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+          /bats:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: d902be50-88d2-4ec0-bede-e2dfc459bd59
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /publishing:steps[3]:
+        jcr:primaryType: publishing:Step
+        publishing:labeltype: numbered
+        publishing:title: Step 3
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><a href="pythons">pythons</a></p>
+
+            <p><a href="albatross">lkjlkjlkj</a></p>
           /pythons:
             jcr:primaryType: hippo:facetselect
             hippo:docbase: 40b8c00b-835f-4a81-83f4-dcf4fda7d7bc
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /albatross:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: ac20a6ec-8a77-4e03-b87d-5b99139c4885
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -42778,7 +42800,7 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-10-05T16:35:14.459+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-05T17:25:37.875+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-06T15:44:10.545+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: 0ed70094-f8bc-4542-addb-738d723760df
       hippotranslation:locale: document-type-locale
@@ -42805,7 +42827,7 @@
       /publishing:steps[1]:
         jcr:primaryType: publishing:Step
         publishing:description: ''
-        publishing:labeltype: numbered
+        publishing:labeltype: or
         publishing:title: Turtles
         /publishing:content:
           jcr:primaryType: hippostd:html
@@ -42823,18 +42845,40 @@
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |-
-            <p><a href="index">look for snakes</a></p>
+            <p><a href="index">snakes</a></p>
 
-            <p><a href="pythons">or pythons</a></p>
+            <p><a href="bats">bats</a></p>
           /index:
             jcr:primaryType: hippo:facetselect
             hippo:docbase: 8088475d-a390-4b16-b734-b0a600fde29b
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+          /bats:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: d902be50-88d2-4ec0-bede-e2dfc459bd59
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /publishing:steps[3]:
+        jcr:primaryType: publishing:Step
+        publishing:labeltype: numbered
+        publishing:title: Step 3
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><a href="pythons">pythons</a></p>
+
+            <p><a href="albatross">lkjlkjlkj</a></p>
           /pythons:
             jcr:primaryType: hippo:facetselect
             hippo:docbase: 40b8c00b-835f-4a81-83f4-dcf4fda7d7bc
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /albatross:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: ac20a6ec-8a77-4e03-b87d-5b99139c4885
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -42847,9 +42891,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-10-05T16:35:14.459+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-05T17:25:37.875+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-06T15:44:10.545+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2022-10-05T17:25:40.199+01:00
+      hippostdpubwf:publicationDate: 2022-10-06T15:44:12.976+01:00
       hippotranslation:id: 0ed70094-f8bc-4542-addb-738d723760df
       hippotranslation:locale: document-type-locale
       publishing:audience: ''
@@ -42875,7 +42919,7 @@
       /publishing:steps[1]:
         jcr:primaryType: publishing:Step
         publishing:description: ''
-        publishing:labeltype: numbered
+        publishing:labeltype: or
         publishing:title: Turtles
         /publishing:content:
           jcr:primaryType: hippostd:html
@@ -42893,18 +42937,40 @@
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |-
-            <p><a href="index">look for snakes</a></p>
+            <p><a href="index">snakes</a></p>
 
-            <p><a href="pythons">or pythons</a></p>
+            <p><a href="bats">bats</a></p>
           /index:
             jcr:primaryType: hippo:facetselect
             hippo:docbase: 8088475d-a390-4b16-b734-b0a600fde29b
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+          /bats:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: d902be50-88d2-4ec0-bede-e2dfc459bd59
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /publishing:steps[3]:
+        jcr:primaryType: publishing:Step
+        publishing:labeltype: numbered
+        publishing:title: Step 3
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><a href="pythons">pythons</a></p>
+
+            <p><a href="albatross">lkjlkjlkj</a></p>
           /pythons:
             jcr:primaryType: hippo:facetselect
             hippo:docbase: 40b8c00b-835f-4a81-83f4-dcf4fda7d7bc
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /albatross:
+            jcr:primaryType: hippo:facetselect
+            hippo:docbase: ac20a6ec-8a77-4e03-b87d-5b99139c4885
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
@@ -43048,3 +43114,6 @@
           publishing:description: ''
           publishing:labeltype: numbered
           publishing:title: ''
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
