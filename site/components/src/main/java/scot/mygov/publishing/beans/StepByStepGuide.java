@@ -9,6 +9,7 @@ import scot.mygov.publishing.beans.Step;
 @HippoEssentialsGenerated(internalName = "publishing:StepByStepGuide")
 @Node(jcrType = "publishing:StepByStepGuide")
 public class StepByStepGuide extends Base {
+
     @HippoEssentialsGenerated(internalName = "publishing:slug")
     public String getSlug() {
         return getSingleProperty("publishing:slug");

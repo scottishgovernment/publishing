@@ -8,6 +8,7 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 @HippoEssentialsGenerated(internalName = "publishing:Step")
 @Node(jcrType = "publishing:Step")
 public class Step extends HippoCompound {
+
     @HippoEssentialsGenerated(internalName = "publishing:title")
     public String getTitle() {
         return getSingleProperty("publishing:title");

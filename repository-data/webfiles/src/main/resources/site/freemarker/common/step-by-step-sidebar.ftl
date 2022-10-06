@@ -11,8 +11,6 @@
             Part of<br />
             <hst:link var="link" hippobean="${stepbystep}"/>
             <a href="${link}">${stepbystep.title}</a>
-
-
         </h2>
     </div>
 
@@ -20,11 +18,7 @@
         <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
 
         <#list stepbystep.steps as step>
-            <#assign isactivestep = false />
-            <!-- for demonstration purposes only, force the second item to be selected -->
-            <#if step?index == 1>
-                <#assign isactivestep = true />
-            </#if>
+            <#assign isactivestep = step.identifier == currentStep.identifier />
             <div class="<#if isactivestep>ds_accordion-item--open</#if>  ds_accordion-item  <#if step.labeltype != "numbered">ds_step-navigation__paused</#if>">
                 <input <#if isactivestep>checked</#if> type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-${step?index}" aria-labelledby="panel-${step?index}-heading" />
                 <div class="ds_accordion-item__header">
@@ -36,7 +30,6 @@
                 </div>
 
                 <div class="ds_accordion-item__body" style="padding-right: 16px;">
-
                     <@hst.html hippohtml=step.content/>
                 </div>
             </div>
