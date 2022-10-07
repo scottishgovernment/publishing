@@ -24,6 +24,14 @@
             line-height: 24px;
         }
     }
+
+    .ds_site-search__form {
+        position: relative;
+    }
+
+    .ds_site-search .ds_input__wrapper {
+        margin-bottom: 0;
+    }
 }
 
 
@@ -110,6 +118,11 @@
 
             &__form {
                 @include ds_colwidth(7, 8);
+                position: relative;
+            }
+
+            .ds_input__wrapper {
+                margin-bottom: 0;
             }
         }
     }
