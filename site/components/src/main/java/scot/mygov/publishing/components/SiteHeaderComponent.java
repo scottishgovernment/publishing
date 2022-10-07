@@ -3,7 +3,9 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
 import org.hippoecm.hst.configuration.hosting.Mount;
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -29,6 +31,7 @@ public class SiteHeaderComponent extends BaseHstComponent {
         setSearchVisibility(request);
         setSiteTitle(request);
         determineLogo(request);
+        populateAutoCompleteFlag(request);
     }
 
     void setSearchVisibility(HstRequest request) {
@@ -39,7 +42,6 @@ public class SiteHeaderComponent extends BaseHstComponent {
         String formatName = componentConfig.getName();
         request.setAttribute("hideSearch", equalsAny(formatName, "home") || formatName.startsWith("search"));
     }
-
 
     void setSiteTitle(HstRequest request) {
         Mount mount = request.getRequestContext().getResolvedMount().getMount();
@@ -65,6 +67,21 @@ public class SiteHeaderComponent extends BaseHstComponent {
             }
 
         }
+    }
 
+    /**
+     * determine if auto complete should be used for search bars
+     */
+    static void populateAutoCompleteFlag(HstRequest request) {
+        HippoBean baseBean = RequestContextProvider.get().getSiteContentBaseBean();
+        HippoBean bean = baseBean.getBean("administration/search-settings");
+        boolean autoCompleteEnabled = true;
+        if (!bean.<Boolean>getSingleProperty("search:enabled")) {
+            autoCompleteEnabled = false;
+        }
+        if ("bloomreach".equals(bean.<String>getSingleProperty("search:searchtype"))) {
+            autoCompleteEnabled = false;
+        }
+        request.setAttribute("autoCompleteEnabled", autoCompleteEnabled);
     }
 }

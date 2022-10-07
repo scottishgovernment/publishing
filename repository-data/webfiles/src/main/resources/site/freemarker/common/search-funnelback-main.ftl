@@ -14,7 +14,9 @@
             <div class="ds_layout__content">
                 <@hst.html hippohtml=document.content/>
 
-                <#assign ds_autocomplete = true />
+                <#if autoCompleteEnabled>
+                    <#assign ds_autocomplete = true />
+                </#if>
                 <#include 'include/search.ftl'/>
 
                 <section id="search-results" class="ds_search-results">
