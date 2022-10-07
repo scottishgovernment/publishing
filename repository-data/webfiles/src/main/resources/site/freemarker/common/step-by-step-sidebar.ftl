@@ -9,15 +9,15 @@
     <div class="ds_article-aside">
         <h2 class="gamma">
             Part of<br />
-            <a href="<@hst.link var=link hippobean=stepbystep/>">${stepbystep.title}</a>
+            <a href="<@hst.link var=link hippobean=stepbystep.stepByStepGuide/>">${stepbystep.stepByStepGuide.title}</a>
         </h2>
     </div>
 
     <div class="ds_accordion  ds_step-navigation" data-module="ds-accordion">
         <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
 
-        <#list stepbystep.steps as step>
-            <#assign isactivestep = step.identifier == currentStep.identifier />
+        <#list stepbystep.stepByStepGuide.steps as step>
+            <#assign isactivestep = step.identifier == stepbystep.currentStep.identifier />
             <div class="<#if isactivestep>ds_accordion-item--open</#if>  ds_accordion-item  <#if step.labeltype == "or">ds_step-navigation__or<#elseif step.labeltype == "and">ds_step-navigation__and</#if>">
                 <input <#if isactivestep>checked</#if> type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-${step?index}" aria-labelledby="panel-${step?index}-heading" />
                 <div class="ds_accordion-item__header">
