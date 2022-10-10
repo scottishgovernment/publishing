@@ -9,6 +9,8 @@
 
 <#if !searchpagepath??>
     <#assign searchpagepath = "/search" />
+<#else>
+    <#assign searchpagepath = "${searchpagepath}" />
 </#if>
 
 <div class="ds_site-search  <#if ds_autocomplete??>ds_autocomplete</#if>" <#if ds_autocomplete??>data-module="ds-autocomplete"</#if>>

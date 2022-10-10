@@ -6,8 +6,8 @@ definitions:
       /main:
         jcr:primaryType: hst:component
         hst:componentclassname: scot.mygov.publishing.components.SearchComponent
-        hst:parameternames: []
-        hst:parametervalues: []
+        hst:parameternames: [searchtype]
+        hst:parametervalues: [resilient]
         hst:template: search-funnelback-main
         /results:
           jcr:primaryType: hst:component

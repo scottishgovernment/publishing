@@ -13,10 +13,11 @@
 
             <div class="ds_layout__content">
                 <@hst.html hippohtml=document.content/>
-
                 <#if autoCompleteEnabled>
                     <#assign ds_autocomplete = true />
                 </#if>
+                <#assign searchpagepath = hstRequestContext.servletRequest.pathInfo />
+
                 <#include 'include/search.ftl'/>
 
                 <section id="search-results" class="ds_search-results">

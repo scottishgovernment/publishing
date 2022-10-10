@@ -653,7 +653,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: d8340cba-9e03-4630-bd73-0f9e0ed9035f
     hippo:name: Search settings
-    hippo:versionHistory: 8c20823a-cba6-4b4a-a6e3-7312d7825326
+    hippo:versionHistory: 560095c2-2707-4a40-85d5-06db2f69f942
     /search-settings[1]:
       jcr:primaryType: search:searchsettings
       jcr:mixinTypes: ['mix:referenceable']
@@ -663,10 +663,10 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-05T16:11:51.510+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-10T15:10:01.479+01:00
       hippostdpubwf:lastModifiedBy: admin
       search:enabled: true
-      search:searchtype: funnelback
+      search:searchtype: bloomreach
       search:timeoutMillis: 1000
     /search-settings[2]:
       jcr:primaryType: search:searchsettings
@@ -677,10 +677,10 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-05T16:11:55.184+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-10T15:10:05.048+01:00
       hippostdpubwf:lastModifiedBy: admin
       search:enabled: true
-      search:searchtype: funnelback
+      search:searchtype: bloomreach
       search:timeoutMillis: 1000
     /search-settings[3]:
       jcr:primaryType: search:searchsettings
@@ -691,9 +691,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-05T16:11:55.184+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-10T15:10:05.048+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2022-10-05T16:11:57.847+01:00
+      hippostdpubwf:publicationDate: 2022-10-10T15:10:06.966+01:00
       search:enabled: true
-      search:searchtype: funnelback
+      search:searchtype: bloomreach
       search:timeoutMillis: 1000
