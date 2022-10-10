@@ -4,7 +4,7 @@
   jcr:uuid: 2eeab6c1-a59a-45fc-8b15-c414f8ce4182
   hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
     new-publishing-mirror, new-publishing-smartanswer, new-document, new-publishing-smartanswer,
-    new-fragment-folder, new-stepbystepguide]
+    new-fragment-folder, new-publishing-stepbystepguide]
   /mammals:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
@@ -42695,52 +42695,52 @@
           /publishing:authorNotes:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
-  /stepbystep:
+  /test:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: a643aa14-b029-4629-87a5-5b3a6f71cda7
-    hippo:versionHistory: 550aeec0-85fd-498b-8755-acd5852e10d0
-    /stepbystep[1]:
+    jcr:uuid: dc536f9a-0b1d-45d7-b3a6-e56eb4fde31e
+    hippo:versionHistory: 05e4840f-61c4-4c3b-8486-5ef4623d22cd
+    /test[1]:
       jcr:primaryType: publishing:StepByStepGuide
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 0d28ce84-4f5f-4f18-a9a9-d3b908807ec6
+      jcr:uuid: 7f906ab6-9c71-44e7-94f6-fce744b0dab8
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2022-10-05T16:35:14.459+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-06T15:43:52.762+01:00
+      hippostdpubwf:creationDate: 2022-10-10T15:49:13.654+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-10T15:53:43.453+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 0ed70094-f8bc-4542-addb-738d723760df
+      hippotranslation:id: b7dc177a-fbac-47b0-9651-370436dd4b06
       hippotranslation:locale: document-type-locale
       publishing:audience: ''
       publishing:authorNotes: ''
-      publishing:metaDescription: asdasd
+      publishing:metaDescription: test
       publishing:noindex: false
       publishing:reportingtags: []
       publishing:sensitive: false
-      publishing:seoTitle: asdasd
+      publishing:seoTitle: test
       publishing:serviceproviders: []
       publishing:showFeedback: false
       publishing:showInParent: false
-      publishing:slug: stepbystep
-      publishing:summary: sdfsdf
-      publishing:title: Step by step guide example
+      publishing:slug: test
+      publishing:summary: test
+      publishing:title: test
       publishing:userneed: ''
       /publishing:contentOwner:
         jcr:primaryType: hippo:mirror
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /publishing:content:
         jcr:primaryType: hippostd:html
-        hippostd:content: <p>Some intro content to the step by step guide</p>
+        hippostd:content: <p>some content at the top</p>
       /publishing:steps[1]:
         jcr:primaryType: publishing:Step
         publishing:description: ''
-        publishing:labeltype: or
-        publishing:title: Turtles
+        publishing:labeltype: numbered
+        publishing:title: Step 1
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: <p><a href="turtles">look for turtles</a></p>
+          hippostd:content: <p><a href="turtles">turtle</a></p>
           /turtles:
             jcr:primaryType: hippo:facetselect
             hippo:docbase: dd386af5-48aa-462c-978d-963e8d3e5761
@@ -42750,88 +42750,60 @@
       /publishing:steps[2]:
         jcr:primaryType: publishing:Step
         publishing:labeltype: numbered
-        publishing:title: Snakes
+        publishing:title: Step 2
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |-
             <p><a href="index">snakes</a></p>
 
-            <p><a href="bats">bats</a></p>
+            <p>&nbsp;</p>
           /index:
             jcr:primaryType: hippo:facetselect
             hippo:docbase: 8088475d-a390-4b16-b734-b0a600fde29b
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-          /bats:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: d902be50-88d2-4ec0-bede-e2dfc459bd59
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-      /publishing:steps[3]:
-        jcr:primaryType: publishing:Step
-        publishing:labeltype: numbered
-        publishing:title: Step 3
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: |-
-            <p><a href="pythons">pythons</a></p>
-
-            <p><a href="albatross">lkjlkjlkj</a></p>
-          /pythons:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: 40b8c00b-835f-4a81-83f4-dcf4fda7d7bc
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /albatross:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: ac20a6ec-8a77-4e03-b87d-5b99139c4885
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-    /stepbystep[2]:
+    /test[2]:
       jcr:primaryType: publishing:StepByStepGuide
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: 734e0d64-aa5d-485f-92fb-7866fd03b622
+      jcr:uuid: eaeec0c9-9fad-4265-a187-fba68916fdcb
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2022-10-05T16:35:14.459+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-06T15:44:10.545+01:00
+      hippostdpubwf:creationDate: 2022-10-10T15:49:13.654+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-10T15:53:57.387+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 0ed70094-f8bc-4542-addb-738d723760df
+      hippotranslation:id: b7dc177a-fbac-47b0-9651-370436dd4b06
       hippotranslation:locale: document-type-locale
       publishing:audience: ''
       publishing:authorNotes: ''
-      publishing:metaDescription: asdasd
+      publishing:metaDescription: test
       publishing:noindex: false
       publishing:reportingtags: []
       publishing:sensitive: false
-      publishing:seoTitle: asdasd
+      publishing:seoTitle: test
       publishing:serviceproviders: []
       publishing:showFeedback: false
       publishing:showInParent: false
-      publishing:slug: stepbystep
-      publishing:summary: sdfsdf
-      publishing:title: Step by step guide example
+      publishing:slug: test
+      publishing:summary: test
+      publishing:title: test
       publishing:userneed: ''
       /publishing:contentOwner:
         jcr:primaryType: hippo:mirror
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /publishing:content:
         jcr:primaryType: hippostd:html
-        hippostd:content: <p>Some intro content to the step by step guide</p>
+        hippostd:content: <p>some content at the top</p>
       /publishing:steps[1]:
         jcr:primaryType: publishing:Step
         publishing:description: ''
-        publishing:labeltype: or
-        publishing:title: Turtles
+        publishing:labeltype: numbered
+        publishing:title: Step 1
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: <p><a href="turtles">look for turtles</a></p>
+          hippostd:content: <p><a href="turtles">turtle</a></p>
           /turtles:
             jcr:primaryType: hippo:facetselect
             hippo:docbase: dd386af5-48aa-462c-978d-963e8d3e5761
@@ -42841,89 +42813,61 @@
       /publishing:steps[2]:
         jcr:primaryType: publishing:Step
         publishing:labeltype: numbered
-        publishing:title: Snakes
+        publishing:title: Step 2
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |-
             <p><a href="index">snakes</a></p>
 
-            <p><a href="bats">bats</a></p>
+            <p>&nbsp;</p>
           /index:
             jcr:primaryType: hippo:facetselect
             hippo:docbase: 8088475d-a390-4b16-b734-b0a600fde29b
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-          /bats:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: d902be50-88d2-4ec0-bede-e2dfc459bd59
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-      /publishing:steps[3]:
-        jcr:primaryType: publishing:Step
-        publishing:labeltype: numbered
-        publishing:title: Step 3
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: |-
-            <p><a href="pythons">pythons</a></p>
-
-            <p><a href="albatross">lkjlkjlkj</a></p>
-          /pythons:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: 40b8c00b-835f-4a81-83f4-dcf4fda7d7bc
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /albatross:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: ac20a6ec-8a77-4e03-b87d-5b99139c4885
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-    /stepbystep[3]:
+    /test[3]:
       jcr:primaryType: publishing:StepByStepGuide
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 387e8594-cd55-44e1-9f9d-f14b227a980d
+      jcr:uuid: 2c346899-974f-4092-9411-e88faac1cf2c
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2022-10-05T16:35:14.459+01:00
-      hippostdpubwf:lastModificationDate: 2022-10-06T15:44:10.545+01:00
+      hippostdpubwf:creationDate: 2022-10-10T15:49:13.654+01:00
+      hippostdpubwf:lastModificationDate: 2022-10-10T15:53:57.387+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2022-10-06T15:44:12.976+01:00
-      hippotranslation:id: 0ed70094-f8bc-4542-addb-738d723760df
+      hippostdpubwf:publicationDate: 2022-10-10T15:54:01.424+01:00
+      hippotranslation:id: b7dc177a-fbac-47b0-9651-370436dd4b06
       hippotranslation:locale: document-type-locale
       publishing:audience: ''
       publishing:authorNotes: ''
-      publishing:metaDescription: asdasd
+      publishing:metaDescription: test
       publishing:noindex: false
       publishing:reportingtags: []
       publishing:sensitive: false
-      publishing:seoTitle: asdasd
+      publishing:seoTitle: test
       publishing:serviceproviders: []
       publishing:showFeedback: false
       publishing:showInParent: false
-      publishing:slug: stepbystep
-      publishing:summary: sdfsdf
-      publishing:title: Step by step guide example
+      publishing:slug: test
+      publishing:summary: test
+      publishing:title: test
       publishing:userneed: ''
       /publishing:contentOwner:
         jcr:primaryType: hippo:mirror
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /publishing:content:
         jcr:primaryType: hippostd:html
-        hippostd:content: <p>Some intro content to the step by step guide</p>
+        hippostd:content: <p>some content at the top</p>
       /publishing:steps[1]:
         jcr:primaryType: publishing:Step
         publishing:description: ''
-        publishing:labeltype: or
-        publishing:title: Turtles
+        publishing:labeltype: numbered
+        publishing:title: Step 1
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: <p><a href="turtles">look for turtles</a></p>
+          hippostd:content: <p><a href="turtles">turtle</a></p>
           /turtles:
             jcr:primaryType: hippo:facetselect
             hippo:docbase: dd386af5-48aa-462c-978d-963e8d3e5761
@@ -42933,187 +42877,16 @@
       /publishing:steps[2]:
         jcr:primaryType: publishing:Step
         publishing:labeltype: numbered
-        publishing:title: Snakes
+        publishing:title: Step 2
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |-
             <p><a href="index">snakes</a></p>
 
-            <p><a href="bats">bats</a></p>
+            <p>&nbsp;</p>
           /index:
             jcr:primaryType: hippo:facetselect
             hippo:docbase: 8088475d-a390-4b16-b734-b0a600fde29b
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-          /bats:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: d902be50-88d2-4ec0-bede-e2dfc459bd59
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-      /publishing:steps[3]:
-        jcr:primaryType: publishing:Step
-        publishing:labeltype: numbered
-        publishing:title: Step 3
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: |-
-            <p><a href="pythons">pythons</a></p>
-
-            <p><a href="albatross">lkjlkjlkj</a></p>
-          /pythons:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: 40b8c00b-835f-4a81-83f4-dcf4fda7d7bc
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /albatross:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: ac20a6ec-8a77-4e03-b87d-5b99139c4885
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-  /testcat:
-    jcr:primaryType: hippostd:folder
-    jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: b269feb5-3e78-4d09-9efb-b97ae6913465
-    hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer,
-      new-publishing-stepbystepguide]
-    /index:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-      jcr:uuid: 3e6c30c6-07ba-45cc-b1e2-eb98907633e7
-      hippo:name: testcat
-      /index:
-        jcr:primaryType: publishing:category
-        jcr:mixinTypes: ['hippostd:taggable', 'mix:versionable']
-        jcr:uuid: 0fa2aea5-01da-4b42-a9dd-fb3e9921bbb0
-        hippo:availability: [preview]
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2022-10-06T13:50:30.577+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-06T13:50:30.577+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 6683db52-9796-43a2-8d82-7d9672190908
-        hippotranslation:locale: document-type-locale
-        publishing:authorNotes: ''
-        publishing:metaDescription: ''
-        publishing:navigationType: list
-        publishing:organisationtags: []
-        publishing:reportingtags: []
-        publishing:seoTitle: testcat
-        publishing:sequenceable: false
-        publishing:showSummaries: true
-        publishing:summary: ''
-        publishing:title: testcat
-        /publishing:heroImage:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:epilogue:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:prologue:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-  /test2:
-    jcr:primaryType: hippostd:folder
-    jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 7c2dbae7-1897-4e75-aa85-974efc8d334d
-    hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
-      new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer,
-      new-publishing-stepbystepguide]
-    /index:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-      jcr:uuid: 7e5d3ace-26bc-4a1b-b3e7-bf1c39d8847a
-      hippo:name: test2
-      /index:
-        jcr:primaryType: publishing:category
-        jcr:mixinTypes: ['hippostd:taggable', 'mix:versionable']
-        jcr:uuid: 38007ad8-f5d9-44c3-b023-11f4605dc7a1
-        hippo:availability: [preview]
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2022-10-06T13:55:39.467+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-06T13:55:39.467+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 8ad7408b-1876-484f-84db-3d065066d70b
-        hippotranslation:locale: document-type-locale
-        publishing:authorNotes: ''
-        publishing:metaDescription: ''
-        publishing:navigationType: list
-        publishing:organisationtags: []
-        publishing:reportingtags: []
-        publishing:seoTitle: test2
-        publishing:sequenceable: false
-        publishing:showSummaries: true
-        publishing:summary: ''
-        publishing:title: test2
-        /publishing:heroImage:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:epilogue:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:prologue:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-    /asdasd:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 350d999b-90f5-4ad2-a713-b4b115ffec0c
-      /asdasd:
-        jcr:primaryType: publishing:StepByStepGuide
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: c6ab2e99-8c6d-4a24-9efa-867967e2af4c
-        hippo:availability: []
-        hippostd:holder: admin
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2022-10-06T13:59:12.148+01:00
-        hippostdpubwf:lastModificationDate: 2022-10-06T13:59:12.148+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 6a87a28d-5c28-43a7-a3fd-1d359b126c73
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:metaDescription: ''
-        publishing:noindex: false
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: ''
-        publishing:serviceproviders: []
-        publishing:showFeedback: false
-        publishing:showInParent: false
-        publishing:slug: asdasd
-        publishing:summary: ''
-        publishing:title: ''
-        publishing:userneed: ''
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:steps:
-          jcr:primaryType: publishing:Step
-          publishing:description: ''
-          publishing:labeltype: numbered
-          publishing:title: ''
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
