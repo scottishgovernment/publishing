@@ -107,7 +107,7 @@
                         <a class="ds_search-result__link"href="${link}">${result.title}</a>
                     </h3>
                     <p class="ds_search-result__summary">
-                        ${result.summary}
+                        <@highlightSearchTerm result.summary />
                     </p>
                 </li>
             </#list>
