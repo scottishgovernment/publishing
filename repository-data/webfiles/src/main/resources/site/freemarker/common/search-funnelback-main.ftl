@@ -18,6 +18,7 @@
                 </#if>
                 <#assign searchpagepath = hstRequestContext.servletRequest.pathInfo />
 
+                <#assign searchcategory = "sitesearch" />
                 <#include 'include/search.ftl'/>
 
                 <section id="search-results" class="ds_search-results">

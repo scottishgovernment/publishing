@@ -18,6 +18,9 @@
         <label class="ds_label  visually-hidden" for="site-search">Search</label>
         <div id="autocomplete-status" class="visually-hidden"></div>
         <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
+            <#if searchcategory??>
+                <input type="hidden" name="cat" value="${searchcategory}">
+            </#if>
 
             <#if ds_autocomplete??>
             <input
