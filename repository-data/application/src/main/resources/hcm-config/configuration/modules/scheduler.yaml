@@ -22,7 +22,7 @@ definitions:
       hipposched:attributeNames: [pollPath]
       hipposched:attributeValues: [/admin-api/curator/v2/collections/govscot~sp-mygov/profiles/_default/curator/]
       hipposched:enabled: true
-      hipposched:repositoryJobClass: scot.mygov.publishing.scheduler.PollFunnelbackCurator
+      hipposched:repositoryJobClass: scot.gov.publishing.hippo.funnelback.scheduler.PollFunnelbackCurator
       /hipposched:triggers:
         jcr:primaryType: hipposched:triggers
         /everyMin:
@@ -31,4 +31,4 @@ definitions:
           jcr:uuid: d2b951cd-b467-4ffa-afb8-e7aed9dc4db4
           hipposched:cronExpression: 0 0/5 * * * ?
           hipposched:enabled: true
-          hipposched:nextFireTime: 2022-09-29T10:25:00+01:00
+          hipposched:nextFireTime: 2022-10-12T09:35:00+01:00
