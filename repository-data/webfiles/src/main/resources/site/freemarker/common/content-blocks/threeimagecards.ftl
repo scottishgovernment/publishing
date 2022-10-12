@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
-<#include "include/imports.ftl">
-<#include "include/cms-placeholders.ftl">
+<#include "../include/imports.ftl">
+<#include "../include/cms-placeholders.ftl">
 
 <#-- @ftlvariable name="document1" type="scot.mygov.publishing.beans.Navigationcard" -->
 <#-- @ftlvariable name="document2" type="scot.mygov.publishing.beans.Navigationcard" -->

@@ -1,9 +1,9 @@
 <#ftl output_format="HTML">
-<#include "include/imports.ftl">
-<#include "include/cms-placeholders.ftl">
-<#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Pageheading" -->
+<#include "../../include/imports.ftl">
+<#include "../../include/cms-placeholders.ftl">
+<#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Imageandtext" -->
 
-<div class="ds_cb  ds_cb--page-title
+<div class="ds_cb  ds_cb--image-text
     <#if backgroundcolor?? && backgroundcolor?length gt 0>ds_cb--bg-${backgroundcolor}</#if>
     <#if foregroundcolor?? && foregroundcolor?length gt 0>ds_cb--fg-${foregroundcolor}</#if>
     <#if fullwidth>ds_cb--fullwidth</#if>
@@ -11,21 +11,11 @@
     <div class="ds_wrapper">
         <div class="ds_cb__inner">
             <#if document??>
-            <div class="ds_cb__text  ds_cb__content">
-                <header class="ds_page-header">
-                    <h1 class="ds_page-header__title">${document.title}</h1>
-                </header>
-
-                <@hst.html hippohtml=document.description/>
-            </div>
-
-            <#if document.image??>
                 <div class="ds_cb__poster">
                     <#if document.image.xlargesixcolumns??>
-                        <img alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
+                        <img class="" alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
                                 width="${document.image.xlargesixcolumns.width?c}"
                                 height="${document.image.xlargesixcolumns.height?c}"
-                                loading="lazy"
                                 srcset="
                                 <@hst.link hippobean=document.image.smallcolumns/> 448w,
                                 <@hst.link hippobean=document.image.smallcolumnsdoubled/> 896w,
@@ -41,24 +31,22 @@
                         <img loading="lazy" src="<@hst.link hippobean=document.image />" alt="${document.alt}"/>
                     </#if>
                 </div>
-            </#if>
 
-            <@hst.manageContent hippobean=document documentTemplateQuery="new-pageheading-document" parameterName="document" rootPath="pageheadings"/>
-
-            <#elseif editMode>
-                <div class="ds_cb__text  ds_cb__content">
-                    <header class="ds_page-header">
-                        <h1 class="ds_page-header__title"><@placeholdertext lines=2/></h1>
-                    </header>
-
-                    <@placeholdertext lines=4/>
+                <div class="ds_cb__text">
+                    <@hst.html hippohtml=document.content/>
                 </div>
 
-                <div class="ds_cb__poster">
+                <@hst.manageContent hippobean=document documentTemplateQuery="new-imageandtext-document" parameterName="document" rootPath="images"/>
+            <#elseif editMode>
+                <div class="ds_cb__poster cms-blank">
                     <@placeholderimage/>
                 </div>
 
-                <@hst.manageContent documentTemplateQuery="new-pageheading-document" parameterName="document" rootPath="pageheadings"/>
+                <div class="ds_cb__text cms-blank">
+                    <@placeholdertext lines=7/>
+                </div>
+
+                <@hst.manageContent documentTemplateQuery="new-imageandtext-document" parameterName="document" rootPath="images"/>
             </#if>
         </div>
     </div>

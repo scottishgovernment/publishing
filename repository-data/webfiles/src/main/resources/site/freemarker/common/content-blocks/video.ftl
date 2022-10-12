@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
-<#include "include/imports.ftl">
-<#include "include/cms-placeholders.ftl">
+<#include "../include/imports.ftl">
+<#include "../include/cms-placeholders.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Video" -->
 

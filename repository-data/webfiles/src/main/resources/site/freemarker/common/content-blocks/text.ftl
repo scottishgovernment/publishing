@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
-<#include "include/imports.ftl">
-<#include "include/cms-placeholders.ftl">
+<#include "../include/imports.ftl">
+<#include "../include/cms-placeholders.ftl">
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Text" -->
 
 <div class="ds_cb  ds_cb--text

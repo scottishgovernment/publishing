@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<#include "include/imports.ftl">
+<#include "../include/imports.ftl">
 
 <div class="ds_cb  ds_cb--header
     <#if backgroundcolor?? && backgroundcolor?length gt 0>ds_cb--bg-${backgroundcolor}</#if>
