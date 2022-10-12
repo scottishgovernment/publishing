@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<#include "include/imports.ftl">
+<#include "../include/imports.ftl">
 
 <#if hstRequestContext.preview><div class="cms-display-grid"></#if>
 <div class="ds_cb  ds_cb--divider

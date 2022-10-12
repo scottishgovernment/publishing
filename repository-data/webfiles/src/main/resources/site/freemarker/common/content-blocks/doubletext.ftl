@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
-<#include "include/imports.ftl">
-<#include "include/cms-placeholders.ftl">
+<#include "../include/imports.ftl">
+<#include "../include/cms-placeholders.ftl">
 
 <div class="ds_cb  ds_cb--double-text
     <#if backgroundcolor?? && backgroundcolor?length gt 0>ds_cb--bg-${backgroundcolor}</#if>
