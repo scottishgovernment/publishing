@@ -29,8 +29,16 @@ $site-prefix: "ddat_";
 
 
 
+/**
+ * CONTENT BLOCKS
+ */
+@import "../content-blocks/all-content-blocks";
 
-@import "component.content-blocks";
+
+
+/**
+ * ADDITIONAL STYLES
+ */
 @import "component.datalist";
 @import "component.listing";
 
