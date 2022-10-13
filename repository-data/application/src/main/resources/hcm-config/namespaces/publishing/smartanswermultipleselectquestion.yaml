@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 47b292a4-ad52-4db8-a6af-104a4e72544f
+          jcr:uuid: a8835694-5f03-4489-9579-7d40c2b8bdd8
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:smartanswerquestion', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -29,7 +29,7 @@ definitions:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
+            hipposysedit:ordered: true
             hipposysedit:path: publishing:options
             hipposysedit:primary: false
             hipposysedit:type: publishing:smartanswermultipleselectoption
@@ -38,7 +38,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:smartanswermultipleselectquestion
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: c5bad653-d381-4fcc-8d6b-7b22193f6ad9
+          jcr:uuid: 896d31e8-53cb-448b-b8c2-f7fd43579bf8
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
           hippostdpubwf:creationDate: 2022-09-05T09:51:15.216+01:00

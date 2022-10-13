@@ -7,11 +7,11 @@ definitions:
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 28995c21-011d-4193-ab4a-bf3f3495e9cb
+        jcr:uuid: 7f0ce4bc-9103-401f-aa50-0d1b9de0bfe3
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 42e44e70-0a3a-4fbe-81d5-2b18138e1a34
+          jcr:uuid: d368f644-1785-4128-9fc3-4d5b787bc10e
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:smartanswerquestion', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -20,7 +20,7 @@ definitions:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
+            hipposysedit:ordered: true
             hipposysedit:path: publishing:options
             hipposysedit:primary: false
             hipposysedit:type: publishing:smartanswersingleselectoption
@@ -61,7 +61,7 @@ definitions:
           hippotranslation:locale: ''
           jcr:mixinTypes: ['mix:referenceable']
           publishing:title: ''
-          jcr:uuid: 7ba2c003-9e75-4cbb-b73b-7a59f0fe6206
+          jcr:uuid: d794ce90-4633-4ea1-9282-cc11ef39fe05
           hippostdpubwf:lastModificationDate: 2022-09-05T09:51:15.216+01:00
           hippostdpubwf:creationDate: 2022-09-05T09:51:15.216+01:00
           publishing:style: ''

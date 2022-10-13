@@ -152,6 +152,7 @@ class SmartAnswer {
         // this check isn't really necessary but it simplifies unit tests
         if (dynamicContentElements.length) {
             const dynamicContentPromises = [];
+            const responses = [];
 
             dynamicContentElements.forEach(element => {
                 const location = element.getAttribute('data-location');
@@ -173,8 +174,11 @@ class SmartAnswer {
 
                     promiseRequest
                     .then(value => {
-                        element.innerHTML = value.responseText;
-                        window.DS.tracking.init(element);
+                        if (!responses.includes(value.responseText)) {
+                            element.innerHTML = value.responseText;
+                            window.DS.tracking.init(element);
+                            responses.push(value.responseText);
+                        }
                     })
                     .catch(error => {
                         console.log('failed to fetch dynamic content ', error);
