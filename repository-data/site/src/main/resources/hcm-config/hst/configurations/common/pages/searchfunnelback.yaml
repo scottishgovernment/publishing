@@ -5,7 +5,7 @@ definitions:
       hst:referencecomponent: hst:abstractpages/base
       /main:
         jcr:primaryType: hst:component
-        hst:componentclassname: scot.mygov.publishing.components.SearchComponent
+        hst:componentclassname: scot.gov.publishing.hippo.funnelback.component.SearchComponent
         hst:parameternames: [searchtype]
         hst:parametervalues: [funnelback]
         hst:template: search-funnelback-main

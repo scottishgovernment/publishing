@@ -10,6 +10,9 @@ import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
+import scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent;
+import scot.gov.publishing.hippo.funnelback.component.SearchComponent;
+import scot.gov.publishing.hippo.funnelback.component.SearchSettings;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
 import javax.jcr.RepositoryException;
@@ -73,13 +76,13 @@ public class SiteHeaderComponent extends BaseHstComponent {
      * determine if auto complete should be used for search bars
      */
     static void populateAutoCompleteFlag(HstRequest request) {
-        HippoBean baseBean = RequestContextProvider.get().getSiteContentBaseBean();
-        HippoBean bean = baseBean.getBean("administration/search-settings");
+
+        SearchSettings searchSettings = ResilientSearchComponent.searchSettings();
         boolean autoCompleteEnabled = true;
-        if (!bean.<Boolean>getSingleProperty("search:enabled")) {
+        if (!searchSettings.isEnabled()) {
             autoCompleteEnabled = false;
         }
-        if ("bloomreach".equals(bean.<String>getSingleProperty("search:searchtype"))) {
+        if ("bloomreach".equals(searchSettings.getSearchType())) {
             autoCompleteEnabled = false;
         }
         request.setAttribute("autoCompleteEnabled", autoCompleteEnabled);
