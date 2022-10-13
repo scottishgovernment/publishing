@@ -3,15 +3,12 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
 import org.hippoecm.hst.configuration.hosting.Mount;
-import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent;
-import scot.gov.publishing.hippo.funnelback.component.SearchComponent;
 import scot.gov.publishing.hippo.funnelback.component.SearchSettings;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
