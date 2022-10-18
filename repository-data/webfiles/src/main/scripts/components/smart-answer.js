@@ -159,6 +159,9 @@ class SmartAnswer {
                 const location = element.getAttribute('data-location');
                 const question = element.getAttribute('data-question');
 
+                // clear any current content
+                element.innerHTML = '';
+
                 const answerForQuestion = this.currentAnswers.find(answer => answer.id === question);
 
                 if (answerForQuestion) {
@@ -190,9 +193,6 @@ class SmartAnswer {
                         dynamicContentPromises.push(promiseRequest);
                         requestPaths.push(`${location}?tag=${tag}`);
                     }
-                } else {
-                    // clear any current content
-                    element.innerHTML = '';
                 }
             });
 
