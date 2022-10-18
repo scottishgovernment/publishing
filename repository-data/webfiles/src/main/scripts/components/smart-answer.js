@@ -152,7 +152,8 @@ class SmartAnswer {
         // this check isn't really necessary but it simplifies unit tests
         if (dynamicContentElements.length) {
             const dynamicContentPromises = [];
-            const responses = [];
+            const requestPaths = [];
+            const responses = {};
 
             dynamicContentElements.forEach(element => {
                 const location = element.getAttribute('data-location');
@@ -170,21 +171,25 @@ class SmartAnswer {
                         }
                     });
 
-                    const promiseRequest = commonForms.promiseRequest(`${location}?tag=${tag}`);
+                    const requestPath = `${location}?tag=${tag}`;
+                    if (!requestPaths.includes(requestPath)) {
+                        const promiseRequest = commonForms.promiseRequest(`${location}?tag=${tag}`);
 
-                    promiseRequest
-                    .then(value => {
-                        if (!responses.includes(value.responseText)) {
-                            element.innerHTML = value.responseText;
-                            window.DS.tracking.init(element);
-                            responses.push(value.responseText);
-                        }
-                    })
-                    .catch(error => {
-                        console.log('failed to fetch dynamic content ', error);
-                    });
+                        promiseRequest
+                            .then(value => {
+                                if (!Object.values(responses).includes(value.responseText)) {
+                                    responses[element.id] = value.responseText;
+                                    element.innerHTML = value.responseText;
+                                    window.DS.tracking.init(element);
+                                }
+                            })
+                            .catch(error => {
+                                console.log('failed to fetch dynamic content ', error);
+                            });
 
-                    dynamicContentPromises.push(promiseRequest);
+                        dynamicContentPromises.push(promiseRequest);
+                        requestPaths.push(`${location}?tag=${tag}`);
+                    }
                 } else {
                     // clear any current content
                     element.innerHTML = '';
@@ -381,6 +386,8 @@ class SmartAnswer {
             }
         }
 
+        updateDOM();
+
         // Fallback for browsers that don't support this API:
         if (!document.createDocumentTransition) {
             updateDOM();
@@ -388,13 +395,13 @@ class SmartAnswer {
         }
 
         // With a transition:
-        const transition = document.createDocumentTransition();
-        transition.start(() => {
-                updateDOM();
-            })
-            .then(() => {
-                document.documentElement.classList.remove('back-transition');
-            });
+        // const transition = document.createDocumentTransition();
+        // transition.start(() => {
+        //         updateDOM();
+        //     })
+        //     .then(() => {
+        //         document.documentElement.classList.remove('back-transition');
+        //     });
     }
 }
 

@@ -232,7 +232,7 @@ describe('smart-answer', function () {
             let button = document.querySelector('.js-next-button');
             button.click();
 
-            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual(['over-16']);
+            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual('over-16');
         });
 
         it('should get the selected answers (plural) from a checkbox question', () => {
@@ -256,7 +256,7 @@ describe('smart-answer', function () {
             let button = document.querySelector('.js-next-button');
             button.click();
 
-            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual(['universal-credit', 'pension-credit']);
+            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual('universal-credit:pension-credit');
         });
 
         it('should get the selected answer from a SELECT element', () => {
@@ -280,7 +280,7 @@ describe('smart-answer', function () {
             let button = selectStep.querySelector('.js-next-button');
             button.click();
 
-            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual(['over-16']);
+            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual('over-16');
         });
 
         it('should get the selected answer from a CONFIRM question', () => {
@@ -308,7 +308,7 @@ describe('smart-answer', function () {
             checkbox.checked = true;
             button.click();
 
-            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual(['confirm']);
+            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual('confirm');
         });
 
         it('should get the selected answer from a CONFIRM question without checkbox', () => {
@@ -332,7 +332,7 @@ describe('smart-answer', function () {
             let button = confirmStep.querySelector('.js-next-button');
             button.click();
 
-            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual(['confirm']);
+            expect(testObj.smartAnswer.getResponsesFromUrl()[0]).toEqual('confirm');
         });
 
         it('should set a pre-filled answer in a radio button group', () => {
