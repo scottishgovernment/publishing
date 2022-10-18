@@ -22,6 +22,8 @@ public class NotificationBannersComponent extends BaseHstComponent {
         HippoFolder bannersFolder = folder(request, "site-furniture/banners");
         HippoBean contentBean = request.getRequestContext().getContentBean();
 
+        request.setAttribute("cookiespage", cookiepage(request));
+
         if (bannersFolder == null) {
             request.setAttribute("notificationbanners", new ArrayList<>());
             request.setAttribute("mourningbanner", null);
@@ -37,6 +39,10 @@ public class NotificationBannersComponent extends BaseHstComponent {
     static MourningBanner getMourningBanner(HippoFolder folder) {
         List<MourningBanner> mourningBanners = folder.getDocuments(MourningBanner.class);
         return mourningBanners.isEmpty() ? null : mourningBanners.get(0);
+    }
+
+    static HippoBean cookiepage(HstRequest request) {
+        return request.getRequestContext().getSiteContentBaseBean().getBean("site-furniture/footer/cookies");
     }
 
     static HippoFolder folder(HstRequest request, String path) {

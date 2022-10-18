@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
 
-<@hst.link var="cookieprefslink" siteMapItemRefId="cookies"/>
+<@hst.link var="cookieprefslink"  hippobean=cookiespage/>
 
 <div id="cookie-notice" class="ds_notification  ds_notification--large  ds_notification--cookie  js-initial-cookie-content  fully-hidden" data-module="ds-cookie-notification">
     <div class="ds_wrapper">

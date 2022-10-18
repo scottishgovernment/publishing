@@ -74,6 +74,7 @@ definitions:
             hst:componentconfigurationid: hst:pages/cookiepreferences
             hst:relativecontentpath: site-furniture/footer/cookies
             hst:sitemapitemhandlerids: [trailing-slash]
+            hst:refId: cookies
           /_default_:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/article
@@ -325,12 +326,6 @@ definitions:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/fragments
           hst:relativecontentpath: abuse-support
-      /cookies:
-        jcr:primaryType: hst:sitemapitem
-        hst:componentconfigurationid: hst:pages/cookiepreferences
-        hst:refId: cookies
-        hst:relativecontentpath: site-furniture/footer/cookies
-        hst:sitemapitemhandlerids: [trailing-slash]
       /searchresults:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/searchresilientresults

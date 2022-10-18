@@ -955,334 +955,6 @@
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
-    /cookies:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: caf08bcd-4f67-4c88-a87b-6adc08160986
-      hippo:name: Cookies
-      hippo:versionHistory: ceab17f9-d9a1-49f3-867a-a7d70a529c76
-      /cookies[1]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
-          'mix:referenceable']
-        jcr:uuid: 835e4fe4-56d7-4366-b948-24196fa0a9bc
-        hippo:availability: []
-        hippo:name: Cookies
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostd:tags: []
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2020-08-17T07:36:40.238+01:00
-        hippostdpubwf:lastModificationDate: 2021-05-27T09:27:09.651+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 79da858c-d7a7-442f-9caa-ae31a14aa96d
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:metaDescription: Cookie information for mygov.scot.
-        publishing:mygovid: MYGOV-265
-        publishing:relatedmygovids: ''
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Cookies
-        publishing:serviceproviders: []
-        publishing:showFeedback: false
-        publishing:showInParent: true
-        publishing:slug: cookies
-        publishing:summary: Cookie information for mygov.scot.
-        publishing:title: Cookies
-        publishing:urlAliases:
-          type: double
-          value: []
-        publishing:userneed: ''
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>A cookie lets a\
-            \ website recognise your device and store some information about your\
-            \ preferences or interactions.</p> \n  <h2 id=\"why-we-use-cookies\">Why\
-            \ we use cookies</h2> \n  <p>We use mygov.scot cookie tracking data to\
-            \ make informed decisions on whether the site is meeting your needs, which\
-            \ leads to us making improvements. For example, we monitor how much traffic\
-            \ each part of the site gets and work to improve areas which are not being\
-            \ found when they should be.</p> \n  <div class=\"info-note note\">\n\
-            \    The cookies that we set on mygov.scot cannot be used to identify\
-            \ you personally. \n   <a href=\"https://ico.org.uk/your-data-matters/online/cookies/\"\
-            >Find out more about how to manage cookies for all websites</a> \n  </div>\
-            \ \n  <h2 id=\"turn-cookies-on-or-off\">Turn cookies on or off</h2> \n\
-            \  <p>We use 3 main types of cookie on our website. You can choose which\
-            \ cookies you're happy for us to use.</p> \n  <p><a href=\"cookie-details\"\
-            >Find out more about the cookies we use</a></p> \n  <noscript> \n   <div\
-            \ class=\"info-note info-note--large-margins caution\">\n     We've detected\
-            \ from your browser that JavaScript is disabled. Please enable JavaScript\
-            \ in order to change your cookie preferences. \n   </div> \n  </noscript>\
-            \ \n  <div class=\"form-box  hidden\" id=\"cookie-form-box\"> \n   <form\
-            \ id=\"cookie-preferences\"> \n    <fieldset> \n     <legend class=\"\
-            hidden\">Turn cookies on or off</legend> \n     <div class=\"form-group\
-            \  no-top-margin\"> \n      <h3 class=\"beta  no-top-margin\">Cookies\
-            \ needed for the website to work</h3> \n      <p>These cookies do things\
-            \ like keep the website secure. They always need to be on.</p> \n    \
-            \ </div> \n     <div class=\"form-group\"> \n      <h3 class=\"beta\"\
-            >Cookies that remember your settings</h3> \n      <p>These cookies do\
-            \ things like remember pop-ups you’ve seen, so you're not shown them again.</p>\
-            \ \n      <div class=\"input-wrapper\"> \n       <input id=\"preferences-yes\"\
-            \ value=\"true\" name=\"cookie-preferences\" class=\"fancy-radio\" type=\"\
-            radio\"> \n       <label for=\"preferences-yes\" class=\"inline fancy-radio\"\
-            >On</label> \n       <input id=\"preferences-no\" value=\"false\" name=\"\
-            cookie-preferences\" class=\"fancy-radio\" type=\"radio\"> \n       <label\
-            \ for=\"preferences-no\" class=\"inline fancy-radio\">Off</label> \n \
-            \     </div> \n     </div> \n     <div class=\"form-group\"> \n      <h3\
-            \ class=\"beta\">Cookies that measure website use</h3> \n      <p>These\
-            \ cookies store information about how you use our website, such as what\
-            \ you click on.</p> \n      <div class=\"input-wrapper\"> \n       <input\
-            \ id=\"statistics-yes\" value=\"true\" name=\"cookie-statistics\" class=\"\
-            fancy-radio\" type=\"radio\"> \n       <label for=\"statistics-yes\" class=\"\
-            inline fancy-radio\">On</label> \n       <input id=\"statistics-no\" value=\"\
-            false\" name=\"cookie-statistics\" class=\"fancy-radio\" type=\"radio\"\
-            > \n       <label for=\"statistics-no\" class=\"inline fancy-radio\">Off</label>\
-            \ \n      </div> \n     </div> \n     <div id=\"cookie-success-message\"\
-            \ class=\"form-message  form-message--success  hidden  hidden--hard\"\
-            > \n      <b>Your cookie preferences have been saved.</b> \n     </div>\
-            \ \n     <p><button class=\"button  button--primary  no-bottom-margin\"\
-            \ type=\"submit\">Save cookie preferences</button> </p>\n    </fieldset>\
-            \ \n   </form>\n   <p></p> \n   <p></p>\n  </div>\n  <p></p> \n  <!--\
-            \ Browsers with ES module support load these files --> \n  <script type=\"\
-            module\" src=\"/assets/scripts/cookie-form.js\"></script> \n  <!-- Older\
-            \ browsers load these files --> \n  <!-- (and module-supporting browsers\
-            \ know *not* to load these files) --> \n  <script nomodule src=\"/assets/scripts/cookie-form.es5.js\"\
-            ></script> \n </body>\n</html>"
-          /cookie-details:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: 3b4b55b0-c4c7-430a-ad56-75b2f263c562
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-        /publishing:relateditems:
-          jcr:primaryType: publishing:relateditems
-          publishing:title: ''
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-      /cookies[2]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
-          'mix:referenceable', 'mix:versionable']
-        jcr:uuid: f6b6d13f-a902-42a1-a42c-f112114f35a3
-        hippo:availability: [preview]
-        hippo:name: Cookies
-        hippostd:retainable: false
-        hippostd:state: unpublished
-        hippostd:tags: []
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2020-08-17T07:36:40.238+01:00
-        hippostdpubwf:lastModificationDate: 2021-05-27T09:27:13.646+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 79da858c-d7a7-442f-9caa-ae31a14aa96d
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:metaDescription: Cookie information for mygov.scot.
-        publishing:mygovid: MYGOV-265
-        publishing:relatedmygovids: ''
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Cookies
-        publishing:serviceproviders: []
-        publishing:showFeedback: false
-        publishing:showInParent: true
-        publishing:slug: cookies
-        publishing:summary: Cookie information for mygov.scot.
-        publishing:title: Cookies
-        publishing:urlAliases:
-          type: double
-          value: []
-        publishing:userneed: ''
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>A cookie lets a\
-            \ website recognise your device and store some information about your\
-            \ preferences or interactions.</p> \n  <h2 id=\"why-we-use-cookies\">Why\
-            \ we use cookies</h2> \n  <p>We use mygov.scot cookie tracking data to\
-            \ make informed decisions on whether the site is meeting your needs, which\
-            \ leads to us making improvements. For example, we monitor how much traffic\
-            \ each part of the site gets and work to improve areas which are not being\
-            \ found when they should be.</p> \n  <div class=\"info-note note\">\n\
-            \    The cookies that we set on mygov.scot cannot be used to identify\
-            \ you personally. \n   <a href=\"https://ico.org.uk/your-data-matters/online/cookies/\"\
-            >Find out more about how to manage cookies for all websites</a> \n  </div>\
-            \ \n  <h2 id=\"turn-cookies-on-or-off\">Turn cookies on or off</h2> \n\
-            \  <p>We use 3 main types of cookie on our website. You can choose which\
-            \ cookies you're happy for us to use.</p> \n  <p><a href=\"cookie-details\"\
-            >Find out more about the cookies we use</a></p> \n  <noscript> \n   <div\
-            \ class=\"info-note info-note--large-margins caution\">\n     We've detected\
-            \ from your browser that JavaScript is disabled. Please enable JavaScript\
-            \ in order to change your cookie preferences. \n   </div> \n  </noscript>\
-            \ \n  <div class=\"form-box  hidden\" id=\"cookie-form-box\"> \n   <form\
-            \ id=\"cookie-preferences\"> \n    <fieldset> \n     <legend class=\"\
-            hidden\">Turn cookies on or off</legend> \n     <div class=\"form-group\
-            \  no-top-margin\"> \n      <h3 class=\"beta  no-top-margin\">Cookies\
-            \ needed for the website to work</h3> \n      <p>These cookies do things\
-            \ like keep the website secure. They always need to be on.</p> \n    \
-            \ </div> \n     <div class=\"form-group\"> \n      <h3 class=\"beta\"\
-            >Cookies that remember your settings</h3> \n      <p>These cookies do\
-            \ things like remember pop-ups you’ve seen, so you're not shown them again.</p>\
-            \ \n      <div class=\"input-wrapper\"> \n       <input id=\"preferences-yes\"\
-            \ value=\"true\" name=\"cookie-preferences\" class=\"fancy-radio\" type=\"\
-            radio\"> \n       <label for=\"preferences-yes\" class=\"inline fancy-radio\"\
-            >On</label> \n       <input id=\"preferences-no\" value=\"false\" name=\"\
-            cookie-preferences\" class=\"fancy-radio\" type=\"radio\"> \n       <label\
-            \ for=\"preferences-no\" class=\"inline fancy-radio\">Off</label> \n \
-            \     </div> \n     </div> \n     <div class=\"form-group\"> \n      <h3\
-            \ class=\"beta\">Cookies that measure website use</h3> \n      <p>These\
-            \ cookies store information about how you use our website, such as what\
-            \ you click on.</p> \n      <div class=\"input-wrapper\"> \n       <input\
-            \ id=\"statistics-yes\" value=\"true\" name=\"cookie-statistics\" class=\"\
-            fancy-radio\" type=\"radio\"> \n       <label for=\"statistics-yes\" class=\"\
-            inline fancy-radio\">On</label> \n       <input id=\"statistics-no\" value=\"\
-            false\" name=\"cookie-statistics\" class=\"fancy-radio\" type=\"radio\"\
-            > \n       <label for=\"statistics-no\" class=\"inline fancy-radio\">Off</label>\
-            \ \n      </div> \n     </div> \n     <div id=\"cookie-success-message\"\
-            \ class=\"form-message  form-message--success  hidden  hidden--hard\"\
-            > \n      <b>Your cookie preferences have been saved.</b> \n     </div>\
-            \ \n     <p><button class=\"button  button--primary  no-bottom-margin\"\
-            \ type=\"submit\">Save cookie preferences</button> </p>\n    </fieldset>\
-            \ \n   </form>\n   <p></p> \n   <p></p>\n  </div>\n  <p></p> \n  <!--\
-            \ Browsers with ES module support load these files --> \n  <script type=\"\
-            module\" src=\"/assets/scripts/cookie-form.js\"></script> \n  <!-- Older\
-            \ browsers load these files --> \n  <!-- (and module-supporting browsers\
-            \ know *not* to load these files) --> \n  <script nomodule src=\"/assets/scripts/cookie-form.es5.js\"\
-            ></script> \n </body>\n</html>"
-          /cookie-details:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: 3b4b55b0-c4c7-430a-ad56-75b2f263c562
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-        /publishing:relateditems:
-          jcr:primaryType: publishing:relateditems
-          publishing:title: ''
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-      /cookies[3]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
-          'mix:referenceable']
-        jcr:uuid: 309dea94-ed72-4561-9f17-9a9616a3e5d3
-        hippo:availability: [live]
-        hippo:name: Cookies
-        hippostd:retainable: false
-        hippostd:state: published
-        hippostd:tags: []
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2020-08-17T07:36:40.238+01:00
-        hippostdpubwf:lastModificationDate: 2021-05-27T09:27:13.646+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2021-05-27T09:27:26.404+01:00
-        hippotranslation:id: 79da858c-d7a7-442f-9caa-ae31a14aa96d
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:metaDescription: Cookie information for mygov.scot.
-        publishing:mygovid: MYGOV-265
-        publishing:relatedmygovids: ''
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Cookies
-        publishing:serviceproviders: []
-        publishing:showFeedback: false
-        publishing:showInParent: true
-        publishing:slug: cookies
-        publishing:summary: Cookie information for mygov.scot.
-        publishing:title: Cookies
-        publishing:urlAliases:
-          type: double
-          value: []
-        publishing:userneed: ''
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: "<html>\n <head></head>\n <body>\n  <p>A cookie lets a\
-            \ website recognise your device and store some information about your\
-            \ preferences or interactions.</p> \n  <h2 id=\"why-we-use-cookies\">Why\
-            \ we use cookies</h2> \n  <p>We use mygov.scot cookie tracking data to\
-            \ make informed decisions on whether the site is meeting your needs, which\
-            \ leads to us making improvements. For example, we monitor how much traffic\
-            \ each part of the site gets and work to improve areas which are not being\
-            \ found when they should be.</p> \n  <div class=\"info-note note\">\n\
-            \    The cookies that we set on mygov.scot cannot be used to identify\
-            \ you personally. \n   <a href=\"https://ico.org.uk/your-data-matters/online/cookies/\"\
-            >Find out more about how to manage cookies for all websites</a> \n  </div>\
-            \ \n  <h2 id=\"turn-cookies-on-or-off\">Turn cookies on or off</h2> \n\
-            \  <p>We use 3 main types of cookie on our website. You can choose which\
-            \ cookies you're happy for us to use.</p> \n  <p><a href=\"cookie-details\"\
-            >Find out more about the cookies we use</a></p> \n  <noscript> \n   <div\
-            \ class=\"info-note info-note--large-margins caution\">\n     We've detected\
-            \ from your browser that JavaScript is disabled. Please enable JavaScript\
-            \ in order to change your cookie preferences. \n   </div> \n  </noscript>\
-            \ \n  <div class=\"form-box  hidden\" id=\"cookie-form-box\"> \n   <form\
-            \ id=\"cookie-preferences\"> \n    <fieldset> \n     <legend class=\"\
-            hidden\">Turn cookies on or off</legend> \n     <div class=\"form-group\
-            \  no-top-margin\"> \n      <h3 class=\"beta  no-top-margin\">Cookies\
-            \ needed for the website to work</h3> \n      <p>These cookies do things\
-            \ like keep the website secure. They always need to be on.</p> \n    \
-            \ </div> \n     <div class=\"form-group\"> \n      <h3 class=\"beta\"\
-            >Cookies that remember your settings</h3> \n      <p>These cookies do\
-            \ things like remember pop-ups you’ve seen, so you're not shown them again.</p>\
-            \ \n      <div class=\"input-wrapper\"> \n       <input id=\"preferences-yes\"\
-            \ value=\"true\" name=\"cookie-preferences\" class=\"fancy-radio\" type=\"\
-            radio\"> \n       <label for=\"preferences-yes\" class=\"inline fancy-radio\"\
-            >On</label> \n       <input id=\"preferences-no\" value=\"false\" name=\"\
-            cookie-preferences\" class=\"fancy-radio\" type=\"radio\"> \n       <label\
-            \ for=\"preferences-no\" class=\"inline fancy-radio\">Off</label> \n \
-            \     </div> \n     </div> \n     <div class=\"form-group\"> \n      <h3\
-            \ class=\"beta\">Cookies that measure website use</h3> \n      <p>These\
-            \ cookies store information about how you use our website, such as what\
-            \ you click on.</p> \n      <div class=\"input-wrapper\"> \n       <input\
-            \ id=\"statistics-yes\" value=\"true\" name=\"cookie-statistics\" class=\"\
-            fancy-radio\" type=\"radio\"> \n       <label for=\"statistics-yes\" class=\"\
-            inline fancy-radio\">On</label> \n       <input id=\"statistics-no\" value=\"\
-            false\" name=\"cookie-statistics\" class=\"fancy-radio\" type=\"radio\"\
-            > \n       <label for=\"statistics-no\" class=\"inline fancy-radio\">Off</label>\
-            \ \n      </div> \n     </div> \n     <div id=\"cookie-success-message\"\
-            \ class=\"form-message  form-message--success  hidden  hidden--hard\"\
-            > \n      <b>Your cookie preferences have been saved.</b> \n     </div>\
-            \ \n     <p><button class=\"button  button--primary  no-bottom-margin\"\
-            \ type=\"submit\">Save cookie preferences</button> </p>\n    </fieldset>\
-            \ \n   </form>\n   <p></p> \n   <p></p>\n  </div>\n  <p></p> \n  <!--\
-            \ Browsers with ES module support load these files --> \n  <script type=\"\
-            module\" src=\"/assets/scripts/cookie-form.js\"></script> \n  <!-- Older\
-            \ browsers load these files --> \n  <!-- (and module-supporting browsers\
-            \ know *not* to load these files) --> \n  <script nomodule src=\"/assets/scripts/cookie-form.es5.js\"\
-            ></script> \n </body>\n</html>"
-          /cookie-details:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: 3b4b55b0-c4c7-430a-ad56-75b2f263c562
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-        /publishing:relateditems:
-          jcr:primaryType: publishing:relateditems
-          publishing:title: ''
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
     /privacy:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -1752,6 +1424,398 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+    /cookies:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 063de81d-2428-478a-8a34-c701fa6255ce
+      hippo:name: Cookies
+      hippo:versionHistory: afb7ccd8-e683-432d-9189-5a7d7b81a56c
+      /cookies[1]:
+        jcr:primaryType: publishing:cookiepage
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: d258aa20-0ebc-4dd1-9bb7-4000c985105c
+        hippo:availability: []
+        hippo:name: Cookies
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:tags: []
+        hippostdpubwf:createdBy: reece.cargan@gov.scot
+        hippostdpubwf:creationDate: 2014-11-13T02:07:57Z
+        hippostdpubwf:lastModificationDate: 2022-01-25T08:29:26.038Z
+        hippostdpubwf:lastModifiedBy: david.sinclair@gov.scot
+        hippotranslation:id: f81fc786-f62a-4c45-8034-96840f2be93b
+        hippotranslation:locale: document-type-locale
+        publishing:authorNotes: ''
+        publishing:lastUpdatedDate: 2021-03-17T00:00:00Z
+        publishing:lifeEvents: []
+        publishing:metaDescription: Cookie information for mygov.scot.
+        publishing:mygovid: MYGOV-265
+        publishing:noindex: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:reviewDate: 2021-02-15T00:00:00Z
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookie information for mygov.scot.
+        publishing:title: Cookies
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: sit004
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>A cookie lets a website recognise your device and store some information about your preferences or interactions.</p>
+
+            <h2>Why we use cookies</h2>
+
+            <p>We use mygov.scot cookie tracking data to make informed decisions on whether the site is meeting your needs, which leads to us making improvements. For example, we monitor how much traffic each part of the site gets and work to improve areas which are not being found when they should be.</p>
+
+            <div class="ds_inset-text">
+            <div class="ds_inset-text__text">
+            <p>The cookies that we set on mygov.scot cannot be used to identify you personally. <a href="https://ico.org.uk/your-data-matters/online/cookies/">Find out more about how to manage cookies for all websites</a></p>
+            </div>
+            </div>
+
+            <h2>Turn cookies on or off</h2>
+
+            <p>We use 3 main types of cookie on our website. You can choose which cookies you're happy for us to use. Any data collected is anonymous.</p>
+        /publishing:additionalContent:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <h2>Google Analytics</h2>
+
+            <p>We use Google Analytics to collect information about how you use mygov.scot.</p>
+
+            <p>We store information about:</p>
+
+            <ul>
+             <li>the pages you visit and how long you spend on each page</li>
+             <li>how you got to mygov.scot</li>
+             <li>what you click on while you're visiting mygov.scot</li>
+            </ul>
+
+            <p>We do not:</p>
+
+            <ul>
+             <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+             <li>make any attempt to find out the identities of people visiting mygov.scot</li>
+             <li>allow the tools that we use to find out the identities of people visiting mygov.scot</li>
+             <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+            </ul>
+
+            <p>All information we get through cookies and analytics will be treated in confidence.</p>
+
+            <p>We anonymise the last 3 digits of all mygov.scot user IP addresses for Google Analytics, so that we can ensure that you are protected (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>). We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+
+            <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and privacy in Google Analytics.</a></p>
+
+            <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google Analytics</a> cookies.</p>
+
+            <h3>Google Analytics' cookies</h3>
+
+            <table class="ds_table">
+             <thead>
+              <tr>
+               <th>Name</th>
+               <th>Information</th>
+               <th>Expiry</th>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td>_ga</td>
+               <td>This is used to understand and differentiate between different users.</td>
+               <td>38 Months</td>
+              </tr>
+              <tr>
+               <td>_gid</td>
+               <td>_gid has a different ID for each page set on, and a timestamp. This assists with plotting user journeys.</td>
+               <td>24 Hours</td>
+              </tr>
+              <tr>
+               <td>_gat</td>
+               <td>We use Google Tag Manager to tailor our tracking in case we have different elements that are being tested. For example, setting a tag to track how far a user is having to scroll down a long page. The _gat tag pushes the request rate through quicker.</td>
+               <td>1 Minute</td>
+              </tr>
+             </tbody>
+            </table>
+
+            <h2>YouTube</h2>
+
+            <p>Pages on mygov.scot which contain YouTube videos will not set third-party cookies (we use YouTube-nocookie.com — <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+
+            <h2>Further information</h2>
+
+            <p>You can email the performance team for further information. Email: <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /cookies[2]:
+        jcr:primaryType: publishing:cookiepage
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+          'mix:versionable']
+        jcr:uuid: 1c6be92a-e7f4-4cfd-9b7e-d8ae460b4845
+        hippo:availability: [preview]
+        hippo:name: Cookies
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostd:tags: []
+        hippostdpubwf:createdBy: reece.cargan@gov.scot
+        hippostdpubwf:creationDate: 2014-11-13T02:07:57Z
+        hippostdpubwf:lastModificationDate: 2022-01-25T08:29:27.569Z
+        hippostdpubwf:lastModifiedBy: david.sinclair@gov.scot
+        hippotranslation:id: f81fc786-f62a-4c45-8034-96840f2be93b
+        hippotranslation:locale: document-type-locale
+        publishing:authorNotes: ''
+        publishing:lastUpdatedDate: 2021-03-17T00:00:00Z
+        publishing:lifeEvents: []
+        publishing:metaDescription: Cookie information for mygov.scot.
+        publishing:mygovid: MYGOV-265
+        publishing:noindex: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:reviewDate: 2021-02-15T00:00:00Z
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookie information for mygov.scot.
+        publishing:title: Cookies
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: sit004
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>A cookie lets a website recognise your device and store some information about your preferences or interactions.</p>
+
+            <h2>Why we use cookies</h2>
+
+            <p>We use mygov.scot cookie tracking data to make informed decisions on whether the site is meeting your needs, which leads to us making improvements. For example, we monitor how much traffic each part of the site gets and work to improve areas which are not being found when they should be.</p>
+
+            <div class="ds_inset-text">
+            <div class="ds_inset-text__text">
+            <p>The cookies that we set on mygov.scot cannot be used to identify you personally. <a href="https://ico.org.uk/your-data-matters/online/cookies/">Find out more about how to manage cookies for all websites</a></p>
+            </div>
+            </div>
+
+            <h2>Turn cookies on or off</h2>
+
+            <p>We use 3 main types of cookie on our website. You can choose which cookies you're happy for us to use. Any data collected is anonymous.</p>
+        /publishing:additionalContent:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <h2>Google Analytics</h2>
+
+            <p>We use Google Analytics to collect information about how you use mygov.scot.</p>
+
+            <p>We store information about:</p>
+
+            <ul>
+             <li>the pages you visit and how long you spend on each page</li>
+             <li>how you got to mygov.scot</li>
+             <li>what you click on while you're visiting mygov.scot</li>
+            </ul>
+
+            <p>We do not:</p>
+
+            <ul>
+             <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+             <li>make any attempt to find out the identities of people visiting mygov.scot</li>
+             <li>allow the tools that we use to find out the identities of people visiting mygov.scot</li>
+             <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+            </ul>
+
+            <p>All information we get through cookies and analytics will be treated in confidence.</p>
+
+            <p>We anonymise the last 3 digits of all mygov.scot user IP addresses for Google Analytics, so that we can ensure that you are protected (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>). We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+
+            <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and privacy in Google Analytics.</a></p>
+
+            <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google Analytics</a> cookies.</p>
+
+            <h3>Google Analytics' cookies</h3>
+
+            <table class="ds_table">
+             <thead>
+              <tr>
+               <th>Name</th>
+               <th>Information</th>
+               <th>Expiry</th>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td>_ga</td>
+               <td>This is used to understand and differentiate between different users.</td>
+               <td>38 Months</td>
+              </tr>
+              <tr>
+               <td>_gid</td>
+               <td>_gid has a different ID for each page set on, and a timestamp. This assists with plotting user journeys.</td>
+               <td>24 Hours</td>
+              </tr>
+              <tr>
+               <td>_gat</td>
+               <td>We use Google Tag Manager to tailor our tracking in case we have different elements that are being tested. For example, setting a tag to track how far a user is having to scroll down a long page. The _gat tag pushes the request rate through quicker.</td>
+               <td>1 Minute</td>
+              </tr>
+             </tbody>
+            </table>
+
+            <h2>YouTube</h2>
+
+            <p>Pages on mygov.scot which contain YouTube videos will not set third-party cookies (we use YouTube-nocookie.com — <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+
+            <h2>Further information</h2>
+
+            <p>You can email the performance team for further information. Email: <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+      /cookies[3]:
+        jcr:primaryType: publishing:cookiepage
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 5ec241e2-a98c-4f53-ac11-f1702cd5c7b6
+        hippo:availability: [live]
+        hippo:name: Cookies
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostd:tags: []
+        hippostdpubwf:createdBy: reece.cargan@gov.scot
+        hippostdpubwf:creationDate: 2014-11-13T02:07:57Z
+        hippostdpubwf:lastModificationDate: 2022-01-25T08:29:27.569Z
+        hippostdpubwf:lastModifiedBy: david.sinclair@gov.scot
+        hippostdpubwf:publicationDate: 2022-01-25T08:29:29.579Z
+        hippotranslation:id: f81fc786-f62a-4c45-8034-96840f2be93b
+        hippotranslation:locale: document-type-locale
+        publishing:authorNotes: ''
+        publishing:lastUpdatedDate: 2021-03-17T00:00:00Z
+        publishing:lifeEvents: []
+        publishing:metaDescription: Cookie information for mygov.scot.
+        publishing:mygovid: MYGOV-265
+        publishing:noindex: false
+        publishing:relatedmygovids: ''
+        publishing:reportingtags: []
+        publishing:reviewDate: 2021-02-15T00:00:00Z
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookie information for mygov.scot.
+        publishing:title: Cookies
+        publishing:urlAliases:
+          type: double
+          value: []
+        publishing:userneed: sit004
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p>A cookie lets a website recognise your device and store some information about your preferences or interactions.</p>
+
+            <h2>Why we use cookies</h2>
+
+            <p>We use mygov.scot cookie tracking data to make informed decisions on whether the site is meeting your needs, which leads to us making improvements. For example, we monitor how much traffic each part of the site gets and work to improve areas which are not being found when they should be.</p>
+
+            <div class="ds_inset-text">
+            <div class="ds_inset-text__text">
+            <p>The cookies that we set on mygov.scot cannot be used to identify you personally. <a href="https://ico.org.uk/your-data-matters/online/cookies/">Find out more about how to manage cookies for all websites</a></p>
+            </div>
+            </div>
+
+            <h2>Turn cookies on or off</h2>
+
+            <p>We use 3 main types of cookie on our website. You can choose which cookies you're happy for us to use. Any data collected is anonymous.</p>
+        /publishing:additionalContent:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <h2>Google Analytics</h2>
+
+            <p>We use Google Analytics to collect information about how you use mygov.scot.</p>
+
+            <p>We store information about:</p>
+
+            <ul>
+             <li>the pages you visit and how long you spend on each page</li>
+             <li>how you got to mygov.scot</li>
+             <li>what you click on while you're visiting mygov.scot</li>
+            </ul>
+
+            <p>We do not:</p>
+
+            <ul>
+             <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+             <li>make any attempt to find out the identities of people visiting mygov.scot</li>
+             <li>allow the tools that we use to find out the identities of people visiting mygov.scot</li>
+             <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+            </ul>
+
+            <p>All information we get through cookies and analytics will be treated in confidence.</p>
+
+            <p>We anonymise the last 3 digits of all mygov.scot user IP addresses for Google Analytics, so that we can ensure that you are protected (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>). We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+
+            <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and privacy in Google Analytics.</a></p>
+
+            <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google Analytics</a> cookies.</p>
+
+            <h3>Google Analytics' cookies</h3>
+
+            <table class="ds_table">
+             <thead>
+              <tr>
+               <th>Name</th>
+               <th>Information</th>
+               <th>Expiry</th>
+              </tr>
+             </thead>
+             <tbody>
+              <tr>
+               <td>_ga</td>
+               <td>This is used to understand and differentiate between different users.</td>
+               <td>38 Months</td>
+              </tr>
+              <tr>
+               <td>_gid</td>
+               <td>_gid has a different ID for each page set on, and a timestamp. This assists with plotting user journeys.</td>
+               <td>24 Hours</td>
+              </tr>
+              <tr>
+               <td>_gat</td>
+               <td>We use Google Tag Manager to tailor our tracking in case we have different elements that are being tested. For example, setting a tag to track how far a user is having to scroll down a long page. The _gat tag pushes the request rate through quicker.</td>
+               <td>1 Minute</td>
+              </tr>
+             </tbody>
+            </table>
+
+            <h2>YouTube</h2>
+
+            <p>Pages on mygov.scot which contain YouTube videos will not set third-party cookies (we use YouTube-nocookie.com — <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+
+            <h2>Further information</h2>
+
+            <p>You can email the performance team for further information. Email: <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
         /publishing:logo:
           jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
