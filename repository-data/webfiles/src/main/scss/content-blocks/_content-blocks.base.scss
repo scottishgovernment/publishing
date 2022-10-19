@@ -194,7 +194,9 @@ $colors: (
             @include ds_colwidth(8);
         }
 
-        &--center:last-of-type:first-of-type {
+        // middle is deprecated for horizontal positioning, but retaining for backwards support
+        &--center:last-of-type:first-of-type,
+        &--middle:last-of-type:first-of-type {
             @include ds_colpush(2);
         }
 
