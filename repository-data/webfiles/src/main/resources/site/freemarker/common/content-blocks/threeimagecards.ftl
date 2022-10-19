@@ -38,7 +38,7 @@
                     <div class="ds_card__content  ds_category-item">
                         <h2 class="ds_category-item__title">
                             <#if document1.link??>
-                                <a class="ds_card__cover-link" href="<@hst.link hippobean=document1.link/>">${document1.title}</a>
+                                <a class="ds_category-item__link  ds_card__cover-link" href="<@hst.link hippobean=document1.link/>">${document1.title}</a>
                             <#elseif document1.externalLink?has_content>
                                 <a class="ds_card__cover-link" href="${document1.externalLink}">${document1.title}</a>
                             <#else>
