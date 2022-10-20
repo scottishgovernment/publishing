@@ -93,11 +93,12 @@ $colors: (
 .ds_cb {
 
     // All heading links are underlined as default in content blocks
+    // Temp exception in place for card headings
     h1,
     h2,
     h3,
     h4 {
-        a:not(:hover):not(:focus) {
+        a:not(:hover):not(:focus):not(.ds_card__cover-link) {
             text-decoration: underline;
         }
     }
