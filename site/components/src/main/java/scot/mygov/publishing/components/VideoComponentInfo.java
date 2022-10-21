@@ -2,8 +2,15 @@ package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.core.parameters.DropDownList;
 import org.hippoecm.hst.core.parameters.JcrPath;
+import org.hippoecm.hst.core.parameters.FieldGroup;
+import org.hippoecm.hst.core.parameters.FieldGroupList;
 import org.hippoecm.hst.core.parameters.Parameter;
 import org.onehippo.cms7.essentials.components.info.EssentialsDocumentComponentInfo;
+
+@FieldGroupList({
+    @FieldGroup(titleKey = "Appearance", value = {"backgroundcolor", "fullwidth", "foregroundcolor", "neutrallinks" }),
+    @FieldGroup(titleKey = "Content", value = { "document" })
+})
 
 public interface VideoComponentInfo extends EssentialsDocumentComponentInfo {
 
@@ -20,11 +27,14 @@ public interface VideoComponentInfo extends EssentialsDocumentComponentInfo {
     @Parameter(name = "fullwidth", displayName = "Full-width background", defaultValue = "true")
     Boolean getFullWidth();
 
-    @Parameter(name = "foregroundcolor", displayName = "Text colour (on white background)")
+    @Parameter(name = "foregroundcolor", displayName = "Heading colour (on white background)")
     @DropDownList(valueListProvider = ComponentForegroundColourValueListProvider.class)
     String getForegroundColor();
 
     @Parameter(name = "backgroundcolor", displayName = "Background colour")
     @DropDownList(valueListProvider = ComponentBackgroundColourValueListProvider.class)
     String getBackgroundColor();
+
+    @Parameter(name = "neutrallinks", displayName = "Neutral link colour", defaultValue = "false")
+    Boolean getNeutralLinks();
 }

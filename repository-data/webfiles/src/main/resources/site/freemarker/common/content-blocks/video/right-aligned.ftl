@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
-<#include "../include/imports.ftl">
-<#include "../include/cms-placeholders.ftl">
+<#include "../../include/imports.ftl">
+<#include "../../include/cms-placeholders.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Video" -->
 
@@ -13,6 +13,11 @@
     <div class="ds_wrapper">
         <div class="ds_cb__inner">
             <#if document??>
+
+                <div class="ds_cb__text">
+                    <@hst.html hippohtml=document.content/>
+                </div>
+
                 <div class="ds_cb__poster">
                     <a target="_blank" class="ds_cb__poster-link" href="${document.url}">
                         <#if document.image.xlargesixcolumns??>
@@ -37,20 +42,16 @@
                     </a>
                 </div>
 
-                <div class="ds_cb__text">
-                    <@hst.html hippohtml=document.content/>
-                </div>
-
                 <@hst.manageContent hippobean=document documentTemplateQuery="new-video-document" parameterName="document" rootPath="videos"/>
             <#elseif editMode>
-                <div class="ds_cb__poster cms-blank">
-                    <@placeholdervideo/>
-                </div>
 
                 <div class="ds_cb__text cms-blank">
                     <@placeholdertext lines=7/>
                 </div>
 
+                <div class="ds_cb__poster cms-blank">
+                    <@placeholdervideo/>
+                </div>
                 <@hst.manageContent documentTemplateQuery="new-video-document" parameterName="document" rootPath="videos"/>
             </#if>
         </div>
