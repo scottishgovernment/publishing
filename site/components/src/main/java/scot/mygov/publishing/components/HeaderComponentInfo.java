@@ -1,10 +1,17 @@
 package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.core.parameters.DropDownList;
+import org.hippoecm.hst.core.parameters.FieldGroup;
+import org.hippoecm.hst.core.parameters.FieldGroupList;
 import org.hippoecm.hst.core.parameters.Parameter;
 
+@FieldGroupList({
+    @FieldGroup(titleKey = "Appearance", value = { "position", "backgroundcolor", "fullwidth", "foregroundcolor" }),
+    @FieldGroup(titleKey = "Content", value = { "text", "weight" })
+})
+
 public interface HeaderComponentInfo {
-    @Parameter(name = "text", displayName = "Content", required = true, defaultValue = "header")
+    @Parameter(name = "text", displayName = "Content", required = true, defaultValue = "Header")
     String getText();
 
     @Parameter(name = "weight", displayName = "Header level", required = true, defaultValue = "h2")
@@ -12,7 +19,7 @@ public interface HeaderComponentInfo {
     String getWeight();
 
     @Parameter(name = "position", displayName = "Position", required = true, defaultValue = "left")
-    @DropDownList({"left", "middle", "right"})
+    @DropDownList({"left", "center", "right"})
     String getPosition();
 
     @Parameter(name = "fullwidth", displayName = "Full-width background", defaultValue = "true")
