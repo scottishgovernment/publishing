@@ -21,6 +21,7 @@
                         <img alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
                                 width="${document.image.xlargesixcolumns.width?c}"
                                 height="${document.image.xlargesixcolumns.height?c}"
+                                loading="lazy"
                                 srcset="
                                 <@hst.link hippobean=document.image.smallcolumns/> 360w,
                                 <@hst.link hippobean=document.image.smallcolumnsdoubled/> 720w,
