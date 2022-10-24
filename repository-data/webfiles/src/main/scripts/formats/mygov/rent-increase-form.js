@@ -166,9 +166,13 @@ const rentIncreaseForm = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
+        this.recaptchaSitekey = document.getElementById('recaptchaSitekey').value;
+        this.recaptchaEnabled = document.getElementById('recaptchaEnabled').value === 'true';
         formTemplateContainer.innerHTML = formTemplate.render({
             iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
-            webfilesPath: bloomreachWebfile()
+            webfilesPath: bloomreachWebfile(),
+            recaptchaEnabled: this.recaptchaEnabled,
+            recaptchaSitekey: this.recaptchaSitekey
         });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
@@ -183,7 +187,9 @@ const rentIncreaseForm = {
         this.setupPostcodeLookups();
         this.setupCustomFieldEvents();
         this.setupBackToSummary();
-        commonForms.setupRecaptcha();
+        if (this.recaptchaEnabled) {
+            commonForms.setupRecaptcha();
+        }
         this.setupProgressResets();
     },
 
@@ -734,12 +740,16 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     // make a copy of the form data to manipulate before posting
     const formData = JSON.parse(JSON.stringify(rentIncreaseForm.form.settings.formObject));
     const data = rentIncreaseForm.prepareFormDataForPost(formData);
-    data.recaptcha = grecaptcha.getResponse();
+    if (this.recaptchaEnabled) {
+        data.recaptcha = grecaptcha.getResponse();
+    }
 
     // Set hidden data field to have value of JSON data
     documentDownloadForm.find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
     documentDownloadForm.trigger('submit');
-    expireRecaptcha();
+    if (this.recaptchaEnabled) {
+        expireRecaptcha();
+    }
 });
 
 window.format = rentIncreaseForm;

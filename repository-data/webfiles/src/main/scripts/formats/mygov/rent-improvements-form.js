@@ -109,8 +109,12 @@ const rentImprovementsForm = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
+        this.recaptchaSitekey = document.getElementById('recaptchaSitekey').value;
+        this.recaptchaEnabled = document.getElementById('recaptchaEnabled').value === 'true';
         formTemplateContainer.innerHTML = formTemplate.render({
-            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg')
+            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
+            recaptchaEnabled: this.recaptchaEnabled,
+            recaptchaSitekey: this.recaptchaSitekey
         });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
@@ -124,7 +128,9 @@ const rentImprovementsForm = {
         this.setupValidations();
         this.setupPostcodeLookups();
         this.setupBackToSummary();
-        commonForms.setupRecaptcha();
+        if (this.recaptchaEnabled) {
+            commonForms.setupRecaptcha();
+        }
     },
 
     setupBackToSummary: function () {
@@ -243,7 +249,9 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     // make a copy of the form data to manipulate before posting
     const formData = JSON.parse(JSON.stringify(rentImprovementsForm.form.settings.formObject));
     const data = rentImprovementsForm.prepareFormDataForPost(formData);
-    data.recaptcha = grecaptcha.getResponse();
+    if (this.recaptchaEnabled) {
+        data.recaptcha = grecaptcha.getResponse();
+    }
 
     // analytics tracking
     const downloadType = documentDownloadForm.find('input[name=type]').val();
@@ -259,7 +267,9 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     // Set hidden data field to have value of JSON data
     documentDownloadForm.find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
     documentDownloadForm.trigger('submit');
-    expireRecaptcha();
+    if (this.recaptchaEnabled) {
+        expireRecaptcha();
+    }
 });
 
 window.format = rentImprovementsForm;

@@ -372,17 +372,19 @@
 
         <p>You need to complete the following challenge before you can download your application.</p>
 
+        {% if recaptchaEnabled %}
         <div id="recaptcha" class="g-recaptcha"
-        data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV"
+        data-sitekey="{{ recaptchaSitekey }}"
         data-callback="checkRecaptcha"
         data-expired-callback="expireRecaptcha"></div>
+        {% endif %}
 
         <section class="document-section">
 
             <div data-documenttype="WORD" class="js-document-container  document-info  document-info--limelight">
                 <div class="document-info__body">
                     <div class="document-info__thumbnail  document-info__thumbnail--pdf">
-                        <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--DOCX" title="View this document" href="#">
+                        <a {% if recaptchaEnabled %}disabled="true"{% endif %} class="js-download-file mg_file mg_file--link  mg_file--DOCX" title="View this document" href="#">
                             <span class="mg_file__icon">
                                 <span class="mg_file__content">DOCX</span>
                             </span>
@@ -391,7 +393,7 @@
                 </div>
 
                 <div class="document-info__text">
-                    <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your {% if subtenants %}Subtenant{% endif %} Notice To Leave - Word document</a></h3>
+                    <h3 class="document-info__title"><a {% if recaptchaEnabled %}disabled="true"{% endif %} class="js-download-file" href="#">Your {% if subtenants %}Subtenant{% endif %} Notice To Leave - Word document</a></h3>
 
                     <dl class="ds_metadata  ds_metadata--inline">
                         <div class="ds_metadata__item">
@@ -401,7 +403,7 @@
                     </dl>
 
                     <div class="document-info__download">
-                        <a disabled="true" href="#" data-gtm="btn-download-docx" class="ds_no-margin  ds_button  js-download-file">
+                        <a {% if recaptchaEnabled %}disabled="true"{% endif %} href="#" data-gtm="btn-download-docx" class="ds_no-margin  ds_button  js-download-file">
                             Download
                         </a>
                     </div>
@@ -411,7 +413,7 @@
 
                 <div class="document-info__body">
                     <div class="document-info__thumbnail  document-info__thumbnail--pdf">
-                        <a disabled="true" class="js-download-file mg_file mg_file--link  mg_file--PDF" title="View this document" href="#">
+                        <a {% if recaptchaEnabled %}disabled="true"{% endif %} class="js-download-file mg_file mg_file--link  mg_file--PDF" title="View this document" href="#">
                             <span class="mg_file__icon">
                                 <span class="mg_file__content">PDF</span>
                             </span>
@@ -420,7 +422,7 @@
                 </div>
 
                 <div class="document-info__text">
-                    <h3 class="document-info__title"><a disabled="true" class="js-download-file" href="#">Your {% if subtenants %}Subtenant{% endif %} Notice To Leave - PDF document</a></h3>
+                    <h3 class="document-info__title"><a {% if recaptchaEnabled %}disabled="true"{% endif %} class="js-download-file" href="#">Your {% if subtenants %}Subtenant{% endif %} Notice To Leave - PDF document</a></h3>
 
                     <dl class="ds_metadata  ds_metadata--inline">
                         <div class="ds_metadata__item">
@@ -430,7 +432,7 @@
                     </dl>
 
                     <div class="document-info__download">
-                        <a disabled="true" href="#" data-gtm="btn-download-pdf" class="ds_no-margin  ds_button  js-download-file">
+                        <a {% if recaptchaEnabled %}disabled="true"{% endif %} href="#" data-gtm="btn-download-pdf" class="ds_no-margin  ds_button  js-download-file">
                             Download
                         </a>
                     </div>

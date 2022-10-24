@@ -40,6 +40,9 @@
                         </div>
 
                         <div id="form-container">
+                            <input type="hidden" id="recaptchaSitekey" value="${recaptchaSitekey}"/>
+                            <input type="hidden" id="recaptchaEnabled" value="${recaptchaEnabled?c}"/>
+
                             <@hst.html hippohtml=document.content/>
                         </div>
 

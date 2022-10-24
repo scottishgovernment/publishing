@@ -74,10 +74,13 @@ const ukraineVolunteerHomeForm = {
 
         const cmsContent = formTemplateContainer.innerHTML;
         const cmsAdditionalContent = document.querySelector('#cms-additional-content-source').innerHTML;
-
+        this.recaptchaSitekey = document.getElementById('recaptchaSitekey').value;
+        this.recaptchaEnabled = document.getElementById('recaptchaEnabled').value === 'true';
         formTemplateContainer.innerHTML = formTemplate.render({
             iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
-            webfilesPath: bloomreachWebfile()
+            webfilesPath: bloomreachWebfile(),
+            recaptchaEnabled: this.recaptchaEnabled,
+            recaptchaSitekey: this.recaptchaSitekey
         });
         formTemplateContainer.querySelector('#cms-content').innerHTML = cmsContent + formTemplateContainer.querySelector('#cms-content').innerHTML;
         formTemplateContainer.querySelector('#cms-additional-content').innerHTML = cmsAdditionalContent;
@@ -87,7 +90,9 @@ const ukraineVolunteerHomeForm = {
         this.form.init();
         feedback.init();
         commonForms.appendCaptchaScript();
-        commonForms.setupRecaptcha();
+        if (this.recaptchaEnabled) {
+            commonForms.setupRecaptcha();
+        }
 
         // init accordions
         // todo: do we have any accordions?
@@ -113,7 +118,9 @@ const ukraineVolunteerHomeForm = {
     submitForm: function () {
         if (this.form.validateStep()) {
             const formData = JSON.parse(JSON.stringify(ukraineVolunteerHomeForm.form.settings.formObject));
-            formData.recaptcha = grecaptcha.getResponse();
+            if (this.recaptchaEnabled) {
+                data.recaptcha = grecaptcha.getResponse();
+            }
 
             const promiseRequest = commonForms.promiseRequest(this.endpointUrl, 'POST', JSON.stringify(formData), 'application/json');
 
@@ -137,7 +144,9 @@ const ukraineVolunteerHomeForm = {
                     `;
                 });
 
-            expireRecaptcha();
+            if (this.recaptchaEnabled) {
+                expireRecaptcha();
+            }
         }
     },
 
