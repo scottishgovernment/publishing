@@ -135,6 +135,12 @@ const noticeToLeaveForm = {
         }
 
         formTemplateData.webfilesPath = bloomreachWebfile();
+        formTemplateData.assetsPath = document.getElementById('site-root-path').value.replace('/mygov', '/assets');
+
+        this.recaptchaSitekey = document.getElementById('recaptchaSitekey').value;
+        this.recaptchaEnabled = document.getElementById('recaptchaEnabled').value === 'true';
+        formTemplateData.recaptchaEnabled = this.recaptchaEnabled;
+        formTemplateData.recaptchaSitekey = this.recaptchaSitekey;
 
         formTemplateContainer.innerHTML = formTemplate.render(formTemplateData);
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
