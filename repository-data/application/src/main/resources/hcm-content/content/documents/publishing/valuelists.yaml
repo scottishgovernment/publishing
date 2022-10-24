@@ -1268,3 +1268,26 @@
         jcr:primaryType: selection:listitem
         selection:key: confirmcheckbox
         selection:label: Confirmation with checkbox
+  /siteverificationtype:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 5dc78e0d-72b2-4d25-8109-ed67e89ecf63
+    /siteverificationtype:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 4fff3086-a995-4b51-9559-41af26aa6a4a
+      hippo:availability: [live, preview]
+      hippotranslation:id: d0029b11-30e3-4b74-a575-5e532d7a7b09
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: msvalidate.01
+        selection:label: Bing
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: google-site-verification
+        selection:label: Google
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: facebook-domain-verification
+        selection:label: Facebook

@@ -28,8 +28,7 @@
     <link rel="mask-icon" href='<@hst.link path="safari-pinned-tab.svg" />' color="#0065bd">
     <meta name="msapplication-TileColor" content="#0065bd">
     <meta name="theme-color" content="#ffffff">
-    <@hst.headContributions categoryIncludes="facebookVerification"/>
-    <@hst.headContributions categoryIncludes="googleVerification"/>
+    <@hst.headContributions categoryIncludes="siteverification"/>
 
     <@hst.headContributions categoryIncludes="canonical"/>
 
