@@ -27,8 +27,8 @@ const $name = $('#letting-agent-registration-name'),
  *
  * @returns {object} form data
  */
-const getFormData = function() {
-    return {
+const getFormData = function () {
+    const formData = {
         name: $name.val(),
         companyName: $companyName.val(),
         addressLine1: $addressLine1.val(),
@@ -37,9 +37,14 @@ const getFormData = function() {
         postcode: $postcode.val().trim(),
         country: $country.val().trim(),
         email: $email.val(),
-        recaptcha: grecaptcha.getResponse(),
         confirmation: $consent.prop('checked')
     };
+
+    if (this.recaptchaEnabled) {
+        formData.recaptcha = grecaptcha.getResponse();
+    }
+
+    return formData;
 };
 
 /**
@@ -137,7 +142,7 @@ lettingAgentRegistrationForm.init = function() {
                 window.enquiry = '#feedback-box';
                 window.scrollTo(0, $('#feedback-box').offset().top - 10);
             },
-            fail: function() {
+            fail: () => {
                 commonForms.track({
                     'event': 'formSubmitted',
                     'formId': 'letting-agent-registration-form',
@@ -147,7 +152,9 @@ lettingAgentRegistrationForm.init = function() {
                 $('.server-error').removeClass('fully-hidden');
                 $('.server-success').addClass('fully-hidden');
                 window.enquiry = '#feedback-box';
-                grecaptcha.reset();
+                if (this.recaptchaEnabled) {
+                    expireRecaptcha();
+                }
                 window.scrollTo(0, $('#feedback-box').offset().top - 10);
             }
         });

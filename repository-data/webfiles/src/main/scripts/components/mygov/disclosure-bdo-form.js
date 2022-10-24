@@ -28,7 +28,7 @@ const $numberOfForms = $('#disclosure-bdo-number-of-forms'),
  * @returns {object} form data
  */
 const getFormData = function() {
-    return {
+    const formData = {
         numberOfForms: $numberOfForms.val(),
         name: $name.val(),
         addressLine1: $addressLine1.val(),
@@ -37,9 +37,14 @@ const getFormData = function() {
         postcode: $postcode.val().trim(),
         country: $country.val().trim(),
         telephone: $telephone.val(),
-        email: $email.val() === '' ? null : $email.val(),
-        recaptcha: grecaptcha.getResponse()
+        email: $email.val() === '' ? null : $email.val()
     };
+
+    if (this.recaptchaEnabled) {
+        formData.recaptcha = grecaptcha.getResponse();
+    }
+
+    return formData;
 };
 
 /**
@@ -152,7 +157,7 @@ disclosureBdoForm.init = function() {
                 window.enquiry = '#feedback-box';
                 window.scrollTo(0, $('#feedback-box').offset().top - 10);
             },
-            fail: function() {
+            fail: () => {
                 commonForms.track({
                     'event': 'formSubmitted',
                     'formId': 'disclosure-bdo-form',
@@ -162,7 +167,9 @@ disclosureBdoForm.init = function() {
                 $('.server-error').removeClass('fully-hidden');
                 $('.server-success').addClass('fully-hidden');
                 window.enquiry = '#feedback-box';
-                grecaptcha.reset();
+                if (this.recaptchaEnabled) {
+                    grecaptcha.reset();
+                }
                 window.scrollTo(0, $('#feedback-box').offset().top - 10);
             }
         });

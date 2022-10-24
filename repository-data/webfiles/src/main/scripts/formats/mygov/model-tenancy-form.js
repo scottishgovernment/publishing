@@ -112,10 +112,15 @@ const modelTenancyForm = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
+
+        this.recaptchaSitekey = document.getElementById('recaptchaSitekey').value;
+        this.recaptchaEnabled = document.getElementById('recaptchaEnabled').value === 'true';
         formTemplateContainer.innerHTML = formTemplate.render({
             tenants: true,
             iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
-            webfilesPath: bloomreachWebfile()
+            webfilesPath: bloomreachWebfile(),
+            recaptchaEnabled: this.recaptchaEnabled,
+            recaptchaSitekey: this.recaptchaSitekey
         });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
@@ -130,7 +135,9 @@ const modelTenancyForm = {
         this.setupValidations();
         this.setupPostcodeLookups();
         this.setupPaymentDatePickers();
-        commonForms.setupRecaptcha();
+        if (this.recaptchaEnabled) {
+            commonForms.setupRecaptcha();
+        }
         modelTenancyForm.form.validateStep = modelTenancyForm.validateStep;
 
         new EditableTable({ // NOSONAR
@@ -689,7 +696,9 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
 
     const formData = JSON.parse(JSON.stringify(modelTenancyForm.form.settings.formObject));
     const data = modelTenancyForm.prepareFormDataForPost(formData);
-    data.recaptcha = grecaptcha.getResponse();
+    if (this.recaptchaEnabled) {
+        data.recaptcha = grecaptcha.getResponse();
+    }
 
     // analytics tracking
     const downloadType = documentDownloadForm.find('input[name=type]').val();
@@ -716,7 +725,9 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     // Set hidden data field to have value of JSON data
     documentDownloadForm.find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
     documentDownloadForm.trigger('submit');
-    expireRecaptcha();
+    if (this.recaptchaEnabled) {
+        expireRecaptcha();
+    }
 });
 
 window.format = modelTenancyForm;

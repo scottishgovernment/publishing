@@ -163,7 +163,13 @@ const overseasTravelForm = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
-        formTemplateContainer.innerHTML = formTemplate.render({webfilesPath: bloomreachWebfile()});
+        this.recaptchaSitekey = document.getElementById('recaptchaSitekey').value;
+        this.recaptchaEnabled = document.getElementById('recaptchaEnabled').value === 'true';
+        formTemplateContainer.innerHTML = formTemplate.render({
+            webfilesPath: bloomreachWebfile(),
+            recaptchaEnabled: this.recaptchaEnabled,
+            recaptchaSitekey: this.recaptchaSitekey
+        });
         formTemplateContainer.querySelector('#overview').innerHTML = formTemplateContainer.querySelector('#overview').innerHTML + overviewContent;
 
         commonForms.appendCaptchaScript();
@@ -175,7 +181,9 @@ const overseasTravelForm = {
         this.setupValidations();
         this.setupPostcodeLookups();
         this.setupDatePickers();
-        commonForms.setupRecaptcha();
+        if (this.recaptchaEnabled) {
+            commonForms.setupRecaptcha();
+        }
     },
 
     setupDatePickers: function () {
@@ -250,7 +258,9 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     // make a copy of the form data to manipulate before posting
     const formData = JSON.parse(JSON.stringify(overseasTravelForm.form.settings.formObject));
     const data = overseasTravelForm.prepareFormDataForPost(formData);
-    data.recaptcha = grecaptcha.getResponse();
+    if (this.recaptchaEnabled) {
+        data.recaptcha = grecaptcha.getResponse();
+    }
 
     // analytics tracking
     const downloadType = $(this).find('input[name=type]').val();
@@ -264,7 +274,9 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     // Set hidden data field to have value of JSON data
     documentDownloadForm.find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
     documentDownloadForm.trigger('submit');
-    expireRecaptcha();
+    if (this.recaptchaEnabled) {
+        expireRecaptcha();
+    }
 });
 
 window.format = overseasTravelForm;

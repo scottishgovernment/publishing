@@ -16,10 +16,12 @@
                 <input data-validation="validEmail requiredField" aria-required="true" type="text" id="email" class="ds_input">
             </div>
 
+            {% if recaptchaEnabled %}
             <div id="recaptcha" class="g-recaptcha"
-            data-sitekey="6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV"
+            data-sitekey="{{ recaptchaSitekey }}"
             data-callback="checkRecaptcha"
             data-expired-callback="expireRecaptcha"></div>
+            {% endif %}
 
             <button class="ds_button  js-submit-form  ds_no-margin__bottom">Submit</button>
         </form>

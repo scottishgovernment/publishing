@@ -63,9 +63,13 @@ const rpzChecker = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
+        this.recaptchaSitekey = document.getElementById('recaptchaSitekey').value;
+        this.recaptchaEnabled = document.getElementById('recaptchaEnabled').value === 'true';
         formTemplateContainer.innerHTML = formTemplate.render({
             iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
-            webfilesPath: bloomreachWebfile()
+            webfilesPath: bloomreachWebfile(),
+            recaptchaEnabled: this.recaptchaEnabled,
+            recaptchaSitekey: this.recaptchaSitekey
         });
         formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 

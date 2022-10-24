@@ -35,7 +35,7 @@ const $applicationToJoinPvgScheme = $('#disclosure-pvg-application-to-join-pvg-s
  * @returns {object} form data
  */
 const getFormData = function() {
-    return {
+    const formData = {
         applicationToJoinPvgScheme: $applicationToJoinPvgScheme.val(),
         existingPvgSchemeMember: $existingPvgSchemeMember.val(),
         employerRegistrationApplication: $employerRegistrationApplication.val(),
@@ -51,9 +51,14 @@ const getFormData = function() {
         postcode: $postcode.val().trim(),
         country: $country.val().trim(),
         telephone: $telephone.val(),
-        email: $email.val(),
-        recaptcha: grecaptcha.getResponse()
+        email: $email.val()
     };
+
+    if (this.recaptchaEnabled) {
+        formData.recaptcha = grecaptcha.getResponse();
+    }
+
+    return formData;
 };
 
 const atLeastOneDocumentProvided = function(highlightField, errorFields) {
@@ -227,7 +232,7 @@ disclosurePvgForm.init = function() {
                 window.enquiry = '#feedback-box';
                 window.scrollTo(0, $('#feedback-box').offset().top - 10);
             },
-            fail: function() {
+            fail: () => {
                 commonForms.track({
                     'event': 'formSubmitted',
                     'formId': 'disclosure-pvg-form',
@@ -237,7 +242,9 @@ disclosurePvgForm.init = function() {
                 $('.server-error').removeClass('fully-hidden');
                 $('.server-success').addClass('fully-hidden');
                 window.enquiry = '#feedback-box';
-                grecaptcha.reset();
+                if (this.recaptchaEnabled) {
+                    expireRecaptcha();
+                }
                 window.scrollTo(0, $('#feedback-box').offset().top - 10);
             }
         });
