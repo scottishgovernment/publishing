@@ -205,7 +205,10 @@ const rentAdjudicationForm = {
         formTemplateContainer.innerHTML = formTemplate.render({
             tenants: true,
             iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
-            webfilesPath: bloomreachWebfile()
+            webfilesPath: bloomreachWebfile(),
+            assetsPath: document.getElementById('site-root-path').value.replace('/mygov', '/assets'),
+            recaptchaEnabled: this.recaptchaEnabled,
+            recaptchaSitekey: this.recaptchaSitekey
         });
         formTemplateContainer.querySelector('#overview').innerHTML = formTemplateContainer.querySelector('#overview').innerHTML + overviewContent;
 
@@ -442,7 +445,7 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     event.preventDefault();
 
     const documentDownloadForm = $('#ra-document-download');
-    documentDownloadForm.find('input[name="type"]').val($(this).closest('.document-info').attr('data-documenttype'));
+    documentDownloadForm.find('input[name="type"]').val($(this).closest('.js-download-container').attr('data-documenttype'));
 
     // make a copy of the form data to manipulate before posting
     const formData = JSON.parse(JSON.stringify(rentAdjudicationForm.form.settings.formObject));

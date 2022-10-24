@@ -2,6 +2,9 @@
 <#include "include/imports.ftl">
 
 <#if document??>
+    <input type="hidden" id="recaptchaSitekey" value="${recaptchaSitekey}"/>
+    <input type="hidden" id="recaptchaEnabled" value="${recaptchaEnabled?c}"/>
+
     <div class="cms-editable">
         <@hst.manageContent hippobean=document />
 
