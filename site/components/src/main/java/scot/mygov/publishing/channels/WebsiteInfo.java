@@ -22,6 +22,9 @@ public interface WebsiteInfo extends ChannelInfo {
     @Parameter(name = "feedbackEnabled", required = true, displayName = "Feedback enabled?")
     Boolean isFeedbackEnabled();
 
+    @Parameter(name = "searchEnabled", required = true, defaultValue = "false", displayName = "Search enabled?")
+    Boolean isSearchEnabled();
+
     @Parameter(name = "simpleAnalyticsEnabled", required = true, displayName = "SimpleAnalytics enabled?")
     Boolean isSimpleAnalyticsEnabled();
 
@@ -44,4 +47,5 @@ public interface WebsiteInfo extends ChannelInfo {
             pickerInitialPath = ""
     )
     String getDefaultCardImage();
+
 }

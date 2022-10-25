@@ -23,6 +23,8 @@ public class SEOComponent extends EssentialsDocumentComponent {
 
     private static final Logger LOG = LoggerFactory.getLogger(SEOComponent.class);
 
+    private static final String SITE_TITLE = "sitetitle";
+
     private static final String TITLE_TAG = "titletag";
 
     private static final String PAGE_TITLE = "pagetitle";
@@ -43,10 +45,15 @@ public class SEOComponent extends EssentialsDocumentComponent {
         WebsiteInfo websiteInfo = mount.getChannelInfo();
         setPageTitle(request, websiteInfo.getSiteTitle(), contentBean);
         setPageImage(request, websiteInfo, contentBean);
+        request.setAttribute("isSearchEnabled", websiteInfo.isSearchEnabled());
         request.setAttribute("contentBean", contentBean);
+        request.setAttribute("baseBean", request.getRequestContext().getSiteContentBaseBean());
     }
 
     void setPageTitle(HstRequest request, String siteTitle, HippoBean contentBean) {
+
+        request.setAttribute(SITE_TITLE, siteTitle);
+
         if (contentBean == null) {
             request.setAttribute(TITLE_TAG, siteTitle);
             request.setAttribute(PAGE_TITLE , siteTitle);

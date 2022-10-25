@@ -35,6 +35,7 @@
         </@hst.headContribution>
     </#if>
     <@hst.link var="link" canonical=true fullyQualified=true/>
+    <@hst.link var="sitelink" hippobean=baseBean canonical=true fullyQualified=true/>
     <@hst.headContribution category="canonical">
         <link rel="canonical"  href="${link}" />
     </@hst.headContribution>
@@ -84,6 +85,28 @@
     <@hst.headContribution category="title">
     <title>${titletag}</title>
     </@hst.headContribution>
+
+    <@hst.headContribution category="title">
+        <script type="application/ld+json">
+            {
+              "@context" : "https://schema.org",
+              "@type" : "WebSite",
+              "name" : "${sitetitle}",
+              "url" : "${sitelink}"
+              <#if isSearchEnabled>
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "${sitelink}search?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
+              </#if>
+            }
+        </script>
+    </@hst.headContribution>
+
     <#if hstRequestContext.preview>
         <div class="ds_wrapper  cms-visible-if-show-components" style="padding: 5px 0; position: relative;">
             <img class="ds_icon ds_icon--40" ng-src="/site/icons/seo.svg" src="/site/icons/seo.svg"> <small class="">Click to edit SEO parameters</small>
