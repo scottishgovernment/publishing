@@ -388,6 +388,7 @@ const nonProvisionForm = {
             tenants: true,
             iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
             webfilesPath: bloomreachWebfile(),
+            assetsPath: document.getElementById('site-root-path').value.replace('mygov', '') + 'assets',
             recaptchaEnabled: this.recaptchaEnabled,
             recaptchaSitekey: this.recaptchaSitekey
         });
@@ -687,7 +688,7 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     event.preventDefault();
 
     const documentDownloadForm = $('#non-provision-document-download');
-    documentDownloadForm.find('input[name="type"]').val($(this).closest('.document-info').attr('data-documenttype'));
+    documentDownloadForm.find('input[name="type"]').val($(this).closest('.js-download-container').attr('data-documenttype'));
 
     // make sure the notice period end date is up to date
     calcNoticeEnd();

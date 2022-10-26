@@ -135,7 +135,7 @@ const noticeToLeaveForm = {
         }
 
         formTemplateData.webfilesPath = bloomreachWebfile();
-        formTemplateData.assetsPath = document.getElementById('site-root-path').value.replace('/mygov', '/assets');
+        formTemplateData.assetsPath = document.getElementById('site-root-path').value.replace('mygov', '') + 'assets';
 
         this.recaptchaSitekey = document.getElementById('recaptchaSitekey').value;
         this.recaptchaEnabled = document.getElementById('recaptchaEnabled').value === 'true';
@@ -590,7 +590,7 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     event.preventDefault();
 
     const documentDownloadForm = $('#document-download');
-    documentDownloadForm.find('input[name="type"]').val($(this).closest('.document-info').attr('data-documenttype'));
+    documentDownloadForm.find('input[name="type"]').val($(this).closest('.js-download-container').attr('data-documenttype'));
 
     // make a copy of the form data to manipulate before posting
     const formData = JSON.parse(JSON.stringify(noticeToLeaveForm.form.settings.formObject));

@@ -120,8 +120,6 @@
                                         alt="" />
                                 <#else>
                                     <img class="ds_file-download__thumbnail-image  ds_file-download__thumbnail-image--generic"
-                                        width="104"
-                                        height="152"
                                         src="<@hst.link path=fileThumbnailPath />"
                                         loading="lazy"
                                         alt="" />

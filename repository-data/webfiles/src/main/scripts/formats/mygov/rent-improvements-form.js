@@ -113,6 +113,7 @@ const rentImprovementsForm = {
         this.recaptchaEnabled = document.getElementById('recaptchaEnabled').value === 'true';
         formTemplateContainer.innerHTML = formTemplate.render({
             iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
+            assetsPath: document.getElementById('site-root-path').value.replace('mygov', '') + 'assets',
             recaptchaEnabled: this.recaptchaEnabled,
             recaptchaSitekey: this.recaptchaSitekey
         });
@@ -244,7 +245,7 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     event.preventDefault();
 
     const documentDownloadForm = $('#r-imp-document-download');
-    documentDownloadForm.find('input[name="type"]').val($(this).closest('.document-info').attr('data-documenttype'));
+    documentDownloadForm.find('input[name="type"]').val($(this).closest('.js-download-container').attr('data-documenttype'));
 
     // make a copy of the form data to manipulate before posting
     const formData = JSON.parse(JSON.stringify(rentImprovementsForm.form.settings.formObject));
