@@ -100,6 +100,13 @@
                             <label class="ds_checkbox__label" for="LANDLORD_TO_SELL">You want to sell the property you're renting out</label>
                         </div>
 
+                        {% if tenants %}
+                            <div class="ds_checkbox  ds_checkbox--small">
+                                <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_SELL_HARDSHIP" id="LANDLORD_TO_SELL_HARDSHIP" type="checkbox"  />
+                                <label class="ds_checkbox__label" for="LANDLORD_TO_SELL_HARDSHIP">You want to sell the property you're renting out to alleviate financial hardship</label>
+                            </div>
+                        {% endif %}
+
                         <div class="ds_checkbox  ds_checkbox--small">
                             <input class="ds_checkbox__input" data-group="reasons" value="LENDER_TO_SELL" id="LENDER_TO_SELL" type="checkbox"  />
                             <label class="ds_checkbox__label" for="LENDER_TO_SELL">The mortgage lender has repossessed your property and is selling it</label>
@@ -114,6 +121,13 @@
                             <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_LIVE" id="LANDLORD_TO_LIVE" type="checkbox"  />
                             <label class="ds_checkbox__label" for="LANDLORD_TO_LIVE">You want to live in the property</label>
                         </div>
+
+                        {% if tenants %}
+                            <div class="ds_checkbox  ds_checkbox--small">
+                                <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_TO_LIVE_HARDSHIP" id="LANDLORD_TO_LIVE_HARDSHIP" type="checkbox"  />
+                                <label class="ds_checkbox__label" for="LANDLORD_TO_LIVE_HARDSHIP">You want to live in the property to alleviate financial hardship</label>
+                            </div>
+                        {% endif %}
 
                         <div class="ds_checkbox  ds_checkbox--small">
                             <input class="ds_checkbox__input" data-group="reasons" value="LANDLORD_FAMILY_MEMBER_TO_LIVE" id="LANDLORD_FAMILY_MEMBER_TO_LIVE" type="checkbox"  />
@@ -169,6 +183,11 @@
                             <div class="ds_checkbox  ds_checkbox--small">
                                 <input class="ds_checkbox__input" data-group="reasons" value="YOU_RENT_ARREARS" id="YOU_RENT_ARREARS" type="checkbox"  />
                                 <label class="ds_checkbox__label" for="YOU_RENT_ARREARS">Your tenant is in rent arrears for at least three consecutive months</label>
+                            </div>
+
+                            <div class="ds_checkbox  ds_checkbox--small">
+                                <input class="ds_checkbox__input" data-group="reasons" value="YOU_RENT_ARREARS_SUBSTANTIAL" id="YOU_RENT_ARREARS_SUBSTANTIAL" type="checkbox"  />
+                                <label class="ds_checkbox__label" for="YOU_RENT_ARREARS_SUBSTANTIAL">Your tenant is in substantial rent arrears (equivalent to 6 months' worth of rent)</label>
                             </div>
 
                             <div class="ds_checkbox  ds_checkbox--small">
