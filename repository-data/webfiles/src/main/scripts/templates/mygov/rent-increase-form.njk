@@ -277,7 +277,7 @@
         data-expired-callback="expireRecaptcha"></div>
         {% endif %}
 
-        <section class="document-section">
+        <section class="document-section  ds_block-margins">
 
             <div data-documenttype="WORD" class="ds_file-download  js-document-container">
                 <div class="ds_file-download__thumbnail">
@@ -315,8 +315,6 @@
                     <a {% if recaptchaEnabled %}disabled="true"{% endif %} data-button="document-cover" class="ds_file-download__thumbnail-link  js-download-file" aria-hidden="true" tabindex="-1" href="#">
                         <span class="visually-hidden">Document cover image</span>
                         <img class="ds_file-download__thumbnail-image  ds_file-download__thumbnail-image--generic"
-                            width="104"
-                            height="152"
                             src="{{assetsPath}}/images/documents/svg/pdf.svg"
                             loading="lazy"
                             alt="" />

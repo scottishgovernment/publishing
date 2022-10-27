@@ -152,7 +152,7 @@ lettingAgentRegistrationForm.init = function() {
                 $('.server-error').removeClass('fully-hidden');
                 $('.server-success').addClass('fully-hidden');
                 window.enquiry = '#feedback-box';
-                if (this.recaptchaEnabled) {
+                if (lettingAgentRegistrationForm.recaptchaEnabled) {
                     expireRecaptcha();
                 }
                 window.scrollTo(0, $('#feedback-box').offset().top - 10);

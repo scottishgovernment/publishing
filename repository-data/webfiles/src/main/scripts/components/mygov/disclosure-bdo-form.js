@@ -167,7 +167,7 @@ disclosureBdoForm.init = function() {
                 $('.server-error').removeClass('fully-hidden');
                 $('.server-success').addClass('fully-hidden');
                 window.enquiry = '#feedback-box';
-                if (this.recaptchaEnabled) {
+                if (disclosureBdoForm.recaptchaEnabled) {
                     grecaptcha.reset();
                 }
                 window.scrollTo(0, $('#feedback-box').offset().top - 10);

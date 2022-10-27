@@ -118,7 +118,7 @@ const ukraineVolunteerHomeForm = {
     submitForm: function () {
         if (this.form.validateStep()) {
             const formData = JSON.parse(JSON.stringify(ukraineVolunteerHomeForm.form.settings.formObject));
-            if (this.recaptchaEnabled) {
+            if (ukraineVolunteerHomeForm.recaptchaEnabled) {
                 data.recaptcha = grecaptcha.getResponse();
             }
 
@@ -144,7 +144,7 @@ const ukraineVolunteerHomeForm = {
                     `;
                 });
 
-            if (this.recaptchaEnabled) {
+            if (ukraineVolunteerHomeForm.recaptchaEnabled) {
                 expireRecaptcha();
             }
         }

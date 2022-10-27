@@ -250,7 +250,7 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     // make a copy of the form data to manipulate before posting
     const formData = JSON.parse(JSON.stringify(rentImprovementsForm.form.settings.formObject));
     const data = rentImprovementsForm.prepareFormDataForPost(formData);
-    if (this.recaptchaEnabled) {
+    if (rentImprovementsForm.recaptchaEnabled) {
         data.recaptcha = grecaptcha.getResponse();
     }
 
@@ -268,7 +268,7 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     // Set hidden data field to have value of JSON data
     documentDownloadForm.find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
     documentDownloadForm.trigger('submit');
-    if (this.recaptchaEnabled) {
+    if (rentImprovementsForm.recaptchaEnabled) {
         expireRecaptcha();
     }
 });

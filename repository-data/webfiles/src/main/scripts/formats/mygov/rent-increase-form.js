@@ -741,14 +741,14 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     // make a copy of the form data to manipulate before posting
     const formData = JSON.parse(JSON.stringify(rentIncreaseForm.form.settings.formObject));
     const data = rentIncreaseForm.prepareFormDataForPost(formData);
-    if (this.recaptchaEnabled) {
+    if (rentIncreaseForm.recaptchaEnabled) {
         data.recaptcha = grecaptcha.getResponse();
     }
 
     // Set hidden data field to have value of JSON data
     documentDownloadForm.find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
     documentDownloadForm.trigger('submit');
-    if (this.recaptchaEnabled) {
+    if (rentIncreaseForm.recaptchaEnabled) {
         expireRecaptcha();
     }
 });
