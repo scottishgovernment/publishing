@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 4e278dbe-832c-455f-a2c2-af4b8b1069ca
+          jcr:uuid: 22814856-b809-4f56-9e38-ce05d50509f6
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -49,6 +49,126 @@ definitions:
             hipposysedit:path: publishing:image
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
+          /cta:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:cta
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /link:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:link
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+          /externalLink:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:externalLink
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /aside:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:aside
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+          /asideIcon:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:asideIcon
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
+        /hipposysedit:nodetype[2]:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 903ee35f-a3ae-4a7d-9aa8-73639bf79a33
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          /description:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:description
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+          /title:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /alt:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:alt
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /image:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:image
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
+          /cta:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:cta
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /link:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:link
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+          /externalLink:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:externalLink
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /aside:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:aside
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+          /asideIcon:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:asideIcon
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -62,13 +182,65 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           publishing:title: ''
           publishing:alt: ''
-          jcr:uuid: f9c99aea-7701-41c4-aa1b-fae943ef51f3
+          jcr:uuid: a0c33af5-38a5-4cdd-a87b-c9e644cfe643
           hippostdpubwf:lastModificationDate: 2021-07-29T10:15:50.235+01:00
           hippostdpubwf:creationDate: 2021-07-29T10:15:50.235+01:00
+          publishing:externalLink: ''
+          publishing:cta: ''
           /publishing:description:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
           /publishing:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /publishing:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:aside:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:asideIcon:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /hipposysedit:prototype[2]:
+          jcr:primaryType: nt:unstructured
+          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
+            'hippotranslation:translated', 'mix:referenceable']
+          jcr:uuid: ca11c25d-5ea3-4709-9a13-1a7d1fcc803f
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2021-07-29T10:15:50.235+01:00
+          hippostdpubwf:lastModificationDate: 2021-07-29T10:15:50.235+01:00
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          publishing:alt: ''
+          publishing:cta: ''
+          publishing:externalLink: ''
+          publishing:title: ''
+          /publishing:description:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>dsdsd</p>
+          /publishing:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /publishing:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:aside:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:asideIcon:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
@@ -117,5 +289,55 @@ definitions:
             field: description
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
+                removePlugins: ''sourcearea,codemirror,youtube,specialchar'', removeButtons:
+                ''Styles,Table,PickImage,Underline,Strike,Subscript,Superscript,Indent,Outdent''}'
+          /cta:
+            jcr:primaryType: frontend:plugin
+            caption: Call to action label
+            field: cta
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /link:
+            jcr:primaryType: frontend:plugin
+            caption: Call to action link
+            field: link
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /externalLink:
+            jcr:primaryType: frontend:plugin
+            caption: Call to action external link
+            field: externalLink
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /aside:
+            jcr:primaryType: frontend:plugin
+            caption: Aside
+            field: aside
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
+                removePlugins: ''sourcearea,codemirror,youtube,specialchar'', removeButtons:
+                ''Styles,Table,PickImage,Underline,Strike,Subscript,Superscript,Indent,Outdent''}'
+          /asideIcon:
+            jcr:primaryType: frontend:plugin
+            caption: Aside icon
+            field: asideIcon
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: Use SVG file format
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              nodetypes: []
