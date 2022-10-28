@@ -227,7 +227,7 @@ definitions:
           publishing:title: ''
           /publishing:description:
             jcr:primaryType: hippostd:html
-            hippostd:content: ''
+            hippostd:content: <p>dsdsd</p>
           /publishing:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -293,9 +293,8 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
-                format_tags: ''p'', removePlugins: ''sourcearea,codemirror,youtube,specialchar'',
-                removeButtons: ''PickImage,Underline,Strike,Subscript,Superscript,Indent,Outdent'',
-                stylesSet: ''limitedstyles_{language}:./limitedstyles.js'' }'
+                removePlugins: ''sourcearea,codemirror,youtube,specialchar'', removeButtons:
+                ''Styles,Table,PickImage,Underline,Strike,Subscript,Superscript,Indent,Outdent''}'
           /cta:
             jcr:primaryType: frontend:plugin
             caption: Call to action label
@@ -330,10 +329,8 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
-                extraAllowedContent: ''table[data-smallscreen];address[translate];'',
-                format_tags: ''h2;h3;h4;p;address'', removePlugins: ''sourcearea,codemirror,youtube,specialchar'',
-                removeButtons: ''PickImage,Underline,Strike,Subscript,Superscript,Indent,Outdent'',
-                stylesSet: ''limitedstyles_{language}:./limitedstyles.js'' }'
+                removePlugins: ''sourcearea,codemirror,youtube,specialchar'', removeButtons:
+                ''Styles,Table,PickImage,Underline,Strike,Subscript,Superscript,Indent,Outdent''}'
           /asideIcon:
             jcr:primaryType: frontend:plugin
             caption: Aside icon
