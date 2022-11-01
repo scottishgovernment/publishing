@@ -56,7 +56,7 @@
 </#if>
 
 <#if document.relateditems?has_content >
-    <aside lang="en" class="ds_article-aside">
+    <aside <@revertlang document /> class="ds_article-aside">
         <h2 class="gamma">Related content</h2>
         <ul class="ds_no-bullets">
             <#list document.relateditems as item>
@@ -72,7 +72,7 @@
 </#if>
 
 <#if document.sensitive?? && document.sensitive>
-    <aside lang="en" class="ds_article-aside" id="stay-safe-online">
+    <aside <@revertlang document /> class="ds_article-aside" id="stay-safe-online">
         <h3>Stay safe online &hellip;</h3>
         <ul class="ds_no-bullets">
             <li>
