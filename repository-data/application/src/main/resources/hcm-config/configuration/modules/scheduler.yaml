@@ -5,7 +5,7 @@ definitions:
       hipposched:attributeNames: [batchsize]
       hipposched:attributeValues: ['100']
       hipposched:enabled: true
-      hipposched:repositoryJobClass: scot.mygov.publishing.scheduler.PreviewLinksCleanupJob
+      hipposched:repositoryJobClass: scot.gov.publishing.staging.scheduler.PreviewLinksCleanupJob
       /hipposched:triggers:
         jcr:primaryType: hipposched:triggers
         /nightly:
