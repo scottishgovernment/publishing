@@ -11,7 +11,7 @@ import org.onehippo.cms7.essentials.components.info.EssentialsDocumentComponentI
     @FieldGroup(titleKey = "Appearance", value = {"backgroundcolor", "fullwidth", "foregroundcolor", "neutrallinks"}),
     @FieldGroup(titleKey = "Text formatting", value = {"widetext", "verticalalign", "lightheader" }),
     @FieldGroup(titleKey = "Image formatting ", value = {"imagenomargin", "imagealigndesktop", "imagealignmobile" }),
-    @FieldGroup(titleKey = "Aside", value = {"asidebackgroundcolor", "asidefullwidth", "asideforegroundcolor", "hideasideicon"}),
+    @FieldGroup(titleKey = "Aside", value = {"asidebackgroundcolor", "hideasideicon"}),
     @FieldGroup(titleKey = "Content", value = { "document" })
 })
 
@@ -60,9 +60,6 @@ public interface PageheadingComponentInfo extends EssentialsDocumentComponentInf
     @Parameter(name = "imagealignmobile", displayName = "Horizontal alignment (image mobile)", defaultValue = "left")
     @DropDownList({"left", "right", "center", "hidden"})
     String getImageAlignMobile();
-
-    @Parameter(name = "asidefullwidth", displayName = "Full-width background", defaultValue = "true")
-    Boolean getAsideFullWidth();
 
     @Parameter(name = "asidebackgroundcolor", displayName = "Background colour")
     @DropDownList(valueListProvider = ComponentBackgroundColourValueListProvider.class)
