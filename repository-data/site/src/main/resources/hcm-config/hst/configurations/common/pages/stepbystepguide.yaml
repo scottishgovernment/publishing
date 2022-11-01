@@ -1,23 +1,15 @@
 definitions:
   config:
-    /hst:hst/hst:configurations/common/hst:pages/article:
+    /hst:hst/hst:configurations/common/hst:pages/stepbystepguide:
       jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/base
       /main:
         jcr:primaryType: hst:component
         hst:componentclassname: scot.mygov.publishing.components.ArticleComponent
-        hst:template: article-main
+        hst:template: step-by-step-main
         /breadcrumbs:
           jcr:primaryType: hst:component
           hst:referencecomponent: hst:components/breadcrumbs
         /feedback:
           jcr:primaryType: hst:component
           hst:referencecomponent: hst:components/feedback
-        /sidebar:
-          jcr:primaryType: hst:component
-          hst:componentclassname: scot.mygov.publishing.components.StepByStepComponent
-          hst:template: stepbystep-sidebar
-        /stepbysteptopbar:
-          jcr:primaryType: hst:component
-          hst:componentclassname: scot.mygov.publishing.components.StepByStepComponent
-          hst:template: stepbystep-topbar

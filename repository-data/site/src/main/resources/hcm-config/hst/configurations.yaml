@@ -154,6 +154,15 @@ definitions:
           /textandcard:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/content-blocks/textandcard.ftl
+          /step-by-step-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/step-by-step-main.ftl
+          /stepbystep-sidebar:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/step-by-step-sidebar.ftl
+          /stepbystep-topbar:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/step-by-step-topbar.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

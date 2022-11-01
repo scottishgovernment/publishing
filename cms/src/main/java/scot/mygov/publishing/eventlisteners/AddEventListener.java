@@ -43,6 +43,8 @@ public class AddEventListener {
 
     private static final String NEW_SMARTANSWER = "new-publishing-smartanswer";
 
+    private static final String NEW_STEPBYSTEP = "new-publishing-stepbystepguide";
+
     protected HippoUtils hippoUtils;
 
     Set<String> orgFormats = new HashSet<>();
@@ -145,11 +147,11 @@ public class AddEventListener {
     }
 
     String [] allActions() {
-        return new String[] { NEW_ARTICLE, NEW_CATEGORY, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE, NEW_FAIRRENT, NEW_SMARTANSWER };
+        return new String[] { NEW_ARTICLE, NEW_CATEGORY, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE, NEW_FAIRRENT, NEW_SMARTANSWER, NEW_STEPBYSTEP };
     }
 
     String [] actionsWithoutNewCategory() {
-        return new String[] { NEW_ARTICLE, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE, NEW_FAIRRENT, NEW_SMARTANSWER };
+        return new String[] { NEW_ARTICLE, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE, NEW_FAIRRENT, NEW_SMARTANSWER, NEW_STEPBYSTEP };
     }
 
     void setNavigationStyle(Node folder) throws RepositoryException {

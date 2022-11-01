@@ -1070,11 +1070,11 @@
   /smartanswersingleselectstyle:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 8a372e3c-0e46-419e-ad02-76634b5344bb
+    jcr:uuid: 48b63050-7d0b-4a7e-b307-57fff76b6d5b
     /smartanswersingleselectstyle:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 3587b57c-7a19-4e4d-aea6-1779396279dd
+      jcr:uuid: 394db965-3f42-4d97-88cd-e4ccb3443c54
       hippo:availability: [live, preview]
       hippotranslation:id: 3d3a7c0a-2051-472d-b11f-b4c50bdd85d2
       hippotranslation:locale: inherited - from query
@@ -1291,3 +1291,26 @@
         jcr:primaryType: selection:listitem
         selection:key: facebook-domain-verification
         selection:label: Facebook
+  /steplabeltypes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: daf27e97-d77e-44d5-968f-a3c49b7ba800
+    /steplabeltypes:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 9e1f9ce0-38b3-4169-8594-8776ffea2e29
+      hippo:availability: [live, preview]
+      hippotranslation:id: 18134c5d-01df-4de2-a87c-ebc993983824
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: numbered
+        selection:label: Numbered
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: and
+        selection:label: And
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: or
+        selection:label: Or

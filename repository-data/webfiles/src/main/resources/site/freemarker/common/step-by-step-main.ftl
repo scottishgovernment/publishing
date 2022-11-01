@@ -28,8 +28,6 @@
                             </div>
                         </#if>
                     </dl>
-
-                    <@hst.include ref="stepbysteptopbar"/>
                 </header>
             </div>
 
@@ -55,39 +53,50 @@
                 </div>
             </#if>
 
-
             <div class="ds_layout__content">
                 <@hst.html hippohtml=document.content/>
 
-                <#if sequenceable?? && sequenceable == true>
-                    <!--noindex-->
-                    <nav class="ds_sequential-nav" aria-label="Article navigation">
-                        <#if prev??>
-                            <div class="ds_sequential-nav__item  ds_sequential-nav__item--prev">
-                                <@hst.link var="prevlink" hippobean=prev/>
-                                <a  title="Previous section" href="${prevlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--left">
-                                    <span class="ds_sequential-nav__text" data-label="previous">
-                                        ${prev.title}
-                                    </span>
-                                </a>
+                <div class="ds_step-navigation">
+                    <div class="ds_accordion" data-module="ds-accordion">
+                        <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+
+                        <#assign stepcount = 0 />
+                        <#list document.steps as step>
+
+                            <#if step.labeltype == 'or' || step.labeltype == 'and'>
+                            <#else>
+                                <#assign stepcount = stepcount + 1 />
+                            </#if>
+
+                            <div class="ds_accordion-item  <#if step.labeltype == "or">ds_step-navigation__or<#elseif step.labeltype == "and">ds_step-navigation__and</#if>">
+                                <span class="ds_step-navigation__count">
+                                    <#if step.labeltype == 'or'>
+                                        or <span class="visually-hidden">(instead of step ${stepcount})</span>
+                                    <#elseif step.labeltype == 'and'>
+                                        and <span class="visually-hidden">(as well as step ${stepcount})</span>
+                                    <#else>
+                                        <span class="visually-hidden">Step </span>${stepcount}
+                                    </#if>
+                                </span>
+                                <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-${step?index}" aria-labelledby="panel-${step?index}-heading" />
+                                <div class="ds_accordion-item__header">
+                                    <h3 id="panel-${step?index}-heading" class="ds_accordion-item__title">
+                                        ${step.title}
+                                    </h3>
+                                    <span class="ds_accordion-item__indicator"></span>
+                                    <label class="ds_accordion-item__label" for="panel-${step?index}"><span class="visually-hidden">Show this section</span></label>
+                                </div>
+                                <div class="ds_accordion-item__body">
+                                    <@hst.html hippohtml=step.content/>
+                                </div>
                             </div>
-                        </#if>
-                        <#if next??>
-                            <div class="ds_sequential-nav__item  ds_sequential-nav__item--next">
-                                <@hst.link var="nextlink" hippobean=next/>
-                                <a  title="Next section" href="${nextlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--right">
-                                    <span class="ds_sequential-nav__text" data-label="next">
-                                        ${next.title}
-                                    </span>
-                                </a>
-                            </div>
-                        </#if>
-                    </nav>
-                    <!--endnoindex-->
-                </#if>
+                        </#list>
+                    </div>
+                </div>
             </div>
 
-            <@hst.include ref="sidebar"/>
+            <div class="ds_layout__sidebar">
+            </div>
 
             <#include 'feedback-wrapper.ftl'>
 
@@ -95,15 +104,15 @@
     </div>
 </div>
 
-<@hst.headContribution category="meta">
-    <meta name="dc.format" content="Article"/>
-</@hst.headContribution>
+    <@hst.headContribution category="meta">
+    <meta name="dc.format" content="StepByStep"/>
+    </@hst.headContribution>
 
 </#if>
 
 <@hst.headContribution category="resourcehints">
     <#if nextlink??>
-        <link rel="prerender" href="${nextlink}"/>
+    <link rel="prerender" href="${nextlink}"/>
     </#if>
 </@hst.headContribution>
 
