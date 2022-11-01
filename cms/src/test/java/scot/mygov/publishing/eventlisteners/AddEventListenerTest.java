@@ -308,11 +308,11 @@ public class AddEventListenerTest {
     }
 
     String [] allActions() {
-        return new String [] {"new-publishing-article", "new-publishing-category", "new-publishing-guide", "new-publishing-mirror", "new-publishing-formbase", "new-publishing-fairrent", "new-publishing-smartanswer"};
+        return new String [] {"new-publishing-article", "new-publishing-category", "new-publishing-guide", "new-publishing-mirror", "new-publishing-formbase", "new-publishing-fairrent", "new-publishing-smartanswer", "new-publishing-stepbystepguide"};
     }
 
     String [] actionsWithoutAddCategory() {
-        return new String [] {"new-publishing-article", "new-publishing-guide", "new-publishing-mirror", "new-publishing-formbase", "new-publishing-fairrent", "new-publishing-smartanswer"};
+        return new String [] {"new-publishing-article", "new-publishing-guide", "new-publishing-mirror", "new-publishing-formbase", "new-publishing-fairrent", "new-publishing-smartanswer", "new-publishing-stepbystepguide"};
     }
 
     String [] actionsForGuide() {

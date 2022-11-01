@@ -146,6 +146,9 @@ const global = {
         const sideNavigations = [].slice.call(document.querySelectorAll('[data-module="ds-side-navigation"]'));
         sideNavigations.forEach(sideNavigation => new window.DS.components.SideNavigation(sideNavigation).init());
 
+        const stepNavigations = [].slice.call(document.querySelectorAll('[data-module="ds-step-navigation"]'));
+        stepNavigations.forEach(stepNavigation => new window.DS.components.StepNavigation(stepNavigation).init());
+
         const tables = [].slice.call(document.querySelectorAll('table[data-smallscreen]'));
         if (tables.length) {
             const mobileTables = new window.DS.components.MobileTables();
