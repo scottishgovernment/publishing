@@ -114,6 +114,7 @@ $colors: (
         }
 
         &--bg-#{$name} {
+
             @if ($texttheme == 'reversed') {
                 @extend %texttheme-reversed;
             }
