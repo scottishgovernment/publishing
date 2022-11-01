@@ -28,7 +28,7 @@ definitions:
       attributes: [class]
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/span:
       jcr:primaryType: hipposys:moduleconfig
-      attributes: [aria-hidden, class]
+      attributes: [aria-hidden, class, lang, dir]
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/table:
       jcr:primaryType: hipposys:moduleconfig
       attributes: [data-smallscreen, class, id]
