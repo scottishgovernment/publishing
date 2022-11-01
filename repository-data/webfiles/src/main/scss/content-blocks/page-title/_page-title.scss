@@ -176,28 +176,20 @@
     // Add top border to aside when both header and aside have white or transparent backgrounds
     &:not([class*="ds_cb--bg-"]),
     &.ds_cb--bg-white {
-        .ds_cb--page-title__aside:not([class*="ds_cb--bg-"]),
-        &.ds_cb--bg-white {
+        & + .ds_cb--page-title__aside:not([class*="ds_cb--bg-"]),
+        & + &.ds_cb--bg-white {
             &.ds_cb--fullwidth {
-                border-top: 1px $ds_colour__border--light solid;    
+                border-top: 1px $ds_colour__border--light solid;   
                 .ds_wrapper {
                     @include ds_responsive-padding(2, top, $tuning:-1px);
                 }
             }
             &:not(.ds_cb--fullwidth) {
                 .ds_wrapper {
-                    border-top: 1px $ds_colour__border--light solid;   
+                    border-top: 1px $ds_colour__border--light solid;    
                     @include ds_responsive-padding(2, top, $tuning:-1px); 
                 }
             }
-        }
-    }
-
-    // Avoid parent background being forced on aside wrapper when parent is not full width
-    &:not(&--fullwidth)[class*="ds_cb--bg-"] {
-    
-        .ds_cb--page-title__aside .ds_wrapper {
-            background-color: inherit;
         }
     }
     
