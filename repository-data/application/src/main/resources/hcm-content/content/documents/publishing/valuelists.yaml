@@ -1341,3 +1341,26 @@
         jcr:primaryType: selection:listitem
         selection:key: uk
         selection:label: Ukrainian
+  /steplabeltypes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: daf27e97-d77e-44d5-968f-a3c49b7ba800
+    /steplabeltypes:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 9e1f9ce0-38b3-4169-8594-8776ffea2e29
+      hippo:availability: [live, preview]
+      hippotranslation:id: 18134c5d-01df-4de2-a87c-ebc993983824
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: numbered
+        selection:label: Numbered
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: and
+        selection:label: And
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: or
+        selection:label: Or
