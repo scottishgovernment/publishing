@@ -31,10 +31,10 @@
     </dependency>
 
     <dependency>
-      <groupId>com.onehippo.cms7</groupId>
-      <artifactId>hippo-enterprise-package-cms-dependencies</artifactId>
-      <type>pom</type>
-    </dependency>
+    <groupId>com.onehippo.cms7</groupId>
+    <artifactId>hippo-enterprise-package-cms-dependencies</artifactId>
+    <type>pom</type>
+  </dependency>
 
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
@@ -144,5 +144,16 @@
       <artifactId>hippo-govscot-cms-funnelback</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
+    <dependency>
+      <groupId>scot.gov.publishing.hippo</groupId>
+      <artifactId>hippo-govscot-cms-staging</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>scot.gov.publishing.hippo</groupId>
+      <artifactId>hippo-govscot-platform-staging</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
   </dependencies>
 </project>

@@ -16,18 +16,13 @@
     <sonar.exclusions>
       target/**,
       **/ExportDialog.java,
-      **/LoginPanel.java,
-      **/PreviewLinkDialog.java,
-      **/PreviewPlugin.java
+      **/LoginPanel.java
     </sonar.exclusions>
     <sonar.coverage.exclusions>
       **/SlugLookups.java,
       **/CustomAttributes.java,
       **/CustomColumnsProviderPlugin.java,
       **/CustomFiltersPlugin.java,
-      **/PreviewDatePickerDialog.java,
-      **/PreviewFolderMenuItemPlugin.java,
-      **/PreviewLinksCleanupJob.java,
       **/FragmentCKEditorNodePlugin.java,
       **/DefaultNextSmartAnswerPageValidator.java,
       **/OptionalUrlValidator.java,

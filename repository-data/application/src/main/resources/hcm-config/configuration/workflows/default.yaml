@@ -2,5 +2,5 @@ definitions:
   config:
     /hippo:configuration/hippo:workflows/default/handle/frontend:renderer/preview:
       jcr:primaryType: frontend:plugin
-      plugin.class: scot.mygov.publishing.plugins.PreviewPlugin
+      plugin.class: scot.gov.publishing.staging.plugins.PreviewPlugin
       wicket.id: ${item}

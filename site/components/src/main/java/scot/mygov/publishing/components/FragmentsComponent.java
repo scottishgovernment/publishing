@@ -13,7 +13,7 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.repository.util.DateTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scot.mygov.publishing.valves.PreviewKeyUtils;
+import scot.gov.publishing.staging.valves.PreviewKeyUtils;
 
 import javax.jcr.RepositoryException;
 
@@ -28,7 +28,7 @@ import static org.apache.commons.lang3.StringUtils.substringAfter;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.and;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.constraint;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
-import static scot.mygov.publishing.valves.PreviewKeyUtils.isPreviewMount;
+import static scot.gov.publishing.staging.valves.PreviewKeyUtils.isPreviewMount;
 
 public class FragmentsComponent extends BaseHstComponent {
 
