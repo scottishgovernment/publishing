@@ -471,9 +471,11 @@ const noticeToLeaveForm = {
     getEndOfNoticeData: function (startDate, noticeDate, noticeMethod) {
         let evictionGroundsWithPeriods = {
             LANDLORD_TO_SELL: '84d',
+            LANDLORD_TO_SELL_HARDSHIP: '84d',
             LENDER_TO_SELL: '84d',
             LANDLORD_TO_REFURBISH: '84d',
             LANDLORD_TO_LIVE: '84d',
+            LANDLORD_TO_LIVE_HARDSHIP: '84d',
             LANDLORD_FAMILY_MEMBER_TO_LIVE: '84d',
             LANDLORD_NON_RESIDENTIAL_PURPOSE: '84d',
             RELIGIOUS: '84d',
@@ -485,34 +487,11 @@ const noticeToLeaveForm = {
             YOU_NO_LONGER_OCCUPY: '28d',
             YOU_BREACHED_TERMS: '28d',
             YOU_RENT_ARREARS: '28d',
+            YOU_RENT_ARREARS_SUBSTANTIAL: '28d',
             YOU_CRIMINAL_CONVICTION: '28d',
             YOU_ANTISOCIAL_BEHAVIOUR: '28d',
             YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL: '28d'
         };
-
-        if (new Date() < new Date('03/30/2022')) {
-            // COVID periods
-            evictionGroundsWithPeriods = {
-                LANDLORD_TO_SELL: '6m',
-                LENDER_TO_SELL: '6m',
-                LANDLORD_TO_REFURBISH: '6m',
-                LANDLORD_TO_LIVE: '3m',
-                LANDLORD_FAMILY_MEMBER_TO_LIVE: '3m',
-                LANDLORD_NON_RESIDENTIAL_PURPOSE: '6m',
-                RELIGIOUS: '6m',
-                LANDLORD_REGISTRATION_REVOKED: '3m',
-                LANDLORD_HMO_REFUSED: '3m',
-                LANDLORD_OVERCROWDING_NOTICE: '6m',
-                YOU_CEASE_TO_BE_EMPLOYEE: '6m',
-                YOU_NO_LONGER_NEED_SUPPORTED_ACC: '6m',
-                YOU_NO_LONGER_OCCUPY: '28d',
-                YOU_BREACHED_TERMS: '6m',
-                YOU_RENT_ARREARS: '6m',
-                YOU_CRIMINAL_CONVICTION: '3m',
-                YOU_ANTISOCIAL_BEHAVIOUR: '3m',
-                YOU_ASSOCIATED_CONVICTION_OR_ANTISOCIAL: '3m'
-            };
-        }
 
         const evictionGroundsUsed = noticeToLeaveForm.form.settings.formObject.reasons;
 
