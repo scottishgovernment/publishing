@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#if document.showFeedback?? && document.showFeedback>
     <!--noindex-->
-    <div class="ds_layout__feedback">
+    <div lang="en" class="ds_layout__feedback">
         <#if document??>
             <#assign documentUuid = document.uuid/>
         <#else>

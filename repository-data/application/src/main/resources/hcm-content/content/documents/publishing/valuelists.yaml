@@ -1070,11 +1070,11 @@
   /smartanswersingleselectstyle:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 8a372e3c-0e46-419e-ad02-76634b5344bb
+    jcr:uuid: 5c5d367b-702e-4a78-8cab-f4f4bbaae59c
     /smartanswersingleselectstyle:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 3587b57c-7a19-4e4d-aea6-1779396279dd
+      jcr:uuid: dbd8eceb-3105-4d2e-a2d5-0c7ed5a3ebb3
       hippo:availability: [live, preview]
       hippotranslation:id: 3d3a7c0a-2051-472d-b11f-b4c50bdd85d2
       hippotranslation:locale: inherited - from query
@@ -1291,3 +1291,30 @@
         jcr:primaryType: selection:listitem
         selection:key: facebook-domain-verification
         selection:label: Facebook
+  /contentitemlanguages:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: e6825887-64d7-4425-8840-83d07aaf4e5b
+    /contentitemlanguages:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: a9ed53b7-aa84-422f-b3aa-c0226ebfbc54
+      hippo:availability: [live, preview]
+      hippotranslation:id: 8fd6a449-cbe2-4420-bf66-f27f430091b6
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: en
+        selection:label: English
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: gd
+        selection:label: Gaelic (Scottish)
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: ru
+        selection:label: Russian
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: uk
+        selection:label: Ukrainian

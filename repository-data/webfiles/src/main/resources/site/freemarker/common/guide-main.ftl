@@ -110,14 +110,14 @@
             <!--noindex-->
             <div class="ds_layout__sidebar">
                 <#if guide.relateditems?has_content >
-                    <aside class="ds_article-aside">
+                    <aside lang="en" class="ds_article-aside">
                         <h2 class="gamma">Related content</h2>
                         <ul class="ds_no-bullets">
                             <#list guide.relateditems as item>
                                 <#list item.relatedItem as link>
                                     <@hst.link var="url" hippobean=link/>
                                     <li>
-                                        <a href="${url}">${link.title}</a>
+                                        <a <#if link.contentitemlanguage??>lang="${link.contentitemlanguage}" href="${url}">${link.title}</a>
                                     </li>
                                 </#list>
                             </#list>
@@ -126,7 +126,7 @@
                 </#if>
 
                 <#if guide.sensitive?? && guide.sensitive>
-                    <aside class="ds_article-aside" id="stay-safe-online">
+                    <aside lang="en" class="ds_article-aside" id="stay-safe-online">
                         <h3>Stay safe online &hellip;</h3>
                         <ul class="ds_no-bullets">
                             <li>
