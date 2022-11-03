@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
 <!--noindex-->
-
+<#if stepbysteps?? && stepbysteps?size gt 0>
 <aside class="ds_callout">
     <h3>Part of</h3>
     <#if stepbysteps?size gt 1>
@@ -14,4 +14,5 @@
         <a href="<@hst.link var=link hippobean=stepbysteps[0].stepByStepGuide/>"><b>${stepbysteps[0].stepByStepGuide.title}</b></a>
     </#if>
 </aside>
+</#if>
 <!--endnoindex-->
