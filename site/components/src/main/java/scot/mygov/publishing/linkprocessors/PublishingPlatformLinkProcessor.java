@@ -63,7 +63,7 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
         }
 
         Node node = session.getNode(contentPath);
-        if (isGuideFolder(node)) {
+        if (isGuideOrSmartAnswerFolder(node)) {
             Node guide = node.getNode(INDEX).getNode(INDEX);
             setPath(link, guide);
             return link;
@@ -87,7 +87,7 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
         return link;
     }
 
-    boolean isGuideFolder(Node node) throws RepositoryException {
+    boolean isGuideOrSmartAnswerFolder(Node node) throws RepositoryException {
         if (!node.isNodeType("hippostd:folder")) {
             return false;
         }
@@ -97,7 +97,7 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
         }
 
         Node index = node.getNode(INDEX).getNode(INDEX);
-        return index.isNodeType("publishing:guide");
+        return index.isNodeType("publishing:guide") || index.isNodeType("publishing:smartanswer");
     }
 
     void setPathForGuidePage(HstLink link, Node guidepage) throws RepositoryException {
