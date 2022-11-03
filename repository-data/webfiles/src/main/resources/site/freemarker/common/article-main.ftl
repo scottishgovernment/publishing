@@ -1,15 +1,15 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#include "macros/lang-attributes.ftl">
 
 <#if document??>
-
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
 
     <@hst.include ref="breadcrumbs"/>
 
     <div class="ds_wrapper">
-        <main <#if document.contentitemlanguage??>lang="${document.contentitemlanguage}"</#if> id="main-content" class="ds_layout  ds_layout--article">
+        <main <@lang document/> id="main-content" class="ds_layout  ds_layout--article">
 
             <#if document.sensitive?? && document.sensitive>
                 <!--noindex-->
@@ -20,7 +20,7 @@
             <div class="ds_layout__header">
                 <header class="ds_page-header">
                     <h1 class="ds_page-header__title">${document.title}</h1>
-                    <dl lang="en" class="ds_page-header__metadata  ds_metadata">
+                    <dl <@revertlang document /> class="ds_page-header__metadata  ds_metadata">
                         <#if document.lastUpdatedDate??>
                             <div class="ds_metadata__item">
                                 <dt class="ds_metadata__key">Last updated</dt>
@@ -34,7 +34,7 @@
             </div>
 
             <#if document.logo??>
-                <div lang="en" class="ds_layout__partner  mg_partner-logo">
+                <div <@revertlang document />  class="ds_layout__partner  mg_partner-logo">
                     <#if document.logo.xlargefourcolumns??>
                         <img alt="" src="<@hst.link hippobean=document.logo.xlargefourcolumns />"
                             loading="lazy"
@@ -65,7 +65,7 @@
                         <#if prev??>
                             <div class="ds_sequential-nav__item  ds_sequential-nav__item--prev">
                                 <@hst.link var="prevlink" hippobean=prev/>
-                                <a <#if prev.contentitemlanguage??>lang="${prev.contentitemlanguage}"</#if> title="Previous section" href="${prevlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--left">
+                                <a <@langcompare prev document/>  title="Previous section" href="${prevlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--left">
                                     <span class="ds_sequential-nav__text" data-label="previous">
                                         ${prev.title}
                                     </span>
@@ -75,7 +75,7 @@
                         <#if next??>
                             <div class="ds_sequential-nav__item  ds_sequential-nav__item--next">
                                 <@hst.link var="nextlink" hippobean=next/>
-                                <a <#if next.contentitemlanguage??>lang="${next.contentitemlanguage}"</#if> title="Next section" href="${nextlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--right">
+                                <a <@langcompare next document/> title="Next section" href="${nextlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--right">
                                     <span class="ds_sequential-nav__text" data-label="next">
                                         ${next.title}
                                     </span>

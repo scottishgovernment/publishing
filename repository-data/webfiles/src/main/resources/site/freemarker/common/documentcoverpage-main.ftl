@@ -1,15 +1,17 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
 <#include "macros/format-file-size.ftl">
+<#include "macros/lang-attributes.ftl">
 
 <#if document??>
+
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
 
     <@hst.include ref="breadcrumbs"/>
 
     <div class="ds_wrapper">
-        <main <#if document.contentitemlanguage??>lang="${document.contentitemlanguage}"</#if> id="main-content" class="ds_layout  ds_layout--article">
+        <main <@lang document/> id="main-content" class="ds_layout  ds_layout--article">
             <#if document.sensitive?? && document.sensitive>
                 <!--noindex-->
                 <#include "hide-this-page.ftl">
@@ -19,7 +21,7 @@
             <div class="ds_layout__header">
                 <header class="ds_page-header">
                     <h1 class="ds_page-header__title">${document.title}</h1>
-                    <dl class="ds_page-header__metadata  ds_metadata">
+                    <dl <@revertlang document /> class="ds_page-header__metadata  ds_metadata">
                         <#if document.lastUpdatedDate??>
                             <div class="ds_metadata__item">
                                 <dt class="ds_metadata__key">Last updated</dt>
@@ -130,7 +132,7 @@
                         <div class="ds_file-download__content">
                             <p class="ds_file-download__title" id="file-title-${doc?counter}">${doc.title}</p>
 
-                            <div id="file-download-${doc?counter}" class="ds_file-download__details">
+                            <div <@revertlang document /> id="file-download-${doc?counter}" class="ds_file-download__details">
                                 <dl class="ds_metadata  ds_metadata--inline">
                                     <div class="ds_metadata__item">
                                         <dt class="ds_metadata__key  visually-hidden">File type</dt>
@@ -145,7 +147,7 @@
                             </div>
 
                             <div>
-                                <a aria-labelledby="file-title-${doc?counter}" aria-describedby="file-download-${doc?counter}" href="${documentinline}" class="ds_file-download__button  ds_button  ds_button--small  ds_button--secondary  ds_no-margin">
+                                <a <@revertlang document /> aria-labelledby="file-title-${doc?counter}" aria-describedby="file-download-${doc?counter}" href="${documentinline}" class="ds_file-download__button  ds_button  ds_button--small  ds_button--secondary  ds_no-margin">
                                     Download
                                 </a>
                             </div>
@@ -157,14 +159,14 @@
             <!--noindex-->
             <div class="ds_layout__sidebar">
                 <#if document.relateditems?has_content>
-                    <aside lang="en" class="ds_article-aside">
+                    <aside <@revertlang document /> class="ds_article-aside">
                         <h2 class="gamma">Related content</h2>
                         <ul class="ds_no-bullets">
                             <#list document.relateditems as item>
                                 <#list item.relatedItem as link>
                                     <@hst.link var="url" hippobean=link/>
                                     <li>
-                                        <a <#if link.contentitemlanguage??>lang="${link.contentitemlanguage}" href="${url}">${link.title}</a>
+                                        <a <@langcompare link document/> href="${url}">${link.title}</a>
                                     </li>
                                 </#list>
                             </#list>
@@ -173,7 +175,7 @@
                 </#if>
 
                 <#if document.sensitive?? && document.sensitive>
-                    <aside lang="en" class="ds_article-aside" id="stay-safe-online">
+                    <aside <@revertlang document /> class="ds_article-aside" id="stay-safe-online">
                         <h3>Stay safe online &hellip;</h3>
                         <ul class="ds_no-bullets">
                             <li>

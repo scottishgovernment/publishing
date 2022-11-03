@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 5266d869-1fe9-4a07-b2c8-a93370a20600
+          jcr:uuid: 5697e8c4-80be-479d-96cf-6382baa67b2d
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -88,7 +88,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: 3605e0bd-7751-45c3-aa2f-4196df96ea90
+          jcr:uuid: 6bc2dc50-f862-40fe-be72-f9d062f10afc
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -212,6 +212,18 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /contentitemlanguage:
+            jcr:primaryType: frontend:plugin
+            caption: Content language
+            field: dynamicdropdown
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              showDefault: 'false'
+              source: /content/documents/publishing/valuelists/contentitemlanguages
+              valuelistProvider: ''
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
@@ -236,18 +248,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
-          /contentitemlanguage:
-            jcr:primaryType: frontend:plugin
-            caption: Content language
-            field: dynamicdropdown
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              showDefault: 'false'
-              source: /content/documents/publishing/valuelists/contentitemlanguages
-              valuelistProvider: ''
           /tags:
             jcr:primaryType: frontend:plugin
             engine: ${engine}

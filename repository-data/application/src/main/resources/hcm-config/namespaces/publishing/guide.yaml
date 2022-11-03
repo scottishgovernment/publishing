@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c78a5ab3-d0fc-4a2d-a0c2-8fdbdccc8175
+          jcr:uuid: 9222e4fc-1ee5-47f4-b470-43196c31bb3c
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -58,6 +58,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [organisationtag-validator]
+          /contentitemlanguage:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:contentitemlanguage
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -71,7 +79,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: 63f40ce0-07f5-4c80-a434-8918dc7be556
+          jcr:uuid: 091273c9-cc1c-41ce-9a6b-e1952dbe3e68
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -88,6 +96,7 @@ definitions:
           publishing:showInParent: true
           publishing:lifeEvents: []
           publishing:noindex: false
+          publishing:contentitemlanguage: en
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -181,6 +190,17 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /contentitemlanguage:
+            jcr:primaryType: frontend:plugin
+            caption: Content language
+            field: contentitemlanguage
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              showDefault: 'false'
+              source: /content/documents/publishing/valuelists/contentitemlanguages
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title

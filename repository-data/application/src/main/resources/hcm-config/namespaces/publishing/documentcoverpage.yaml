@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 16c2dfce-6523-4607-b8a2-351324f7efc4
+          jcr:uuid: 473d6266-9561-4905-a08a-c2331b036518
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -50,6 +50,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [organisationtag-validator]
+          /contentitemlanguage:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:contentitemlanguage
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -68,7 +76,7 @@ definitions:
           publishing:title: ''
           publishing:reportingtags: []
           publishing:metaDescription: ''
-          jcr:uuid: f6e8645f-bf15-4af1-986d-0d420f2dbe99
+          jcr:uuid: 035630e6-db11-44c5-81b9-4392b8187909
           hippostdpubwf:lastModificationDate: 2020-08-04T08:51:01.604+01:00
           hippostdpubwf:creationDate: 2020-08-04T08:51:01.604+01:00
           publishing:serviceproviders: []
@@ -77,6 +85,7 @@ definitions:
           publishing:noindex: false
           publishing:showInParent: false
           publishing:sensitive: false
+          publishing:contentitemlanguage: en
           /publishing:documents:
             jcr:primaryType: publishing:document
             publishing:title: ''
@@ -195,6 +204,26 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /relateditems:
+            jcr:primaryType: frontend:plugin
+            caption: Related items
+            field: relateditems
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /contentitemlanguage:
+            jcr:primaryType: frontend:plugin
+            caption: Content language
+            field: contentitemlanguage
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/publishing/valuelists/contentitemlanguages
+              showDefault: 'false'
           /tags:
             jcr:primaryType: frontend:plugin
             engine: ${engine}
@@ -237,15 +266,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/publishing/valuelists/reportingtags
-          /relateditems:
-            jcr:primaryType: frontend:plugin
-            caption: Related items
-            field: relateditems
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /authorNotes:
             jcr:primaryType: frontend:plugin
             caption: Author notes
