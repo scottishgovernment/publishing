@@ -1314,3 +1314,30 @@
         jcr:primaryType: selection:listitem
         selection:key: or
         selection:label: Or
+  /contentitemlanguages:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: e6825887-64d7-4425-8840-83d07aaf4e5b
+    /contentitemlanguages:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: a9ed53b7-aa84-422f-b3aa-c0226ebfbc54
+      hippo:availability: [live, preview]
+      hippotranslation:id: 8fd6a449-cbe2-4420-bf66-f27f430091b6
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: en
+        selection:label: English
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: gd
+        selection:label: Gaelic (Scottish)
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: ru
+        selection:label: Russian
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: uk
+        selection:label: Ukrainian

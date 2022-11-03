@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#assign hst=JspTaglibs["http://www.hippoecm.org/jsp/hst/core"] >
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
     <head>
         <@hst.headContributions categoryIncludes="dataLayer"/>
         <!-- dataLayer code MUST be higher than google tag manager code -->

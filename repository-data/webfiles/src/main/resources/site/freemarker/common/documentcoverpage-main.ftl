@@ -9,7 +9,7 @@
     <@hst.include ref="breadcrumbs"/>
 
     <div class="ds_wrapper">
-        <main id="main-content" class="ds_layout  ds_layout--article">
+        <main <#if document.contentitemlanguage??>lang="${document.contentitemlanguage}"</#if> id="main-content" class="ds_layout  ds_layout--article">
             <#if document.sensitive?? && document.sensitive>
                 <!--noindex-->
                 <#include "hide-this-page.ftl">
@@ -156,15 +156,15 @@
 
             <!--noindex-->
             <div class="ds_layout__sidebar">
-                <#if document.relateditems?has_content >
-                    <aside class="ds_article-aside">
+                <#if document.relateditems?has_content>
+                    <aside lang="en" class="ds_article-aside">
                         <h2 class="gamma">Related content</h2>
                         <ul class="ds_no-bullets">
                             <#list document.relateditems as item>
                                 <#list item.relatedItem as link>
                                     <@hst.link var="url" hippobean=link/>
                                     <li>
-                                        <a href="${url}">${link.title}</a>
+                                        <a <#if link.contentitemlanguage??>lang="${link.contentitemlanguage}" href="${url}">${link.title}</a>
                                     </li>
                                 </#list>
                             </#list>
@@ -173,7 +173,7 @@
                 </#if>
 
                 <#if document.sensitive?? && document.sensitive>
-                    <aside class="ds_article-aside" id="stay-safe-online">
+                    <aside lang="en" class="ds_article-aside" id="stay-safe-online">
                         <h3>Stay safe online &hellip;</h3>
                         <ul class="ds_no-bullets">
                             <li>
