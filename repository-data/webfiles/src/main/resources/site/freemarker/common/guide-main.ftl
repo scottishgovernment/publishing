@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#include "macros/lang-attributes.ftl">
 
 <#if document??>
 <div class="cms-editable">
@@ -8,7 +9,7 @@
     <@hst.include ref="breadcrumbs"/>
 
     <div class="ds_wrapper">
-        <main id="main-content" class="ds_layout  ds_layout--guide">
+        <main <@lang document/> id="main-content" class="ds_layout  ds_layout--guide">
             <#if guide.sensitive?? && guide.sensitive>
                 <!--noindex-->
                 <#include "hide-this-page.ftl">
@@ -17,9 +18,9 @@
 
             <div class="ds_layout__header">
                 <header class="ds_page-header">
-                    <span class="ds_page-header__label  ds_content-label">${guide.title}</span>
+                    <span <@langcompare guide document/> class="ds_page-header__label  ds_content-label">${guide.title}</span>
                     <h1 class="ds_page-header__title">${document.title}</h1>
-                    <dl class="ds_page-header__metadata  ds_metadata">
+                    <dl <@revertlang document /> class="ds_page-header__metadata  ds_metadata">
                         <#if guide.lastUpdatedDate??>
                             <div class="ds_metadata__item">
                                 <dt class="ds_metadata__key">Last updated</dt>
@@ -33,18 +34,18 @@
             <!--noindex-->
             <div class="ds_layout__navigation">
                 <nav role="navigation" class="ds_contents-nav" aria-label="Sections">
-                    <h2 class="gamma">Contents</h2>
+                    <h2 <@revertlang document /> class="gamma">Contents</h2>
 
                     <ul class="ds_contents-nav__list">
                         <#list children as child>
                         <li class="ds_contents-nav__item">
                             <#if child.bean == document>
-                                <span class="ds_contents-nav__link  ds_current">
+                                <span <@langcompare child.bean document /> class="ds_contents-nav__link  ds_current">
                                     ${child.bean.title}
                                 </span>
                             <#else>
                                 <@hst.link var="link" hippobean=child.bean/>
-                                <a href="${link}" class="ds_contents-nav__link">
+                                <a <@langcompare child.bean document /> href="${link}" class="ds_contents-nav__link">
                                     ${child.bean.title}
                                 </a>
                             </#if>
@@ -56,7 +57,7 @@
             <!--endnoindex-->
 
             <#if guide.logo??>
-                <div class="ds_layout__partner  mg_partner-logo">
+                <div <@revertlang document /> class="ds_layout__partner  mg_partner-logo">
                     <#if guide.logo.xlargefourcolumns??>
                         <img alt="" src="<@hst.link hippobean=guide.logo.xlargefourcolumns />"
                             loading="lazy"
@@ -85,7 +86,7 @@
                     <#if prev??>
                         <div class="ds_sequential-nav__item  ds_sequential-nav__item--prev">
                             <@hst.link var="prevlink" hippobean=prev/>
-                            <a title="Previous section" href="${prevlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--left">
+                            <a <@langcompare prev document/> title="Previous section" href="${prevlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--left">
                                 <span class="ds_sequential-nav__text" data-label="previous">
                                 ${prev.title}
                                 </span>
@@ -95,7 +96,7 @@
                     <#if next??>
                         <div class="ds_sequential-nav__item  ds_sequential-nav__item--next">
                             <@hst.link var="nextlink" hippobean=next/>
-                            <a title="Next section" href="${nextlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--right">
+                            <a <@langcompare next document/> title="Next section" href="${nextlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--right">
                                 <span class="ds_sequential-nav__text" data-label="next">
                                 ${next.title}
                                 </span>
@@ -106,18 +107,17 @@
                 <!--endnoindex-->
             </div>
 
-
             <!--noindex-->
             <div class="ds_layout__sidebar">
                 <#if guide.relateditems?has_content >
-                    <aside lang="en" class="ds_article-aside">
+                    <aside <@revertlang document /> class="ds_article-aside">
                         <h2 class="gamma">Related content</h2>
                         <ul class="ds_no-bullets">
                             <#list guide.relateditems as item>
                                 <#list item.relatedItem as link>
                                     <@hst.link var="url" hippobean=link/>
                                     <li>
-                                        <a <#if link.contentitemlanguage??>lang="${link.contentitemlanguage}" href="${url}">${link.title}</a>
+                                        <a <@langcompare link document/> href="${url}">${link.title}</a>
                                     </li>
                                 </#list>
                             </#list>
@@ -126,7 +126,7 @@
                 </#if>
 
                 <#if guide.sensitive?? && guide.sensitive>
-                    <aside lang="en" class="ds_article-aside" id="stay-safe-online">
+                    <aside <@revertlang document /> class="ds_article-aside" id="stay-safe-online">
                         <h3>Stay safe online &hellip;</h3>
                         <ul class="ds_no-bullets">
                             <li>
