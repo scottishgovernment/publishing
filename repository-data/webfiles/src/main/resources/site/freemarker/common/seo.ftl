@@ -92,8 +92,7 @@
               "@context" : "https://schema.org",
               "@type" : "WebSite",
               "name" : "${sitetitle}",
-              "url" : "${sitelink}"
-              <#if isSearchEnabled>
+              "url" : "${sitelink}"<#if isSearchEnabled>,
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": {
@@ -102,6 +101,8 @@
                 },
                 "query-input": "required name=search_term_string"
               }
+              <#else>
+
               </#if>
             }
         </script>
