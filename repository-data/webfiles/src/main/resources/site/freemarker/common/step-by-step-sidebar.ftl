@@ -7,7 +7,7 @@
 
 <#if stepbysteps?size == 1>
     <#list stepbysteps as stepbystep>
-        <nav class="ds_step-navigation">
+        <nav class="ds_step-navigation" data-module="ds-step-navigation">
             <h2 class="ds_h3">
                 Part of
                 <a class="ds_step-navigation__title-link" href="<@hst.link var=link hippobean=stepbystep.stepByStepGuide/>">${stepbystep.stepByStepGuide.title}</a>
