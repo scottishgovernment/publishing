@@ -7,7 +7,7 @@
         <@hst.html hippohtml=dynamicresult.prologue/>
         <div class="mg_smart-answer__dynamic-result"
             id="dynamic-result-${item.name}-${dynamicresult.question.name}"
-            data-location="<@hst.link fullyQualified=true hippobean=root/>/fragments${dynamicresult.folder.path}"
+            data-location="<@hst.link fullyQualified=true hippobean=root/>fragments${dynamicresult.folder.path}"
             data-question="${dynamicresult.question.name}">
         </div>
         <@hst.html hippohtml=dynamicresult.epilogue/>
