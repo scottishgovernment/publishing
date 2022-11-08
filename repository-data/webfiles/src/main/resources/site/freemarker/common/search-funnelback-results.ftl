@@ -23,11 +23,11 @@
         <#if (response.resultPacket.resultsSummary.totalMatching)!?has_content &&
         response.resultPacket.resultsSummary.totalMatching == 0 &&
         !(response.curator.simpleHtmlExhibits)?has_content &&
-        !(response.curator.advertExhibits)?has_content> 
+        !(response.curator.advertExhibits)?has_content>
 
             <h2 class="visually-hidden">Search</h2>
 
-            <div class="ds_no-search-results">
+            <div id="no-search-results" class="ds_no-search-results">
                 <p><strong>There are no matching results.</strong></p>
 
                 <p>Improve your search results by:</p>
@@ -48,8 +48,8 @@
                         </div>
                     </div>
                 </#list>
-            </#if> 
-        </#if>    
+            </#if>
+        </#if>
 
         <#if (response.resultPacket.qsups)!?size &gt; 0>
             <#list response.resultPacket.qsups as qsup>
@@ -119,7 +119,7 @@
                         <#if (result.listMetadata["dcTitle"]?first)?has_content>
                             ${result.listMetadata["dcTitle"]?first!}
                         <#else>
-                            ${result.listMetadata["t"]?first!}   
+                            ${result.listMetadata["t"]?first!}
                         </#if>
                         </a>
                     </h3>
