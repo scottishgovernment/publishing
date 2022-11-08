@@ -84,11 +84,29 @@ public class PublishingPlatformLinkProcessorTest {
 
     @Test
     public void postProcessReturnsLinkForGuidePage() throws RepositoryException {
-        Session session = sessionWithGuide();
+        Session session = sessionWithGuidePage();
         sut.sessionSource = () -> session;
         HstLink link = link("link");
         sut.postProcess(link);
         verify(link).setPath("/guideslug/pagename");
+    }
+
+    @Test
+    public void postProcessReturnsLinkForGuide() throws RepositoryException {
+        Session session = sessionWithGuide();
+        sut.sessionSource = () -> session;
+        HstLink link = link("link");
+        sut.postProcess(link);
+        verify(link).setPath("/guideslug");
+    }
+
+    @Test
+    public void postProcessReturnsLinkForSmartAnswer() throws RepositoryException {
+        Session session = sessionWithSmartAnswer();
+        sut.sessionSource = () -> session;
+        HstLink link = link("link");
+        sut.postProcess(link);
+        verify(link).setPath("/smartanswerslug");
     }
 
     @Test
@@ -156,7 +174,6 @@ public class PublishingPlatformLinkProcessorTest {
         return link;
     }
 
-
     HstLink binariesLink() {
         return link("/binaries/thisisabinary");
     }
@@ -197,8 +214,7 @@ public class PublishingPlatformLinkProcessorTest {
         return session;
     }
 
-
-    Session sessionWithGuide() throws RepositoryException {
+    Session sessionWithGuidePage() throws RepositoryException {
         Session session = mock(Session.class);
         Node guidepagehandle = mock(Node.class);
         Node guidepage = mock(Node.class);
@@ -240,7 +256,84 @@ public class PublishingPlatformLinkProcessorTest {
         when(guide.getProperty("publishing:slug")).thenReturn(slug);
         when(guide.hasProperty("publishing:slug")).thenReturn(true);
         return session;
-        // verify(link).setPath("/guideslug/pagename");
+    }
+
+    Session sessionWithGuide() throws RepositoryException {
+        Session session = mock(Session.class);
+        Node guidepagehandle = mock(Node.class);
+        Node guidepage = mock(Node.class);
+
+        Node guidepagehandle2 = mock(Node.class);
+        Node guidepage2 = mock(Node.class);
+
+        Node guidehandle = mock(Node.class);
+        Node guide = mock(Node.class);
+
+        Node guidefolder = mock(Node.class);
+        when(guidefolder.isNodeType("hippostd:folder")).thenReturn(true);
+        when(guidepage.getName()).thenReturn("pagename");
+        when(guidepage.getParent()).thenReturn(guidehandle);
+
+        when(guidepage2.getName()).thenReturn("pagename2");
+        when(guidepage2.getParent()).thenReturn(guidepagehandle2);
+
+        when(guidehandle.getParent()).thenReturn(guidefolder);
+
+        when(guidefolder.hasNode("index")).thenReturn(true);
+        when(guidehandle.getNode("index")).thenReturn(guide);
+
+
+        when(guidefolder.getNode("index")).thenReturn(guidehandle);
+        when(guidehandle.hasNode("index")).thenReturn(true);
+        when(guidehandle.getNode("index")).thenReturn(guide);
+        when(guide.isNodeType("publishing:guide")).thenReturn(true);
+
+        when(guidepagehandle.isNodeType("hippostd:folder")).thenReturn(false);
+        when(guidepage.isNodeType("publishing:guidepage")).thenReturn(true);
+        when(guidepagehandle.getNodes()).thenReturn(TestUtil.iterator(Collections.singletonList(guidepage)));
+
+        when(guidepagehandle2.isNodeType("hippostd:folder")).thenReturn(false);
+        when(guidepage2.isNodeType("publishing:guidepage")).thenReturn(true);
+        when(guidepagehandle2.getNodes()).thenReturn(TestUtil.iterator(Collections.singletonList(guidepage2)));
+
+        List<Node> folderChilter = new ArrayList<>();
+        Collections.addAll(folderChilter, guidepagehandle, guidepagehandle2);
+        when(guidefolder.getNodes()).thenReturn(TestUtil.iterator(folderChilter));
+        when(session.nodeExists(any())).thenReturn(true);
+
+        when(session.getNode(any())).thenReturn(guidefolder);
+        when(guidepagehandle.getNode(any())).thenReturn(guidepage);
+        Property slug = mock(Property.class);
+        when(slug.getString()).thenReturn("guideslug");
+        when(guide.getProperty("publishing:slug")).thenReturn(slug);
+        when(guide.hasProperty("publishing:slug")).thenReturn(true);
+        return session;
+    }
+
+    Session sessionWithSmartAnswer() throws RepositoryException {
+        Session session = mock(Session.class);
+        Node handle = mock(Node.class);
+        Node smartanswer = mock(Node.class);
+
+        Node folder = mock(Node.class);
+        when(folder.isNodeType("hippostd:folder")).thenReturn(true);
+        when(handle.getParent()).thenReturn(folder);
+
+        when(folder.hasNode("index")).thenReturn(true);
+        when(handle.getNode("index")).thenReturn(smartanswer);
+        when(folder.getNode("index")).thenReturn(handle);
+        when(handle.hasNode("index")).thenReturn(true);
+        when(handle.getNode("index")).thenReturn(smartanswer);
+        when(smartanswer.isNodeType("publishing:guide")).thenReturn(false);
+        when(smartanswer.isNodeType("publishing:smartanswer")).thenReturn(true);
+
+        when(session.nodeExists(any())).thenReturn(true);
+        when(session.getNode(any())).thenReturn(folder);
+        Property slug = mock(Property.class);
+        when(slug.getString()).thenReturn("smartanswerslug");
+        when(smartanswer.getProperty("publishing:slug")).thenReturn(slug);
+        when(smartanswer.hasProperty("publishing:slug")).thenReturn(true);
+        return session;
     }
 
     Session exceptionThrowingSession() throws RepositoryException {
