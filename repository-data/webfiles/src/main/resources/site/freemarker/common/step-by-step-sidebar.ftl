@@ -7,13 +7,13 @@
 
 <#if stepbysteps?size == 1>
     <#list stepbysteps as stepbystep>
-        <nav class="ds_step-navigation" data-module="ds-step-navigation">
-            <h2 class="ds_h3">
+        <nav class="ds_step-navigation  ds_step-navigation--small" data-module="ds-step-navigation">
+            <h2 class="ds_step-navigation__title">
                 Part of
                 <a class="ds_step-navigation__title-link" href="<@hst.link var=link hippobean=stepbystep.stepByStepGuide/>">${stepbystep.stepByStepGuide.title}</a>
             </h2>
 
-            <div class="ds_accordion  ds_step-navigation" data-module="ds-accordion">
+            <div class="ds_accordion  ds_accordion--small" data-module="ds-accordion">
                 <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
 
                 <#assign stepcount = 0 />
