@@ -3,9 +3,11 @@ definitions:
     /hippo:namespaces/publishing/funnelbackcuratorchanges:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: fb8decea-2b91-420c-ab9d-6ab5d4f9585f
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 52a38a77-73d6-4d5a-8078-da9256180860
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
@@ -13,6 +15,7 @@ definitions:
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          jcr:uuid: 56a5cea4-a014-4b48-8d78-515600ca2587
           /lastchangedate:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -36,6 +39,7 @@ definitions:
           hippostdpubwf:lastModificationDate: 2022-09-20T15:18:15.602+01:00
           hippostdpubwf:creationDate: 2022-09-20T15:18:15.602+01:00
           publishing:lastchangedate: 0001-01-01T12:00:00Z
+          jcr:uuid: 9b04a57a-4a18-4456-9748-5ebd47712de4
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:

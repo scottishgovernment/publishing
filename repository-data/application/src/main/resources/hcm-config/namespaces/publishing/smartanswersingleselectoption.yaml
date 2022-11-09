@@ -3,15 +3,15 @@ definitions:
     /hippo:namespaces/publishing/smartanswersingleselectoption:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 7cb502a3-18f3-4aff-be84-16c798e2616f
+      jcr:uuid: 21692ce4-520e-433d-b34c-89917303784b
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 21b7163c-bc49-42ac-9620-10619e77525b
+        jcr:uuid: d1d8759f-9cf8-46ea-aad1-db20b7042784
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: b72c6099-c55f-4e92-9474-10a2f13aaa42
+          jcr:uuid: 0722b141-d435-4a0b-b98a-d794c1c00ec0
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0

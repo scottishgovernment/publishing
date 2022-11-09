@@ -5,7 +5,9 @@
 
 .ds_cb--feature-grid {
 
-    @include ds_responsive-padding(4, bottom);
+    .ds_wrapper {
+        @include ds_responsive-padding(4, bottom);
+    }
 
     // 2 items
     .ds_cb__inner {
