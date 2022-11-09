@@ -166,6 +166,9 @@ definitions:
           /search-bar:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/search-bar.ftl
+          /featuregrid:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/content-blocks/featuregrid.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
@@ -237,6 +240,12 @@ definitions:
               hst:iconpath: icons/textandcard.svg
               hst:label: Text and card
               hst:template: textandcard
+            /featuregrid:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.FeatureGridComponent
+              hst:iconpath: icons/featuregrid.svg
+              hst:label: Feature grid
+              hst:template: featuregrid
       /publishing:
         jcr:primaryType: hst:configuration
         hst:inheritsfrom: [../common]

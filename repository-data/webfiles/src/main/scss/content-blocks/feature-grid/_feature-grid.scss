@@ -5,7 +5,9 @@
 
 .ds_cb--feature-grid {
 
-    @include ds_responsive-padding(4, bottom);
+    .ds_wrapper {
+        @include ds_responsive-padding(4, bottom);
+    }
 
     // 2 items
     .ds_cb__inner {
@@ -90,11 +92,12 @@
         @include ds_responsive-padding(3, top);
         @include ds_responsive-padding(4, bottom);
         margin: 0;
+        position: relative;
         
         &-media {
             @include ds_media-query (medium-down) {
                 &--small-mobile {
-                    max-width: 384px;
+                    max-width: 360px;
                 }
             }
         }

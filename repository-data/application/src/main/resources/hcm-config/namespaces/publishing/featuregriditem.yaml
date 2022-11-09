@@ -1,87 +1,98 @@
 definitions:
   config:
-    /hippo:namespaces/publishing/smartanswersingleselectquestion:
+    /hippo:namespaces/publishing/featuregriditem:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: bfad70b6-1e62-4aac-ac06-47f891934447
+      jcr:uuid: 88c81c0c-3473-4292-a168-a6f8dcadcc6a
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 7f0ce4bc-9103-401f-aa50-0d1b9de0bfe3
+        jcr:uuid: ecb070dd-997c-4994-ab8e-694e61baf18f
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: d368f644-1785-4128-9fc3-4d5b787bc10e
+          jcr:uuid: f1a2bf6b-7abc-40f6-8bd7-54ade231de1c
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:smartanswerquestion', 'hippostd:relaxed',
+          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          /options:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:options
-            hipposysedit:primary: false
-            hipposysedit:type: publishing:smartanswersingleselectoption
-          /style:
+          /Title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:style
+            hipposysedit:path: publishing:title
             hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-            hipposysedit:validators: [required]
-          /defaultNextPage:
+            hipposysedit:type: String
+          /imagelink:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:defaultNextPage
+            hipposysedit:path: publishing:image
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
+          /string:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:alt
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /mirror:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:link
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
-            hipposysedit:validators: [smartanwer-next-page]
-          /dropdownLabel:
+          /string1:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:dropdownLabel
+            hipposysedit:path: publishing:externalLink
             hipposysedit:primary: false
             hipposysedit:type: String
-          /organisationtags:
+          /html:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:organisationtags
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:content
             hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [organisationtag-validator]
+            hipposysedit:type: hippostd:html
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: publishing:smartanswersingleselectquestion
+          jcr:primaryType: publishing:featuregriditem
+          hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
           hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: ''
-          hippotranslation:locale: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 87fb0ab1-7ac4-4e38-b99f-c7478ffd72c4
+          hippostdpubwf:lastModificationDate: 2022-11-09T16:10:31.878Z
+          hippostdpubwf:creationDate: 2022-11-09T16:10:31.878Z
           publishing:title: ''
-          publishing:organisationtags: []
-          jcr:uuid: d794ce90-4633-4ea1-9282-cc11ef39fe05
-          hippostdpubwf:lastModificationDate: 2022-09-05T09:51:15.216+01:00
-          hippostdpubwf:creationDate: 2022-09-05T09:51:15.216+01:00
-          publishing:style: ''
-          publishing:dropdownLabel: ''
+          publishing:externalLink: ''
+          publishing:alt: ''
+          /publishing:image:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+          /publishing:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
-          /publishing:defaultNextPage:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -95,9 +106,42 @@ definitions:
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /title:
             jcr:primaryType: frontend:plugin
-            caption: Title
-            field: title
+            caption: TItle
+            field: Title
             hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /image:
+            jcr:primaryType: frontend:plugin
+            caption: Image
+            field: imagelink
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /alt:
+            jcr:primaryType: frontend:plugin
+            caption: Image alt text
+            field: string
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /link:
+            jcr:primaryType: frontend:plugin
+            caption: Link
+            field: mirror
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /externalLink:
+            jcr:primaryType: frontend:plugin
+            caption: External link
+            field: string1
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -105,59 +149,12 @@ definitions:
           /content:
             jcr:primaryType: frontend:plugin
             caption: Content
-            field: content
-            hint: Content
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /options:
-            jcr:primaryType: frontend:plugin
-            caption: Options
-            field: options
+            field: html
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /style:
-            jcr:primaryType: frontend:plugin
-            caption: Presentation style
-            field: style
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              orientation: vertical
-              source: /content/documents/publishing/valuelists/smartanswersingleselectstyle
-          /defaultNextPage:
-            jcr:primaryType: frontend:plugin
-            caption: Default next page
-            field: defaultNextPage
-            hint: This is the next page that will be used for any of the options that
-              do not specify one.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /dropdownLabel:
-            jcr:primaryType: frontend:plugin
-            caption: Label for dropdown list
-            field: dropdownLabel
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /organisationtags:
-            jcr:primaryType: frontend:plugin
-            caption: Organisation tags
-            field: organisationtags
-            hint: List of organisations able to edit and publish the content in this
-              document
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-
+              ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
+                removePlugins: ''sourcearea,codemirror,youtube,specialchar'', removeButtons:
+                ''Styles,Table,PickImage,Underline,Strike,Subscript,Superscript,Indent,Outdent''}'
