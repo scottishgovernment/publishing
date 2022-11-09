@@ -2,8 +2,8 @@
 <#include "include/imports.ftl">
 <!--noindex-->
 <#if stepbysteps?? && stepbysteps?size gt 0>
-<aside class="ds_callout">
-    <h3>Part of</h3>
+<aside class="ds_callout  ds_step-navigation-top" aria-labelledby="step-navigation-topbar">
+    <h3 id="step-navigation-topbar">Part of <#if stepbysteps?size gt 1><span class="visually-hidden">${stepbysteps?size} step by step guides</span></#if></h3>
     <#if stepbysteps?size gt 1>
         <ul class="ds_no-bullets">
             <#list stepbysteps as stepbystep>

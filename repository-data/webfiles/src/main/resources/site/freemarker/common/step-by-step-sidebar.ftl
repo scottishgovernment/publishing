@@ -7,8 +7,8 @@
 
 <#if stepbysteps?size == 1>
     <#list stepbysteps as stepbystep>
-        <nav class="ds_step-navigation  ds_step-navigation--small" data-module="ds-step-navigation">
-            <h2 class="ds_step-navigation__title">
+        <nav class="ds_step-navigation  ds_step-navigation--small" aria-labelledby="step-navigation-sidebar" data-module="ds-step-navigation">
+            <h2 id="step-navigation-sidebar" class="ds_step-navigation__title">
                 Part of
                 <a class="ds_step-navigation__title-link" href="<@hst.link var=link hippobean=stepbystep.stepByStepGuide/>">${stepbystep.stepByStepGuide.title}</a>
             </h2>
