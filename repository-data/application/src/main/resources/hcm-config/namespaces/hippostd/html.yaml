@@ -2,7 +2,7 @@ definitions:
   config:
     /hippo:namespaces/hippostd/html/editor:templates/_default_:
       ckeditor.config.overlayed.json: '{language_list: [''en:English'',''gd:Gaelic (Scottish)'',''ru:Russian'',''uk:Ukrainian''], disallowedContent: ''*[style]{*}'',extraPlugins:
-        ''language,dialogadvtab2,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',extraAllowedContent:''embed;table[data-smallscreen];div[data-module,data-uuid,href,contenteditable];address[translate];span[lang]'',format_tags:''h1;h2;h3;h4;p;pre;address''}'
+        ''language,dialogadvtab2,youtube_enablejsapi,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',extraAllowedContent:''embed;table[data-smallscreen];div[data-module,data-uuid,href,contenteditable];address[translate];span[lang];iframe{*}[!width,!height,!src,!frameborder,!allowfullscreen]'',format_tags:''h1;h2;h3;h4;p;pre;address'',youtube_responsive:true,youtube_privacy:true,youtube_disabled_fields:[''chkResponsive'',''chkPrivacy'',''txtEmbed'',''chkOlderCode'']}'
       ckeditor.config.appended.json: '{toolbarGroups: [{name:''bidi''}]}'
     /hippo:namespaces/hippostd/html/editor:templates/_default_/root:
       plugin.class: scot.mygov.publishing.plugins.FragmentCKEditorNodePlugin
