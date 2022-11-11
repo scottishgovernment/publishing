@@ -2,18 +2,10 @@ package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
-import org.hippoecm.hst.configuration.hosting.Mount;
-import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
-import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent;
 import scot.gov.publishing.hippo.funnelback.component.SearchSettings;
-import scot.mygov.publishing.channels.WebsiteInfo;
-
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
 
 import static org.apache.commons.lang3.StringUtils.equalsAny;
 
@@ -42,8 +34,11 @@ public class SearchBarComponent extends BaseHstComponent {
      * determine if auto complete should be used for search bars
      */
     static void populateAutoCompleteFlag(HstRequest request) {
-
         SearchSettings searchSettings = ResilientSearchComponent.searchSettings();
+        request.setAttribute("autoCompleteEnabled", autoCompleteEnabled(searchSettings));
+    }
+
+    static boolean autoCompleteEnabled(SearchSettings searchSettings) {
         boolean autoCompleteEnabled = true;
         if (!searchSettings.isEnabled()) {
             autoCompleteEnabled = false;
@@ -51,6 +46,6 @@ public class SearchBarComponent extends BaseHstComponent {
         if ("bloomreach".equals(searchSettings.getSearchType())) {
             autoCompleteEnabled = false;
         }
-        request.setAttribute("autoCompleteEnabled", autoCompleteEnabled);
+        return autoCompleteEnabled;
     }
 }
