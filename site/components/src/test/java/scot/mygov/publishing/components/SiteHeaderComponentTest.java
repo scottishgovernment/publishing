@@ -118,29 +118,4 @@ public class SiteHeaderComponentTest {
         sut.setSiteTitle(request);
     }
 
-    @Test
-    public void displaysSearchBarInHeaderForRightFormats() {
-        assertFormatHosdesSearch("home", true);
-        assertFormatHosdesSearch("search", true);
-        assertFormatHosdesSearch("searchbloomreach", true);
-        assertFormatHosdesSearch("searchfunnelback", true);
-        assertFormatHosdesSearch("searchresilient", true);
-        assertFormatHosdesSearch("category", false);
-        assertFormatHosdesSearch("article", false);
-        assertFormatHosdesSearch("guide", false);
-    }
-
-    void assertFormatHosdesSearch(String format, boolean expected) {
-        SiteHeaderComponent sut = new SiteHeaderComponent();
-        ResolvedSiteMapItem resolvedSiteMapItem = mock(ResolvedSiteMapItem.class);
-        HstComponentConfiguration hstComponentConfiguration = mock(HstComponentConfiguration.class);
-        HstRequest request = mock(HstRequest.class);
-        HstRequestContext context = mock(HstRequestContext.class);
-        when(request.getRequestContext()).thenReturn(context);
-        when(context.getResolvedSiteMapItem()).thenReturn(resolvedSiteMapItem);
-        when(resolvedSiteMapItem.getHstComponentConfiguration()).thenReturn(hstComponentConfiguration);
-        when(hstComponentConfiguration.getName()).thenReturn(format);
-        sut.setSearchVisibility(request);
-        verify(request).setAttribute(eq("hideSearch"), eq(expected));
-    }
 }

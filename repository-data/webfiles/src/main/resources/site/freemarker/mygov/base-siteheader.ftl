@@ -11,16 +11,7 @@
                     <img width="300" height="58" class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/mygov.svg" />" alt="mygov.scot">
                 </a>
             </div>
-            <#if hideSearch>
-            <#else>
-            <div class="ds_site-header__search">
-                <#if autoCompleteEnabled>
-                    <#assign ds_autocomplete = true />
-                </#if>
-                <#assign searchcategory = "sitesearch" />
-                <#include '../common/include/search.ftl'/>
-            </div>
-            </#if>
+            <@hst.include ref="search-bar"/>
         </div>
     </div>
 </header>

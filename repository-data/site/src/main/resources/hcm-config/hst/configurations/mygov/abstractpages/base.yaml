@@ -12,6 +12,10 @@ definitions:
         jcr:primaryType: hst:component
         hst:componentclassname: scot.mygov.publishing.components.SiteHeaderComponent
         hst:template: mygov-siteheader
+        /search-bar:
+          jcr:primaryType: hst:component
+          hst:componentclassname: scot.mygov.publishing.components.SearchBarComponent
+          hst:template: search-bar
       /footer:
         jcr:primaryType: hst:component
         hst:componentclassname: scot.mygov.publishing.components.FooterComponent
