@@ -14,27 +14,42 @@ class AsyncSearch {
     }
 
     bindEvents() {
+        function querystringToObject(querystring) {
+            const search = querystring.substring(1);
+            return JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value); });
+        }
+
+        function objectToQuerystring(object) {
+            const string = [];
+            for (const prop in object) {
+                if (object.hasOwnProperty(prop)) {
+                    string.push(encodeURIComponent(prop) + "=" + encodeURIComponent(object[prop]));
+                }
+            }
+            return '?' + string.join("&");
+        }
+
         this.resultsContainer.addEventListener('click', event => {
             if (event.target.classList.contains('ds_pagination__link')) {
                 event.preventDefault();
 
                 const targetHref = event.target.href;
 
-                var targetUrlParams = new URLSearchParams(targetHref);
-                var currentUrlParams = new URLSearchParams(window.location.search);
+                var targetUrlParams = querystringToObject(targetHref);
+                var currentUrlParams = querystringToObject(window.location.search);
 
                 let page = 1;
 
-                if (targetUrlParams.get('page')) {
-                    page = targetUrlParams.get('page');
+                if (targetUrlParams.page) {
+                    page = targetUrlParams.page;
                 }
 
-                currentUrlParams.set('page', page);
+                currentUrlParams.page = page;
 
-                const pageUrl = `${window.location.pathname}?${currentUrlParams.toString()}`
+                const pageUrl = `${window.location.pathname}${objectToQuerystring(currentUrlParams)}`;
                 const lastPathElement = window.location.pathname.substring(window.location.pathname.lastIndexOf('/') + 1);
                 const urlWithReplacement = window.location.pathname.replace(lastPathElement, lastPathElement + 'results');
-                const resultsUrl = `${urlWithReplacement}?${currentUrlParams.toString()}`;
+                const resultsUrl = `${urlWithReplacement}${objectToQuerystring(currentUrlParams)}`;
                 this.loadResults(resultsUrl)
                     .then(value => {
                         window.history.pushState({}, '', pageUrl);
