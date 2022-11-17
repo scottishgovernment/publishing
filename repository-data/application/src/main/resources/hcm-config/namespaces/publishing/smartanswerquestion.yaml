@@ -41,6 +41,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
+          /organisationtags:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:organisationtags
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [organisationtag-validator]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -55,6 +64,7 @@ definitions:
           publishing:exitFunction: exit function ... decide based on previous answers
             what page to go to ...
           publishing:title: ''
+          publishing:organisationtags: []
           jcr:uuid: db7c18e0-a6a8-49e0-a66b-35d764c4196b
           hippostdpubwf:lastModificationDate: 2021-05-17T11:10:03.989+01:00
           hippostdpubwf:creationDate: 2021-05-17T11:10:03.989+01:00
@@ -94,6 +104,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Exit function
             field: exitFunction
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /organisationtags:
+            jcr:primaryType: frontend:plugin
+            caption: Organisation tags
+            field: organisationtags
+            hint: List of organisations able to edit and publish the content in this
+              document
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

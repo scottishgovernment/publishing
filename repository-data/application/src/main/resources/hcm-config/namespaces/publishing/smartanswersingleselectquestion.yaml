@@ -50,6 +50,15 @@ definitions:
             hipposysedit:path: publishing:dropdownLabel
             hipposysedit:primary: false
             hipposysedit:type: String
+          /organisationtags:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:organisationtags
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [organisationtag-validator]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -61,6 +70,7 @@ definitions:
           hippotranslation:locale: ''
           jcr:mixinTypes: ['mix:referenceable']
           publishing:title: ''
+          publishing:organisationtags: []
           jcr:uuid: d794ce90-4633-4ea1-9282-cc11ef39fe05
           hippostdpubwf:lastModificationDate: 2022-09-05T09:51:15.216+01:00
           hippostdpubwf:creationDate: 2022-09-05T09:51:15.216+01:00
@@ -140,3 +150,14 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /organisationtags:
+            jcr:primaryType: frontend:plugin
+            caption: Organisation tags
+            field: organisationtags
+            hint: List of organisations able to edit and publish the content in this
+              document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+

@@ -88,3 +88,13 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               base.path: .
+          /organisationtags:
+            jcr:primaryType: frontend:plugin
+            caption: Organisation tags
+            field: organisationtags
+            hint: List of organisations able to edit and publish the content in this
+              document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
