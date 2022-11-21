@@ -10,6 +10,7 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsDocumentComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.mygov.publishing.beans.ColumnImage;
 import scot.mygov.publishing.beans.ImageCard;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
@@ -84,16 +85,16 @@ public class SEOComponent extends EssentialsDocumentComponent {
         request.setAttribute("cardImage", imageCard);
     }
 
-    public ImageCard getDefaultImageCardForSite(HstRequestContext requestContext, WebsiteInfo websiteInfo) {
+    public ColumnImage getDefaultImageCardForSite(HstRequestContext requestContext, WebsiteInfo websiteInfo) {
         try {
             Object e = requestContext.getObjectConverter().getObject(
                     requestContext.getSession(), websiteInfo.getDefaultCardImage());
-
-            if(e != null && ImageCard.class.isAssignableFrom(e.getClass())) {
-                return (ImageCard) e;
+            if(e != null && ColumnImage.class.isAssignableFrom(e.getClass())) {
+                return (ColumnImage) e;
             }
 
-            LOG.info("unable to find default card image for request {}", websiteInfo.getSiteTitle());
+
+            LOG.info("unable to find default card image for request {}", requestContext.getServletRequest().getRequestURI());
             return null;
         } catch (ObjectBeanManagerException | RepositoryException e) {
             LOG.error("Exception trying to get default image card for site {}", websiteInfo.getSiteTitle(), e);

@@ -43,7 +43,7 @@ public interface WebsiteInfo extends ChannelInfo {
     @JcrPath(
             pickerConfiguration = "cms-pickers/images",
             isRelative = true,
-            pickerSelectableNodeTypes = {"publishing:ImageCard"},
+            pickerSelectableNodeTypes = {"publishing:ColumnImage"},
             pickerInitialPath = ""
     )
     String getDefaultCardImage();
