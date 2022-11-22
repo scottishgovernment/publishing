@@ -9,9 +9,9 @@ import org.onehippo.cms7.essentials.components.CommonComponent;
 @ParametersInfo(type = FeatureGridComponentInfo.class)
 public class FeatureGridComponent extends CommonComponent {
 
-    static final String TYPE = "publishing:featureitem";
+    static final String TYPE = "publishing:featuregriditem";
 
-    static final String INITIAL_PATH = "featureitems";
+    static final String INITIAL_PATH = "featuregriditems";
 
     static final String CMS_PICKERS_DOCUMENTS_ONLY = "cms-pickers/documents-only";
 

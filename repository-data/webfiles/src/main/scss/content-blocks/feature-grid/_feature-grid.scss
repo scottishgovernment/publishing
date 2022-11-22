@@ -92,11 +92,12 @@
         @include ds_responsive-padding(3, top);
         @include ds_responsive-padding(4, bottom);
         margin: 0;
+        position: relative;
         
         &-media {
             @include ds_media-query (medium-down) {
                 &--small-mobile {
-                    max-width: 384px;
+                    max-width: 360px;
                 }
             }
         }

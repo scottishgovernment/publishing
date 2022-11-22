@@ -35,40 +35,53 @@
         <div class="ds_cb__inner">
 
         <#list items as item>
+
+        <!-- set link where internal link has priority over external link -->
+        <#assign link>
+        <#if item.link??>
+            <@hst.link hippobean=item.link/>
+        <#elseif item.externalLink?has_content>
+            ${item.externalLink}
+        </#if>
+        </#assign>
         
             <#if item != ''>
                 <div class="ds_cb--feature-grid__item">
                     <#if showimages>
                         <div class="ds_cb--feature-grid__item-media  <#if smallvariant>ds_cb--feature-grid__item-media--small-mobile</#if>">
                             <div class="ds_aspect-box">
-                                <#if item.image.xlargefourcolumns??>
-                                    <img class="ds_aspect-box__inner" alt="${item.alt}" src="<@hst.link hippobean=item.image.xlargefourcolumns />"
-                                            width="${item.image.xlargefourcolumns.width?c}"
-                                            height="${item.image.xlargefourcolumns.height?c}"
+                            <#if link?has_content>
+                                <a href="${link}" tabindex="-1">
+                            </#if>    
+                                <#if item.image.xlargethreecolumns??>
+                                    <img class="ds_aspect-box__inner" alt="${item.alt}" src="<@hst.link hippobean=item.image.xlargethreecolumns />"
+                                            width="${item.image.xlargethreecolumns.width?c}"
+                                            height="${item.image.xlargethreecolumns.height?c}"
                                             loading="lazy"
                                             srcset="
                                             <@hst.link hippobean=item.image.smallcolumns/> 360w,
                                             <@hst.link hippobean=item.image.smallcolumnsdoubled/> 720w,
-                                            <@hst.link hippobean=item.image.mediumfourcolumns/> 224w,
-                                            <@hst.link hippobean=item.image.mediumfourcolumnsdoubled/> 448w,
-                                            <@hst.link hippobean=item.image.largefourcolumns/> 288w,
-                                            <@hst.link hippobean=item.image.largefourcolumnsdoubled/> 576w,
-                                            <@hst.link hippobean=item.image.xlargefourcolumns/> 352w,
-                                            <@hst.link hippobean=item.image.xlargefourcolumnsdoubled/> 704w"
-                                            sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, <#if smallvariant>360px<#else>100vw</#if>"
+                                            <@hst.link hippobean=item.image.mediumsixcolumns/> 352w,
+                                            <@hst.link hippobean=item.image.mediumsixcolumnsdoubled/> 704w,
+                                            <@hst.link hippobean=item.image.largethreecolumns/> 208w,
+                                            <@hst.link hippobean=item.image.largethreecolumnsdoubled/> 416w,
+                                            <@hst.link hippobean=item.image.xlargethreecolumns/> 256w,
+                                            <@hst.link hippobean=item.image.xlargethreecolumnsdoubled/> 512w"
+                                            sizes="(min-width:1200px) 256px, (min-width:992px) 208px, (min-width: 768px) 352px, <#if smallvariant>360px<#else>100vw</#if>"
                                             >
                                 <#else>
                                     <img loading="lazy" class="ds_aspect-box__inner" src="<@hst.link hippobean=item.image />" alt="${item.alt}"/>
                                 </#if>
+                            <#if link?has_content>
+                                </a>
+                            </#if>    
                             </div>
                         </div>
                     </#if>
                     <#if item.title??>
                         <${weight} class="ds_cb--feature-grid__item-title">
-                            <#if item.link??>
-                                <a href="<@hst.link hippobean=item.link/>">${item.title}</a>
-                            <#elseif item.externalLink?has_content>
-                                <a href="${item.externalLink}">${item.title}</a>
+                            <#if link?has_content>
+                                <a href="${link}">${item.title}</a>
                             <#else>
                                 ${item.title}
                             </#if>
@@ -76,11 +89,11 @@
                     </#if>
                     <#if item.content??>
                     <div class="ds_cb--feature-grid__item-summary">
-                        ${item.content}
+                        <@hst.html hippohtml=item.content/>
                     </div>
                     </#if>
 
-                    <@hst.manageContent hippobean=card documentTemplateQuery="new-navigationcard-document" parameterName="card" rootPath="navigationcards"/>
+                    <@hst.manageContent hippobean=item documentTemplateQuery="new-featuregriditem-document" parameterName="item" rootPath="featuregriditems"/>
                 </div>
             <#elseif editMode>
                 <div class="ds_cb--feature-grid__item  cms-blank">
@@ -96,7 +109,7 @@
                         <@placeholdertext lines=8/>
                     </div>
 
-                    <@hst.manageContent documentTemplateQuery="new-navigationcard-document" parameterName="card" rootPath="navigationcards"/>
+                    <@hst.manageContent documentTemplateQuery="new-featuregriditem-document" parameterName="item" rootPath="featuregriditems"/>
                 </div>
             </#if>
 
