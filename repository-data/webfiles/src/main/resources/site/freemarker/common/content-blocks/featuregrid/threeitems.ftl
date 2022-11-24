@@ -82,7 +82,8 @@
                             </#if>
                         </${weight}>
                     </#if>
-                    <#if item.content??>
+                    <@hst.html var="htmlcontent" hippohtml=item.content/>
+                    <#if htmlcontent?has_content>
                     <div class="ds_cb--feature-grid__item-summary">
                         <@hst.html hippohtml=item.content/>
                     </div>
