@@ -100,9 +100,11 @@ definitions:
         /_default_:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-            'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage', 'publishing:StepByStepGuide']
+            'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage',
+            'publishing:StepByStepGuide']
           hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-            'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage', 'hst:pages/stepbystepguide']
+            'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage',
+            'hst:pages/stepbystepguide']
           hst:relativecontentpath: ${parent}/${1}
           hst:sitemapitemhandlerids: [trailing-slash]
           hst:componentconfigurationid: hst:pages/article
@@ -110,36 +112,44 @@ definitions:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/article
             hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-              'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage', 'publishing:StepByStepGuide']
+              'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage',
+              'publishing:StepByStepGuide']
             hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-              'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage', 'hst:pages/stepbystepguide']
+              'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage',
+              'hst:pages/stepbystepguide']
             hst:relativecontentpath: ${parent}/${2}
             hst:sitemapitemhandlerids: [trailing-slash]
             /_default_:
               jcr:primaryType: hst:sitemapitem
               hst:componentconfigurationid: hst:pages/article
               hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-                'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage', 'publishing:StepByStepGuide']
+                'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage',
+                'publishing:StepByStepGuide']
               hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-                'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage', 'hst:pages/stepbystepguide']
+                'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage',
+                'hst:pages/stepbystepguide']
               hst:relativecontentpath: ${parent}/${3}
               hst:sitemapitemhandlerids: [trailing-slash]
               /_default_:
                 jcr:primaryType: hst:sitemapitem
                 hst:componentconfigurationid: hst:pages/article
                 hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-                  'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage', 'publishing:StepByStepGuide']
+                  'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage',
+                  'publishing:StepByStepGuide']
                 hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-                  'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage', 'hst:pages/stepbystepguide']
+                  'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage',
+                  'hst:pages/stepbystepguide']
                 hst:relativecontentpath: ${parent}/${4}
                 hst:sitemapitemhandlerids: [trailing-slash]
                 /_default_:
                   jcr:primaryType: hst:sitemapitem
                   hst:componentconfigurationid: hst:pages/article
                   hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-                    'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage', 'publishing:StepByStepGuide']
+                    'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage',
+                    'publishing:StepByStepGuide']
                   hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-                    'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage', 'hst:pages/stepbystepguide']
+                    'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage',
+                    'hst:pages/stepbystepguide']
                   hst:relativecontentpath: ${parent}/${5}
                   hst:sitemapitemhandlerids: [trailing-slash]
                   /_default_:
@@ -336,3 +346,9 @@ definitions:
           hst:componentconfigurationid: hst:pages/searchresilientresults
           hst:relativecontentpath: site-furniture/search/search-results
           hst:sitemapitemhandlerids: [trailing-slash]
+        /health:
+          jcr:primaryType: hst:sitemapitem
+          hst:excludedforlinkrewriting: true
+          hst:hiddeninchannelmanager: true
+          hst:namedpipeline: JaxrsRestPlainPipeline
+          hst:cacheable: false
