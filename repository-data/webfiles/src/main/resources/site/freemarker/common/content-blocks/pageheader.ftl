@@ -81,7 +81,8 @@
         </div>
     </div>
 <#if document??>
-    <#if document.aside??>
+    <@hst.html var="htmlaside" hippohtml=document.aside/>
+    <#if htmlaside?has_content>
     <aside class="ds_cb  ds_cb--page-title__aside
     <#if asidebackgroundcolor?? && asidebackgroundcolor?length gt 0>  ds_cb--bg-${asidebackgroundcolor}</#if>
     <#if fullwidth>  ds_cb--fullwidth</#if>

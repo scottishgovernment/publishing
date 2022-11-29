@@ -37,7 +37,8 @@
 
 <div class="category-lower  ds_pre-footer-background">
     <div class="ds_wrapper">
-        <#if document.prologue??>
+        <@hst.html var="htmlprologue" hippohtml=document.prologue/>
+        <#if htmlprologue?has_content>
             <@hst.html hippohtml=document.prologue/>
         </#if>
 
@@ -64,9 +65,10 @@
         </div>
         </div>
 
-            <#if document.epilogue??>
-                <@hst.html hippohtml=document.epilogue/>
-            </#if>
+        <@hst.html var="htmlepilogue" hippohtml=document.epilogue/>
+        <#if htmlepilogue?has_content>
+            <@hst.html hippohtml=document.epilogue/>
+        </#if>
         </div>
     </div>
 </#if>
