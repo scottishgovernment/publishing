@@ -47,7 +47,8 @@
                         </div>
 
                         <div id="cms-additional-content-source" class="fully-hidden">
-                            <#if document.additionalContent?has_content>
+                            <@hst.html var="htmladditional" hippohtml=document.additionalContent/>
+                            <#if htmladditional?has_content>
                                 <@hst.html hippohtml=document.additionalContent/>
                             </#if>
                         </div>

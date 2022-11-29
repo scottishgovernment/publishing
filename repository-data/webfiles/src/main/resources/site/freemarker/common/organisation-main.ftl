@@ -48,7 +48,8 @@
 
             <div class="ds_layout__content">
                 <section class="page-section">
-                    <#if document.content?has_content>
+                    <@hst.html var="htmlcontent" hippohtml=document.content/>
+                    <#if htmlcontent?has_content>
                         <div class="ds_leader">
                             <@hst.html hippohtml=document.content/>
                         </div>
