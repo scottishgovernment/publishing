@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: 589afe7a-ea2a-4ede-bca4-a3b6f2ba3f52
+          jcr:uuid: 2b7e24d0-6453-4874-8867-91d73430e1b5
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -51,12 +51,20 @@ definitions:
             hipposysedit:path: publishing:additionalContent
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /formdisabled:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:formdisabled
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 8eba0e78-efd3-43ee-8383-293c76fb6be3
+          jcr:uuid: e9b480fd-fe11-42be-a3bf-ccb17a280dfd
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -77,6 +85,7 @@ definitions:
           publishing:slug: ''
           publishing:summary: ''
           publishing:title: ''
+          publishing:formdisabled: false
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -260,6 +269,15 @@ definitions:
             field: showInParent
             hint: Indicates whether the page should appear in the site navigation
               and site search results
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /formdisabled:
+            jcr:primaryType: frontend:plugin
+            caption: Disable form
+            field: formdisabled
+            hint: Remove the "start" button from the intro page
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
