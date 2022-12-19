@@ -23,6 +23,10 @@ public class SlugMaintenanceListener {
 
     private static final Logger LOG = LoggerFactory.getLogger(SlugMaintenanceListener.class);
 
+    private static final String PREVIEW = "preview";
+
+    private static final String LIVE = "live";
+
     Session session;
 
     SlugLookups slugLookups;
@@ -47,8 +51,19 @@ public class SlugMaintenanceListener {
     }
 
     void doHandleEvent(HippoWorkflowEvent event) throws RepositoryException {
+
+        if (isFolderMove(event)) {
+            updateLookupsInFolderForFolderMove(event);
+            return;
+        }
+
+        if (isFolderCopy(event)) {
+            updateLookupsInFolderForFolderCopy(event);
+            return;
+        }
+
         if (isFolderRename(event)) {
-            updateLookupsInFolder(event);
+            updateLookupsInFolderForFolderRename(event);
             return;
         }
 
@@ -61,22 +76,27 @@ public class SlugMaintenanceListener {
             return;
         }
 
+        handleEventByAction(event, subject);
+    }
+
+
+    void handleEventByAction(HippoWorkflowEvent event, Node subject) throws RepositoryException {
         switch (event.action()) {
             case "commitEditableInstance":
-                slugLookups.updateLookup(subject, "preview");
-            break;
+                slugLookups.updateLookup(subject, PREVIEW);
+                break;
 
             case "publish" :
-                slugLookups.updateLookup(subject, "live");
-            break;
+                slugLookups.updateLookup(subject, LIVE);
+                break;
 
             case "depublish":
-                slugLookups.removeLookup(subject, "live");
-            break;
+                slugLookups.removeLookup(subject, LIVE);
+                break;
 
             case "delete":
-                slugLookups.removeLookup(subject, "preview");
-            break;
+                slugLookups.removeLookup(subject, PREVIEW);
+                break;
 
             default:
         }
@@ -90,24 +110,75 @@ public class SlugMaintenanceListener {
         return "embedded:folder-extended:rename".equals(event.interaction());
     }
 
-    void updateLookupsInFolder(HippoWorkflowEvent event) throws RepositoryException {
-        String sitename = event.subjectPath().split("/")[3];
-        String relpath = substringAfter(event.subjectPath(), sitename);
-        String oldName = event.arguments().get(0).toString();
-        String newName = event.arguments().get(1).toString();
-        String xpath = String.format(
-                "/jcr:root/content/urls/%s//element(*, nt:unstructured)[jcr:like(@publishing:path, '%s/%s/%%')]",
-                sitename,
-                relpath,
-                oldName);
-        hippoUtils.executeXpathQuery(session, xpath, node -> fixPublishingPath(node, relpath, oldName, newName));
+    boolean isFolderMove(HippoWorkflowEvent event) {
+        if (!"moveFolder".equals(event.action())) {
+            return false;
+        }
+
+        return "threepane:folder-permissions:moveFolder".equals(event.interaction());
+    }
+
+    boolean isFolderCopy(HippoWorkflowEvent event) {
+        if (!"copyFolder".equals(event.action())) {
+            return false;
+        }
+
+        return "threepane:folder-permissions:copyFolder".equals(event.interaction());
+    }
+
+    void updateLookupsInFolderForFolderRename(HippoWorkflowEvent event) throws RepositoryException {
+        String sitename = getSitenameFromSubjectPath(event.subjectPath());
+        String fromPath = substringAfter(event.subjectPath(), sitename) + "/" + event.arguments().get(0).toString();
+        String toPath =   substringAfter(event.subjectPath(), sitename) + "/" + event.arguments().get(1).toString();
+        updateUrlLookupsForFolderMove(sitename, fromPath, toPath);
         session.save();
     }
 
-    void fixPublishingPath(Node node, String relpath, String oldName, String newName) throws RepositoryException {
-        String path = node.getProperty("publishing:path").getString();
-        String newPath = path.replace(relpath + "/" + oldName, relpath + "/" + newName);
-        node.setProperty("publishing:path", newPath);
+    void updateLookupsInFolderForFolderMove(HippoWorkflowEvent event) throws RepositoryException {
+
+        String sitename = getSitenameFromSubjectPath(event.subjectPath());
+        String fromPath = substringAfter(event.subjectPath(), sitename);
+        String toFolder = session.getNodeByIdentifier(event.arguments().get(2).toString()).getPath();
+        String toPath = substringAfter(toFolder, sitename) + "/" + event.arguments().get(3);
+        updateUrlLookupsForFolderMove(sitename, fromPath, toPath);
+        session.save();
+    }
+
+    void updateUrlLookupsForFolderMove(String sitename, String fromPath, String toPath) throws RepositoryException{
+        String xpath = String.format(
+                "/jcr:root/content/urls/%s//element(*, nt:unstructured)[jcr:like(@publishing:path, '%s/%%')]",
+                sitename,
+                fromPath);
+        LOG.info("updateUrlLookupsForFolderMove {}", xpath);
+        hippoUtils.executeXpathQuery(session, xpath, node -> {
+            String oldPath = node.getProperty("publishing:path").getString();
+            String newPath = oldPath.replace(fromPath, toPath);
+            LOG.info("setting {} -> {}", oldPath, newPath);
+            node.setProperty("publishing:path", newPath);
+        });
+    }
+
+    void updateLookupsInFolderForFolderCopy(HippoWorkflowEvent event) throws RepositoryException {
+        String sitename = getSitenameFromSubjectPath(event.subjectPath());
+        String toFolder = session.getNodeByIdentifier(event.arguments().get(2).toString()).getPath();
+        String toPath = substringAfter(toFolder, sitename) + "/" + event.arguments().get(3);
+        String xpath = String.format(
+                "/jcr:root/content/documents/%s%s//*[publishing:slug != '']",
+                sitename,
+                toPath);
+
+        hippoUtils.executeXpathQuery(session, xpath, node -> {
+            String slug = node.getProperty(SLUG).getString();
+            String newSlug = slug + "-copy";
+            node.setProperty(SLUG, newSlug);
+            session.save();
+            slugLookups.updateLookup(node.getParent(), PREVIEW);
+            LOG.info("updateLookupsInFolderForFolderCopy {}: {} -> {}", node.getPath());
+        });
+    }
+
+    String getSitenameFromSubjectPath(String path) {
+        return path.split("/")[3];
     }
 
     boolean requiresSlug(Node subject) throws RepositoryException {

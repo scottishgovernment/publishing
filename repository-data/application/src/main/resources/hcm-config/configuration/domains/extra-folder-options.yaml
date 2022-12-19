@@ -1,0 +1,26 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/extra-folder-options/editor:
+      jcr:primaryType: hipposys:authrole
+      hipposys:groups:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [mygov-editors, orgs-social-security-editors]
+      hipposys:role: folderctxmenus-editor
+      hipposys:users:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        operation: override
+        type: string
+        value: []
+    /hippo:configuration/hippo:domains/extra-folder-options/content-document-domain:
+      jcr:primaryType: hipposys:domainrule
+      /browse-folder-and-descendants:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: true
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/documents/mygov/browse
+    /hippo:configuration/hippo:domains/extra-folder-options/content-domain:
+      .meta:delete: true
