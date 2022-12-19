@@ -84,6 +84,8 @@
 
     <hystrix-javanica.version>1.5.12</hystrix-javanica.version>
 
+    <forge.folderctxmenus.version>5.0.0</forge.folderctxmenus.version>
+
     <log4j2.version>2.17.0</log4j2.version>
   </properties>
 
@@ -156,6 +158,21 @@
         <artifactId>junit</artifactId>
         <version>4.11</version>
         <scope>test</scope>
+      </dependency>
+
+
+        <!-- NOTE: You should set a property named 'forge.folderctxmenus.version' to a version of this plugin! -->
+
+      <dependency>
+        <groupId>org.onehippo.forge.folderctxmenus</groupId>
+        <artifactId>folderctxmenus-repository</artifactId>
+        <version>${forge.folderctxmenus.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.onehippo.forge.folderctxmenus</groupId>
+        <artifactId>folderctxmenus-frontend</artifactId>
+        <version>${forge.folderctxmenus.version}</version>
       </dependency>
 
     </dependencies>
