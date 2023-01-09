@@ -52,7 +52,7 @@ class AsyncSearch {
                 const resultsUrl = `${urlWithReplacement}${objectToQuerystring(currentUrlParams)}`;
                 this.loadResults(resultsUrl)
                     .then(value => {
-                        window.history.pushState({}, '', pageUrl);
+                        window.history.pushState({page:page}, '', pageUrl);
                         this.populateResults(value.responseText);
                     })
                     .catch(error => {
@@ -62,15 +62,17 @@ class AsyncSearch {
             }
         });
 
-        window.addEventListener('popstate', () => {
-            const resultsUrl = window.location.href.replace('/funnelback?', '/funnelbackresults?');
-            this.loadResults(resultsUrl)
-                .then(value => {
-                    this.populateResults(value.responseText);
-                })
-                .catch(error => {
-                    console.log('Failed to fetch additional results.', error);
-                });
+        window.addEventListener('popstate', event => {
+            if (event.state) {
+                const resultsUrl = window.location.href.replace('/funnelback?', '/funnelbackresults?');
+                this.loadResults(resultsUrl)
+                    .then(value => {
+                        this.populateResults(value.responseText);
+                    })
+                    .catch(error => {
+                        console.log('Failed to fetch additional results.', error);
+                    });
+            }
         });
     }
 
@@ -80,14 +82,9 @@ class AsyncSearch {
     }
 
     populateResults(html) {
-        document.getElementById('search-results').innerHTML = html;
-
+        this.resultsContainer.innerHTML = html;
         const rect = this.resultsContainer.getBoundingClientRect();
-        window.setTimeout(() => {
-            window.scrollTo(window.scrollX, window.scrollY + rect.top);
-        }, 0);
-
-        temporaryFocus(this.resultsContainer);
+        window.scrollTo(window.scrollX, document.documentElement.scrollTop + rect.top);
 
         window.DS.tracking.init(this.resultsContainer);
     }
