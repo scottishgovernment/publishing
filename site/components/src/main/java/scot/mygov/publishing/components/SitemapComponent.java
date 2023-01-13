@@ -18,19 +18,22 @@ import javax.jcr.query.QueryResult;
 import org.onehippo.forge.sitemap.components.model.Url;
 import org.onehippo.forge.sitemap.components.model.Urlset;
 import org.onehippo.forge.sitemap.generator.SitemapGenerator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Calendar;
+
+import static org.apache.commons.lang3.StringUtils.endsWith;
 
 /**
  * Component to produce a sitemap.xml.  This class uses code from the forge plugin to produce the XML.
  *
  * Currently this component is only suitable for smallish sites (< 500 pages).
  *
- * TODO:
- * - do we want the /index ?
- * - do we want to include the home page?
  */
 public class SitemapComponent extends BaseHstComponent {
+
+    private static final Logger LOG = LoggerFactory.getLogger(SitemapComponent.class);
 
     private static final int MAX_ITEMS_PER_SITEMAP = 500;
 
@@ -62,7 +65,11 @@ public class SitemapComponent extends BaseHstComponent {
             Node child = resultIterator.nextNode();
             String path = linkCreator.create(child, mount).toUrlForm(context, true);
             Url url = url(path, child);
-            urlset.getUrls().add(url);
+            // do not include etries whose url is pagenotfound.  This can happen if a document is published that is
+            // not used in a pge - for example the seo pages in a campaign if they are never used as a primary document.
+            if (!endsWith(url.getLoc(), "/pagenotfound")) {
+                urlset.getUrls().add(url);
+            }
         }
         return urlset;
     }

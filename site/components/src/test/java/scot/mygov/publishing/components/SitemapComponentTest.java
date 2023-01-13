@@ -80,11 +80,16 @@ public class SitemapComponentTest {
         List<Node> nodes = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
         Node one = node(calendar);
-        Collections.addAll(nodes, one);
-        HstLink expectedLink = mock(HstLink.class);
-        when(expectedLink.toUrlForm(context, true)).thenReturn("expectedurl");
-        when(linkCreator.create(one, mount)).thenReturn(expectedLink);
+        Node two = node(calendar);
 
+        Collections.addAll(nodes, one, two);
+
+        HstLink expectedLinkOne = mock(HstLink.class);
+        HstLink expectedLinkTwo = mock(HstLink.class);
+        when(expectedLinkOne.toUrlForm(context, true)).thenReturn("expectedurl");
+        when(expectedLinkTwo.toUrlForm(context, true)).thenReturn("https://www.mygov.scot/pagenotfound");
+        when(linkCreator.create(one, mount)).thenReturn(expectedLinkOne);
+        when(linkCreator.create(two, mount)).thenReturn(expectedLinkTwo);
 
         // linkCreator.create(child, mount).toUrlForm(context, true);
         when(result.getNodes()).thenReturn(iterator(nodes));
@@ -92,7 +97,7 @@ public class SitemapComponentTest {
         // ACT
         Urlset actual = SitemapComponent.generateSitemap(request);
 
-        // ASSERT
+        // ASSERT - the pagenot found liinke should not have been included
         assertEquals(1, actual.getUrls().size());
         assertEquals(actual.getUrls().get(0).getLoc(), "expectedurl");
         assertEquals(actual.getUrls().get(0).getLastmod(), calendar);
