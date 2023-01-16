@@ -18,8 +18,6 @@ import javax.jcr.query.QueryResult;
 import org.onehippo.forge.sitemap.components.model.Url;
 import org.onehippo.forge.sitemap.components.model.Urlset;
 import org.onehippo.forge.sitemap.generator.SitemapGenerator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Calendar;
 
@@ -32,8 +30,6 @@ import static org.apache.commons.lang3.StringUtils.endsWith;
  *
  */
 public class SitemapComponent extends BaseHstComponent {
-
-    private static final Logger LOG = LoggerFactory.getLogger(SitemapComponent.class);
 
     private static final int MAX_ITEMS_PER_SITEMAP = 500;
 
