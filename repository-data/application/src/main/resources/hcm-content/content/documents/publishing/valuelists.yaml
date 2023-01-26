@@ -1040,6 +1040,14 @@
         jcr:primaryType: selection:listitem
         selection:key: orgs-social-security-authors
         selection:label: social-security
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: orgs-disclosure-scotland-editors
+        selection:label: disclosure-scotland
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: orgs-disclosure-scotland-authors
+        selection:label: disclosure-scotland
   /smartanswermultiplechoicestyle:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
