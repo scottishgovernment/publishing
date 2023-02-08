@@ -1,5 +1,7 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<@hst.link var="sitelink" hippobean=baseBean canonical=true fullyQualified=true/>
+
 <#if contentBean??>
     <@hst.headContribution category="meta">
         <meta name="dc.title" content="${contentBean.title}"/>
@@ -35,7 +37,7 @@
         </@hst.headContribution>
     </#if>
     <@hst.link var="link" canonical=true fullyQualified=true/>
-    <@hst.link var="sitelink" hippobean=baseBean canonical=true fullyQualified=true/>
+
     <@hst.headContribution category="canonical">
         <link rel="canonical"  href="${link}" />
     </@hst.headContribution>
@@ -86,27 +88,7 @@
     <title>${titletag}</title>
     </@hst.headContribution>
 
-    <@hst.headContribution category="title">
-        <script type="application/ld+json">
-            {
-              "@context" : "https://schema.org",
-              "@type" : "WebSite",
-              "name" : "${sitetitle}",
-              "url" : "${sitelink}"<#if isSearchEnabled>,
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": {
-                    "@type": "EntryPoint",
-                    "urlTemplate": "${sitelink}search?q={search_term_string}"
-                },
-                "query-input": "required name=search_term_string"
-              }
-              <#else>
 
-              </#if>
-            }
-        </script>
-    </@hst.headContribution>
 
     <#if hstRequestContext.preview>
         <div class="ds_wrapper  cms-visible-if-show-components" style="padding: 5px 0; position: relative;">
@@ -121,3 +103,25 @@
         <@hst.manageContent documentTemplateQuery="new-seo-document" parameterName="document" rootPath="seo"/>
     </div>
 </#if>
+
+<@hst.headContribution category="title">
+<script type="application/ld+json">
+{
+  "@context" : "https://schema.org",
+  "@type" : "WebSite",
+  "name" : "${sitetitle}",
+  "url" : "${sitelink}"<#if isSearchEnabled>,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "${sitelink}search?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+  <#else>
+
+  </#if>
+}
+</script>
+</@hst.headContribution>
