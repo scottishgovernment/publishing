@@ -8,6 +8,9 @@
         <property name="baseUri" value="${funnelback.url}" />
         <property name="restTemplate">
             <bean class="org.springframework.web.client.RestTemplate">
+
+                <constructor-arg index="0" ref="org.springframework.http.client.ClientHttpRequestFactory" />
+
                 <property name="interceptors">
                     <list>
                         <bean class="scot.gov.publishing.hippo.funnelback.client.SecurityTokenInterceptor">
