@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 239bd615-7e49-4e0b-9dc8-8b937df69040
+          jcr:uuid: 3ce13a1d-4407-48ac-86e0-42b197f77639
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -32,6 +32,7 @@ definitions:
             hipposysedit:path: publishing:title
             hipposysedit:primary: false
             hipposysedit:type: String
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -63,6 +64,7 @@ definitions:
             field: title
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /document:
