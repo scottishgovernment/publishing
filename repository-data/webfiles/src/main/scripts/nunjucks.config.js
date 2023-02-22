@@ -81,7 +81,7 @@ module.exports = function (env) {
     });
 
     env.addFilter('decimalToPercent', function (value) {
-        return `${value * 100}%`;
+        return `${(value * 100).toFixed(2)}%`;
     });
 
     // env.addExtension(...) etc
