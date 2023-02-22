@@ -43,7 +43,8 @@ const formSections = [
             {
                 slug: 'property',
                 title: 'Property',
-                hideSubsectionNav: true
+                hideSubsectionNav: true,
+                hideSectionNav: true
             }
         ]
     },
@@ -59,6 +60,7 @@ const formSections = [
                 slug: 'result',
                 title: 'Results',
                 hideSubsectionNav: true,
+                hideSectionNav: true,
                 triggerEvent: 'createResultsPage',
                 noFormBox: true
             }
@@ -90,6 +92,15 @@ const businessRatesCalculator = {
     apiUrl: '/address/?search=',
 
     init: function (today = new Date()) {
+        // date override from querystring
+        const qsParams = new URLSearchParams(window.location.search);
+        if (qsParams.get('date')) {
+            const date = new Date(`${qsParams.get('date').substring(0,4)}-${qsParams.get('date').substring(4,6)}-${qsParams.get('date').substring(6,8)}`);
+            if (!isNaN(date.getTime())) {
+                today = date;
+            }
+        }
+
         // append form template
         const formTemplateContainer = document.querySelector('#form-container');
         if (!formTemplateContainer) {
@@ -108,26 +119,28 @@ const businessRatesCalculator = {
         this.form.init();
         feedback.init();
 
-
         // taken from provided spreadsheet
         this.ratesCalculatorData = {};
 
-        this.ratesCalculatorData.sbbs_100_rv_threshold = 15000;
+        this.ratesCalculatorData.sbbs_100_rv_threshold = 12000;
         this.ratesCalculatorData.sbbs_100_percentage_relief = 1;
         this.ratesCalculatorData.sbbs_25_rv_threshold = 18000;
         this.ratesCalculatorData.sbbs_25_percentage_relief = 0.25;
         this.ratesCalculatorData.sbbs_combined_threshold = 35000;
-        this.ratesCalculatorData.financial_year = '2021-2022';
-        this.ratesCalculatorData.poundage = 0.490;
+        this.ratesCalculatorData.financial_year = '2022-2023';
+        this.ratesCalculatorData.poundage = 0.498;
         this.ratesCalculatorData.intermediate_business_supplement_threshold = 51000;
         this.ratesCalculatorData.intermediate_business_supplement = 0.013;
         this.ratesCalculatorData.large_business_supplement_threshold = 95000;
         this.ratesCalculatorData.large_business_supplement = 0.026;
 
-        const newFiscalYeardate = new Date(2022, 3, 1);
+        const newFiscalYeardate = new Date(2023, 3, 1);
         if (today > newFiscalYeardate) {
-            this.ratesCalculatorData.financial_year = '2022-2023';
-            this.ratesCalculatorData.poundage = 0.498;
+            this.ratesCalculatorData.financial_year = '2023-2024';
+            this.ratesCalculatorData.intermediate_business_supplement_threshold = 51001;
+            this.ratesCalculatorData.large_business_supplement_threshold = 100000;
+
+            this.getSBBSFraction = this.getSBBSFraction_2023;
         }
 
         // adjust this to use different value types, e.dg. current rateable value or proposed rateable value
@@ -258,6 +271,7 @@ const businessRatesCalculator = {
         const addressButton = document.getElementById('find-by-address');
         postcodeButton.setAttribute('disabled', true);
         addressButton.setAttribute('disabled', true);
+        const propertySelectWrapper = document.querySelector('#property-select-wrapper');
 
         // do search
         this.promiseRequest(`${businessRatesCalculator.apiUrl}${searchTerm}`)
@@ -266,13 +280,16 @@ const businessRatesCalculator = {
                     const result = JSON.parse(data.response);
 
                     if (result.properties && result.properties.length) {
+                        delete propertySelectWrapper.dataset.error;
                         businessRatesCalculator.searchResults = result.properties;
                         businessRatesCalculator.showSearchResults();
                     } else if (result.resultType === 'too-many-results') {
-                        document.querySelector('#property-select-wrapper').innerHTML = `<h3>Too many results</h3>
+                        propertySelectWrapper.dataset.error = 'too-many-results';
+                        propertySelectWrapper.innerHTML = `<h3>Too many results</h3>
                         <p>Sorry, the information you entered returned too many properties. Please enter more of the address or postcode. Use the <a href="http://www.royalmail.com/find-a-postcode">Royal Mail website</a> to find the postcode.</p>`;
                     } else {
-                        document.querySelector('#property-select-wrapper').innerHTML = `<h3>No results found</h3>
+                        propertySelectWrapper.dataset.error = 'no-results-found';
+                        propertySelectWrapper.innerHTML = `<h3>No results found</h3>
                         <p>Please check that the address or postcode you're searching for is valid and in Scotland. The calculator uses address data from the Scottish Assessors Association (SAA).</p>
                         <p>If you have entered a valid business location and your property can't be found, <a id="unlisted" href="https://www.saa.gov.uk/contact-us/feedback/">please report this to the Scottish Assessors Association</a>.</p>`;
                         }
@@ -281,7 +298,8 @@ const businessRatesCalculator = {
                     addressButton.removeAttribute('disabled');
                 },
                 (error) => {
-                    document.querySelector('#property-select-wrapper').innerHTML = `<h3>No results found</h3>
+                    propertySelectWrapper.dataset.error = 'no-results-found';
+                    propertySelectWrapper.innerHTML = `<h3>No results found</h3>
                     <p>Please check that the address or postcode you're searching for is valid and in Scotland. The calculator uses address data from the Scottish Assessors Association (SAA).</p>
                     <p>If you have entered a valid business location and your property can't be found, <a id="unlisted" href="https://www.saa.gov.uk/contact-us/feedback/">please report this to the Scottish Assessors Association</a>.</p>`;
 
@@ -425,6 +443,51 @@ const businessRatesCalculator = {
      * @param {object} property The building currently being considered.
      * @return {number} The percentage relief to be applied.
      */
+    getSBBSFraction_2023: function (totalRateable, property) {
+        let sbbsReliefFraction;
+
+        const sbbs_combined_threshold = 35000;
+        const sbbs_mid_threshold = 12000;
+        const sbbs_high_threshold = 15000;
+        const sbbs_high_cutoff = 20000;
+
+        function sbbs_mid_function (rv) {
+            return (1 - (0.75 * (1 - (sbbs_mid_threshold - rv) / 3000)));
+        }
+
+        function sbbs_high_function (rv) {
+            return 0.25 * ((sbbs_high_cutoff - rv)/5000);
+        }
+
+        if (this.selectedProperties.length) {
+            // multiple properties
+            if (totalRateable > sbbs_combined_threshold) {
+                sbbsReliefFraction = 0;
+            } else {
+                if (property.rv > sbbs_high_threshold) {
+                    sbbsReliefFraction = sbbs_high_function(property.rv);
+                } else if (property.rv > sbbs_mid_threshold) {
+                    sbbsReliefFraction = 0.25;
+                } else {
+                    sbbsReliefFraction = 1;
+                }
+            }
+        } else {
+            // single property
+            if (property.rv > sbbs_high_cutoff) {
+                sbbsReliefFraction = 0;
+            } else if (property.rv > sbbs_high_threshold) {
+                sbbsReliefFraction = sbbs_high_function(property.rv);
+            } else if (property.rv > sbbs_mid_threshold) {
+                sbbsReliefFraction = sbbs_mid_function(property.rv);
+            } else {
+                sbbsReliefFraction = 1;
+            }
+        }
+
+        return sbbsReliefFraction;
+    },
+
     getSBBSFraction: function (totalRateable, property) {
         let sbbsReliefFraction;
 
@@ -452,7 +515,7 @@ const businessRatesCalculator = {
         fieldGroup.classList.add('ds_question--error');
 
         const messageEl = document.createElement('p');
-        messageEl.classList.add('ds_question__message');
+        messageEl.classList.add('ds_question__error-message');
         messageEl.setAttribute('data-form', 'error-more-detail');
         messageEl.innerHTML = message;
 
@@ -478,7 +541,7 @@ const businessRatesCalculator = {
             field.removeAttribute('aria-invalid');
         });
 
-        const messageEl = fieldGroup.querySelector('.ds_question__message');
+        const messageEl = fieldGroup.querySelector('.ds_question__error-message');
         if (messageEl) {
             messageEl.parentNode.removeChild(messageEl);
         }
@@ -494,7 +557,7 @@ const businessRatesCalculator = {
         field.setAttribute('aria-invalid', true);
 
         const messageEl = document.createElement('p');
-        messageEl.classList.add('ds_question__message');
+        messageEl.classList.add('ds_question__error-message');
         messageEl.setAttribute('data-form', 'error-more-detail');
         messageEl.innerHTML = message;
 
@@ -513,7 +576,7 @@ const businessRatesCalculator = {
         field.classList.remove('ds_input--error');
         field.removeAttribute('aria-invalid');
 
-        const messageEl = questionEl.querySelector('.ds_question__message');
+        const messageEl = questionEl.querySelector('.ds_question__error-message');
         if (messageEl) {
             messageEl.parentNode.removeChild(messageEl);
         }

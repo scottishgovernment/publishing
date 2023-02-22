@@ -28,6 +28,10 @@
     <p class="discount">{{property.appliedRelief.fraction | decimalToPercent}} discount</p>
     <p>{{property.appliedRelief.amount | currencyFormatted}}</p>
 
+    {% else %}
+
+    <p>None</p>
+
     {% endif %}
 
     </div>
