@@ -452,14 +452,14 @@ const businessRatesCalculator = {
         const sbbs_high_cutoff = 20000;
 
         function sbbs_mid_function (rv) {
-            return (1 - (0.75 * (1 - (sbbs_mid_threshold - rv) / 3000)));
+            return (1 - (0.75 * (1 - (sbbs_high_threshold - rv) / 3000)));
         }
 
         function sbbs_high_function (rv) {
             return 0.25 * ((sbbs_high_cutoff - rv)/5000);
         }
 
-        if (this.selectedProperties.length) {
+        if (this.selectedProperties.length > 1) {
             // multiple properties
             if (totalRateable > sbbs_combined_threshold) {
                 sbbsReliefFraction = 0;
