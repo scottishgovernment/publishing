@@ -3,7 +3,6 @@ package scot.mygov.publishing.beans;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import java.util.List;
-import scot.mygov.publishing.beans.Smartanswermultiplechoiceoption;
 
 @HippoEssentialsGenerated(internalName = "publishing:smartanswermultiplechoicequestion")
 @Node(jcrType = "publishing:smartanswermultiplechoicequestion")
