@@ -6,7 +6,6 @@ import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import java.util.Calendar;
 import java.util.List;
-import scot.mygov.publishing.beans.Relateditems;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 
 @HippoEssentialsGenerated(internalName = "publishing:category")

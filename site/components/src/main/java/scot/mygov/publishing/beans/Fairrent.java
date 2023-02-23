@@ -5,7 +5,6 @@ import org.hippoecm.hst.content.beans.Node;
 import java.util.Calendar;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import java.util.List;
-import scot.mygov.publishing.beans.Relateditems;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 
 @HippoEssentialsGenerated(internalName = "publishing:fairrent")

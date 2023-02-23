@@ -5,7 +5,6 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import java.util.List;
 import java.util.Calendar;
-import scot.mygov.publishing.beans.Relateditems;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 
 @HippoEssentialsGenerated(internalName = "publishing:documentcoverpage")
