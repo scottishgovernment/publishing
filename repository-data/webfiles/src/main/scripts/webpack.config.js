@@ -81,7 +81,6 @@ module.exports = [{
         module: {
             rules: [
                 commonItems.module.rules[0],
-                commonItems.module.rules[1],
                 {
                     test: /\.js$/,
                     use: {
