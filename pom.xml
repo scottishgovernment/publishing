@@ -107,30 +107,6 @@
         <scope>provided</scope>
       </dependency>
 
-      <dependency>
-        <groupId>org.apache.jackrabbit</groupId>
-        <artifactId>jackrabbit-aws-ext</artifactId>
-        <version>2.17.1</version>
-        <exclusions>
-          <exclusion>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-
-      <dependency>
-        <groupId>com.amazonaws</groupId>
-        <artifactId>aws-java-sdk-s3</artifactId>
-        <version>1.11.376</version>
-      </dependency>
-
-      <dependency>
-        <groupId>com.netflix.hystrix</groupId>
-        <artifactId>hystrix-javanica</artifactId>
-        <version>${hystrix-javanica.version}</version>
-      </dependency>
-
       <!-- other predefined runtime scope versioned dependencies -->
       <dependency>
         <groupId>org.apache.taglibs</groupId>
@@ -160,8 +136,6 @@
         <scope>test</scope>
       </dependency>
 
-
-        <!-- NOTE: You should set a property named 'forge.folderctxmenus.version' to a version of this plugin! -->
 
       <dependency>
         <groupId>org.onehippo.forge.folderctxmenus</groupId>
