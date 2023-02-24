@@ -1,0 +1,13 @@
+<nav aria-label="Search result pages" class="ds_pagination">
+    <ul class="ds_pagination__list">
+        {% for page in pages %}
+            <li {% if page.isCurrentPage %}aria-current="page"{% endif %} class="ds_pagination__item {% if page.isLink %}{% else %}ellipsis{% endif %}">
+                {% if page.isLink %}
+                    <a href="#" data-search="pagination-{{page.dataName}}" class="ds_pagination__link  {% if page.isCurrentPage %}ds_current{% endif %}" data-start="{{page.start}}">{{page.displayText | safe}}</a>
+                {% else %}
+                    <span class="ds_pagination__link {% if page.isCurrentPage %}ds_current{% endif %}">{{page.displayText | safe}}</span>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

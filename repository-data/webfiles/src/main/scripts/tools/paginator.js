@@ -6,23 +6,7 @@
 
 'use strict';
 
-import Handlebars from '../vendor/hbs/handlebars';
-
-const paginatorTemplates = {
-    full: '<nav aria-label="Search result pages" class="ds_pagination">' +
-        '<ul class="ds_pagination__list">' +
-        '{{#pages}}' +
-        '<li {{#if isCurrentPage}}aria-current="page"{{/if}} class="ds_pagination__item {{#if isLink}}{{else}}ellipsis{{/if}}">' +
-        '{{#if isLink}}' +
-        '<a href="#" data-search="{{../../callerName}}-pagination-{{dataName}}" class="ds_pagination__link  {{#if isCurrentPage}}ds_current{{/if}}" data-start="{{start}}">{{{displayText}}}</a>' +
-        '{{else}}' +
-        '<span class="ds_pagination__link {{#if isCurrentPage}}ds_current{{/if}}">{{{displayText}}}</span>' +
-        '{{/if}}' +
-        '</li>' +
-        '{{/pages}}' +
-        '</ul>' +
-        '</nav>'
-};
+const paginationTemplate = require('../templates/mygov/paginator');
 
 /**
  * Constructor, builds a pagination object and inserts it into the current page
@@ -141,9 +125,6 @@ const Paginator = function (container, pagePadding, caller) {
          * Renders the pagination into a supplied container
          */
         renderPages: function() {
-            const paginationTemplateSource = paginatorTemplates.full,
-                paginationTemplate = Handlebars.compile(paginationTemplateSource);
-
             if (paginatorData.numberOfPages > 1) {
                 const paginationData = {
                     callerName: caller.settings.name,
@@ -158,7 +139,7 @@ const Paginator = function (container, pagePadding, caller) {
                     paginationData.canLoadMore = true;
                 }
 
-                container.innerHTML = paginationTemplate(paginationData);
+                container.innerHTML = paginationTemplate.render(paginationData);
             } else {
                 container.innerHTML = '';
             }

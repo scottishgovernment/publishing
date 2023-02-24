@@ -53,15 +53,6 @@ const commonItems = {
     module: {
         rules: [
             {
-                test: /\.hbs/,
-                use: [{
-                    loader: 'handlebars-loader',
-                    options: {
-                        helperDirs: [path.join(__dirname, 'src/scripts/templates/helpers/')]
-                    }
-                }]
-            },
-            {
                 test: /\.njk/,
                 loader: 'nunjucks-loader',
                 query: {

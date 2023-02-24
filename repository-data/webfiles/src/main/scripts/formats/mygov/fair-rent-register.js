@@ -7,9 +7,6 @@ import currency from '../../templates/currency.js';
 import date from '../../templates/date.js';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
-
-
-
 const fairRentRegister = {
 
     settings: {
@@ -26,6 +23,8 @@ const fairRentRegister = {
 
     init: function () {
         this.ancestors = [];
+
+        this.paginator = new Paginator(document.getElementById('pagination'), 2, this);
 
         const breadcrumbs = [].slice.call(document.querySelectorAll('.ds_breadcrumbs__item'));
         breadcrumbs.forEach(breadcrumb => {
@@ -48,7 +47,6 @@ const fairRentRegister = {
 
         feedback.init();
 
-        this.paginator = new Paginator(document.getElementById('pagination'), 2, this);
     },
 
     /**
@@ -188,7 +186,8 @@ const fairRentRegister = {
      * @param {object} result
      * @param {number} total
      */
-    renderList: function(result, total, query) {
+    renderList: function (result, total, query) {
+
         this.listElement.innerHTML = '';
         this.listElement.start = result.index + 1;
         this.listElement.setAttribute('data-total', total);

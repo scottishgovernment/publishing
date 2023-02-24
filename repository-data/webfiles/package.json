@@ -16,15 +16,11 @@
     "test": "karma start ./test/karma.conf.js",
     "webpack": "node_modules/.bin/webpack --config ./src/main/scripts/webpack.config.js"
   },
-  "dependencies": {
-    "handlebars": "^2.0.0"
-  },
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
     "@scottish-government/pattern-library": "^0.0.332",
     "babel-loader": "^8.2.3",
-    "handlebars-loader": "^1.7.1",
     "istanbul-instrumenter-loader": "^3.0.1",
     "karma": "^3.1.4",
     "karma-babel-preprocessor": "^8.0.2",
