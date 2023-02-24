@@ -122,7 +122,7 @@ const businessRatesCalculator = {
         // taken from provided spreadsheet
         this.ratesCalculatorData = {};
 
-        this.ratesCalculatorData.sbbs_100_rv_threshold = 12000;
+        this.ratesCalculatorData.sbbs_100_rv_threshold = 15000;
         this.ratesCalculatorData.sbbs_100_percentage_relief = 1;
         this.ratesCalculatorData.sbbs_25_rv_threshold = 18000;
         this.ratesCalculatorData.sbbs_25_percentage_relief = 0.25;
@@ -136,6 +136,7 @@ const businessRatesCalculator = {
 
         const newFiscalYeardate = new Date(2023, 3, 1);
         if (today > newFiscalYeardate) {
+            this.ratesCalculatorData.sbbs_100_rv_threshold = 12000;
             this.ratesCalculatorData.financial_year = '2023-2024';
             this.ratesCalculatorData.intermediate_business_supplement_threshold = 51001;
             this.ratesCalculatorData.large_business_supplement_threshold = 100000;
