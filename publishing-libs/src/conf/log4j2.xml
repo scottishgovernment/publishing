@@ -109,6 +109,7 @@
 
     <!-- project logging -->
     <Logger name="scot.mygov.publishing" level="info"/>
+    <Logger name="scot.gov" level="info"/>
 
     <Root level="warn">
       <AppenderRef ref="cms"/>
