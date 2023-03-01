@@ -121,7 +121,7 @@
                                         sizes="(min-width: 768px) 104px, 72px"
                                         alt="" />
                                 <#else>
-                                    <img class="ds_file-download__thumbnail-image  ds_file-download__thumbnail-image--generic"
+                                    <img class="ds_file-download__thumbnail-image"
                                         src="<@hst.link path=fileThumbnailPath />"
                                         loading="lazy"
                                         alt="" />
@@ -130,7 +130,7 @@
                         </div>
 
                         <div class="ds_file-download__content">
-                            <p class="ds_file-download__title" id="file-title-${doc?counter}">${doc.title}</p>
+                            <a href="${documentinline}" class="ds_file-download__title" id="file-title-${doc?counter}" aria-describedby="file-download-${doc?counter}">${doc.title}</a>
 
                             <div <@revertlang document /> id="file-download-${doc?counter}" class="ds_file-download__details">
                                 <dl class="ds_metadata  ds_metadata--inline">
@@ -144,12 +144,6 @@
                                         <dd class="ds_metadata__value"><@formatFileSize document=doc/></dd>
                                     </div>
                                 </dl>
-                            </div>
-
-                            <div>
-                                <a <@revertlang document /> aria-labelledby="file-title-${doc?counter}" aria-describedby="file-download-${doc?counter}" href="${documentinline}" class="ds_file-download__button  ds_button  ds_button--small  ds_button--secondary  ds_no-margin">
-                                    Download
-                                </a>
                             </div>
                         </div>
                     </div>
