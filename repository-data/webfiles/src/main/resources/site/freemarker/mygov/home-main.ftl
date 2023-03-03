@@ -96,7 +96,7 @@
                     <@hst.html hippohtml=document.epilogue/>
                 </#if>
 
-                <div class="ds_layout__feedback">
+                <div class="ds_layout  ds_layout--category-list">
                     <#include '../common/feedback-wrapper.ftl'>
                 </div>
             </div>
