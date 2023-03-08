@@ -103,7 +103,7 @@ const formSections = [
             {
                 slug: 'new-rent',
                 title: 'New rent',
-                triggerEvent: 'calculateMaximumRentIncreaseAmount'
+                triggerEvent: 'setupIncreaseAmountPage'
             },
             {
                 slug: 'date-of-increase',

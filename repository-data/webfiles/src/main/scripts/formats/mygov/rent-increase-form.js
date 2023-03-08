@@ -80,9 +80,18 @@ const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 
 [].slice.call(document.querySelectorAll('form')).forEach((form) => form.reset());
 
-const NOW = new Date();
+let NOW = new Date();
 NOW.setHours(6,0,0,0);
-const TODAY = NOW.toString();
+
+const newLegislationStartDate = new Date(2023, 3, 1);
+// date override from querystring
+const qsParams = new URLSearchParams(window.location.search);
+if (qsParams.get('date')) {
+    const date = new Date(`${qsParams.get('date').substring(0,4)}-${qsParams.get('date').substring(4,6)}-${qsParams.get('date').substring(6,8)}`);
+    if (!isNaN(date.getTime())) {
+        NOW = date;
+    }
+}
 
 const adjustDate = function (date, adjustment, capMonth) {
     if (!adjustment) {
@@ -140,8 +149,8 @@ const rentIncreaseForm = {
             updateDateOfIncrease: function () {
                 rentIncreaseForm.setupDateOfIncrease();
             },
-            calculateMaximumRentIncreaseAmount: function () {
-                rentIncreaseForm.calculateMaximumRentIncreaseAmount();
+            setupIncreaseAmountPage: function () {
+                rentIncreaseForm.setupIncreaseAmountPage();
             }
         },
         modifiers: [{
@@ -192,6 +201,25 @@ const rentIncreaseForm = {
             commonForms.setupRecaptcha();
         }
         this.setupProgressResets();
+
+        if (NOW > newLegislationStartDate) {
+            this.transformMarkup2023();
+            this.use2023Legislation();
+        }
+    },
+
+    transformMarkup2023: function () {
+        // transform page content
+        const newRentScreen = document.querySelector('[data-step="new-rent"]');
+        const newRentFrequencyQuestion = newRentScreen.querySelector('#new-rent-frequency-question');
+        newRentFrequencyQuestion.parentNode.removeChild(newRentFrequencyQuestion);
+
+        const newRentAmountInput = newRentScreen.querySelector('#new-rent-amount');
+        const frequencyReadOnly = document.createElement('span');
+        frequencyReadOnly.id = 'frequency-read-only';
+        newRentAmountInput.parentNode.append(frequencyReadOnly);
+        newRentAmountInput.style.margin = '0 8px 0 0';
+        newRentAmountInput.style.display = 'inline-block';
     },
 
     use2023Legislation: function () {
@@ -219,28 +247,6 @@ const rentIncreaseForm = {
 
             return valid;
         };
-
-        // transform page content
-        const newRentScreen = document.querySelector('[data-step="new-rent"]');
-        const newRentFrequencyQuestion = newRentScreen.querySelector('#new-rent-frequency-question');
-        newRentFrequencyQuestion.parentNode.removeChild(newRentFrequencyQuestion);
-
-        const newRentAmountInput = newRentScreen.querySelector('#new-rent-amount');
-        const frequencyReadOnly = document.createElement('span');
-        frequencyReadOnly.innerText = formObject.currentRentFrequency.toLowerCase();
-        newRentAmountInput.parentNode.append(frequencyReadOnly);
-        newRentAmountInput.style.margin = '0 8px 0 0';
-        newRentAmountInput.style.display = 'inline-block';
-
-        const newRentWarningText = document.createElement('div');
-        newRentWarningText.classList.add('ds_warning-text');
-        newRentWarningText.innerHTML = `
-            <strong class="ds_warning-text__icon" aria-hidden="true"></strong>
-            <strong class="visually-hidden">Warning</strong>
-            <div class="ds_warning-text__text">Something about applying for a 6% increase <a href="#">with a link</a>.</div>
-        `;
-
-        newRentScreen.append(newRentWarningText);
     },
 
     setupBackToSummary: function () {
@@ -308,8 +314,8 @@ const rentIncreaseForm = {
     },
 
     setupDatePickers: function () {
-        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {maxDate: new Date(TODAY), imagePath: bloomreachWebfile('/assets/images/icons/')});
-        const lastIncreaseDatePicker = new DSDatePicker(document.getElementById('last-increase-date-picker'), {maxDate: new Date(TODAY), imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const tenancyStartDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {maxDate: NOW, imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const lastIncreaseDatePicker = new DSDatePicker(document.getElementById('last-increase-date-picker'), {maxDate: NOW, imagePath: bloomreachWebfile('/assets/images/icons/')});
 
         tenancyStartDatePicker.init();
         lastIncreaseDatePicker.init();
@@ -486,7 +492,6 @@ const rentIncreaseForm = {
     },
 
     setupDateOfIncrease: function () {
-        const today = new Date(TODAY);
         const lastIncreaseDateAsString = rentIncreaseForm.form.settings.formObject.lastIncreaseDate || '01/01/2000';
 
         // set earliest date for next increase as 12 months from the last date of increase
@@ -498,11 +503,11 @@ const rentIncreaseForm = {
         if (rentIncreaseForm.form.settings.formObject.givingThisNotice !== 'hand') {
             dateAdjustment.days = dateAdjustment.days + 2;
         }
-        earliestDateForNextIncrease = new Date(Math.max(adjustDate(today, dateAdjustment, true).getTime(), earliestDateForNextIncrease.getTime()));
+        earliestDateForNextIncrease = new Date(Math.max(adjustDate(NOW, dateAdjustment, true).getTime(), earliestDateForNextIncrease.getTime()));
 
         // template needs the following info:
         const templateData = {};
-        templateData.canIncreaseRentNow = today >= resetHours(adjustDate(commonForms.stringToDate(lastIncreaseDateAsString), {months: 12}, true));
+        templateData.canIncreaseRentNow = NOW >= resetHours(adjustDate(commonForms.stringToDate(lastIncreaseDateAsString), {months: 12}, true));
         templateData.isByHand = rentIncreaseForm.form.settings.formObject.givingThisNotice === 'hand';
         templateData.deliveryMethod = rentIncreaseForm.form.settings.formObject.givingThisNotice === 'post' ? 'recorded delivery post' : rentIncreaseForm.form.settings.formObject.givingThisNotice;
         templateData.earliestDateForNextIncrease = commonForms.dateToString(earliestDateForNextIncrease);
@@ -560,8 +565,8 @@ const rentIncreaseForm = {
 
         if (rentIncreaseForm.form.settings.formObject.notificationSendDate) {
             rentIncreaseForm.notificationSendDate = commonForms.dateToString(new Date (Math.min(commonForms.stringToDate(rentIncreaseForm.form.settings.formObject.notificationSendDate), rentIncreaseForm.notificationDate)));
-            if (commonForms.stringToDate(rentIncreaseForm.notificationSendDate) < new Date(TODAY)) {
-                rentIncreaseForm.notificationSendDate = commonForms.dateToString(new Date(TODAY));
+            if (commonForms.stringToDate(rentIncreaseForm.notificationSendDate) < NOW) {
+                rentIncreaseForm.notificationSendDate = commonForms.dateToString(NOW);
             }
         } else {
             rentIncreaseForm.notificationSendDate = '';
@@ -570,7 +575,7 @@ const rentIncreaseForm = {
         rentIncreaseForm.form.settings.formObject.notificationSendDate = rentIncreaseForm.notificationSendDate;
 
         const templateData = {};
-        templateData.today = commonForms.dateToString(new Date(TODAY));
+        templateData.today = commonForms.dateToString(NOW);
         templateData.notificationDate = commonForms.dateToString(rentIncreaseForm.notificationDate);
 
         if (rentIncreaseForm.form.settings.formObject.givingThisNotice === 'hand') {
@@ -596,7 +601,7 @@ const rentIncreaseForm = {
 
         if (!isNaN(rentIncreaseForm.notificationDate.getTime())){
             document.getElementById('date-increase-notification-alert').innerHTML = html;
-            const rentIncreaseSendDatePicker = new DSDatePicker(document.getElementById('rent-increase-send-date-picker'), {minDate: new Date(TODAY), maxDate: rentIncreaseForm.notificationDate, imagePath: bloomreachWebfile('/assets/images/icons/')});
+            const rentIncreaseSendDatePicker = new DSDatePicker(document.getElementById('rent-increase-send-date-picker'), {minDate: NOW, maxDate: rentIncreaseForm.notificationDate, imagePath: bloomreachWebfile('/assets/images/icons/')});
             rentIncreaseSendDatePicker.init();
 
             // bind change event
@@ -685,23 +690,12 @@ const rentIncreaseForm = {
         return formDataForPost;
     },
 
-    calculateMaximumRentIncreaseAmount: function () {
-        let today = new Date();
-        const newLegislationStartDate = new Date(2023, 3, 1);
-        // date override from querystring
-        const qsParams = new URLSearchParams(window.location.search);
-        if (qsParams.get('date')) {
-            const date = new Date(`${qsParams.get('date').substring(0,4)}-${qsParams.get('date').substring(4,6)}-${qsParams.get('date').substring(6,8)}`);
-            if (!isNaN(date.getTime())) {
-                today = date;
-            }
-        }
-
-        if (today > newLegislationStartDate) {
-            this.use2023Legislation();
+    setupIncreaseAmountPage: function () {
+        if (NOW > newLegislationStartDate) {
+            const frequencyReadOnly = document.getElementById('frequency-read-only');
+            frequencyReadOnly.innerText = document.querySelector(`#current-payment-frequency option[value="${formObject.currentRentFrequency}"]`).innerText;
         } else {
             const lastIncreaseDate = formObject.lastIncreaseDate || formObject.tenancyStartDate;
-            const today = new Date(TODAY);
             const isRPZ = formObject.inRentPressureZone;
             rentIncreaseForm.storedLastIncreaseDate = lastIncreaseDate;
 
@@ -713,9 +707,9 @@ const rentIncreaseForm = {
             }
 
             if (lastIncreaseDate && isRPZ) {
-                // reformat lastIncreaseDate and today into expected format
+                // reformat lastIncreaseDate and NOW into expected format
                 const fromDate = [lastIncreaseDate.split('/')[2], lastIncreaseDate.split('/')[1], lastIncreaseDate.split('/')[0]].join('-');
-                const toDate = today.getFullYear() + '-' + commonForms.leadingZeroes(today.getMonth() + 1, 2) + '-' + commonForms.leadingZeroes(today.getDate(), 2);
+                const toDate = NOW.getFullYear() + '-' + commonForms.leadingZeroes(NOW.getMonth() + 1, 2) + '-' + commonForms.leadingZeroes(NOW.getDate(), 2);
                 $.get('/service/housing/cpi/cpi-delta',
                     {
                         from_date: fromDate,
