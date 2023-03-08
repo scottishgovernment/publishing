@@ -467,10 +467,8 @@ const businessRatesCalculator = {
             } else {
                 if (property.rv > sbbs_high_threshold) {
                     sbbsReliefFraction = sbbs_high_function(property.rv);
-                } else if (property.rv > sbbs_mid_threshold) {
-                    sbbsReliefFraction = 0.25;
                 } else {
-                    sbbsReliefFraction = 1;
+                    sbbsReliefFraction = 0.25;
                 }
             }
         } else {
