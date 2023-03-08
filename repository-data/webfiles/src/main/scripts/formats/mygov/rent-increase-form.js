@@ -194,6 +194,55 @@ const rentIncreaseForm = {
         this.setupProgressResets();
     },
 
+    use2023Legislation: function () {
+        // new validation method
+        commonForms.validateRentIncreaseAmount = function (field, percentage = 3) {
+            let newValue = field.value;
+            let valid = true;
+            let fieldName = commonForms.getLabelText(field);
+            let message;
+            let oldAmount = formObject.currentRentAmount;
+
+            const maxPermittedValue = oldAmount * (1 + (percentage * 0.01));
+
+            if (newValue > maxPermittedValue) {
+                valid = false;
+                if (field.dataset.message) {
+                    message = field.dataset.message;
+                } else {
+                    message = `You cannot increase the rent by more than ${percentage}%`;
+                }
+            }
+
+            commonForms.toggleFormErrors(field, valid, 'invalid--rent-increase', fieldName, message);
+            commonForms.toggleCurrentErrors(field, valid, 'invalid-rent-increase', message);
+
+            return valid;
+        };
+
+        // transform page content
+        const newRentScreen = document.querySelector('[data-step="new-rent"]');
+        const newRentFrequencyQuestion = newRentScreen.querySelector('#new-rent-frequency-question');
+        newRentFrequencyQuestion.parentNode.removeChild(newRentFrequencyQuestion);
+
+        const newRentAmountInput = newRentScreen.querySelector('#new-rent-amount');
+        const frequencyReadOnly = document.createElement('span');
+        frequencyReadOnly.innerText = formObject.currentRentFrequency.toLowerCase();
+        newRentAmountInput.parentNode.append(frequencyReadOnly);
+        newRentAmountInput.style.margin = '0 8px 0 0';
+        newRentAmountInput.style.display = 'inline-block';
+
+        const newRentWarningText = document.createElement('div');
+        newRentWarningText.classList.add('ds_warning-text');
+        newRentWarningText.innerHTML = `
+            <strong class="ds_warning-text__icon" aria-hidden="true"></strong>
+            <strong class="visually-hidden">Warning</strong>
+            <div class="ds_warning-text__text">Something about applying for a 6% increase <a href="#">with a link</a>.</div>
+        `;
+
+        newRentScreen.append(newRentWarningText);
+    },
+
     setupBackToSummary: function () {
         rentIncreaseForm.form.setupBackToSummary();
     },
@@ -637,31 +686,46 @@ const rentIncreaseForm = {
     },
 
     calculateMaximumRentIncreaseAmount: function () {
-        const lastIncreaseDate = formObject.lastIncreaseDate || formObject.tenancyStartDate;
-        const today = new Date(TODAY);
-        const isRPZ = formObject.inRentPressureZone;
-        rentIncreaseForm.storedLastIncreaseDate = lastIncreaseDate;
-
-        const increaseSection = formSections.find(section => section.slug === 'increase');
-        const newRentPage = increaseSection.pages.find(page => page.slug === 'new-rent');
-        if ($('#new-rent-amount').attr('data-maxvalue')) {
-            $('#new-rent-amount').removeAttr('data-maxvalue');
-            commonForms.validateStep(newRentPage);
+        let today = new Date();
+        const newLegislationStartDate = new Date(2023, 3, 1);
+        // date override from querystring
+        const qsParams = new URLSearchParams(window.location.search);
+        if (qsParams.get('date')) {
+            const date = new Date(`${qsParams.get('date').substring(0,4)}-${qsParams.get('date').substring(4,6)}-${qsParams.get('date').substring(6,8)}`);
+            if (!isNaN(date.getTime())) {
+                today = date;
+            }
         }
 
-        if (lastIncreaseDate && isRPZ) {
-            // reformat lastIncreaseDate and today into expected format
-            const fromDate = [lastIncreaseDate.split('/')[2], lastIncreaseDate.split('/')[1], lastIncreaseDate.split('/')[0]].join('-');
-            const toDate = today.getFullYear() + '-' + commonForms.leadingZeroes(today.getMonth() + 1, 2) + '-' + commonForms.leadingZeroes(today.getDate(), 2);
-            $.get('/service/housing/cpi/cpi-delta',
-                {
-                    from_date: fromDate,
-                    to_date: toDate
-                }).done(function (data) {
-                rentIncreaseForm.cpiDelta = isNaN(data) ? 0 : data;
+        if (today > newLegislationStartDate) {
+            this.use2023Legislation();
+        } else {
+            const lastIncreaseDate = formObject.lastIncreaseDate || formObject.tenancyStartDate;
+            const today = new Date(TODAY);
+            const isRPZ = formObject.inRentPressureZone;
+            rentIncreaseForm.storedLastIncreaseDate = lastIncreaseDate;
 
-                rentIncreaseForm.setMaximumRentIncrease();
-            });
+            const increaseSection = formSections.find(section => section.slug === 'increase');
+            const newRentPage = increaseSection.pages.find(page => page.slug === 'new-rent');
+            if ($('#new-rent-amount').attr('data-maxvalue')) {
+                $('#new-rent-amount').removeAttr('data-maxvalue');
+                commonForms.validateStep(newRentPage);
+            }
+
+            if (lastIncreaseDate && isRPZ) {
+                // reformat lastIncreaseDate and today into expected format
+                const fromDate = [lastIncreaseDate.split('/')[2], lastIncreaseDate.split('/')[1], lastIncreaseDate.split('/')[0]].join('-');
+                const toDate = today.getFullYear() + '-' + commonForms.leadingZeroes(today.getMonth() + 1, 2) + '-' + commonForms.leadingZeroes(today.getDate(), 2);
+                $.get('/service/housing/cpi/cpi-delta',
+                    {
+                        from_date: fromDate,
+                        to_date: toDate
+                    }).done(function (data) {
+                        rentIncreaseForm.cpiDelta = isNaN(data) ? 0 : data;
+
+                        rentIncreaseForm.setMaximumRentIncrease();
+                    });
+            }
         }
     },
 
