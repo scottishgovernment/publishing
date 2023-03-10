@@ -177,11 +177,11 @@
                 <label class="ds_label" for="new-rent-amount">How much do you want to increase your tenant's rent to?</label>
 
                 <div class="ds_currency-wrapper">
-                    <input data-validation="validCurrency requiredField" class="ds_input  ds_input--fixed-10" type="text" id="new-rent-amount" placeholder="e.g. 750.00" />
+                    <input data-validation="validCurrency requiredField validateRentIncreaseAmount" class="ds_input  ds_input--fixed-10" type="text" id="new-rent-amount" placeholder="e.g. 750.00" />
                 </div>
             </div>
 
-            <div class="ds_question">
+            <div class="ds_question" id="new-rent-frequency-question">
                 <label class="ds_label" for="new-payment-frequency">How often will it be paid?</label>
                 <div class="ds_select-wrapper  ds_input--fluid-half">
                     <select class="ds_select" data-validation="requiredDropdown" id="new-payment-frequency">
