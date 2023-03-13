@@ -82,7 +82,13 @@ class AsyncSearch {
     }
 
     populateResults(html) {
-        this.resultsContainer.innerHTML = html;
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        if (!!tempDiv.querySelector('#search-results')) {
+            this.resultsContainer.innerHTML = tempDiv.querySelector('#search-results').innerHTML;
+        } else {
+            this.resultsContainer.innerHTML = html;
+        }
         const rect = this.resultsContainer.getBoundingClientRect();
         window.scrollTo(window.scrollX, document.documentElement.scrollTop + rect.top);
 
