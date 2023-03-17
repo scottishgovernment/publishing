@@ -12,8 +12,6 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
-import static org.apache.commons.lang3.StringUtils.equalsAny;
-
 /**
  * Set fields required to suppress the header search on some formats.
  *
