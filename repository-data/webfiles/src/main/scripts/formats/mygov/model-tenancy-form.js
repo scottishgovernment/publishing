@@ -591,14 +591,22 @@ const modelTenancyForm = {
         // 2. Format dates to YYYY-MM-DD
         const dateFields = ['tenancyStartDate', 'firstPaymentDate', 'firstPaymentPeriodEnd', 'hmoRegistrationExpiryDate'];
 
-        for (let j = 0; j < dateFields.length; j++) {
-            const field = dateFields[j];
-            const value = formData[field];
+        for (const field of dateFields) {
+            let value = formData[field];
             if (value === null || value.split(' ').join('') === ''){
                 continue;
             }
 
-            formData[field] = value.split('/').reverse().join('-');
+            value = value.trim();
+
+            // check date is a valid date
+            const day = parseInt(value.slice(0, 2));
+            const month = parseInt(value.slice(3, 5));
+            const year = parseInt(value.slice(6, 10));
+
+            if (!isNaN(Date.parse(`${month}/${day}/${year}`))) {
+                formData[field] = `${year}-${month}-${day}`;
+            }
         }
 
         // 3. Add value from 'other' option in property type field if selected
@@ -666,6 +674,13 @@ const modelTenancyForm = {
         if (formData.hasLettingAgent === 'no'){
             formData.lettingAgent = null;
         }
+
+        // 8. Remove HMO info if the user has said the property is not HMO
+        if (formData.hmoProperty === 'false') {
+            formData.hmo24ContactNumber = null;
+            formData.hmoRegistrationExpiryDate = null;
+            formData.hmoRenewalApplicationSubmitted = false;
+        }
         return formData;
     }
 };
@@ -697,6 +712,7 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
 
     const formData = JSON.parse(JSON.stringify(modelTenancyForm.form.settings.formObject));
     const data = modelTenancyForm.prepareFormDataForPost(formData);
+
     if (modelTenancyForm.recaptchaEnabled) {
         data.recaptcha = grecaptcha.getResponse();
     }
