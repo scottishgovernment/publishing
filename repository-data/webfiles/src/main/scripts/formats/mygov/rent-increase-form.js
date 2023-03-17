@@ -220,6 +220,20 @@ const rentIncreaseForm = {
         newRentAmountInput.parentNode.append(frequencyReadOnly);
         newRentAmountInput.style.margin = '0 8px 0 0';
         newRentAmountInput.style.display = 'inline-block';
+
+        const newRentWarningText = document.createElement('div');
+        newRentWarningText.classList.add('ds_warning-text');
+        newRentWarningText.innerHTML = `
+            <strong class="ds_warning-text__icon" aria-hidden="true"></strong>
+            <strong class="visually-hidden">Warning</strong>
+            <div class="ds_warning-text__text">
+                <h3>Temporary rent cap</h3>
+                <p>There is a temporary cap on rent increases during tenancies. The cap is set at 3%.</p>
+                <p>If you want t increase the rent between 3% and 6% you should contact <a href="https://www.gov.scot/publications/about-rent-service-scotland">Rent Service Scotland</a>.</p>
+            </div>
+        `;
+
+        newRentScreen.append(newRentWarningText);
     },
 
     use2023Legislation: function () {
