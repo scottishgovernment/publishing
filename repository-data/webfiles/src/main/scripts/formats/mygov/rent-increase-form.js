@@ -229,7 +229,7 @@ const rentIncreaseForm = {
             <div class="ds_warning-text__text">
                 <h3>Temporary rent cap</h3>
                 <p>There is a temporary cap on rent increases during tenancies. The cap is set at 3%.</p>
-                <p>If you want t increase the rent between 3% and 6% you should contact <a href="https://www.gov.scot/publications/about-rent-service-scotland">Rent Service Scotland</a>.</p>
+                <p>If you want to increase the rent between 3% and 6% you should contact <a href="https://www.gov.scot/publications/about-rent-service-scotland">Rent Service Scotland</a>.</p>
             </div>
         `;
 
