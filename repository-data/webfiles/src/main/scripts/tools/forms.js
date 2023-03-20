@@ -910,7 +910,7 @@ const commonForms = {
             commonForms.validateInput(item, validationChecks);
         });
 
-        const invalidFields = [].slice.call(stepContainer.querySelectorAll('[aria-invalid="true"]'));
+        const invalidFields = [].slice.call(stepContainer.querySelectorAll('[aria-invalid="true"]')).filter(item => item.offsetParent);
 
         return invalidFields.length === 0;
     },
