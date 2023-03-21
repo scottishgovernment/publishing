@@ -49,7 +49,7 @@
                                         <#list orgAndSector.organisations as org>
                                             <li class="sector-list__sublist-item">
                                                 <@hst.link var="link" hippobean=org/>
-                                                <a href="${link}">${org.displayName}</a>
+                                                <a href="${link}">${org.title}</a>
                                             </li>
                                         </#list>
                                     </ol>
