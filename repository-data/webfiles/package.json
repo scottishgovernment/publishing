@@ -9,12 +9,12 @@
   },
   "scripts": {
     "sass": "npm run sass_campaign; npm run sass_mygov; npm run sass_tn",
-    "sass_campaign": "node_modules/.bin/sass ./src/main/scss/campaign/main.scss ./src/main/resources/site/assets/campaign/css/main.css --style compressed",
-    "sass_mygov": "node_modules/.bin/sass ./src/main/scss/mygov/main.scss ./src/main/resources/site/assets/mygov/css/main.css --style compressed",
-    "sass_tn": "node_modules/.bin/sass ./src/main/scss/tradingnation/main.scss ./src/main/resources/site/assets/tradingnation/css/main.css --style compressed",
+    "sass_campaign": "sass ./src/main/scss/campaign/main.scss ./src/main/resources/site/assets/campaign/css/main.css --style compressed",
+    "sass_mygov": "sass ./src/main/scss/mygov/main.scss ./src/main/resources/site/assets/mygov/css/main.css --style compressed",
+    "sass_tn": "sass ./src/main/scss/tradingnation/main.scss ./src/main/resources/site/assets/tradingnation/css/main.css --style compressed",
     "svgsprite": "node svg-sprite",
     "test": "karma start ./test/karma.conf.js",
-    "webpack": "NODE_OPTIONS=--openssl-legacy-provider node_modules/.bin/webpack --config ./src/main/scripts/webpack.config.js"
+    "webpack": "NODE_OPTIONS=--openssl-legacy-provider webpack --config ./src/main/scripts/webpack.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
