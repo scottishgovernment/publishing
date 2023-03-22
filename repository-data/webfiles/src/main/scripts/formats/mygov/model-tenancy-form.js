@@ -600,8 +600,8 @@ const modelTenancyForm = {
             value = value.trim();
 
             // check date is a valid date
-            const day = parseInt(value.slice(0, 2));
-            const month = parseInt(value.slice(3, 5));
+            const day = commonForms.leadingZeroes(parseInt(value.slice(0, 2)), 2);
+            const month = commonForms.leadingZeroes(parseInt(value.slice(3, 5)), 2);
             const year = parseInt(value.slice(6, 10));
 
             if (!isNaN(Date.parse(`${month}/${day}/${year}`))) {
