@@ -3,7 +3,7 @@
   jcr:mixinTypes: ['mix:referenceable']
   jcr:uuid: c5fe3727-5e10-4962-a719-d700ecaa1a7d
   hippostd:foldertype: [new-resource-bundle, new-untranslated-folder, new-searchsettings-document,
-    new-recaptcha-folder, new-siteverification-document]
+    new-recaptcha-folder, new-siteverification-document, new-folder]
   /robots:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -806,3 +806,8 @@
         hippotranslation:locale: inherited locale
         publishing:enabled: true
         publishing:sitekey: 6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV
+  /labels:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 685fe6ad-3d7c-449c-9328-867fc23b20b0
+    hippostd:foldertype: [new-document, new-folder]

@@ -58,6 +58,55 @@ definitions:
             hipposysedit:path: publishing:contentitemlanguage
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
+        /hipposysedit:nodetype[2]:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f086e8f8-2456-41a8-8387-764682dc40e9
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
+            'hippostd:relaxed']
+          /slug:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:slug
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required, slug-validator]
+          /documents:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:documents
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:document
+          /content:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:content
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+          /organisationtags:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:organisationtags
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [organisationtag-validator]
+          /contentitemlanguage:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:contentitemlanguage
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -95,6 +144,48 @@ definitions:
               jcr:data:
                 type: binary
                 resource: /namespaces/publishing/documentcoverpage/prototypes/prototype/documents/document/hippo-resource
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2008-03-26T12:03:00+01:00
+              jcr:mimeType: application/vnd.hippo.blank
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /hipposysedit:prototype[2]:
+          jcr:primaryType: nt:unstructured
+          jcr:mixinTypes: ['hippostd:taggable', 'hippotranslation:translated', 'mix:referenceable',
+            'hippostd:relaxed']
+          jcr:uuid: dc7187ec-9ee5-40ed-8df4-dd6621bb7bc4
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2020-08-04T08:51:01.604+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-04T08:51:01.604+01:00
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:contentitemlanguage: en
+          publishing:metaDescription: ''
+          publishing:noindex: false
+          publishing:organisationtags: []
+          publishing:reportingtags: []
+          publishing:sensitive: false
+          publishing:seoTitle: ''
+          publishing:serviceproviders: []
+          publishing:showFeedback: true
+          publishing:showInParent: false
+          publishing:slug: ''
+          publishing:summary: ''
+          publishing:title: ''
+          /publishing:documents:
+            jcr:primaryType: publishing:document
+            publishing:title: ''
+            /publishing:document:
+              jcr:primaryType: hippo:resource
+              hippo:filename: hippo:resource
+              jcr:data:
+                type: binary
+                resource: /namespaces/publishing/documentcoverpage/prototypes/prototype[2]/documents/document/hippo-resource
               jcr:encoding: UTF-8
               jcr:lastModified: 2008-03-26T12:03:00+01:00
               jcr:mimeType: application/vnd.hippo.blank

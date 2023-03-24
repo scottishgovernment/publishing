@@ -9,8 +9,11 @@ definitions:
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/option:
       jcr:primaryType: hipposys:moduleconfig
       attributes: [data-id, selected, disabled, value]
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/a:
+      jcr:primaryType: hipposys:moduleconfig
+      attributes: [class, data-fragment-id, data-uuid, href, target, title]
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/div:
-      attributes: [class, dir, id, lang, style, title, data-module, data-type, data-uuid, contenteditable, href]
+      attributes: [class, dir, id, lang, style, title, data-width, data-height, data-src, data-module, data-type, data-uuid, contenteditable, href]
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/aside:
       jcr:primaryType: hipposys:moduleconfig
       attributes: [class, dir, id, lang, style, title, data-module]

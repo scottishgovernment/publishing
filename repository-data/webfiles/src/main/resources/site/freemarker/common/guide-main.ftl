@@ -7,7 +7,7 @@
     <@hst.manageContent hippobean=document />
 
     <@hst.include ref="breadcrumbs"/>
-
+${guide}
     <div class="ds_wrapper">
         <main <@lang document/> id="main-content" class="ds_layout  ds_layout--guide">
             <#if guide.sensitive?? && guide.sensitive>

@@ -16,4 +16,9 @@ public class Search extends BaseDocument {
     public HippoHtml getContent() {
         return getHippoHtml("publishing:content");
     }
+
+    @HippoEssentialsGenerated(internalName = "publishing:showFeedback")
+    public Boolean getShowFeedback() {
+        return getSingleProperty("publishing:showFeedback");
+    }
 }

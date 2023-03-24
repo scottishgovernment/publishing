@@ -44,6 +44,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           publishing:title: ''
+          publishing:showFeedback: true
           jcr:uuid: ed228af6-b259-4b2a-af79-272c180ed516
           hippostdpubwf:lastModificationDate: 2020-09-02T08:59:50.853+01:00
           hippostdpubwf:creationDate: 2020-09-02T08:59:50.853+01:00
@@ -76,6 +77,15 @@ definitions:
             field: content
             hint: Content that should appear before the search results.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showFeedback:
+            jcr:primaryType: frontend:plugin
+            caption: Show feedback?
+            field: showFeedback
+            hint: Should this page include the ability to leave user feedback?
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

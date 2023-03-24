@@ -66,6 +66,7 @@
                 <@hst.include ref="siteheader"/>
                 <@hst.include ref="menu"/>
             </div>
+
             <!--endnoindex-->
             <div class="ds_page__middle">
                 <@hst.include ref="main"/>

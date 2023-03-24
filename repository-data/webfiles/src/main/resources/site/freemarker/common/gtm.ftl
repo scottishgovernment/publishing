@@ -1,22 +1,29 @@
 <#ftl output_format="HTML">
 <#include "./include/imports.ftl">
 
-<#if document??>
-    <@hst.headContribution category="googleTagManagerDataLayer">
+<@hst.headContribution category="googleTagManagerDataLayer">
 
-    <!-- Google Tag Manager (GTM) -->
-    <script id="gtm-datalayer">
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            'gtm.whitelist': ['google', 'jsm', 'lcl'],
-            <#if userType??>
-                'userType': '${userType?js_string}',
-            </#if>
+<!-- Google Tag Manager (GTM) -->
+<script id="gtm-datalayer">
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+
+        <#if gtmName??>
+            'format' : '${gtmName?js_string}',
+        </#if>
+        <#if gtmId??>
+            'siteid' : '${gtmId?js_string}',
+        </#if>
+        <#if userType??>
+            'userType': '${userType?js_string}',
+        </#if>
+
+        <#if reportingTags?has_content>
+            'reportingTags': [<#list reportingTags as tag>'${tag?js_string}'<#sep>, </#sep></#list>],
+        </#if>
+        <#if document??>
             <#if document.audience?has_content>
                 'audience': '${document.audience}',
-            </#if>
-            <#if reportingTags?has_content>
-                'reportingTags': [<#list reportingTags as tag>'${tag?js_string}'<#sep>, </#sep></#list>],
             </#if>
             <#if document.lifeEvents?has_content>
                 'lifeEvents': [<#list document.lifeEvents as lifeEvent><#if lifeEvent?has_content>'${lifeEvent?js_string}'<#sep>, </#sep></#if></#list>],
@@ -24,12 +31,11 @@
             <#if document.serviceproviders?has_content>
                 'serviceproviders': [<#list document.serviceproviders as serviceprovider>'${serviceprovider?js_string}'<#sep>, </#sep></#list>],
             </#if>
-                <#if gtmName??>'format' : '${gtmName?js_string}',</#if>
-                <#if gtmId??>'siteid' : '${gtmId?js_string}'</#if>
-        });
-    </script>
-    </@hst.headContribution>
-</#if>
+        </#if>
+        'gtm.whitelist': ['google', 'jsm', 'lcl'],
+    });
+</script>
+</@hst.headContribution>
 
 <@hst.headContribution category="googleTagManager">
 <script id="gtm-script">
