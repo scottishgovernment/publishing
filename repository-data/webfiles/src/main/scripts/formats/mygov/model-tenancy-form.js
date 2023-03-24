@@ -597,15 +597,23 @@ const modelTenancyForm = {
                 continue;
             }
 
-            let dateAsArray = value.trim().replace(/-/g, '/').split('/');
+            value = value.trim();
 
-            // check date is a valid date
-            const day = commonForms.leadingZeroes(dateAsArray[0], 2);
-            const month = commonForms.leadingZeroes(dateAsArray[1], 2);
-            const year = dateAsArray[2];
+            let dateRegex = new RegExp(/\d{1,2}\/\d{1,2}\/\d{4}/);
 
-            if (!isNaN(Date.parse(`${month}/${day}/${year}`))) {
-                formData[field] = `${year}-${month}-${day}`;
+            if (value.match(dateRegex)) {
+                let dateAsArray = value.trim().replace(/-/g, '/').split('/');
+
+                // check date is a valid date
+                const day = dateAsArray[0];
+                const month = dateAsArray[1];
+                const year = dateAsArray[2];
+
+                if (!isNaN(Date.parse(`${month}/${day}/${year}`))) {
+                    formData[field] = `${year}-${commonForms.leadingZeroes(month, 2)}-${commonForms.leadingZeroes(day, 2)}`;
+                } else {
+                    formData[field] = null;
+                }
             } else {
                 formData[field] = null;
             }
