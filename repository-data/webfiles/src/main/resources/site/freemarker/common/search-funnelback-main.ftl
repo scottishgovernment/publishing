@@ -25,9 +25,6 @@
                     <@hst.include ref="results"/>
                 </section>
             </div>
-
-            <#include '../common/feedback-wrapper.ftl'>
-
         </main>
     </div>
 </div>

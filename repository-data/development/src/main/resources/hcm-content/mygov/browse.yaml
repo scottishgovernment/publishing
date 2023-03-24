@@ -4,7 +4,7 @@
   jcr:uuid: 2eeab6c1-a59a-45fc-8b15-c414f8ce4182
   hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
     new-publishing-mirror, new-publishing-smartanswer, new-document, new-publishing-smartanswer,
-    new-fragment-folder, new-publishing-stepbystepguide, new-publishing-fairrent]
+    new-fragment-folder, new-publishing-stepbystepguide]
   /mammals:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
@@ -12,7 +12,7 @@
     hippo:name: Mammals
     hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
       new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-smartanswer,
-      new-fragment-folder, new-document]
+      new-fragment-folder]
     /index:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -1221,7 +1221,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: d902be50-88d2-4ec0-bede-e2dfc459bd59
       hippo:name: Bats
-      hippo:versionHistory: 6a1b8ea6-0175-44cd-b2bf-718a48150bb7
+      hippo:versionHistory: 602feff7-086a-480f-9cc0-70df4a6bca7e
       /bats[1]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -1231,13 +1231,12 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-10-01T10:05:59.398+01:00
-        hippostdpubwf:lastModificationDate: 2023-02-06T10:59:04.969Z
+        hippostdpubwf:lastModificationDate: 2022-05-10T08:49:37.446+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d3b8e917-4ebc-49f3-92d9-68e7b7de9513
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
         publishing:metaDescription: Bats are mammals of the order Chiroptera.[a] With
           their forelimbs adapted as wings, they are the only mammals capable of true
           and sustained flight.
@@ -1257,15 +1256,17 @@
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |-
-            <p><strong>Bats</strong>&nbsp;are&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;<strong>Chiroptera</strong>.<sup><a href="https://en.wikipedia.org/wiki/Bat#cite_note-2">[a]</a></sup>&nbsp;With their forelimbs adapted as&nbsp;<a href="https://en.wikipedia.org/wiki/Wing" title="Wing">wings</a>, they are the only mammals capable of true and sustained&nbsp;<a href="https://en.wikipedia.org/wiki/Flight" title="Flight">flight</a>. Bats are more manoeuvrable than&nbsp;<a href="https://en.wikipedia.org/wiki/Bird" title="Bird">birds</a>,&nbsp;<a href="https://en.wikipedia.org/wiki/Bat_flight" title="Bat flight">flying</a>&nbsp;with their very long spread-out digits covered with a thin&nbsp;<a href="https://en.wikipedia.org/wiki/Skin" title="Skin">membrane</a>&nbsp;or&nbsp;<a href="https://en.wikipedia.org/wiki/Patagium" title="Patagium">patagium</a>. The smallest bat, and arguably the smallest extant mammal, is&nbsp;<a href="https://en.wikipedia.org/wiki/Kitti%27s_hog-nosed_bat" title="Kitti's hog-nosed bat">Kitti's hog-nosed bat</a>, which is 29–34 millimetres (1&nbsp;<sup>1</sup>⁄<sub>8</sub>–1&nbsp;<sup>3</sup>⁄<sub>8</sub>&nbsp;inches) in length, 150&nbsp;mm (6&nbsp;in) across the wings and 2–2.6&nbsp;g (<sup>1</sup>⁄<sub>16</sub>–<sup>3</sup>⁄<sub>32</sub>&nbsp;oz) in mass. The largest bats are the&nbsp;<a href="https://en.wikipedia.org/wiki/Flying_fox#Physical_characteristics" title="Flying fox">flying foxes</a>&nbsp;and the&nbsp;<a href="https://en.wikipedia.org/wiki/Giant_golden-crowned_flying_fox" title="Giant golden-crowned flying fox">giant golden-crowned flying fox</a>,&nbsp;<em>Acerodon jubatus</em>, which can weigh 1.6&nbsp;kg (3&nbsp;<sup>1</sup>⁄<sub>2</sub>&nbsp;lb) and have a wingspan of 1.7&nbsp;m (5&nbsp;ft 7&nbsp;in).</p>
-
-            <div data-src="https://www.youtube-nocookie.com/embed/5FK9tWT5pA4?enablejsapi=1" data-height="360" data-width="640" class="youtube-embed-wrapper youtube-embed-wrapper--responsive"><a href="https://www.youtube-nocookie.com/embed/5FK9tWT5pA4?enablejsapi=1"><img src="https://img.youtube.com/vi/5FK9tWT5pA4/sddefault.jpg" width="640" height="360" /></a></div>
-
-            <p>The second largest order of mammals after&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Rodents" title="Rodents">rodents</a>, bats comprise about 20% of all classified mammal species worldwide, with over 1,400 species. These were traditionally divided into two suborders: the largely fruit-eating&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Megabat" title="Megabat">megabats</a>, and the&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Animal_echolocation" title="Animal echolocation">echolocating</a>&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Microbat" title="Microbat">microbats</a>. But more recent evidence has supported dividing the order into&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Yinpterochiroptera" title="Yinpterochiroptera">Yinpterochiroptera</a>&nbsp;and&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Yangochiroptera" title="Yangochiroptera">Yangochiroptera</a>, with megabats as members of the former along with several species of microbats. Many bats are&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Insectivore" title="Insectivore">insectivores</a>, and most of the rest are&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Frugivore" title="Frugivore">frugivores</a>&nbsp;(fruit-eaters) or&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Nectarivore" title="Nectarivore">nectarivores</a>&nbsp;(nectar-eaters). A few species feed on animals other than insects; for example, the&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Vampire_bat" title="Vampire bat">vampire bats</a>&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Hematophagy" title="Hematophagy">feed on blood</a>. Most bats are&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Nocturnal" title="Nocturnal">nocturnal</a>, and many roost in caves or other refuges; it is uncertain whether bats have these behaviours to escape&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Predator" title="Predator">predators</a>. Bats are present throughout the world, with the exception of extremely cold regions. They are important in their ecosystems for&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Pollinator" title="Pollinator">pollinating</a>&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Flower" title="Flower">flowers</a>&nbsp;and dispersing seeds; many tropical plants depend entirely on bats for these services.</p>
-
-            <p>Bats provide humans with some direct benefits, at the cost of some disadvantages. On the benefits side, bat dung has been and in many places still is mined as&nbsp;<a href="https://en.wikipedia.org/wiki/Guano" title="Guano">guano</a>&nbsp;from caves and used as fertiliser. Bats consume insect pests, reducing the need for&nbsp;<a href="https://en.wikipedia.org/wiki/Pesticide" title="Pesticide">pesticides</a>&nbsp;and other insect management measures. They are sometimes numerous enough and close enough to human settlements to serve as tourist attractions, and they are used as food across Asia and the&nbsp;<a href="https://en.wikipedia.org/wiki/Pacific_Rim" title="Pacific Rim">Pacific Rim</a>. On the disadvantages side, fruit bats are frequently considered a pest by fruit growers. Due to their physiology, bats are one type of animal that acts as a&nbsp;<a href="https://en.wikipedia.org/wiki/Natural_reservoir" title="Natural reservoir">natural reservoir</a>&nbsp;of many&nbsp;<a href="https://en.wikipedia.org/wiki/Pathogen" title="Pathogen">pathogens</a>, such as&nbsp;<a href="https://en.wikipedia.org/wiki/Rabies" title="Rabies">rabies</a>; and since they are highly mobile, social, and long-lived, they can readily spread disease among themselves. If humans interact with bats, these traits become potentially dangerous to humans.</p>
+            <div data-uuid="6ce7380e-1d87-4929-aa1a-3497d38c08b6" class="fragment">davids fragment</div>
 
             <p>&nbsp;</p>
+
+            <div data-uuid="4d8cac44-b4e3-45d2-b088-2cad166852e5" class="fragment">new fragment</div>
+
+            <p><strong>Bats</strong>&nbsp;are&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;<strong>Chiroptera</strong>.<sup><a href="https://en.wikipedia.org/wiki/Bat#cite_note-2">[a]</a></sup>&nbsp;With their forelimbs adapted as&nbsp;<a href="https://en.wikipedia.org/wiki/Wing" title="Wing">wings</a>, they are the only mammals capable of true and sustained&nbsp;<a href="https://en.wikipedia.org/wiki/Flight" title="Flight">flight</a>. Bats are more manoeuvrable than&nbsp;<a href="https://en.wikipedia.org/wiki/Bird" title="Bird">birds</a>,&nbsp;<a href="https://en.wikipedia.org/wiki/Bat_flight" title="Bat flight">flying</a>&nbsp;with their very long spread-out digits covered with a thin&nbsp;<a href="https://en.wikipedia.org/wiki/Skin" title="Skin">membrane</a>&nbsp;or&nbsp;<a href="https://en.wikipedia.org/wiki/Patagium" title="Patagium">patagium</a>. The smallest bat, and arguably the smallest extant mammal, is&nbsp;<a href="https://en.wikipedia.org/wiki/Kitti%27s_hog-nosed_bat" title="Kitti's hog-nosed bat">Kitti's hog-nosed bat</a>, which is 29–34 millimetres (1&nbsp;<sup>1</sup>⁄<sub>8</sub>–1&nbsp;<sup>3</sup>⁄<sub>8</sub>&nbsp;inches) in length, 150&nbsp;mm (6&nbsp;in) across the wings and 2–2.6&nbsp;g (<sup>1</sup>⁄<sub>16</sub>–<sup>3</sup>⁄<sub>32</sub>&nbsp;oz) in mass. The largest bats are the&nbsp;<a href="https://en.wikipedia.org/wiki/Flying_fox#Physical_characteristics" title="Flying fox">flying foxes</a>&nbsp;and the&nbsp;<a href="https://en.wikipedia.org/wiki/Giant_golden-crowned_flying_fox" title="Giant golden-crowned flying fox">giant golden-crowned flying fox</a>,&nbsp;<em>Acerodon jubatus</em>, which can weigh 1.6&nbsp;kg (3&nbsp;<sup>1</sup>⁄<sub>2</sub>&nbsp;lb) and have a wingspan of 1.7&nbsp;m (5&nbsp;ft 7&nbsp;in).</p>
+
+            <p>The second largest order of mammals after&nbsp;<a href="https://en.wikipedia.org/wiki/Rodents" title="Rodents">rodents</a>, bats comprise about 20% of all classified mammal species worldwide, with over 1,400 species. These were traditionally divided into two suborders: the largely fruit-eating&nbsp;<a href="https://en.wikipedia.org/wiki/Megabat" title="Megabat">megabats</a>, and the&nbsp;<a href="https://en.wikipedia.org/wiki/Animal_echolocation" title="Animal echolocation">echolocating</a>&nbsp;<a href="https://en.wikipedia.org/wiki/Microbat" title="Microbat">microbats</a>. But more recent evidence has supported dividing the order into&nbsp;<a href="https://en.wikipedia.org/wiki/Yinpterochiroptera" title="Yinpterochiroptera">Yinpterochiroptera</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/Yangochiroptera" title="Yangochiroptera">Yangochiroptera</a>, with megabats as members of the former along with several species of microbats. Many bats are&nbsp;<a href="https://en.wikipedia.org/wiki/Insectivore" title="Insectivore">insectivores</a>, and most of the rest are&nbsp;<a href="https://en.wikipedia.org/wiki/Frugivore" title="Frugivore">frugivores</a>&nbsp;(fruit-eaters) or&nbsp;<a href="https://en.wikipedia.org/wiki/Nectarivore" title="Nectarivore">nectarivores</a>&nbsp;(nectar-eaters). A few species feed on animals other than insects; for example, the&nbsp;<a href="https://en.wikipedia.org/wiki/Vampire_bat" title="Vampire bat">vampire bats</a>&nbsp;<a href="https://en.wikipedia.org/wiki/Hematophagy" title="Hematophagy">feed on blood</a>. Most bats are&nbsp;<a href="https://en.wikipedia.org/wiki/Nocturnal" title="Nocturnal">nocturnal</a>, and many roost in caves or other refuges; it is uncertain whether bats have these behaviours to escape&nbsp;<a href="https://en.wikipedia.org/wiki/Predator" title="Predator">predators</a>. Bats are present throughout the world, with the exception of extremely cold regions. They are important in their ecosystems for&nbsp;<a href="https://en.wikipedia.org/wiki/Pollinator" title="Pollinator">pollinating</a>&nbsp;<a href="https://en.wikipedia.org/wiki/Flower" title="Flower">flowers</a>&nbsp;and dispersing seeds; many tropical plants depend entirely on bats for these services.</p>
+
+            <p>Bats provide humans with some direct benefits, at the cost of some disadvantages. On the benefits side, bat dung has been and in many places still is mined as&nbsp;<a href="https://en.wikipedia.org/wiki/Guano" title="Guano">guano</a>&nbsp;from caves and used as fertiliser. Bats consume insect pests, reducing the need for&nbsp;<a href="https://en.wikipedia.org/wiki/Pesticide" title="Pesticide">pesticides</a>&nbsp;and other insect management measures. They are sometimes numerous enough and close enough to human settlements to serve as tourist attractions, and they are used as food across Asia and the&nbsp;<a href="https://en.wikipedia.org/wiki/Pacific_Rim" title="Pacific Rim">Pacific Rim</a>. On the disadvantages side, fruit bats are frequently considered a pest by fruit growers. Due to their physiology, bats are one type of animal that acts as a&nbsp;<a href="https://en.wikipedia.org/wiki/Natural_reservoir" title="Natural reservoir">natural reservoir</a>&nbsp;of many&nbsp;<a href="https://en.wikipedia.org/wiki/Pathogen" title="Pathogen">pathogens</a>, such as&nbsp;<a href="https://en.wikipedia.org/wiki/Rabies" title="Rabies">rabies</a>; and since they are highly mobile, social, and long-lived, they can readily spread disease among themselves. If humans interact with bats, these traits become potentially dangerous to humans.</p>
 
             <p>Depending on the culture, bats may be symbolically associated with positive traits, such as protection from certain diseases or risks, rebirth, or long life, but in the West, bats are popularly associated with the superhero&nbsp;<a href="https://en.wikipedia.org/wiki/Batman" title="Batman">Batman</a>, darkness, malevolence, witchcraft,&nbsp;<a href="https://en.wikipedia.org/wiki/Vampire" title="Vampire">vampires</a>, and death.</p>
 
@@ -1292,13 +1293,12 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-10-01T10:05:59.398+01:00
-        hippostdpubwf:lastModificationDate: 2023-02-06T10:59:24.765Z
+        hippostdpubwf:lastModificationDate: 2022-05-10T08:52:54.013+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d3b8e917-4ebc-49f3-92d9-68e7b7de9513
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
         publishing:metaDescription: Bats are mammals of the order Chiroptera.[a] With
           their forelimbs adapted as wings, they are the only mammals capable of true
           and sustained flight.
@@ -1318,15 +1318,17 @@
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |-
-            <p><strong>Bats</strong>&nbsp;are&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;<strong>Chiroptera</strong>.<sup><a href="https://en.wikipedia.org/wiki/Bat#cite_note-2">[a]</a></sup>&nbsp;With their forelimbs adapted as&nbsp;<a href="https://en.wikipedia.org/wiki/Wing" title="Wing">wings</a>, they are the only mammals capable of true and sustained&nbsp;<a href="https://en.wikipedia.org/wiki/Flight" title="Flight">flight</a>. Bats are more manoeuvrable than&nbsp;<a href="https://en.wikipedia.org/wiki/Bird" title="Bird">birds</a>,&nbsp;<a href="https://en.wikipedia.org/wiki/Bat_flight" title="Bat flight">flying</a>&nbsp;with their very long spread-out digits covered with a thin&nbsp;<a href="https://en.wikipedia.org/wiki/Skin" title="Skin">membrane</a>&nbsp;or&nbsp;<a href="https://en.wikipedia.org/wiki/Patagium" title="Patagium">patagium</a>. The smallest bat, and arguably the smallest extant mammal, is&nbsp;<a href="https://en.wikipedia.org/wiki/Kitti%27s_hog-nosed_bat" title="Kitti's hog-nosed bat">Kitti's hog-nosed bat</a>, which is 29–34 millimetres (1&nbsp;<sup>1</sup>⁄<sub>8</sub>–1&nbsp;<sup>3</sup>⁄<sub>8</sub>&nbsp;inches) in length, 150&nbsp;mm (6&nbsp;in) across the wings and 2–2.6&nbsp;g (<sup>1</sup>⁄<sub>16</sub>–<sup>3</sup>⁄<sub>32</sub>&nbsp;oz) in mass. The largest bats are the&nbsp;<a href="https://en.wikipedia.org/wiki/Flying_fox#Physical_characteristics" title="Flying fox">flying foxes</a>&nbsp;and the&nbsp;<a href="https://en.wikipedia.org/wiki/Giant_golden-crowned_flying_fox" title="Giant golden-crowned flying fox">giant golden-crowned flying fox</a>,&nbsp;<em>Acerodon jubatus</em>, which can weigh 1.6&nbsp;kg (3&nbsp;<sup>1</sup>⁄<sub>2</sub>&nbsp;lb) and have a wingspan of 1.7&nbsp;m (5&nbsp;ft 7&nbsp;in).</p>
-
-            <div data-src="https://www.youtube-nocookie.com/embed/5FK9tWT5pA4?enablejsapi=1" data-height="360" data-width="640" class="youtube-embed-wrapper youtube-embed-wrapper--responsive"><a href="https://www.youtube-nocookie.com/embed/5FK9tWT5pA4?enablejsapi=1"><img src="https://img.youtube.com/vi/5FK9tWT5pA4/sddefault.jpg" width="640" height="360" /></a></div>
-
-            <p>The second largest order of mammals after&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Rodents" title="Rodents">rodents</a>, bats comprise about 20% of all classified mammal species worldwide, with over 1,400 species. These were traditionally divided into two suborders: the largely fruit-eating&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Megabat" title="Megabat">megabats</a>, and the&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Animal_echolocation" title="Animal echolocation">echolocating</a>&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Microbat" title="Microbat">microbats</a>. But more recent evidence has supported dividing the order into&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Yinpterochiroptera" title="Yinpterochiroptera">Yinpterochiroptera</a>&nbsp;and&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Yangochiroptera" title="Yangochiroptera">Yangochiroptera</a>, with megabats as members of the former along with several species of microbats. Many bats are&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Insectivore" title="Insectivore">insectivores</a>, and most of the rest are&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Frugivore" title="Frugivore">frugivores</a>&nbsp;(fruit-eaters) or&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Nectarivore" title="Nectarivore">nectarivores</a>&nbsp;(nectar-eaters). A few species feed on animals other than insects; for example, the&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Vampire_bat" title="Vampire bat">vampire bats</a>&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Hematophagy" title="Hematophagy">feed on blood</a>. Most bats are&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Nocturnal" title="Nocturnal">nocturnal</a>, and many roost in caves or other refuges; it is uncertain whether bats have these behaviours to escape&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Predator" title="Predator">predators</a>. Bats are present throughout the world, with the exception of extremely cold regions. They are important in their ecosystems for&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Pollinator" title="Pollinator">pollinating</a>&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Flower" title="Flower">flowers</a>&nbsp;and dispersing seeds; many tropical plants depend entirely on bats for these services.</p>
-
-            <p>Bats provide humans with some direct benefits, at the cost of some disadvantages. On the benefits side, bat dung has been and in many places still is mined as&nbsp;<a href="https://en.wikipedia.org/wiki/Guano" title="Guano">guano</a>&nbsp;from caves and used as fertiliser. Bats consume insect pests, reducing the need for&nbsp;<a href="https://en.wikipedia.org/wiki/Pesticide" title="Pesticide">pesticides</a>&nbsp;and other insect management measures. They are sometimes numerous enough and close enough to human settlements to serve as tourist attractions, and they are used as food across Asia and the&nbsp;<a href="https://en.wikipedia.org/wiki/Pacific_Rim" title="Pacific Rim">Pacific Rim</a>. On the disadvantages side, fruit bats are frequently considered a pest by fruit growers. Due to their physiology, bats are one type of animal that acts as a&nbsp;<a href="https://en.wikipedia.org/wiki/Natural_reservoir" title="Natural reservoir">natural reservoir</a>&nbsp;of many&nbsp;<a href="https://en.wikipedia.org/wiki/Pathogen" title="Pathogen">pathogens</a>, such as&nbsp;<a href="https://en.wikipedia.org/wiki/Rabies" title="Rabies">rabies</a>; and since they are highly mobile, social, and long-lived, they can readily spread disease among themselves. If humans interact with bats, these traits become potentially dangerous to humans.</p>
+            <div data-uuid="6ce7380e-1d87-4929-aa1a-3497d38c08b6" class="fragment">davids fragment</div>
 
             <p>&nbsp;</p>
+
+            <div data-uuid="4d8cac44-b4e3-45d2-b088-2cad166852e5" class="fragment">new fragment</div>
+
+            <p><strong>Bats</strong>&nbsp;are&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;<strong>Chiroptera</strong>.<sup><a href="https://en.wikipedia.org/wiki/Bat#cite_note-2">[a]</a></sup>&nbsp;With their forelimbs adapted as&nbsp;<a href="https://en.wikipedia.org/wiki/Wing" title="Wing">wings</a>, they are the only mammals capable of true and sustained&nbsp;<a href="https://en.wikipedia.org/wiki/Flight" title="Flight">flight</a>. Bats are more manoeuvrable than&nbsp;<a href="https://en.wikipedia.org/wiki/Bird" title="Bird">birds</a>,&nbsp;<a href="https://en.wikipedia.org/wiki/Bat_flight" title="Bat flight">flying</a>&nbsp;with their very long spread-out digits covered with a thin&nbsp;<a href="https://en.wikipedia.org/wiki/Skin" title="Skin">membrane</a>&nbsp;or&nbsp;<a href="https://en.wikipedia.org/wiki/Patagium" title="Patagium">patagium</a>. The smallest bat, and arguably the smallest extant mammal, is&nbsp;<a href="https://en.wikipedia.org/wiki/Kitti%27s_hog-nosed_bat" title="Kitti's hog-nosed bat">Kitti's hog-nosed bat</a>, which is 29–34 millimetres (1&nbsp;<sup>1</sup>⁄<sub>8</sub>–1&nbsp;<sup>3</sup>⁄<sub>8</sub>&nbsp;inches) in length, 150&nbsp;mm (6&nbsp;in) across the wings and 2–2.6&nbsp;g (<sup>1</sup>⁄<sub>16</sub>–<sup>3</sup>⁄<sub>32</sub>&nbsp;oz) in mass. The largest bats are the&nbsp;<a href="https://en.wikipedia.org/wiki/Flying_fox#Physical_characteristics" title="Flying fox">flying foxes</a>&nbsp;and the&nbsp;<a href="https://en.wikipedia.org/wiki/Giant_golden-crowned_flying_fox" title="Giant golden-crowned flying fox">giant golden-crowned flying fox</a>,&nbsp;<em>Acerodon jubatus</em>, which can weigh 1.6&nbsp;kg (3&nbsp;<sup>1</sup>⁄<sub>2</sub>&nbsp;lb) and have a wingspan of 1.7&nbsp;m (5&nbsp;ft 7&nbsp;in).</p>
+
+            <p>The second largest order of mammals after&nbsp;<a href="https://en.wikipedia.org/wiki/Rodents" title="Rodents">rodents</a>, bats comprise about 20% of all classified mammal species worldwide, with over 1,400 species. These were traditionally divided into two suborders: the largely fruit-eating&nbsp;<a href="https://en.wikipedia.org/wiki/Megabat" title="Megabat">megabats</a>, and the&nbsp;<a href="https://en.wikipedia.org/wiki/Animal_echolocation" title="Animal echolocation">echolocating</a>&nbsp;<a href="https://en.wikipedia.org/wiki/Microbat" title="Microbat">microbats</a>. But more recent evidence has supported dividing the order into&nbsp;<a href="https://en.wikipedia.org/wiki/Yinpterochiroptera" title="Yinpterochiroptera">Yinpterochiroptera</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/Yangochiroptera" title="Yangochiroptera">Yangochiroptera</a>, with megabats as members of the former along with several species of microbats. Many bats are&nbsp;<a href="https://en.wikipedia.org/wiki/Insectivore" title="Insectivore">insectivores</a>, and most of the rest are&nbsp;<a href="https://en.wikipedia.org/wiki/Frugivore" title="Frugivore">frugivores</a>&nbsp;(fruit-eaters) or&nbsp;<a href="https://en.wikipedia.org/wiki/Nectarivore" title="Nectarivore">nectarivores</a>&nbsp;(nectar-eaters). A few species feed on animals other than insects; for example, the&nbsp;<a href="https://en.wikipedia.org/wiki/Vampire_bat" title="Vampire bat">vampire bats</a>&nbsp;<a href="https://en.wikipedia.org/wiki/Hematophagy" title="Hematophagy">feed on blood</a>. Most bats are&nbsp;<a href="https://en.wikipedia.org/wiki/Nocturnal" title="Nocturnal">nocturnal</a>, and many roost in caves or other refuges; it is uncertain whether bats have these behaviours to escape&nbsp;<a href="https://en.wikipedia.org/wiki/Predator" title="Predator">predators</a>. Bats are present throughout the world, with the exception of extremely cold regions. They are important in their ecosystems for&nbsp;<a href="https://en.wikipedia.org/wiki/Pollinator" title="Pollinator">pollinating</a>&nbsp;<a href="https://en.wikipedia.org/wiki/Flower" title="Flower">flowers</a>&nbsp;and dispersing seeds; many tropical plants depend entirely on bats for these services.</p>
+
+            <p>Bats provide humans with some direct benefits, at the cost of some disadvantages. On the benefits side, bat dung has been and in many places still is mined as&nbsp;<a href="https://en.wikipedia.org/wiki/Guano" title="Guano">guano</a>&nbsp;from caves and used as fertiliser. Bats consume insect pests, reducing the need for&nbsp;<a href="https://en.wikipedia.org/wiki/Pesticide" title="Pesticide">pesticides</a>&nbsp;and other insect management measures. They are sometimes numerous enough and close enough to human settlements to serve as tourist attractions, and they are used as food across Asia and the&nbsp;<a href="https://en.wikipedia.org/wiki/Pacific_Rim" title="Pacific Rim">Pacific Rim</a>. On the disadvantages side, fruit bats are frequently considered a pest by fruit growers. Due to their physiology, bats are one type of animal that acts as a&nbsp;<a href="https://en.wikipedia.org/wiki/Natural_reservoir" title="Natural reservoir">natural reservoir</a>&nbsp;of many&nbsp;<a href="https://en.wikipedia.org/wiki/Pathogen" title="Pathogen">pathogens</a>, such as&nbsp;<a href="https://en.wikipedia.org/wiki/Rabies" title="Rabies">rabies</a>; and since they are highly mobile, social, and long-lived, they can readily spread disease among themselves. If humans interact with bats, these traits become potentially dangerous to humans.</p>
 
             <p>Depending on the culture, bats may be symbolically associated with positive traits, such as protection from certain diseases or risks, rebirth, or long life, but in the West, bats are popularly associated with the superhero&nbsp;<a href="https://en.wikipedia.org/wiki/Batman" title="Batman">Batman</a>, darkness, malevolence, witchcraft,&nbsp;<a href="https://en.wikipedia.org/wiki/Vampire" title="Vampire">vampires</a>, and death.</p>
 
@@ -1353,14 +1355,13 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-10-01T10:05:59.398+01:00
-        hippostdpubwf:lastModificationDate: 2023-02-06T10:59:24.765Z
+        hippostdpubwf:lastModificationDate: 2022-05-10T08:52:54.013+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2023-02-06T10:59:28.907Z
+        hippostdpubwf:publicationDate: 2022-05-10T08:52:56.524+01:00
         hippotranslation:id: d3b8e917-4ebc-49f3-92d9-68e7b7de9513
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
         publishing:metaDescription: Bats are mammals of the order Chiroptera.[a] With
           their forelimbs adapted as wings, they are the only mammals capable of true
           and sustained flight.
@@ -1380,15 +1381,17 @@
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: |-
-            <p><strong>Bats</strong>&nbsp;are&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;<strong>Chiroptera</strong>.<sup><a href="https://en.wikipedia.org/wiki/Bat#cite_note-2">[a]</a></sup>&nbsp;With their forelimbs adapted as&nbsp;<a href="https://en.wikipedia.org/wiki/Wing" title="Wing">wings</a>, they are the only mammals capable of true and sustained&nbsp;<a href="https://en.wikipedia.org/wiki/Flight" title="Flight">flight</a>. Bats are more manoeuvrable than&nbsp;<a href="https://en.wikipedia.org/wiki/Bird" title="Bird">birds</a>,&nbsp;<a href="https://en.wikipedia.org/wiki/Bat_flight" title="Bat flight">flying</a>&nbsp;with their very long spread-out digits covered with a thin&nbsp;<a href="https://en.wikipedia.org/wiki/Skin" title="Skin">membrane</a>&nbsp;or&nbsp;<a href="https://en.wikipedia.org/wiki/Patagium" title="Patagium">patagium</a>. The smallest bat, and arguably the smallest extant mammal, is&nbsp;<a href="https://en.wikipedia.org/wiki/Kitti%27s_hog-nosed_bat" title="Kitti's hog-nosed bat">Kitti's hog-nosed bat</a>, which is 29–34 millimetres (1&nbsp;<sup>1</sup>⁄<sub>8</sub>–1&nbsp;<sup>3</sup>⁄<sub>8</sub>&nbsp;inches) in length, 150&nbsp;mm (6&nbsp;in) across the wings and 2–2.6&nbsp;g (<sup>1</sup>⁄<sub>16</sub>–<sup>3</sup>⁄<sub>32</sub>&nbsp;oz) in mass. The largest bats are the&nbsp;<a href="https://en.wikipedia.org/wiki/Flying_fox#Physical_characteristics" title="Flying fox">flying foxes</a>&nbsp;and the&nbsp;<a href="https://en.wikipedia.org/wiki/Giant_golden-crowned_flying_fox" title="Giant golden-crowned flying fox">giant golden-crowned flying fox</a>,&nbsp;<em>Acerodon jubatus</em>, which can weigh 1.6&nbsp;kg (3&nbsp;<sup>1</sup>⁄<sub>2</sub>&nbsp;lb) and have a wingspan of 1.7&nbsp;m (5&nbsp;ft 7&nbsp;in).</p>
-
-            <div data-src="https://www.youtube-nocookie.com/embed/5FK9tWT5pA4?enablejsapi=1" data-height="360" data-width="640" class="youtube-embed-wrapper youtube-embed-wrapper--responsive"><a href="https://www.youtube-nocookie.com/embed/5FK9tWT5pA4?enablejsapi=1"><img src="https://img.youtube.com/vi/5FK9tWT5pA4/sddefault.jpg" width="640" height="360" /></a></div>
-
-            <p>The second largest order of mammals after&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Rodents" title="Rodents">rodents</a>, bats comprise about 20% of all classified mammal species worldwide, with over 1,400 species. These were traditionally divided into two suborders: the largely fruit-eating&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Megabat" title="Megabat">megabats</a>, and the&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Animal_echolocation" title="Animal echolocation">echolocating</a>&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Microbat" title="Microbat">microbats</a>. But more recent evidence has supported dividing the order into&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Yinpterochiroptera" title="Yinpterochiroptera">Yinpterochiroptera</a>&nbsp;and&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Yangochiroptera" title="Yangochiroptera">Yangochiroptera</a>, with megabats as members of the former along with several species of microbats. Many bats are&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Insectivore" title="Insectivore">insectivores</a>, and most of the rest are&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Frugivore" title="Frugivore">frugivores</a>&nbsp;(fruit-eaters) or&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Nectarivore" title="Nectarivore">nectarivores</a>&nbsp;(nectar-eaters). A few species feed on animals other than insects; for example, the&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Vampire_bat" title="Vampire bat">vampire bats</a>&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Hematophagy" title="Hematophagy">feed on blood</a>. Most bats are&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Nocturnal" title="Nocturnal">nocturnal</a>, and many roost in caves or other refuges; it is uncertain whether bats have these behaviours to escape&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Predator" title="Predator">predators</a>. Bats are present throughout the world, with the exception of extremely cold regions. They are important in their ecosystems for&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Pollinator" title="Pollinator">pollinating</a>&nbsp;<a style="background-color: rgb(255, 255, 255);" href="https://en.wikipedia.org/wiki/Flower" title="Flower">flowers</a>&nbsp;and dispersing seeds; many tropical plants depend entirely on bats for these services.</p>
-
-            <p>Bats provide humans with some direct benefits, at the cost of some disadvantages. On the benefits side, bat dung has been and in many places still is mined as&nbsp;<a href="https://en.wikipedia.org/wiki/Guano" title="Guano">guano</a>&nbsp;from caves and used as fertiliser. Bats consume insect pests, reducing the need for&nbsp;<a href="https://en.wikipedia.org/wiki/Pesticide" title="Pesticide">pesticides</a>&nbsp;and other insect management measures. They are sometimes numerous enough and close enough to human settlements to serve as tourist attractions, and they are used as food across Asia and the&nbsp;<a href="https://en.wikipedia.org/wiki/Pacific_Rim" title="Pacific Rim">Pacific Rim</a>. On the disadvantages side, fruit bats are frequently considered a pest by fruit growers. Due to their physiology, bats are one type of animal that acts as a&nbsp;<a href="https://en.wikipedia.org/wiki/Natural_reservoir" title="Natural reservoir">natural reservoir</a>&nbsp;of many&nbsp;<a href="https://en.wikipedia.org/wiki/Pathogen" title="Pathogen">pathogens</a>, such as&nbsp;<a href="https://en.wikipedia.org/wiki/Rabies" title="Rabies">rabies</a>; and since they are highly mobile, social, and long-lived, they can readily spread disease among themselves. If humans interact with bats, these traits become potentially dangerous to humans.</p>
+            <div data-uuid="6ce7380e-1d87-4929-aa1a-3497d38c08b6" class="fragment">davids fragment</div>
 
             <p>&nbsp;</p>
+
+            <div data-uuid="4d8cac44-b4e3-45d2-b088-2cad166852e5" class="fragment">new fragment</div>
+
+            <p><strong>Bats</strong>&nbsp;are&nbsp;<a href="https://en.wikipedia.org/wiki/Mammal" title="Mammal">mammals</a>&nbsp;of the&nbsp;<a href="https://en.wikipedia.org/wiki/Order_(biology)" title="Order (biology)">order</a>&nbsp;<strong>Chiroptera</strong>.<sup><a href="https://en.wikipedia.org/wiki/Bat#cite_note-2">[a]</a></sup>&nbsp;With their forelimbs adapted as&nbsp;<a href="https://en.wikipedia.org/wiki/Wing" title="Wing">wings</a>, they are the only mammals capable of true and sustained&nbsp;<a href="https://en.wikipedia.org/wiki/Flight" title="Flight">flight</a>. Bats are more manoeuvrable than&nbsp;<a href="https://en.wikipedia.org/wiki/Bird" title="Bird">birds</a>,&nbsp;<a href="https://en.wikipedia.org/wiki/Bat_flight" title="Bat flight">flying</a>&nbsp;with their very long spread-out digits covered with a thin&nbsp;<a href="https://en.wikipedia.org/wiki/Skin" title="Skin">membrane</a>&nbsp;or&nbsp;<a href="https://en.wikipedia.org/wiki/Patagium" title="Patagium">patagium</a>. The smallest bat, and arguably the smallest extant mammal, is&nbsp;<a href="https://en.wikipedia.org/wiki/Kitti%27s_hog-nosed_bat" title="Kitti's hog-nosed bat">Kitti's hog-nosed bat</a>, which is 29–34 millimetres (1&nbsp;<sup>1</sup>⁄<sub>8</sub>–1&nbsp;<sup>3</sup>⁄<sub>8</sub>&nbsp;inches) in length, 150&nbsp;mm (6&nbsp;in) across the wings and 2–2.6&nbsp;g (<sup>1</sup>⁄<sub>16</sub>–<sup>3</sup>⁄<sub>32</sub>&nbsp;oz) in mass. The largest bats are the&nbsp;<a href="https://en.wikipedia.org/wiki/Flying_fox#Physical_characteristics" title="Flying fox">flying foxes</a>&nbsp;and the&nbsp;<a href="https://en.wikipedia.org/wiki/Giant_golden-crowned_flying_fox" title="Giant golden-crowned flying fox">giant golden-crowned flying fox</a>,&nbsp;<em>Acerodon jubatus</em>, which can weigh 1.6&nbsp;kg (3&nbsp;<sup>1</sup>⁄<sub>2</sub>&nbsp;lb) and have a wingspan of 1.7&nbsp;m (5&nbsp;ft 7&nbsp;in).</p>
+
+            <p>The second largest order of mammals after&nbsp;<a href="https://en.wikipedia.org/wiki/Rodents" title="Rodents">rodents</a>, bats comprise about 20% of all classified mammal species worldwide, with over 1,400 species. These were traditionally divided into two suborders: the largely fruit-eating&nbsp;<a href="https://en.wikipedia.org/wiki/Megabat" title="Megabat">megabats</a>, and the&nbsp;<a href="https://en.wikipedia.org/wiki/Animal_echolocation" title="Animal echolocation">echolocating</a>&nbsp;<a href="https://en.wikipedia.org/wiki/Microbat" title="Microbat">microbats</a>. But more recent evidence has supported dividing the order into&nbsp;<a href="https://en.wikipedia.org/wiki/Yinpterochiroptera" title="Yinpterochiroptera">Yinpterochiroptera</a>&nbsp;and&nbsp;<a href="https://en.wikipedia.org/wiki/Yangochiroptera" title="Yangochiroptera">Yangochiroptera</a>, with megabats as members of the former along with several species of microbats. Many bats are&nbsp;<a href="https://en.wikipedia.org/wiki/Insectivore" title="Insectivore">insectivores</a>, and most of the rest are&nbsp;<a href="https://en.wikipedia.org/wiki/Frugivore" title="Frugivore">frugivores</a>&nbsp;(fruit-eaters) or&nbsp;<a href="https://en.wikipedia.org/wiki/Nectarivore" title="Nectarivore">nectarivores</a>&nbsp;(nectar-eaters). A few species feed on animals other than insects; for example, the&nbsp;<a href="https://en.wikipedia.org/wiki/Vampire_bat" title="Vampire bat">vampire bats</a>&nbsp;<a href="https://en.wikipedia.org/wiki/Hematophagy" title="Hematophagy">feed on blood</a>. Most bats are&nbsp;<a href="https://en.wikipedia.org/wiki/Nocturnal" title="Nocturnal">nocturnal</a>, and many roost in caves or other refuges; it is uncertain whether bats have these behaviours to escape&nbsp;<a href="https://en.wikipedia.org/wiki/Predator" title="Predator">predators</a>. Bats are present throughout the world, with the exception of extremely cold regions. They are important in their ecosystems for&nbsp;<a href="https://en.wikipedia.org/wiki/Pollinator" title="Pollinator">pollinating</a>&nbsp;<a href="https://en.wikipedia.org/wiki/Flower" title="Flower">flowers</a>&nbsp;and dispersing seeds; many tropical plants depend entirely on bats for these services.</p>
+
+            <p>Bats provide humans with some direct benefits, at the cost of some disadvantages. On the benefits side, bat dung has been and in many places still is mined as&nbsp;<a href="https://en.wikipedia.org/wiki/Guano" title="Guano">guano</a>&nbsp;from caves and used as fertiliser. Bats consume insect pests, reducing the need for&nbsp;<a href="https://en.wikipedia.org/wiki/Pesticide" title="Pesticide">pesticides</a>&nbsp;and other insect management measures. They are sometimes numerous enough and close enough to human settlements to serve as tourist attractions, and they are used as food across Asia and the&nbsp;<a href="https://en.wikipedia.org/wiki/Pacific_Rim" title="Pacific Rim">Pacific Rim</a>. On the disadvantages side, fruit bats are frequently considered a pest by fruit growers. Due to their physiology, bats are one type of animal that acts as a&nbsp;<a href="https://en.wikipedia.org/wiki/Natural_reservoir" title="Natural reservoir">natural reservoir</a>&nbsp;of many&nbsp;<a href="https://en.wikipedia.org/wiki/Pathogen" title="Pathogen">pathogens</a>, such as&nbsp;<a href="https://en.wikipedia.org/wiki/Rabies" title="Rabies">rabies</a>; and since they are highly mobile, social, and long-lived, they can readily spread disease among themselves. If humans interact with bats, these traits become potentially dangerous to humans.</p>
 
             <p>Depending on the culture, bats may be symbolically associated with positive traits, such as protection from certain diseases or risks, rebirth, or long life, but in the West, bats are popularly associated with the superhero&nbsp;<a href="https://en.wikipedia.org/wiki/Batman" title="Batman">Batman</a>, darkness, malevolence, witchcraft,&nbsp;<a href="https://en.wikipedia.org/wiki/Vampire" title="Vampire">vampires</a>, and death.</p>
 
@@ -1508,150 +1511,6 @@
         /publishing:additionalContent:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>qqqqq</p>
-    /foo:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 48d8ad0b-1f85-4e87-9e7c-301f0f66a0e2
-      hippo:versionHistory: cab26320-f974-4abf-bf90-99e45f9e7fd8
-      /foo[1]:
-        jcr:primaryType: publishing:documentcoverpage
-        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
-        jcr:uuid: 052aac95-dc3e-49f9-ad49-18042eb07c19
-        hippo:availability: []
-        hippostd:holder: admin
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2023-02-20T13:47:56.587Z
-        hippostdpubwf:lastModificationDate: 2023-02-27T09:27:08.768Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 0cf18d0a-5680-4330-8dba-9df0b3a4f393
-        hippotranslation:locale: document-type-locale
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:metaDescription: werweewr
-        publishing:noindex: false
-        publishing:organisationtags: []
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: werwewer
-        publishing:serviceproviders: []
-        publishing:showFeedback: true
-        publishing:showInParent: true
-        publishing:slug: foo
-        publishing:summary: werewrwe
-        publishing:title: wewerwer
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: |-
-            <p><a href="index">reptiles</a></p>
-
-            <p><a href="index_1" class="ds_button">mammals</a></p>
-
-            <p>&nbsp;</p>
-          /index:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: 22c2ddb3-52d5-421a-bdf1-bb7982edd14f
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /index_1:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: 55b3718e-934f-454f-a94f-21eeb13b961c
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-      /foo[2]:
-        jcr:primaryType: publishing:documentcoverpage
-        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
-        jcr:uuid: e5652674-a0b3-4848-a25f-f60f4bb65fd2
-        hippo:availability: [preview]
-        hippostd:retainable: false
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2023-02-20T13:47:56.587Z
-        hippostdpubwf:lastModificationDate: 2023-02-27T09:20:34.196Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 0cf18d0a-5680-4330-8dba-9df0b3a4f393
-        hippotranslation:locale: document-type-locale
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:metaDescription: werweewr
-        publishing:noindex: false
-        publishing:organisationtags: []
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: werwewer
-        publishing:serviceproviders: []
-        publishing:showFeedback: true
-        publishing:showInParent: true
-        publishing:slug: foo
-        publishing:summary: werewrwe
-        publishing:title: wewerwer
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: |-
-            <p><a href="index">reptiles</a></p>
-
-            <p><a href="index_1" class="ds_button">mammals</a></p>
-          /index:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: 22c2ddb3-52d5-421a-bdf1-bb7982edd14f
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /index_1:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: 55b3718e-934f-454f-a94f-21eeb13b961c
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-      /foo[3]:
-        jcr:primaryType: publishing:documentcoverpage
-        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
-        jcr:uuid: 41291f5d-0f2d-4ee6-8bb7-9c6a93d9128f
-        hippo:availability: [live]
-        hippostd:retainable: false
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2023-02-20T13:47:56.587Z
-        hippostdpubwf:lastModificationDate: 2023-02-27T09:20:34.196Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2023-02-27T09:21:41.729Z
-        hippotranslation:id: 0cf18d0a-5680-4330-8dba-9df0b3a4f393
-        hippotranslation:locale: document-type-locale
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:metaDescription: werweewr
-        publishing:noindex: false
-        publishing:organisationtags: []
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: werwewer
-        publishing:serviceproviders: []
-        publishing:showFeedback: true
-        publishing:showInParent: true
-        publishing:slug: foo
-        publishing:summary: werewrwe
-        publishing:title: wewerwer
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: |-
-            <p><a href="index">reptiles</a></p>
-
-            <p><a href="index_1" class="ds_button">mammals</a></p>
-          /index:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: 22c2ddb3-52d5-421a-bdf1-bb7982edd14f
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /index_1:
-            jcr:primaryType: hippo:facetselect
-            hippo:docbase: 55b3718e-934f-454f-a94f-21eeb13b961c
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
   /reptiles:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
@@ -1791,7 +1650,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 8088475d-a390-4b16-b734-b0a600fde29b
         hippo:name: Snakes
-        hippo:versionHistory: db1a478e-2ff8-431d-8683-32b496fec55f
+        hippo:versionHistory: 6ee5ad76-2dd7-4833-955a-d9339b9c45ac
         /index[1]:
           jcr:primaryType: publishing:guide
           jcr:mixinTypes: ['mix:versionable']
@@ -1801,19 +1660,17 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T09:34:46.056+01:00
-          hippostdpubwf:lastModificationDate: 2023-03-21T08:27:33.409Z
+          hippostdpubwf:lastModificationDate: 2021-05-25T14:27:29.426+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 2004f627-d7f7-471d-b445-8dc36c5c9c33
           hippotranslation:locale: document-type-locale
           publishing:audience: ''
           publishing:authorNotes: ''
-          publishing:contentitemlanguage: en
           publishing:metaDescription: akes are elongated, legless, carnivorous reptiles
             of the suborder Serpentes.[2] Like all other squamates, snakes are ectothermic,
             amniote vertebrates covered in overlapping scales.
-          publishing:noindex: false
           publishing:reportingtags: []
-          publishing:sensitive: true
+          publishing:sensitive: false
           publishing:seoTitle: Snakes
           publishing:serviceproviders: [visitscotland]
           publishing:showFeedback: true
@@ -1842,19 +1699,17 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T09:34:46.056+01:00
-          hippostdpubwf:lastModificationDate: 2023-03-21T08:27:29.771Z
+          hippostdpubwf:lastModificationDate: 2021-05-25T14:27:22.005+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 2004f627-d7f7-471d-b445-8dc36c5c9c33
           hippotranslation:locale: document-type-locale
           publishing:audience: ''
           publishing:authorNotes: ''
-          publishing:contentitemlanguage: en
           publishing:metaDescription: akes are elongated, legless, carnivorous reptiles
             of the suborder Serpentes.[2] Like all other squamates, snakes are ectothermic,
             amniote vertebrates covered in overlapping scales.
-          publishing:noindex: false
           publishing:reportingtags: []
-          publishing:sensitive: true
+          publishing:sensitive: false
           publishing:seoTitle: Snakes
           publishing:serviceproviders: [visitscotland]
           publishing:showFeedback: true
@@ -1883,20 +1738,18 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2020-09-30T09:34:46.056+01:00
-          hippostdpubwf:lastModificationDate: 2023-03-21T08:27:33.409Z
+          hippostdpubwf:lastModificationDate: 2021-05-25T14:27:29.426+01:00
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2023-03-21T08:27:35.732Z
+          hippostdpubwf:publicationDate: 2021-05-25T14:27:31.860+01:00
           hippotranslation:id: 2004f627-d7f7-471d-b445-8dc36c5c9c33
           hippotranslation:locale: document-type-locale
           publishing:audience: ''
           publishing:authorNotes: ''
-          publishing:contentitemlanguage: en
           publishing:metaDescription: akes are elongated, legless, carnivorous reptiles
             of the suborder Serpentes.[2] Like all other squamates, snakes are ectothermic,
             amniote vertebrates covered in overlapping scales.
-          publishing:noindex: false
           publishing:reportingtags: []
-          publishing:sensitive: true
+          publishing:sensitive: false
           publishing:seoTitle: Snakes
           publishing:serviceproviders: [visitscotland]
           publishing:showFeedback: true
@@ -7715,7 +7568,7 @@
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 487be105-9b26-4e74-b988-9f6ac2bf2cb4
         hippo:name: Tell your subtenant they need to leave
-        hippo:versionHistory: b20088de-0805-4d23-b614-14fb84515bdd
+        hippo:versionHistory: 5b8b0b21-880b-400e-846e-631f38d9803f
         /tell-your-subtenant-they-need-to-leave[1]:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -7728,13 +7581,12 @@
             private residential tenancy, tenant, evicted, notice]
           hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
           hippostdpubwf:creationDate: 2018-03-21T11:54:37Z
-          hippostdpubwf:lastModificationDate: 2022-12-08T13:55:43.228Z
-          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:lastModificationDate: 2021-08-26T15:54:56.245+01:00
+          hippostdpubwf:lastModifiedBy: marc.lunness@gov.scot
           hippotranslation:id: f235fd47-a003-42b9-be30-ed7b63769b81
           hippotranslation:locale: document-type-locale
           publishing:audience: ''
           publishing:authorNotes: <p>26/08/2021 - date range update from Alan. ML</p>
-          publishing:formdisabled: false
           publishing:formtype: subtenant-notice-to-leave-form
           publishing:lastUpdatedDate: 2021-08-26T00:00:00+01:00
           publishing:lifeEvents: [housing, tenancy]
@@ -7748,7 +7600,6 @@
           publishing:seoTitle: Tell your subtenant they need to leave
           publishing:serviceproviders: []
           publishing:showFeedback: true
-          publishing:showInParent: false
           publishing:slug: tell-your-subtenant-they-need-to-leave
           publishing:summary: Use this notice if your subtenant has a private residential
             tenancy and you want them to leave.
@@ -7873,9 +7724,6 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
-          /publishing:additionalContent:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
         /tell-your-subtenant-they-need-to-leave[2]:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
@@ -7889,13 +7737,12 @@
             private residential tenancy, tenant, evicted, notice]
           hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
           hippostdpubwf:creationDate: 2018-03-21T11:54:37Z
-          hippostdpubwf:lastModificationDate: 2022-12-08T13:55:44.862Z
-          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:lastModificationDate: 2021-08-26T15:55:36.688+01:00
+          hippostdpubwf:lastModifiedBy: marc.lunness@gov.scot
           hippotranslation:id: f235fd47-a003-42b9-be30-ed7b63769b81
           hippotranslation:locale: document-type-locale
           publishing:audience: ''
           publishing:authorNotes: <p>26/08/2021 - date range update from Alan. ML</p>
-          publishing:formdisabled: false
           publishing:formtype: subtenant-notice-to-leave-form
           publishing:lastUpdatedDate: 2021-08-26T00:00:00+01:00
           publishing:lifeEvents: [housing, tenancy]
@@ -7909,7 +7756,6 @@
           publishing:seoTitle: Tell your subtenant they need to leave
           publishing:serviceproviders: []
           publishing:showFeedback: true
-          publishing:showInParent: false
           publishing:slug: tell-your-subtenant-they-need-to-leave
           publishing:summary: Use this notice if your subtenant has a private residential
             tenancy and you want them to leave.
@@ -8034,9 +7880,6 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
-          /publishing:additionalContent:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
         /tell-your-subtenant-they-need-to-leave[3]:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -8049,14 +7892,13 @@
             private residential tenancy, tenant, evicted, notice]
           hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
           hippostdpubwf:creationDate: 2018-03-21T11:54:37Z
-          hippostdpubwf:lastModificationDate: 2022-12-08T13:55:44.862Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-12-08T13:55:46.650Z
+          hippostdpubwf:lastModificationDate: 2021-08-26T15:55:36.688+01:00
+          hippostdpubwf:lastModifiedBy: marc.lunness@gov.scot
+          hippostdpubwf:publicationDate: 2021-08-26T15:55:41.987+01:00
           hippotranslation:id: f235fd47-a003-42b9-be30-ed7b63769b81
           hippotranslation:locale: document-type-locale
           publishing:audience: ''
           publishing:authorNotes: <p>26/08/2021 - date range update from Alan. ML</p>
-          publishing:formdisabled: false
           publishing:formtype: subtenant-notice-to-leave-form
           publishing:lastUpdatedDate: 2021-08-26T00:00:00+01:00
           publishing:lifeEvents: [housing, tenancy]
@@ -8070,7 +7912,6 @@
           publishing:seoTitle: Tell your subtenant they need to leave
           publishing:serviceproviders: []
           publishing:showFeedback: true
-          publishing:showInParent: false
           publishing:slug: tell-your-subtenant-they-need-to-leave
           publishing:summary: Use this notice if your subtenant has a private residential
             tenancy and you want them to leave.
@@ -8195,15 +8036,12 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
-          /publishing:additionalContent:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
       /tell-your-tenant-they-need-to-leave:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 266f094b-174c-4508-bf5c-b1d18c64d680
         hippo:name: Tell your tenant they need to leave
-        hippo:versionHistory: 4935e78e-61f9-4c3d-9ae7-0ffba9dc56a3
+        hippo:versionHistory: 8771f0f3-5c2d-4444-8422-aa92a21405a9
         /tell-your-tenant-they-need-to-leave[1]:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -8216,8 +8054,8 @@
               residential tenancy, ask to leave, tenant, notice, evict]
           hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
           hippostdpubwf:creationDate: 2018-03-21T11:45:12Z
-          hippostdpubwf:lastModificationDate: 2022-12-08T13:52:59.248Z
-          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:lastModificationDate: 2021-08-26T15:53:54.671+01:00
+          hippostdpubwf:lastModifiedBy: marc.lunness@gov.scot
           hippotranslation:id: fb4a173c-2392-4fcb-aaff-60325aeab376
           hippotranslation:locale: document-type-locale
           publishing:audience: ''
@@ -8225,7 +8063,6 @@
             <p>26/08/2021 - date range update from Alan. ML</p>
 
             <p>5/10/2020 - updates requested by Alan Garft to inbox. SMc 09/06/2020 - Added info. box with link to gov.scot coronavirus guidance. ML 05/06/2020 - Removed broken link and passed users to specific pages for assured and short assured tenancies. Alan Garft is new owner instead of Beth Wilson. ML</p>
-          publishing:formdisabled: true
           publishing:formtype: notice-to-leave-form
           publishing:lastUpdatedDate: 2021-08-26T00:00:00+01:00
           publishing:lifeEvents: [housing, tenancy]
@@ -8239,7 +8076,6 @@
           publishing:seoTitle: Tell your tenant they need to leave
           publishing:serviceproviders: []
           publishing:showFeedback: true
-          publishing:showInParent: true
           publishing:slug: tell-your-tenant-they-need-to-leave
           publishing:summary: Use this notice if you have a private residential tenancy
             with your tenant and you want them to leave.
@@ -8398,9 +8234,6 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
-          /publishing:additionalContent:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
         /tell-your-tenant-they-need-to-leave[2]:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
@@ -8414,8 +8247,8 @@
               residential tenancy, ask to leave, tenant, notice, evict]
           hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
           hippostdpubwf:creationDate: 2018-03-21T11:45:12Z
-          hippostdpubwf:lastModificationDate: 2022-12-08T13:53:04.696Z
-          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:lastModificationDate: 2021-08-26T15:54:29.094+01:00
+          hippostdpubwf:lastModifiedBy: marc.lunness@gov.scot
           hippotranslation:id: fb4a173c-2392-4fcb-aaff-60325aeab376
           hippotranslation:locale: document-type-locale
           publishing:audience: ''
@@ -8423,7 +8256,6 @@
             <p>26/08/2021 - date range update from Alan. ML</p>
 
             <p>5/10/2020 - updates requested by Alan Garft to inbox. SMc 09/06/2020 - Added info. box with link to gov.scot coronavirus guidance. ML 05/06/2020 - Removed broken link and passed users to specific pages for assured and short assured tenancies. Alan Garft is new owner instead of Beth Wilson. ML</p>
-          publishing:formdisabled: true
           publishing:formtype: notice-to-leave-form
           publishing:lastUpdatedDate: 2021-08-26T00:00:00+01:00
           publishing:lifeEvents: [housing, tenancy]
@@ -8437,7 +8269,6 @@
           publishing:seoTitle: Tell your tenant they need to leave
           publishing:serviceproviders: []
           publishing:showFeedback: true
-          publishing:showInParent: true
           publishing:slug: tell-your-tenant-they-need-to-leave
           publishing:summary: Use this notice if you have a private residential tenancy
             with your tenant and you want them to leave.
@@ -8596,9 +8427,6 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
-          /publishing:additionalContent:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
         /tell-your-tenant-they-need-to-leave[3]:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -8611,9 +8439,9 @@
               residential tenancy, ask to leave, tenant, notice, evict]
           hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
           hippostdpubwf:creationDate: 2018-03-21T11:45:12Z
-          hippostdpubwf:lastModificationDate: 2022-12-08T13:53:04.696Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2022-12-08T13:53:06.560Z
+          hippostdpubwf:lastModificationDate: 2021-08-26T15:54:29.094+01:00
+          hippostdpubwf:lastModifiedBy: marc.lunness@gov.scot
+          hippostdpubwf:publicationDate: 2021-08-26T15:54:33.059+01:00
           hippotranslation:id: fb4a173c-2392-4fcb-aaff-60325aeab376
           hippotranslation:locale: document-type-locale
           publishing:audience: ''
@@ -8621,7 +8449,6 @@
             <p>26/08/2021 - date range update from Alan. ML</p>
 
             <p>5/10/2020 - updates requested by Alan Garft to inbox. SMc 09/06/2020 - Added info. box with link to gov.scot coronavirus guidance. ML 05/06/2020 - Removed broken link and passed users to specific pages for assured and short assured tenancies. Alan Garft is new owner instead of Beth Wilson. ML</p>
-          publishing:formdisabled: true
           publishing:formtype: notice-to-leave-form
           publishing:lastUpdatedDate: 2021-08-26T00:00:00+01:00
           publishing:lifeEvents: [housing, tenancy]
@@ -8635,7 +8462,6 @@
           publishing:seoTitle: Tell your tenant they need to leave
           publishing:serviceproviders: []
           publishing:showFeedback: true
-          publishing:showInParent: true
           publishing:slug: tell-your-tenant-they-need-to-leave
           publishing:summary: Use this notice if you have a private residential tenancy
             with your tenant and you want them to leave.
@@ -8794,9 +8620,6 @@
               hippo:facets: []
               hippo:modes: []
               hippo:values: []
-          /publishing:additionalContent:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
       /tenancy-agreements---landlords:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -43067,108 +42890,3 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-  /frr:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 2817dcc7-ce0c-4af8-ba89-eb320f1e5fb2
-    hippo:versionHistory: bc7511fb-5776-4764-aefc-10b7e51f4c93
-    /frr[1]:
-      jcr:primaryType: publishing:fairrent
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 46679b71-d0cf-4347-ac3d-2eda7f891b32
-      hippo:availability: []
-      hippostd:retainable: false
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2023-02-24T08:20:47.792Z
-      hippostdpubwf:lastModificationDate: 2023-02-24T08:20:47.792Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 7823f17b-81be-4926-ab5f-a807bcabc660
-      hippotranslation:locale: document-type-locale
-      publishing:audience: ''
-      publishing:authorNotes: ''
-      publishing:metaDescription: wrre
-      publishing:reportingtags: []
-      publishing:sensitive: false
-      publishing:seoTitle: frr
-      publishing:serviceproviders: []
-      publishing:showFeedback: true
-      publishing:slug: frr
-      publishing:summary: weewrewr
-      publishing:title: frr
-      /publishing:content:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>eweerewr</p>
-      /publishing:contentOwner:
-        jcr:primaryType: hippo:mirror
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-      /publishing:additionalContent:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>wrewrerwe</p>
-    /frr[2]:
-      jcr:primaryType: publishing:fairrent
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: 5a26cb28-ce46-4525-a5ac-da1eed296da1
-      hippo:availability: [preview]
-      hippostd:retainable: false
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2023-02-24T08:20:47.792Z
-      hippostdpubwf:lastModificationDate: 2023-02-24T08:20:57.930Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 7823f17b-81be-4926-ab5f-a807bcabc660
-      hippotranslation:locale: document-type-locale
-      publishing:audience: ''
-      publishing:authorNotes: ''
-      publishing:metaDescription: wrre
-      publishing:reportingtags: []
-      publishing:sensitive: false
-      publishing:seoTitle: frr
-      publishing:serviceproviders: []
-      publishing:showFeedback: true
-      publishing:slug: frr
-      publishing:summary: weewrewr
-      publishing:title: frr
-      /publishing:content:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>eweerewr</p>
-      /publishing:contentOwner:
-        jcr:primaryType: hippo:mirror
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-      /publishing:additionalContent:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>wrewrerwe</p>
-    /frr[3]:
-      jcr:primaryType: publishing:fairrent
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 1390f32b-6482-402c-8623-2d46896d80db
-      hippo:availability: [live]
-      hippostd:retainable: false
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2023-02-24T08:20:47.792Z
-      hippostdpubwf:lastModificationDate: 2023-02-24T08:20:57.930Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2023-02-24T08:21:03.546Z
-      hippotranslation:id: 7823f17b-81be-4926-ab5f-a807bcabc660
-      hippotranslation:locale: document-type-locale
-      publishing:audience: ''
-      publishing:authorNotes: ''
-      publishing:metaDescription: wrre
-      publishing:reportingtags: []
-      publishing:sensitive: false
-      publishing:seoTitle: frr
-      publishing:serviceproviders: []
-      publishing:showFeedback: true
-      publishing:slug: frr
-      publishing:summary: weewrewr
-      publishing:title: frr
-      /publishing:content:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>eweerewr</p>
-      /publishing:contentOwner:
-        jcr:primaryType: hippo:mirror
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-      /publishing:additionalContent:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>wrewrerwe</p>

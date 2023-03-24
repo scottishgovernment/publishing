@@ -158,9 +158,9 @@ describe("Rent increase form", function() {
         });
     });
 
-    describe('setupIncreaseAmountPage', function () {
+    describe('calculateMaximumRentIncreaseAmount', function () {
         it('should do nothing if the property is not in a RPZ', function () {
-            rentIncreaseForm.setupIncreaseAmountPage();
+            rentIncreaseForm.calculateMaximumRentIncreaseAmount();
 
             expect($('#new-rent-amount').attr('data-maxvalue')).toBeUndefined();
         });
@@ -176,7 +176,7 @@ describe("Rent increase form", function() {
             rentIncreaseForm.form.settings.formObject.currentRentAmount = 100;
             rentIncreaseForm.form.settings.formObject.currentRentFrequency = 'WEEKLY';
             rentIncreaseForm.rpzData = rpzData;
-            rentIncreaseForm.setupIncreaseAmountPage();
+            rentIncreaseForm.calculateMaximumRentIncreaseAmount();
 
             expect($('#new-rent-amount').attr('data-maxvalue')).not.toBeUndefined();
         });
@@ -192,7 +192,7 @@ describe("Rent increase form", function() {
             rentIncreaseForm.form.settings.formObject.currentRentAmount = 100;
             rentIncreaseForm.form.settings.formObject.currentRentFrequency = 'WEEKLY';
             rentIncreaseForm.rpzData = rpzData;
-            rentIncreaseForm.setupIncreaseAmountPage();
+            rentIncreaseForm.calculateMaximumRentIncreaseAmount();
 
             expect(rentIncreaseForm.cpiDelta).toEqual(0);
         });
