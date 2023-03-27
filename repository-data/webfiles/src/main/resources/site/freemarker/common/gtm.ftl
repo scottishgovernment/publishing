@@ -33,11 +33,31 @@
 
 <@hst.headContribution category="googleTagManager">
 <script id="gtm-script">
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl+'<#if gtmAuth?has_content>&amp;gtm_auth=${gtmAuth?js_string}</#if><#if gtmEnv?has_content>&amp;gtm_preview=${gtmEnv?js_string}&amp;gtm_cookies_win=x</#if>';f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','${gtmContainerId?js_string}');
+(function() {
+    function getCookie(name) {
+        var cookie = {};
+        document.cookie.split(';').forEach(function(el) {
+            var split = el.split('=');
+            cookie[split[0].trim()] = split[1];
+        });
+        return cookie[name];
+    }
+
+    var statisticsEnabled;
+    try {
+        statisticsEnabled = JSON.parse(atob(getCookie('cookiePermissions'))).statistics !== false;
+    } catch (err) {
+        statisticsEnabled = false;
+    }
+
+    if (statisticsEnabled) {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl+'<#if gtmAuth?has_content>&amp;gtm_auth=${gtmAuth?js_string}</#if><#if gtmEnv?has_content>&amp;gtm_preview=${gtmEnv?js_string}&amp;gtm_cookies_win=x</#if>';f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','${gtmContainerId?js_string}');
+    }
+})();
 </script>
 </@hst.headContribution>
 
