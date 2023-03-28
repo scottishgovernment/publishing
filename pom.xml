@@ -80,6 +80,7 @@
     <!-- Front end build -->
     <version.node>v18.15.0</version.node>
     <version.npm>9.5.0</version.npm>
+    <version.aws>1.12.437</version.aws>
     <install.node.dir>${settings.localRepository}/.node/${version.node}</install.node.dir>
 
     <hystrix-javanica.version>1.5.12</hystrix-javanica.version>
@@ -98,6 +99,12 @@
         <artifactId>h2</artifactId>
         <version>${h2.database.version}</version>
         <scope>runtime</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>com.amazonaws</groupId>
+        <artifactId>aws-java-sdk-s3</artifactId>
+        <version>${version.aws}</version>
       </dependency>
 
       <dependency>
