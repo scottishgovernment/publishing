@@ -8,6 +8,7 @@ const commonItems = {
     entry: {
         'global':                       path.resolve(__dirname, './global.js'),
         'gtm':                          path.resolve(__dirname, './gtm.js'),
+        'datalayer':                    path.resolve(__dirname, './datalayer.js'),
 
         // format-specific entry points
         'article':                      path.resolve(__dirname, './formats/article.js'),
