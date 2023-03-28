@@ -25,11 +25,16 @@
         return cookie[name];
     }
 
-    let statisticsEnabled;
-    try {
-        statisticsEnabled = JSON.parse(atob(getCookie('cookiePermissions'))).statistics !== false;
-    } catch (err) {
-        statisticsEnabled = false;
+    const cookiePermissions = getCookie('cookiePermissions');
+
+    let statisticsEnabled = true;
+
+    if (cookiePermissions) {
+        try {
+            statisticsEnabled = JSON.parse(atob(getCookie('cookiePermissions'))).statistics !== false;
+        } catch (err) {
+            statisticsEnabled = false;
+        }
     }
 
     if (statisticsEnabled) {
