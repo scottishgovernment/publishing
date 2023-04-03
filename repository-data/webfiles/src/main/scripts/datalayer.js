@@ -6,8 +6,8 @@
     const reportingTags = datalayerScriptElement.dataset.reportingtags;
     const lifeEvents = datalayerScriptElement.dataset.lifeevents;
     const serviceProviders = datalayerScriptElement.dataset.serviceproviders;
-    const gtmName = datalayerScriptElement.dataset.gtmname;
-    const gtmId = datalayerScriptElement.dataset.gtmid;
+    const format = datalayerScriptElement.dataset.format;
+    const siteid = datalayerScriptElement.dataset.siteid;
 
     window.dataLayer = window.dataLayer || [];
 
@@ -35,12 +35,12 @@
         obj.serviceProviders = serviceProviders.split('|');
     }
 
-    if (gtmName && !!gtmName.length) {
-        obj.gtmName = gtmName;
+    if (format && !!format.length) {
+        obj.format = format;
     }
 
-    if (gtmId && !!gtmId.length) {
-        obj.gtmId = gtmId;
+    if (siteid && !!siteid.length) {
+        obj.siteid = siteid;
     }
 
     window.dataLayer.push(obj);

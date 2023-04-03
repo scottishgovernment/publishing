@@ -11,9 +11,9 @@
         <#if document.audience?has_content>data-audience="${document.audience?js_string}"</#if>
         <#if reportingTags?has_content>data-reportingtags="<#list reportingTags as item>${item?js_string}<#sep>|</#sep></#list>"</#if>
         <#if document.lifeEvents?has_content>data-lifeevents="<#list document.lifeEvents as item><#if item?has_content>${item?js_string}<#sep>|</#sep></#if></#list>"</#if>
-        <#if document.serviceProviders?has_content>data-serviceproviders="<#list document.serviceProviders as item>${item?js_string}<#sep>|</#sep></#list>"</#if>
-        <#if gtmName??>data-gtmname="${gtmName?js_string}"</#if>
-        <#if gtmId??>data-gtmid="${gtmId?js_string}"</#if>></script>
+        <#if document.serviceproviders?has_content>data-serviceproviders="<#list document.serviceproviders as item>${item?js_string}<#sep>|</#sep></#list>"</#if>
+        <#if gtmName??>data-format="${gtmName?js_string}"</#if>
+        <#if gtmId??>data-siteid="${gtmId?js_string}"</#if>></script>
     </@hst.headContribution>
 </#if>
 
