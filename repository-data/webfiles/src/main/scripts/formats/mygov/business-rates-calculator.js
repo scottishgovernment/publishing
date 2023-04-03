@@ -464,12 +464,14 @@ const businessRatesCalculator = {
             // multiple properties
             if (totalRateable > sbbs_combined_threshold) {
                 sbbsReliefFraction = 0;
-            } else {
+            } else if (totalRateable > sbbs_mid_threshold) {
                 if (property.rv > sbbs_high_threshold) {
                     sbbsReliefFraction = sbbs_high_function(property.rv);
                 } else {
                     sbbsReliefFraction = 0.25;
                 }
+            } else {
+                sbbsReliefFraction = 1;
             }
         } else {
             // single property
