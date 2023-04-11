@@ -28,7 +28,11 @@ const commonForms = {
      */
     stringToDate: function (string) {
         let fragments = string.split('/');
-        return new Date(`${fragments[1]}/${fragments[0]}/${fragments[2]}`);
+        if (this.isValidDate(fragments[0], fragments[1], fragments[2])) {
+            return new Date(`${fragments[1]}/${fragments[0]}/${fragments[2]}`);
+        } else {
+            return '';
+        }
     },
 
     /**
