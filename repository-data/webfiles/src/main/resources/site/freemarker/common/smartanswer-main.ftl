@@ -19,7 +19,9 @@
     <@hst.manageContent hippobean=document />
 
     <div class="ds_wrapper">
-        <a class="ds_back-link" href="<@hst.link hippobean=document.startpage/>">Back to '${document.startpage.title}'</a>
+        <#if document.startpage??>
+            <a class="ds_back-link" href="<@hst.link hippobean=document.startpage/>">Back to '${document.startpage.title}'</a>
+        </#if>
 
         <main id="main-content" class="ds_layout  ds_layout--article">
             <div class="ds_layout__header">

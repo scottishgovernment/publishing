@@ -1,9 +1,11 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
 <#if contentBean??>
-    <@hst.headContribution category="meta">
-        <meta name="dc.title" content="${contentBean.title}"/>
-    </@hst.headContribution>
+    <#if contentBean.title??>
+        <@hst.headContribution category="meta">
+            <meta name="dc.title" content="${contentBean.title}"/>
+        </@hst.headContribution>
+    </#if>
     <#if contentBean.summary??>
         <@hst.headContribution category="meta">
             <meta name="dc.description" content="${contentBean.summary}"/>

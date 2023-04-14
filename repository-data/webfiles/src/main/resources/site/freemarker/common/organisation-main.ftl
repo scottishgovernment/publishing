@@ -167,7 +167,7 @@
                         <!-- featured role -->
                         <div class="mg_org-person">
                             <div class="mg_org-person__image">
-                                <#if document.featuredroleimage.xlargethreecolumns??>
+                                <#if document.featuredroleimage?has_content>
                                     <img alt="${document.featuredrolename}" class="person__image"
                                     src="<@hst.link hippobean=document.featuredroleimage.xlargethreecolumns/>"
                                     loading="lazy"
@@ -181,7 +181,7 @@
                                         <@hst.link hippobean=document.featuredroleimage.xlargethreecolumnsdoubled/> 512w"
                                     sizes="(min-width:1200px) 256px, (min-width:992px) 208px, (min-width:768px) 224px, 208px">
                                 <#else>
-                                    <img loading="lazy" class="person__image" src="<@hst.link path='/assets/images/people/placeholder.png'/>" alt="${person.title}">
+                                    <img loading="lazy" class="person__image" src="<@hst.link path='/assets/images/people/placeholder.png'/>" alt="${document.featuredrolename}">
                                 </#if>
                             </div>
 

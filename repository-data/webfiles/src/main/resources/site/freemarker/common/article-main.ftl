@@ -19,7 +19,7 @@
 
             <div class="ds_layout__header">
                 <header class="ds_page-header">
-                    <h1 class="ds_page-header__title">${document.title}</h1>
+                    <h1 class="ds_page-header__title"><#if document.title??>${document.title}</#if></h1>
                     <dl <@revertlang document /> class="ds_page-header__metadata  ds_metadata">
                         <#if document.lastUpdatedDate??>
                             <div class="ds_metadata__item">

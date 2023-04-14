@@ -5,7 +5,7 @@
 <!--noindex-->
 <div class="ds_layout__sidebar">
 
-<#if stepbysteps?size == 1>
+<#if stepbysteps??>
     <#list stepbysteps as stepbystep>
         <nav class="ds_step-navigation  ds_step-navigation--small" aria-labelledby="step-navigation-sidebar" data-module="ds-step-navigation">
             <h2 id="step-navigation-sidebar" class="ds_step-navigation__title">
