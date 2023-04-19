@@ -85,7 +85,7 @@
         </#if>
 
     <#if pagination??>
-    <ol start="${response.resultPacket.resultsSummary.currStart}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching?c}">
+    <ol start="${response.resultPacket.resultsSummary.currStart?c}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching?c}">
         <#if pagination.currentPageIndex = 1>
             <#list response.curator.advertExhibits as exhibit>
                 <li class="ds_search-result  ds_search-result--promoted">
