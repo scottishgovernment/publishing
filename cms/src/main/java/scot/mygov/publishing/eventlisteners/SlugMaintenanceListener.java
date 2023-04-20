@@ -172,7 +172,7 @@ public class SlugMaintenanceListener {
             String newSlug = slug + "-copy";
             node.setProperty(SLUG, newSlug);
             session.save();
-            slugLookups.updateLookup(node.getParent(), PREVIEW);
+            slugLookups.updateLookup(node.getParent(), PREVIEW, false);
             LOG.info("updateLookupsInFolderForFolderCopy {}: {} -> {}", node.getPath());
         });
     }

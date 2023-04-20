@@ -27,6 +27,10 @@ public class SlugLookups {
     }
 
     public void updateLookup(Node subject, String mountType) throws RepositoryException {
+        updateLookup(subject, mountType, true);
+    }
+
+    public void updateLookup(Node subject, String mountType, boolean clearLookup) throws RepositoryException {
 
         // we want to treat the guide and the first guide page as the same node ...
         String site = sitename(subject);
@@ -43,7 +47,9 @@ public class SlugLookups {
             }
 
             // clear the existing lookup
-            clearLookup(existingLookup);
+            if (clearLookup) {
+                clearLookup(existingLookup);
+            }
         }
 
         // ensure that the lookup has been created for the current slug
