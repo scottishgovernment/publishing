@@ -16,7 +16,11 @@ class AsyncSearch {
     bindEvents() {
         function querystringToObject(querystring) {
             const search = querystring.substring(1);
-            return JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value); });
+            const obj = JSON.parse('{"' + search.replace(/&/g, '","').replace(/=/g, '":"') + '"}', function (key, value) { return key === "" ? value : decodeURIComponent(value); });
+            if (obj.q) {
+                obj.q = obj.q.replace('+', ' ');
+            }
+            return obj;
         }
 
         function objectToQuerystring(object) {
