@@ -92,7 +92,7 @@
                     <div class="ds_search-result--promoted-content">
                         <header class="ds_search-result--promoted-title">Recommended</header>
                         <h3 class="ds_search-result__title">
-                            <a class="ds_search-result__link" href="${exhibit.displayUrl}">${exhibit.titleHtml?no_esc}</a>
+                            <a class="ds_search-result__link" href="${exhibit.linkUrl}">${exhibit.titleHtml?no_esc}</a>
                         </h3>
 
                         <p class="ds_search-result__summary">
