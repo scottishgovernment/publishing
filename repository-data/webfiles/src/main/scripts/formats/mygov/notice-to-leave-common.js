@@ -495,8 +495,9 @@ const noticeToLeaveForm = {
 
         const evictionGroundsUsed = noticeToLeaveForm.form.settings.formObject.reasons;
 
-        let today = new Date();
-        today.setHours(0,0,0,0);
+        if (noticeMethod !== 'hand') {
+            noticeDate.setDate(noticeDate.getDate() + 2);
+        }
 
         let sixMonthsFromStartDate = startDate;
         sixMonthsFromStartDate.setHours(0,0,0,0);
@@ -532,7 +533,7 @@ const noticeToLeaveForm = {
 
         const period = evictionGroundsWithPeriods[longestGround.id];
 
-        if (today < sixMonthsFromStartDate) {
+        if (noticeDate < sixMonthsFromStartDate) {
             // if within six months of start date
             retData.number = 28;
         } else if (period.match('m')) {
@@ -546,8 +547,6 @@ const noticeToLeaveForm = {
             endDate.setDate(endDate.getDate() + period);
             retData.number = parseInt(period);
         }
-
-
 
         return retData;
     },
