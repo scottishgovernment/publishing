@@ -435,11 +435,6 @@ const noticeToLeaveForm = {
         // always advance the end of notice by one day (it is the following day)
         earliestTribunalDate.setDate(earliestTribunalDate.getDate() + 1);
 
-        // if email or post add 2 days
-        if (endOfNoticeData.hasAddition) {
-            earliestTribunalDate.setDate(earliestTribunalDate.getDate() + 2);
-        }
-
         if (endOfNoticeData.type === 'months') {
             this.addMonths(earliestTribunalDate, endOfNoticeData.number);
         } else {
