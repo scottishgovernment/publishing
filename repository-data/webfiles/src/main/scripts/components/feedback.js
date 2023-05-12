@@ -181,8 +181,6 @@ const feedbackForm = {
             reason = this.fields.no.reason.value;
         } else if (type === 'yesbut') {
             reason = this.fields.yesbut.reason.value;
-        } else {
-            reason = '';
         }
 
         return reason;
@@ -199,7 +197,7 @@ const feedbackForm = {
             freeText = this.fields.yes.comments.value || '';
         }
 
-        return freeText;
+        return freeText.substring(0, 250);
     },
 
     removeErrorMessages: function () {
