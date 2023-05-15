@@ -497,6 +497,7 @@ const noticeToLeaveForm = {
         let sixMonthsFromStartDate = startDate;
         sixMonthsFromStartDate.setHours(0,0,0,0);
         sixMonthsFromStartDate.setMonth(sixMonthsFromStartDate.getMonth() + 6);
+        sixMonthsFromStartDate.setDate(sixMonthsFromStartDate.getDate() + 1);
 
         let endDate = startDate;
         endDate.setHours(0, 0, 0, 0);
