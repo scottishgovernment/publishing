@@ -61,7 +61,7 @@ const feedbackForm = {
     },
 
     submitFeedback: function () {
-        if (!document.querySelector('[name=feedbacktype]:checked')) {sudo su
+        if (!document.querySelector('[name=feedbacktype]:checked')) {
             return;
         }
 
