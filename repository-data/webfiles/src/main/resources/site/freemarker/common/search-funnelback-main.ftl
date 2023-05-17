@@ -8,6 +8,7 @@
             <div class="ds_layout__header">
                 <header class="ds_page-header">
                     <h1>${document.title}</h1>
+                    <h1>${document.showFeedback}</h1>
                 </header>
             </div>
 
@@ -25,6 +26,8 @@
                     <@hst.include ref="results"/>
                 </section>
             </div>
+
+            <#include 'feedback-wrapper.ftl'>
         </main>
     </div>
 </div>
