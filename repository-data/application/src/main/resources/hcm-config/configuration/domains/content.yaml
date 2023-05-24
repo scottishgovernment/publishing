@@ -52,6 +52,13 @@ definitions:
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/shorttermlets/site-furniture/banners
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-designsystem-banners-folder:
+      jcr:primaryType: hipposys:facetrule
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:filter: false
+      hipposys:type: Reference
+      hipposys:value: /content/documents/designsystem/site-furniture/banners
     /hippo:configuration/hippo:domains/content/content-domain/exclude-value-lists:
       jcr:primaryType: hipposys:facetrule
       hipposys:equals: false

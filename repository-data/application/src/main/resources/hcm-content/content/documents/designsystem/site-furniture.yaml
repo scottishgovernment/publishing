@@ -1,0 +1,345 @@
+/content/documents/designsystem/site-furniture:
+  .meta:order-before: images
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['mix:versionable']
+  hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror]
+  /footer:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
+    /privacy:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      hippo:name: Privacy
+      /privacy[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2023-05-24T09:00:00.000+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00.000+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: d064f1e2-d40c-4118-b502-6a691bb2b3d3
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:lastUpdatedDate: 2023-05-24T09:00:00.000+01:00
+        publishing:metaDescription: Privacy
+        publishing:permalink: /privacy/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: privacy
+        publishing:summary: Privacy
+        publishing:title: Privacy
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |
+            <h2>What type of information we collect</h2>
+            <p>We collect and process the following information when you visit designsystem.gov.scot:</p>
+            <ul>
+              <li>any feedback you share with us</li>
+              <li>your cookies using Google Analytics</li>
+              <li>your IP address</li>
+            </ul>
+            <p>We also use Google Analytics to collect information about:</p>
+            <ul>
+              <li>which type of browser and device you used</li>
+              <li>the pages you visit on designsystem.gov.scot</li>
+              <li>how long you spend on each designsystem.gov.scot page</li>
+              <li>how you got to the site</li>
+              <li>what you click on while you’re visiting the site</li>
+            </ul>
+            <p>Google Analytics data is only collected from users who have consented to share this data. Any information
+            we get about you from Google Analytics will be anonymised before we see it. This means we will not hold any
+            personally identifiable information about you, such as your name or address.</p>
+            <h2>Why we collect this information</h2>
+            <p>We use the information you share with us:</p>
+            <ul>
+              <li>to improve our services</li>
+              <li>give you access to government services</li>
+              <li>to identify security threats</li>
+            </ul>
+            <p>Our legal basis for processing this data is ‘legitimate interests’. That’s because:</p>
+            <ul>
+              <li>it’s in the legitimate interests of our users to make improvements to our website</li>
+              <li>we need to maintain the security of designsystem.gov.scot</li>
+            </ul>
+            <p>We only collect information about you using Google Analytics if you consent to it.</p>
+            <p>If you do not consent to it, you can let us know by emailing
+            <a href="mailto:DataProtectionOfficer@gov.scot">DataProtectionOfficer@gov.scot</a>.</p>
+            <h2>What we do with this information</h2>
+            <p>We may share your anonymised information with other agencies or public bodies in the Scottish Government.
+            But this will not include personally identifiable information.</p>
+            <p>We’ll only share your data with a third party if we’re required to do so by law. For example by court
+            order or to prevent fraud.</p>
+            <p>We will not:</p>
+            <ul>
+              <li>sell or give your data to third parties</li>
+              <li>share your data with third parties for marketing purposes</li>
+            </ul>
+            <h2>How long we keep your information</h2>
+            <p>We will delete any feedback you share with us after 3 years. We keep anonymised analytics for 38 months.</p>
+            <h2>How we store this information</h2>
+            <p>All personal information is stored in the European Economic Area (EEA). Data collected by Google Analytics
+            data may be processed outside the EEA.</p>
+            <p>We’re committed to doing everything we can to keep your data safe. We perform regular security tests to
+            make sure our systems and processes are secure.</p>
+            <h2>Your data protection rights</h2>
+            <p>You have the right to:</p>
+            <ul>
+              <li>see your information – through a <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-of-access/">subject access request</a></li>
+              <li>improve your data – if you think the information we have is inaccurate or incomplete</li>
+              <li>delete your information – if you do not want us to use your data anymore</li>
+              <li>limit what we do with your data – <a href="https://ico.org.uk/your-data-matters/your-right-to-limit-how-organisations-use-your-data/">depending on the circumstances</a></li>
+              <li>stop us using your data – <a href="https://ico.org.uk/your-data-matters/the-right-to-object-to-the-use-of-your-data/">depending on the circumstances</a></li>
+              <li>take your data with you – if you want to share it to another organisation, <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-data-portability/">depending on the circumstances</a></li>
+            </ul>
+            <h2>How to complain</h2>
+            <p>If you’re unhappy with how we’ve used your data, you can complain to the Information Commissioner’s Office (ICO):</p>
+            <div class="ds_contact-details">
+              <h3 class="ds_contact-details__title">Contact</h3>
+              <dl class="ds_contact-details__list">
+              <div class="ds_contact-details__item">
+              <dt>Address</dt>
+              <dd translate="no">
+                <address>
+                Information Commissioner's Office<br />
+                Wycliffe House<br />
+                Water Lane<br />
+                Wilmslow<br />
+                Cheshire<br />
+                SK9 5AF
+                </address>
+              </dd>
+            </div>
+            <div class="ds_contact-details__item">
+              <dt>Phone</dt>
+              <dd>
+              0303 123 1113<br />
+              <a href="https://www.gov.uk/call-charges">Find out about call charges</a>
+              </dd>
+              </div>
+              </dl>
+            </div>
+            <h2>Changes to this policy</h2>
+            <p>We may change this privacy policy. In that case, the ‘last updated’ date at the top of this page will
+            also change.</p>
+            <div class="ds_article-aside">
+            <h2>Feedback, help or support</h2>
+            <p>If you need any help or want to give any feedback you can e-mail us at:
+            <a href="mailto:designsystem@gov.scot">designsystem@gov.scot</a></p>
+            </div>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /accessibility:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      hippo:name: Accessibility
+      /accessibility[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        hippo:name: Accessibility
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2023-05-24T09:00:00.000+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00.000+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ec4e0c5c-80a0-44c6-b3d7-fb8785e2b78a
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Accessibility
+        publishing:permalink: /accessibility/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: accessibility
+        publishing:summary: Accessibility
+        publishing:title: Accessibility
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |
+            <p>We want designsystem.gov.scot to be accessible and usable for as many people as possible.</p>
+            <p>We try to make our site more accessible by using:</p>
+            <ul>
+              <li>easier-to-read colours</li>
+              <li>larger fonts</li>
+              <li>plain English</li>
+              <li>keyboard only navigation</li>
+            </ul>
+            <h2>Feedback</h2>
+            <p>If you cannot access any part of this site or want to report an accessibility problem, email
+            <a href="mailto:digital-publishing@gov.scot">digital-publishing@gov.scot</a>.</p>
+            <h2>Enforcement procedure</h2>
+            <p>The Equality and Human Rights Commission enforces the
+            <a href="http://www.legislation.gov.uk/uksi/2018/952/regulation/4/made">accessibility regulations</a>
+            (the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018).</p>
+            <p>If you’re not happy with how we respond to your feedback, contact the
+            <a href="https://www.equalityadvisoryservice.com/">Equality Advisory and Support Service</a>.
+            They are an independent advice service. They will advise you on what to do next.</p>
+            <h2>Compliance statement</h2>
+            <p>Scottish Government commits to making its websites accessible in line with the accessibility regulations.
+            This accessibility statement applies to designsystem.gov.scot. It was prepared on 14 November 2022.</p>
+            <p>This website is fully compliant with the
+            <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines version 2.1</a> (WCAG) A and AA
+            success criteria.</p>
+            <div class="ds_article-aside">
+            <h2>Feedback, help or support</h2>
+            <p>If you need any help or want to give any feedback you can e-mail us at:
+            <a href="mailto:designsystem@gov.scot">designsystem@gov.scot</a></p>
+            </div>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /cookies:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      hippo:name: Cookies
+      /cookies[1]:
+        jcr:primaryType: publishing:cookiepage
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        hippo:availability: [preview]
+        hippo:name: Cookies
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2023-05-24T09:00:00.000+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00.000+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Cookies
+        publishing:permalink: /cookies/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookies
+        publishing:title: Cookies
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |
+            <p>A cookie lets a website recognise your device and store some information about your preferences or interactions.</p>
+            <h2>Why we use cookies</h2>
+            <p>We use designsystem.gov.scot cookie tracking data to make informed decisions on whether the site is
+            meeting your needs, which leads to us making improvements. For example, we monitor how much traffic each
+            part of the site gets and work to improve areas which are not being found when they should be.</p>
+            <div class="ds_inset-text">
+            <span class="ds_inset-text__text">
+            The cookies that we set on designsystem.gov.scot can not be used to identify you personally.
+            <a href="https://ico.org.uk/your-data-matters/online/cookies/">Find out more about how to manage cookies for all websites</a>
+            </span>
+            </div>
+            <h2>Turn cookies on or off</h2>
+            <p>We use 3 main types of cookie on our website. You can choose which cookies you’re happy for us to use.
+            Any data collected is anonymous.</p>
+        /publishing:additionalContent:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <h2>Google Analytics</h2>
+            <p>We use Google Analytics to collect information about how you use designsystem.gov.scot.</p>
+            <p>We store information about:</p>
+              <ul>
+              <li>the pages you visit and how long you spend on each page</li>
+              <li>how you got to designsystem.gov.scot</li>
+              <li>what you click on while you’re visiting designsystem.gov.scot</li>
+            </ul>
+            <p>We do not:</p>
+            <ul>
+              <li>collect information that can be used to identify you; for example, we never receive your name or address</li>
+              <li>make any attempt to find out the identities of people visiting designsystem.gov.scot</li>
+              <li>allow the tools that we use to find out the identities of people visiting designsystem.gov.scot</li>
+              <li>sell, trade or give your details to third parties, unless we are required to do it by law</li>
+              </ul>
+            <p>All information we get through cookies and analytics will be treated in confidence.</p>
+            <p>We anonymise the last 3 digits of all designsystem.gov.scot user IP addresses for Google Analytics, so
+            that we can ensure that you are protected
+            (<a href="https://support.google.com/analytics/answer/2763052?hl=en">you can read more about how this works here</a>).
+            We can only see a general overview of which regions and cities you may come from, not where individuals access from.</p>
+            <p><a href="https://support.google.com/analytics/answer/2838718?hl=en-GB">Find out more about security and
+            privacy in Google Analytics.</a></p>
+            <p>You can opt <a href="https://tools.google.com/dlpage/gaoptout">out of Google analytics</a> cookies.</p>
+            <table class="ds_table">
+              <thead>
+                <tr>
+                  <th>Cookie name</th>
+                  <th>Description</th>
+                  <th>Expiry time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>_ga</td>
+                  <td>This is used to understand and differentiate between different users.</td>
+                  <td>13 Months</td>
+                </tr>
+                <tr>
+                  <td>_ga_&lt;container-id&gt;</td>
+                  <td>Used to persist session state. Container ID is the identifier for the Google Analytics account being used.</td>
+                  <td>13 Months</td>
+                </tr>
+                <tr>
+                  <td>_gid</td>
+                  <td>_gid has a different ID for each page set on, and a timestamp.  This assists with plotting user journeys.</td>
+                  <td>24 Hours</td>
+                </tr>
+              </tbody>
+            </table>
+            <h2>YouTube</h2>
+            <p>Pages on designsystem.gov.scot which contain YouTube videos will not set third-party cookies
+            (we use YouTube-nocookie.com —
+            <a href="https://support.google.com/youtube/answer/171780?hl=en-GB">you can read more here</a>).</p>
+            <h2>Further information</h2>
+            <p>You can email the performance team for further information. Email:
+            <a href="mailto:performance@gov.scot">performance@gov.scot</a></p>
+            <div class="ds_article-aside">
+            <h2>Feedback, help or support</h2>
+            <p>If you need any help or want to give any feedback you can e-mail us at:
+            <a href="mailto:designsystem@gov.scot">designsystem@gov.scot</a></p>
+            </div>
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+  /banners:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:versionable']
+    hippo:name: banners
+    hippostd:foldertype: [new-notification-banner]
