@@ -1,0 +1,57 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/designmanual-assets-images-readwrite:
+      jcr:primaryType: hipposys:domain
+      /readwrite:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [designmanual-editors, designmanual-authors]
+        hipposys:role: readwrite
+        hipposys:users:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: []
+      /designmanual-assets-domain:
+        jcr:primaryType: hipposys:domainrule
+        /documents-only:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: hippo:availability
+          hipposys:type: String
+          hipposys:value: live
+        /non-publishable:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: nodetype
+          hipposys:type: String
+          hipposys:value: hippostd:publishable
+        /designmanual-assets-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/assets/designmanual
+      /designmanual-gallery-domain:
+        jcr:primaryType: hipposys:domainrule
+        /documents-only:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: hippo:availability
+          hipposys:type: String
+          hipposys:value: live
+        /non-publishable:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: nodetype
+          hipposys:type: String
+          hipposys:value: hippostd:publishable
+        /designmanual-gallery-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/gallery/designmanual
