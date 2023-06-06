@@ -74,14 +74,14 @@ public class BloomreachSearchService implements SearchService {
         HstQuery hstQuery = query(query, offset, search.getRequest());
         try {
             HstQueryResult result = hstQuery.execute();
-            return response(result, query, offset, search.getRequestUrl());
+            return response(result, search, query, offset, search.getRequestUrl());
         } catch (QueryException e) {
             LOG.error("Query exceptions in fallback", e);
             return null;
         }
     }
 
-    SearchResponse response(HstQueryResult result, String query, int offset, String url) {
+    SearchResponse response(HstQueryResult result, Search search, String query, int offset, String url) {
         SearchResponse searchResponse = new SearchResponse();
         searchResponse.setType(SearchResponse.Type.BLOOMREACH);
 
@@ -94,7 +94,7 @@ public class BloomreachSearchService implements SearchService {
         searchResponse.setResponse(response);
         response.getResultPacket().setQueryHighlightRegex(query);
 
-        Pagination pagination = new PaginationBuilder(url).getPagination(resultsSummary, query);
+        Pagination pagination = new PaginationBuilder(search).getPagination(resultsSummary, query);
         searchResponse.setPagination(pagination);
 
         searchResponse.setBloomreachResults(result.getHippoBeans());
