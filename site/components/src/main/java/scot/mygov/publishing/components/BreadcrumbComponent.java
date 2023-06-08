@@ -8,6 +8,8 @@ import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import scot.mygov.publishing.beans.GuidePage;
 import scot.mygov.publishing.beans.Home;
 
@@ -23,10 +25,12 @@ import static scot.mygov.publishing.components.CategoryComponent.indexBean;
  */
 public class BreadcrumbComponent extends EssentialsContentComponent {
 
+    private static final Logger LOG = LoggerFactory.getLogger(BreadcrumbComponent.class);
+
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-
+        LOG.info("HERE");
         HippoBean contentBean = CategoryComponent.getDocumentBean(request);
         HstRequestContext context = request.getRequestContext();
 
@@ -41,6 +45,7 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
         if (breadcrumbs.isEmpty()) {
             breadcrumbs.add(breadcrumbItem(context.getSiteContentBaseBean(), context, "Home"));
         }
+        // make sure the
         request.setAttribute("breadcrumbs", breadcrumbs);
         request.setAttribute("documentBreadcrumbItem", breadcrumbItem(contentBean, context));
     }
@@ -72,7 +77,8 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
     }
 
     static List<BreadcrumbItem> breadcrumbs(HippoBean bean, HippoBean baseBean, HstRequestContext context) {
-        List<BreadcrumbItem> breadcrumbs = isBaseBean(bean, baseBean)
+        boolean isBaseBean = isBaseBean(bean, baseBean);
+        List<BreadcrumbItem> breadcrumbs = isBaseBean
                 ? new ArrayList<>()
                 : breadcrumbs(bean.getParentBean(), baseBean, context);
         HippoBean linkBean = indexBean(bean);
@@ -82,6 +88,13 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
         if (linkBean != null) {
             breadcrumbs.add(breadcrumbItem(linkBean, context));
         }
+
+        if (isBaseBean) {
+            // this is deal with the difference between mygov which has a home page in the root folder, and
+            // sites such as designmanual whose home page is content block based.
+            breadcrumbs.add(breadcrumbItem(baseBean, context));
+        }
+
         return breadcrumbs;
     }
 
