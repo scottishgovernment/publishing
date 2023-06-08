@@ -1,0 +1,159 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/dsexampleblock:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 5364d613-f679-4074-a992-318dc63f2493
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: e08f18a9-152a-4362-b9a7-7d77fdad5d6f
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: fc8a77fc-c386-46a1-8a16-e1858e13238d
+          hipposysedit:node: true
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /title:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /example:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:example
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+          /string:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:type
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /showcode:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:showcode
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /showdemo:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:showdemo
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /htmlexpanded:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:htmlexpanded
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /note:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:note
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:dsexampleblock
+          publishing:title: ''
+          publishing:showdemo: true
+          publishing:showcode: true
+          publishing:htmlexpanded: false
+          publishing:type: HTML
+          publishing:note: ''
+          /publishing:example:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /title:
+            jcr:primaryType: frontend:plugin
+            caption: Title
+            field: title
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /example:
+            jcr:primaryType: frontend:plugin
+            caption: Example
+            field: example
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /type:
+            jcr:primaryType: frontend:plugin
+            caption: Type
+            field: string
+            hint: e.g. "HTML" or "JSON-LD". This is used for the accordion panel's
+              title, for example "Sample JSON-LD"
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showdemo:
+            jcr:primaryType: frontend:plugin
+            caption: Show live demo
+            field: showdemo
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showcode:
+            jcr:primaryType: frontend:plugin
+            caption: Show code snippet
+            field: showcode
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /htmlexpanded:
+            jcr:primaryType: frontend:plugin
+            caption: Code snippet is open on page load
+            field: htmlexpanded
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /note:
+            jcr:primaryType: frontend:plugin
+            caption: Note
+            field: note
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

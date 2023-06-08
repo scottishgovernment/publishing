@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/designsystem/hst:pages/ds-article:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/base
+      /main:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.ArticleComponent
+        hst:template: ds-article
+        /breadcrumbs:
+          jcr:primaryType: hst:component
+          hst:referencecomponent: hst:components/breadcrumbs
+        /feedback:
+          jcr:primaryType: hst:component
+          hst:referencecomponent: hst:components/feedback

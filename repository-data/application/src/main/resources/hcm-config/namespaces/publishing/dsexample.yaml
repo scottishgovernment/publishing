@@ -1,0 +1,240 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/dsexample:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 74fd3621-af4c-4426-8096-244386f8e8c8
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: c8a1de52-9c91-41a3-b4c3-36a48c7f3849
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: 499b2e4c-bf26-4613-99e8-10ee8a61c06a
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
+            'hippotaxonomy:classifiable', 'hippostd:relaxed']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /slug:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: true
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:slug
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required, slug-validator]
+          /code2:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:code
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+          /illustration:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:illustration
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
+            hipposysedit:validators: [optional]
+          /minheight:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:minheight
+            hipposysedit:primary: false
+            hipposysedit:type: Long
+          /includedsscript:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:includedsscript
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /dswrapper:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:dswrapper
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:dsexample
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 8e0dad61-efb9-40a9-a0d9-cc7198a5321b
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
+          hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          publishing:audience: ''
+          publishing:authorNotes: ''
+          publishing:lifeEvents: []
+          publishing:metaDescription: ''
+          publishing:noindex: false
+          publishing:reportingtags: []
+          publishing:sensitive: false
+          publishing:seoTitle: ''
+          publishing:serviceproviders: []
+          publishing:showFeedback: true
+          publishing:showInParent: true
+          publishing:slug: ''
+          publishing:summary: ''
+          publishing:title: ''
+          publishing:userneed: ''
+          publishing:includedsscript: true
+          publishing:minheight: 0
+          publishing:code: ''
+          publishing:dswrapper: false
+          /publishing:contentOwner:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:illustration:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /title:
+            jcr:primaryType: frontend:plugin
+            caption: Title
+            field: title
+            hint: Enter a title for this page.  This will appear at the top of the
+              page on the live site and will also be used in any links to this page.
+              A title is required for all pages. It must be between 3 and 255 characters.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '255'
+          /slug:
+            jcr:primaryType: frontend:plugin
+            caption: Slug
+            field: slug
+            hint: Used to determine the URL of this article. It must be unique and
+              should  be a short, URL friendly version of the title. It should be
+              no more than 60 characters, should not contain stop words (a, an, for,
+              your, my, the, and, is, with, to etc.) or non-alphanumeric characters.
+              Dashes should separate words unless the page is to be used for a campaign
+              landing page.  You should avoid acronyms.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /summary:
+            jcr:primaryType: frontend:plugin
+            caption: Summary
+            field: summary
+            hint: "Enter a summary of this page.  This summary will be used in places\
+              \ where this page is listed on the live website, such as a category\
+              \ page and in search results. \r\n\r\nIt must be between 3 and 255 characters."
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /code:
+            jcr:primaryType: frontend:plugin
+            caption: Code
+            field: code2
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.css: [preformatted]
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              rows: '15'
+          /illustration:
+            jcr:primaryType: frontend:plugin
+            caption: Illustration
+            field: illustration
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /includedsscript:
+            jcr:primaryType: frontend:plugin
+            caption: Include DS JavaScript
+            field: includedsscript
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /minheight:
+            jcr:primaryType: frontend:plugin
+            caption: Minimum height
+            field: minheight
+            hint: Use this to set a minimum height for the example iframe. This is
+              useful when the height of a component might change as a result of user
+              interaction, such as a list of autocomplete suggestions.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /dswrapper:
+            jcr:primaryType: frontend:plugin
+            caption: Wrap example with ds_wrapper
+            field: dswrapper
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /authorNotes:
+            jcr:primaryType: frontend:plugin
+            caption: Author notes
+            field: authorNotes
+            hint: Enter any notes relevant to this content item.  This will not appear
+              on the page itself.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /seoTitle:
+            jcr:primaryType: frontend:plugin
+            caption: SEO title
+            field: seoTitle
+            hint: "This title will be used by search engines when indexing the content\
+              \ to add it to search results. \r\n\r\nIt must be between 3 and 60 characters.\
+              \ You can test yours at: https://moz.com/learn/seo/title-tag"
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '60'
+          /metaDescription:
+            jcr:primaryType: frontend:plugin
+            caption: Meta description
+            field: metaDescription
+            hint: "Describe what content this page covers. Search engines will use\
+              \ this content when displaying links to the site in the search listings.\
+              \ \r\n\r\nThe description must be between 3 and 255 characters."
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '255'

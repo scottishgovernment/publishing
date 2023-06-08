@@ -1,0 +1,80 @@
+/*------------------------------------*\
+    #EXAMPLE
+\*------------------------------------*/
+
+
+
+
+$example__border-colour: $ds_colour__border !default;
+$example__highlight-colour: $ds_colour__link--current__background !default;
+
+.example {
+    @include block-margins;
+}
+
+.example__iframe {
+    border: 0;
+    display: block;
+    width: 100%;
+}
+
+.example-frame__note {
+    background: #ffb644;
+    margin: 0;
+    padding: 16px;
+}
+
+.example-frame__content {
+    padding: 16px;
+}
+
+.example__pre {
+    background-color: $example__highlight-colour;
+    margin-bottom: 0;
+}
+
+.example__code {
+    background-color: transparent;
+    border: 0;
+    font-size: 0.85em;
+    line-height: 1.25;
+    // overflow: scroll;
+    // white-space: pre;
+    width: 100%;
+}
+
+.example__accordion-body--code figure {
+    border: 0;
+}
+
+.example__illustration {
+    display: block;
+}
+
+.example__link {
+    @include blocklink;
+    @include ds_small-size--fixed;
+    @include ds_responsive-padding(1, top);
+    @include ds_responsive-padding(1, bottom);
+    @include ds_responsive-padding(2, left);
+    @include ds_responsive-padding(2, right);
+
+    background-color: $ds_colour__grey--lighter;
+
+    display: inline-block;
+    position: absolute;
+}
+
+.example__accordion {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.example__accordion-body--code {
+    padding: 0 !important;
+
+    figure {
+        border: 0;
+        margin: 0;
+    }
+}

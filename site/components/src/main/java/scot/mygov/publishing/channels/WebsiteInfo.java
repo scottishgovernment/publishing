@@ -16,7 +16,7 @@ public interface WebsiteInfo extends ChannelInfo {
     String getLogoPath();
 
     @Parameter(name = "style", required = true, displayName = "Style")
-    @DropDownList({"mygov", "tradingnation", "campaign"})
+    @DropDownList({"mygov", "tradingnation", "campaign", "designsystem"})
     String getStyle();
 
     @Parameter(name = "feedbackEnabled", required = true, displayName = "Feedback enabled?")

@@ -1,0 +1,9 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/designsystem/hst:pages/ds-example:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/example
+      /main:
+        jcr:primaryType: hst:component
+        hst:template: ds-example
+        hst:componentclassname: scot.mygov.publishing.components.ArticleComponent

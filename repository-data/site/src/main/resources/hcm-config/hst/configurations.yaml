@@ -169,6 +169,9 @@ definitions:
           /featuregrid:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/content-blocks/featuregrid.ftl
+          /ds-article:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/ds-article.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

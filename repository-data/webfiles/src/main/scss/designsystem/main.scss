@@ -1,0 +1,107 @@
+@charset "utf-8";
+
+
+
+
+$site-prefix: 'dss_';
+$use-legacy-site-navigation: false;
+
+
+
+
+/**
+ * BASE STYLING
+ */
+@import "../../../../node_modules/@scottish-government/pattern-library/src/base/all-base";
+//@import "base/font";
+@import "base/code";
+@import "base/figure";
+@import "base/pl-layouts";
+
+
+
+
+
+/**
+ * HELPERS
+ */
+@import "helpers/helper.overflows"; //<-- this is a candidate for inclusion in pattern lib
+
+
+
+
+/**
+ * COMPONENTS FROM DESIGN SYSTEM
+ */
+@import "../../../../node_modules/@scottish-government/pattern-library/src/components/all-components";
+@import "../../../../node_modules/@scottish-government/pattern-library/src/forms/all-forms";
+
+
+
+
+/**
+ * COMPONENTS FOR DESIGN SYSTEM SITE NOT IN DESIGN SYSTEM STYLES (YET?)
+ */
+@import "components/component.example";
+
+
+
+
+/* for homepage */
+//@import "components/component.case-study";
+//@import "components/component.homepage-hero";
+//@import "components/component.homepage-links";
+@import "components/component.colour-palette";
+@import "components/component.font-table";
+@import "components/component.history-list";
+@import "components/component.toggle-link";
+@import "components/component.whats-new";
+//@import "components/component.showcase";
+//@import "components/component.sub-banner";
+//@import "components/component.users";
+//@import "components/component.welcome";
+
+@import "../mygov/components/feedback";
+
+/* Used content blocks */
+// @import "content-blocks/content-blocks.base";
+// @import "content-blocks/cards/cards";
+// //@import "card-text/card-text";
+// //@import "contact/contact";
+// //@import "divider/divider";
+// //@import "double-text/double-text";
+// //@import "feature-grid/feature-grid";
+// //@import "header/header";
+// //@import "image-text/image-text";
+// //@import "listed-links/listed-links";
+// @import "content-blocks/page-title/page-title";
+// @import "content-blocks/text/text";
+// //@import "video-text/video-text";
+.foo {color:red;}
+@import "_highlight";
+// @import "../../../../node_modules/prismjs/themes/prism.css";
+.bar {color: blue;}
+
+.#{$site-prefix}contents-nav h2 {
+    @extend .ds_contents-nav__title;
+}
+
+.#{$site-prefix}contents-nav ul {
+    @extend .ds_contents-nav__list;
+}
+
+.#{$site-prefix}contents-nav li {
+    @extend .ds_contents-nav__item;
+}
+
+
+// temp highlight for links with no target
+a[href=''] {color: $ds_colour__red; cursor: not-allowed; pointer-events: none;}
+
+
+
+
+/**
+ * CMS STYLES
+ */
+ @import "../cms.experience-manager";

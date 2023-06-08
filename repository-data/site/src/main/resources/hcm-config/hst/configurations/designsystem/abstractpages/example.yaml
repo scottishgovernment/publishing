@@ -1,0 +1,18 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/designsystem/hst:abstractpages/example:
+      jcr:primaryType: hst:component
+      hst:componentclassname: scot.mygov.publishing.components.DetermineStylingComponent
+      hst:template: example-layout
+      /googletagmanager:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.GoogleTagManagerComponent
+        hst:template: base-googletagmanager
+      /preview-indicator:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.gov.publishing.staging.components.PreviewIndicatorComponent
+        hst:template: preview-indicator
+      /seo:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.SEOComponent
+        hst:template: seo

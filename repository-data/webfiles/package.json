@@ -10,6 +10,7 @@
   "scripts": {
     "sass": "npm run sass_campaign; npm run sass_mygov; npm run sass_tn",
     "sass_campaign": "sass ./src/main/scss/campaign/main.scss ./src/main/resources/site/assets/campaign/css/main.css --style compressed",
+    "sass_designsystem": "sass ./src/main/scss/designsystem/main.scss ./src/main/resources/site/assets/designsystem/css/main.css --style expanded",
     "sass_mygov": "sass ./src/main/scss/mygov/main.scss ./src/main/resources/site/assets/mygov/css/main.css --style compressed",
     "sass_tn": "sass ./src/main/scss/tradingnation/main.scss ./src/main/resources/site/assets/tradingnation/css/main.css --style compressed",
     "svgsprite": "node svg-sprite",
@@ -34,6 +35,7 @@
     "karma-webpack": "^4.0.2",
     "nunjucks": "^3.2.3",
     "nunjucks-loader": "^3.0.0",
+    "prismjs": "^1.29.0",
     "sass": "^1.49.9",
     "sealant": "^0.1.1",
     "svg-sprite": "^1.5.4",

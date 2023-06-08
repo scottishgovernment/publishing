@@ -4,6 +4,7 @@
 <'hippostd'='http://www.onehippo.org/jcr/hippostd/nt/2.0'>
 <'hippostdpubwf'='http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0'>
 <'hippotranslation'='http://www.onehippo.org/jcr/hippotranslation/nt/1.0'>
+<'hippotaxonomy'='http://www.hippoecm.org/hippotaxonomy/nt/1.2'>
 
 [publishing:ColumnImage] > hippogallery:imageset, hippogallery:relaxed
 
@@ -48,6 +49,9 @@
 [publishing:category] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
+[publishing:contentblock] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publishing:contentcontact] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
@@ -61,6 +65,18 @@
   orderable
 
 [publishing:documentcoverpage] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
+[publishing:dsarticle] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, publishing:base
+  orderable
+
+[publishing:dscontentblock] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:dsexample] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, publishing:base
+  orderable
+
+[publishing:dsexampleblock] > hippo:compound, hippostd:relaxed
   orderable
 
 [publishing:facebookverification] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
@@ -103,6 +119,9 @@
   orderable
 
 [publishing:mourningbanner] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:mytestdocumenttype] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:navigationcard] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
