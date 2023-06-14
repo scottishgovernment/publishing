@@ -44,7 +44,7 @@
                 "position": ${item?index + 1},
                 "item": {
                     "@id": "${link}",
-                    "name": "${item.title?json_string}"
+                    "name": "<#if item.title??>${item.title?json_string}</#if>"
                 }
             },
             </#list>

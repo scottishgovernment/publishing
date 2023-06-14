@@ -11,21 +11,12 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 499b2e4c-bf26-4613-99e8-10ee8a61c06a
+          jcr:uuid: 572bd9d0-97fe-4e18-8156-e8450b868f3e
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          /slug:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:slug
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required, slug-validator]
-          /code2:
+          /code:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
@@ -42,14 +33,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
             hipposysedit:validators: [optional]
-          /minheight:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:minheight
-            hipposysedit:primary: false
-            hipposysedit:type: Long
           /includedsscript:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -66,12 +49,28 @@ definitions:
             hipposysedit:path: publishing:dswrapper
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /language:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:language
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+          /script:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:script
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:dsexample
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 8e0dad61-efb9-40a9-a0d9-cc7198a5321b
+          jcr:uuid: 50e6c54d-d480-439e-8457-05442bdb5f9a
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -91,14 +90,14 @@ definitions:
           publishing:serviceproviders: []
           publishing:showFeedback: true
           publishing:showInParent: true
-          publishing:slug: ''
           publishing:summary: ''
           publishing:title: ''
           publishing:userneed: ''
           publishing:includedsscript: true
-          publishing:minheight: 0
           publishing:code: ''
           publishing:dswrapper: false
+          publishing:language: HTML
+          publishing:script: ''
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -131,20 +130,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
-          /slug:
-            jcr:primaryType: frontend:plugin
-            caption: Slug
-            field: slug
-            hint: Used to determine the URL of this article. It must be unique and
-              should  be a short, URL friendly version of the title. It should be
-              no more than 60 characters, should not contain stop words (a, an, for,
-              your, my, the, and, is, with, to etc.) or non-alphanumeric characters.
-              Dashes should separate words unless the page is to be used for a campaign
-              landing page.  You should avoid acronyms.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /summary:
             jcr:primaryType: frontend:plugin
             caption: Summary
@@ -159,7 +144,7 @@ definitions:
           /code:
             jcr:primaryType: frontend:plugin
             caption: Code
-            field: code2
+            field: code
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.css: [preformatted]
@@ -167,6 +152,16 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               rows: '15'
+          /language:
+            jcr:primaryType: frontend:plugin
+            caption: Language
+            field: language
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: HTML,JavaScript,CSS,SCSS,JSON,Markdown,XML,SVG,TypeScript,TSconfig
           /illustration:
             jcr:primaryType: frontend:plugin
             caption: Illustration
@@ -184,13 +179,11 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /minheight:
+          /script:
             jcr:primaryType: frontend:plugin
-            caption: Minimum height
-            field: minheight
-            hint: Use this to set a minimum height for the example iframe. This is
-              useful when the height of a component might change as a result of user
-              interaction, such as a list of autocomplete suggestions.
+            caption: Custom JavaScript filename
+            field: script
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

@@ -8,7 +8,7 @@
     "url": "http://www.gov.scot/"
   },
   "scripts": {
-    "sass": "npm run sass_campaign; npm run sass_mygov; npm run sass_tn",
+    "sass": "npm run sass_campaign; npm run sass_mygov; npm run sass_tn; npm run sass_designsystem",
     "sass_campaign": "sass ./src/main/scss/campaign/main.scss ./src/main/resources/site/assets/campaign/css/main.css --style compressed",
     "sass_designsystem": "sass ./src/main/scss/designsystem/main.scss ./src/main/resources/site/assets/designsystem/css/main.css --style expanded",
     "sass_mygov": "sass ./src/main/scss/mygov/main.scss ./src/main/resources/site/assets/mygov/css/main.css --style compressed",

@@ -11,20 +11,11 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 98200848-046b-4de3-b7b8-870eefef0eaa
+          jcr:uuid: b4ceca34-fe79-442f-a241-8862b3044ea9
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          /slug:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:slug
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required, slug-validator]
           /contentblocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -32,12 +23,52 @@ definitions:
             hipposysedit:path: publishing:contentblocks
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator, required]
+          /experimental:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:experimental
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /deprecated:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:deprecated
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /deprecatednote:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:deprecatednote
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+          /UpdateHistory:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:UpdateHistory
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:UpdateHistory
+          /publicationdate:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:publicationDate
+            hipposysedit:primary: false
+            hipposysedit:type: CalendarDate
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:dsarticle
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 6d31239f-f712-4414-9ac0-44491c209ada
+          jcr:uuid: 5cd722e7-dd57-496a-85f3-caca50e694ac
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
           hippostdpubwf:creationDate: 2023-06-05T13:47:37.384+01:00
@@ -55,13 +86,18 @@ definitions:
           publishing:serviceproviders: []
           publishing:showFeedback: true
           publishing:showInParent: true
-          publishing:slug: ''
           publishing:summary: ''
           publishing:title: ''
           publishing:userneed: ''
+          publishing:experimental: false
+          publishing:deprecated: false
+          publishing:publicationDate: 0001-01-01T12:00:00Z
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:deprecatednote:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -85,20 +121,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
-          /slug:
-            jcr:primaryType: frontend:plugin
-            caption: Slug
-            field: slug
-            hint: Used to determine the URL of this article. It must be unique and
-              should  be a short, URL friendly version of the title. It should be
-              no more than 60 characters, should not contain stop words (a, an, for,
-              your, my, the, and, is, with, to etc.) or non-alphanumeric characters.
-              Dashes should separate words unless the page is to be used for a campaign
-              landing page.  You should avoid acronyms.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /summary:
             jcr:primaryType: frontend:plugin
             caption: Summary
@@ -113,7 +135,7 @@ definitions:
           /contentblocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            compoundList: publishing:dscontentblock,publishing:dsexampleblock
+            compoundList: publishing:dsattachmentblock,publishing:dscontentblock,publishing:dsexampleblock,publishing:dsfigureblock,publishing:dsliveexampleblock,publishing:dspaletteblock
             contentPickerType: links
             field: contentblocks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
@@ -121,6 +143,7 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
@@ -145,6 +168,24 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
+          /publicationDate:
+            jcr:primaryType: frontend:plugin
+            caption: Publication date
+            field: publicationdate
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /UpdateHistory:
+            jcr:primaryType: frontend:plugin
+            caption: Update history
+            field: UpdateHistory
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /tags:
             jcr:primaryType: frontend:plugin
             engine: ${engine}
@@ -225,16 +266,6 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /lastUpdatedDate:
-            jcr:primaryType: frontend:plugin
-            caption: Last updated date
-            field: lastUpdatedDate
-            hint: The 'Last updated' date displayed in the article heading. If left
-              blank no date will be displayed
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /showInParent:
             jcr:primaryType: frontend:plugin
             caption: Show in parent?
@@ -261,6 +292,31 @@ definitions:
             hint: Check if this page should not be indexed for search (both internal
               and on search engines)
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /experimental:
+            jcr:primaryType: frontend:plugin
+            caption: Experimental
+            field: experimental
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /deprecated:
+            jcr:primaryType: frontend:plugin
+            caption: Deprecated
+            field: deprecated
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /deprecatednote:
+            jcr:primaryType: frontend:plugin
+            caption: Deprecated note
+            field: deprecatednote
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

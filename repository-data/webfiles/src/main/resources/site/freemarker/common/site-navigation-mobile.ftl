@@ -18,10 +18,12 @@
             <ul class="ds_site-navigation__list">
                 <#list menu.siteMenuItems as item>
                     <li class="ds_site-navigation__item">
-                        <#if item.selected>
-                            <span class="ds_site-navigation__link  ds_current">${item.name}</span>
+                        <#if item.externalLink??>
+                            <a href="${item.externalLink}" class="ds_site-navigation__link  <#if item.selected || item.expanded>ds_current</#if>"><span class="label-nav">${item.name}</span> </a>
+                        <#elseif item.hstLink??>
+                            <a href="<@hst.link link=item.hstLink/>" class="ds_site-navigation__link  <#if item.selected || item.expanded>ds_current</#if>"><span class="label-nav">${item.name}</span> </a>
                         <#else>
-                            <a href="<@hst.link link=item.hstLink/>" class="ds_site-navigation__link">${item.name}</a>
+                            <span class="ds_site-navigation__link  <#if item.selected || item.expanded>ds_current</#if>"><span class="label-nav">${item.name}</span> </span>
                         </#if>
                     </li>
                 </#list>

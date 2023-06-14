@@ -8,7 +8,13 @@
                     <ul class="ds_site-navigation__list">
                         <#list menu.siteMenuItems as item>
                             <li class="ds_site-navigation__item">
-                                <a href="<@hst.link link=item.hstLink/>" class="ds_site-navigation__link  <#if item.selected || item.expanded>ds_current</#if>"><span class="label-nav">${item.name}</span> </a>
+                                <#if item.externalLink??>
+                                    <a href="${item.externalLink}" class="ds_site-navigation__link  <#if item.selected || item.expanded>ds_current</#if>"><span class="label-nav">${item.name}</span> </a>
+                                <#elseif item.hstLink??>
+                                    <a href="<@hst.link link=item.hstLink/>" class="ds_site-navigation__link  <#if item.selected || item.expanded>ds_current</#if>"><span class="label-nav">${item.name}</span> </a>
+                                <#else>
+                                    <span class="ds_site-navigation__link  <#if item.selected || item.expanded>ds_current</#if>"><span class="label-nav">${item.name}</span> </span>
+                                </#if>
                             </li>
                         </#list>
                     </ul>

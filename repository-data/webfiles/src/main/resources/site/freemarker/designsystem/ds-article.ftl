@@ -10,13 +10,6 @@
 
     <div class="ds_wrapper">
         <main <@lang document/> id="main-content" class="ds_layout  ds_layout--pl-component">
-
-            <#if document.sensitive?? && document.sensitive>
-                <!--noindex-->
-                <#include "hide-this-page.ftl">
-                <!--endnoindex-->
-            </#if>
-
             <div class="ds_layout__header">
                 <header class="ds_page-header">
                     <h1 class="ds_page-header__title"><#if document.title??>${document.title}</#if></h1>
@@ -29,9 +22,11 @@
                         </#if>
                     </dl>
 
-                    <@hst.include ref="stepbysteptopbar"/>
+                    <#include "../common/metadata.ftl"/>
                 </header>
             </div>
+
+            <@hst.include ref="sidebar"/>
 
             <#if document.logo??>
                 <div <@revertlang document />  class="ds_layout__partner  mg_partner-logo">
@@ -58,6 +53,28 @@
 
             <div class="ds_layout__content">
 
+                <#if document.deprecated>
+                    <div class="ds_warning-text">
+                        <strong class="ds_warning-text__icon" aria-hidden="true"></strong>
+                        <strong class="visually-hidden">Warning</strong>
+                        <strong class="ds_tag">Deprecated</strong>
+                        <#if document.deprecatednote?has_content>
+                            <@hst.html hippohtml=document.deprecatednote/>
+                        <#else>
+                            <p>This component has been deprecated. Use the <a href="/components/feature-header/" data-navigation="warning-link">'feature header' component</a> instead.</p>
+                        </#if>
+                    </div>
+                </#if>
+
+                <#if document.experimental>
+                    <div class="ds_inset-text">
+                        <div class="ds_inset-text__text">
+                            <strong class="ds_tag">Experimental</strong>
+                            <p>This is currently experimental because we need more research to validate it.</p>
+                        </div>
+                    </div>
+                </#if>
+
                 <div class="ds_leader">
                     ${document.summary}
                 </div>
@@ -70,11 +87,14 @@
                             <@hst.link var="example" hippobean=contentblock.example/>
                             <figure class="example  overflow--large--2 overflow--xlarge--2">
                                 <div class="example__content">
-                                    <#if contentblock.showdemo>
+
+                                    <#if contentblock.example.illustration??>
+                                        <img class="example__illustration" alt="" src="<@hst.link hippobean=contentblock.example.illustration.original/>">
+                                    <#elseif contentblock.showdemo>
                                         <div class="example__demo">
                                             <a class="example__link" href="${example}" target="_blank">Open this example in a new window</a>
 
-                                            <iframe title="Accordion example" style="" data-style="" src="${example}" class="example__iframe">
+                                            <iframe title="${contentblock.example.title}" <#if contentblock.minheight??>style="min-height: ${contentblock.minheight}px;"</#if> src="${example}" class="example__iframe">
                                             </iframe>
                                         </div>
                                     </#if>
@@ -95,7 +115,7 @@
                                                     <label class="ds_accordion-item__label" for="panel-main-1"><span class="visually-hidden">Show this section</span></label>
                                                 </div>
                                                 <div class="ds_accordion-item__body  example__accordion-body--code">
-                                                    <pre><code class="language-html">${contentblock.example.code}</code></pre>
+                                                    <pre class="ds_no-margin  pre--no-border"><code class="language-${contentblock.example.language?lower_case}">${contentblock.example.code}</code></pre>
                                                 </div>
                                             </div>
                                         </#if>
@@ -111,12 +131,151 @@
                             <!-- end content block -->
                         </#if>
 
+                        <#if hst.isNodeType(contentblock.node, 'publishing:dsfigureblock')>
+                            <!-- figure block -->
+                            <figure class="<#if contentblock.overflow>overflow--large--2  overflow--xlarge--2</#if>">
+                                <img alt="${contentblock.alt}" src="<@hst.link hippobean=contentblock.image/>" loading="lazy">
+                                <figcaption>${contentblock.caption}</figcaption>
+                            </figure>
+                            <!-- end figure block -->
+                        </#if>
+
+                        <#if hst.isNodeType(contentblock.node, 'publishing:dsattachmentblock')>
+                            <!-- attachment block -->
+
+                            <#if contentblock.external?has_content>
+                                <#assign link = contentblock.external>
+                            <#else>
+                                <@hst.link var="link2" hippobean=contentblock.internal />
+                                <#assign link = link2/>
+                            </#if>
+
+                            <div class="ds_file-download">
+                                <div class="ds_file-download__thumbnail">
+                                    <a data-button="document-cover" class="ds_file-download__thumbnail-link" aria-hidden="true" tabindex="-1" href="${link}">
+                                        <span class="visually-hidden">Document cover image</span>
+                                        <#if contentblock.image??>
+                                            <@hst.link var="icon" hippobean=contentblock.image.original />
+                                            <img class="ds_file-download__thumbnail-image" src="${icon}" alt="">
+                                        <#else>
+                                            <#assign fileThumbnailPath = '/assets/images/documents/svg/' + contentblock.type + '.svg' />
+                                            <#switch contentblock.icon?trim?lower_case>
+                                            <#case "csv">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/csv.svg' />
+                                                <#break>
+                                            <#case "excel">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/excel.svg' />
+                                                <#break>
+                                            <#case "geodata">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/geodata.svg' />
+                                                <#break>
+                                            <#case "image">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/image.svg' />
+                                                <#break>
+                                            <#case "pdf">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/pdf.svg' />
+                                                <#break>
+                                            <#case "ppt">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/ppt.svg' />
+                                                <#break>
+                                            <#case "rtf">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/rtf.svg' />
+                                                <#break>
+                                            <#case "text">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/text.svg' />
+                                                <#break>
+                                            <#case "word">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/word.svg' />
+                                                <#break>
+                                            <#case "xml">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/xml.svg' />
+                                                <#break>
+                                            <#default>
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/generic.svg' />
+                                        </#switch>
+                                            <img class="ds_file-download__thumbnail-image" src="<@hst.link path=fileThumbnailPath />" alt="" />
+                                        </#if>
+                                    </a>
+                                </div>
+
+                                <div class="ds_file-download__content">
+                                    <a href="${link}" aria-describedby="file-download-${contentblock?keep_after("@")}" class="ds_file-download__title">${contentblock.title}</a>
+
+                                    <div id="file-download-${contentblock?keep_after("@")}" class="ds_file-download__details">
+                                        <dl class="ds_metadata  ds_metadata--inline">
+                                            <div class="ds_metadata__item">
+                                                <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                                                <dd class="ds_metadata__value">${contentblock.type}<span class="visually-hidden">,</span></dd>
+                                            </div>
+
+
+                                            <div class="ds_metadata__item">
+                                                <dt class="ds_metadata__key  visually-hidden">File size</dt>
+                                                <dd class="ds_metadata__value">${contentblock.size}</dd>
+                                            </div>
+
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end attachment block -->
+                        </#if>
+
+                        <#if hst.isNodeType(contentblock.node, 'publishing:dsliveexampleblock')>
+                            <!-- live example block -->
+                            <!--noindex-->
+                            <aside>
+                                <h2>Live example</h2>
+
+                                <@hst.html hippohtml=contentblock.content/>
+                            </aside>
+                            <!--endnoindex-->
+                            <!-- end live example block -->
+                        </#if>
+
+                        <#if hst.isNodeType(contentblock.node, 'publishing:dspaletteblock')>
+                            <!-- palette block -->
+                            <${contentblock.headinglevel}>${contentblock.title}</${contentblock.headinglevel}>
+
+                            <table class="dss_palette">
+                                <thead class="visually-hidden">
+                                    <tr>
+                                        <th>Colour</th>
+                                        <th>SCSS variable</th>
+                                        <th>Hex code</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <#list contentblock.paletteitems as item>
+                                        <tr>
+                                            <td class="dss_palette__name">
+                                                <svg class="dss_palette__swatch" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                                    <circle fill="${item.code}" cx="20" cy="20" r="20"></circle>
+                                                </svg>
+                                                <span class="visually-hidden">${item.colourname}</span>
+                                                <code>${item.varname}</code>
+                                            </td>
+                                            <td class="dss_palette__hex"><code>${item.code}</code></td>
+                                        </tr>
+                                    </#list>
+
+                                </tbody>
+                            </table>
+                            <!-- end palette block -->
+                        </#if>
+
                     </#list>
+                </#if>
+
+                <#if document.updateHistory?has_content>
+                    <div class="update-history">
+                        <#include '../common/update-history.ftl'/>
+                    </div>
                 </#if>
 
             </div>
 
-            <#include '../common/feedback-wrapper.ftl'>
+            <#include 'feedback-wrapper.ftl'>
 
         </main>
     </div>

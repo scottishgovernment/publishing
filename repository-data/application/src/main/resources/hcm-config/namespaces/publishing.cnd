@@ -40,6 +40,9 @@
 [publishing:StepByStepGuide] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
+[publishing:UpdateHistory] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publishing:analytics] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
@@ -70,6 +73,9 @@
 [publishing:dsarticle] > hippostd:relaxed, hippotaxonomy:classifiable, hippotranslation:translated, publishing:base
   orderable
 
+[publishing:dsattachmentblock] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publishing:dscontentblock] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -77,6 +83,21 @@
   orderable
 
 [publishing:dsexampleblock] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:dsfigure] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:dsfigureblock] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:dsliveexampleblock] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:dspaletteblock] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:dspaletteitem] > hippo:compound, hippostd:relaxed
   orderable
 
 [publishing:facebookverification] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument

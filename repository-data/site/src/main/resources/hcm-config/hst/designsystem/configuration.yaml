@@ -7,6 +7,80 @@ definitions:
         jcr:primaryType: hst:pages
       /hst:catalog:
         jcr:primaryType: hst:catalog
+        /publishing-catalog:
+          jcr:primaryType: hst:containeritempackage
+          /divider:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.DividerComponent
+            hst:iconpath: icons/divider.svg
+            hst:label: Divider
+            hst:template: divider
+          /header:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.HeaderComponent
+            hst:iconpath: icons/header.svg
+            hst:label: Header
+            hst:template: header
+          /imageandtext:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.ImageAndTextComponent
+            hst:iconpath: icons/imageandtext.svg
+            hst:label: Image and text
+            hst:template: imageandtext
+          /video:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.VideoComponent
+            hst:iconpath: icons/video.svg
+            hst:label: Video
+            hst:template: video
+          /threeimagecards:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.ThreeImageCardsComponent
+            hst:iconpath: icons/threeimagecards.svg
+            hst:label: 3 image cards
+            hst:template: threeimagecards
+          /text:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.TextComponent
+            hst:iconpath: icons/text.svg
+            hst:label: Text
+            hst:template: text
+          /doubletext:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.DoubleTextComponent
+            hst:iconpath: icons/doubletext.svg
+            hst:label: Double text
+            hst:template: doubletext
+          /seo:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.SEOComponent
+            hst:iconpath: icons/seo.svg
+            hst:label: SEO
+            hst:template: seo
+          /pageheading:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.PageheadingComponent
+            hst:iconpath: icons/pageheader.svg
+            hst:label: Page Header
+            hst:template: pageheader
+          /textandcard:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.TextAndCardComponent
+            hst:iconpath: icons/textandcard.svg
+            hst:label: Text and card
+            hst:template: textandcard
+          /featuregrid:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.FeatureGridComponent
+            hst:iconpath: icons/featuregrid.svg
+            hst:label: Feature grid
+            hst:template: featuregrid
+          /updates:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.DesignSystemUpdatesComponent
+            hst:iconpath: icons/updates.svg
+            hst:label: Updates
+            hst:template: ds-updates
       /hst:components:
         jcr:primaryType: hst:components
       /hst:pages:
@@ -21,187 +95,31 @@ definitions:
           hst:pagetitle: Home page
           hst:refId: root
           hst:relativecontentpath: ''
-        /browse:
+        /_default_:
           jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/article
-          hst:componentconfigurationmappingnames: ['publishing:dsarticle']
-          hst:componentconfigurationmappingvalues: ['hst:pages/ds-article']
-          hst:hiddeninchannelmanager: true
-          hst:relativecontentpath: browse
-          hst:sitemapitemhandlerids: [trailing-slash]
-          /_default_:
-            jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/article
-            hst:componentconfigurationmappingnames: ['publishing:dsarticle', 'publishing:dsexample']
-            hst:componentconfigurationmappingvalues: ['hst:pages/ds-article', 'hst:pages/ds-example']
-            hst:relativecontentpath: ${parent}/${1}
-            hst:sitemapitemhandlerids: [trailing-slash]
-            /_default_:
-              jcr:primaryType: hst:sitemapitem
-              hst:componentconfigurationid: hst:pages/article
-              hst:componentconfigurationmappingnames: ['publishing:dsarticle', 'publishing:dsexample']
-              hst:componentconfigurationmappingvalues: ['hst:pages/ds-article', 'hst:pages/ds-example']
-              hst:relativecontentpath: ${parent}/${2}
-              hst:sitemapitemhandlerids: [trailing-slash]
-              /_default_:
-                jcr:primaryType: hst:sitemapitem
-                hst:componentconfigurationid: hst:pages/article
-                hst:componentconfigurationmappingnames: ['publishing:dsarticle', 'publishing:dsexample']
-                hst:componentconfigurationmappingvalues: ['hst:pages/ds-article',
-                  'hst:pages/ds-example']
-                hst:relativecontentpath: ${parent}/${3}
-                hst:sitemapitemhandlerids: [trailing-slash]
-                /_default_:
-                  jcr:primaryType: hst:sitemapitem
-                  hst:componentconfigurationid: hst:pages/article
-                  hst:componentconfigurationmappingnames: ['publishing:dsarticle',
-                    'publishing:dsexample']
-                  hst:componentconfigurationmappingvalues: ['hst:pages/ds-article',
-                    'hst:pages/ds-example']
-                  hst:relativecontentpath: ${parent}/${4}
-                  hst:sitemapitemhandlerids: [trailing-slash]
-                  /_default_:
-                    jcr:primaryType: hst:sitemapitem
-                    hst:componentconfigurationid: hst:pages/article
-                    hst:componentconfigurationmappingnames: ['publishing:dsarticle',
-                      'publishing:dsexample']
-                    hst:componentconfigurationmappingvalues: ['hst:pages/ds-article',
-                      'hst:pages/ds-example']
-                    hst:relativecontentpath: ${parent}/${5}
-                    hst:sitemapitemhandlerids: [trailing-slash]
-                    /_default_:
-                      jcr:primaryType: hst:sitemapitem
-                      hst:componentconfigurationid: hst:pages/article
-                      hst:componentconfigurationmappingnames: ['publishing:dsarticle',
-                        'publishing:dsexample']
-                      hst:componentconfigurationmappingvalues: ['hst:pages/ds-article',
-                        'hst:pages/ds-example']
-                      hst:relativecontentpath: ${parent}/${6}
-                      hst:sitemapitemhandlerids: [trailing-slash]
-                      /_default_:
-                        jcr:primaryType: hst:sitemapitem
-                        hst:componentconfigurationid: hst:pages/article
-                        hst:componentconfigurationmappingnames: ['publishing:dsarticle',
-                          'publishing:dsexample']
-                        hst:componentconfigurationmappingvalues: ['hst:pages/ds-article',
-                          'hst:pages/ds-example']
-                        hst:relativecontentpath: ${parent}/${7}
-                        hst:sitemapitemhandlerids: [trailing-slash]
-                        /_default_:
-                          jcr:primaryType: hst:sitemapitem
-                          hst:componentconfigurationid: hst:pages/article
-                          hst:componentconfigurationmappingnames: ['publishing:dsarticle',
-                            'publishing:dsexample']
-                          hst:componentconfigurationmappingvalues: ['hst:pages/ds-article',
-                            'hst:pages/ds-example']
-                          hst:relativecontentpath: ${parent}/${8}
-                          hst:sitemapitemhandlerids: [trailing-slash]
-                          /_default_:
-                            jcr:primaryType: hst:sitemapitem
-                            hst:componentconfigurationid: hst:pages/article
-                            hst:componentconfigurationmappingnames: ['publishing:dsarticle',
-                              'publishing:dsexample']
-                            hst:componentconfigurationmappingvalues: ['hst:pages/ds-article',
-                              'hst:pages/ds-example']
-                            hst:relativecontentpath: ${parent}/${9}
-                            hst:sitemapitemhandlerids: [trailing-slash]
-                            /_default_:
-                              jcr:primaryType: hst:sitemapitem
-                              hst:componentconfigurationid: hst:pages/article
-                              hst:componentconfigurationmappingnames: ['publishing:dsarticle',
-                                'publishing:dsexample']
-                              hst:componentconfigurationmappingvalues: ['hst:pages/ds-article',
-                                'hst:pages/ds-example']
-                              hst:relativecontentpath: ${parent}/${10}
-                              hst:sitemapitemhandlerids: [trailing-slash]
-                              /_index_:
-                                jcr:primaryType: hst:sitemapitem
-                                hst:componentconfigurationmappingnames: ['publishing:category',
-                                  'publishing:guide', 'publishing:smartanswer']
-                                hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                                  'hst:pages/guide', 'hst:pages/smartanswer']
-                                hst:relativecontentpath: ${parent}/index
-                                hst:sitemapitemhandlerids: [trailing-slash]
-                            /_index_:
-                              jcr:primaryType: hst:sitemapitem
-                              hst:componentconfigurationmappingnames: ['publishing:category',
-                                'publishing:guide', 'publishing:smartanswer']
-                              hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                                'hst:pages/guide', 'hst:pages/smartanswer']
-                              hst:relativecontentpath: ${parent}/index
-                              hst:sitemapitemhandlerids: [trailing-slash]
-                          /_index_:
-                            jcr:primaryType: hst:sitemapitem
-                            hst:componentconfigurationmappingnames: ['publishing:category',
-                              'publishing:guide', 'publishing:smartanswer']
-                            hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                              'hst:pages/guide', 'hst:pages/smartanswer']
-                            hst:relativecontentpath: ${parent}/index
-                            hst:sitemapitemhandlerids: [trailing-slash]
-                        /_index_:
-                          jcr:primaryType: hst:sitemapitem
-                          hst:componentconfigurationmappingnames: ['publishing:category',
-                            'publishing:guide', 'publishing:smartanswer']
-                          hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                            'hst:pages/guide', 'hst:pages/smartanswer']
-                          hst:relativecontentpath: ${parent}/index
-                          hst:sitemapitemhandlerids: [trailing-slash]
-                      /_index_:
-                        jcr:primaryType: hst:sitemapitem
-                        hst:componentconfigurationmappingnames: ['publishing:category',
-                          'publishing:guide', 'publishing:smartanswer']
-                        hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                          'hst:pages/guide', 'hst:pages/smartanswer']
-                        hst:relativecontentpath: ${parent}/index
-                        hst:sitemapitemhandlerids: [trailing-slash]
-                    /_index_:
-                      jcr:primaryType: hst:sitemapitem
-                      hst:componentconfigurationmappingnames: ['publishing:category',
-                        'publishing:guide', 'publishing:smartanswer']
-                      hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                        'hst:pages/guide', 'hst:pages/smartanswer']
-                      hst:relativecontentpath: ${parent}/index
-                      hst:sitemapitemhandlerids: [trailing-slash]
-                  /_index_:
-                    jcr:primaryType: hst:sitemapitem
-                    hst:componentconfigurationmappingnames: ['publishing:category',
-                      'publishing:guide', 'publishing:smartanswer']
-                    hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                      'hst:pages/guide', 'hst:pages/smartanswer']
-                    hst:relativecontentpath: ${parent}/index
-                    hst:sitemapitemhandlerids: [trailing-slash]
-                /_index_:
-                  jcr:primaryType: hst:sitemapitem
-                  hst:componentconfigurationmappingnames: ['publishing:category',
-                    'publishing:guide', 'publishing:smartanswer']
-                  hst:componentconfigurationmappingvalues: ['hst:pages/category',
-                    'hst:pages/guide', 'hst:pages/smartanswer']
-                  hst:relativecontentpath: ${parent}/index
-                  hst:sitemapitemhandlerids: [trailing-slash]
-              /_index_:
-                jcr:primaryType: hst:sitemapitem
-                hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
-                  'publishing:smartanswer']
-                hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
-                  'hst:pages/smartanswer']
-                hst:relativecontentpath: ${parent}/index
-                hst:sitemapitemhandlerids: [trailing-slash]
-            /_index_:
-              jcr:primaryType: hst:sitemapitem
-              hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
-                'publishing:smartanswer']
-              hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
-                'hst:pages/smartanswer']
-              hst:relativecontentpath: ${parent}/index
-              hst:sitemapitemhandlerids: [trailing-slash]
+          hst:componentconfigurationid: hst:pages/ds-article
+          hst:relativecontentpath: ${1}
           /_index_:
             jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
-              'publishing:smartanswer']
-            hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
-              'hst:pages/smartanswer']
-            hst:relativecontentpath: ${parent}/index
-            hst:sitemapitemhandlerids: [trailing-slash]
+            hst:componentconfigurationid: hst:pages/ds-article
+            hst:relativecontentpath: ${1}/index
+          /_default_:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/ds-article
+            hst:relativecontentpath: ${1}/${2}
+            hst:componentconfigurationmappingnames: ['publishing:dsarticle', 'publishing:dsexample']
+            hst:componentconfigurationmappingvalues: ['hst:pages/ds-article', 'hst:pages/ds-example']
+            /_index_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/ds-article
+              hst:relativecontentpath: ${1}/${2}/index
+            /_default_:
+              jcr:primaryType: hst:sitemapitem
+              hst:componentconfigurationid: hst:pages/ds-article
+              hst:componentconfigurationmappingnames: ['publishing:dsarticle', 'publishing:dsexample']
+              hst:componentconfigurationmappingvalues: ['hst:pages/ds-article', 'hst:pages/ds-example']
+              hst:relativecontentpath: ${1}/${2}/${3}
+              hst:sitemapitemhandlerids: [trailing-slash]
       /hst:sitemenus:
         jcr:primaryType: hst:sitemenus
       /hst:templates:
@@ -215,10 +133,16 @@ definitions:
         /example-layout:
           jcr:primaryType: hst:template
           hst:renderpath: webfile:/freemarker/designsystem/example-layout.ftl
+        /ds-sidebar:
+          jcr:primaryType: hst:template
+          hst:renderpath: webfile:/freemarker/designsystem/ds-sidebar.ftl
+        /ds-updates:
+          jcr:primaryType: hst:template
+          hst:renderpath: webfile:/freemarker/designsystem/ds-updates.ftl
       /hst:workspace:
         jcr:primaryType: hst:workspace
         jcr:mixinTypes: ['dxphst:mergeable']
-        dxphst:treehash: 355963AF037C35941D1F43A1136B92BA
+        dxphst:treehash: DDB6669F1DD1E26BE2ADDAB3D39214F7
         /hst:channel:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:channel
@@ -239,7 +163,7 @@ definitions:
               hippo:identifier: c40fc6e0-083e-456c-81f4-b38f4c20e3ce
               hst:label: Home page main
               hst:xtype: hst.vbox
-              hst:lastmodified: 2023-05-24T08:11:28.617+01:00
+              hst:lastmodified: 2023-06-20T15:40:37.123+01:00
         /hst:pages:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:pages
@@ -251,4 +175,7 @@ definitions:
           /main:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:sitemenu
-            hst:lastmodified: 2021-07-22T14:54:57.725+01:00
+            hst:lastmodified: 2023-06-19T14:35:56.031+01:00
+          /component:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:sitemenu

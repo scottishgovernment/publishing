@@ -1,0 +1,93 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/UpdateHistory:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 17a4b1c3-9a74-41bf-96e1-e0a7d9e08833
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: a4b9e339-fdeb-49ce-a0c4-fa0f907fbfdc
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: f8e9432f-5dab-4409-acc6-9e96e72f6be6
+          hipposysedit:node: true
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /lastUpdated:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:lastUpdated
+            hipposysedit:primary: false
+            hipposysedit:type: CalendarDate
+            hipposysedit:validators: [required]
+          /updateText:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:updateText
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /updateTextLong:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:updateTextLong
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:UpdateHistory
+          publishing:lastUpdated: 0001-01-01T12:00:00Z
+          publishing:updateText: ''
+          /publishing:updateTextLong:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /lastUpdated:
+            jcr:primaryType: frontend:plugin
+            caption: Last updated date
+            field: lastUpdated
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /updateText:
+            jcr:primaryType: frontend:plugin
+            caption: Update text (short)
+            field: updateText
+            hint: Details of the last significant update made to the content
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /updateTextLong:
+            jcr:primaryType: frontend:plugin
+            caption: Update text (long)
+            field: updateTextLong
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.appended.json: '{removePlugins:''youtube'',removeButtons:''Underline,Strike,Subscript,Superscript,NumberedList,BulletedList,Outdent,Indent,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Link,Anchor,Table''}'
+              ckeditor.config.overlayed.json: '{   enterMode: 2,   autoParagraph:
+                false }'

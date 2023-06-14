@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 
 <#if isFeedbackEnabled = true>
-<section id="feedback" class="mg_feedback">
+<section id="feedback">
     <div class="ds_error-summary  fully-hidden" id="feedbackErrorSummary" aria-labelledby="error-summary-title" role="alert">
         <h2 class="ds_error-summary__title" id="error-summary-title">There is a problem</h2>
         <div class="ds_error-summary__content">

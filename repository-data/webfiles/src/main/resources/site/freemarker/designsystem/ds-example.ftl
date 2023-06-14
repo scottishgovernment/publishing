@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
 <#include "../common/macros/lang-attributes.ftl">
-
+<!--noindex-->
 <#if document??>
     <div class="example-frame__intro">
         <h1 class="visually-hidden">
@@ -19,8 +19,19 @@
         </#if>
     </div>
 
+    <#if document.script??>
+        <@hst.headContribution category="footerScripts">
+            <script type="module" src='<@hst.webfile path="assets/scripts/${document.script}.js"/>'></script>
+        </@hst.headContribution>
+
+        <@hst.headContribution category="footerScripts">
+            <script nomodule="true" src='<@hst.webfile path="assets/scripts/${document.script}.es5.js"/>'></script>
+        </@hst.headContribution>
+    </#if>
+
     <#if document.includedsscript??>
         <#assign scriptName="ds-example">
+        <#assign noGlobal=true>
         <#include '../common/scripts.ftl'/>
     </#if>
 </#if>
@@ -34,3 +45,4 @@
         <link rel="prerender" href="${nextlink}"/>
     </#if>
 </@hst.headContribution>
+<!--endnoindex-->

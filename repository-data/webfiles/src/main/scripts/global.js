@@ -9,6 +9,8 @@ import NotificationBanner from './components/notification';
 import storage from '../../../node_modules/@scottish-government/pattern-library/src/base/tools/storage/storage';
 import ContentSelect from './components/content-select';
 import Tabs from './components/mygov/old-ds-tabs';
+import ToggleLink from './components/toggle-link';
+import UpdateHistory from './components/update-history';
 import './vendor/polyfills';
 
 import '../../../node_modules/@scottish-government/pattern-library/src/all';
@@ -16,7 +18,7 @@ import '../../../node_modules/@scottish-government/pattern-library/src/all';
 const global = {
     notes: [],
 
-    init: function() {
+    init: function () {
         this.initCookieNotice();
         this.setInitialCookiePermissions();
         this.initNotifications();
@@ -159,6 +161,15 @@ const global = {
         tabSets.forEach(tabSet => new Tabs(tabSet).init());
 
         window.DS.components.skipLinks.init();
+
+        const toggleLinks = [].slice.call(document.querySelectorAll('[data-module="ds-toggle-link"]'));
+        toggleLinks.forEach(toggleLink => new ToggleLink(toggleLink).init());
+
+        const updateHistory = document.querySelector('[data-module="ds-update-history"]');
+        if (updateHistory) {
+            const updateHistoryModule = new UpdateHistory(updateHistory);
+            updateHistoryModule.init();
+        }
     },
 
     initPublishingComponents: function () {

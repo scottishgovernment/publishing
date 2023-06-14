@@ -1,0 +1,14 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-dsarticle-folder:
+      jcr:primaryType: hippostd:templatequery
+      hippostd:modify: [./_name, $name, './hippotranslation:id', $uuid, './hippotranslation:locale',
+        $inherited]
+      jcr:language: xpath
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-dsarticle-folder/hippostd:templates/node()
+      /hippostd:templates:
+        jcr:primaryType: hippostd:templates
+        /hippostd:folder:
+          jcr:primaryType: hippostd:folder
+          hippostd:foldertype: [new-dsarticle-document, new-dsexample-document, new-dsexample-folder,
+            new-dsarticle-folder]

@@ -88,7 +88,7 @@ const accordionPlugin = function () {
                 allowedContent:
                     [
                         // native element support
-                        'h2 h3 h4 p ul ol li strong em input blockquote table button',
+                        'h2 h3 h4 p ul ol li strong em input blockquote table button code',
 
                         // generic DS support
                         'span(!visually-hidden)',

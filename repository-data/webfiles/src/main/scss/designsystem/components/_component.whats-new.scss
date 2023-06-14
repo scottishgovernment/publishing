@@ -1,6 +1,10 @@
 .dss_whats-new {
     &__item {
         @include ds_responsive-margin(2, bottom);
+
+        > p {
+            display: inline;
+        }
     }
 
     &__date {

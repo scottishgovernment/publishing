@@ -11,19 +11,10 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: fc8a77fc-c386-46a1-8a16-e1858e13238d
+          jcr:uuid: 676915ff-6e80-45ea-a6c0-ce6e7a3f042a
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          /title:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
           /example:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -72,16 +63,24 @@ definitions:
             hipposysedit:path: publishing:note
             hipposysedit:primary: false
             hipposysedit:type: Text
+          /minheight:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:minheight
+            hipposysedit:primary: false
+            hipposysedit:type: Long
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:dsexampleblock
-          publishing:title: ''
           publishing:showdemo: true
           publishing:showcode: true
           publishing:htmlexpanded: false
           publishing:type: HTML
           publishing:note: ''
+          publishing:minheight: 0
           /publishing:example:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -96,14 +95,6 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /title:
-            jcr:primaryType: frontend:plugin
-            caption: Title
-            field: title
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /example:
             jcr:primaryType: frontend:plugin
             caption: Example
@@ -144,6 +135,17 @@ definitions:
             caption: Code snippet is open on page load
             field: htmlexpanded
             hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /minheight:
+            jcr:primaryType: frontend:plugin
+            caption: Minimum height
+            field: minheight
+            hint: Use this to set a minimum height for the example iframe. This is
+              useful when the height of a component might change as a result of user
+              interaction, such as a list of autocomplete suggestions.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
