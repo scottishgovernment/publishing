@@ -29,7 +29,6 @@
         <div class="ds_cb__inner">
 
         <#list cards as card>
-        
             <#if card != ''>
                 <div class="ds_card  ds_card--hover  <#if greycards>ds_card--grey</#if>">
                     <#if showimages>
@@ -74,7 +73,7 @@
                         </#if>
                     </div>
 
-                    <@hst.manageContent hippobean=card documentTemplateQuery="new-navigationcard-document" parameterName="card" rootPath="navigationcards"/>
+                    <@hst.manageContent hippobean=card documentTemplateQuery="new-navigationcard-document" parameterName="document${card?index+1}" rootPath="navigationcards"/>
                 </div>
             <#elseif editMode>
                 <div class="ds_card  cms-blank">
@@ -93,7 +92,7 @@
                         </div>
                     </div>
 
-                    <@hst.manageContent documentTemplateQuery="new-navigationcard-document" parameterName="card" rootPath="navigationcards"/>
+                    <@hst.manageContent documentTemplateQuery="new-navigationcard-document" parameterName="document${card?index+1}" rootPath="navigationcards"/>
                 </div>
             </#if>
 

@@ -41,21 +41,32 @@
                     </#if>
                     <#if document.image.xlargesixcolumns??>
                         <img alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
+                            <#if document.image.xlargesixcolumns.width > 0>
                                 width="${document.image.xlargesixcolumns.width?c}"
+                            </#if>
+                            <#if document.image.xlargesixcolumns.height > 0>
                                 height="${document.image.xlargesixcolumns.height?c}"
-                                srcset="
-                                <@hst.link hippobean=document.image.smallcolumns/> 360w,
-                                <@hst.link hippobean=document.image.smallcolumnsdoubled/> 720w,
-                                <@hst.link hippobean=document.image.mediumsixcolumns/> 352w,
-                                <@hst.link hippobean=document.image.mediumsixcolumnsdoubled/> 704w,
-                                <@hst.link hippobean=document.image.largesixcolumns/> 448w,
-                                <@hst.link hippobean=document.image.largesixcolumnsdoubled/> 896w,
-                                <@hst.link hippobean=document.image.xlargesixcolumns/> 544w,
-                                <@hst.link hippobean=document.image.xlargesixcolumnsdoubled/> 1088w"
-                                sizes="(min-width:1200px) 544px, (min-width:992px) 448px, (min-width: 768px) 352px, 100vw"
-                                >
+                            </#if>
+                            srcset="
+                            <@hst.link hippobean=document.image.smallcolumns/> 360w,
+                            <@hst.link hippobean=document.image.smallcolumnsdoubled/> 720w,
+                            <@hst.link hippobean=document.image.mediumsixcolumns/> 352w,
+                            <@hst.link hippobean=document.image.mediumsixcolumnsdoubled/> 704w,
+                            <@hst.link hippobean=document.image.largesixcolumns/> 448w,
+                            <@hst.link hippobean=document.image.largesixcolumnsdoubled/> 896w,
+                            <@hst.link hippobean=document.image.xlargesixcolumns/> 544w,
+                            <@hst.link hippobean=document.image.xlargesixcolumnsdoubled/> 1088w"
+                            sizes="(min-width:1200px) 544px, (min-width:992px) 448px, (min-width: 768px) 352px, 100vw"
+                            >
                     <#else>
-                        <img src="<@hst.link hippobean=document.image />" alt="${document.alt}" width="${document.image.original.width?c}" height="${document.image.original.height?c}">
+                        <img src="<@hst.link hippobean=document.image />" alt="${document.alt}"
+                            <#if document.image.original.width > 0>
+                                width="${document.image.original.width?c}"
+                            </#if>
+                            <#if document.image.original.height > 0>
+                                height="${document.image.original.height?c}"
+                            </#if>
+                        >
                     </#if>
                     </picture>
                 </div>

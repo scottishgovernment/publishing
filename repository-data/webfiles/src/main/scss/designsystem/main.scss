@@ -63,24 +63,13 @@ $use-legacy-site-navigation: false;
 
 @import "../mygov/components/feedback";
 
-/* Used content blocks */
-// @import "content-blocks/content-blocks.base";
-// @import "content-blocks/cards/cards";
-// //@import "card-text/card-text";
-// //@import "contact/contact";
-// //@import "divider/divider";
-// //@import "double-text/double-text";
-// //@import "feature-grid/feature-grid";
-// //@import "header/header";
-// //@import "image-text/image-text";
-// //@import "listed-links/listed-links";
-// @import "content-blocks/page-title/page-title";
-// @import "content-blocks/text/text";
-// //@import "video-text/video-text";
-.foo {color:red;}
+/**
+ * CONTENT BLOCKS
+ */
+@import "../content-blocks/all-content-blocks";
+
 @import "_highlight";
-// @import "../../../../node_modules/prismjs/themes/prism.css";
-.bar {color: blue;}
+
 
 .#{$site-prefix}contents-nav h2 {
     @extend .ds_contents-nav__title;
