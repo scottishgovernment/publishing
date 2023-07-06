@@ -41,10 +41,10 @@
                     </#if>
                     <#if document.image.xlargesixcolumns??>
                         <img alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
-                            <#if document.image.xlargesixcolumns.width > 0>
+                            <#if document.image.xlargesixcolumns.width gt 0>
                                 width="${document.image.xlargesixcolumns.width?c}"
                             </#if>
-                            <#if document.image.xlargesixcolumns.height > 0>
+                            <#if document.image.xlargesixcolumns.height gt 0>
                                 height="${document.image.xlargesixcolumns.height?c}"
                             </#if>
                             srcset="
@@ -60,10 +60,10 @@
                             >
                     <#else>
                         <img src="<@hst.link hippobean=document.image />" alt="${document.alt}"
-                            <#if document.image.original.width > 0>
+                            <#if document.image.original.width gt 0>
                                 width="${document.image.original.width?c}"
                             </#if>
-                            <#if document.image.original.height > 0>
+                            <#if document.image.original.height gt 0>
                                 height="${document.image.original.height?c}"
                             </#if>
                         >
