@@ -19,7 +19,7 @@
         </#if>
     </div>
 
-    <#if document.script??>
+    <#if document.script?has_content>
         <@hst.headContribution category="footerScripts">
             <script type="module" src='<@hst.webfile path="assets/scripts/${document.script}.js"/>'></script>
         </@hst.headContribution>
@@ -29,7 +29,7 @@
         </@hst.headContribution>
     </#if>
 
-    <#if document.includedsscript??>
+    <#if document.includedsscript>
         <#assign scriptName="ds-example">
         <#assign noGlobal=true>
         <#include '../common/scripts.ftl'/>

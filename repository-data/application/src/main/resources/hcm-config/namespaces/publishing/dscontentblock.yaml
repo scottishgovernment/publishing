@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a844787e-9c4a-4751-94b5-93058265d20c
+          jcr:uuid: de33d27a-3034-409f-94bb-a85c591fe3e5
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -50,6 +50,6 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{codesnippet_languages:{html:''HTML'',javascript:''JavaScript'',css:''CSS/SCSS'',json:''JSON'',markdown:''Markdown'',xml:''XML'',svg:''SVG'',typescript:''TypeScript'',tsconfig:''TSconfig''},language_list:
-                [''en:English'',''gd:Gaelic (Scottish)'',''ru:Russian'',''uk:Ukrainian''],
-                disallowedContent: ''*[style]{*}'',extraPlugins: ''language,dialogadvtab2,youtube_enablejsapi,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder,ds_styles,codesnippet'',extraAllowedContent:''embed;table[data-smallscreen];div[data-module,data-uuid,href,contenteditable];address[translate];span[lang];iframe{*}[!width,!height,!src,!frameborder,!allowfullscreen]'',format_tags:''h1;h2;h3;h4;p;pre;address'',youtube_responsive:true,youtube_privacy:true,youtube_disabled_fields:[''chkResponsive'',''chkPrivacy'',''txtEmbed'',''chkOlderCode'']}'
+              ckeditor.config.overlayed.json: '{language_list: [''en:English'',''gd:Gaelic
+                (Scottish)'',''ru:Russian'',''uk:Ukrainian''], disallowedContent:
+                ''*[style]{*}'',extraPlugins: ''language,dialogadvtab2,youtube_enablejsapi,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder,ds_styles,codesnippet,codeSnippetLanguages'',extraAllowedContent:''embed;table[data-smallscreen];div[data-module,data-uuid,href,contenteditable];address[translate];span[lang];iframe{*}[!width,!height,!src,!frameborder,!allowfullscreen]'',format_tags:''h1;h2;h3;h4;p;pre;address'',youtube_responsive:true,youtube_privacy:true,youtube_disabled_fields:[''chkResponsive'',''chkPrivacy'',''txtEmbed'',''chkOlderCode'']}'

@@ -4,6 +4,7 @@ import bloomreachWebfile from '../../tools/bloomreach-webfile';
 const dsExample = {
     init: function () {
         this.fixIconImagePaths();
+        this.fixImagePaths();
         initAll();
     },
 
@@ -12,6 +13,14 @@ const dsExample = {
 
         iconElements.forEach(element => {
             element.setAttribute('href', bloomreachWebfile(element.getAttribute('href')));
+        });
+    },
+
+    fixImagePaths: () => {
+        const imageElements = [].slice.call(document.querySelectorAll('img[src*="/assets/images/"]'));
+
+        imageElements.forEach(element => {
+            element.setAttribute('src', bloomreachWebfile(element.getAttribute('src')));
         });
     }
 }

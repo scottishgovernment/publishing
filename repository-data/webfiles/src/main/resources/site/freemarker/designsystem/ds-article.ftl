@@ -13,16 +13,7 @@
             <div class="ds_layout__header">
                 <header class="ds_page-header">
                     <h1 class="ds_page-header__title"><#if document.title??>${document.title}</#if></h1>
-                    <dl <@revertlang document /> class="ds_page-header__metadata  ds_metadata">
-                        <#if document.lastUpdatedDate??>
-                            <div class="ds_metadata__item">
-                                <dt class="ds_metadata__key">Last updated</dt>
-                                <dd class="ds_metadata__value"><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></dd>
-                            </div>
-                        </#if>
-                    </dl>
-
-                    <#include "../common/metadata.ftl"/>
+                    <#include "./metadata.ftl"/>
                 </header>
             </div>
 
@@ -135,7 +126,9 @@
                             <!-- figure block -->
                             <figure class="<#if contentblock.overflow>overflow--large--2  overflow--xlarge--2</#if>">
                                 <img alt="${contentblock.alt}" src="<@hst.link hippobean=contentblock.image/>" loading="lazy">
-                                <figcaption>${contentblock.caption}</figcaption>
+                                <#if contentblock.caption?has_content>
+                                    <figcaption>${contentblock.caption}</figcaption>
+                                </#if>
                             </figure>
                             <!-- end figure block -->
                         </#if>

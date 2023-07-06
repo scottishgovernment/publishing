@@ -13,11 +13,9 @@ $use-legacy-site-navigation: false;
  * BASE STYLING
  */
 @import "../../../../node_modules/@scottish-government/pattern-library/src/base/all-base";
-//@import "base/font";
 @import "base/code";
 @import "base/figure";
 @import "base/pl-layouts";
-
 
 
 
@@ -40,52 +38,29 @@ $use-legacy-site-navigation: false;
 
 
 /**
- * COMPONENTS FOR DESIGN SYSTEM SITE NOT IN DESIGN SYSTEM STYLES (YET?)
+ * CONTENT BLOCKS
  */
-@import "components/component.example";
+ @import "../content-blocks/all-content-blocks";
 
 
 
 
-/* for homepage */
-//@import "components/component.case-study";
-//@import "components/component.homepage-hero";
-//@import "components/component.homepage-links";
+/**
+ * ADDITIONAL STYLES
+ */
 @import "components/component.colour-palette";
+@import "components/component.example";
 @import "components/component.font-table";
 @import "components/component.history-list";
 @import "components/component.toggle-link";
 @import "components/component.whats-new";
-//@import "components/component.showcase";
-//@import "components/component.sub-banner";
-//@import "components/component.users";
-//@import "components/component.welcome";
+@import "helpers/helper.overflows";
 
 @import "../mygov/components/feedback";
 
-/**
- * CONTENT BLOCKS
- */
-@import "../content-blocks/all-content-blocks";
-
 @import "_highlight";
 
-
-.#{$site-prefix}contents-nav h2 {
-    @extend .ds_contents-nav__title;
-}
-
-.#{$site-prefix}contents-nav ul {
-    @extend .ds_contents-nav__list;
-}
-
-.#{$site-prefix}contents-nav li {
-    @extend .ds_contents-nav__item;
-}
-
-
-// temp highlight for links with no target
-a[href=''] {color: $ds_colour__red; cursor: not-allowed; pointer-events: none;}
+@import "overrides/override.file-download";
 
 
 
@@ -93,4 +68,4 @@ a[href=''] {color: $ds_colour__red; cursor: not-allowed; pointer-events: none;}
 /**
  * CMS STYLES
  */
- @import "../cms.experience-manager";
+@import "../cms.experience-manager";

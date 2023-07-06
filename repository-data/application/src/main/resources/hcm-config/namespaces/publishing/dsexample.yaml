@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 572bd9d0-97fe-4e18-8156-e8450b868f3e
+          jcr:uuid: d7e70ee3-7340-4b72-b90c-7812b8de5dcf
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -65,12 +65,20 @@ definitions:
             hipposysedit:path: publishing:script
             hipposysedit:primary: false
             hipposysedit:type: String
+          /alt:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:alt
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:dsexample
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 50e6c54d-d480-439e-8457-05442bdb5f9a
+          jcr:uuid: 9d1fc218-90ff-463c-8616-6cae0ef69090
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -98,6 +106,7 @@ definitions:
           publishing:dswrapper: false
           publishing:language: HTML
           publishing:script: ''
+          publishing:alt: ''
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -147,7 +156,7 @@ definitions:
             field: code
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.css: [preformatted]
+            wicket.css: [publishing_monospace]
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -167,6 +176,15 @@ definitions:
             caption: Illustration
             field: illustration
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /alt:
+            jcr:primaryType: frontend:plugin
+            caption: Illustration alt text
+            field: alt
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
@@ -193,16 +211,6 @@ definitions:
             caption: Wrap example with ds_wrapper
             field: dswrapper
             hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /authorNotes:
-            jcr:primaryType: frontend:plugin
-            caption: Author notes
-            field: authorNotes
-            hint: Enter any notes relevant to this content item.  This will not appear
-              on the page itself.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
