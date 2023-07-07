@@ -14,7 +14,7 @@ const article = {
 
     resizeIframes: () => {
         function resizeIframe(obj) {
-            obj.style.height = obj.contentWindow.document.body.scrollHeight + 16 + 'px';
+            obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
         }
 
         const iframes = [].slice.call(document.querySelectorAll('iframe.example__iframe'));

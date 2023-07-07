@@ -27,6 +27,15 @@ $example__highlight-colour: $ds_colour__link--current__background !default;
 .example-frame__content {
     padding: 16px;
     padding-top: 52px;
+
+    &--grey-background {
+        background-color: $ds_colour__grey--lighter;
+    }
+
+    &--full-width {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 .example__pre {

@@ -9,14 +9,8 @@
         </h1>
     </div>
 
-    <div class="example-frame__content">
-        <#if document.dswrapper>
-            <div class="ds_wrapper">
-                ${document.code?no_esc}
-            </div>
-        <#else>
-            ${document.code?no_esc}
-        </#if>
+    <div class="example-frame__content  <#if document.cssclass??>${document.cssclass}</#if>">
+        ${document.code?no_esc}
     </div>
 
     <#if document.script?has_content>
