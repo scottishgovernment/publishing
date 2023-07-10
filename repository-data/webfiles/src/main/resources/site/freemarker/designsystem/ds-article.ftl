@@ -262,7 +262,7 @@
 
                 <#if document.updateHistory?has_content>
                     <div class="update-history">
-                        <#include '../common/update-history.ftl'/>
+                        <#include './ds-update-history.ftl' />
                     </div>
                 </#if>
 

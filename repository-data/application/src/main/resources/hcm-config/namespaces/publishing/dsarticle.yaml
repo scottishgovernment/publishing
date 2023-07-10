@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: b4ceca34-fe79-442f-a241-8862b3044ea9
+          jcr:uuid: 69713f65-e728-432c-93ad-bed558563246
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -64,20 +64,12 @@ definitions:
             hipposysedit:path: publishing:UpdateHistory
             hipposysedit:primary: false
             hipposysedit:type: publishing:UpdateHistory
-          /publicationdate:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:publicationDate
-            hipposysedit:primary: false
-            hipposysedit:type: CalendarDate
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:dsarticle
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 5cd722e7-dd57-496a-85f3-caca50e694ac
+          jcr:uuid: 126af5eb-974d-452b-90e6-6ef0f9dcb0f0
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
           hippostdpubwf:creationDate: 2023-06-05T13:47:37.384+01:00
@@ -100,7 +92,6 @@ definitions:
           publishing:userneed: ''
           publishing:experimental: false
           publishing:deprecated: false
-          publishing:publicationDate: 0001-01-01T12:00:00Z
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -177,15 +168,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
-          /publicationDate:
-            jcr:primaryType: frontend:plugin
-            caption: Publication date
-            field: publicationdate
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /UpdateHistory:
             jcr:primaryType: frontend:plugin
             caption: Update history
