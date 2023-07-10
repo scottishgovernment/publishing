@@ -4,7 +4,6 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoCompound;
 import java.util.List;
-import scot.mygov.publishing.beans.Dspaletteitem;
 
 @HippoEssentialsGenerated(internalName = "publishing:dspaletteblock")
 @Node(jcrType = "publishing:dspaletteblock")

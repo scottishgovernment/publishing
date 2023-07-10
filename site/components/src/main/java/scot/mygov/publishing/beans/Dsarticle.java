@@ -4,11 +4,7 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
 import java.util.List;
-import scot.mygov.publishing.beans.UpdateHistory;
 
-/**
- * TODO: Beanwriter: Failed to create getter for node type: hippo:compound
- */
 @HippoEssentialsGenerated(internalName = "publishing:dsarticle")
 @Node(jcrType = "publishing:dsarticle")
 public class Dsarticle extends Base {
