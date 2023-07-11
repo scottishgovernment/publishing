@@ -8,6 +8,8 @@ import scot.mygov.publishing.beans.Dsarticle;
 import scot.mygov.publishing.beans.UpdateHistory;
 
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class DesignSystemArticleComponent extends ArticleComponent {
@@ -26,6 +28,7 @@ public class DesignSystemArticleComponent extends ArticleComponent {
         if (updateHistory.isEmpty()) {
             return false;
         }
+        Collections.sort(updateHistory, Comparator.comparing(UpdateHistory::getLastUpdated).reversed());
         UpdateHistory mostRecent = updateHistory.get(0);
         Calendar lastUpdated = mostRecent.getLastUpdated();
         return lastUpdated.after(threeMonthsAgo());
