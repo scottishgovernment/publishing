@@ -28,10 +28,10 @@ public class DesignSystemArticleComponent extends ArticleComponent {
         if (updateHistory.isEmpty()) {
             return false;
         }
-        Collections.sort(updateHistory, Comparator.comparing(UpdateHistory::getLastUpdated).reversed());
-        UpdateHistory mostRecent = updateHistory.get(0);
-        Calendar lastUpdated = mostRecent.getLastUpdated();
-        return lastUpdated.after(threeMonthsAgo());
+        Collections.sort(updateHistory, Comparator.comparing(UpdateHistory::getLastUpdated));
+        UpdateHistory oldestUpdate = updateHistory.get(0);
+        Calendar firstPublished = oldestUpdate.getLastUpdated();
+        return firstPublished.after(threeMonthsAgo());
     }
 
     Calendar threeMonthsAgo() {
