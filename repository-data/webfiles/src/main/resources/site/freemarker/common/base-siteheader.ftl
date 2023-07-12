@@ -33,5 +33,20 @@
         </div>
     </div>
 
+    <#if phasebanner??>
+        <div class="ds_phase-banner">
+            <div class="ds_wrapper">
+                <p class="ds_phase-banner__content">
+                    <strong class="ds_tag  ds_phase-banner__tag">
+                        ${phasebanner.tag}
+                    </strong>
+                    <span class="ds_phase-banner__text">
+                        <@hst.html hippohtml=phasebanner.content/>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </#if>
+
     <@hst.include ref="menu"/>
 </header>
