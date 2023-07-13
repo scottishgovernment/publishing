@@ -45,7 +45,6 @@
                 </div>
             </#if>
 
-
             <div class="ds_layout__content">
                 <#if document.deprecated>
                     <div class="ds_warning-text">
@@ -69,9 +68,11 @@
                     </div>
                 </#if>
 
-                <div class="ds_leader">
-                    ${document.summary}
-                </div>
+                <#if document.summary?has_content>
+                    <div class="ds_leader">
+                        ${document.summary}
+                    </div>
+                </#if>
 
                 <#if document.contentblocks??>
 
@@ -83,7 +84,7 @@
                                 <div class="example__content">
 
                                     <#if contentblock.example.illustration??>
-                                        <img class="example__illustration" alt="" src="<@hst.link hippobean=contentblock.example.illustration.original/>">
+                                        <img class="example__illustration" alt="${contentblock.example.alt}" src="<@hst.link hippobean=contentblock.example.illustration.original/>">
                                     <#elseif contentblock.showdemo>
                                         <div class="example__demo">
                                             <a class="example__link" href="${example}" target="_blank">Open this example in a new window</a>
