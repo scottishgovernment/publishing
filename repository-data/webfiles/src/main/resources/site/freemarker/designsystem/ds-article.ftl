@@ -47,7 +47,6 @@
 
 
             <div class="ds_layout__content">
-
                 <#if document.deprecated>
                     <div class="ds_warning-text">
                         <strong class="ds_warning-text__icon" aria-hidden="true"></strong>
@@ -221,11 +220,9 @@
                         <#if hst.isNodeType(contentblock.node, 'publishing:dsliveexampleblock')>
                             <!-- live example block -->
                             <!--noindex-->
-                            <aside>
-                                <h2>Live example</h2>
+                            <h2>Live example</h2>
 
-                                <@hst.html hippohtml=contentblock.content/>
-                            </aside>
+                            <@hst.html hippohtml=contentblock.content/>
                             <!--endnoindex-->
                             <!-- end live example block -->
                         </#if>
