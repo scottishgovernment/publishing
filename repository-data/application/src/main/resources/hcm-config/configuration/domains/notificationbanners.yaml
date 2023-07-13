@@ -43,14 +43,14 @@ definitions:
           hipposys:type: Reference
           hipposys:value: /content/documents/shorttermlets/site-furniture/banners
       /privatetenancy-document:
-          jcr:primaryType: hipposys:domainrule
-          /include-costofliving-banners-folder:
-            jcr:primaryType: hipposys:facetrule
-            hipposys:equals: true
-            hipposys:facet: jcr:path
-            hipposys:filter: false
-            hipposys:type: Reference
-            hipposys:value: /content/documents/costofliving/site-furniture/banners
+        jcr:primaryType: hipposys:domainrule
+        /include-costofliving-banners-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/costofliving/site-furniture/banners
       /mygov-document:
         jcr:primaryType: hipposys:domainrule
         /include-mygov-banners-folder:
@@ -60,3 +60,22 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/mygov/site-furniture/banners
+      /designsystem-document:
+        jcr:primaryType: hipposys:domainrule
+        /include-designsystem-banners-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/designsystem/site-furniture/banners
+      /designmanual-document:
+        jcr:primaryType: hipposys:domainrule
+        /include-designmanual-banners-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/designmanual/site-furniture/banners
+
