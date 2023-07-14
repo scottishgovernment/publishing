@@ -7,13 +7,12 @@ import org.hippoecm.hst.core.parameters.Parameter;
 
 public interface WebsiteInfo extends ChannelInfo {
 
-    @Parameter(name = "logo", displayName = "Logo (campaign sites only)")
-    @JcrPath(
-        pickerConfiguration = "cms-pickers/images",
-        pickerSelectableNodeTypes = {"hippogallery:imageset"},
-        pickerInitialPath = "/content/gallery"
-    )
-    String getLogoPath();
+    @Parameter(name = "logo", displayName = "Logo", required = true, defaultValue = "scottish-government")
+    @DropDownList({"mygov", "scottish-government", "digital-scotland"})
+    String getLogo();
+
+    @Parameter(name = "logoAltText", required = true, displayName = "Logo alt text", defaultValue = "The Scottish Government")
+    String getLogoAltTest();
 
     @Parameter(name = "style", required = true, displayName = "Style")
     @DropDownList({"mygov", "tradingnation", "campaign", "designsystem"})

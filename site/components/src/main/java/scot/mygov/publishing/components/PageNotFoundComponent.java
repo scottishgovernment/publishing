@@ -18,6 +18,6 @@ public class PageNotFoundComponent extends EssentialsPageNotFoundComponent {
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
         DetermineStylingComponent.determineStyling(request);
-        SiteHeaderComponent.determineLogo(request);
+        SiteHeaderComponent.setWebsiteInfo(request);
     }
 }
