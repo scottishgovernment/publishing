@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 676915ff-6e80-45ea-a6c0-ce6e7a3f042a
+          jcr:uuid: 03173036-03e6-41d1-b186-367bbeb82e3f
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -23,6 +23,7 @@ definitions:
             hipposysedit:path: publishing:example
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
+            hipposysedit:validators: [required]
           /string:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
