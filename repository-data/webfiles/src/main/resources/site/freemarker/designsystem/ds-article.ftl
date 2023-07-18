@@ -12,10 +12,12 @@
         <main <@lang document/> id="main-content" class="ds_layout  ds_layout--pl-component">
             <div class="ds_layout__header">
                 <header class="ds_page-header">
-                    <span class="ds_page-header__label  ds_content-label">
-                        <#if isNew><span class="ds_tag">New</span></#if>
-                        ${type}
-                    </span>
+                    <#if type?has_content>
+                        <span class="ds_page-header__label  ds_content-label">
+                            <#if isNew><span class="ds_tag">New</span></#if>
+                            ${type}
+                        </span>
+                    </#if>
                     <h1 class="ds_page-header__title"><#if document.title??>${document.title}</#if></h1>
                     <#include "./metadata.ftl"/>
                 </header>
