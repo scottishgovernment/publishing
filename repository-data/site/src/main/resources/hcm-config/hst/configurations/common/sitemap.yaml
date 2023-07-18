@@ -352,3 +352,9 @@ definitions:
           hst:hiddeninchannelmanager: true
           hst:namedpipeline: JaxrsRestPlainPipeline
           hst:cacheable: false
+          /suggestions:
+            jcr:primaryType: hst:sitemapitem
+            hst:cacheable: false
+            hst:excludedforlinkrewriting: true
+            hst:hiddeninchannelmanager: true
+            hst:namedpipeline: JaxrsRestPlainPipeline

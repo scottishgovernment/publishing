@@ -654,7 +654,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: d8340cba-9e03-4630-bd73-0f9e0ed9035f
     hippo:name: Search settings
-    hippo:versionHistory: 7ebd69b1-fbfe-459e-af84-bbe0458f4ac8
+    hippo:versionHistory: 39006669-018c-438f-bb5c-88eff192755f
     /search-settings[1]:
       jcr:primaryType: search:searchsettings
       jcr:mixinTypes: ['mix:referenceable']
@@ -664,10 +664,13 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
-      hippostdpubwf:lastModificationDate: 2022-12-08T15:51:53.229Z
+      hippostdpubwf:lastModificationDate: 2023-07-12T13:37:46.588+01:00
       hippostdpubwf:lastModifiedBy: admin
+      search:bloomreachErrorRate: 0.0
       search:enabled: true
-      search:searchtype: bloomreach
+      search:funnelbackErrorRate: 0.0
+      search:searchtype: resilient
+      search:suggestTimeoutMillis: 250
       search:timeoutMillis: 1000
     /search-settings[2]:
       jcr:primaryType: search:searchsettings
@@ -678,10 +681,13 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
-      hippostdpubwf:lastModificationDate: 2022-12-08T15:52:00.385Z
+      hippostdpubwf:lastModificationDate: 2023-07-12T13:37:52.600+01:00
       hippostdpubwf:lastModifiedBy: admin
+      search:bloomreachErrorRate: 0.0
       search:enabled: true
-      search:searchtype: bloomreach
+      search:funnelbackErrorRate: 0.0
+      search:searchtype: resilient
+      search:suggestTimeoutMillis: 250
       search:timeoutMillis: 1000
     /search-settings[3]:
       jcr:primaryType: search:searchsettings
@@ -692,11 +698,14 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
-      hippostdpubwf:lastModificationDate: 2022-12-08T15:52:00.385Z
+      hippostdpubwf:lastModificationDate: 2023-07-12T13:37:52.600+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2022-12-08T15:52:03.160Z
+      hippostdpubwf:publicationDate: 2023-07-12T13:37:56.222+01:00
+      search:bloomreachErrorRate: 0.0
       search:enabled: true
-      search:searchtype: bloomreach
+      search:funnelbackErrorRate: 0.0
+      search:searchtype: resilient
+      search:suggestTimeoutMillis: 250
       search:timeoutMillis: 1000
   /recaptcha:
     jcr:primaryType: hippostd:folder
