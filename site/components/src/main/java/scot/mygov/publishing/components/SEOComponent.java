@@ -16,6 +16,8 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 
 import javax.jcr.RepositoryException;
 
+import static scot.mygov.publishing.components.SiteHeaderComponent.setCanonical;
+
 /**
  * Provides seo information for the page.
  */
@@ -49,6 +51,7 @@ public class SEOComponent extends EssentialsDocumentComponent {
         request.setAttribute("isSearchEnabled", websiteInfo.isSearchEnabled());
         request.setAttribute("contentBean", contentBean);
         request.setAttribute("baseBean", request.getRequestContext().getSiteContentBaseBean());
+        setCanonical(request);
     }
 
     void setPageTitle(HstRequest request, String siteTitle, HippoBean contentBean) {

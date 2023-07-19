@@ -6,6 +6,8 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.linking.HstLink;
+import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
 
 import scot.mygov.publishing.beans.PhaseBanner;
@@ -26,6 +28,7 @@ public class SiteHeaderComponent extends BaseHstComponent {
         super.doBeforeRender(request, response);
         setWebsiteInfo(request);
         setPhaseBanner(request);
+        setCanonical(request);
     }
 
     static void setWebsiteInfo(HstRequest request) {
@@ -45,6 +48,20 @@ public class SiteHeaderComponent extends BaseHstComponent {
         HstRequestContext c = request.getRequestContext();
         HippoBean root = c.getSiteContentBaseBean();
         return root.getBean(path, HippoFolder.class);
+    }
+
+    static void setCanonical(HstRequest request) {
+        HstRequestContext context = request.getRequestContext();
+        HstLinkCreator linkCreator = context.getHstLinkCreator();
+        HippoBean contentBean = context.getContentBean();
+        List<HstLink>  links = linkCreator.createAllAvailableCanonicals(
+                contentBean.getNode(), context, "live", "production");
+        if (!links.isEmpty()) {
+            HstLink link = links.get(0);
+            String canonical = link.toUrlForm(context, true);
+            request.setAttribute("canonical", canonical);
+        }
+
     }
 
 }

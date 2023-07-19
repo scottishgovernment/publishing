@@ -36,15 +36,15 @@
         <meta name="dc.title" content="${contentBean.title}"/>
         </@hst.headContribution>
     </#if>
-    <@hst.link var="link" canonical=true fullyQualified=true/>
+
     <@hst.link var="sitelink" hippobean=baseBean canonical=true fullyQualified=true/>
     <@hst.headContribution category="canonical">
-        <link rel="canonical"  href="${link}" />
+        <link rel="canonical"  href="${canonical}" />
     </@hst.headContribution>
     <#-- Facebook meta tags: only show if a card image is available -->
     <#if cardImage??>
         <@hst.headContribution category="facebookMeta">
-            <meta property="og:url" content="${link}" />
+            <meta property="og:url" content="${canonical}" />
         </@hst.headContribution>
         <@hst.headContribution category="facebookMeta">
             <meta property="og:type" content="website" />
@@ -70,7 +70,7 @@
             <meta property="twitter:domain" content=""/>
         </@hst.headContribution>
         <@hst.headContribution category="twitterMeta">
-            <meta property="twitter:url" content="${link}"/>
+            <meta property="twitter:url" content="${canonical}"/>
         </@hst.headContribution>
         <@hst.headContribution category="twitterMeta">
             <meta name="twitter:title" content="${pagetitle}"/>
