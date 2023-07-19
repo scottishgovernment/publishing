@@ -96,8 +96,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Timeout (millis)
             field: timeoutMillis
-            hint: When the type of search is 'resilient' then funnelback wil be called
-              with this timeout before falling back to use bloomreach.
+            hint: When the type of search is 'resilient' then Funnelback will be used
+              with this timeout before falling back to Bloomreach.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
