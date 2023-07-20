@@ -11,6 +11,7 @@ import ContentSelect from './components/content-select';
 import Tabs from './components/mygov/old-ds-tabs';
 import ToggleLink from './components/toggle-link';
 import UpdateHistory from './components/update-history';
+import BloomreachWebfile from './tools/bloomreach-webfile';
 import './vendor/polyfills';
 
 import '../../../node_modules/@scottish-government/pattern-library/src/all';
@@ -25,6 +26,13 @@ const global = {
         this.initDesignSystemComponents();
         this.initPublishingComponents();
         this.addTracking();
+
+        const hasCodeExamples = document.querySelectorAll('pre > code[class*="language-"]').length > 0;
+        if (hasCodeExamples) {
+            const script = document.createElement('script');
+            script.src = BloomreachWebfile('/assets/scripts/syntax-highlight.js');
+            document.head.appendChild(script);
+        }
     },
 
     addTracking: function () {

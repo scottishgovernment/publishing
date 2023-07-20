@@ -10,6 +10,7 @@ const commonItems = {
         'global':                       path.resolve(__dirname, './global.js'),
         'gtm':                          path.resolve(__dirname, './gtm.js'),
         'js-enabled':                   path.resolve(__dirname, './js-enabled.js'),
+        'syntax-highlight':             path.resolve(__dirname, './syntax-highlight.js'),
 
         // format-specific entry points
         'article':                      path.resolve(__dirname, './formats/article.js'),

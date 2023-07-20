@@ -5,13 +5,15 @@ $iconsfile: "../../images/icons/icons.stack.svg";
 $site-prefix: "mg_";
 
 
+
+
 /**
  * BASE STYLES FROM PATTERN LIBRARY
  */
 @import "../../../../node_modules/@scottish-government/pattern-library/src/base/all-base";
+@import "../base/code";
 @import "../base/helpers/no-margin";
 @import "base/mg-layouts";
-
 
 
 
@@ -30,6 +32,7 @@ $site-prefix: "mg_";
  */
 @import "../components/form-box";
 @import "../components/preview-notification";
+
 
 
 
@@ -52,7 +55,6 @@ $site-prefix: "mg_";
 @import "components/popular-panel";
 @import "components/repeating-container";
 @import "components/section-nav";
-// @import "components/shared-transition";
 @import "components/smart-answer";
 @import "components/subsection-nav";
 @import "components/summary-list";
@@ -76,10 +78,12 @@ $site-prefix: "mg_";
 
 
 
+
 /**
  * CONTENT BLOCKS
  */
  @import "../content-blocks/all-content-blocks";
+
 
 
 
@@ -88,6 +92,7 @@ $site-prefix: "mg_";
   */
 @import "../campaign/component.datalist";
 @import "../campaign/component.listing";
+@import "../highlight";
 
 
 

@@ -13,7 +13,7 @@ $use-legacy-site-navigation: false;
  * BASE STYLING
  */
 @import "../../../../node_modules/@scottish-government/pattern-library/src/base/all-base";
-@import "base/code";
+@import "../base/code";
 @import "base/figure";
 @import "base/pl-layouts";
 
@@ -54,11 +54,10 @@ $use-legacy-site-navigation: false;
 @import "components/component.history-list";
 @import "components/component.toggle-link";
 @import "components/component.whats-new";
-@import "helpers/helper.overflows";
 
 @import "../mygov/components/feedback";
 
-@import "_highlight";
+@import "../highlight";
 
 @import "overrides/override.file-download";
 

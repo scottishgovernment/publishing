@@ -3,7 +3,7 @@
 'use strict';
 
 import feedback from '../../components/feedback';
-import prismjs from '../../../../../node_modules/prismjs/prism';
+import '../../../../../node_modules/prismjs/prism';
 
 const article = {
     init: function() {
