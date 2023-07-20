@@ -6,9 +6,10 @@ const commonItems = {
     mode: 'production',
 
     entry: {
+        'datalayer':                    path.resolve(__dirname, './datalayer.js'),
         'global':                       path.resolve(__dirname, './global.js'),
         'gtm':                          path.resolve(__dirname, './gtm.js'),
-        'datalayer':                    path.resolve(__dirname, './datalayer.js'),
+        'js-enabled':                   path.resolve(__dirname, './js-enabled.js'),
 
         // format-specific entry points
         'article':                      path.resolve(__dirname, './formats/article.js'),
@@ -40,6 +41,8 @@ const commonItems = {
         // designsystem-specific scripts
         'ds-article':                   path.resolve(__dirname, './formats/designsystem/ds-article.js'),
         'ds-example':                   path.resolve(__dirname, './formats/designsystem/ds-example.js'),
+
+        // designsystem examples
         'autocomplete-demo':            path.resolve(__dirname, './formats/designsystem/autocomplete-demo'),
         'datepicker-demo':              path.resolve(__dirname, './formats/designsystem/datepicker-demo')
     },

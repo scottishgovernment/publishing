@@ -33,10 +33,7 @@
         <@hst.headContributions categoryIncludes="siteverification"/>
         <@hst.headContributions categoryIncludes="canonical"/>
 
-        <script>
-            var htmlClass = document.documentElement.getAttribute('class') || '';
-            document.documentElement.setAttribute('class', (htmlClass ? htmlClass + ' ' : '') + 'js-enabled');
-        </script>
+        <script src='<@hst.webfile path="assets/scripts/js-enabled.js"/>'></script>
     </head>
 
     <@hst.include ref="seo"/>

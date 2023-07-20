@@ -37,10 +37,7 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
-    <script>
-        var htmlClass = document.documentElement.getAttribute('class') || '';
-        document.documentElement.setAttribute('class', (htmlClass ? htmlClass + ' ' : '') + 'js-enabled');
-    </script>
+    <script src='<@hst.webfile path="assets/scripts/js-enabled.js"/>'></script>
     </head>
 
     <@hst.include ref="seo"/>
