@@ -53,7 +53,9 @@ public class CleanExampleHtmlListener {
             .addAttributes("use","href")
 
             .addProtocols("use","href","http","https")
-            .addProtocols("img","srcset","http","https");
+            .addProtocols("img","srcset","http","https")
+
+            .preserveRelativeLinks(true);
 
     CleanExampleHtmlListener(Session session) {
         this.session = session;
