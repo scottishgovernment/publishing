@@ -52,10 +52,7 @@ public class CleanExampleHtmlListener {
             .addAttributes("textarea","rows")
             .addAttributes("use","href")
 
-            .addProtocols("use","href","http","https")
-            .addProtocols("img","srcset","http","https")
-
-            .preserveRelativeLinks(true);
+            .addProtocols("img", "srcset", "http", "https");
 
     CleanExampleHtmlListener(Session session) {
         this.session = session;
