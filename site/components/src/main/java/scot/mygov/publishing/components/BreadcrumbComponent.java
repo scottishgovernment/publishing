@@ -23,6 +23,8 @@ import static scot.mygov.publishing.components.CategoryComponent.indexBean;
  */
 public class BreadcrumbComponent extends EssentialsContentComponent {
 
+    private static final String HOME = "Home";
+
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
@@ -85,7 +87,7 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
         } else if (isBaseBean) {
             // this is deal with the difference between mygov which has a home page in the root folder, and
             // sites such as designmanual whose home page is content block based.
-            breadcrumbs.add(breadcrumbItem(baseBean, context));
+            breadcrumbs.add(breadcrumbItem(baseBean, context, HOME));
         }
 
         return breadcrumbs;
