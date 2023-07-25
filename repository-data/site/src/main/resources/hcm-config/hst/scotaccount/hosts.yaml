@@ -1,0 +1,122 @@
+definitions:
+  config:
+    /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/scotaccount:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:mount
+      hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+      hst:locale: en_GB
+    /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/scotaccount-preview:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:mount
+      hst:alias: scotaccount-staging
+      hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+      hst:type: preview
+      preview-cookie-httponly: 'false'
+      preview-cookie-secure: 'false'
+      hst:locale: en_GB
+    /hst:hst/hst:hosts/lcl/scot/gov/platform/scotaccount:
+      /lcl:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/dev/scot/gov/platform/scotaccount:
+      /dev:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/int/scot/gov/platform/scotaccount:
+      /int:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/exp/scot/gov/platform/scotaccount:
+      /exp:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/uat/scot/gov/platform/scotaccount:
+      /uat:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/per/scot/gov/platform/scotaccount:
+      /per:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/tst/scot/gov/platform/scotaccount:
+      /tst:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/blu/scot/gov/platform/scotaccount:
+      /blu:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotaccount/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/grn/scot/gov/platform/scotaccount:
+      /grn:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotaccount/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/live/scot/gov/platform/scotaccount:
+      /live:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotaccount/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/origin/scot/gov/platform/scotaccount:
+      /origin:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotaccount/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/production/scot/gov/platform/scotaccount:
+      /hst:root:
+        jcr:primaryType: hst:mount
+        hst:mountpoint: /hst:publishing/hst:sites/scotaccount
+        hst:schemeagnostic: true
+        publishing:gtm: /content/documents/scotaccount/administration/analytics/live
+        hst:locale: en_GB
