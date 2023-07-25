@@ -35,7 +35,8 @@ public class DesignSystemUpdatesComponent extends CommonComponent {
             "/jcr:root/content/documents/designsystem//element(*,publishing:dsarticle)" +
             "/element(*,publishing:UpdateHistory)" +
             "[@publishing:lastUpdated >= xs:dateTime('%s')]" +
-            "/publishing:updateTextLong[jcr:contains(@hippostd:content, '*')]/..";
+            "/publishing:updateTextLong[jcr:contains(@hippostd:content, '*')]/.. " +
+            "order by @publishing:lastUpdated descending";
 
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
 
@@ -75,6 +76,7 @@ public class DesignSystemUpdatesComponent extends CommonComponent {
     Query query(HstRequest request, int limit) throws RepositoryException {
         HstRequestContext context = request.getRequestContext();
         String xpath = String.format(XPATH_TEMPLATE, threeMonthsAgoString());
+        LOG.info("XPATH: {}", xpath);
         QueryManager queryManager = context.getSession().getWorkspace().getQueryManager();
         Query query = queryManager.createQuery(xpath, Query.XPATH);
         query.setLimit(limit);
