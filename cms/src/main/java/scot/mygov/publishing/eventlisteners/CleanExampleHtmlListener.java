@@ -51,8 +51,6 @@ public class CleanExampleHtmlListener {
             .addAttributes("textarea","rows")
             .addAttributes("use","href")
 
-            .addProtocols("img","srcset","http","https")
-
             .removeProtocols("img","src","http","https");
 
 
