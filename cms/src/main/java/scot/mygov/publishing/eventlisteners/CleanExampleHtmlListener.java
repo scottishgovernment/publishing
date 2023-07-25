@@ -32,11 +32,11 @@ public class CleanExampleHtmlListener {
     // we allow script tags so that we can allow non executable script tags.
     // we then use a node visitor to remove executable ones.
     Safelist safelist = Safelist.relaxed()
-            .addTags(SCRIPT, "address","fieldset","footer","form","header","input","label","legend",
+            .addTags(SCRIPT, "address","article","fieldset","footer","form","header","input","label","legend",
                     "main","nav","option","section","select","style","svg","textarea","use")
 
             .addAttributes(SCRIPT, "type")
-            .addAttributes(":all","aria-describedby","aria-invalid","aria-label","aria-labelledby",
+            .addAttributes(":all","aria-describedby","aria-hidden","aria-invalid","aria-label","aria-labelledby",
                     "aria-required","class","data-module","id","role","tabindex","translate")
             .addAttributes("button","disabled","type")
             .addAttributes("form","action","method")
@@ -52,7 +52,10 @@ public class CleanExampleHtmlListener {
             .addAttributes("textarea","rows")
             .addAttributes("use","href")
 
-            .addProtocols("img", "srcset", "http", "https");
+            .addProtocols("img","srcset","http","https")
+
+            .removeProtocols("img","src","http","https");
+
 
     CleanExampleHtmlListener(Session session) {
         this.session = session;
@@ -87,16 +90,14 @@ public class CleanExampleHtmlListener {
 
     void cleanCode(Node node) throws RepositoryException {
         String code = node.getProperty(CODE).getString();
-        String cleanedCode = Jsoup.clean(code, safelist);
-        String withoutExecutableScript = removeExecutableScript(cleanedCode);
-        node.setProperty(CODE, withoutExecutableScript);
-    }
 
-    String removeExecutableScript(String code) {
-        // using the xml parse prevents Jsoup from adding html / head / body elements.
-        Document doc = Jsoup.parse(code, Parser.xmlParser());
+        Document doc = Jsoup.parse(code);
         doc.traverse(this::visit);
-        return doc.html();
+        if (!doc.select("body *").isEmpty()) {
+            // is HTML, sanitise the output
+            String cleanedCode = Jsoup.clean(doc.select("body").html(), safelist);
+            node.setProperty(CODE, cleanedCode);
+        }
     }
 
     void visit(org.jsoup.nodes.Node node, int depth) {
