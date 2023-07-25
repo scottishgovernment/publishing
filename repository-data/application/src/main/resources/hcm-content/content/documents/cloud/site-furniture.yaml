@@ -1,0 +1,146 @@
+/content/documents/cloud/site-furniture:
+  .meta:order-before: images
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['mix:versionable']
+  hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror]
+  /footer:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
+    /privacy:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      hippo:name: Privacy
+      /privacy:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2023-07-25T09:00:00.000+01:00
+        hippostdpubwf:lastModificationDate: 2023-07-25T09:00:00.000+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: d064f1e2-d40c-4118-b502-6a691bb2b3d3
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:lastUpdatedDate: 2023-07-25T09:00:00.000+01:00
+        publishing:metaDescription: Privacy
+        publishing:permalink: /privacy/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: privacy
+        publishing:summary: Privacy
+        publishing:title: Privacy
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /accessibility:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      hippo:name: Accessibility
+      /accessibility:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        hippo:name: Accessibility
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2023-07-25T09:00:00.000+01:00
+        hippostdpubwf:lastModificationDate: 2023-07-25T09:00:00.000+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ec4e0c5c-80a0-44c6-b3d7-fb8785e2b78a
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Accessibility
+        publishing:permalink: /accessibility/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: accessibility
+        publishing:summary: Accessibility
+        publishing:title: Accessibility
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /cookies:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      hippo:name: Cookies
+      /cookies:
+        jcr:primaryType: publishing:cookiepage
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        hippo:availability: [preview]
+        hippo:name: Cookies
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2023-07-25T09:00:00.000+01:00
+        hippostdpubwf:lastModificationDate: 2023-07-25T09:00:00.000+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Cookies
+        publishing:permalink: /cookies/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookies
+        publishing:title: Cookies
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:additionalContent:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+  /banners:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:versionable']
+    hippo:name: banners
+    hippostd:foldertype: [new-mourning-banner, new-notification-banner, new-phase-banner]

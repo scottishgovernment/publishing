@@ -60,6 +60,13 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/scotaccount/administration
+        /include-cloud-administration-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/cloud/administration
       /editor:
           jcr:primaryType: hipposys:authrole
           hipposys:groups: [cmsadmin]
