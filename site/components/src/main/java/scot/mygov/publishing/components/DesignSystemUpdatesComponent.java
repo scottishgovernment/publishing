@@ -76,7 +76,6 @@ public class DesignSystemUpdatesComponent extends CommonComponent {
     Query query(HstRequest request, int limit) throws RepositoryException {
         HstRequestContext context = request.getRequestContext();
         String xpath = String.format(XPATH_TEMPLATE, threeMonthsAgoString());
-        LOG.info("XPATH: {}", xpath);
         QueryManager queryManager = context.getSession().getWorkspace().getQueryManager();
         Query query = queryManager.createQuery(xpath, Query.XPATH);
         query.setLimit(limit);
