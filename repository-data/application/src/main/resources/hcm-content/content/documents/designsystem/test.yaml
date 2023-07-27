@@ -1,0 +1,135 @@
+/content/documents/designsystem/test:
+  jcr:primaryType: hippostd:folder
+  hippostd:foldertype: [new-dsarticle-document, new-dsexample-document, new-dsexample-folder,
+    new-dsarticle-folder]
+  /example:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: f9b00b51-57ce-4f7e-954d-0ffe4dc69bff
+    /example[1]:
+      jcr:primaryType: publishing:dsexample
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 9dcae624-4e36-4b44-b78e-768d90c03844
+      hippo:availability: []
+      hippostd:holder: admin
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2023-07-27T08:58:42.882+01:00
+      hippostdpubwf:lastModificationDate: 2023-07-27T12:01:19.663+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: eaffe294-745a-4bee-b19c-3f86a61526a3
+      hippotranslation:locale: document-type-locale
+      publishing:alt: ''
+      publishing:audience: ''
+      publishing:authorNotes: ''
+      publishing:code: "<footer class=\"ds_site-footer\">\r\n    <div class=\"ds_wrapper\"\
+        >\r\n        <div class=\"ds_site-footer__content\">\r\n            <ul class=\"\
+        ds_site-footer__site-items\">\r\n                <li class=\"ds_site-items__item\"\
+        >\r\n                    <a href=\"/sdf\">Privacy</a>\r\n                </li>\r\
+        \n                <li class=\"ds_site-items__item\">\r\n                 \
+        \   <a href=\"/sdf\">Cookies</a>\r\n                </li>\r\n            \
+        \    <li class=\"ds_site-items__item\">\r\n                    <a href=\"\
+        /sdfsdf\">Accessibility</a>\r\n                </li>\r\n            </ul>\r\
+        \n\r\n            <div class=\"ds_site-footer__copyright\">\r\n          \
+        \      <a class=\"ds_site-footer__copyright-logo\" href=\"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\"\
+        >\r\n                    <img src=\"/binaries/content/gallery/designsystem/examples/ogl-svg\"\
+        \ alt=\"Open Government License\" />\r\n                </a>\r\n         \
+        \       <p>All content is available under the <a href=\"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\"\
+        >Open Government Licence v3.0</a>, except for graphic assets and where otherwise\
+        \ stated</p>\r\n                <p>&copy; Crown Copyright</p>\r\n        \
+        \    </div>\r\n\r\n            <div class=\"ds_site-footer__org\">\r\n   \
+        \             <a class=\"ds_site-footer__org-link\" title=\"The Scottish Government\"\
+        \ href=\"https://www.gov.scot/\">\r\n                    <img class=\"ds_site-footer__org-logo\"\
+        \ src=\"/binaries/content/gallery/designsystem/examples/scottish-government--min-svg\"\
+        \ alt=\"gov.scot\" loading=\"lazy\" width=\"300\" height=\"55\" />\r\n   \
+        \             </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\
+        \n</footer>"
+      publishing:cssclass: ''
+      publishing:includedsscript: true
+      publishing:language: HTML
+      publishing:lifeEvents: []
+      publishing:metaDescription: qqq
+      publishing:noindex: false
+      publishing:reportingtags: []
+      publishing:script: ''
+      publishing:sensitive: false
+      publishing:seoTitle: qqq
+      publishing:serviceproviders: []
+      publishing:showFeedback: true
+      publishing:showInParent: true
+      publishing:summary: qqq
+      publishing:title: qqq
+      publishing:userneed: ''
+      /publishing:contentOwner:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /publishing:illustration:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+    /example[2]:
+      jcr:primaryType: publishing:dsexample
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 6f83b4f8-0a52-4df1-95d4-f6daa78d7847
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2023-07-27T08:58:42.882+01:00
+      hippostdpubwf:lastModificationDate: 2023-07-27T12:01:12.106+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: eaffe294-745a-4bee-b19c-3f86a61526a3
+      hippotranslation:locale: document-type-locale
+      publishing:alt: ''
+      publishing:audience: ''
+      publishing:authorNotes: ''
+      publishing:code: "<footer class=\"ds_site-footer\">\r\n    <div class=\"ds_wrapper\"\
+        >\r\n        <div class=\"ds_site-footer__content\">\r\n            <ul class=\"\
+        ds_site-footer__site-items\">\r\n                <li class=\"ds_site-items__item\"\
+        >\r\n                    <a href=\"/sdf\">Privacy</a>\r\n                </li>\r\
+        \n                <li class=\"ds_site-items__item\">\r\n                 \
+        \   <a href=\"/sdf\">Cookies</a>\r\n                </li>\r\n            \
+        \    <li class=\"ds_site-items__item\">\r\n                    <a href=\"\
+        /sdfsdf\">Accessibility</a>\r\n                </li>\r\n            </ul>\r\
+        \n\r\n            <div class=\"ds_site-footer__copyright\">\r\n          \
+        \      <a class=\"ds_site-footer__copyright-logo\" href=\"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\"\
+        >\r\n                    <img src=\"/binaries/content/gallery/designsystem/examples/ogl-svg\"\
+        \ alt=\"Open Government License\" />\r\n                </a>\r\n         \
+        \       <p>All content is available under the <a href=\"https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/\"\
+        >Open Government Licence v3.0</a>, except for graphic assets and where otherwise\
+        \ stated</p>\r\n                <p>&copy; Crown Copyright</p>\r\n        \
+        \    </div>\r\n\r\n            <div class=\"ds_site-footer__org\">\r\n   \
+        \             <a class=\"ds_site-footer__org-link\" title=\"The Scottish Government\"\
+        \ href=\"https://www.gov.scot/\">\r\n                    <img class=\"ds_site-footer__org-logo\"\
+        \ src=\"/binaries/content/gallery/designsystem/examples/scottish-government--min-svg\"\
+        \ alt=\"gov.scot\" loading=\"lazy\" width=\"300\" height=\"55\" />\r\n   \
+        \             </a>\r\n            </div>\r\n        </div>\r\n    </div>\r\
+        \n</footer>"
+      publishing:cssclass: ''
+      publishing:includedsscript: true
+      publishing:language: HTML
+      publishing:lifeEvents: []
+      publishing:metaDescription: qqq
+      publishing:noindex: false
+      publishing:reportingtags: []
+      publishing:script: ''
+      publishing:sensitive: false
+      publishing:seoTitle: qqq
+      publishing:serviceproviders: []
+      publishing:showFeedback: true
+      publishing:showInParent: true
+      publishing:summary: qqq
+      publishing:title: qqq
+      publishing:userneed: ''
+      /publishing:contentOwner:
+        jcr:primaryType: hippo:mirror
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /publishing:illustration:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []

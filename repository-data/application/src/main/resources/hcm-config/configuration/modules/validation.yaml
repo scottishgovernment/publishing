@@ -38,3 +38,6 @@ definitions:
       /optional-url:
         jcr:primaryType: hipposys:moduleconfig
         hipposys:className: scot.mygov.publishing.validation.OptionalUrlValidator
+      /ds-example-html-validator:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.DesignSystemExampleHtmlValidator

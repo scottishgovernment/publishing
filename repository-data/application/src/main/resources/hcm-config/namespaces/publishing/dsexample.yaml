@@ -11,102 +11,11 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: b526470a-0472-4cb8-85d2-5d64c7e440b7
-          hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
-            'hippotaxonomy:classifiable', 'hippostd:relaxed']
-          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          /summary:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:summary
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            hipposysedit:validators: []
-          /metaDescription:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:metaDescription
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-            hipposysedit:validators: []
-          /seoTitle:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:seoTitle
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: []
-          /code:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:code
-            hipposysedit:primary: false
-            hipposysedit:type: Text
-          /illustration:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:illustration
-            hipposysedit:primary: false
-            hipposysedit:type: hippogallerypicker:imagelink
-            hipposysedit:validators: [optional]
-          /includedsscript:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:includedsscript
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
-          /language:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:language
-            hipposysedit:primary: false
-            hipposysedit:type: StaticDropdown
-          /script:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:script
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /alt:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:alt
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /cssclass:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:cssclass
-            hipposysedit:primary: false
-            hipposysedit:type: String
-        /hipposysedit:nodetype[2]:
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: b25ed516-01a8-46a8-9f5f-e3b2aeaa72d2
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           /code:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -115,6 +24,7 @@ definitions:
             hipposysedit:path: publishing:code
             hipposysedit:primary: false
             hipposysedit:type: Text
+            hipposysedit:validators: [ds-example-html-validator]
           /illustration:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -169,7 +79,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:dsexample
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 7c6fb186-30af-4b4b-8de4-d4948e0bf317
+          jcr:uuid: d9cd2862-a01b-417f-a096-bbf49945c00b
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -198,48 +108,6 @@ definitions:
           publishing:script: ''
           publishing:alt: ''
           publishing:cssclass: ''
-          /publishing:contentOwner:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          /publishing:illustration:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-        /hipposysedit:prototype[2]:
-          jcr:primaryType: nt:unstructured
-          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
-            'hippotaxonomy:classifiable', 'hippotranslation:translated', 'mix:referenceable']
-          jcr:uuid: 8b80920c-c728-42a1-aa4f-1667907bedd5
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
-          hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          publishing:alt: ''
-          publishing:audience: ''
-          publishing:authorNotes: ''
-          publishing:code: ''
-          publishing:cssclass: ''
-          publishing:includedsscript: true
-          publishing:language: HTML
-          publishing:lifeEvents: []
-          publishing:metaDescription: ''
-          publishing:noindex: false
-          publishing:reportingtags: []
-          publishing:script: ''
-          publishing:sensitive: false
-          publishing:seoTitle: ''
-          publishing:serviceproviders: []
-          publishing:showFeedback: true
-          publishing:showInParent: true
-          publishing:summary: ''
-          publishing:title: ''
-          publishing:userneed: ''
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe

@@ -1,31 +1,21 @@
-package scot.mygov.publishing.eventlisteners;
+package scot.mygov.publishing.validation;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.safety.Safelist;
-import org.onehippo.cms7.services.eventbus.Subscribe;
-import org.onehippo.repository.events.HippoWorkflowEvent;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import scot.mygov.publishing.HippoUtils;
 
-import javax.jcr.Node;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
+import org.jsoup.safety.Safelist;
+import org.onehippo.cms.services.validation.api.ValidationContext;
+import org.onehippo.cms.services.validation.api.Validator;
+import org.onehippo.cms.services.validation.api.Violation;
+
+import java.util.Optional;
 
 import static org.apache.commons.lang3.StringUtils.equalsIgnoreCase;
-import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
 
-public class CleanExampleHtmlListener {
-
-    private static final Logger LOG = LoggerFactory.getLogger(CleanExampleHtmlListener.class);
-
-    private static final String CODE = "publishing:code";
+public class DesignSystemExampleHtmlValidator implements Validator<String> {
 
     private static final String SCRIPT = "script";
-
-    Session session;
 
     // defines the html elements that we want to allow in examples.
     // we allow script tags so that we can allow non executable script tags.
@@ -34,6 +24,7 @@ public class CleanExampleHtmlListener {
             .addTags(SCRIPT, "address","article","fieldset","footer","form","header","input","label","legend",
                     "main","nav","option","section","select","style","svg","textarea","use")
 
+            .preserveRelativeLinks(true)
             .addAttributes(SCRIPT, "type")
             .addAttributes(":all","aria-describedby","aria-hidden","aria-invalid","aria-label","aria-labelledby",
                     "aria-required","class","data-module","id","role","tabindex","translate")
@@ -53,48 +44,25 @@ public class CleanExampleHtmlListener {
 
             .removeProtocols("img","src","http","https");
 
-
-    CleanExampleHtmlListener(Session session) {
-        this.session = session;
+    @Override
+    public Optional<Violation> validate(ValidationContext context, String html) {
+        String parsedHtml = Jsoup.parse(html).body().html();
+        String cleanedCode = cleanedHtml(html);
+        return cleanedCode.equals(parsedHtml)
+            ? Optional.empty()
+            : Optional.of(context.createViolation());
     }
 
-    @Subscribe
-    public void handleEvent(HippoWorkflowEvent event) {
-
-        if (!canHandle(event)) {
-            return;
-        }
-        try {
-            doHandleEvent(event);
-        } catch (RepositoryException e) {
-            ensureRefreshFalse(session);
-            LOG.error(
-                    "error trying to clean code for event msg={}, action={}, event={}, result={}", e.getMessage(),
-                    event.action(), event.category(), event.result(), e);
-        }
+    String cleanedHtml(String html) {
+        String cleaned = Jsoup.clean(html, "http://", safelist);
+        return removeExecutableScript(cleaned);
     }
 
-    boolean canHandle(HippoWorkflowEvent event) {
-        return "publishing:dsexample".equals(event.documentType())
-                && "commitEditableInstance".equals(event.action());
-    }
-
-    void doHandleEvent(HippoWorkflowEvent event) throws RepositoryException {
-        Node handle = session.getNode(event.subjectPath());
-        new HippoUtils().apply(handle.getNodes(handle.getName()), this::cleanCode);
-        session.save();
-    }
-
-    void cleanCode(Node node) throws RepositoryException {
-        String code = node.getProperty(CODE).getString();
-
+    String removeExecutableScript(String code) {
+        // using the xml parse prevents Jsoup from adding html / head / body elements.
         Document doc = Jsoup.parse(code);
         doc.traverse(this::visit);
-        if (!doc.select("body *").isEmpty()) {
-            // is HTML, sanitise the output
-            String cleanedCode = Jsoup.clean(doc.select("body").html(), safelist);
-            node.setProperty(CODE, cleanedCode);
-        }
+        return doc.body().html();
     }
 
     void visit(org.jsoup.nodes.Node node, int depth) {
