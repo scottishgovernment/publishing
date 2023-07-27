@@ -1,11 +1,12 @@
 <#ftl output_format="HTML">
 
+<#if document.updateHistory?has_content>
+
 <#-- process update history -->
 <#assign sortedUpdateHistory = document.updateHistory?sort_by('lastUpdated') />
 <#assign firstPublished = sortedUpdateHistory?first />
 <#assign remainingUpdates = sortedUpdateHistory[1..]?reverse />
 
-<#if document.updateHistory?has_content>
 <dl <@revertlang document /> class="ds_page-header__metadata  ds_metadata">
     <#if remainingUpdates?size gt 0>
         <div class="ds_metadata__item">

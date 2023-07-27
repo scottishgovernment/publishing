@@ -7,7 +7,7 @@
         <div class="ds_site-header__content">
             <div class="ds_site-branding">
                 <a class="ds_site-branding__logo  ds_site-branding__link" href="${home}">
-                    <img class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/${logo}.svg" />" alt="${logAltText}" width="269" height="40" />
+                    <img class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/${logo}.svg" />" alt="${logoAltText}" width="269" height="40" />
                 </a>
 
                 <div class="ds_site-branding__title">

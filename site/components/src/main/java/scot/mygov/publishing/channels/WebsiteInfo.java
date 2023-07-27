@@ -12,7 +12,7 @@ public interface WebsiteInfo extends ChannelInfo {
     String getLogo();
 
     @Parameter(name = "logoAltText", required = true, displayName = "Logo alt text", defaultValue = "The Scottish Government")
-    String getLogoAltTest();
+    String getLogoAltText();
 
     @Parameter(name = "style", required = true, displayName = "Style")
     @DropDownList({"mygov", "tradingnation", "campaign", "designsystem"})

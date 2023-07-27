@@ -36,6 +36,7 @@ public class SiteHeaderComponent extends BaseHstComponent {
         WebsiteInfo info = mount.getChannelInfo();
         request.setAttribute("siteTitle", info.getSiteTitle());
         request.setAttribute("logo", info.getLogo());
+        request.setAttribute("logoAltText", info.getLogoAltText());
     }
 
     static void setPhaseBanner(HstRequest request) {
