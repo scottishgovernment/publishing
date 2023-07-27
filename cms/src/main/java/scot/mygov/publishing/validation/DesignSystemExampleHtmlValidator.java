@@ -16,13 +16,14 @@ import static org.apache.commons.lang3.StringUtils.equalsIgnoreCase;
 public class DesignSystemExampleHtmlValidator implements Validator<String> {
 
     private static final String SCRIPT = "script";
+    private static final String TEXTAREA = "textarea";
 
     // defines the html elements that we want to allow in examples.
     // we allow script tags so that we can allow non executable script tags.
     // we then use a node visitor to remove executable ones.
     Safelist safelist = Safelist.relaxed()
             .addTags(SCRIPT, "address","article","aside","br","fieldset","footer","form","header","input","label","legend",
-                    "main","mark","nav","option","section","select","style","svg","textarea","use")
+                    "main","mark","nav","option","section","select","style","svg",TEXTAREA,"use")
 
             .preserveRelativeLinks(true)
             .addAttributes(SCRIPT, "type")
@@ -35,13 +36,13 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
             .addAttributes("input","aria-autocomplete","aria-expanded","aria-owns","autocomplete",
                     "checked","data-behaviour","data-threshold","haspopup","maxlength","name","placeholder","required",
                     "type", "value", "hidden")
-            .addAttributes("textarea","data-threshold","maxlength","placeholder","required","value")
+            .addAttributes(TEXTAREA,"data-threshold","maxlength","placeholder","required","value")
             .addAttributes("label","for")
             .addAttributes("ol","data-total","start")
             .addAttributes("option","selected")
             .addAttributes("svg","aria-hidden")
             .addAttributes("table","data-smallscreen")
-            .addAttributes("textarea","rows")
+            .addAttributes(TEXTAREA,"rows")
             .addAttributes("use","href")
 
             .removeProtocols("img","src","http","https");
