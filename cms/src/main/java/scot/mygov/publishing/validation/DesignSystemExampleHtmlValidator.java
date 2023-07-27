@@ -21,19 +21,21 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
     // we allow script tags so that we can allow non executable script tags.
     // we then use a node visitor to remove executable ones.
     Safelist safelist = Safelist.relaxed()
-            .addTags(SCRIPT, "address","article","fieldset","footer","form","header","input","label","legend",
-                    "main","nav","option","section","select","style","svg","textarea","use")
+            .addTags(SCRIPT, "address","article","aside","br","fieldset","footer","form","header","input","label","legend",
+                    "main","mark","nav","option","section","select","style","svg","textarea","use")
 
             .preserveRelativeLinks(true)
             .addAttributes(SCRIPT, "type")
-            .addAttributes(":all","aria-describedby","aria-hidden","aria-invalid","aria-label","aria-labelledby",
-                    "aria-required","class","data-module","id","role","tabindex","translate")
-            .addAttributes("button","disabled","type")
+            .addAttributes(":all","aria-controls","aria-current","aria-describedby","aria-hidden","aria-invalid","aria-label","aria-labelledby",
+                    "aria-required","class","data-label","data-module","id","role","tabindex","translate")
+            .addAttributes("button", "disabled", "type")
+            .addAttributes("div","data-symbol")
             .addAttributes("form","action","method")
             .addAttributes("img","loading","sizes","srcset")
             .addAttributes("input","aria-autocomplete","aria-expanded","aria-owns","autocomplete",
-                    "checked","data-behaviour","haspopup","maxlength","name","placeholder","required",
-                    "type","value","hidden")
+                    "checked","data-behaviour","data-threshold","haspopup","maxlength","name","placeholder","required",
+                    "type", "value", "hidden")
+            .addAttributes("textarea","data-threshold","maxlength","placeholder","required","value")
             .addAttributes("label","for")
             .addAttributes("ol","data-total","start")
             .addAttributes("option","selected")
