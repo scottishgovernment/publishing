@@ -17,6 +17,11 @@ public class DesignSystemArticleComponent extends ArticleComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+
+        if (!hasContentBean(request)) {
+            return;
+        }
+
         HippoBean contentBean = request.getRequestContext().getContentBean();
         request.setAttribute("isNew", isNew(contentBean));
         request.setAttribute("type", type(request, contentBean));
