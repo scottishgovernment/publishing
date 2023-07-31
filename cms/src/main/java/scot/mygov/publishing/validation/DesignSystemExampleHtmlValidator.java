@@ -17,6 +17,8 @@ import static org.apache.commons.lang3.StringUtils.equalsIgnoreCase;
 
 public class DesignSystemExampleHtmlValidator implements Validator<String> {
 
+    private static final String DATA_THRESHOLD = "data-threshold";
+
     private static final String SCRIPT = "script";
 
     private static final String TEXTAREA = "textarea";
@@ -37,13 +39,13 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
             .addAttributes(":all","aria-controls","aria-current","aria-describedby","aria-hidden","aria-invalid","aria-label","aria-labelledby",
                     "aria-required","class","data-label","data-module","id","role","tabindex","translate")
             .addAttributes("button", "disabled", "type")
-            .addAttributes("div","data-symbol", "data-threshold")
+            .addAttributes("div","data-symbol", DATA_THRESHOLD)
             .addAttributes("form","action","method")
             .addAttributes("img","loading","sizes","srcset")
             .addAttributes("input","aria-autocomplete","aria-expanded","aria-owns","autocomplete",
-                    "checked","data-behaviour","data-threshold","haspopup","maxlength","name","placeholder","required",
+                    "checked","data-behaviour", DATA_THRESHOLD,"haspopup","maxlength","name","placeholder","required",
                     "type", VALUE, "hidden")
-            .addAttributes(TEXTAREA,"data-threshold","maxlength","placeholder","required", VALUE)
+            .addAttributes(TEXTAREA,DATA_THRESHOLD, "maxlength","placeholder","required", VALUE)
             .addAttributes("label","for")
             .addAttributes("ol","data-total","start")
             .addAttributes("option","selected", VALUE)
