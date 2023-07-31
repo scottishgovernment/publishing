@@ -4,19 +4,24 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import org.jsoup.nodes.Node;
 import org.jsoup.safety.Safelist;
 import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Validator;
 import org.onehippo.cms.services.validation.api.Violation;
 
 import java.util.Optional;
+import java.util.regex.Pattern;
 
 import static org.apache.commons.lang3.StringUtils.equalsIgnoreCase;
 
 public class DesignSystemExampleHtmlValidator implements Validator<String> {
 
     private static final String SCRIPT = "script";
+
     private static final String TEXTAREA = "textarea";
+
+    private static Pattern HTML_COMMENT_PATTERN = Pattern.compile("<!--[\\s\\S]*?-->");
 
     // defines the html elements that we want to allow in examples.
     // we allow script tags so that we can allow non executable script tags.
@@ -49,8 +54,10 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
 
     @Override
     public Optional<Violation> validate(ValidationContext context, String html) {
-        String parsedHtml = Jsoup.parse(html).body().html();
-        String cleanedCode = cleanedHtml(html);
+        String htmlWithoutComments = removeComments(html);
+        Document htmlDocument = Jsoup.parse(htmlWithoutComments);
+        String parsedHtml = htmlDocument.body().html();
+        String cleanedCode = cleanedHtml(htmlWithoutComments);
         return cleanedCode.equals(parsedHtml)
             ? Optional.empty()
             : Optional.of(context.createViolation());
@@ -68,7 +75,7 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
         return doc.body().html();
     }
 
-    void visit(org.jsoup.nodes.Node node, int depth) {
+    void visit(Node node, int depth) {
         if (isExecutableScript(node)) {
             node.remove();
         }
@@ -86,5 +93,9 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
 
         String type = element.attr("type");
         return !"application/ld+json".equalsIgnoreCase(type);
+    }
+
+    public String removeComments(String htmlString) {
+        return HTML_COMMENT_PATTERN.matcher(htmlString).replaceAll("");
     }
 }
