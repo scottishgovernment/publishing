@@ -31,7 +31,7 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
     // we allow script tags so that we can allow non executable script tags.
     // we then use a node visitor to remove executable ones.
     Safelist safelist = Safelist.relaxed()
-            .addTags(SCRIPT, "address","article","aside","br","fieldset","footer","form","header","input","label","legend",
+            .addTags(SCRIPT, "address", "article","aside","br","fieldset","footer","form","header","input","label","legend",
                     "main","mark","nav","option","section","select","style","svg",TEXTAREA,"use")
 
             .preserveRelativeLinks(true)
@@ -45,7 +45,7 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
             .addAttributes("input","aria-autocomplete","aria-expanded","aria-owns","autocomplete",
                     "checked","data-behaviour", DATA_THRESHOLD,"haspopup","maxlength","name","placeholder","required",
                     "type", VALUE, "hidden")
-            .addAttributes(TEXTAREA,DATA_THRESHOLD, "maxlength","placeholder","required", VALUE)
+            .addAttributes(TEXTAREA,DATA_THRESHOLD, "data-validation", "maxlength","placeholder","required", VALUE)
             .addAttributes("label","for")
             .addAttributes("ol","data-total","start")
             .addAttributes("option","selected", VALUE)
@@ -65,9 +65,15 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
         Document htmlDocument = Jsoup.parse(htmlWithoutComments);
         String parsedHtml = htmlDocument.body().html();
         String cleanedCode = cleanedHtml(htmlWithoutComments);
-        return cleanedCode.equals(parsedHtml)
+        return equalsIgnoringWhitespace(cleanedCode, parsedHtml)
             ? Optional.empty()
             : Optional.of(context.createViolation());
+    }
+
+    boolean equalsIgnoringWhitespace(String left, String right) {
+        String leftStripped = left.replaceAll("\\s", "");
+        String rightStripped = right.replaceAll("\\s", "");
+        return leftStripped.equals(rightStripped);
     }
 
     String cleanedHtml(String html) {
