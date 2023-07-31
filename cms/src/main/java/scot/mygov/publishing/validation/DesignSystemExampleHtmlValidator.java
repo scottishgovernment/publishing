@@ -21,6 +21,8 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
 
     private static final String TEXTAREA = "textarea";
 
+    private static final String VALUE = "value";
+
     private static Pattern HTML_COMMENT_PATTERN = Pattern.compile("<!--[\\s\\S]*?-->");
 
     // defines the html elements that we want to allow in examples.
@@ -35,19 +37,21 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
             .addAttributes(":all","aria-controls","aria-current","aria-describedby","aria-hidden","aria-invalid","aria-label","aria-labelledby",
                     "aria-required","class","data-label","data-module","id","role","tabindex","translate")
             .addAttributes("button", "disabled", "type")
-            .addAttributes("div","data-symbol")
+            .addAttributes("div","data-symbol", "data-threshold")
             .addAttributes("form","action","method")
             .addAttributes("img","loading","sizes","srcset")
             .addAttributes("input","aria-autocomplete","aria-expanded","aria-owns","autocomplete",
                     "checked","data-behaviour","data-threshold","haspopup","maxlength","name","placeholder","required",
-                    "type", "value", "hidden")
-            .addAttributes(TEXTAREA,"data-threshold","maxlength","placeholder","required","value")
+                    "type", VALUE, "hidden")
+            .addAttributes(TEXTAREA,"data-threshold","maxlength","placeholder","required", VALUE)
             .addAttributes("label","for")
             .addAttributes("ol","data-total","start")
-            .addAttributes("option","selected", "value")
+            .addAttributes("option","selected", VALUE)
             .addAttributes("select","name")
             .addAttributes("svg","aria-hidden")
             .addAttributes("table","data-smallscreen")
+            .addAttributes("td","align")
+            .addAttributes("th","align")
             .addAttributes(TEXTAREA,"rows")
             .addAttributes("use","href")
 
