@@ -31,6 +31,13 @@ public class CategoryComponent extends EssentialsContentComponent {
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
 
+        HippoBean document = request.getRequestContext().getContentBean();
+        if (document instanceof HippoFolderBean) {
+            // if this is a folder then it means the index is not matching, this happens when the index file in
+            // a folder has been unpublished
+            pageNotFound(response);
+            return;
+        }
         setCategoryAttributes(request, response);
     }
 

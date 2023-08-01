@@ -14,9 +14,8 @@ import scot.mygov.publishing.beans.Home;
 import java.util.ArrayList;
 import java.util.List;
 
-import static scot.mygov.publishing.components.CategoryComponent.INDEX;
 import static java.util.Collections.emptyList;
-import static scot.mygov.publishing.components.CategoryComponent.indexBean;
+import static scot.mygov.publishing.components.CategoryComponent.*;
 
 /**
  * Construct a list of BreadcrumbItem objects for the page being requested.
@@ -28,6 +27,9 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+        if (!hasContentBean(request)) {
+            return;
+        }
         HippoBean contentBean = CategoryComponent.getDocumentBean(request);
         HstRequestContext context = request.getRequestContext();
 

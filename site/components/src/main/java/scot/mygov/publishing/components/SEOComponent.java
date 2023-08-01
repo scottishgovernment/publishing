@@ -16,6 +16,7 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 
 import javax.jcr.RepositoryException;
 
+import static scot.mygov.publishing.components.CategoryComponent.hasContentBean;
 import static scot.mygov.publishing.components.SiteHeaderComponent.setCanonical;
 
 /**
@@ -41,6 +42,9 @@ public class SEOComponent extends EssentialsDocumentComponent {
         // or baked into the page like mygov / trading nations
         HippoBean contentBean = (HippoBean) request.getAttribute(REQUEST_ATTR_DOCUMENT);
         if (contentBean == null) {
+            if (!hasContentBean(request)) {
+                return;
+            }
             contentBean = request.getRequestContext().getContentBean();
         }
 

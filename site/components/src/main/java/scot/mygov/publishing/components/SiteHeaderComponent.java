@@ -15,6 +15,8 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 
 import java.util.List;
 
+import static scot.mygov.publishing.components.CategoryComponent.hasContentBean;
+
 /**
  * Set fields required to suppress the header search on some formats.
  *
@@ -26,6 +28,9 @@ public class SiteHeaderComponent extends BaseHstComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+        if (!hasContentBean(request)) {
+            return;
+        }
         setWebsiteInfo(request);
         setPhaseBanner(request);
         setCanonical(request);
