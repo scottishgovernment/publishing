@@ -21,8 +21,6 @@ import java.util.Set;
 
 import static java.util.stream.Collectors.toSet;
 import static org.hippoecm.hst.util.ContentBeanUtils.createIncomingBeansQuery;
-import static scot.mygov.publishing.components.CategoryComponent.hasContentBean;
-
 
 public class StepByStepComponent extends EssentialsContentComponent {
 
@@ -34,9 +32,6 @@ public class StepByStepComponent extends EssentialsContentComponent {
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
 
-        if (!hasContentBean(request)) {
-            return;
-        }
         HstRequestContext context = request.getRequestContext();
         HippoDocumentBean contentBean = (HippoDocumentBean) context.getContentBean();
         request.setModel(REQUEST_ATTR_DOCUMENT, contentBean);

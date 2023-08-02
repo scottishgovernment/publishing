@@ -16,7 +16,6 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 
 import javax.jcr.RepositoryException;
 
-import static scot.mygov.publishing.components.CategoryComponent.hasContentBean;
 import static scot.mygov.publishing.components.SiteHeaderComponent.setCanonical;
 
 /**
@@ -42,9 +41,6 @@ public class SEOComponent extends EssentialsDocumentComponent {
         // or baked into the page like mygov / trading nations
         HippoBean contentBean = (HippoBean) request.getAttribute(REQUEST_ATTR_DOCUMENT);
         if (contentBean == null) {
-            if (!hasContentBean(request)) {
-                return;
-            }
             contentBean = request.getRequestContext().getContentBean();
         }
 
@@ -62,7 +58,7 @@ public class SEOComponent extends EssentialsDocumentComponent {
 
         request.setAttribute(SITE_TITLE, siteTitle);
 
-        if (contentBean == null) {
+        if (contentBean == null || contentBean.isHippoFolderBean()) {
             request.setAttribute(TITLE_TAG, siteTitle);
             request.setAttribute(PAGE_TITLE , siteTitle);
             return;
@@ -99,7 +95,6 @@ public class SEOComponent extends EssentialsDocumentComponent {
             if(e != null && ColumnImage.class.isAssignableFrom(e.getClass())) {
                 return (ColumnImage) e;
             }
-
 
             LOG.info("unable to find default card image for request {}", requestContext.getServletRequest().getRequestURI());
             return null;
