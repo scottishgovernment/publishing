@@ -11,11 +11,21 @@
             base-package="scot.gov.publishing.hippo.funnelback.component" />
 
     <bean id="funnelbackSearchService" class="scot.gov.publishing.hippo.funnelback.component.FunnelbackSearchService">
-        <property name="collection" value="govscot~sp-mygov"/>
+
         <property name="sites">
-            <list>
-                <value>www.mygov.scot</value>
-            </list>
+            <map>
+                <entry key="mygov">
+                    <list>
+                        <value>www.mygov.scot</value>
+                    </list>
+                </entry>
+            </map>
+        </property>
+
+        <property name="collections">
+            <map>
+                <entry key="mygov" value="govscot~sp-mygov"/>
+            </map>
         </property>
     </bean>
 
@@ -37,6 +47,7 @@
                         <bean class="org.springframework.scheduling.support.MethodInvokingRunnable">
                             <property name="targetObject" ref="funnelbackSearchService"/>
                             <property name="targetMethod" value="ping"/>
+                            <property name="arguments" value="mygov" />
                         </bean>
                     </property>
                 </bean>
