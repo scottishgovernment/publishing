@@ -54,6 +54,17 @@ public class BloomreachSearchService implements SearchService {
             "publishing:analytics",
             "publishing:contentcontact",
             "publishing:sector",
+
+            "publishing:featuregriditem",
+            "publishing:featureditem",
+            "publishing:imageandtext",
+            "publishing:navigationcard",
+            "publishing:pageheading",
+            "publishing:text",
+            "publishing:video",
+
+            "publishing:dsexample",
+
             "robotstxt:robotstxt",
     };
 
@@ -62,6 +73,7 @@ public class BloomreachSearchService implements SearchService {
                 "publishing:title",
                 "publishing:summary",
                 "publishing:content/hippostd:content",
+                "publishing:contentblocks/hippostd:content",
                 "hippostd:tags"
         );
     }

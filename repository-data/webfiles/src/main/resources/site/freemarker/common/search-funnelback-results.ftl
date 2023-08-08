@@ -111,7 +111,11 @@
                         <a class="ds_search-result__link"href="${link}">${result.title}</a>
                     </h3>
                     <p class="ds_search-result__summary">
-                        <@highlightSearchTerm result.summary />
+                        <#if result.summary?has_content>
+                            <@highlightSearchTerm result.summary />
+                        <#else>
+                            <@highlightSearchTerm result.metaDescription />
+                        </#if>
                     </p>
                 </li>
             </#list>

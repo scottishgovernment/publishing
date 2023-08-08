@@ -1,5 +1,5 @@
 <#if hideSearch>
-<#else>
+<#elseif searchEnabled>
 <div class="ds_site-header__search">
     <#if autoCompleteEnabled>
         <#assign ds_autocomplete = true />

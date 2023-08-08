@@ -19,12 +19,19 @@
                         <value>www.mygov.scot</value>
                     </list>
                 </entry>
+
+                <entry key="designsystem">
+                    <list>
+                        <value>designsystem.gov.scot</value>
+                    </list>
+                </entry>
             </map>
         </property>
 
         <property name="collections">
             <map>
                 <entry key="mygov" value="govscot~sp-mygov"/>
+                <entry key="designsystem" value="govscot~sp-design-system"/>
             </map>
         </property>
     </bean>

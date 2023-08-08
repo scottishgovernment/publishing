@@ -19,6 +19,8 @@
             </div>
 
             <@hst.include ref="mobilemenu"/>
+
+            <@hst.include ref="search-bar"/>
         </div>
     </div>
 

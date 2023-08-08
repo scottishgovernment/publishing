@@ -2,10 +2,12 @@ package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
+import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent;
 import scot.gov.publishing.hippo.funnelback.component.SearchSettings;
+import scot.mygov.publishing.channels.WebsiteInfo;
 
 import static org.apache.commons.lang3.StringUtils.equalsAny;
 
@@ -19,6 +21,7 @@ public class SearchBarComponent extends BaseHstComponent {
         super.doBeforeRender(request, response);
         setSearchVisibility(request);
         populateAutoCompleteFlag(request);
+        populateSearchEnabledFlag(request);
     }
 
     void setSearchVisibility(HstRequest request) {
@@ -35,17 +38,29 @@ public class SearchBarComponent extends BaseHstComponent {
      */
     static void populateAutoCompleteFlag(HstRequest request) {
         SearchSettings searchSettings = ResilientSearchComponent.searchSettings();
-        request.setAttribute("autoCompleteEnabled", autoCompleteEnabled(searchSettings));
+        request.setAttribute("autoCompleteEnabled", autoCompleteEnabled(searchSettings, request));
     }
 
-    static boolean autoCompleteEnabled(SearchSettings searchSettings) {
-        boolean autoCompleteEnabled = true;
+    static boolean autoCompleteEnabled(SearchSettings searchSettings, HstRequest request) {
+        return searchEnabled(searchSettings, request) &&
+                !"bloomreach".equals(searchSettings.getSearchType());
+    }
+
+    /**
+     * determine if the search is enabled
+     */
+    static void populateSearchEnabledFlag(HstRequest request) {
+        SearchSettings searchSettings = ResilientSearchComponent.searchSettings();
+        request.setAttribute("searchEnabled", searchEnabled(searchSettings, request));
+    }
+
+    static boolean searchEnabled(SearchSettings searchSettings, HstRequest request) {
         if (!searchSettings.isEnabled()) {
-            autoCompleteEnabled = false;
+            return false;
         }
-        if ("bloomreach".equals(searchSettings.getSearchType())) {
-            autoCompleteEnabled = false;
-        }
-        return autoCompleteEnabled;
+
+        Mount mount = request.getRequestContext().getResolvedMount().getMount();
+        WebsiteInfo info = mount.getChannelInfo();
+        return info.isSearchEnabled();
     }
 }
