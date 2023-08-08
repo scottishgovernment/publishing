@@ -19,6 +19,7 @@ public class SearchBarComponent extends BaseHstComponent {
         super.doBeforeRender(request, response);
         setSearchVisibility(request);
         populateAutoCompleteFlag(request);
+        populateSearchEnabledFlag(request);
     }
 
     void setSearchVisibility(HstRequest request) {
@@ -39,13 +40,23 @@ public class SearchBarComponent extends BaseHstComponent {
     }
 
     static boolean autoCompleteEnabled(SearchSettings searchSettings) {
-        boolean autoCompleteEnabled = true;
+        return searchEnabled(searchSettings) &&
+                !"bloomreach".equals(searchSettings.getSearchType());
+    }
+
+    /**
+     * determine if the search is enabled
+     */
+    static void populateSearchEnabledFlag(HstRequest request) {
+        SearchSettings searchSettings = ResilientSearchComponent.searchSettings();
+        request.setAttribute("searchEnabled", searchEnabled(searchSettings));
+    }
+
+    static boolean searchEnabled(SearchSettings searchSettings) {
+        boolean searchEnabled = true;
         if (!searchSettings.isEnabled()) {
-            autoCompleteEnabled = false;
+            searchEnabled = false;
         }
-        if ("bloomreach".equals(searchSettings.getSearchType())) {
-            autoCompleteEnabled = false;
-        }
-        return autoCompleteEnabled;
+        return searchEnabled;
     }
 }

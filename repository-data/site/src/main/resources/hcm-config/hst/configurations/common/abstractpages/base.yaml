@@ -24,6 +24,10 @@ definitions:
           hst:parameternames: [selectedMenu, level, menu]
           hst:parametervalues: ['on', '1', main]
           hst:template: site-navigation-mobile
+        /search-bar:
+          jcr:primaryType: hst:component
+          hst:componentclassname: scot.mygov.publishing.components.SearchBarComponent
+          hst:template: search-bar
       /footer:
         jcr:primaryType: hst:component
         hst:componentclassname: scot.mygov.publishing.components.FooterComponent
