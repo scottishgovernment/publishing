@@ -86,7 +86,7 @@
                                 <div class="example__content">
 
                                     <#if contentblock.example.illustration??>
-                                        <img class="example__illustration" alt="${contentblock.example.alt}" src="<@hst.link hippobean=contentblock.example.illustration.original/>">
+                                        <img class="example__illustration" alt="<#if contentblock.example.alt?has_content>${contentblock.example.alt}</#if>" src="<@hst.link hippobean=contentblock.example.illustration.original/>">
                                     <#elseif contentblock.showdemo>
                                         <div class="example__demo">
                                             <a class="example__link" href="${example}" target="_blank">Open this example in a new window</a>
