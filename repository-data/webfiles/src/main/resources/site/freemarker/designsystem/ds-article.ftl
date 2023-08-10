@@ -279,10 +279,25 @@
 </div>
 
 <@hst.headContribution category="meta">
-    <meta name="dc.format" content="Article"/>
+    <meta name="dc.format" content="${format}"/>
 </@hst.headContribution>
 
+<#if seriesLink??>
+    <@hst.headContribution category="meta">
+        <meta name="dc.title.series" content="${seriesLink.title}"/>
+    </@hst.headContribution>
+
+    <@hst.headContribution category="meta">
+        <meta name="dc.title.series.link" content="<@hst.link hippobean=seriesLink/>"/>
+    </@hst.headContribution>
 </#if>
+
+<@hst.headContribution category="meta">
+    <meta name="dc.date.modified" content="<@fmt.formatDate value=date type="both" pattern="YYYY-MM-dd HH:mm"/>"/>
+</@hst.headContribution>
+</#if>
+
+
 
 <@hst.headContribution category="resourcehints">
     <#if nextlink??>

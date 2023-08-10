@@ -6,11 +6,15 @@
             <meta name="dc.title" content="${contentBean.title}"/>
         </@hst.headContribution>
     </#if>
-    <#if contentBean.summary??>
-        <@hst.headContribution category="meta">
+
+    <@hst.headContribution category="meta">
+        <#if contentBean.summary?has_content>
             <meta name="dc.description" content="${contentBean.summary}"/>
-        </@hst.headContribution>
-    </#if>
+        <#elseif contentBean.metaDescription?has_content>
+            <meta name="dc.description" content="${contentBean.metaDescription}"/>
+        </#if>
+    </@hst.headContribution>
+
     <#if contentBean.tags??>
         <@hst.headContribution category="meta">
             <meta name="dc.subject" content="<#list contentBean.tags as tag>${tag}<#sep>, </#sep></#list>"/>
@@ -18,7 +22,11 @@
     </#if>
     <#if contentBean.lastUpdatedDate??>
         <@hst.headContribution category="meta">
-            <meta name="dc.date.modified" content="<@fmt.formatDate value=contentBean.lastUpdatedDate.time type="both" pattern="YYYY-MM-dd"/>"/>
+            <meta name="dc.date.modified" content="<@fmt.formatDate value=contentBean.lastUpdatedDate.time type="both" pattern="YYYY-MM-dd HH:mm"/>"/>
+        </@hst.headContribution>
+    <#elseif date??>
+        <@hst.headContribution category="meta">
+            <meta name="dc.date.modified" content="<@fmt.formatDate value=date type="both" pattern="YYYY-MM-dd HH:mm"/>"/>
         </@hst.headContribution>
     </#if>
     <#if contentBean?? && contentBean.metaDescription??>

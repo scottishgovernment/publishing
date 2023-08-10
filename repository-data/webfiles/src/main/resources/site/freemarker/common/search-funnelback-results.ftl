@@ -136,6 +136,25 @@
                         <@highlightSearchTerm result.listMetadata["c"]?first />
                     </p>
 
+                    <dl class="ds_search-result__metadata  ds_metadata  ds_metadata--inline">
+                        <#if result.listMetadata["f"]!?has_content>
+                            <span class="ds_metadata__item">
+                                <dt class="ds_metadata__key  visually-hidden">Format</dt>
+                                <dd class="ds_metadata__value">
+                                ${result.listMetadata["f"]?first!}
+                                </dd>
+                            </span>
+                        </#if>
+                        <#if (result.listMetadata["d"]?first)!?has_content>
+                            <span class="ds_metadata__item">
+                                <dt class="ds_metadata__key  visually-hidden">Date</dt>
+                                <dd class="ds_metadata__value">
+                                ${result.listMetadata.displayDate}
+                                </dd>
+                            </span>
+                        </#if>
+                    </dl>
+
                     <#if (result.listMetadata["titleSeriesLink"]?first)!?has_content>
                         <dl class="ds_search-result__context">
                             <dt class="ds_search-result__context-key">Part of:</dt>
