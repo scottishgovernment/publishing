@@ -1,0 +1,7 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/migration-rest:
+      jcr:primaryType: hipposys:module
+      hipposys:className: scot.gov.migration.MigrationModule
+      /hippo:moduleconfig:
+        jcr:primaryType: hipposched:jobregistry
