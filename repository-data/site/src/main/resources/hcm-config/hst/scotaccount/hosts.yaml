@@ -14,7 +14,7 @@ definitions:
       preview-cookie-httponly: 'false'
       preview-cookie-secure: 'false'
       hst:locale: en_GB
-    /hst:hst/hst:hosts/lcl/scot/gov/platform/scotaccount:
+    /hst:hst/hst:hosts/lcl/scot/gov/campaign/scotaccount:
       /lcl:
         jcr:primaryType: hst:virtualhost
         /hst:root:
@@ -23,7 +23,7 @@ definitions:
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
           hst:locale: en_GB
-    /hst:hst/hst:hosts/dev/scot/gov/platform/scotaccount:
+    /hst:hst/hst:hosts/dev/scot/gov/campaign/scotaccount:
       /dev:
         jcr:primaryType: hst:virtualhost
         /hst:root:
@@ -32,7 +32,7 @@ definitions:
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
           hst:locale: en_GB
-    /hst:hst/hst:hosts/int/scot/gov/platform/scotaccount:
+    /hst:hst/hst:hosts/int/scot/gov/campaign/scotaccount:
       /int:
         jcr:primaryType: hst:virtualhost
         /hst:root:
@@ -41,7 +41,7 @@ definitions:
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
           hst:locale: en_GB
-    /hst:hst/hst:hosts/exp/scot/gov/platform/scotaccount:
+    /hst:hst/hst:hosts/exp/scot/gov/campaign/scotaccount:
       /exp:
         jcr:primaryType: hst:virtualhost
         /hst:root:
@@ -50,7 +50,7 @@ definitions:
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
           hst:locale: en_GB
-    /hst:hst/hst:hosts/uat/scot/gov/platform/scotaccount:
+    /hst:hst/hst:hosts/uat/scot/gov/campaign/scotaccount:
       /uat:
         jcr:primaryType: hst:virtualhost
         /hst:root:
@@ -59,7 +59,7 @@ definitions:
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
           hst:locale: en_GB
-    /hst:hst/hst:hosts/per/scot/gov/platform/scotaccount:
+    /hst:hst/hst:hosts/per/scot/gov/campaign/scotaccount:
       /per:
         jcr:primaryType: hst:virtualhost
         /hst:root:
@@ -68,7 +68,7 @@ definitions:
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
           hst:locale: en_GB
-    /hst:hst/hst:hosts/tst/scot/gov/platform/scotaccount:
+    /hst:hst/hst:hosts/tst/scot/gov/campaign/scotaccount:
       /tst:
         jcr:primaryType: hst:virtualhost
         /hst:root:
@@ -77,7 +77,7 @@ definitions:
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/scotaccount/administration/analytics/dev
           hst:locale: en_GB
-    /hst:hst/hst:hosts/blu/scot/gov/platform/scotaccount:
+    /hst:hst/hst:hosts/blu/scot/gov/campaign/scotaccount:
       /blu:
         jcr:primaryType: hst:virtualhost
         /hst:root:
@@ -86,7 +86,7 @@ definitions:
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/scotaccount/administration/analytics/live
           hst:locale: en_GB
-    /hst:hst/hst:hosts/grn/scot/gov/platform/scotaccount:
+    /hst:hst/hst:hosts/grn/scot/gov/campaign/scotaccount:
       /grn:
         jcr:primaryType: hst:virtualhost
         /hst:root:
@@ -95,7 +95,7 @@ definitions:
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/scotaccount/administration/analytics/live
           hst:locale: en_GB
-    /hst:hst/hst:hosts/live/scot/gov/platform/scotaccount:
+    /hst:hst/hst:hosts/live/scot/gov/campaign/scotaccount:
       /live:
         jcr:primaryType: hst:virtualhost
         /hst:root:
@@ -104,7 +104,7 @@ definitions:
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/scotaccount/administration/analytics/live
           hst:locale: en_GB
-    /hst:hst/hst:hosts/origin/scot/gov/platform/scotaccount:
+    /hst:hst/hst:hosts/origin/scot/gov/campaign/scotaccount:
       /origin:
         jcr:primaryType: hst:virtualhost
         /hst:root:
@@ -113,7 +113,7 @@ definitions:
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/scotaccount/administration/analytics/live
           hst:locale: en_GB
-    /hst:hst/hst:hosts/production/scot/gov/platform/scotaccount:
+    /hst:hst/hst:hosts/production/scot/gov/campaign/scotaccount:
       /hst:root:
         jcr:primaryType: hst:mount
         hst:mountpoint: /hst:publishing/hst:sites/scotaccount
