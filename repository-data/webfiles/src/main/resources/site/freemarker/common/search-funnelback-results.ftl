@@ -136,8 +136,10 @@
                         <@highlightSearchTerm result.listMetadata["c"]?first />
                     </p>
 
+                    <#if (result.listMetadata["f"]?first)!?has_content
+                    || (result.listMetadata["d"]?first)!?has_content>
                     <dl class="ds_search-result__metadata  ds_metadata  ds_metadata--inline">
-                        <#if result.listMetadata["f"]!?has_content>
+                        <#if (result.listMetadata["f"]?first)!?has_content>
                             <span class="ds_metadata__item">
                                 <dt class="ds_metadata__key  visually-hidden">Format</dt>
                                 <dd class="ds_metadata__value">
@@ -154,6 +156,7 @@
                             </span>
                         </#if>
                     </dl>
+                    </#if>
 
                     <#if (result.listMetadata["titleSeriesLink"]?first)!?has_content>
                         <dl class="ds_search-result__context">
