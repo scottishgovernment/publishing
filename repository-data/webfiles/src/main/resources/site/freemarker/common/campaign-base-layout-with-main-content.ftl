@@ -43,6 +43,7 @@
     <@hst.include ref="seo"/>
     <body <#if document?? && document.sensitive?? &&document.sensitive>class="ds_has-hide-page"</#if>>
         <input type="hidden" id="br-webfile-path" value="<@hst.webfile path="/"/>" />
+        <input type="hidden" id="site-root-path" value="<@hst.link path="/"/>" />
 
         <@hst.include ref="googletagmanager"/>
 
