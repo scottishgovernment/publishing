@@ -12,7 +12,7 @@
             <ul class="ds_no-bullets">
                 <#list stepbysteps as stepbystep>
                     <li>
-                        <a <@langcompare link document/> href="<@hst.link var=link hippobean=stepbystep.stepByStepGuide/>">
+                        <a <@langcompare stepbystep document/> href="<@hst.link var=link hippobean=stepbystep.stepByStepGuide/>">
                             ${stepbystep.stepByStepGuide.title}
                         </a>
                     </li>
