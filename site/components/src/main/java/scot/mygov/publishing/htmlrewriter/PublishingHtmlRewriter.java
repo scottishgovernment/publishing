@@ -1,6 +1,5 @@
 package scot.mygov.publishing.htmlrewriter;
 
-import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.rewriter.impl.SimpleContentRewriter;
