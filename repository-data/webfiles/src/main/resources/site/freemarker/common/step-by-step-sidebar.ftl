@@ -52,17 +52,21 @@
         </div>
     </nav>
 
-
-    <#if otherStepByStepGuides?has_content >
-        <h3>Others:</h1>
-        <ol>
-            <#list otherStepByStepGuides as stepByStepGuide>
-                <li>
-                    <a class="ds_step-navigation__title-link" href="<@hst.link var=link hippobean=stepByStepGuide.stepByStepGuide/>">${stepByStepGuide.stepByStepGuide.title}</a>
-                </li>
-            </#list>
-        </ol>
+    <#if otherStepByStepGuides?has_content>
+        <aside <@revertlang document /> class="ds_article-aside">
+            <h2 class="gamma">Also part of</h2>
+            <ul class="ds_no-bullets">
+                <#list otherStepByStepGuides as stepByStepGuide>
+                    <li>
+                        <a <@langcompare link document/> href="<@hst.link var=link hippobean=stepByStepGuide.stepByStepGuide/>">
+                            ${stepByStepGuide.stepByStepGuide.title}
+                        </a>
+                    </li>
+                </#list>
+            </ul>
+        </aside>
     </#if>
+
 <#else>
     <aside <@revertlang document /> class="ds_article-aside">
         <h2 class="gamma">Part of</h2>
