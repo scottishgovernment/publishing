@@ -9,9 +9,15 @@ class ContentSelect {
         } else if (this.contentSelect.dataset.type === 'block') {
             this.type = 'block';
         }
+
+        this.buttonPrefix = 'Visit ';
     }
 
     init() {
+        if (this.type === 'button') {
+            this.amendButtonTitles();
+        }
+
         this.selectEl.addEventListener('change', () => {
             if (this.type === 'button') {
                 this.showButton();
@@ -26,6 +32,16 @@ class ContentSelect {
                 this.showButton();
             }
         }, 10);
+    }
+
+    amendButtonTitles() {
+        const linkElements = [].slice.call(this.contentSelect.querySelectorAll('a'));
+
+        linkElements.forEach((linkElement) => {
+            if (linkElement.innerText.substring(0, 6) !== this.buttonPrefix) {
+                linkElement.innerText = this.buttonPrefix + linkElement.innerText;
+            }
+        });
     }
 
     showButton() {
