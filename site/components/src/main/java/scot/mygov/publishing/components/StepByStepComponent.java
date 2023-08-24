@@ -39,14 +39,16 @@ public class StepByStepComponent extends EssentialsContentComponent {
         request.setModel(REQUEST_ATTR_DOCUMENT, contentBean);
 
         List<StepByStepWrapper> wrappers = getStepByStepWrappers(request, contentBean);
-        List<StepByStepWrapper> others = wrappers.stream().filter(w -> !w.isNavItem()).collect(toList());
+        List<StepByStepWrapper> others = wrappers.size() == 1
+                ? emptyList()
+                : wrappers.stream().filter(w -> !w.isNavItem()).collect(toList());
         Optional<StepByStepWrapper> primaryStepByStep = wrappers.stream().filter(StepByStepWrapper::isNavItem).findFirst();
         request.setAttribute("stepBySteps", wrappers);
         request.setAttribute("otherStepByStepGuides", others);
 
         if (wrappers.size() == 1) {
             request.setAttribute("primaryStepByStep", wrappers.get(0));
-        } else if (primaryStepByStep.isPresent() ) {
+        } else if (primaryStepByStep.isPresent()) {
             request.setAttribute("primaryStepByStep", primaryStepByStep.get());
         }
     }

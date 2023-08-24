@@ -68,18 +68,20 @@
     </#if>
 
 <#else>
-    <aside <@revertlang document /> class="ds_article-aside">
-        <h2 class="gamma">Part of</h2>
-        <ul class="ds_no-bullets">
-            <#list stepBySteps as stepbystep>
-                <li>
-                    <a <@langcompare link document/> href="<@hst.link var=link hippobean=stepbystep.stepByStepGuide/>">
-                        ${stepbystep.stepByStepGuide.title}
-                    </a>
-                </li>
-            </#list>
-        </ul>
-    </aside>
+    <#if stepBySteps?size gt 0 >
+        <aside <@revertlang document /> class="ds_article-aside">
+            <h2 class="gamma">Part of</h2>
+            <ul class="ds_no-bullets">
+                <#list stepBySteps as stepbystep>
+                    <li>
+                        <a <@langcompare link document/> href="<@hst.link var=link hippobean=stepbystep.stepByStepGuide/>">
+                            ${stepbystep.stepByStepGuide.title}
+                        </a>
+                    </li>
+                </#list>
+            </ul>
+        </aside>
+    </#if>
 </#if>
 
 <#if document.relateditems?has_content >
