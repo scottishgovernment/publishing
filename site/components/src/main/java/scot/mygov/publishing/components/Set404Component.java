@@ -8,6 +8,7 @@ public class Set404Component extends BaseHstComponent {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
+        super.doBeforeRender(request, response);
         response.setStatus(404);
     }
 }
