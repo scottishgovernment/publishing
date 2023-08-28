@@ -84,7 +84,7 @@
     </#if>
 </#if>
 
-<#if document.relateditems?has_content >
+<#if document.relatedItems>
     <aside <@revertlang document /> class="ds_article-aside">
         <h2 class="gamma">Related content</h2>
         <ul class="ds_no-bullets">

@@ -4,6 +4,8 @@ import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerat
 import org.hippoecm.hst.content.beans.Node;
 import java.util.Calendar;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 
 @HippoEssentialsGenerated(internalName = "publishing:base")
@@ -102,6 +104,16 @@ public class Base extends BaseDocument {
     public List<Relateditems> getRelateditems() {
         return getChildBeansByName("publishing:relateditems",
                 Relateditems.class);
+    }
+
+    public boolean isRelatedItems() {
+        if (getRelateditems() == null) {
+            return false;
+        }
+        return getRelateditems()
+                .stream()
+                .filter(item -> !item.getRelatedItem().isEmpty())
+                .findAny().isPresent();
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:contentOwner")
