@@ -120,6 +120,10 @@ definitions:
               hst:componentconfigurationmappingvalues: ['hst:pages/ds-article', 'hst:pages/ds-example']
               hst:relativecontentpath: ${1}/${2}/${3}
               hst:sitemapitemhandlerids: [trailing-slash]
+        /_any_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/pagenotfound
+          hst:relativecontentpath: site-furniture/status/404
       /hst:sitemenus:
         jcr:primaryType: hst:sitemenus
       /hst:templates:
