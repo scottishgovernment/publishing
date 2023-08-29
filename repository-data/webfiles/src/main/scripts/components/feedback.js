@@ -144,7 +144,7 @@ const feedbackForm = {
 
             // submit feedback
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/feedback/', true);
+            xhr.open('POST', '/service/feedback', true);
 
             //Send the proper header information along with the request
             xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
