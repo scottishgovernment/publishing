@@ -26,6 +26,7 @@ import java.util.Set;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static scot.mygov.publishing.components.PageNotFoundComponent.notFoundBean;
 
 /**
  * Set fields required to correctly output google tag manager fields.
@@ -60,6 +61,7 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
         // for guide pages, the guide should be used, and the super ste of reporting tags
         // from the guide and guide page.
         HippoBean document = request.getRequestContext().getContentBean();
+
         if (document != null) {
             Set<String> reportingTags = new HashSet<>();
             addReportingTags(document, reportingTags);
@@ -74,10 +76,12 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
                 document = getGuide(document);
                 addReportingTags(document, reportingTags);
             }
-
             request.setAttribute("reportingTags", reportingTags);
-            request.setAttribute("document", document);
+        } else {
+            // if no document is found, use the 404 status page.
+            document = notFoundBean(request);
         }
+        request.setAttribute("document", document);
     }
 
     HippoBean getFirstGuidePage(HstRequest request) {

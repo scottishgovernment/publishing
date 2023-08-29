@@ -176,6 +176,11 @@ public class GoogleTagManagerComponentTest {
     HstRequestContext context(HippoBean bean) throws RepositoryException {
         HstRequestContext context = mock(HstRequestContext.class);
         when(context.getContentBean()).thenReturn(bean);
+
+        HippoBean baseBean = mock(HippoBean.class);
+        HippoBean notFoundBean = mock(HippoBean.class);
+        when(context.getSiteContentBaseBean()).thenReturn(baseBean);
+        when(baseBean.getBean("site-furniture/status/404")).thenReturn(notFoundBean);
         return context;
     }
 
@@ -211,8 +216,14 @@ public class GoogleTagManagerComponentTest {
     HstRequest requestWithGtmPath(String gtmPath) throws RepositoryException {
         HstRequest request = mock(HstRequest.class);
 
+
         HstRequestContext context = mock(HstRequestContext.class);
         when(request.getRequestContext()).thenReturn(context);
+
+        HippoBean baseBean = mock(HippoBean.class);
+        HippoBean notFoundBean = mock(HippoBean.class);
+        when(context.getSiteContentBaseBean()).thenReturn(baseBean);
+        when(baseBean.getBean("site-furniture/status/404")).thenReturn(notFoundBean);
 
         ResolvedSiteMapItem resolvedSiteMapItem = mock(ResolvedSiteMapItem.class);
         when(context.getResolvedSiteMapItem()).thenReturn(resolvedSiteMapItem);
