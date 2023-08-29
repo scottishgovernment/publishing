@@ -36,8 +36,6 @@ public class StepByStepComponent extends EssentialsContentComponent {
 
         HstRequestContext context = request.getRequestContext();
         HippoDocumentBean contentBean = (HippoDocumentBean) context.getContentBean();
-        request.setModel(REQUEST_ATTR_DOCUMENT, contentBean);
-
         List<StepByStepWrapper> wrappers = getStepByStepWrappers(request, contentBean);
         List<StepByStepWrapper> others = wrappers.size() == 1
                 ? emptyList()
@@ -51,6 +49,13 @@ public class StepByStepComponent extends EssentialsContentComponent {
         } else if (primaryStepByStep.isPresent()) {
             request.setAttribute("primaryStepByStep", primaryStepByStep.get());
         }
+
+        // this is used to populated the related items, we want guide pages to display the related items
+        // for the parent guide
+        if (contentBean instanceof GuidePage) {
+            contentBean = contentBean.getParentBean().getBean("index");
+        }
+        request.setModel(REQUEST_ATTR_DOCUMENT, contentBean);
     }
 
     List<StepByStepWrapper> getStepByStepWrappers(HstRequest request, HippoDocumentBean contentBean) {
