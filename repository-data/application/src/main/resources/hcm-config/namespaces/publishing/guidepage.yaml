@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 66f84f64-c960-496b-a8ca-2a730e5fc171
+          jcr:uuid: 9b9d93c2-0668-48ba-ba28-8ca6aecb5db5
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -55,7 +55,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippostd:taggable']
-          jcr:uuid: 247c8e67-4d03-494f-aea3-384c60d8b7bd
+          jcr:uuid: 893c8a51-53a3-4fc1-8f99-0e09021b2027
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -124,6 +124,15 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               showDefault: 'false'
               source: /content/documents/publishing/valuelists/contentitemlanguages
+          /relateditems:
+            jcr:primaryType: frontend:plugin
+            caption: Related items
+            field: relateditems
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title

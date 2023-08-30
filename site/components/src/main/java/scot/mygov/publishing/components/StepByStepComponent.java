@@ -50,10 +50,14 @@ public class StepByStepComponent extends EssentialsContentComponent {
             request.setAttribute("primaryStepByStep", primaryStepByStep.get());
         }
 
-        // this is used to populated the related items, we want guide pages to display the related items
+        // this is used to populate related items, we want guide pages to display the related items
         // for the parent guide
         if (contentBean instanceof GuidePage) {
-            contentBean = contentBean.getParentBean().getBean("index");
+
+            GuidePage guidePage = (GuidePage) contentBean;
+             if (guidePage.getRelateditems().isEmpty()) {
+                contentBean = contentBean.getParentBean().getBean("index");
+            }
         }
         request.setModel(REQUEST_ATTR_DOCUMENT, contentBean);
     }
