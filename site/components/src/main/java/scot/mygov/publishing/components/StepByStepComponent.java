@@ -53,9 +53,8 @@ public class StepByStepComponent extends EssentialsContentComponent {
         // this is used to populate related items, we want guide pages to display the related items
         // for the parent guide
         if (contentBean instanceof GuidePage) {
-
             GuidePage guidePage = (GuidePage) contentBean;
-             if (guidePage.getRelateditems().isEmpty()) {
+             if (!guidePage.isRelatedItems()) {
                 contentBean = contentBean.getParentBean().getBean("index");
             }
         }
