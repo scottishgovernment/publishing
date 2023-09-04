@@ -39,7 +39,7 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
 
     @Override
     public String rewrite(String html, Node node, HstRequestContext requestContext,  Mount targetMount) {
-        if (html.indexOf(FRAGMENT_CLASS) == -1) {
+        if (html.indexOf(FRAGMENT_CLASS) != -1) {
             html = rewriteFragments(html, node, requestContext, targetMount);
         }
 
@@ -103,7 +103,7 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
         }
 
         sb.append(html.substring(globalOffset));
-        return html;
+        return sb.toString();
     }
 
     String getUuid(String html, int offset) {
