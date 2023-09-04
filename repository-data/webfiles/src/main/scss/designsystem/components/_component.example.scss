@@ -19,14 +19,16 @@ $example__highlight-colour: $ds_colour__link--current__background !default;
 }
 
 .example-frame__note {
+    @include ds_responsive-padding(2);
     background: #ffb644;
     margin: 0;
-    padding: 16px;
 }
 
 .example-frame__content {
-    padding: 16px;
-    padding-top: 52px;
+    @include ds_responsive-padding(6, top, $tuning: -1px);
+    @include ds_responsive-padding(2, bottom, $tuning: -1px);
+    @include ds_responsive-padding(2, left, $tuning: -1px);
+    @include ds_responsive-padding(2, right, $tuning: -1px);
 
     &--grey-background {
         background-color: $ds_colour__grey--lighter;
@@ -78,6 +80,10 @@ $example__highlight-colour: $ds_colour__link--current__background !default;
 .example__accordion {
     margin-bottom: 0;
     margin-top: 0;
+
+    .ds_accordion-item {
+        border-bottom: 0;
+    }
 }
 
 .example__accordion-body--code {
