@@ -5,15 +5,16 @@
 
 'use strict';
 
-import NotificationBanner from './components/notification';
-import storage from '../../../node_modules/@scottish-government/pattern-library/src/base/tools/storage/storage';
+import BloomreachWebfile from './tools/bloomreach-webfile';
 import ContentSelect from './components/content-select';
+import NotificationBanner from './components/notification';
+import removeDisallowedCookies from './tools/remove-disallowed-cookies';
 import Tabs from './components/mygov/old-ds-tabs';
 import ToggleLink from './components/toggle-link';
 import UpdateHistory from './components/update-history';
-import BloomreachWebfile from './tools/bloomreach-webfile';
-import './vendor/polyfills';
+import storage from '../../../node_modules/@scottish-government/pattern-library/src/base/tools/storage/storage';
 
+import './vendor/polyfills';
 import '../../../node_modules/@scottish-government/pattern-library/src/all';
 
 const global = {
@@ -244,6 +245,10 @@ const global = {
 
                 document.querySelector('.js-initial-cookie-content').classList.add('fully-hidden');
                 document.querySelector('.js-confirm-cookie-content').classList.remove('fully-hidden');
+            }
+
+            if (event.target.classList.contains('js-accept-essential-cookies')) {
+                removeDisallowedCookies();
             }
         });
     }
