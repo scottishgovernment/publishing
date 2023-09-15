@@ -172,6 +172,9 @@ definitions:
           /ds-article:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/ds-article.ftl
+          /base-plausibleanalytics:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/plausibleanalytics.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

@@ -7,6 +7,7 @@
 
         <!-- dataLayer code MUST be higher than google tag manager code -->
         <@hst.headContributions categoryIncludes="googleTagManager"/>
+        <@hst.include ref="plausibleanalytics"/>
         <@hst.headContributions categoryIncludes="resourcehints"/>
         <@hst.headContributions categoryIncludes="meta"/>
         <@hst.headContributions categoryIncludes="schema"/>

@@ -8,6 +8,10 @@ definitions:
         jcr:primaryType: hst:component
         hst:componentclassname: scot.mygov.publishing.components.GoogleTagManagerComponent
         hst:template: base-googletagmanager
+      /plausibleanalytics:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.PlausibleAnalyticsComponent
+        hst:template: base-plausibleanalytics
       /preview-indicator:
         jcr:primaryType: hst:component
         hst:componentclassname: scot.gov.publishing.staging.components.PreviewIndicatorComponent

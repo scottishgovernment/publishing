@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 871ba84d-c3e3-4b15-bba4-f369ad4e4bd6
+          jcr:uuid: e33062e4-3714-4194-9744-cef578ddffe9
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -49,6 +49,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
+          /plausibleAnalyticsDomains:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:plausibleAnalyticsDomains
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -63,10 +71,11 @@ definitions:
           publishing:notes: ''
           publishing:auth: ''
           publishing:env: ''
-          jcr:uuid: b9ae8e1d-bfc7-4968-8692-4a639ffea3b4
+          jcr:uuid: 55bdd2c2-400e-4661-b97c-8e818ec800a6
           hippostdpubwf:lastModificationDate: 2020-03-17T11:06:03.420Z
           hippostdpubwf:creationDate: 2020-03-17T11:06:03.420Z
           publishing:containerid: ''
+          publishing:plausibleAnalyticsDomains: ['']
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -108,6 +117,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Notes
             field: notes
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /plausibleAnalyticsDomains:
+            jcr:primaryType: frontend:plugin
+            caption: Plausible analytics domains
+            field: plausibleAnalyticsDomains
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
