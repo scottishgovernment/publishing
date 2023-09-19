@@ -378,7 +378,7 @@ const businessRatesCalculator = {
         let match = false;
 
         for (let i = 0, il = this.selectedProperties.length; i < il; i++) {
-            if (this.selectedProperties[i].address === this.currentProperty.address) {
+            if (this.selectedProperties[i].address === this.currentProperty.address && this.selectedProperties[i].occupierName === this.currentProperty.occupierName) {
                 match = true;
                 this.selectedProperties[i] = this.currentProperty;
                 break;
