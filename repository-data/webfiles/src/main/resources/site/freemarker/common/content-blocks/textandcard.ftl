@@ -20,7 +20,7 @@
             </#if>
             <#if document2??>
             <div class="ds_cb__card">
-                <div class="ds_card  ds_card--hover  ds_card--grey">
+                <div class="ds_card  ds_card--grey">
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <div class="ds_aspect-box">
