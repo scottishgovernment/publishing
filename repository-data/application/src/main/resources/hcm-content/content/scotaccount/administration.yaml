@@ -42,6 +42,7 @@
         publishing:containerid: ''
         publishing:env: '2'
         publishing:notes: ''
+        publishing:plausibleAnalyticsDomains: [dev.scotaccount.campaign.gov.scot]
     /live:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -61,3 +62,4 @@
         publishing:containerid: ''
         publishing:env: ''
         publishing:notes: For live we do not include the env or auth in the url.
+        publishing:plausibleAnalyticsDomains: [scotaccount.campaign.gov.scot]

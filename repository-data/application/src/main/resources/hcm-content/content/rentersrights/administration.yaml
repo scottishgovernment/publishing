@@ -69,6 +69,7 @@
         publishing:containerid: ''
         publishing:env: '2'
         publishing:notes: ''
+        publishing:plausibleAnalyticsDomains: [dev.rentersrights.campaign.gov.scot]
       /dev[2]:
         jcr:primaryType: publishing:analytics
         jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -84,6 +85,7 @@
         publishing:containerid: ''
         publishing:env: '2'
         publishing:notes: ''
+        publishing:plausibleAnalyticsDomains: [dev.rentersrights.campaign.gov.scot]
       /dev[3]:
         jcr:primaryType: publishing:analytics
         jcr:mixinTypes: ['mix:referenceable']
@@ -100,6 +102,7 @@
         publishing:containerid: ''
         publishing:env: '2'
         publishing:notes: ''
+        publishing:plausibleAnalyticsDomains: [dev.rentersrights.campaign.gov.scot]
     /live:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -119,6 +122,7 @@
         publishing:containerid: ''
         publishing:env: ''
         publishing:notes: For live we do not include the env or auth in the url.
+        publishing:plausibleAnalyticsDomains: [rentersrights.campaign.gov.scot]
       /live[2]:
         jcr:primaryType: publishing:analytics
         jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -134,6 +138,7 @@
         publishing:containerid: ''
         publishing:env: ''
         publishing:notes: For live we do not include the env or auth in the url.
+        publishing:plausibleAnalyticsDomains: [rentersrights.campaign.gov.scot]
       /live[3]:
         jcr:primaryType: publishing:analytics
         jcr:mixinTypes: ['mix:referenceable']
@@ -150,3 +155,4 @@
         publishing:containerid: ''
         publishing:env: ''
         publishing:notes: For live we do not include the env or auth in the url.
+        publishing:plausibleAnalyticsDomains: [rentersrights.campaign.gov.scot]
