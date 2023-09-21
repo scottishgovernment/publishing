@@ -1,16 +1,16 @@
 code[class*="language-"],
 pre[class*="language-"] {
+    @include ds_small-size;
     color: black;
     background: none;
-    text-shadow: 0 1px white;
     font-family: monospace;
-    @include ds_small-size;
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
     line-height: 1.75 !important;
+    text-align: left;
+    text-shadow: 0 1px white;
+    white-space: pre;
+    word-break: normal;
+    word-spacing: normal;
+    word-wrap: normal;
 
     -moz-tab-size: 4;
     -o-tab-size: 4;
@@ -31,13 +31,15 @@ pre[class*="language-"] {
 
 /* Code blocks */
 pre:has(code[class*="language-"]) {
-    padding: 15px;
-    margin: 16px 0;
-    overflow: auto;
+    @include ds_responsive-margin(2, top);
+    @include ds_responsive-margin(2, bottom);
+    @include ds_responsive-padding(2, $tuning: -1px);
     border: 1px solid $ds_colour__border;
+    overflow: auto;
 }
 
 .pre--no-border[class*="language-"] {
+    @include ds_responsive-padding(2);
     border: 0;
 }
 
@@ -46,8 +48,8 @@ pre[class*="language-"] > code[class*="language-"] {
 }
 
 code[class*="language-"] {
-    white-space: pre-wrap;
     overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 :not(pre) > code[class*="language-"],
@@ -57,8 +59,8 @@ pre:has([class*="language-"]) {
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
-    padding: .1em;
     border-radius: .3em;
+    padding: .1em;
     white-space: normal;
 }
 
