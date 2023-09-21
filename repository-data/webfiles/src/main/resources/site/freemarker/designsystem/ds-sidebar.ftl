@@ -1,8 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
-<!--noindex-->
 
 <#if navigation.children?size gt 0>
+<!--noindex-->
     <div class="ds_layout__sidebar">
         <nav aria-label="Sections" class="ds_side-navigation js-initialised" data-module="ds-side-navigation">
         <input type="checkbox" class="fully-hidden  js-toggle-side-navigation" id="show-side-navigation" aria-controls="side-navigation">
@@ -44,4 +44,5 @@
             </#list>
         </ul>
     </div>
+<!--endnoindex-->
 </#if>
