@@ -7,6 +7,8 @@ import currency from '../../templates/currency.js';
 import date from '../../templates/date.js';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
+import PromiseRequest from '../../../../../node_modules/@scottish-government/pattern-library/src/base/tools/promise-request/promise-request';
+
 const fairRentRegister = {
 
     settings: {
@@ -158,26 +160,27 @@ const fairRentRegister = {
      * @param {boolean} append
      */
     doSearch: function (searchParams = this.searchParams) {
+        this.removeFetchErrorMessage();
+
         // show fair rent section header (it might have been hidden)
         const fairRentHeader = document.getElementById('fair-rent-register-header');
         fairRentHeader.classList.remove('fully-hidden');
 
-        const http = new XMLHttpRequest();
         const url = `${this.settings.endpoint}/search?query=${searchParams.query.toUpperCase()}&from=${Math.floor(searchParams.from)}&size=${searchParams.size}`;
 
-        http.open('GET', url);
-        http.send();
-        http.onreadystatechange = () => {
-            if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
-                const responseJSON = JSON.parse(http.responseText);
+        PromiseRequest(url)
+            .then(response => {
+                const responseJSON = JSON.parse(response.responseText);
                 this.renderList(responseJSON, responseJSON.totalRecordCount, searchParams.query);
                 this.showSection('list');
 
                 this.updateBreadcrumbs({
                     title: `Search: "${searchParams.query}"`
                 });
-            }
-        };
+            })
+            .catch(() => {
+                this.addFetchErrorMessage('Unable to load results. Please try again later.');
+            });
     },
 
     /**
@@ -267,27 +270,28 @@ const fairRentRegister = {
      * Fetch property/case details and display the property section
      * @param {string} caseNo
      */
-    doCase: function(caseNo) {
-        // hide fair rent header
-        const fairRentHeader = document.getElementById('fair-rent-register-header');
-        fairRentHeader.classList.add('fully-hidden');
+    doCase: function (caseNo) {
+        this.removeFetchErrorMessage();
 
-        const http = new XMLHttpRequest();
         const url = `${this.settings.endpoint}/cases/${caseNo}`;
 
-        http.open('GET', url);
-        http.send();
-        http.onreadystatechange = () => {
-            if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
-                const responseJSON = JSON.parse(http.responseText);
+        PromiseRequest(url)
+            .then(response => {
+                // hide fair rent header
+                const fairRentHeader = document.getElementById('fair-rent-register-header');
+                fairRentHeader.classList.add('fully-hidden');
+
+                const responseJSON = JSON.parse(response.responseText);
                 this.renderProperty(responseJSON.data);
                 this.showSection('property');
 
                 this.updateBreadcrumbs({
                     title: responseJSON.data.dwellingAddress.houseName !== '' ? responseJSON.data.dwellingAddress.houseName : responseJSON.data.dwellingAddress.addressLine
                 });
-            }
-        };
+            })
+            .catch(() => {
+                this.addFetchErrorMessage('Unable to load property details. Please try again later.');
+            });
     },
 
     /**
@@ -591,6 +595,25 @@ const fairRentRegister = {
         if (window.DS) {
             const accordions = [].slice.call(itemElement.querySelectorAll('[data-module="ds-accordion"]'));
             accordions.forEach(accordion => new window.DS.components.Accordion(accordion).init());
+        }
+    },
+
+    addFetchErrorMessage: function (message = 'Unable to load data. Please try again later.') {
+        const errorMessageContainer = document.createElement('div');
+
+        errorMessageContainer.classList.add('ds_error-summary');
+        errorMessageContainer.id = 'fetch-error-message';
+        errorMessageContainer.innerHTML = `
+            <h2 class="ds_error-summary__title" id="error-summary-title">There is a problem</h2>
+            <p>${message}</p>`;
+
+        document.querySelector('.ds_layout__content').appendChild(errorMessageContainer);
+    },
+
+    removeFetchErrorMessage: function () {
+        const errorMessage = document.getElementById('fetch-error-message');
+        if (errorMessage) {
+            errorMessage.parentNode.removeChild(errorMessage);
         }
     }
 };
