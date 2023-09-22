@@ -237,7 +237,7 @@ const rentImprovementsForm = {
         delete formDataForPost.hasLettingAgent_text;
         delete formDataForPost.rentIncreaseFrequency_text;
 
-        return formDataForPost;
+        return commonForms.trimObjectValues(formDataForPost);
     }
 };
 

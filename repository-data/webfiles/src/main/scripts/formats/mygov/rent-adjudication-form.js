@@ -441,7 +441,7 @@ const rentAdjudicationForm = {
             formDataForPost.damage = null;
         }
 
-        return formDataForPost;
+        return commonForms.trimObjectValues(formDataForPost);
     }
 };
 

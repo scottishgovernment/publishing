@@ -691,7 +691,7 @@ const modelTenancyForm = {
             formData.hmoRegistrationExpiryDate = null;
             formData.hmoRenewalApplicationSubmitted = false;
         }
-        return formData;
+        return commonForms.trimObjectValues(formData);
     }
 };
 

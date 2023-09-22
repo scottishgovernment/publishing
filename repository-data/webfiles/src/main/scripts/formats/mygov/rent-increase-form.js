@@ -699,10 +699,10 @@ const rentIncreaseForm = {
                 continue;
             }
 
-            formDataForPost[field] = value.split('/').reverse().join('-');
+            formDataForPost[field] = commonForms.dateStringToMachineDate(value);
         }
 
-        return formDataForPost;
+        return commonForms.trimObjectValues(formDataForPost);
     },
 
     setupIncreaseAmountPage: function () {

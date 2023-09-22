@@ -246,7 +246,7 @@ const overseasTravelForm = {
             formDataForPost[field] = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
         }
 
-        return formDataForPost;
+        return commonForms.trimObjectValues(formDataForPost);
     }
 };
 

@@ -315,11 +315,11 @@ const diffDateDays = function (a, b) {
 const calcNoticeEnd = function(){
     // Standard notice period is 28 days
     let noticePeriod = 28;
-    const dateNoticeGiven = formObject.noticeDate.split('/').reverse().join('-');
+    const dateNoticeGiven = commonForms.dateStringToMachineDate(formObject.noticeDate)
 
     // If terms have changed in the 28 days before the notice is given, add the remainder of that period
     if (formObject.section10bFailure && formObject.hasChangedTerms === 'true'){
-        const lastChangedDate = formObject.changedTermsDate.split('/').reverse().join('-');
+        const lastChangedDate = commonForms.dateStringToMachineDate(formObject.changedTermsDate);
 
         const daysBetween = diffDateDays(new Date(lastChangedDate), new Date(dateNoticeGiven));
 
@@ -627,7 +627,7 @@ const nonProvisionForm = {
                 continue;
             }
 
-            formData[field] = value.split('/').reverse().join('-');
+            formData[field] = commonForms.dateStringToMachineDate(value);
         }
 
         // 2. Remove details from 'missing' if box not checked
@@ -664,7 +664,7 @@ const nonProvisionForm = {
             formData.tenantsAgent = {};
         }
 
-        return formData;
+        return commonForms.trimObjectValues(formData);;
     }
 };
 

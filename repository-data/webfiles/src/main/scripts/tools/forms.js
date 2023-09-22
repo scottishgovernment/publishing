@@ -27,7 +27,7 @@ const commonForms = {
      * @returns {date}
      */
     stringToDate: function (string) {
-        let fragments = string.split('/');
+        let fragments = string.trim().split('/');
         if (this.isValidDate(fragments[0], fragments[1], fragments[2])) {
             return new Date(`${fragments[1]}/${fragments[0]}/${fragments[2]}`);
         } else {
@@ -42,6 +42,31 @@ const commonForms = {
      */
     dateToString: function (date) {
         return `${commonForms.leadingZeroes(date.getDate(), 2)}/${commonForms.leadingZeroes(date.getMonth() + 1, 2)}/${date.getFullYear()}`;
+    },
+
+    /**
+     * Convert dd/mm/yyyy to yyyy-mm-dd
+     * @param {string} string
+     * @returns {string}
+     */
+    dateStringToMachineDate: function (string) {
+        return string.trim().split('/').reverse().join('-');
+    },
+
+    /**
+     * simple string trim on object properties
+     * does not iterate into nested object
+     * @param {obj}
+     * @returns {obj}
+     */
+    trimObjectValues: function (obj) {
+        Object.keys(obj).forEach(k => {
+            if (typeof obj[k] === 'string') {
+                obj[k] = obj[k].trim();
+            }
+        });
+
+        return obj;
     },
 
     appendCaptchaScript: function () {
