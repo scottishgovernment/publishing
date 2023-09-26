@@ -73,7 +73,7 @@
                             </div>
                         </div>
                     </#if>
-                    <#if item.title??>
+                    <#if item.title?has_content>
                         <${weight} class="ds_cb--feature-grid__item-title">
                             <#if link?has_content>
                                 <a href="${link}">${item.title}</a>
