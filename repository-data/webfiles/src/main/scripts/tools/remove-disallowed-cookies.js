@@ -1,4 +1,4 @@
-export default function() {
+export default function () {
     // remove cookies
     // this is ugly
     const cookiesAsObject = document.cookie.split('; ').reduce((prev, current) => {
@@ -8,12 +8,28 @@ export default function() {
     }, {});
 
     if (!storage.hasPermission(storage.categories.statistics)) {
-        const statisticsCookiePrefixes = ['_ga', '_gid', '_ga_'];
-        for (const cookie in cookiesAsObject) {
-            if (statisticsCookiePrefixes.includes(cookie.substring(0,4))) {
-                storage.cookie.remove(cookie);
+        function removeStatisticsCookies() {
+            const statisticsCookiePrefixes = ['_ga', '_gid', '_ga_'];
+            for (const cookie in cookiesAsObject) {
+                if (statisticsCookiePrefixes.includes(cookie.substring(0,4))) {
+                    storage.cookie.remove(cookie);
+                }
             }
         }
+
+        delete window.ga;
+        delete window.gaData;
+        delete window.gaGlobal;
+        delete window.gaplugins;
+        delete window.google_tag_data;
+        delete window.google_tag_manager;
+        delete window.GoogleAnalyticsObject;
+
+        removeStatisticsCookies();
+
+        window.addEventListener('unload', () => {
+            removeStatisticsCookies();
+        });
     }
 
     if (!storage.hasPermission(storage.categories.preferences)) {
