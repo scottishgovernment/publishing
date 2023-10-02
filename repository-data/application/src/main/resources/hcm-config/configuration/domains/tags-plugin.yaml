@@ -19,18 +19,14 @@ definitions:
           .meta:add-new-system-values: true
           operation: override
           type: string
-          value: [mygov-authors, mygov-editors,
-                  trading-nation-authors, trading-nation-editors,
-                  ddat-authors, ddat-editors,
-                  rentersrights-authors, rentersrights-editors,
-                  costofliving-authors, costofliving-editors,
-                  shorttermlets-authors, shorttermlets-editors,
-                  designsystem-authors, designsystem-editors,
-                  designmanual-authors, designmanual-editors,
-                  scotaccount-authors, scotaccount-editors,
-                  cloud-authors, cloud-editors,
-                  orgs-social-security-editors, orgs-social-security-authors,
-                  orgs-disclosure-scotland-editors, orgs-disclosure-scotland-authors]
+          value: [economic-action-plan-authors, economic-action-plan-editors, mygov-authors,
+            mygov-editors, trading-nation-authors, trading-nation-editors, orgs-social-security-editors,
+            orgs-social-security-authors, ddat-authors, ddat-editors, privatetenancy-authors,
+            privatetenancy-editors, rentersrights-authors, rentersrights-editors,
+            costofliving-authors, costofliving-editors, shorttermlets-authors, shorttermlets-editors,
+            orgs-disclosure-scotland-editors, orgs-disclosure-scotland-authors,
+            designsystem-authors, designsystem-editors, designmanual-authors, designmanual-editors,
+            scotaccount-authors, scotaccount-editors, cloud-authors, cloud-editors]
         hipposys:role: readwrite
         hipposys:userrole:
           .meta:category: system

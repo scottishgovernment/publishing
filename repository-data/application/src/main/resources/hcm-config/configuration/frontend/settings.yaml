@@ -2,3 +2,6 @@ definitions:
   config:
     /hippo:configuration/hippo:frontend/settings:
       locales: [en_GB]
+      allowed.classes.for.package.resources: [ org.hippoecm., org.apache.wicket., org.onehippo., wicket.contrib. ]
+      whitelisted.classes.for.package.resources:
+        operation: delete

@@ -21,9 +21,9 @@ definitions:
       /site-furniture:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-          'hst:pages/formbase']
+          'hst:pages/formbase', 'hst:pages/fairrent']
         hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-          'publishing:formbase']
+          'publishing:formbase', 'publishing:fairrent']
         hst:componentconfigurationid: hst:pages/article
         hst:relativecontentpath: site-furniture
         hst:sitemapitemhandlerids: [trailing-slash]
@@ -32,9 +32,9 @@ definitions:
           jcr:primaryType: hst:sitemapitem
           hst:relativecontentpath: ${parent}/${1}
           hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-            'hst:pages/formbase']
+            'hst:pages/formbase', 'hst:pages/fairrent']
           hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-            'publishing:formbase']
+            'publishing:formbase', 'publishing:fairrent']
           hst:componentconfigurationid: hst:pages/article
           hst:sitemapitemhandlerids: [trailing-slash]
           /cookies:
@@ -49,9 +49,9 @@ definitions:
             hst:relativecontentpath: ${parent}/${2}
             hst:sitemapitemhandlerids: [trailing-slash]
             hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
-              'hst:pages/formbase']
+              'hst:pages/formbase', 'hst:pages/fairrent']
             hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
-              'publishing:formbase']
+              'publishing:formbase', 'publishing:fairrent']
             /_index_:
               jcr:primaryType: hst:sitemapitem
               hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide']

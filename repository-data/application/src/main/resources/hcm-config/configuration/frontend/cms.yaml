@@ -148,18 +148,18 @@ definitions:
       workflow.categories: [collections, export]
     /hippo:configuration/hippo:frontend/cms/cms-advanced-search/genericFilters:
       document.type.excluded: ['publishing:analytics', 'resourcebundle:resourcebundle',
-        'robotstxt:robotstxt', 'publishing:orginisation', 'publishing:notificationbanner',
-        'publishing:describedlink', 'publishing:contentcontact', 'publishing:mirror',
-        'selection:valuelist', 'urlrewriter:rule', 'urlrewriter:advancedrule', 'urlrewriter:xmlrule',
-        'hippo:deleted', 'hippogallery:stdAssetGallery', 'hippogallery:stdImageGallery',
-        'hippogallery:stdgalleryset', 'hippostd:document', 'hippostd:gallery', 'hippostd:space',
-        'hipposysedit:nodetype', 'hippotaxonomy:container', 'hippogallery:exampleImageSet',
-        'hippogallery:imageset', 'reporting:report', 'urlrewriter:ruleset', 'selection:basedocument',
-        'hippotaxonomy:taxonomy', 'hippostd:directory', 'urlrewriter:basedocument',
-        'hippo:document', 'hippogallery:exampleAssetSet', 'hippostd:folder', 'hippocollection:collection',
-        'publishing:PublishingDocument', 'publishing:Fragment', 'publishing:smartansweragequestion',
-        'publishing:ColumnImage', 'publishing:ColumnImageFourThree', 'publishing:ColumnImageOneOne',
-        'publishing:ColumnImageSixteenNine', 'publishing:ColumnImageTwentyoneNine']
+                               'robotstxt:robotstxt', 'publishing:orginisation', 'publishing:notificationbanner',
+                               'publishing:describedlink', 'publishing:contentcontact', 'publishing:mirror',
+                               'selection:valuelist', 'urlrewriter:rule', 'urlrewriter:advancedrule', 'urlrewriter:xmlrule',
+                               'hippo:deleted', 'hippogallery:stdAssetGallery', 'hippogallery:stdImageGallery',
+                               'hippogallery:stdgalleryset', 'hippostd:document', 'hippostd:gallery', 'hippostd:space',
+                               'hipposysedit:nodetype', 'hippotaxonomy:container', 'hippogallery:exampleImageSet',
+                               'hippogallery:imageset', 'reporting:report', 'urlrewriter:ruleset', 'selection:basedocument',
+                               'hippotaxonomy:taxonomy', 'hippostd:directory', 'urlrewriter:basedocument',
+                               'hippo:document', 'hippogallery:exampleAssetSet', 'hippostd:folder', 'hippocollection:collection',
+                               'publishing:PublishingDocument', 'publishing:Fragment', 'publishing:smartansweragequestion',
+                               'publishing:ColumnImage', 'publishing:ColumnImageFourThree', 'publishing:ColumnImageOneOne',
+                               'publishing:ColumnImageSixteenNine', 'publishing:ColumnImageTwentyoneNine']
       document.subtypes.included: true
     /hippo:configuration/hippo:frontend/cms/cms-static/advancedSearchController:
       query.limit: '5000'
@@ -1927,3 +1927,8 @@ definitions:
         date-label: Document date
         name-label: New vacancy
         shortcut-link-label: New vacancy
+
+    /hippo:configuration/hippo:frontend/cms/cms-static/editorManagerPlugin/cluster.options:
+      blockedNodeTypeNames: [rep:root]
+      blackListedNodeTypeNames:
+        operation: delete
