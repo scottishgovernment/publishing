@@ -73,6 +73,13 @@ definitions:
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/scotaccount/site-furniture/banners
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-scotpayments-banners-folder:
+      jcr:primaryType: hipposys:facetrule
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:filter: false
+      hipposys:type: Reference
+      hipposys:value: /content/documents/scotpayments/site-furniture/banners
     /hippo:configuration/hippo:domains/content/content-domain/exclude-cloud-banners-folder:
       jcr:primaryType: hipposys:facetrule
       hipposys:equals: false

@@ -1,0 +1,141 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/scotpayments:
+      jcr:primaryType: hst:configuration
+      hst:inheritsfrom: [../common]
+      /hst:abstractpages:
+        jcr:primaryType: hst:pages
+      /hst:catalog:
+        jcr:primaryType: hst:catalog
+        /publishing-catalog:
+          jcr:primaryType: hst:containeritempackage
+          /divider:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.DividerComponent
+            hst:iconpath: icons/divider.svg
+            hst:label: Divider
+            hst:template: divider
+          /header:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.HeaderComponent
+            hst:iconpath: icons/header.svg
+            hst:label: Header
+            hst:template: header
+          /imageandtext:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.ImageAndTextComponent
+            hst:iconpath: icons/imageandtext.svg
+            hst:label: Image and text
+            hst:template: imageandtext
+          /video:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.VideoComponent
+            hst:iconpath: icons/video.svg
+            hst:label: Video
+            hst:template: video
+          /threeimagecards:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.ThreeImageCardsComponent
+            hst:iconpath: icons/threeimagecards.svg
+            hst:label: 3 image cards
+            hst:template: threeimagecards
+          /text:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.TextComponent
+            hst:iconpath: icons/text.svg
+            hst:label: Text
+            hst:template: text
+          /doubletext:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.DoubleTextComponent
+            hst:iconpath: icons/doubletext.svg
+            hst:label: Double text
+            hst:template: doubletext
+          /seo:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.SEOComponent
+            hst:iconpath: icons/seo.svg
+            hst:label: SEO
+            hst:template: seo
+          /pageheading:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.PageheadingComponent
+            hst:iconpath: icons/pageheader.svg
+            hst:label: Page Header
+            hst:template: pageheader
+          /textandcard:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.TextAndCardComponent
+            hst:iconpath: icons/textandcard.svg
+            hst:label: Text and card
+            hst:template: textandcard
+          /featuregrid:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.FeatureGridComponent
+            hst:iconpath: icons/featuregrid.svg
+            hst:label: Feature grid
+            hst:template: featuregrid
+          /browse:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.HomeCategoriesComponent
+            hst:iconpath: icons/browse.svg
+            hst:label: Browse
+            hst:template: browse
+      /hst:components:
+        jcr:primaryType: hst:components
+      /hst:pages:
+        jcr:primaryType: hst:pages
+      /hst:prototypepages:
+        jcr:primaryType: hst:pages
+      /hst:sitemap:
+        jcr:primaryType: hst:sitemap
+        /root:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/homepage
+          hst:pagetitle: Home page
+          hst:refId: root
+          hst:relativecontentpath: ''
+      /hst:sitemenus:
+        jcr:primaryType: hst:sitemenus
+      /hst:templates:
+        jcr:primaryType: hst:templates
+        /browse:
+          jcr:primaryType: hst:template
+          hst:renderpath: webfile:/freemarker/common/content-blocks/browse.ftl
+      /hst:workspace:
+        jcr:primaryType: hst:workspace
+        jcr:mixinTypes: ['dxphst:mergeable']
+        dxphst:treehash: 22C4C720AEC4338BA49BCB1BA96D173C
+        /hst:channel:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:channel
+          hst:name: ScotPayments
+          hst:type: website
+          hst:channelinfoclass: scot.mygov.publishing.channels.WebsiteInfo
+          hst:lastmodifiedby: admin
+          hst:defaultdevice: default
+          hst:devices: []
+          hst:lastmodified: 2023-07-25T09:00:00.000+01:00
+        /hst:containers:
+          jcr:primaryType: hst:containercomponentfolder
+          /homepage:
+            jcr:primaryType: hst:containercomponentfolder
+            /main:
+              .meta:residual-child-node-category: content
+              jcr:primaryType: hst:containercomponent
+              hippo:identifier: c40fc6e0-083e-456c-81f4-b38f4c20e3ce
+              hst:label: Home page main
+              hst:xtype: hst.vbox
+              hst:lastmodified: 2023-07-25T09:00:00.000+01:00
+        /hst:pages:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:pages
+        /hst:sitemap:
+          .meta:residual-child-node-category: content
+          jcr:primaryType: hst:sitemap
+        /hst:sitemenus:
+          jcr:primaryType: hst:sitemenus
+          /main:
+            .meta:residual-child-node-category: content
+            jcr:primaryType: hst:sitemenu
+            hst:lastmodified: 2023-07-25T09:00:00.000+01:00

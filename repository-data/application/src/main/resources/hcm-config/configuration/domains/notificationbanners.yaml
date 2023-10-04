@@ -87,6 +87,15 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/scotaccount/site-furniture/banners
+      /scotpayments-document:
+        jcr:primaryType: hipposys:domainrule
+        /include-scotpayments-banners-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/scotpayments/site-furniture/banners
       /cloud-document:
         jcr:primaryType: hipposys:domainrule
         /include-cloud-banners-folder:

@@ -1,0 +1,122 @@
+definitions:
+  config:
+    /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/scotpayments:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:mount
+      hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+      hst:locale: en_GB
+    /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/scotpayments-preview:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:mount
+      hst:alias: scotpayments-staging
+      hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+      hst:type: preview
+      preview-cookie-httponly: 'false'
+      preview-cookie-secure: 'false'
+      hst:locale: en_GB
+    /hst:hst/hst:hosts/lcl/scot/gov/campaign/scotpayments:
+      /lcl:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotpayments/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/dev/scot/gov/campaign/scotpayments:
+      /dev:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotpayments/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/int/scot/gov/campaign/scotpayments:
+      /int:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotpayments/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/exp/scot/gov/campaign/scotpayments:
+      /exp:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotpayments/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/uat/scot/gov/campaign/scotpayments:
+      /uat:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotpayments/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/per/scot/gov/campaign/scotpayments:
+      /per:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotpayments/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/tst/scot/gov/campaign/scotpayments:
+      /tst:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotpayments/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/blu/scot/gov/campaign/scotpayments:
+      /blu:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotpayments/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/grn/scot/gov/campaign/scotpayments:
+      /grn:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotpayments/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/live/scot/gov/campaign/scotpayments:
+      /live:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotpayments/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/origin/scot/gov/campaign/scotpayments:
+      /origin:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/scotpayments/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/production/scot/gov/campaign/scotpayments:
+      /hst:root:
+        jcr:primaryType: hst:mount
+        hst:mountpoint: /hst:publishing/hst:sites/scotpayments
+        hst:schemeagnostic: true
+        publishing:gtm: /content/documents/scotpayments/administration/analytics/live
+        hst:locale: en_GB
