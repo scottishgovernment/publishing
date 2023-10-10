@@ -1,5 +1,5 @@
-import DatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
-import tracking from '../../../../../node_modules/@scottish-government/pattern-library/src/base/tools/tracking/tracking';
+import DatePicker from '../../../../../node_modules/@scottish-government/design-system/src/components/date-picker/date-picker';
+import tracking from '../../../../../node_modules/@scottish-government/design-system/src/base/tools/tracking/tracking';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 window.DS = window.DS || {};

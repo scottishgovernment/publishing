@@ -2,7 +2,7 @@
 
 'use strict';
 
-import breakpointCheck from '../../../../../node_modules/@scottish-government/pattern-library/src/base/utilities/breakpoint-check/breakpoint-check';
+import breakpointCheck from '../../../../../node_modules/@scottish-government/design-system/src/base/utilities/breakpoint-check/breakpoint-check';
 
 class Tabs {
     constructor(tabContainer) {

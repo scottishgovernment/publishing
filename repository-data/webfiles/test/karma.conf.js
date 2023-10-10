@@ -44,13 +44,13 @@ module.exports = function (config) {
         singleRun: true,
 
         files: [
-            'node_modules/@scottish-government/pattern-library/src/all.js',
+            'node_modules/@scottish-government/design-system/src/all.js',
             'test/specs/**/*.js',
             'test/fixtures/*.html',
         ],
 
         preprocessors: {
-            'node_modules/@scottish-government/pattern-library/src/all.js': ['babel', 'webpack'],
+            'node_modules/@scottish-government/design-system/src/all.js': ['babel', 'webpack'],
             '../src/main/**/*.js': ['babel', 'webpack'],
             'test/specs/**/**.js': ['webpack']
         },

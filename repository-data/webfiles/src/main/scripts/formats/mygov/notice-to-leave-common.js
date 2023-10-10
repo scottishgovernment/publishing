@@ -71,7 +71,7 @@ import PostcodeLookup from '../../components/postcode-lookup';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import formSections from '../../components/mygov/housing-forms/notice-to-leave-sections';
-import DSDatePicker from '../../../../../node_modules/@scottish-government/pattern-library/src/components/date-picker/date-picker';
+import DSDatePicker from '../../../../../node_modules/@scottish-government/design-system/src/components/date-picker/date-picker';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/notice-to-leave-form');

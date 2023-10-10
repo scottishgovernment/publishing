@@ -1,6 +1,7 @@
-@function calcOverflow ($overflowColumns, $totalColumns, $containerWidth, $columnGap) {
-    $result: (($containerWidth + $columnGap) * $overflowColumns) / $totalColumns;
+@use "sass:math";
 
+@function calcOverflow ($overflowColumns, $totalColumns, $containerWidth, $columnGap) {
+    $result: math.div((($containerWidth + $columnGap) * $overflowColumns), $totalColumns);
     @return $result;
 }
 

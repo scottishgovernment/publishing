@@ -7,7 +7,7 @@ import currency from '../../templates/currency.js';
 import date from '../../templates/date.js';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
-import PromiseRequest from '../../../../../node_modules/@scottish-government/pattern-library/src/base/tools/promise-request/promise-request';
+import PromiseRequest from '../../../../../node_modules/@scottish-government/design-system/src/base/tools/promise-request/promise-request';
 
 const fairRentRegister = {
 

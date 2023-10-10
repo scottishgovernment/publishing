@@ -1,7 +1,7 @@
 /* global document, window, require */
 
 import commonForms from '../tools/forms';
-import temporaryFocus from '../../../../node_modules/@scottish-government/pattern-library/src/base/tools/temporary-focus/temporary-focus';
+import temporaryFocus from '../../../../node_modules/@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
 const PolyPromise = require('../vendor/promise-polyfill').default;
 
 class SmartAnswer {
