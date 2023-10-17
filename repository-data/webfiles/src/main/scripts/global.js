@@ -75,12 +75,14 @@ const global = {
 
         const accordionItems = [].slice.call(document.querySelectorAll('.ds_accordion-item'));
 
-        // add indicator element to each accordion item (a shortcoming in the CKE plugin)
+        // add indicator element to each accordion item
         accordionItems.forEach(accordionItem => {
-            const indicatorElement = document.createElement('span');
-            const titleElement = accordionItem.querySelector('.ds_accordion-item__title');
-            indicatorElement.classList.add('ds_accordion-item__indicator');
-            titleElement.after(indicatorElement);
+            if (!accordionItem.querySelector('.ds_accordion-item__indicator')) {
+                const indicatorElement = document.createElement('span');
+                const titleElement = accordionItem.querySelector('.ds_accordion-item__title');
+                indicatorElement.classList.add('ds_accordion-item__indicator');
+                titleElement.after(indicatorElement);
+            }
         });
 
         // need to preprocess accordion items to group them
