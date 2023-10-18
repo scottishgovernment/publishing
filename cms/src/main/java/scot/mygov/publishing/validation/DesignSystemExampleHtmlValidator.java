@@ -31,8 +31,8 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
     // we allow script tags so that we can allow non executable script tags.
     // we then use a node visitor to remove executable ones.
     Safelist safelist = Safelist.relaxed()
-            .addTags(SCRIPT, "address", "article","aside","br","fieldset","footer","form","header","input","label","legend",
-                    "main","mark","nav","option","section","select","style","svg",TEXTAREA,"use")
+            .addTags(SCRIPT, "address", "article","aside","br","details","fieldset","footer","form","header","input","label","legend",
+                    "main","mark","nav","option","section","select","style","summary","svg",TEXTAREA,"use")
 
             .preserveRelativeLinks(true)
             .addAttributes(SCRIPT, "type")
