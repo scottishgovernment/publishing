@@ -34,65 +34,35 @@
             }
         }
     }
-
-    &--pl-article {
-        > .ds_layout {
-            &__header {
-                float: left;
-                @include colwidth(8);
-            }
-
-            &__content {
-                float: left;
-                @include colwidth(7);
-            }
-
-            &__sidebar {
-                clear: left;
-                float: left;
-                @include colwidth(3);
-            }
-        }
-    }
 }
 
 @supports(display: grid) {
-    .ds_layout {
-        &--pl-component {
-            grid-template-areas:
-                'h h'
-                's s'
-                'c c'
-                'f f';
-        }
-    }
+    .ds_layout--pl-component {
+        grid-template-areas:
+            'h h'
+            's s'
+            'c c'
+            'f f';
 
-    .ds_layout {
-        &--pl-article {
-            grid-template-areas:
-                'h h'
-                's s'
-                'c c'
-                'f f';
+            &:not(:has(.ds_layout__sidebar)) {
+                grid-template-areas:
+                    'h h'
+                    'c c'
+                    'f f';
         }
     }
 
     @include media-query(small) {
-        .ds_layout {
-            &--pl-component {
-                grid-template-areas:
-                    'h h h h h h'
-                    's s s s s s'
-                    'c c c c c c'
-                    'f f f f f f';
-            }
-        }
+        .ds_layout--pl-component {
+            grid-template-areas:
+                'h h h h h h'
+                's s s s s s'
+                'c c c c c c'
+                'f f f f f f';
 
-        .ds_layout {
-            &--pl-article {
+            &:not(:has(.ds_layout__sidebar)) {
                 grid-template-areas:
                     'h h h h h h'
-                    's s s s s s'
                     'c c c c c c'
                     'f f f f f f';
             }
@@ -100,39 +70,33 @@
     }
 
     @include media-query(medium) {
-        .ds_layout {
-            &--pl-component {
-                grid-template-areas:
-                    's s s h h h h h h h h h'
-                    's s s c c c c c c c c c'
-                    '. . . f f f f f f f f f';
-            }
-        }
+        .ds_layout--pl-component {
+            grid-template-areas:
+                's s s h h h h h h h h h'
+                's s s c c c c c c c c c'
+                '. . . f f f f f f f f f';
 
-        .ds_layout {
-            &--pl-article {
+            &:not(:has(.ds_layout__sidebar)) {
                 grid-template-areas:
-                    's s s s h h h h h h h h'
-                    's s s s c c c c c c c c'
-                    '. . . f f f f f f f f f';
+                    'h h h h h h h h h h h h'
+                    'c c c c c c c c c c c c'
+                    'f f f f f f f f f f f f';
             }
         }
     }
 
     @include media-query(large) {
-        .ds_layout {
-            &--pl-component {
-                grid-template-areas:
-                    's s s h h h h h h h . .'
-                    's s s c c c c c c c . .'
-                    '. . . f f f f f f f . .';
-            }
+        .ds_layout--pl-component {
+            grid-template-areas:
+                's s s h h h h h h h . .'
+                's s s c c c c c c c . .'
+                '. . . f f f f f f f . .';
 
-            &--pl-article {
+            &:not(:has(.ds_layout__sidebar)) {
                 grid-template-areas:
-                    's s s h h h h h h h . .'
-                    's s s c c c c c c c . .'
-                    '. . . f f f f f f f . .';
+                    'h h h h h h h . . . . .'
+                    'c c c c c c c . . . . .'
+                    'f f f f f f f . . . . .';
             }
         }
     }
