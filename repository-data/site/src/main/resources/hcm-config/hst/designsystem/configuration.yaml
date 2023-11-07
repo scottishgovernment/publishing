@@ -146,14 +146,13 @@ definitions:
       /hst:workspace:
         jcr:primaryType: hst:workspace
         jcr:mixinTypes: ['dxphst:mergeable']
-        dxphst:treehash: DDB6669F1DD1E26BE2ADDAB3D39214F7
         /hst:channel:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:channel
           hst:name: Design System
           hst:type: website
           hst:channelinfoclass: scot.mygov.publishing.channels.WebsiteInfo
-          hst:lastmodifiedby: admin
+          hst:lastmodifiedby: jonathan.sutcliffe@gov.scot
           hst:defaultdevice: default
           hst:devices: []
           hst:lastmodified: 2023-06-07T12:25:29.923+01:00

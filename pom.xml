@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-enterprise-release</artifactId>
-    <version>14.7.3</version>
+    <version>15.4.0</version>
   </parent>
 
   <name>Digital Publishing</name>
@@ -62,10 +62,9 @@
   <properties>
 
     <!--***START temporary override of versions*** -->
-    <h2.database.version>2.1.210</h2.database.version>
     <!-- ***END temporary override of versions*** -->
 
-    <essentials.version>14.7.3</essentials.version>
+    <essentials.version>15.4.0</essentials.version>
     <jsp-api.version>2.2</jsp-api.version>
     <taglibs.version>1.2.5</taglibs.version>
 
@@ -93,13 +92,6 @@
   <dependencyManagement>
 
     <dependencies>
-
-      <dependency>
-        <groupId>com.h2database</groupId>
-        <artifactId>h2</artifactId>
-        <version>${h2.database.version}</version>
-        <scope>runtime</scope>
-      </dependency>
 
       <dependency>
         <groupId>com.amazonaws</groupId>
@@ -340,6 +332,33 @@
 
     <profile>
       <id>cargo.run</id>
+      <dependencies>
+        <dependency>
+          <groupId>jakarta.xml.bind</groupId>
+          <artifactId>jakarta.xml.bind-api</artifactId>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.xml.ws</groupId>
+          <artifactId>jakarta.xml.ws-api</artifactId>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>javax.annotation</groupId>
+          <artifactId>javax.annotation-api</artifactId>
+          <scope>compile</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.activation</groupId>
+          <artifactId>jakarta.activation-api</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.glassfish.jaxb</groupId>
+          <artifactId>jaxb-runtime</artifactId>
+          <scope>runtime</scope>
+        </dependency>
+      </dependencies>
       <build>
         <plugins>
           <plugin>
@@ -440,6 +459,31 @@
     <profile>
       <id>dist</id>
       <dependencies>
+        <dependency>
+          <groupId>jakarta.xml.bind</groupId>
+          <artifactId>jakarta.xml.bind-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.xml.ws</groupId>
+          <artifactId>jakarta.xml.ws-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>javax.annotation</groupId>
+          <artifactId>javax.annotation-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>jakarta.activation</groupId>
+          <artifactId>jakarta.activation-api</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.glassfish.jaxb</groupId>
+          <artifactId>jaxb-runtime</artifactId>
+          <scope>provided</scope>
+        </dependency>
         <dependency>
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-slf4j-impl</artifactId>

@@ -13,12 +13,6 @@
   <dependencies>
 
     <dependency>
-      <groupId>org.wicketstuff</groupId>
-      <artifactId>wicketstuff-clipboardjs</artifactId>
-      <version>7.18.0</version>
-    </dependency>
-
-    <dependency>
       <groupId>scot.mygov.publishing</groupId>
       <artifactId>publishing-repository-data-application</artifactId>
       <version>${project.version}</version>
@@ -58,11 +52,8 @@
     </dependency>
     <dependency>
       <groupId>com.onehippo.cms7</groupId>
-      <artifactId>hippo-addon-urlrewriter-module-cms</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.onehippo.cms7</groupId>
-      <artifactId>hippo-addon-urlrewriter-module-repository</artifactId>
+      <artifactId>hippo-addon-urlrewriter-cms-dependencies</artifactId>
+      <type>pom</type>
     </dependency>
     <dependency>
       <groupId>org.onehippo.cms7</groupId>

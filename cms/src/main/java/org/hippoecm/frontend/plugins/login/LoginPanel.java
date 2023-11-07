@@ -1,5 +1,5 @@
 /*
- *  Copyright 2015-2020 Hippo B.V. (http://www.onehippo.com)
+ *  Copyright 2015-2023 Bloomreach
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -27,6 +27,7 @@ import java.util.MissingResourceException;
 
 import javax.jcr.SimpleCredentials;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang3.LocaleUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -34,8 +35,11 @@ import org.apache.commons.text.StringEscapeUtils;
 import org.apache.wicket.Application;
 import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;
+import org.apache.wicket.ThreadContext;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.OnChangeAjaxBehavior;
+import org.apache.wicket.authorization.Action;
+import org.apache.wicket.authorization.UnauthorizedActionException;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.basic.Label;
@@ -49,6 +53,7 @@ import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.request.http.WebResponse;
 import org.hippoecm.frontend.Main;
 import org.hippoecm.frontend.PluginApplication;
 import org.hippoecm.frontend.attributes.ClassAttribute;
@@ -132,7 +137,11 @@ public class LoginPanel extends Panel {
         final Main main = (Main) Application.get();
         main.resetConnection();
 
-        info(getReason(cause));
+        String reason = getReason(cause);
+        getSession().error(reason);
+
+        ((WebResponse) ThreadContext.getRequestCycle().getResponse()).setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        throw new UnauthorizedActionException(this, new Action(Action.RENDER));
     }
 
     private String getReason(final Cause cause) {
@@ -185,10 +194,6 @@ public class LoginPanel extends Panel {
             browserSupport.setVisible(false);
             browserSupport.setEscapeModelStrings(false);
             addLabelledComponent(browserSupport);
-
-            if (supportedBrowsers != null && supportedBrowsers.length > 0) {
-                browserSupport.add(new BrowserCheckBehavior(supportedBrowsers));
-            }
 
             usernameTextField = new RequiredTextField<>("username", PropertyModel.of(LoginPanel.this, "username"));
             usernamePlaceholder = new LoginResourceModel("username-label");
@@ -288,21 +293,21 @@ public class LoginPanel extends Panel {
         @Override
         public void renderHead(final IHeaderResponse response) {
             response.render(OnDomReadyHeaderItem.forScript(String.format(
-                "if (Hippo && Hippo.PreventResubmit) { " +
-                "  Hippo.PreventResubmit('#%s');" +
-                "}",
-                form.getMarkupId()
+                    "if (Hippo && Hippo.PreventResubmit) { " +
+                            "  Hippo.PreventResubmit('#%s');" +
+                            "}",
+                    form.getMarkupId()
             )));
 
             response.render(OnDomReadyHeaderItem.forScript(
-                "$('.login-form-input input')" +
-                "  .focus(function() { $(this).parent().addClass('input-focused'); })" +
-                "  .blur(function() { $(this).parent().removeClass('input-focused'); });"
+                    "$('.login-form-input input')" +
+                            "  .focus(function() { $(this).parent().addClass('input-focused'); })" +
+                            "  .blur(function() { $(this).parent().removeClass('input-focused'); });"
             ));
 
             response.render(OnDomReadyHeaderItem.forScript(String.format(
-                "$('#%s').focus()",
-                usernameTextField.getMarkupId()
+                    "$('#%s').focus()",
+                    usernameTextField.getMarkupId()
             )));
         }
 

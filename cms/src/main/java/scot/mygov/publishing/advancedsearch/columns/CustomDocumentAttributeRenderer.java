@@ -1,13 +1,13 @@
 package scot.mygov.publishing.advancedsearch.columns;
 
-import javax.jcr.Node;
-import javax.jcr.RepositoryException;
-
 import org.apache.wicket.Component;
 import org.apache.wicket.markup.html.basic.Label;
-import org.apache.wicket.model.AbstractReadOnlyModel;
+import org.apache.wicket.model.IModel;
 import org.hippoecm.frontend.model.JcrNodeModel;
 import org.hippoecm.frontend.plugins.standards.list.resolvers.AbstractNodeRenderer;
+
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
 public abstract class CustomDocumentAttributeRenderer extends AbstractNodeRenderer {
 
@@ -20,7 +20,7 @@ public abstract class CustomDocumentAttributeRenderer extends AbstractNodeRender
 
     protected abstract String getObject(CustomAttributes atts);
 
-    class MyModel extends AbstractReadOnlyModel<String> {
+    class MyModel implements IModel<String> {
 
         CustomAttributes atts;
 
