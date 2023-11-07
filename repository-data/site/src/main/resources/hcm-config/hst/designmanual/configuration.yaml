@@ -105,14 +105,13 @@ definitions:
       /hst:workspace:
         jcr:primaryType: hst:workspace
         jcr:mixinTypes: ['dxphst:mergeable']
-        dxphst:treehash: 22C4C720AEC4338BA49BCB1BA96D173C
         /hst:channel:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:channel
           hst:name: Design Manual
           hst:type: website
           hst:channelinfoclass: scot.mygov.publishing.channels.WebsiteInfo
-          hst:lastmodifiedby: admin
+          hst:lastmodifiedby: jonathan.sutcliffe@gov.scot
           hst:defaultdevice: default
           hst:devices: []
           hst:lastmodified: 2023-06-05T10:28:10.030+01:00

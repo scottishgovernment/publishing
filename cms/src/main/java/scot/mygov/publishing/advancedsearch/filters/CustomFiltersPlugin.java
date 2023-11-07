@@ -9,9 +9,9 @@ import org.apache.wicket.ajax.AjaxEventBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
-import org.apache.wicket.datetime.PatternDateConverter;
-import org.apache.wicket.datetime.markup.html.form.DateTextField;
-import org.apache.wicket.extensions.yui.calendar.DatePicker;
+import org.wicketstuff.datetime.PatternDateConverter;
+import org.wicketstuff.datetime.markup.html.form.DateTextField;
+import org.wicketstuff.datetime.extensions.yui.calendar.DatePicker;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.markup.html.form.CheckBox;
 import org.apache.wicket.markup.html.form.Form;
@@ -115,11 +115,6 @@ public class CustomFiltersPlugin extends RenderPlugin implements IConstraintProv
         form.add(new CheckBox("pendingPublication",new PropertyModel<Boolean>(this, "pendingPublication")){
 
             @Override
-            protected boolean wantOnSelectionChangedNotifications() {
-                return true;
-            }
-
-            @Override
             protected void onModelChanged() {
                 super.onModelChanged();
                 updateSearchResults();
@@ -134,18 +129,16 @@ public class CustomFiltersPlugin extends RenderPlugin implements IConstraintProv
                 ISearchContext.class.getName(),
                 ISearchContext.class);
         searcher.updateSearchResults();
-        final AjaxRequestTarget target = getRequestCycle().find(AjaxRequestTarget.class);
-        if (target != null) {
-            visitChildren(MarkupContainer.class, new IVisitor<MarkupContainer, Void>() {
-                @Override
-                public void component(final MarkupContainer container, IVisit<Void> visit) {
-                    if (container.getId().endsWith(RESET_CONTAINER)) {
-                        target.add(container);
-                        visit.dontGoDeeper();
-                    }
+        final AjaxRequestTarget target = getRequestCycle().find(AjaxRequestTarget.class).get();
+        visitChildren(MarkupContainer.class, new IVisitor<MarkupContainer, Void>() {
+            @Override
+            public void component(final MarkupContainer container, IVisit<Void> visit) {
+                if (container.getId().endsWith(RESET_CONTAINER)) {
+                    target.add(container);
+                    visit.dontGoDeeper();
                 }
-            });
-        }
+            }
+        });
     }
 
     @Override
