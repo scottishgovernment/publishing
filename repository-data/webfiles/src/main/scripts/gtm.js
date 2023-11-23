@@ -1,5 +1,6 @@
-(function () {
+import setInitialCookiePermissions from '../tools/set-initial-cookie-permissions';
 
+(function () {
     const gtmScriptElement = document.getElementById('gtm-script');
     const containerId = gtmScriptElement.dataset.containerid;
     const auth = gtmScriptElement.dataset.auth;
@@ -25,6 +26,7 @@
         return cookie[name];
     }
 
+    setInitialCookiePermissions();
     const cookiePermissions = getCookie('cookiePermissions');
 
     let statisticsEnabled = true;
