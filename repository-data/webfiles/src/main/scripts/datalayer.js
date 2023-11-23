@@ -1,6 +1,11 @@
 (function () {
 
     const datalayerScriptElement = document.getElementById('gtm-datalayer');
+
+    if (!datalayerScriptElement) {
+        return;
+    }
+
     const userType = datalayerScriptElement.dataset.usertype;
     const audience = datalayerScriptElement.dataset.audience;
     const reportingTags = datalayerScriptElement.dataset.reportingtags;
@@ -13,33 +18,37 @@
 
     const obj = {};
 
+    function present(value) {
+        return value && !!value.length;
+    }
+
     obj['gtm.whitelist'] = ['google', 'jsm', 'lcl'];
 
-    if (userType && !!userType.length) {
+    if (present(userType)) {
         obj.userType = userType;
     }
 
-    if (audience && !!audience.length) {
+    if (present(audience)) {
         obj.audience = audience;
     }
 
-    if (reportingTags && !!reportingTags.length) {
+    if (present(reportingTags)) {
         obj.reportingTags = reportingTags.split('|');
     }
 
-    if (lifeEvents && !!lifeEvents.length) {
+    if (present(lifeEvents)) {
         obj.lifeEvents = lifeEvents.split('|');
     }
 
-    if (serviceProviders && !!serviceProviders.length) {
+    if (present(serviceProviders)) {
         obj.serviceProviders = serviceProviders.split('|');
     }
 
-    if (format && !!format.length) {
+    if (present(format)) {
         obj.format = format;
     }
 
-    if (siteid && !!siteid.length) {
+    if (present(siteid)) {
         obj.siteid = siteid;
     }
 
