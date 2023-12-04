@@ -1,4 +1,4 @@
-import setInitialCookiePermissions from '../tools/set-initial-cookie-permissions';
+import setInitialCookiePermissions from './tools/set-initial-cookie-permissions';
 
 (function () {
     const gtmScriptElement = document.getElementById('gtm-script');
