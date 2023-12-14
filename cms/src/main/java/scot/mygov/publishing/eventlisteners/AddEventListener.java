@@ -12,7 +12,7 @@ import javax.jcr.*;
 import java.util.*;
 
 import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
-import static scot.mygov.publishing.eventlisteners.SlugLookups.SLUG;
+import static scot.mygov.publishing.eventlisteners.SlugMaintenanceListener.SLUG;
 
 /**
  * Listen for new pages / folders being created in order to:

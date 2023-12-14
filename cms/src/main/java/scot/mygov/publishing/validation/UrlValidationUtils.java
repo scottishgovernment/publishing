@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.function.Supplier;
 
 import static org.apache.commons.lang3.StringUtils.isAlphanumeric;
-import static scot.mygov.publishing.eventlisteners.SlugLookups.SLUG;
 
 /**
  * Shared code for validating slugs and urls.
@@ -125,7 +124,7 @@ public class UrlValidationUtils {
     }
 
     private static String slugSQL(String slug, Node node) throws RepositoryException {
-        return sql(slug, SLUG, node);
+        return sql(slug, "publishing:slug", node);
     }
 
     private static String aliasSQL(String slug, Node node) throws RepositoryException {

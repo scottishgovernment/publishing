@@ -7,13 +7,13 @@ import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.linking.HstLinkProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.gov.publishing.sluglookup.PathForSlugSource;
+import scot.gov.publishing.sluglookup.PathSourceFactory;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
-
-import static org.apache.jackrabbit.util.Text.escapeIllegalJcrChars;
 
 /**
  * Link processor used to implement our URL guidelines. Aticles are served at their unique slug, categoeries at their
@@ -28,6 +28,8 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
     private static final String INDEX = "index";
 
     SessionSource sessionSource = () -> RequestContextProvider.get().getSession();
+
+    PathForSlugSource pathForSlugSource = PathSourceFactory.lookup();
 
     @Override
     public HstLink postProcess(final HstLink link) {
@@ -175,11 +177,19 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
             return link;
         }
 
+        String site = siteName(link);
+
+        LOG.info("doPreProcess {} {}", site, link.getPath());
+
         // if the link has 2 elements then see if it is a guide page
         if (link.getPathElements().length == 2) {
+            LOG.info("2er");
              /// its a guide sub page
             String guideSlug = link.getPathElements()[0];
-            String guidePath = lookupPath(link, guideSlug);
+
+            // String slug, String site, String type, String mount
+            String guidePath = pathForSlugSource.get(guideSlug, site, "global", link.getMount().getType());
+
             if (guidePath != null) {
                 guidePath = StringUtils.substringBefore(guidePath, "/index");
                 String guidPage = link.getPathElements()[1];
@@ -188,56 +198,17 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
             return link;
         }
 
-        String path = lookupPath(link, link.getPath());
+        String slug = link.getPath();
+        LOG.info("1er slug {}, site {}, type {}, ", slug, site, link.getMount().getType());
+        String path = pathForSlugSource.get(slug, site, "global", link.getMount().getType());
         if (path != null) {
             link.setPath(path);
         }
         return link;
     }
 
-    String lookupPath(HstLink link, String path) throws RepositoryException {
-        Session session = sessionSource.getSession();
-        String lp = slugLookupPath(link, path);
-        if (!session.nodeExists(lp)) {
-            return null;
-        }
-        Node lookupNode = session.getNode(lp);
-        if (!lookupNode.hasProperty("publishing:path")) {
-            return null;
-        }
-
-        return lookupNode.getProperty("publishing:path").getString();
-    }
-
     boolean isLocalhost(HstLink link) {
         return "localhost".equals(link.getMount().getVirtualHost().getName());
-    }
-
-    String slugLookupPath(HstLink link, String path) {
-        return slugLookupPath(siteName(link), link.getMount().getType(), path);
-    }
-
-    String slugLookupPath(String siteName, String mountType, String path) {
-        StringBuilder b = mountLookupPath(siteName, mountType);
-        appendSlugAsLetterPath(b, path);
-        return b.toString();
-    }
-
-    StringBuilder mountLookupPath(String siteName, String mountType) {
-        return new StringBuilder()
-                .append("/content/urls/")
-                .append(siteName)
-                .append('/')
-                .append(mountType)
-                .append('/');
-    }
-
-    StringBuilder appendSlugAsLetterPath(StringBuilder b, String slug) {
-        for(char c : slug.toCharArray()) {
-            b.append(escapeIllegalJcrChars(Character.toString(c)));
-            b.append('/');
-        }
-        return b;
     }
 
     String siteName(HstLink link) {

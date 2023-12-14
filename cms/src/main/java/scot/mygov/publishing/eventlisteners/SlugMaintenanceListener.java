@@ -4,13 +4,13 @@ import org.onehippo.cms7.services.eventbus.Subscribe;
 import org.onehippo.repository.events.HippoWorkflowEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.gov.publishing.sluglookup.SlugLookups;
 import scot.mygov.publishing.HippoUtils;
 
 import javax.jcr.*;
 
 import static org.apache.commons.lang3.StringUtils.substringAfter;
 import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
-import static scot.mygov.publishing.eventlisteners.SlugLookups.SLUG;
 
 /**
  * Maintain the data structure used by PublishingPlatformLinkProcessor to lookup slugs.
@@ -22,6 +22,8 @@ import static scot.mygov.publishing.eventlisteners.SlugLookups.SLUG;
 public class SlugMaintenanceListener {
 
     private static final Logger LOG = LoggerFactory.getLogger(SlugMaintenanceListener.class);
+
+    static final String SLUG = "publishing:slug";
 
     private static final String PREVIEW = "preview";
 
@@ -79,27 +81,63 @@ public class SlugMaintenanceListener {
         handleEventByAction(event, subject);
     }
 
-
     void handleEventByAction(HippoWorkflowEvent event, Node subject) throws RepositoryException {
+
         switch (event.action()) {
             case "commitEditableInstance":
-                slugLookups.updateLookup(subject, PREVIEW);
+                updateLookup(subject, PREVIEW);
                 break;
 
             case "publish" :
-                slugLookups.updateLookup(subject, LIVE);
+                updateLookup(subject, LIVE);
                 break;
 
             case "depublish":
-                slugLookups.removeLookup(subject, LIVE);
+                removeLookup(subject, LIVE);
                 break;
 
             case "delete":
-                slugLookups.removeLookup(subject, PREVIEW);
+                removeLookup(subject, PREVIEW);
                 break;
 
             default:
         }
+    }
+
+    void updateLookup(Node subject, String mount ) throws RepositoryException {
+        this.updateLookup(subject, mount, true);
+    }
+
+    void updateLookup(Node subject, String mount, boolean clearLookout) throws RepositoryException {
+        String slug = slug(subject);
+        String site = sitename(subject);
+        String path = substringAfter(subject.getPath(), site);
+        slugLookups.updateLookup(slug, path, site, "global", mount, clearLookout);
+    }
+
+    void removeLookup(Node subject, String mount) throws RepositoryException {
+        String site = sitename(subject);
+        String path = substringAfter(subject.getPath(), site);
+        slugLookups.removeLookup(path, site, "global", mount);
+    }
+
+    private String slug(Node subject) throws RepositoryException {
+        Node variant = subject.getNode(subject.getName());
+        return variant.isNodeType("publishing:guidepage")
+                ? guidePageSlug(subject, variant)
+                : variant.getProperty("publishing:slug").getString();
+    }
+
+    String guidePageSlug(Node subject, Node variant) throws RepositoryException {
+        String slug = variant.getName();
+        Node guideFolder = subject.getParent();
+        Node guide = guideFolder.getNode("index").getNode("index");
+        String guideSlug = guide.getProperty("publishing:slug").getString();
+        return guideSlug + "/" + slug;
+    }
+
+    private String sitename(Node subject) throws RepositoryException {
+        return subject.getAncestor(3).getName();
     }
 
     boolean isFolderRename(HippoWorkflowEvent event) {
@@ -135,7 +173,6 @@ public class SlugMaintenanceListener {
     }
 
     void updateLookupsInFolderForFolderMove(HippoWorkflowEvent event) throws RepositoryException {
-
         String sitename = getSitenameFromSubjectPath(event.subjectPath());
         String fromPath = substringAfter(event.subjectPath(), sitename);
         String toFolder = session.getNodeByIdentifier(event.arguments().get(2).toString()).getPath();
@@ -146,15 +183,14 @@ public class SlugMaintenanceListener {
 
     void updateUrlLookupsForFolderMove(String sitename, String fromPath, String toPath) throws RepositoryException{
         String xpath = String.format(
-                "/jcr:root/content/urls/%s//element(*, nt:unstructured)[jcr:like(@publishing:path, '%s/%%')]",
+                "/jcr:root/content/urls/%s//element(*, sluglookup:lookup)[jcr:like(@sluglookup:path, '%s/%%')]",
                 sitename,
                 fromPath);
-        LOG.info("updateUrlLookupsForFolderMove {}", xpath);
         hippoUtils.executeXpathQuery(session, xpath, node -> {
-            String oldPath = node.getProperty("publishing:path").getString();
+            String oldPath = node.getProperty("sluglookup:path").getString();
             String newPath = oldPath.replace(fromPath, toPath);
-            LOG.info("setting {} -> {}", oldPath, newPath);
-            node.setProperty("publishing:path", newPath);
+            LOG.error("setting {} -> {}", oldPath, newPath);
+            node.setProperty("sluglookup:path", newPath);
         });
     }
 
@@ -172,8 +208,7 @@ public class SlugMaintenanceListener {
             String newSlug = slug + "-copy";
             node.setProperty(SLUG, newSlug);
             session.save();
-            slugLookups.updateLookup(node.getParent(), PREVIEW, false);
-            LOG.info("updateLookupsInFolderForFolderCopy {}: {} -> {}", node.getPath());
+            updateLookup(node.getParent(), PREVIEW, false);
         });
     }
 
