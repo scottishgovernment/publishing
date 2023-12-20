@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 9a44bd50-fae6-4bf5-8420-fd77f26a4021
+          jcr:uuid: c6b80293-b273-46c1-b0c1-5d292c6508d9
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -252,7 +252,7 @@ definitions:
           publishing:authorNotes: ''
           publishing:serviceproviders: []
           publishing:metaDescription: ''
-          jcr:uuid: c7150548-ef8c-4483-80bb-f946201319b5
+          jcr:uuid: b9571705-6aa1-4072-82f5-9dce694b868e
           hippostdpubwf:lastModificationDate: 2020-06-30T08:47:27.466+01:00
           hippostdpubwf:creationDate: 2020-06-30T08:47:27.466+01:00
           publishing:serviceprovider: ''
@@ -271,8 +271,8 @@ definitions:
           publishing:featuredrole: ''
           publishing:phone: ''
           publishing:featuredservicestitle: Our services
-          publishing:organisationtitle: 'Our organisation'
-          publishing:featureditemstitle: 'How we work'
+          publishing:organisationtitle: Our organisation
+          publishing:featureditemstitle: How we work
           publishing:showFeedback: true
           publishing:reportingtags: []
           publishing:organisationtags: []
@@ -298,6 +298,9 @@ definitions:
           /publishing:organisationstructure:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
+          /publishing:contentOwner:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -345,6 +348,16 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               orientation: vertical
               source: /content/documents/publishing/valuelists/serviceproviders
+          /contentOwner:
+            jcr:primaryType: frontend:plugin
+            caption: Content owner
+            field: contentOwner
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              nodetypes: ['publishing:contentcontact']
           /summary:
             jcr:primaryType: frontend:plugin
             caption: Summary
