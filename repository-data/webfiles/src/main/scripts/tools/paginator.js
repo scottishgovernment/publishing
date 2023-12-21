@@ -6,6 +6,8 @@
 
 'use strict';
 
+import bloomreachWebfile from '../tools/bloomreach-webfile';
+const iconSpritePath = bloomreachWebfile('/assets/images/icons/icons.stack.svg');
 const paginationTemplate = require('../templates/mygov/paginator');
 
 /**
@@ -44,9 +46,10 @@ const Paginator = function (container, pagePadding, caller) {
             if (currentPage > 0) {
                 pages.push({
                     isPrevious: true,
-                    displayText: 'Prev',
+                    displayText: 'Previous',
                     start: (currentPage - 1) * paginatorData.itemsPerPage,
-                    isLink: true
+                    isLink: true,
+                    iconPath: iconSpritePath
                 });
             }
 
@@ -59,10 +62,17 @@ const Paginator = function (container, pagePadding, caller) {
                             start: 0,
                             isLink: true
                         });
-                } else {
+                } else if (firstPage >= pagePadding) {
+                    pages.push(
+                        {
+                            displayText: 1,
+                            start: 0,
+                            isLink: true
+                        });
                     pages.push({
                         displayText: '&hellip;',
-                        isLink: false
+                        isLink: false,
+                        isEllipsis: true
                     });
                 }
             }
@@ -77,7 +87,6 @@ const Paginator = function (container, pagePadding, caller) {
                     };
 
                     if (i === paginatorData.currentPage) {
-                        page.isLink = false;
                         page.isCurrentPage = true;
                     }
 
@@ -97,8 +106,16 @@ const Paginator = function (container, pagePadding, caller) {
                 } else {
                     pages.push({
                         displayText: '&hellip;',
-                        isLink: false
+                        isLink: false,
+                        isEllipsis: true
                     });
+                    pages.push(
+                        {
+                            displayText: paginatorData.numberOfPages,
+                            start: (paginatorData.numberOfPages - 1) * paginatorData.itemsPerPage,
+                            isLink: true,
+                            isLast: true
+                        });
                 }
 
             }
@@ -109,7 +126,8 @@ const Paginator = function (container, pagePadding, caller) {
                     displayText: 'Next',
                     isNext: true,
                     start: (currentPage + 1) * paginatorData.itemsPerPage,
-                    isLink: true
+                    isLink: true,
+                    iconPath: iconSpritePath
                 });
             }
 
