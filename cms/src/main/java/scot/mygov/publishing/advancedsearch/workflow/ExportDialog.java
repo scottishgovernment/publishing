@@ -56,8 +56,8 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     //When required to add a new property in the CSV export add displayed label and corresponding property in the two lists below.
     //You might have to change #constructPropertiesList method below to add your property if it requires special handling.
 
-    private static final String[] headers = new String[]{"title", "url", "content_owner", "fact_checkers", "review_date", "official_last_modified", "created_by", "date_modified", "modified_by", "id", "state", "life_events", "organisation_tags", "format" };
-    private static final String[] documentProperties = new String[]{"title", "url", "publishing:contentOwner", "publishing:factCheckers", REVIEW_DATE_PROP, "publishing:lastUpdatedDate", HIPPOSTDPUBWF_CREATED_BY, HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents", "publishing:organisationtags", "format" };
+    private static final String[] headers = new String[]{"title", "url", "content_owner", "fact_checkers", "review_date", "official_last_modified", "created_by", "date_modified", "modified_by", "id", "state", "life_events", "organisation_tags", "format", "mirrorTargetPublished" };
+    private static final String[] documentProperties = new String[]{"title", "url", "publishing:contentOwner", "publishing:factCheckers", REVIEW_DATE_PROP, "publishing:lastUpdatedDate", HIPPOSTDPUBWF_CREATED_BY, HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents", "publishing:organisationtags", "format", "mirrorTargetPublished" };
 
     private final ResourceLink<String> exportCSVLink;
     private final ISearchContext searcher;
@@ -179,6 +179,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     }
 
     private void addProperty(Node variant, String property, String stateSummary, List<String> props) throws RepositoryException {
+        String format = variant.getPrimaryNodeType().getName();
         switch (property) {
             case "title":
                 props.add(title(variant));
@@ -195,7 +196,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                 props.add(variant.getIdentifier());
                 break;
             case "format":
-                props.add(variant.getPrimaryNodeType().getName());
+                props.add(format);
                 break;
             case HIPPOSTDPUBWF_LAST_MODIFIED_BY:
                 if ("changed".equals(stateSummary)) {
@@ -236,6 +237,10 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                 reviewDate(variant, property, props);
                 break;
 
+            case "mirrorTargetPublished":
+                props.add(getMirrorTargetPublishedState(format, variant));
+                break;
+
             default:
                 if (variant.hasProperty(property)) {
                     props.add(variant.getProperty(property).getString());
@@ -246,6 +251,24 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
         }
     }
 
+    String getMirrorTargetPublishedState(String format, Node variant) throws RepositoryException {
+        if (!"publishing:mirror".equals(format) ) {
+            return "";
+        }
+
+        String targetUuid = variant.getNode("publishing:document").getProperty("hippo:docbase").getString();
+        Session session = variant.getSession();
+        try {
+            Node mirrorTarget = session.getNodeByIdentifier(targetUuid);
+            String stateSummary = getNodeStateSummary(mirrorTarget);
+            Node mirrorTargetVariant = getVariant(mirrorTarget, stateSummary);
+            String mirrorState = mirrorTargetVariant.getProperty(HIPPOSTD_STATE).getString();
+            boolean isPublished = "published".equals(mirrorState);
+            return Boolean.toString(isPublished);
+        } catch (ItemNotFoundException e) {
+            return "x";
+        }
+    }
     private String title(Node node) throws RepositoryException {
 
         if (node.hasNode("publishing:title")) {
