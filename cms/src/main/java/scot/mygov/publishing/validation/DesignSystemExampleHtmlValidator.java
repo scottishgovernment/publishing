@@ -36,8 +36,9 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
 
             .preserveRelativeLinks(true)
             .addAttributes(SCRIPT, "type")
-            .addAttributes(":all","aria-controls","aria-current","aria-describedby","aria-hidden","aria-invalid","aria-label","aria-labelledby",
-                    "aria-required","class","data-label","data-module","id","role","tabindex","translate")
+            .addAttributes(":all","aria-controls","aria-current","aria-describedby","aria-hidden",
+                    "aria-invalid","aria-label","aria-labelledby","aria-live","aria-required",
+                    "class","data-label","data-module","id","role","tabindex","translate")
             .addAttributes("button", "disabled", "type")
             .addAttributes("div","data-disableddates","data-dateformat","data-mindate","data-maxdate","data-symbol", DATA_THRESHOLD)
             .addAttributes("form","action","method")
