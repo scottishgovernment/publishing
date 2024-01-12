@@ -8,167 +8,78 @@
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
     jcr:uuid: c68fad5e-3fb2-48b9-9356-a3fd224e7a08
-    hippostd:foldertype: []
+    hippostd:foldertype: [new-search-document]
     /search-results:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 10a6941b-f607-4116-baa7-88419966922e
-      hippo:name: Search results
-      hippo:versionHistory: 67c448be-9006-487f-9b5f-6246b15fe324
+      jcr:uuid: 32dcc5ae-6e92-4d15-884f-4ff161d9472a
+      hippo:name: search
+      hippo:versionHistory: 3a369013-4f63-489f-a044-b2a64d9ed1a1
       /search-results[1]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
-          'mix:referenceable']
-        jcr:uuid: 1a5e1954-6245-49c7-b107-81673999b135
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 312c2130-8cff-4cc9-b93e-f2b83e03122d
         hippo:availability: []
-        hippo:name: Search results
         hippostd:retainable: false
         hippostd:state: draft
-        hippostd:tags: []
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
-        hippostdpubwf:lastModificationDate: 2023-05-17T14:16:13.449+01:00
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-12T10:25:34.133Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T10:30:22.705Z
         hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
+        hippotranslation:id: 34ce7ba4-2ab1-42f0-b7ac-dae3f8bfe57c
         hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:metaDescription: asdasd
-        publishing:mygovid: MYGOV-585
-        publishing:noindex: false
-        publishing:relatedmygovids: ''
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Search results
-        publishing:serviceproviders: []
         publishing:showFeedback: true
-        publishing:showInParent: false
-        publishing:slug: search
-        publishing:summary: asdasd
-        publishing:title: Search results page
-        publishing:urlAliases:
-          type: double
-          value: []
-        publishing:userneed: ''
+        publishing:title: Search results
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: <p>asdasdasfasdf</p>
-        /publishing:relateditems:
-          jcr:primaryType: publishing:relateditems
-          publishing:title: ''
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippostd:content: <p>Some contrent in here</p>
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>No results, sorry!</p>
       /search-results[2]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
-          'mix:referenceable', 'mix:versionable']
-        jcr:uuid: 2fe1fd06-6704-490c-ad44-feea8bd36dca
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 881e6581-c93b-432f-9c7c-5b5e373cf169
         hippo:availability: [preview]
-        hippo:name: Search results
         hippostd:retainable: false
         hippostd:state: unpublished
-        hippostd:tags: []
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
-        hippostdpubwf:lastModificationDate: 2023-05-17T14:08:45.592+01:00
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-12T10:25:34.133Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T10:26:01.397Z
         hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
+        hippotranslation:id: 34ce7ba4-2ab1-42f0-b7ac-dae3f8bfe57c
         hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:metaDescription: asdasd
-        publishing:mygovid: MYGOV-585
-        publishing:noindex: false
-        publishing:relatedmygovids: ''
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Search results
-        publishing:serviceproviders: []
         publishing:showFeedback: true
-        publishing:showInParent: false
-        publishing:slug: search
-        publishing:summary: asdasd
-        publishing:title: Search results page
-        publishing:urlAliases:
-          type: double
-          value: []
-        publishing:userneed: ''
+        publishing:title: Search results
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: <p>asdasdasfasdf</p>
-        /publishing:relateditems:
-          jcr:primaryType: publishing:relateditems
-          publishing:title: ''
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippostd:content: <p>Some contrent in here</p>
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>No results, sorry!</p>
       /search-results[3]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'hippotaxonomy:classifiable',
-          'mix:referenceable']
-        jcr:uuid: 2e5bc107-34b6-4d20-842a-762a815ebcc9
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: f226af0a-113f-4338-be9d-f5e93bd9735d
         hippo:availability: [live]
-        hippo:name: Search results
         hippostd:retainable: false
         hippostd:state: published
-        hippostd:tags: []
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2020-08-17T07:16:07.324+01:00
-        hippostdpubwf:lastModificationDate: 2023-05-17T14:08:45.592+01:00
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-12T10:25:34.133Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T10:26:01.397Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2023-05-17T14:08:47.761+01:00
-        hippotranslation:id: 0b37813c-1988-456e-8ab8-52d81a971b23
+        hippostdpubwf:publicationDate: 2024-01-12T10:30:43.596Z
+        hippotranslation:id: 34ce7ba4-2ab1-42f0-b7ac-dae3f8bfe57c
         hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:metaDescription: asdasd
-        publishing:mygovid: MYGOV-585
-        publishing:noindex: false
-        publishing:relatedmygovids: ''
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Search results
-        publishing:serviceproviders: []
         publishing:showFeedback: true
-        publishing:showInParent: false
-        publishing:slug: search
-        publishing:summary: asdasd
-        publishing:title: Search results page
-        publishing:urlAliases:
-          type: double
-          value: []
-        publishing:userneed: ''
+        publishing:title: Search results
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: <p>asdasdasfasdf</p>
-        /publishing:relateditems:
-          jcr:primaryType: publishing:relateditems
-          publishing:title: ''
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippostd:content: <p>Some contrent in here</p>
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>No results, sorry!</p>
   /banners:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']

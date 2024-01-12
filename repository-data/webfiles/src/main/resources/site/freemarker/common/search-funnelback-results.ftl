@@ -21,7 +21,6 @@
     window.dataLayer[0].searchType = '${searchType}';
 </script>
 </@hst.headContribution>
-
 <#if enabled>
     <#if response??>
         <#if (response.resultPacket.resultsSummary.totalMatching)!?has_content &&
@@ -32,14 +31,7 @@
             <h2 class="visually-hidden">Search</h2>
 
             <div id="no-search-results" class="ds_no-search-results">
-                <p><strong>There are no matching results.</strong></p>
-
-                <p>Improve your search results by:</p>
-                <ul>
-                    <li>double-checking your spelling</li>
-                    <li>using fewer keywords</li>
-                    <li>searching for something less specific</li>
-                </ul>
+                <@hst.html hippohtml=document.noResultsMessage/>
             </div>
         </#if>
 
