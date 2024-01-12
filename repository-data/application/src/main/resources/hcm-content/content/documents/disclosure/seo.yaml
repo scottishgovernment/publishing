@@ -1,0 +1,40 @@
+/content/documents/disclosure/seo:
+  .meta:order-before: pageheadings
+  jcr:primaryType: hippostd:folder
+  hippostd:foldertype: [new-seo-document, new-seo-folder]
+  /home:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    /home:
+      jcr:primaryType: publishing:seo
+      jcr:mixinTypes: ['mix:versionable']
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-01-12T09:00:00.000+00:00
+      hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00.000+00:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b646409d-1333-4a99-bc7d-5f3a0fd8e622
+      hippotranslation:locale: document-type-locale
+      publishing:alt: ''
+      publishing:metaDescription: Disclosure Scotland
+      publishing:reportingtags: []
+      publishing:seoTitle: Disclosure Scotland
+      publishing:summary: Disclosure Scotland
+      publishing:title: Disclosure Scotland
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:description:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /publishing:cardImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []

@@ -114,3 +114,12 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/servicemanual/site-furniture/banners
+      /disclosure-document:
+        jcr:primaryType: hipposys:domainrule
+        /include-disclosure-banners-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/disclosure/site-furniture/banners

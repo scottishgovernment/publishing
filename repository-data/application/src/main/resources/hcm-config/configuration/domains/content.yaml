@@ -94,6 +94,13 @@ definitions:
       hipposys:filter: false
       hipposys:type: Reference
       hipposys:value: /content/documents/servicemanual/site-furniture/banners
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-disclosure-banners-folder:
+      jcr:primaryType: hipposys:facetrule
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:filter: false
+      hipposys:type: Reference
+      hipposys:value: /content/documents/disclosure/site-furniture/banners
     /hippo:configuration/hippo:domains/content/content-domain/exclude-value-lists:
       jcr:primaryType: hipposys:facetrule
       hipposys:equals: false

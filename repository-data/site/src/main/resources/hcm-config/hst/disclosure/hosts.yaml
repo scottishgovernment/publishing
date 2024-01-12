@@ -1,0 +1,122 @@
+definitions:
+  config:
+    /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/disclosure:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:mount
+      hst:mountpoint: /hst:publishing/hst:sites/disclosure
+      hst:locale: en_GB
+    /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/disclosure-preview:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:mount
+      hst:alias: disclosure-staging
+      hst:mountpoint: /hst:publishing/hst:sites/disclosure
+      hst:type: preview
+      preview-cookie-httponly: 'false'
+      preview-cookie-secure: 'false'
+      hst:locale: en_GB
+    /hst:hst/hst:hosts/lcl/scot/gov/disclosure/www:
+      /lcl:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/disclosure
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/disclosure/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/dev/scot/gov/disclosure/www:
+      /dev:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/disclosure
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/disclosure/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/int/scot/gov/disclosure/www:
+      /int:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/disclosure
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/disclosure/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/exp/scot/gov/disclosure/www:
+      /exp:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/disclosure
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/disclosure/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/uat/scot/gov/disclosure/www:
+      /uat:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/disclosure
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/disclosure/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/per/scot/gov/disclosure/www:
+      /per:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/disclosure
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/disclosure/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/tst/scot/gov/disclosure/www:
+      /tst:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/disclosure
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/disclosure/administration/analytics/dev
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/blu/scot/gov/disclosure/www:
+      /blu:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/disclosure
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/disclosure/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/grn/scot/gov/disclosure/www:
+      /grn:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/disclosure
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/disclosure/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/live/scot/gov/disclosure/www:
+      /live:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/disclosure
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/disclosure/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/origin/scot/gov/disclosure/www:
+      /origin:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/disclosure
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/disclosure/administration/analytics/live
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/production/scot/gov/disclosure/www:
+      /hst:root:
+        jcr:primaryType: hst:mount
+        hst:mountpoint: /hst:publishing/hst:sites/disclosure
+        hst:schemeagnostic: true
+        publishing:gtm: /content/documents/disclosure/administration/analytics/live
+        hst:locale: en_GB
