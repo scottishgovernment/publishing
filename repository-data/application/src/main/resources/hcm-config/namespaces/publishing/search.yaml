@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 63d4ce44-a6d5-41fe-921f-4e3be2d839a3
+          jcr:uuid: b5c7efd1-644a-4076-aaa2-5404597070a4
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -49,6 +49,14 @@ definitions:
             hipposysedit:path: publishing:noResultsMessage
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /html:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:blankSearchQueryMessage
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -61,7 +69,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           publishing:title: ''
-          jcr:uuid: 5202e315-c728-4601-a22b-c0980e4c00d4
+          jcr:uuid: 1f79632a-87b5-4f12-a2c2-0d4ecaf681b2
           hippostdpubwf:lastModificationDate: 2020-09-02T08:59:50.853+01:00
           hippostdpubwf:creationDate: 2020-09-02T08:59:50.853+01:00
           publishing:showFeedback: true
@@ -69,6 +77,9 @@ definitions:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
           /publishing:noResultsMessage:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+          /publishing:blankSearchQueryMessage:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
       /editor:templates:
@@ -105,6 +116,15 @@ definitions:
             caption: No results message
             field: noResultsMessage
             hint: Content that is shown if no results are found
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /blankSearchQueryMessage:
+            jcr:primaryType: frontend:plugin
+            caption: Blank search query message
+            field: html
+            hint: Content that is shown is no search term has been supplied
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

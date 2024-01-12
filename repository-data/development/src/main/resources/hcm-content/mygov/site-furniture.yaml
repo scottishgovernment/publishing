@@ -14,7 +14,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 32dcc5ae-6e92-4d15-884f-4ff161d9472a
       hippo:name: search
-      hippo:versionHistory: 3a369013-4f63-489f-a044-b2a64d9ed1a1
+      hippo:versionHistory: cfc65ba0-b5ce-48e7-bb0f-5390238c7c16
       /search-results[1]:
         jcr:primaryType: publishing:search
         jcr:mixinTypes: ['mix:referenceable']
@@ -22,10 +22,9 @@
         hippo:availability: []
         hippostd:retainable: false
         hippostd:state: draft
-        hippostd:transferable: false
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2024-01-12T10:25:34.133Z
-        hippostdpubwf:lastModificationDate: 2024-01-12T10:30:22.705Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T13:22:52.429Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 34ce7ba4-2ab1-42f0-b7ac-dae3f8bfe57c
         hippotranslation:locale: document-type-locale
@@ -37,6 +36,12 @@
         /publishing:noResultsMessage:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>No results, sorry!</p>
+        /publishing:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>You must enter a search term</p>
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Enter a search term</p>
       /search-results[2]:
         jcr:primaryType: publishing:search
         jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -46,7 +51,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2024-01-12T10:25:34.133Z
-        hippostdpubwf:lastModificationDate: 2024-01-12T10:26:01.397Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T13:23:01.537Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 34ce7ba4-2ab1-42f0-b7ac-dae3f8bfe57c
         hippotranslation:locale: document-type-locale
@@ -58,6 +63,12 @@
         /publishing:noResultsMessage:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>No results, sorry!</p>
+        /publishing:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>You must enter a search term</p>
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Enter a search term</p>
       /search-results[3]:
         jcr:primaryType: publishing:search
         jcr:mixinTypes: ['mix:referenceable']
@@ -67,9 +78,9 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2024-01-12T10:25:34.133Z
-        hippostdpubwf:lastModificationDate: 2024-01-12T10:26:01.397Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T13:23:01.537Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2024-01-12T10:30:43.596Z
+        hippostdpubwf:publicationDate: 2024-01-12T13:23:03.711Z
         hippotranslation:id: 34ce7ba4-2ab1-42f0-b7ac-dae3f8bfe57c
         hippotranslation:locale: document-type-locale
         publishing:showFeedback: true
@@ -80,6 +91,12 @@
         /publishing:noResultsMessage:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>No results, sorry!</p>
+        /publishing:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>You must enter a search term</p>
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Enter a search term</p>
   /banners:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
