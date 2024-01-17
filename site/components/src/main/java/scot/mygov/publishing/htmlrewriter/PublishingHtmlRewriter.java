@@ -55,7 +55,7 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
             }
 
             String slug = getStepByStepSlug(node);
-            return rewriteStepByStepLinks(html, slug);
+            return slug != null ? rewriteStepByStepLinks(html, slug) : html;
         } catch (RepositoryException e) {
             LOG.error("failed to rewrite step by step links", e);
             return html;
@@ -63,10 +63,8 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
     }
 
     String getStepByStepSlug(Node node) throws RepositoryException {
-        return node
-                .getParent()
-                .getParent()
-                .getProperty("publishing:slug").getString();
+        Node doc = node.getParent().getParent();
+        return doc.hasProperty("publishing:slug") ? doc.getProperty("publishing:slug").getString() : null;
     }
 
     boolean isStep(Node node) throws RepositoryException {
