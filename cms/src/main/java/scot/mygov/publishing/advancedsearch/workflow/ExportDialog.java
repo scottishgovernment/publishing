@@ -56,8 +56,8 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     //When required to add a new property in the CSV export add displayed label and corresponding property in the two lists below.
     //You might have to change #constructPropertiesList method below to add your property if it requires special handling.
 
-    private static final String[] headers = new String[]{"title", "url", "content_owner", "fact_checkers", "review_date", "official_last_modified", "created_by", "date_modified", "modified_by", "id", "state", "life_events", "organisation_tags", "format", "mirrorTargetPublished" };
-    private static final String[] documentProperties = new String[]{"title", "url", "publishing:contentOwner", "publishing:factCheckers", REVIEW_DATE_PROP, "publishing:lastUpdatedDate", HIPPOSTDPUBWF_CREATED_BY, HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents", "publishing:organisationtags", "format", "mirrorTargetPublished" };
+    private static final String[] headers = new String[]{"title", "url", "content_owner", "fact_checkers", "review_date", "official_last_modified", "created_by", "date_modified", "modified_by", "id", "state", "life_events", "organisation_tags", "format", "mirrorTargetPublished", "mirrorTarget" };
+    private static final String[] documentProperties = new String[]{"title", "url", "publishing:contentOwner", "publishing:factCheckers", REVIEW_DATE_PROP, "publishing:lastUpdatedDate", HIPPOSTDPUBWF_CREATED_BY, HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents", "publishing:organisationtags", "format", "mirrorTargetPublished", "mirrorTarget" };
 
     private final ResourceLink<String> exportCSVLink;
     private final ISearchContext searcher;
@@ -241,6 +241,11 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                 props.add(getMirrorTargetPublishedState(format, variant));
                 break;
 
+            case "mirrorTarget":
+                props.add(getMirrorTarget(format, variant));
+                break;
+
+
             default:
                 if (variant.hasProperty(property)) {
                     props.add(variant.getProperty(property).getString());
@@ -248,6 +253,22 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                     props.add("");
                 }
                 break;
+        }
+    }
+
+    String getMirrorTarget(String format, Node variant) throws RepositoryException {
+
+        if (!"publishing:mirror".equals(format) ) {
+            return "";
+        }
+        String targetUuid = variant.getNode("publishing:document").getProperty("hippo:docbase").getString();
+        Session session = variant.getSession();
+        try {
+            Node mirrorTarget = session.getNodeByIdentifier(targetUuid);
+            return mirrorTarget.getPath();
+        } catch (ItemNotFoundException e) {
+            LOG.warn("Error generating csv export for mirror", e);
+            return "";
         }
     }
 
@@ -266,7 +287,8 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
             boolean isPublished = "published".equals(mirrorState);
             return Boolean.toString(isPublished);
         } catch (ItemNotFoundException e) {
-            return "x";
+            LOG.warn("Error generating csv export for mirror", e);
+            return "";
         }
     }
     private String title(Node node) throws RepositoryException {
@@ -293,8 +315,8 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
             return;
         }
         Calendar reviewDate = variant.hasProperty(property)
-                    ? variant.getProperty(property).getDate()
-                    : null;
+                ? variant.getProperty(property).getDate()
+                : null;
 
         if (reviewDate != null) {
             props.add(DateTimePrinter.of(reviewDate).print());
