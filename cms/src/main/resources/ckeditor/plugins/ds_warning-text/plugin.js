@@ -39,16 +39,18 @@ CKEDITOR.plugins.add('ds_warning-text', {
                 if (selection) {
                     const range = selection.getRanges()[0];
 
-                    if (!range.collapsed) {
-                        this.parts.content.setHtml(range.cloneContents().getHtml());
-                    } else if (range.startContainer.type === CKEDITOR.NODE_TEXT) {
-                        // expand to nearest block-level element
-                        var iterator = range.createIterator();
-                        var block;
+                    if (range) {
+                        if (!range.collapsed) {
+                            this.parts.content.setHtml(range.cloneContents().getHtml());
+                        } else if (range.startContainer.type === CKEDITOR.NODE_TEXT) {
+                            // expand to nearest block-level element
+                            var iterator = range.createIterator();
+                            var block;
 
-                        while ((block = iterator.getNextParagraph())) {
-                            this.parts.content.setHtml(block.getHtml());
-                            block.remove();
+                            while ((block = iterator.getNextParagraph())) {
+                                this.parts.content.setHtml(block.getHtml());
+                                block.remove();
+                            }
                         }
                     }
                 }
