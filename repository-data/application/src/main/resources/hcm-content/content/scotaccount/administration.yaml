@@ -1,7 +1,7 @@
 /content/documents/scotaccount/administration:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
-  hippostd:foldertype: [new-resource-bundle, new-untranslated-folder]
+  hippostd:foldertype: [new-siteverification-document]
   /robots:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -11,10 +11,10 @@
       hippo:availability: [live]
       hippostd:state: published
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2023-05-24T09:00:00.000+01:00
-      hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00.000+01:00
+      hippostdpubwf:creationDate: 2023-05-24T09:00:00+01:00
+      hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2023-05-24T09:00:00.000+01:00
+      hippostdpubwf:publicationDate: 2023-05-24T09:00:00+01:00
       robotstxt:sitemap: ['https://scotaccount.campaign.gov.scot/sitemap.xml']
       /robotstxt:section:
         jcr:primaryType: robotstxt:section
@@ -32,10 +32,10 @@
         hippo:availability: [live]
         hippostd:state: published
         hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2023-07-25T09:00:00.000+01:00
-        hippostdpubwf:lastModificationDate: 2023-07-25T09:00:00.000+01:00
+        hippostdpubwf:creationDate: 2023-07-25T09:00:00+01:00
+        hippostdpubwf:lastModificationDate: 2023-07-25T09:00:00+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2023-07-25T09:00:00.000+01:00
+        hippostdpubwf:publicationDate: 2023-07-25T09:00:00+01:00
         hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
         hippotranslation:locale: document-type-locale
         publishing:auth: ''
@@ -52,10 +52,10 @@
         hippo:availability: [live]
         hippostd:state: published
         hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2023-07-25T09:00:00.000+01:00
-        hippostdpubwf:lastModificationDate: 2023-07-25T09:00:00.000+01:00
+        hippostdpubwf:creationDate: 2023-07-25T09:00:00+01:00
+        hippostdpubwf:lastModificationDate: 2023-07-25T09:00:00+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2023-07-25T09:00:00.000+01:00
+        hippostdpubwf:publicationDate: 2023-07-25T09:00:00+01:00
         hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
         hippotranslation:locale: document-type-locale
         publishing:auth: ''
