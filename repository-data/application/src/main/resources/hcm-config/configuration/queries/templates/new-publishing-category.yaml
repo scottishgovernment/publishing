@@ -20,7 +20,7 @@ definitions:
           jcr:primaryType: hippostd:folder
           jcr:mixinTypes: ['mix:versionable']
           jcr:uuid: 34c35f9e-2ed3-4a4d-9b29-0f0b5d98275f
-          hippostd:foldertype: [new-publishing-article, new-publishing-category]
+          hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-documents-folder, new-fragment-folder]
           /index:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']

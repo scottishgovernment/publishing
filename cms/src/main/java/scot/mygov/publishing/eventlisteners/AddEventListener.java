@@ -45,6 +45,12 @@ public class AddEventListener {
 
     private static final String NEW_STEPBYSTEP = "new-publishing-stepbystepguide";
 
+    private static final String NEW_DOCUMENT_COVER_PAGE = "new-publishing-documentcoverpage";
+
+    private static final String NEW_DOCUMENTS_FOLDER = "new-publishing-documents-folder";
+
+    private static final String NEW_FRAGMENTS_FOLDER = "new-fragment-folder";
+
     protected HippoUtils hippoUtils;
 
     Set<String> orgFormats = new HashSet<>();
@@ -143,15 +149,16 @@ public class AddEventListener {
         String [] folderTypes = canCreateChildCategories(folder)
                                 ? allActions()
                                 : actionsWithoutNewCategory();
+        // combine with existing actions
         folder.setProperty("hippostd:foldertype", folderTypes);
     }
 
     String [] allActions() {
-        return new String[] { NEW_ARTICLE, NEW_CATEGORY, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE, NEW_FAIRRENT, NEW_SMARTANSWER, NEW_STEPBYSTEP };
+        return new String[] { NEW_ARTICLE, NEW_CATEGORY, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE, NEW_FAIRRENT, NEW_SMARTANSWER, NEW_STEPBYSTEP, NEW_DOCUMENT_COVER_PAGE, NEW_DOCUMENTS_FOLDER, NEW_FRAGMENTS_FOLDER };
     }
 
     String [] actionsWithoutNewCategory() {
-        return new String[] { NEW_ARTICLE, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE, NEW_FAIRRENT, NEW_SMARTANSWER, NEW_STEPBYSTEP };
+        return new String[] { NEW_ARTICLE, NEW_GUIDE, NEW_MIRROR, NEW_FORMBASE, NEW_FAIRRENT, NEW_SMARTANSWER, NEW_STEPBYSTEP, NEW_DOCUMENT_COVER_PAGE, NEW_DOCUMENTS_FOLDER, NEW_FRAGMENTS_FOLDER };
     }
 
     void setNavigationStyle(Node folder) throws RepositoryException {
