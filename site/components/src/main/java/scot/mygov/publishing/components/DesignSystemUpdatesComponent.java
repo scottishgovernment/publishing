@@ -7,6 +7,7 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.util.ObjectConverterUtils;
+import org.hippoecm.repository.util.DateTools;
 import org.onehippo.cms7.essentials.components.CommonComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,14 +18,12 @@ import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
-import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.*;
 
 import static java.util.Collections.singletonList;
+import static org.apache.commons.lang.StringUtils.isNotBlank;
 
 @ParametersInfo(type = DesignSystemUpdatesComponentInfo.class)
 public class DesignSystemUpdatesComponent extends CommonComponent {
@@ -32,13 +31,9 @@ public class DesignSystemUpdatesComponent extends CommonComponent {
     private static final Logger LOG = LoggerFactory.getLogger(DesignSystemUpdatesComponent.class);
 
     private static final String XPATH_TEMPLATE =
-            "/jcr:root/content/documents/designsystem//element(*,publishing:dsarticle)" +
-            "/element(*,publishing:UpdateHistory)" +
-            "[@publishing:lastUpdated >= xs:dateTime('%s')]" +
-            "/publishing:updateTextLong[jcr:contains(@hippostd:content, '*')]/.. " +
+            "/jcr:root/content/documents/designsystem//element(*,publishing:UpdateHistory)" +
+            "[@%s >= %s]" +
             "order by @publishing:lastUpdated descending";
-
-    private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX");
 
     private final ObjectConverter objectConverter = ObjectConverterUtils.createObjectConverter(singletonList(UpdateHistory.class));
 
@@ -62,28 +57,41 @@ public class DesignSystemUpdatesComponent extends CommonComponent {
         }
     }
 
-    List<UpdateHistory> doGetUpdates(HstRequest request, int limit) throws RepositoryException, ObjectBeanManagerException{
-        NodeIterator it = query(request, limit).execute().getNodes();
+    List<UpdateHistory> doGetUpdates(HstRequest request, int limit) throws RepositoryException, ObjectBeanManagerException {
+        NodeIterator it = query(request, 50).execute().getNodes();
         List<UpdateHistory> results = new ArrayList<>();
         while (it.hasNext()) {
             Node node = it.nextNode();
-            results.add((UpdateHistory) objectConverter.getObject(node));
+            UpdateHistory history = (UpdateHistory) objectConverter.getObject(node);
+            if (isNotBlank(history.getUpdateTextLong().getContent())) {
+                results.add(history);
+            }
         }
-        Collections.sort(results, Comparator.comparing(UpdateHistory::getLastUpdated).reversed());
-        return results;
+
+        if (results.size() > limit) {
+            return results.subList(0, limit);
+        } else {
+            return results;
+        }
     }
 
     Query query(HstRequest request, int limit) throws RepositoryException {
         HstRequestContext context = request.getRequestContext();
-        String xpath = String.format(XPATH_TEMPLATE, threeMonthsAgoString());
+        Calendar cutoff = threeMonthsAgo();
+        String xpathProperty = DateTools.getPropertyForResolution("publishing:lastUpdated", DateTools.Resolution.DAY);
+        String xpathDate = DateTools.createXPathConstraint(request.getRequestContext().getSession(), cutoff, DateTools.Resolution.DAY);
+        String xpath = String.format(XPATH_TEMPLATE, xpathProperty, xpathDate);
         QueryManager queryManager = context.getSession().getWorkspace().getQueryManager();
         Query query = queryManager.createQuery(xpath, Query.XPATH);
         query.setLimit(limit);
         return query;
     }
 
-    String threeMonthsAgoString() {
-        OffsetDateTime offsetDateTime = OffsetDateTime.now().minusMonths(3).withHour(0).withMinute(0).withSecond(0);
-        return DATE_FORMAT.format(offsetDateTime);
+    Calendar threeMonthsAgo() {
+        LocalDate threeMonthsAgo = LocalDate.now().minusMonths(3);
+        Date d = Date.from(threeMonthsAgo.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(d);
+        return cal;
     }
 }
