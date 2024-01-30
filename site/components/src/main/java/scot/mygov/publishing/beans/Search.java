@@ -6,7 +6,7 @@ import org.hippoecm.hst.content.beans.standard.HippoHtml;
 
 @HippoEssentialsGenerated(internalName = "publishing:search")
 @Node(jcrType = "publishing:search")
-public class Search extends BaseDocument {
+public class Search extends Base {
     @HippoEssentialsGenerated(internalName = "publishing:title")
     public String getTitle() {
         return getSingleProperty("publishing:title");
