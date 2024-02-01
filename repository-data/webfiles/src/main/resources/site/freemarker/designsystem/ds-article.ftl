@@ -81,6 +81,7 @@
                     <#list document.contentblocks as contentblock>
                         <#if hst.isNodeType(contentblock.node, 'publishing:dsexampleblock')>
                             <!-- example block -->
+                            <!--noindex-->
                             <@hst.link var="example" hippobean=contentblock.example/>
                             <figure class="example  overflow--large--2 overflow--xlarge--2">
                                 <div class="example__content">
@@ -119,6 +120,7 @@
                                     </div>
                                 </div>
                             </figure>
+                            <!--endnoindex-->
                             <!-- end example block -->
                         </#if>
 
