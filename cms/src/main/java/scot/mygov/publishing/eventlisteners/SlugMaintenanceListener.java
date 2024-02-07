@@ -125,14 +125,14 @@ public class SlugMaintenanceListener {
         Node variant = subject.getNode(subject.getName());
         return variant.isNodeType("publishing:guidepage")
                 ? guidePageSlug(subject, variant)
-                : variant.getProperty("publishing:slug").getString();
+                : variant.getProperty(SLUG).getString();
     }
 
     String guidePageSlug(Node subject, Node variant) throws RepositoryException {
         String slug = variant.getName();
         Node guideFolder = subject.getParent();
         Node guide = guideFolder.getNode("index").getNode("index");
-        String guideSlug = guide.getProperty("publishing:slug").getString();
+        String guideSlug = guide.getProperty(SLUG).getString();
         return guideSlug + "/" + slug;
     }
 
