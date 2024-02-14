@@ -2,6 +2,9 @@
 <#include "include/imports.ftl">
 <#include "macros/lang-attributes.ftl">
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <!--noindex-->
 <div class="ds_layout__sidebar">
 
@@ -112,4 +115,5 @@
 </#if>
 
 </div>
+</@hst.messagesReplace>
 <!--endnoindex-->

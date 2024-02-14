@@ -1,8 +1,11 @@
 <#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
 <#include "../common/macros/lang-attributes.ftl">
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+
 <!--noindex-->
 <#if document??>
+    <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
     <div class="example-frame__intro">
         <h1 class="visually-hidden">
             ${document.title}
@@ -12,6 +15,7 @@
     <div class="example-frame__content  <#if document.cssclass??>${document.cssclass}</#if>">
         ${document.code?no_esc}
     </div>
+    </@hst.messagesReplace>
 
     <#if document.script?has_content>
         <@hst.headContribution category="footerScripts">

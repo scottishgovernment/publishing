@@ -15,6 +15,7 @@ definitions:
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          hipposysedit:validators: [variables-validator]
           /slug:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false

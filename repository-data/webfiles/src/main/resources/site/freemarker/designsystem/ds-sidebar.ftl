@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#if navigation.children?size gt 0>
 <!--noindex-->
     <div class="ds_layout__sidebar">
@@ -46,3 +48,4 @@
     </div>
 <!--endnoindex-->
 </#if>
+</@hst.messagesReplace>

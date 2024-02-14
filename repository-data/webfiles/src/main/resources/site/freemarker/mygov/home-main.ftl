@@ -3,6 +3,8 @@
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#if document??>
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
 
@@ -104,6 +106,7 @@
 
     </main>
 </div>
+</@hst.messagesReplace>
 </#if>
 
 <#assign scriptName="home">

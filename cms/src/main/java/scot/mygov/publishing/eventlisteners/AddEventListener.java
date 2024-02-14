@@ -110,12 +110,10 @@ public class AddEventListener {
             return;
         }
 
-        if (hasOrganisationsTags(node)) {
+        if (hasOrganisationsTags(node) || node.isNodeType("resourcebundle:resourcebundle")) {
             addRequiredOrganisations(node);
             session.save();
-            return;
         }
-
     }
 
     boolean isGuideOrSmartAnswer(Node node) throws RepositoryException {

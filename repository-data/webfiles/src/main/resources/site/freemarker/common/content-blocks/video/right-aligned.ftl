@@ -2,6 +2,10 @@
 <#include "../../include/imports.ftl">
 <#include "../../include/cms-placeholders.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
+
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Video" -->
 
 <div class="ds_cb  ds_cb--video
@@ -57,3 +61,4 @@
         </div>
     </div>
 </div>
+</@hst.messagesReplace>

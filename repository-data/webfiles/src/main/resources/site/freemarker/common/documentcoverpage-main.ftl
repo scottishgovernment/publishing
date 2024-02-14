@@ -4,6 +4,8 @@
 <#include "macros/lang-attributes.ftl">
 
 <#if document??>
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
@@ -185,6 +187,7 @@
         </main>
     </div>
 </div>
+</@hst.messagesReplace>
 
 <@hst.headContribution category="meta">
     <meta name="dc.format" content="Documents"/>

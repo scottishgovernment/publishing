@@ -1,5 +1,7 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 
 <ol class="ds_category-list  ds_category-list--grid  ds_category-list--narrow">
     <#list children as child>
@@ -33,3 +35,4 @@
         </li>
     </#list>
 </ol>
+</@hst.messagesReplace>

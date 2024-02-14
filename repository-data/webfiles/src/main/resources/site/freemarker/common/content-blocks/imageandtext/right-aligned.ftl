@@ -1,6 +1,9 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "../../include/cms-placeholders.ftl">
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Imageandtext" -->
 
 <div class="ds_cb  ds_cb--image-text
@@ -53,3 +56,4 @@
         </div>
     </div>
 </div>
+</@hst.messagesReplace>

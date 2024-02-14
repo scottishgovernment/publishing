@@ -2,8 +2,12 @@
 <#include "include/imports.ftl">
 
 <#if document??>
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
+
 
     <main id="main-content">
 
@@ -86,6 +90,7 @@
     <meta name="dc.format" content="Category"/>
 </@hst.headContribution>
 
+</@hst.messagesReplace>
 </#if>
 
 <#assign scriptName="category">

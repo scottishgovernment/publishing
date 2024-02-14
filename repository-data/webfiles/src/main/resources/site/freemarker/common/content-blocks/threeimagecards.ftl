@@ -5,7 +5,8 @@
 <#-- @ftlvariable name="card" type="scot.mygov.publishing.beans.Navigationcard" -->
 <#-- @ftlvariable name="document2" type="scot.mygov.publishing.beans.Navigationcard" -->
 <#-- @ftlvariable name="document3" type="scot.mygov.publishing.beans.Navigationcard" -->
-
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#assign cards = []>
 <#if document1??>
     <#assign cards = cards + [document1]>
@@ -101,3 +102,4 @@
     </div>
 </div>
 </#if>
+</@hst.messagesReplace>

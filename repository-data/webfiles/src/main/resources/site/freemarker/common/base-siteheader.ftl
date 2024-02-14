@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 
 <@hst.link var="home" siteMapItemRefId="root" />
 <header class="ds_site-header" role="banner">
@@ -41,3 +43,4 @@
 
     <@hst.include ref="menu"/>
 </header>
+</@hst.messagesReplace>

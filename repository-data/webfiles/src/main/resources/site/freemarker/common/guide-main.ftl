@@ -3,6 +3,9 @@
 <#include "macros/lang-attributes.ftl">
 
 <#if document??>
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
 
@@ -119,6 +122,7 @@
         </main>
     </div>
 </div>
+</@hst.messagesReplace>
 
 <@hst.headContribution category="meta">
     <meta name="dc.format" content="Guide"/>
@@ -126,10 +130,14 @@
 
 <#if guide?? && !firstPage >
 <@hst.headContribution category="meta">
+    <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
     <meta name="dc.title.series" content="${guide.title}"/>
+    </@hst.messagesReplace>
 </@hst.headContribution>
 <@hst.headContribution category="meta">
+    <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
     <meta name="dc.title.series.link" content="<@hst.link hippobean=guide/>"/>
+    </@hst.messagesReplace>
 </@hst.headContribution>
 </#if>
 <#if guide.lastUpdatedDate??>

@@ -1,10 +1,12 @@
 package scot.mygov.publishing.htmlrewriter;
 
 import org.hippoecm.hst.configuration.hosting.Mount;
+import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.rewriter.impl.SimpleContentRewriter;
 import org.hippoecm.hst.core.request.HstRequestContext;
 
+import org.hippoecm.hst.utils.MessageUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -16,9 +18,11 @@ import scot.mygov.publishing.beans.StepByStepGuide;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 
 import static org.apache.commons.lang3.StringUtils.startsWith;
 import static org.hippoecm.repository.HippoStdNodeType.HIPPOSTD_STATE;
+import static scot.gov.variables.VariablesHelper.getVariablesResourceBundle;
 
 /**
  * Rewrite html to support publishing specific behaviours:
@@ -44,7 +48,22 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
         }
 
         html = rewriteStepByStep(html, node, requestContext);
+        html = replaceVariables(html);
         return super.rewrite(html, node, requestContext, targetMount);
+    }
+
+    private String replaceVariables(final String html){
+        return (html.contains("[[") && html.contains("]]")) ? getReplaceTextWithValue(html) : html;
+    }
+
+    public static String getReplaceTextWithValue(String text) {
+        try {
+            Session session = RequestContextProvider.get().getSession();
+            return MessageUtils.replaceMessagesByBundle(getVariablesResourceBundle(session), text, "[[", "]]");
+        } catch (RepositoryException e) {
+            LOG.error("Failed ot get session for getReplaceTextWithValue", e);
+            return text;
+        }
     }
 
     public String rewriteStepByStep(String html, Node node, HstRequestContext requestContext) {

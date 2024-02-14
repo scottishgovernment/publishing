@@ -2,6 +2,8 @@
 
 <#include "../common/macros/lang-attributes.ftl">
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#-- process update history -->
 <#assign sortedUpdateHistory = document.updateHistory?sort_by('lastUpdated') />
 <#assign firstPublished = sortedUpdateHistory?first />
@@ -46,3 +48,5 @@
     </dl>
 </div>
 </#if>
+</@hst.messagesReplace>
+

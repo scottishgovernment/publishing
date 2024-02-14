@@ -3,6 +3,8 @@
 
 <@hst.include ref="seo"/>
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <main id="main-content">
     <div class="ds_cb  ds_cb--page-title">
         <div class="ds_wrapper">
@@ -81,3 +83,4 @@
         </div>
     </div>
 </main>
+</@hst.messagesReplace>

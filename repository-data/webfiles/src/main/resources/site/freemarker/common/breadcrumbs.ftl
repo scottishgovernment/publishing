@@ -1,8 +1,10 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#assign variables = hstRequestContext.getAttribute("variables")/>
 
 <#-- @ftlvariable name="breadcrumb" type="org.onehippo.forge.breadcrumb.om.Breadcrumb" -->
 <#if breadcrumbs??>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <!--noindex-->
 <div class="ds_wrapper">
     <nav aria-label="Breadcrumb">
@@ -27,11 +29,12 @@
     </nav>
 </div>
 <!--endnoindex-->
-
+</@hst.messagesReplace>
 </#if>
 
 <@hst.headContribution category="schema">
 <#if breadcrumbs??>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <script type="application/ld+json">
     {
         "@context": "http://schema.org",
@@ -60,5 +63,6 @@
         ]
     }
 </script>
+</@hst.messagesReplace>
 </#if>
 </@hst.headContribution>

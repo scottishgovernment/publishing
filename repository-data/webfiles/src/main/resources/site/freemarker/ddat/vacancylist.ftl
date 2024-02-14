@@ -9,6 +9,8 @@
 <#-- @ftlvariable name="pageable" type="org.onehippo.cms7.essentials.components.paging.Pageable" -->
 <#-- @ftlvariable name="item" type="scot.mygov.publishing.beans.Base" -->
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#if pageable?? && pageable.items?has_content>
     <#list pageable.items as item>
         <div class="ds_cb  ds_cb--text">
@@ -83,6 +85,7 @@
 
     <@hst.include ref="seo"/>
 </#if>
+</@hst.messagesReplace>
 
 <@hst.headContribution category="footerScripts">
     <script type="module" src='<@hst.webfile path="assets/scripts/global.js"/>'></script>

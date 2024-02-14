@@ -1,6 +1,9 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <!--noindex-->
 <#if stepBySteps?? && stepBySteps?size gt 0>
 <aside class="ds_callout  ds_step-navigation-top" aria-labelledby="step-navigation-topbar">
@@ -16,4 +19,5 @@
     </#if>
 </aside>
 </#if>
+</@hst.messagesReplace>
 <!--endnoindex-->

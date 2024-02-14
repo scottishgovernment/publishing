@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#if updates?size gt 0>
     <div class="ds_cb  ds_cb--text">
         <div class="ds_wrapper">
@@ -23,3 +25,4 @@
         </div>
     </div>
 </#if>
+</@hst.messagesReplace>

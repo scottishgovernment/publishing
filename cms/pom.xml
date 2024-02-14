@@ -36,6 +36,12 @@
   <dependencies>
 
     <dependency>
+      <groupId>scot.mygov.publishing</groupId>
+      <artifactId>variable-interpolation</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>publishing-cms-dependencies</artifactId>
       <version>${project.version}</version>

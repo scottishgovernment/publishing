@@ -2,6 +2,9 @@
 <#include "include/imports.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <#macro dynamicResultsForItem item>
     <#list item.dynamicresults as dynamicresult>
         <@hst.html hippohtml=dynamicresult.prologue/>
@@ -202,10 +205,13 @@
     </div>
 </div>
 </#if>
+</@hst.messagesReplace>
 
 <@hst.headContribution category="meta">
     <#if document??>
+        <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
         <meta name="description" content="${document.metaDescription}" />
+        </@hst.messagesReplace>
     </#if>
 </@hst.headContribution>
 

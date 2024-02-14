@@ -4,6 +4,8 @@
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Video" -->
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <div class="ds_cb  ds_cb--video
 <#if backgroundcolor?? && backgroundcolor?length gt 0>  ds_cb--bg-${backgroundcolor}</#if>
 <#if foregroundcolor?? && foregroundcolor?length gt 0>  ds_cb--fg-${foregroundcolor}</#if>
@@ -56,3 +58,4 @@
         </div>
     </div>
 </div>
+</@hst.messagesReplace>

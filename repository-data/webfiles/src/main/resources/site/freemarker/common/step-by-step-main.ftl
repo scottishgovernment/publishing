@@ -1,6 +1,9 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <#if document??>
 
 <div class="cms-editable">
@@ -104,11 +107,12 @@
     </div>
 </div>
 
-    <@hst.headContribution category="meta">
-    <meta name="dc.format" content="StepByStep"/>
-    </@hst.headContribution>
+<@hst.headContribution category="meta">
+<meta name="dc.format" content="StepByStep"/>
+</@hst.headContribution>
 
 </#if>
+</@hst.messagesReplace>
 
 <@hst.headContribution category="resourcehints">
     <#if nextlink??>

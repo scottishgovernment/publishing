@@ -10,7 +10,10 @@
 
   <name>Digital Publishing</name>
   <description>Digital Publishing</description>
-  <groupId>scot.mygov.publishing</groupId>
+    <modules>
+        <module>variable-interpolation</module>
+    </modules>
+    <groupId>scot.mygov.publishing</groupId>
   <artifactId>publishing</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>

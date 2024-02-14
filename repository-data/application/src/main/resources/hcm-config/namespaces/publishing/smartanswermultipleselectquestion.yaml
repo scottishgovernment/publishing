@@ -16,6 +16,7 @@ definitions:
           hipposysedit:supertype: ['publishing:smartanswerquestion', 'hippostd:relaxed',
             'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          hipposysedit:validators: [variables-validator]
           /defaultNextPage:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false

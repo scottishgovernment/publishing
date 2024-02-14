@@ -1,17 +1,27 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+
+
 <#if contentBean??>
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+
     <#if contentBean.title??>
         <@hst.headContribution category="meta">
-            <meta name="dc.title" content="${contentBean.title}"/>
+            <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+            <meta name="dc.title" content="${contentBean.title}?"/>
+            </@hst.messagesReplace>
         </@hst.headContribution>
     </#if>
 
     <@hst.headContribution category="meta">
         <#if contentBean.summary?has_content>
+            <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
             <meta name="dc.description" content="${contentBean.summary}"/>
+            </@hst.messagesReplace>
         <#elseif contentBean.metaDescription?has_content>
+            <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
             <meta name="dc.description" content="${contentBean.metaDescription}"/>
+            </@hst.messagesReplace>
         </#if>
     </@hst.headContribution>
 
@@ -31,7 +41,9 @@
     </#if>
     <#if contentBean?? && contentBean.metaDescription??>
         <@hst.headContribution category="meta">
+        <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
         <meta name="description" content="${contentBean.metaDescription}"/>
+        </@hst.messagesReplace>
         </@hst.headContribution>
     </#if>
     <#if contentBean?? && contentBean.noindex?? && contentBean.noindex = true>
@@ -41,7 +53,9 @@
     </#if>
     <#if contentBean?? && contentBean.title??>
         <@hst.headContribution category="meta">
+        <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
         <meta name="dc.title" content="${contentBean.title}"/>
+        </@hst.messagesReplace>
         </@hst.headContribution>
     </#if>
 
@@ -58,11 +72,15 @@
             <meta property="og:type" content="website" />
         </@hst.headContribution>
         <@hst.headContribution category="facebookMeta">
+            <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
             <meta property="og:title" content="${pagetitle}" />
+            </@hst.messagesReplace>
         </@hst.headContribution>
         <#if contentBean?? && contentBean.metaDescription??>
             <@hst.headContribution category="facebookMeta">
+            <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
             <meta property="og:description" content="${contentBean.metaDescription}" />
+            </@hst.messagesReplace>
             </@hst.headContribution>
         </#if>
         <@hst.headContribution category="facebookMeta">
@@ -81,19 +99,26 @@
             <meta property="twitter:url" content="${canonical}"/>
         </@hst.headContribution>
         <@hst.headContribution category="twitterMeta">
+            <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
             <meta name="twitter:title" content="${pagetitle}"/>
+            </@hst.messagesReplace>
         </@hst.headContribution>
         <#if contentBean?? && contentBean.metaDescription??>
             <@hst.headContribution category="twitterMeta">
+            <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
             <meta name="twitter:description" content="${contentBean.metaDescription}"/>
+            </@hst.messagesReplace>
             </@hst.headContribution>
         </#if>
         <@hst.headContribution category="twitterMeta">
         <meta name="twitter:image" content="<@hst.link hippobean=cardImage.original fullyQualified=true />" />
         </@hst.headContribution>
     </#if>
+
     <@hst.headContribution category="title">
+    <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
     <title>${titletag}</title>
+    </@hst.messagesReplace>
     </@hst.headContribution>
 
     <@hst.headContribution category="title">

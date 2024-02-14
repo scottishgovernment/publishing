@@ -1,0 +1,688 @@
+/content/documents/var/socsec:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: b608b413-a078-4e75-b94c-04505f71da81
+  hippo:name: Social Security
+  hippostd:foldertype: [new-resource-bundle]
+  /beststartfoods:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: f137d346-364d-4d9f-a875-c60824629806
+    hippo:name: Best start foods
+    hippo:versionHistory: 8518691c-1c05-4c8d-a67a-012f8f604419
+    /beststartfoods[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 9848b086-56c3-4438-abd5-df960d1b515b
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T10:55:35.553Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:32:11.894Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '']
+      resourcebundle:id: beststartfoods
+      resourcebundle:keys: [var.socsec.beststartfoods.higher, var.socsec.beststartfoods.lower]
+      resourcebundle:messages: [£39.60, £19.80]
+    /beststartfoods[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: bca35960-2e8b-4a3e-87d3-34343f3eade8
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T10:55:35.553Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:32:50.849Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '']
+      resourcebundle:id: beststartfoods
+      resourcebundle:keys: [var.socsec.beststartfoods.higher, var.socsec.beststartfoods.lower]
+      resourcebundle:messages: [£39.60, £19.80]
+    /beststartfoods[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 07208bb0-92bd-4c32-8931-c6b77260bda9
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T10:55:35.553Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:32:50.849Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-02-16T11:32:52.491Z
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '']
+      resourcebundle:id: beststartfoods
+      resourcebundle:keys: [var.socsec.beststartfoods.higher, var.socsec.beststartfoods.lower]
+      resourcebundle:messages: [£39.60, £19.80]
+  /beststartgrant:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: e77ecb23-edfc-43ff-b69a-acad68fdb8f3
+    hippo:name: Best start grant
+    hippo:versionHistory: d38e314c-3d50-48b7-8b69-53796b620f79
+    /beststartgrant[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: c04c41fc-6ff0-4622-8150-4c14aa39879f
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostd:transferable: false
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-13T08:29:40.341Z
+      hippostdpubwf:lastModificationDate: 2024-02-26T09:03:39.639Z
+      hippostdpubwf:lastModifiedBy: socsec
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: beststartgrant
+      resourcebundle:keys: [var.socsec.beststartgrant.pregnancyandbabyfirstchild,
+        var.socsec.beststartgrant.pregnancyandbabymultiplechild, var.socsec.beststartgrant.pregnancyandbabysubsequentchild,
+        var.socsec.beststartgrant.earlylearning, var.socsec.beststartgrant.schoolage]
+      resourcebundle:messages: [£707.25, £353.65, £353.65, £294.70, £294.70]
+    /beststartgrant[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: db2c72c2-4d2d-47bd-9ec7-444abf38d60a
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-13T08:29:40.341Z
+      hippostdpubwf:lastModificationDate: 2024-02-20T10:56:30.926Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: beststartgrant
+      resourcebundle:keys: [var.socsec.beststartgrant.pregnancyandbabyfirstchild,
+        var.socsec.beststartgrant.pregnancyandbabymultiplechild, var.socsec.beststartgrant.pregnancyandbabysubsequentchild,
+        var.socsec.beststartgrant.earlylearning, var.socsec.beststartgrant.schoolage]
+      resourcebundle:messages: [£707.25, £353.65, £353.65, £294.70, £294.70]
+    /beststartgrant[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 6ef0022e-cc48-46fb-a2e8-0dc7b540bea4
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-13T08:29:40.341Z
+      hippostdpubwf:lastModificationDate: 2024-02-20T10:56:30.926Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-02-20T10:56:33.009Z
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: beststartgrant
+      resourcebundle:keys: [var.socsec.beststartgrant.pregnancyandbabyfirstchild,
+        var.socsec.beststartgrant.pregnancyandbabymultiplechild, var.socsec.beststartgrant.pregnancyandbabysubsequentchild,
+        var.socsec.beststartgrant.earlylearning, var.socsec.beststartgrant.schoolage]
+      resourcebundle:messages: [£707.25, £353.65, £353.65, £294.70, £294.70]
+  /funeralsupport:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: a30f43d4-fd83-4a64-a340-4049364a147e
+    hippo:name: Funeral support
+    hippo:versionHistory: 6db14578-98f8-4376-a80c-a082a2ebbf43
+    /funeralsupport[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 1394b0ff-21a4-4d76-b148-a4f3d23dc929
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:07:29.534Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:07:29.534Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '', '']
+      resourcebundle:id: funneralsupport
+      resourcebundle:keys: [var.socsec.funeralsupport.standard, var.socsec.funeralsupport.lower,
+        var.socsec.funeralsupport.removalmedicaldevices]
+      resourcebundle:messages: ['£1,178.75', £143.85, £24]
+    /funeralsupport[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 6bbaa3aa-32aa-4cb0-9983-984947eba695
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:07:29.534Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:09:40.467Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '', '']
+      resourcebundle:id: funneralsupport
+      resourcebundle:keys: [var.socsec.funeralsupport.standard, var.socsec.funeralsupport.lower,
+        var.socsec.funeralsupport.removalmedicaldevices]
+      resourcebundle:messages: ['£1,178.75', £143.85, £24]
+    /funeralsupport[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 969895e7-626c-4638-b2a4-b5d53d914d09
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:07:29.534Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:09:40.467Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-02-16T11:09:42.507Z
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '', '']
+      resourcebundle:id: funneralsupport
+      resourcebundle:keys: [var.socsec.funeralsupport.standard, var.socsec.funeralsupport.lower,
+        var.socsec.funeralsupport.removalmedicaldevices]
+      resourcebundle:messages: ['£1,178.75', £143.85, £24]
+  /jobstart:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: d6783a46-5be4-4e04-8c37-5281aece7b6b
+    hippo:name: Job start payment
+    hippo:versionHistory: cd3a5587-745b-4b06-9f2a-b0f495cd363d
+    /jobstart[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 428fe445-40b1-4bc7-837a-3cc332bd3592
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-12T08:39:28.630Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:14:11.910Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '']
+      resourcebundle:id: jobstart
+      resourcebundle:keys: [var.socsec.jobstart.rate, var.socsec.jobstart.ratewithchildren]
+      resourcebundle:messages: [£294.70, £471.50]
+    /jobstart[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 39b8dd36-4560-43c4-a53c-cd43d3f56bb7
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-12T08:39:28.630Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:14:15.223Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '']
+      resourcebundle:id: jobstart
+      resourcebundle:keys: [var.socsec.jobstart.rate, var.socsec.jobstart.ratewithchildren]
+      resourcebundle:messages: [£294.70, £471.50]
+    /jobstart[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: db1cde5d-8397-4802-a841-5a05ed2f000e
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-12T08:39:28.630Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:14:15.223Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-02-16T11:14:17.697Z
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '']
+      resourcebundle:id: jobstart
+      resourcebundle:keys: [var.socsec.jobstart.rate, var.socsec.jobstart.ratewithchildren]
+      resourcebundle:messages: [£294.70, £471.50]
+  /scottishchildpayment:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: bcdd2a7f-11fc-4940-86cf-90734d550559
+    hippo:name: Scottish child payment
+    hippo:versionHistory: c6c3837e-c869-4929-a748-6b142e753a47
+    /scottishchildpayment[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 1bc2e5a7-7c84-4885-ad0b-9527a46cc3dc
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:14:52.313Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:14:52.313Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: scottishchildpayment
+      resourcebundle:keys: [var.socsec.scottishchildpayment.standard]
+      resourcebundle:messages: [£25]
+    /scottishchildpayment[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 64b02ee6-c27e-46b7-a4fa-76adf9630e95
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:14:52.313Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:15:37.686Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: scottishchildpayment
+      resourcebundle:keys: [var.socsec.scottishchildpayment.standard]
+      resourcebundle:messages: [£25]
+    /scottishchildpayment[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 489dd539-d3bb-4419-90e4-eb83bfb55187
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:14:52.313Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:15:37.686Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-02-16T11:15:39.341Z
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: scottishchildpayment
+      resourcebundle:keys: [var.socsec.scottishchildpayment.standard]
+      resourcebundle:messages: [£25]
+  /childwinterheatingpayment:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 3f17324d-1cdb-450c-a3f6-739f11e09b66
+    hippo:name: Child winter heating payment
+    hippo:versionHistory: 71e2efe1-0ce4-46f9-ba82-42bc3029a29c
+    /childwinterheatingpayment[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: f1afbd2d-ad32-467a-8b45-a0014302e024
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:16:24.409Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:31:06.222Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: scottishchildpayment
+      resourcebundle:keys: [var.socsec.childwinterheatingpayment.standard]
+      resourcebundle:messages: [£235.70]
+    /childwinterheatingpayment[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 7a67de24-0dea-4715-8654-3bb04ae28456
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:16:24.409Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:31:50.317Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: scottishchildpayment
+      resourcebundle:keys: [var.socsec.childwinterheatingpayment.standard]
+      resourcebundle:messages: [£235.70]
+    /childwinterheatingpayment[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: ef1adcbe-afb1-4387-ba58-dc2777b2b2da
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:16:24.409Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:31:50.317Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-02-16T11:31:52.107Z
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: scottishchildpayment
+      resourcebundle:keys: [var.socsec.childwinterheatingpayment.standard]
+      resourcebundle:messages: [£235.70]
+  /winterheatingpayment:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 2db79622-f9a8-4a94-9cc9-c0ffd45605bd
+    hippo:name: Winter heating payment
+    hippo:versionHistory: ef61641b-ebb6-427e-869a-800b479b94dd
+    /winterheatingpayment[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 2a22cc01-21d6-40f8-ab41-c51b47a9d640
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:17:40.309Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:18:57.525Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: winterheatingpayment
+      resourcebundle:keys: [var.socsec.winterheatingpayment.standard]
+      resourcebundle:messages: [£55.05]
+    /winterheatingpayment[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: c8b19a9a-0655-478c-a319-c14a87805bb5
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:17:40.309Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:19:26.961Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: winterheatingpayment
+      resourcebundle:keys: [var.socsec.winterheatingpayment.standard]
+      resourcebundle:messages: [£55.05]
+    /winterheatingpayment[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: bace8e62-f8ac-4a77-b2c8-a3ac933e777f
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:17:40.309Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:19:26.961Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-02-16T11:19:28.752Z
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: winterheatingpayment
+      resourcebundle:keys: [var.socsec.winterheatingpayment.standard]
+      resourcebundle:messages: [£55.05]
+  /carersupportpayment:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: d6d0929b-7adc-45fe-8af5-3f546afc7e2b
+    hippo:name: Carer support payment
+    hippo:versionHistory: 831ebd3e-3408-400a-b717-cfd4df2c5ca0
+    /carersupportpayment[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 2cd20da9-7fa1-4f09-9fd1-bf56ac48c99e
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-13T09:15:07.520Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:20:21.966Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: carersupportpayment
+      resourcebundle:keys: [var.socsec.carersupportpayment.standard]
+      resourcebundle:messages: [£76.75]
+    /carersupportpayment[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 01c1bd64-b89f-4f89-a193-46aebb79e17d
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-13T09:15:07.520Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:20:49.591Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: []
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: carersupportpayment
+      resourcebundle:keys: [var.socsec.carersupportpayment.standard]
+      resourcebundle:messages: [£76.75]
+    /carersupportpayment[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 9c9bf41c-b21b-4d85-ae8d-c0f8622f98cd
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-13T09:15:07.520Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:20:49.591Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-02-16T11:20:51.472Z
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: carersupportpayment
+      resourcebundle:keys: [var.socsec.carersupportpayment.standard]
+      resourcebundle:messages: [£76.75]
+  /carersallowancesupplement:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 436424d4-fb25-49c5-89e2-5a05e5bdfa95
+    hippo:name: Carer's allowance supplement
+    hippo:versionHistory: c68fe86a-8ef0-4071-8aff-0a057d916559
+    /carersallowancesupplement[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 83befba1-16ad-4b2c-ae13-5d7a663c6838
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:21:19.359Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:21:59.894Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: carersallowancesupplement
+      resourcebundle:keys: [var.socsec.carersallowancesupplement.standard]
+      resourcebundle:messages: [£270.50]
+    /carersallowancesupplement[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: b349fccb-d47a-455e-b797-a1e33994353e
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:21:19.359Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:22:43.037Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: carersallowancesupplement
+      resourcebundle:keys: [var.socsec.carersallowancesupplement.standard]
+      resourcebundle:messages: [£270.50]
+    /carersallowancesupplement[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 7b88bc88-f961-4f0f-8d4a-76c533ae584a
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:21:19.359Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:22:43.037Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-02-16T11:23:07.634Z
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: carersallowancesupplement
+      resourcebundle:keys: [var.socsec.carersallowancesupplement.standard]
+      resourcebundle:messages: [£270.50]
+  /youngcarergrant:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 6cdd3250-ee6d-4fc8-bd00-1e8cb4e4d739
+    hippo:name: Young carer grant
+    hippo:versionHistory: 7d9fe42f-fd96-4d9d-9f03-c138bb5982de
+    /youngcarergrant[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: e64b2055-b8db-4eca-adaf-3245f73ad27e
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:23:34.714Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:24:16.362Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: youngcarergrant
+      resourcebundle:keys: [var.socsec.youngcarergrant.standard]
+      resourcebundle:messages: [£359.65]
+    /youngcarergrant[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 16665aea-0e16-4b31-8d2e-4ade3fc81107
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:23:34.714Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:25:05.176Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: youngcarergrant
+      resourcebundle:keys: [var.socsec.youngcarergrant.standard]
+      resourcebundle:messages: [£359.65]
+    /youngcarergrant[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 55bccdb3-2274-4fa3-8224-aa4d9ccdee28
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:23:34.714Z
+      hippostdpubwf:lastModificationDate: 2024-02-16T11:25:05.176Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-02-16T11:25:06.998Z
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['']
+      resourcebundle:id: youngcarergrant
+      resourcebundle:keys: [var.socsec.youngcarergrant.standard]
+      resourcebundle:messages: [£359.65]
+  /adultdisabilitypayment:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 712a1491-37c8-4532-bb74-b3c46d5eb902
+    hippo:name: Adult disability payment
+    hippo:versionHistory: e809fc3f-d27f-43c4-87ea-b01796728114
+    /adultdisabilitypayment[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 9d508681-7325-4241-b818-b496eb4f5966
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:25:25.980Z
+      hippostdpubwf:lastModificationDate: 2024-02-21T08:47:10.106Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: adultdisabilitypayment
+      resourcebundle:keys: [var.socsec.adultdisabilitypayment.dailylivinglow, var.socsec.adultdisabilitypayment.dailylivingstandard,
+        var.socsec.adultdisabilitypayment.dailylivingenchanced, var.socsec.adultdisabilitypayment.mobilityenchanced,
+        var.socsec.adultdisabilitypayment.mobilitystandard]
+      resourcebundle:messages: [£26.90, £68.10, £101.75, £71.00, £26.90]
+    /adultdisabilitypayment[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 0d44b624-9799-4478-80af-907dd8adbff7
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:25:25.980Z
+      hippostdpubwf:lastModificationDate: 2024-02-21T08:47:25.269Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: adultdisabilitypayment
+      resourcebundle:keys: [var.socsec.adultdisabilitypayment.dailylivinglow, var.socsec.adultdisabilitypayment.dailylivingstandard,
+        var.socsec.adultdisabilitypayment.dailylivingenchanced, var.socsec.adultdisabilitypayment.mobilityenchanced,
+        var.socsec.adultdisabilitypayment.mobilitystandard]
+      resourcebundle:messages: [£26.90, £68.10, £101.75, £71.00, £26.90]
+    /adultdisabilitypayment[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 31ed591e-8d44-499d-b208-9c3bb8e6cf9a
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:25:25.980Z
+      hippostdpubwf:lastModificationDate: 2024-02-21T08:47:25.269Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-02-21T08:47:27.071Z
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: adultdisabilitypayment
+      resourcebundle:keys: [var.socsec.adultdisabilitypayment.dailylivinglow, var.socsec.adultdisabilitypayment.dailylivingstandard,
+        var.socsec.adultdisabilitypayment.dailylivingenchanced, var.socsec.adultdisabilitypayment.mobilityenchanced,
+        var.socsec.adultdisabilitypayment.mobilitystandard]
+      resourcebundle:messages: [£26.90, £68.10, £101.75, £71.00, £26.90]
+  /childdisabilitypayment:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: b8a7535f-2f2e-417f-8ee5-19ece4a81524
+    hippo:name: Child disability payment
+    hippo:versionHistory: ff06921f-02d2-4f10-8977-f1db23960398
+    /childdisabilitypayment[1]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: b645c430-bed1-445e-bb02-833df8d25544
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:33:38.127Z
+      hippostdpubwf:lastModificationDate: 2024-02-21T08:47:32.458Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: childdisabilitypayment
+      resourcebundle:keys: [var.socsec.childdisabilitypayment.lowest, var.socsec.childdisabilitypayment.middle,
+        var.socsec.childdisabilitypayment.highest, var.socsec.childdisabilitypayment.mobility,
+        var.socsec.childdisabilitypayment.mobilityenchanced]
+      resourcebundle:messages: [£26.90, £68.10, £101.75, £26.90, £71.00]
+    /childdisabilitypayment[2]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 1a60423c-c83e-4f5b-b216-a8361825db80
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:33:38.127Z
+      hippostdpubwf:lastModificationDate: 2024-02-21T08:47:39.458Z
+      hippostdpubwf:lastModifiedBy: admin
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: childdisabilitypayment
+      resourcebundle:keys: [var.socsec.childdisabilitypayment.lowest, var.socsec.childdisabilitypayment.middle,
+        var.socsec.childdisabilitypayment.highest, var.socsec.childdisabilitypayment.mobility,
+        var.socsec.childdisabilitypayment.mobilityenchanced]
+      resourcebundle:messages: [£26.90, £68.10, £101.75, £26.90, £71.00]
+    /childdisabilitypayment[3]:
+      jcr:primaryType: resourcebundle:resourcebundle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 879612c0-c252-45b2-8040-7c8994a3a6d3
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-02-16T11:33:38.127Z
+      hippostdpubwf:lastModificationDate: 2024-02-21T08:47:39.458Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2024-02-21T08:47:41.231Z
+      publishing:organisationtags: [social-security]
+      resourcebundle:descriptions: ['', '', '', '', '']
+      resourcebundle:id: childdisabilitypayment
+      resourcebundle:keys: [var.socsec.childdisabilitypayment.lowest, var.socsec.childdisabilitypayment.middle,
+        var.socsec.childdisabilitypayment.highest, var.socsec.childdisabilitypayment.mobility,
+        var.socsec.childdisabilitypayment.mobilityenchanced]
+      resourcebundle:messages: [£26.90, £68.10, £101.75, £26.90, £71.00]

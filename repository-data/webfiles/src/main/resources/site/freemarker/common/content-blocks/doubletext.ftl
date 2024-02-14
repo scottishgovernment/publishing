@@ -2,6 +2,8 @@
 <#include "../include/imports.ftl">
 <#include "../include/cms-placeholders.ftl">
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <div class="ds_cb  ds_cb--double-text
 <#if backgroundcolor?? && backgroundcolor?length gt 0>  ds_cb--bg-${backgroundcolor}</#if>
 <#if foregroundcolor?? && foregroundcolor?length gt 0>  ds_cb--fg-${foregroundcolor}</#if>
@@ -41,3 +43,4 @@
         </div>
     </div>
 </div>
+</@hst.messagesReplace>

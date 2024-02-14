@@ -2,6 +2,9 @@
 <#include "../../include/imports.ftl">
 <#include "../../include/cms-placeholders.ftl">
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <#assign items = []>
 <#if document1??>
     <#assign items = items + [document1]>
@@ -119,3 +122,4 @@
     </div>
 </div>
 </#if>
+</@hst.messagesReplace>

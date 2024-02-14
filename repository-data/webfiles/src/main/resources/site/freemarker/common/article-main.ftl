@@ -2,6 +2,9 @@
 <#include "include/imports.ftl">
 <#include "macros/lang-attributes.ftl">
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <#if document??>
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
@@ -100,6 +103,7 @@
 </@hst.headContribution>
 
 </#if>
+</@hst.messagesReplace>
 
 <@hst.headContribution category="resourcehints">
     <#if nextlink??>

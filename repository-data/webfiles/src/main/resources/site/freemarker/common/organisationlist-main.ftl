@@ -1,6 +1,9 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <#if document??>
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
@@ -105,6 +108,7 @@
     </div>
 </div>
 </#if>
+</@hst.messagesReplace>
 
 <#assign scriptName="organisation-list">
 <#include 'scripts.ftl'/>

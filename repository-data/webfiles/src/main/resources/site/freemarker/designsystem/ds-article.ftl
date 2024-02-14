@@ -2,6 +2,9 @@
 <#include "../common/include/imports.ftl">
 <#include "../common/macros/lang-attributes.ftl">
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <#if document??>
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
@@ -277,6 +280,7 @@
         </main>
     </div>
 </div>
+</@hst.messagesReplace>
 
 <@hst.headContribution category="meta">
     <meta name="dc.format" content="${format}"/>
@@ -284,7 +288,9 @@
 
 <#if seriesLink??>
     <@hst.headContribution category="meta">
+        <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
         <meta name="dc.title.series" content="${seriesLink.title}"/>
+        </@hst.messagesReplace>
     </@hst.headContribution>
 
     <@hst.headContribution category="meta">

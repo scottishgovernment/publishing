@@ -2,6 +2,9 @@
 <#include "include/imports.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <#if document??>
 
 <div class="cms-editable">
@@ -127,6 +130,7 @@
     </div>
 </div>
 </#if>
+</@hst.messagesReplace>
 
 <@hst.headContribution category="resourcehints">
     <#if nextlink??>

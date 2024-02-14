@@ -3,11 +3,13 @@
 <!doctype html>
 <html lang="en" dir="ltr">
     <head>
+
         <@hst.headContributions categoryIncludes="dataLayer"/>
         <!-- dataLayer code MUST be higher than google tag manager code -->
         <@hst.headContributions categoryIncludes="googleTagManagerDataLayer"/>
         <@hst.headContributions categoryIncludes="googleTagManager"/>
         <@hst.include ref="plausibleanalytics"/>
+
         <@hst.headContributions categoryIncludes="resourcehints"/>
         <@hst.headContributions categoryIncludes="meta"/>
         <@hst.headContributions categoryIncludes="schema"/>
@@ -32,7 +34,6 @@
 
         <@hst.headContributions categoryIncludes="siteverification"/>
         <@hst.headContributions categoryIncludes="canonical"/>
-
         <script src='<@hst.webfile path="assets/scripts/js-enabled.js"/>'></script>
     </head>
 

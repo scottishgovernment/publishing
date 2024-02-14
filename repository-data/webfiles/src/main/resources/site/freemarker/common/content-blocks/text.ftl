@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "../include/cms-placeholders.ftl">
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Text" -->
 <div class="ds_cb  ds_cb--text
 <#if backgroundcolor?? && backgroundcolor?length gt 0>  ds_cb--bg-${backgroundcolor}</#if>
@@ -26,3 +28,4 @@
         </div>
     </div>
 </div>
+</@hst.messagesReplace>

@@ -1,6 +1,8 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "../include/cms-placeholders.ftl">
+<#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.TextAndCard" -->
 <div class="ds_cb  ds_cb--card-text
 <#if neutrallinks>  ds_cb--neutral-links</#if>
@@ -88,3 +90,4 @@
         </div>
     </div>
 </div>
+</@hst.messagesReplace>

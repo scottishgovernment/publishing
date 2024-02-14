@@ -14,6 +14,7 @@ definitions:
           hipposysedit:node: true
           hipposysedit:supertype: ['hippogallery:imageset', 'hippogallery:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          hipposysedit:validators: [variables-validator]
           /filename:
             jcr:primaryType: hipposysedit:field
             hipposysedit:path: hippogallery:filename

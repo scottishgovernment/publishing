@@ -41,3 +41,15 @@ definitions:
       /ds-example-html-validator:
         jcr:primaryType: hipposys:moduleconfig
         hipposys:className: scot.mygov.publishing.validation.DesignSystemExampleHtmlValidator
+      /variables-validator:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.VariableValidator
+      /variable-name-prefix:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.VariableNamePrefixValidator
+      /variable-value:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.VariableValueValidator
+      /variable-id:
+        jcr:primaryType: hipposys:moduleconfig
+        hipposys:className: scot.mygov.publishing.validation.VariableResourceBundleUniqueKeyValidator
