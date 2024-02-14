@@ -1,14 +1,29 @@
 definitions:
   config:
-    /hippo:configuration/hippo:workflows/threepane/folder/frontend:renderer/generatePreview:
+    /hippo:configuration/hippo:workflows/threepane:
+      /folder:
+        hipposys:privileges: ['hippo:author']
+        /frontend:renderer/generatePreview:
+          jcr:primaryType: frontend:plugin
+          plugin.class: scot.gov.publishing.staging.plugins.PreviewFolderMenuItemPlugin
+          wicket.id: ${item}
+      /folder-extended/frontend:renderer/generatePreview:
+        jcr:primaryType: frontend:plugin
+        plugin.class: scot.gov.publishing.staging.plugins.PreviewFolderMenuItemPlugin
+        wicket.id: ${item}
+      /folder-permissions/frontend:renderer/generatePreview:
+        jcr:primaryType: frontend:plugin
+        plugin.class: scot.gov.publishing.staging.plugins.PreviewFolderMenuItemPlugin
+        wicket.id: ${item}
+    /hippo:configuration/hippo:workflows/threepane/folder/frontend:renderer/scheduled:
       jcr:primaryType: frontend:plugin
-      plugin.class: scot.gov.publishing.staging.plugins.PreviewFolderMenuItemPlugin
+      plugin.class: scot.gov.publishing.bulkpublish.ScheduledWorkflowPlugin
       wicket.id: ${item}
-    /hippo:configuration/hippo:workflows/threepane/folder-extended/frontend:renderer/generatePreview:
+    /hippo:configuration/hippo:workflows/threepane/folder-extended/frontend:renderer/scheduled:
       jcr:primaryType: frontend:plugin
-      plugin.class: scot.gov.publishing.staging.plugins.PreviewFolderMenuItemPlugin
+      plugin.class: scot.gov.publishing.bulkpublish.ScheduledWorkflowPlugin
       wicket.id: ${item}
-    /hippo:configuration/hippo:workflows/threepane/folder-permissions/frontend:renderer/generatePreview:
+    /hippo:configuration/hippo:workflows/threepane/folder-permissions/frontend:renderer/scheduled:
       jcr:primaryType: frontend:plugin
-      plugin.class: scot.gov.publishing.staging.plugins.PreviewFolderMenuItemPlugin
+      plugin.class: scot.gov.publishing.bulkpublish.ScheduledWorkflowPlugin
       wicket.id: ${item}
