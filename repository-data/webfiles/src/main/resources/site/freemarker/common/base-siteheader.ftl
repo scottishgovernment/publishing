@@ -11,7 +11,7 @@
                     <img width="300" height="58" class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/${logo}.svg" />" alt="${logoAltText}">
                 </a>
 
-                <#if siteTitle??>
+                <#if siteTitle?? && displaySiteTitleInHeader>
                     <div class="ds_site-branding__title">
                         ${siteTitle}
                     </div>

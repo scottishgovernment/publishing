@@ -36,6 +36,7 @@ public class SiteHeaderComponent extends BaseHstComponent {
         Mount mount = request.getRequestContext().getResolvedMount().getMount();
         WebsiteInfo info = mount.getChannelInfo();
         request.setAttribute("siteTitle", info.getSiteTitle());
+        request.setAttribute("displaySiteTitleInHeader", info.isDisplaySiteTitleInHeader());
         request.setAttribute("logo", info.getLogo());
         request.setAttribute("logoAltText", info.getLogoAltText());
     }
