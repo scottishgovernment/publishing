@@ -55,7 +55,7 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
             .addAttributes("table","data-smallscreen")
             .addAttributes("td","align")
             .addAttributes("th","align")
-            .addAttributes(TEXTAREA,"rows")
+            .addAttributes(TEXTAREA,"rows","name")
             .addAttributes("use","href")
 
             .removeProtocols("img","src","http","https");
