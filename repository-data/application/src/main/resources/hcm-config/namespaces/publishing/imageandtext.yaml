@@ -108,5 +108,6 @@ definitions:
               ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
                 extraAllowedContent: ''table[data-smallscreen];address[translate];'',
                 format_tags: ''h2;h3;h4;p;address'', removePlugins: ''sourcearea,codemirror,youtube,specialchar'',
+                extraPlugins: ''ds_button'',
                 removeButtons: ''PickImage,Underline,Strike,Subscript,Superscript,Indent,Outdent'',
                 stylesSet: ''limitedstyles_{language}:./limitedstyles.js'' }'
