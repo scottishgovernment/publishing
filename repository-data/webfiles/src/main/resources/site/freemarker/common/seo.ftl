@@ -8,7 +8,7 @@
     <#if contentBean.title??>
         <@hst.headContribution category="meta">
             <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
-            <meta name="dc.title" content="${contentBean.title}?"/>
+            <meta name="dc.title" content="${contentBean.title}"/>
             </@hst.messagesReplace>
         </@hst.headContribution>
     </#if>
