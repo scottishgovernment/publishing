@@ -294,8 +294,11 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
-                removePlugins: ''sourcearea,codemirror,youtube,specialchar'', removeButtons:
-                ''Styles,Table,PickImage,Underline,Strike,Subscript,Superscript,Indent,Outdent''}'
+                extraAllowedContent: ''table[data-smallscreen];address[translate];'',
+                format_tags: ''h2;h3;h4;p;address'', removePlugins: ''sourcearea,codemirror,youtube'',
+                extraPlugins: ''ds_button,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',
+                removeButtons: ''Indent,Outdent'',
+                stylesSet: ''limitedstyles_{language}:./limitedstyles.js'' }'
           /cta:
             jcr:primaryType: frontend:plugin
             caption: Call to action label
