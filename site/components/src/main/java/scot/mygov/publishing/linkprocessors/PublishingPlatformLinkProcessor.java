@@ -179,11 +179,8 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
 
         String site = siteName(link);
 
-        LOG.info("doPreProcess {} {}", site, link.getPath());
-
         // if the link has 2 elements then see if it is a guide page
         if (link.getPathElements().length == 2) {
-            LOG.info("2er");
              /// its a guide sub page
             String guideSlug = link.getPathElements()[0];
 
@@ -199,7 +196,6 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
         }
 
         String slug = link.getPath();
-        LOG.info("1er slug {}, site {}, type {}, ", slug, site, link.getMount().getType());
         String path = pathForSlugSource.get(slug, site, "global", link.getMount().getType());
         if (path != null) {
             link.setPath(path);
