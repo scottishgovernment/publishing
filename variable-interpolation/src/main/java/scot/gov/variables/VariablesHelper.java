@@ -20,28 +20,24 @@ public class VariablesHelper {
 
     public static final String VARIABLES_PATH = "/content/documents/var";
 
-    public static final String VARIABLE_QUERY = "/jcr:root" + VARIABLES_PATH +
-            "//element(*, resourcebundle:resourcebundle)/@resourcebundle:id" +
-            " order by @hippostdpubwf:publicationDate descending";
+    public static final String VARIABLE_QUERY = "/jcr:root" + VARIABLES_PATH
+            + "//element(*, resourcebundle:resourcebundle)/@resourcebundle:id";
 
     private VariablesHelper() {
         // hide constructor
     }
 
     public static ResourceBundle getVariablesResourceBundle(Session session) {
-        LOG.info("getVariablesResourceBundle");
-
         HstRequestContext hstRequestContext = RequestContextProvider.get();
 
         if (hstRequestContext == null) {
-            LOG.info("hstRequestContext, returnind empty resource bundle ");
+            LOG.info("hstRequestContext, returned empty resource bundle ");
             return new EmptyResourceBundle();
         }
 
         try {
             QueryManager queryManager = session.getWorkspace().getQueryManager();
             Query query = queryManager.createQuery(VARIABLE_QUERY, Query.XPATH);
-            LOG.info("query: {}", VARIABLE_QUERY);
             RowIterator entries = query.execute().getRows();
             if (entries.getSize() == 0) {
                 LOG.info("no variables found, returning empty resource bundle ");
@@ -50,7 +46,6 @@ public class VariablesHelper {
             List<ResourceBundle> allVariableResourceBundles = new ArrayList<>();
             while (entries.hasNext()) {
                 String bundleName = entries.nextRow().getValue("resourcebundle:id").getString();
-                LOG.info("bundleName:", bundleName);
                 //using directly the HST ResourceBundleUtil to reduce overhead
                 ResourceBundle bundle = org.hippoecm.hst.resourcebundle.ResourceBundleUtils.getBundle(bundleName, null);
                 allVariableResourceBundles.add(bundle);
