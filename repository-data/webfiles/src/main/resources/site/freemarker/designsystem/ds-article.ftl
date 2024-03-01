@@ -2,10 +2,11 @@
 <#include "../common/include/imports.ftl">
 <#include "../common/macros/lang-attributes.ftl">
 
+
+<#if document??>
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 
-<#if document??>
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
 
