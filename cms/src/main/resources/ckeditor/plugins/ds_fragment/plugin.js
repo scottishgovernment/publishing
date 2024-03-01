@@ -96,16 +96,14 @@
             }
         }, null, null, 20);
 
-        if (window.Wicket) {
-            editor.ui.addButton('ds_fragment', {
-                label: 'Fragment',
-                toolbar: 'insert, 1',
-                icon: editor.plugins.ds_fragment.path + 'icons/ds_fragment.png',
-                command: 'pickFragment',
-                allowedContent: LINK_ALLOWED_CONTENT,
-                requiredContent: LINK_REQUIRED_CONTENT
-            });
-        }
+        editor.ui.addButton('ds_fragment', {
+            label: 'Fragment',
+            toolbar: 'insert, 1',
+            icon: editor.plugins.ds_fragment.path + 'icons/ds_fragment.png',
+            command: 'pickFragment',
+            allowedContent: LINK_ALLOWED_CONTENT,
+            requiredContent: LINK_REQUIRED_CONTENT
+        });
     }
 
     CKEDITOR.plugins.add('ds_fragment', {

@@ -65,7 +65,6 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
                 extraAllowedContent: ''table[data-smallscreen];address[translate];'',
-                format_tags: ''h2;h3;h4;p;address'', removePlugins: ''sourcearea,codemirror,youtube'',
-                extraPlugins: ''ds_button,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',
-                removeButtons: ''Indent,Outdent'',
+                format_tags: ''h2;h3;h4;p;address'', removePlugins: ''sourcearea,codemirror,youtube,specialchar'',
+                removeButtons: ''PickImage,Underline,Strike,Subscript,Superscript,Indent,Outdent'',
                 stylesSet: ''limitedstyles_{language}:./limitedstyles.js'' }'
