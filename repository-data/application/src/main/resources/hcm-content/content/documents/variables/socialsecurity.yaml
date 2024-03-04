@@ -184,7 +184,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: d6783a46-5be4-4e04-8c37-5281aece7b6b
     hippo:name: Job start payment
-    hippo:versionHistory: cd3a5587-745b-4b06-9f2a-b0f495cd363d
+    hippo:versionHistory: 60923cf1-73a9-419f-bcba-abae8ddddaa9
     /jobstart[1]:
       jcr:primaryType: resourcebundle:resourcebundle
       jcr:mixinTypes: ['mix:referenceable']
@@ -194,12 +194,12 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-02-12T08:39:28.630Z
-      hippostdpubwf:lastModificationDate: 2024-02-16T11:14:11.910Z
+      hippostdpubwf:lastModificationDate: 2024-03-04T07:42:18.890Z
       hippostdpubwf:lastModifiedBy: admin
       publishing:organisationtags: [social-security]
       resourcebundle:descriptions: ['', '']
       resourcebundle:id: jobstart
-      resourcebundle:keys: [var.socsec.jobstart.rate, var.socsec.jobstart.ratewithchildren]
+      resourcebundle:keys: [var.socsec.jobstart.standard, var.socsec.jobstart.higher]
       resourcebundle:messages: [£294.70, £471.50]
     /jobstart[2]:
       jcr:primaryType: resourcebundle:resourcebundle
@@ -210,12 +210,12 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-02-12T08:39:28.630Z
-      hippostdpubwf:lastModificationDate: 2024-02-16T11:14:15.223Z
+      hippostdpubwf:lastModificationDate: 2024-03-04T07:44:22.910Z
       hippostdpubwf:lastModifiedBy: admin
       publishing:organisationtags: [social-security]
       resourcebundle:descriptions: ['', '']
       resourcebundle:id: jobstart
-      resourcebundle:keys: [var.socsec.jobstart.rate, var.socsec.jobstart.ratewithchildren]
+      resourcebundle:keys: [var.socsec.jobstart.standard, var.socsec.jobstart.higher]
       resourcebundle:messages: [£294.70, £471.50]
     /jobstart[3]:
       jcr:primaryType: resourcebundle:resourcebundle
@@ -226,13 +226,13 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-02-12T08:39:28.630Z
-      hippostdpubwf:lastModificationDate: 2024-02-16T11:14:15.223Z
+      hippostdpubwf:lastModificationDate: 2024-03-04T07:44:22.910Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2024-02-16T11:14:17.697Z
+      hippostdpubwf:publicationDate: 2024-03-04T07:44:25.394Z
       publishing:organisationtags: [social-security]
       resourcebundle:descriptions: ['', '']
       resourcebundle:id: jobstart
-      resourcebundle:keys: [var.socsec.jobstart.rate, var.socsec.jobstart.ratewithchildren]
+      resourcebundle:keys: [var.socsec.jobstart.standard, var.socsec.jobstart.higher]
       resourcebundle:messages: [£294.70, £471.50]
   /scottishchildpayment:
     jcr:primaryType: hippo:handle
@@ -645,9 +645,9 @@
       publishing:organisationtags: [social-security]
       resourcebundle:descriptions: ['', '', '', '', '']
       resourcebundle:id: childdisabilitypayment
-      resourcebundle:keys: [var.socsec.childdisabilitypayment.lowest, var.socsec.childdisabilitypayment.middle,
-        var.socsec.childdisabilitypayment.highest, var.socsec.childdisabilitypayment.mobility,
-        var.socsec.childdisabilitypayment.mobilityenchanced]
+      resourcebundle:keys: [var.socsec.childdisabilitypayment.care.lowest, var.socsec.childdisabilitypayment.care.middle,
+        var.socsec.childdisabilitypayment.care.highest, var.socsec.childdisabilitypayment.mobility.standard,
+        var.socsec.childdisabilitypayment.mobility.higher]
       resourcebundle:messages: [£26.90, £68.10, £101.75, £26.90, £71.00]
     /childdisabilitypayment[2]:
       jcr:primaryType: resourcebundle:resourcebundle
@@ -663,9 +663,9 @@
       publishing:organisationtags: [social-security]
       resourcebundle:descriptions: ['', '', '', '', '']
       resourcebundle:id: childdisabilitypayment
-      resourcebundle:keys: [var.socsec.childdisabilitypayment.lowest, var.socsec.childdisabilitypayment.middle,
-        var.socsec.childdisabilitypayment.highest, var.socsec.childdisabilitypayment.mobility,
-        var.socsec.childdisabilitypayment.mobilityenchanced]
+      resourcebundle:keys: [var.socsec.childdisabilitypayment.care.lowest, var.socsec.childdisabilitypayment.care.middle,
+                            var.socsec.childdisabilitypayment.care.highest, var.socsec.childdisabilitypayment.mobility.standard,
+                            var.socsec.childdisabilitypayment.mobility.higher]
       resourcebundle:messages: [£26.90, £68.10, £101.75, £26.90, £71.00]
     /childdisabilitypayment[3]:
       jcr:primaryType: resourcebundle:resourcebundle
@@ -682,7 +682,7 @@
       publishing:organisationtags: [social-security]
       resourcebundle:descriptions: ['', '', '', '', '']
       resourcebundle:id: childdisabilitypayment
-      resourcebundle:keys: [var.socsec.childdisabilitypayment.lowest, var.socsec.childdisabilitypayment.middle,
-        var.socsec.childdisabilitypayment.highest, var.socsec.childdisabilitypayment.mobility,
-        var.socsec.childdisabilitypayment.mobilityenchanced]
+      resourcebundle:keys: [var.socsec.childdisabilitypayment.care.lowest, var.socsec.childdisabilitypayment.care.middle,
+                            var.socsec.childdisabilitypayment.care.highest, var.socsec.childdisabilitypayment.mobility.standard,
+                            var.socsec.childdisabilitypayment.mobility.higher]
       resourcebundle:messages: [£26.90, £68.10, £101.75, £26.90, £71.00]
