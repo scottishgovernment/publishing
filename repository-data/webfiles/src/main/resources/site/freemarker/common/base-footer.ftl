@@ -1,8 +1,9 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
 
-<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#assign variables = hstRequestContext.getAttribute("variables")/>
+<@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+
 <footer class="ds_site-footer">
     <div class="ds_wrapper">
         <div class="ds_site-footer__content">
