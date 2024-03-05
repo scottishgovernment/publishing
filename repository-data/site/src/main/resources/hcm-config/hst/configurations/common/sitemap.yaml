@@ -70,6 +70,12 @@ definitions:
           hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide']
           hst:relativecontentpath: ${parent}/index
           hst:sitemapitemhandlerids: [trailing-slash]
+        /banners:
+          jcr:primaryType: hst:sitemapitem
+          /_default_:
+            jcr:primaryType: hst:sitemapitem
+            hst:relativecontentpath: site-furniture/status/404
+            hst:componentconfigurationid: hst:pages/pagenotfound
       /_any_:
         jcr:primaryType: hst:sitemapitem
         hst:componentconfigurationid: hst:pages/pagenotfound
