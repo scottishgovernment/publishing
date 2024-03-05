@@ -20,6 +20,8 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import java.util.List;
+
 import static org.apache.commons.lang3.StringUtils.startsWith;
 import static org.hippoecm.repository.HippoStdNodeType.HIPPOSTD_STATE;
 import static scot.gov.variables.VariablesHelper.getVariablesResourceBundle;
@@ -28,6 +30,7 @@ import static scot.gov.variables.VariablesHelper.getVariablesResourceBundle;
  * Rewrite html to support publishing specific behaviours:
  * - replace any fragment placeholders whose UUID is that of a publishing:fragment node
  * - add step-by-step-nav params to step by step links
+ * - interpolate variable contained within [[ ]]'s
  */
 public class PublishingHtmlRewriter extends SimpleContentRewriter {
 
@@ -35,49 +38,37 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
 
     private static final String FRAGMENT_CLASS = "class=\"fragment\"";
 
-    private static final String DATA_UUID = "data-uuid";
-
     private static final String HREF = "href";
 
     private HippoUtils hippoUtils = new HippoUtils();
 
     @Override
     public String rewrite(String html, Node node, HstRequestContext requestContext,  Mount targetMount) {
-        if (html.indexOf(FRAGMENT_CLASS) != -1) {
-            html = rewriteFragments(html, node, requestContext, targetMount);
-        }
 
-        html = rewriteStepByStep(html, node, requestContext);
+        HippoBean bean = requestContext.getContentBean();
+        if (hasFragments(html) || isStepByStep(bean)) {
+            Document doc = Jsoup.parse(html);
+            rewriteFragments(doc, node, requestContext, targetMount);
+            rewriteStepByStep(doc, node);
+            html = doc.html();
+        }
         html = replaceVariables(html);
         return super.rewrite(html, node, requestContext, targetMount);
     }
 
-    private String replaceVariables(final String html){
-        return (html.contains("[[") && html.contains("]]")) ? getReplaceTextWithValue(html) : html;
+    boolean hasFragments(String html) {
+        return html.indexOf(FRAGMENT_CLASS) != -1;
     }
 
-    public static String getReplaceTextWithValue(String text) {
-        try {
-            Session session = RequestContextProvider.get().getSession();
-            return MessageUtils.replaceMessagesByBundle(getVariablesResourceBundle(session), text, "[[", "]]");
-        } catch (RepositoryException e) {
-            LOG.error("Failed ot get session for getReplaceTextWithValue", e);
-            return text;
-        }
-    }
+    public void rewriteStepByStep(Document doc, Node node) {
 
-    public String rewriteStepByStep(String html, Node node, HstRequestContext requestContext) {
-        HippoBean bean = requestContext.getContentBean();
         try {
-            if (!isStepByStep(bean) && !isStep(node)) {
-                return html;
-            }
-
             String slug = getStepByStepSlug(node);
-            return slug != null ? rewriteStepByStepLinks(html, slug) : html;
+            if (slug != null) {
+                rewriteStepByStepLinks(doc, slug);
+            }
         } catch (RepositoryException e) {
             LOG.error("failed to rewrite step by step links", e);
-            return html;
         }
     }
 
@@ -90,45 +81,19 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
         return startsWith(node.getParent().getName(), "publishing:step");
     }
     boolean isStepByStep(HippoBean bean) {
-        return bean != null
-                && bean instanceof StepByStepGuide;
+        return bean != null && bean instanceof StepByStepGuide;
     }
 
-    public String rewriteFragments(String html, Node node, HstRequestContext requestContext,  Mount targetMount) {
-
-        // only create if really needed
-        StringBuilder sb = new StringBuilder();
-        int globalOffset = 0;
-
-        while (html.indexOf(FRAGMENT_CLASS, globalOffset) > -1) {
-            int classOffset = html.indexOf(FRAGMENT_CLASS, globalOffset);
-            int tagOffset = html.lastIndexOf('<', classOffset);
-
-            // append all content from global index up until the start of the tag
-            sb.append(html.substring(globalOffset, tagOffset));
-
-            // find the end of the div.  It contains a nested div and se we need to skip over that too.
-            int end = html.indexOf("</", classOffset);
-            end = html.indexOf("</", end + 1);
-            end = html.indexOf('>', end + 1);
-
-            String uuid = getUuid(html, tagOffset);
-            String fragmentContent = getFragmentContent(uuid, node, requestContext, targetMount);
-            sb.append(fragmentContent);
-
-            globalOffset = end + 1;
-        }
-
-        sb.append(html.substring(globalOffset));
-        return sb.toString();
+    public void rewriteFragments(Document doc, Node node, HstRequestContext requestContext,  Mount targetMount) {
+        List<Element> fragments = doc.select("div.fragment");
+        fragments.stream().forEach(fragDiv -> rewriteFragment(fragDiv, node, requestContext, targetMount));
     }
 
-    String getUuid(String html, int offset) {
-        int attribStart = html.indexOf(DATA_UUID, offset);
-
-        int openingQuoteIndex = html.indexOf('"', attribStart);
-        int closingQuoteIndex = html.indexOf('"', openingQuoteIndex + 1);
-        return html.substring(openingQuoteIndex + 1, closingQuoteIndex);
+    public void rewriteFragment(Element fragDiv, Node node, HstRequestContext requestContext,  Mount targetMount) {
+        String uuid = fragDiv.attr("data-uuid");
+        String fragmentContent = getFragmentContent(uuid, node,requestContext, targetMount);
+        fragDiv.after(fragmentContent);
+        fragDiv.remove();
     }
 
     String getFragmentContent(String uuid, Node node, HstRequestContext requestContext,  Mount targetMount) {
@@ -159,8 +124,7 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
                 : hippoUtils.getVariantWithState(fragmentHandle, state);
     }
 
-    String rewriteStepByStepLinks(String html, String slug) {
-        Document doc = Jsoup.parse(html);
+    String rewriteStepByStepLinks(Document doc, String slug) {
         Elements links = doc.select("a[href]");
         links.stream().filter(this::isLocal).forEach(link -> rewrite(link, slug));
         return doc.html();
@@ -179,4 +143,19 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
                         .append(slug);
         link.attr(HREF, newHref.toString());
     }
+
+    private String replaceVariables(final String html){
+        return (html.contains("[[") && html.contains("]]")) ? getReplaceTextWithValue(html) : html;
+    }
+
+    public static String getReplaceTextWithValue(String text) {
+        try {
+            Session session = RequestContextProvider.get().getSession();
+            return MessageUtils.replaceMessagesByBundle(getVariablesResourceBundle(session), text, "[[", "]]");
+        } catch (RepositoryException e) {
+            LOG.error("Failed ot get session for getReplaceTextWithValue", e);
+            return text;
+        }
+    }
+
 }
