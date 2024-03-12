@@ -66,8 +66,8 @@ const commonItems = {
         rules: [
             {
                 test: /\.njk/,
-                loader: 'nunjucks-loader',
-                query: {
+                loader: '@dryfeld/nunjucks-loader',
+                options: {
                     config: 'src/main/scripts/nunjucks.config.js'
                 }
             }
