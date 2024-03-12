@@ -122,26 +122,23 @@ const businessRatesCalculator = {
         // taken from provided spreadsheet
         this.ratesCalculatorData = {};
 
-        this.ratesCalculatorData.sbbs_100_rv_threshold = 15000;
+        this.ratesCalculatorData.sbbs_100_rv_threshold = 12000;
         this.ratesCalculatorData.sbbs_100_percentage_relief = 1;
         this.ratesCalculatorData.sbbs_25_rv_threshold = 18000;
         this.ratesCalculatorData.sbbs_25_percentage_relief = 0.25;
         this.ratesCalculatorData.sbbs_combined_threshold = 35000;
-        this.ratesCalculatorData.financial_year = '2022-2023';
+        this.ratesCalculatorData.financial_year = '2023-2024';
         this.ratesCalculatorData.poundage = 0.498;
         this.ratesCalculatorData.intermediate_business_supplement_threshold = 51000;
         this.ratesCalculatorData.intermediate_business_supplement = 0.013;
-        this.ratesCalculatorData.large_business_supplement_threshold = 95000;
+        this.ratesCalculatorData.large_business_supplement_threshold = 100000;
         this.ratesCalculatorData.large_business_supplement = 0.026;
 
-        const newFiscalYeardate = new Date(2023, 3, 1);
+        const newFiscalYeardate = new Date(2024, 1, 1);
         if (today > newFiscalYeardate) {
-            this.ratesCalculatorData.sbbs_100_rv_threshold = 12000;
-            this.ratesCalculatorData.financial_year = '2023-2024';
-            this.ratesCalculatorData.intermediate_business_supplement_threshold = 51001;
-            this.ratesCalculatorData.large_business_supplement_threshold = 100000;
-
-            this.getSBBSFraction = this.getSBBSFraction_2023;
+            this.ratesCalculatorData.financial_year = '2024-2025';
+            this.ratesCalculatorData.intermediate_business_supplement = 0.047;
+            this.ratesCalculatorData.large_business_supplement = 0.061;
         }
 
         // adjust this to use different value types, e.dg. current rateable value or proposed rateable value
@@ -444,7 +441,7 @@ const businessRatesCalculator = {
      * @param {object} property The building currently being considered.
      * @return {number} The percentage relief to be applied.
      */
-    getSBBSFraction_2023: function (totalRateable, property) {
+    getSBBSFraction: function (totalRateable, property) {
         let sbbsReliefFraction;
 
         const sbbs_combined_threshold = 35000;
@@ -484,22 +481,6 @@ const businessRatesCalculator = {
             } else {
                 sbbsReliefFraction = 1;
             }
-        }
-
-        return sbbsReliefFraction;
-    },
-
-    getSBBSFraction: function (totalRateable, property) {
-        let sbbsReliefFraction;
-
-        if (totalRateable > this.ratesCalculatorData.sbbs_combined_threshold) {
-            sbbsReliefFraction = 0;
-        } else if (property.rv <= this.ratesCalculatorData.sbbs_100_rv_threshold) {
-            sbbsReliefFraction = this.ratesCalculatorData.sbbs_100_percentage_relief;
-        } else if (property.rv <= this.ratesCalculatorData.sbbs_25_rv_threshold) {
-            sbbsReliefFraction = this.ratesCalculatorData.sbbs_25_percentage_relief;
-        } else {
-            sbbsReliefFraction = 0;
         }
 
         return sbbsReliefFraction;
