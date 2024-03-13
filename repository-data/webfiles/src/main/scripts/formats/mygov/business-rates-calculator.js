@@ -134,7 +134,7 @@ const businessRatesCalculator = {
         this.ratesCalculatorData.large_business_supplement_threshold = 100000;
         this.ratesCalculatorData.large_business_supplement = 0.026;
 
-        const newFiscalYeardate = new Date(2024, 1, 1);
+        const newFiscalYeardate = new Date(2024, 3, 1);
         if (today > newFiscalYeardate) {
             this.ratesCalculatorData.financial_year = '2024-2025';
             this.ratesCalculatorData.intermediate_business_supplement = 0.047;
