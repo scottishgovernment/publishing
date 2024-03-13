@@ -1,0 +1,12 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/editor:
+      jcr:primaryType: hipposys:group
+      hipposys:securityprovider: internal
+      hipposys:userroles: [xm.cms.user, xm.content.user, xm.channel.user, xm.report.user,
+                           xm.dashboard.user, xm.channel.webmaster]
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [editor]

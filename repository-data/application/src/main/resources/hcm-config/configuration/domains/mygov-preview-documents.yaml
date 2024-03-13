@@ -1,0 +1,43 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/mygov-preview-documents:
+      jcr:primaryType: hipposys:domain
+      /hippo-document:
+        jcr:primaryType: hipposys:domainrule
+        /availability-preview:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: hippo:availability
+          hipposys:filter: true
+          hipposys:type: String
+          hipposys:value: preview
+        /exclude-attic:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/attic
+        /state-not-draft:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: hippostd:state
+          hipposys:filter: true
+          hipposys:type: String
+          hipposys:value: draft
+        /content-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/mygov
+      /readonly:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups: [previewusers]
+        hipposys:role: readonly
+        hipposys:userrole: xm.preview-documents.reader
+        hipposys:users: []
+      /modify:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups: [author, editor, mygov-authors, mygov-editors, orgs-social-security-authors,
+                          orgs-social-security-editors, orgs-disclosure-scotland-authors, orgs-disclosure-scotland-editors]
+        hipposys:role: modify

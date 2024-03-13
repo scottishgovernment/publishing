@@ -42850,6 +42850,20 @@
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+      /previewId[1]:
+        jcr:primaryType: staging:preview
+        staging:creationdate: 2024-03-14T07:39:22.276Z
+        staging:expirationdate: 2024-04-04T00:00:00+01:00
+        staging:key: 518eeeb6-feab-4f6f-a3f9-55f2ffdca232
+        staging:url: http://localhost:8080/site/mygov-preview/browse/test?previewkey=518eeeb6-feab-4f6f-a3f9-55f2ffdca232
+        staging:user: admin
+      /previewId[2]:
+        jcr:primaryType: staging:preview
+        staging:creationdate: 2024-03-14T08:01:59.398Z
+        staging:expirationdate: 2024-04-04T00:00:00+01:00
+        staging:key: f5f71b23-09b7-4902-882c-4e2a5b27236e
+        staging:url: http://localhost:8080/site/mygov-preview/browse/test?previewkey=f5f71b23-09b7-4902-882c-4e2a5b27236e
+        staging:user: admin
     /test[3]:
       jcr:primaryType: publishing:StepByStepGuide
       jcr:mixinTypes: ['mix:referenceable']

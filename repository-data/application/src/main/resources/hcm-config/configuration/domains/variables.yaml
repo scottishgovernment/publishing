@@ -1,0 +1,22 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/variables:
+      jcr:primaryType: hipposys:domain
+      /readonly:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups: [everybody]
+        hipposys:role: readonly
+      /editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups: [ author, editor, mygov-authors, mygov-editors, orgs-social-security-authors,
+                           orgs-social-security-editors, orgs-disclosure-scotland-authors, orgs-disclosure-scotland-editors ]
+        hipposys:role: editor
+      /variables:
+        jcr:primaryType: hipposys:domainrule
+        /include-valuelists-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/var

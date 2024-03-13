@@ -2,28 +2,6 @@ definitions:
   config:
     /hippo:configuration/hippo:domains/orgs-disclosure-scotland-content:
       jcr:primaryType: hipposys:domain
-      /content-domain:
-        jcr:primaryType: hipposys:domainrule
-        /include-disclosure-scotland-documents:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: true
-          hipposys:facet: publishing:organisationtags
-          hipposys:filter: false
-          hipposys:type: String
-          hipposys:value: disclosure-scotland
-      /editor:
-        jcr:primaryType: hipposys:authrole
-        hipposys:groups:
-          .meta:category: system
-          .meta:add-new-system-values: true
-          type: string
-          value: [orgs-disclosure-scotland-editors]
-        hipposys:role: editor
-        hipposys:users:
-          .meta:category: system
-          .meta:add-new-system-values: true
-          type: string
-          value: []
       /include-non-variant-nodes:
         jcr:primaryType: hipposys:domainrule
         /include-non-variant-nodes:
@@ -32,23 +10,34 @@ definitions:
           hipposys:facet: nodetype
           hipposys:type: String
           hipposys:value: hippostd:publishable
-        /exclude-value-lists:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: false
-          hipposys:facet: nodetype
-          hipposys:type: String
-          hipposys:value: selection:valuelist
         /content-and-descendants:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
           hipposys:facet: jcr:path
           hipposys:type: Reference
-          hipposys:value: /content
+          hipposys:value: /content/documents/mygov
+        /exclude-mygov-banners-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/mygov/site-furniture/banners
+      /tagged-content-domain:
+        jcr:primaryType: hipposys:domainrule
+        /include-disclosure-scotland-documents:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: publishing:organisationtags
+          hipposys:filter: false
+          hipposys:type: String
+          hipposys:value: disclosure-scotland
       /author:
         jcr:primaryType: hipposys:authrole
-        hipposys:groups:
-          .meta:category: system
-          .meta:add-new-system-values: true
-          type: string
-          value: [orgs-disclosure-scotland-authors]
+        hipposys:groups: [orgs-disclosure-scotland-authors]
         hipposys:role: author
+      /editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups: [orgs-disclosure-scotland-editors]
+        hipposys:role: editor
+        hipposys:users: []

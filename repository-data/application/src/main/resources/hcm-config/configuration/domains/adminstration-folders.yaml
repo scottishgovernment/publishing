@@ -1,8 +1,21 @@
 definitions:
   config:
-    /hippo:configuration/hippo:domains/administrationdocuments:
+    /hippo:configuration/hippo:domains/administrationfolders:
       jcr:primaryType: hipposys:domain
-      /hippo-document:
+      /editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups: [cmsadmin]
+        hipposys:role: editor
+      /administration:
+        jcr:primaryType: hipposys:domainrule
+        /include-trading-nation-administration-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/administration
+      /trading-nation:
         jcr:primaryType: hipposys:domainrule
         /include-trading-nation-administration-folder:
           jcr:primaryType: hipposys:facetrule
@@ -11,6 +24,8 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/trading-nation/administration
+      /ddat:
+        jcr:primaryType: hipposys:domainrule
         /include-ddat-administration-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
@@ -18,6 +33,8 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/ddat/administration
+      /rentersrights:
+        jcr:primaryType: hipposys:domainrule
         /include-rentersrights-administration-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
@@ -25,13 +42,8 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/rentersrights/administration
-        /include-costofliving-administration-folder:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: true
-          hipposys:facet: jcr:path
-          hipposys:filter: false
-          hipposys:type: Reference
-          hipposys:value: /content/documents/costofliving/administration
+      /shorttermlets:
+        jcr:primaryType: hipposys:domainrule
         /include-shorttermlets-administration-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
@@ -39,6 +51,26 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/shorttermlets/administration
+      /privatetenancy:
+        jcr:primaryType: hipposys:domainrule
+        /include-costofliving-administration-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/costofliving/administration
+      /mygov:
+        jcr:primaryType: hipposys:domainrule
+        /include-mygov-administration-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/mygov/administration
+      /designsystem:
+        jcr:primaryType: hipposys:domainrule
         /include-designsystem-administration-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
@@ -46,6 +78,8 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/designsystem/administration
+      /scotaccount:
+        jcr:primaryType: hipposys:domainrule
         /include-scotaccount-administration-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
@@ -53,6 +87,8 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/scotaccount/administration
+      /scotpayments:
+        jcr:primaryType: hipposys:domainrule
         /include-scotpayments-administration-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
@@ -60,6 +96,8 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/scotpayments/administration
+      /cloud:
+        jcr:primaryType: hipposys:domainrule
         /include-cloud-administration-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
@@ -67,6 +105,8 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/cloud/administration
+      /servicemanual:
+        jcr:primaryType: hipposys:domainrule
         /include-servicemanual-administration-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
@@ -74,6 +114,8 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/servicemanual/administration
+      /disclosure:
+        jcr:primaryType: hipposys:domainrule
         /include-disclosure-administration-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
@@ -81,7 +123,3 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/disclosure/administration
-      /editor:
-          jcr:primaryType: hipposys:authrole
-          hipposys:groups: [cmsadmin]
-          hipposys:role: editor

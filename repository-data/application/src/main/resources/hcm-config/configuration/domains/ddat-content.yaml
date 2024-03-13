@@ -48,7 +48,7 @@ definitions:
           .meta:category: system
           .meta:add-new-system-values: true
           type: string
-          value: [ddat-authors]
+          value: [ddat-authors, author]
         hipposys:role: author
         hipposys:users:
           .meta:category: system
@@ -62,7 +62,7 @@ definitions:
           .meta:category: system
           .meta:add-new-system-values: true
           type: string
-          value: [ddat-editors]
+          value: [ddat-editors, editor]
         hipposys:role: editor
         hipposys:users:
           .meta:category: system
