@@ -30,15 +30,17 @@
                     <#if child.children?size gt 0>
                         <ul id="side-navigation" class="ds_side-navigation__list">
                             <#list child.children as grandchild>
-                                <#if grandchild.currentItem>
-                                    <span class="ds_side-navigation__link  ds_current">
-                                        ${grandchild.title}
-                                    </span>
-                                <#else>
-                                    <a class="ds_side-navigation__link" href="<@hst.link link=grandchild.link/>">
-                                        ${grandchild.title}
-                                    </a>
-                                </#if>
+                                <li class="ds_side-navigation__item">
+                                    <#if grandchild.currentItem>
+                                        <span class="ds_side-navigation__link  ds_current">
+                                            ${grandchild.title}
+                                        </span>
+                                    <#else>
+                                        <a class="ds_side-navigation__link" href="<@hst.link link=grandchild.link/>">
+                                            ${grandchild.title}
+                                        </a>
+                                    </#if>
+                                </li>
                             </#list>
                         </ul>
                     </#if>
