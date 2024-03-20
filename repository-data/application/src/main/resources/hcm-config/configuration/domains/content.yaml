@@ -1,4 +1,4 @@
 definitions:
   config:
-    /hippo:configuration/hippo:domains/content:
-      .meta:delete: true
+    /hippo:configuration/hippo:domains/content/editor:
+      hipposys:groups: [admin, cmsadmin]

@@ -6,10 +6,13 @@ definitions:
         jcr:primaryType: hipposys:authrole
         hipposys:groups: [everybody]
         hipposys:role: readonly
+      /author:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups: [ author, mygov-authors, orgs-social-security-authors, orgs-disclosure-scotland-authors]
+        hipposys:role: author
       /editor:
         jcr:primaryType: hipposys:authrole
-        hipposys:groups: [ author, editor, mygov-authors, mygov-editors, orgs-social-security-authors,
-                           orgs-social-security-editors, orgs-disclosure-scotland-authors, orgs-disclosure-scotland-editors ]
+        hipposys:groups: [ editor, mygov-editors, orgs-social-security-editors, orgs-disclosure-scotland-editors ]
         hipposys:role: editor
       /variables:
         jcr:primaryType: hipposys:domainrule

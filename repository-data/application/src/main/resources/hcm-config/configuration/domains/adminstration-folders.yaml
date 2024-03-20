@@ -15,6 +15,15 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/administration
+      /urlrewriter:
+        jcr:primaryType: hipposys:domainrule
+        /include-trading-nation-administration-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/urlrewriter
       /trading-nation:
         jcr:primaryType: hipposys:domainrule
         /include-trading-nation-administration-folder:
