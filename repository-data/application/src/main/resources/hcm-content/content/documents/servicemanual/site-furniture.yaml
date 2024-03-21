@@ -2,30 +2,34 @@
   .meta:order-before: images
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:versionable']
+  jcr:uuid: e3c219d1-ca32-4dad-bd40-6731f6454469
   hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror]
   /footer:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 7f66181d-ae8b-47eb-ab24-3cf7106ce9ad
     hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
     /privacy:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 3ee8524d-c616-4886-8aaf-f5d62332232c
       hippo:name: Privacy
       /privacy:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 322f5917-ed7d-4166-b3ad-c057dacd804d
         hippo:availability: [preview]
         hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-10T09:00:00.000+00:00
-        hippostdpubwf:lastModificationDate: 2024-01-10T09:00:00.000+00:00
+        hippostdpubwf:creationDate: 2024-01-10T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-01-10T09:00:00Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d064f1e2-d40c-4118-b502-6a691bb2b3d3
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:lastUpdatedDate: 2024-01-10T09:00:00.000+00:00
+        publishing:lastUpdatedDate: 2024-01-10T09:00:00Z
         publishing:metaDescription: Privacy
         publishing:permalink: /privacy/
         publishing:reportingtags: []
@@ -53,17 +57,19 @@
     /accessibility:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 5669c0e4-3115-4f13-b1af-03c41f34c7fb
       hippo:name: Accessibility
       /accessibility:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
-        hippo:name: Accessibility
+        jcr:uuid: 8f723f16-4dbf-4056-944f-107c090b86a0
         hippo:availability: [preview]
+        hippo:name: Accessibility
         hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-10T09:00:00.000+00:00
-        hippostdpubwf:lastModificationDate: 2024-01-10T09:00:00.000+00:00
+        hippostdpubwf:creationDate: 2024-01-10T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-01-10T09:00:00Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: ec4e0c5c-80a0-44c6-b3d7-fb8785e2b78a
         hippotranslation:locale: document-type-locale
@@ -96,17 +102,19 @@
     /cookies:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 421bfa0d-b2d6-4038-b653-880ea7149fc5
       hippo:name: Cookies
       /cookies:
         jcr:primaryType: publishing:cookiepage
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 29c17066-89f7-4d8c-8bbb-bf4caa957c8e
         hippo:availability: [preview]
         hippo:name: Cookies
         hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-10T09:00:00.000+00:00
-        hippostdpubwf:lastModificationDate: 2024-01-10T09:00:00.000+00:00
+        hippostdpubwf:creationDate: 2024-01-10T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-01-10T09:00:00Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
         hippotranslation:locale: document-type-locale
@@ -142,5 +150,99 @@
   /banners:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:versionable']
+    jcr:uuid: dc1f3566-5fa9-4cb6-ae8e-eba2d44c62cd
     hippo:name: banners
     hippostd:foldertype: [new-mourning-banner, new-notification-banner, new-phase-banner]
+  /search:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: a7c38d8b-ea52-4ac8-b593-85a242287f67
+    hippostd:foldertype: [new-search-document]
+    /search-results:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 7b4a3aae-fc68-4f8f-9065-f21e09f28190
+      hippo:name: search
+      hippo:versionHistory: cfc65ba0-b5ce-48e7-bb0f-5390238c7c16
+      /search-results[1]:
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 78b81b8e-808e-42e0-b0a2-c0a54ceeb3b4
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-12T10:25:34.133Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T13:22:52.429Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 34ce7ba4-2ab1-42f0-b7ac-dae3f8bfe57c
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: Search results
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Some contrent in here</p>
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>No results, sorry!</p>
+        /publishing:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>You must enter a search term</p>
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Enter a search term</p>
+      /search-results[2]:
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 74a5eff3-3af9-45a6-8cfe-6e937de9869f
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-12T10:25:34.133Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T13:23:01.537Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 34ce7ba4-2ab1-42f0-b7ac-dae3f8bfe57c
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: Search results
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Some contrent in here</p>
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>No results, sorry!</p>
+        /publishing:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>You must enter a search term</p>
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Enter a search term</p>
+      /search-results[3]:
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 61d105d9-37a1-4192-a6a7-5f815a9ba25a
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-12T10:25:34.133Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T13:23:01.537Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2024-01-12T13:23:03.711Z
+        hippotranslation:id: 34ce7ba4-2ab1-42f0-b7ac-dae3f8bfe57c
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: Search results
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Some contrent in here</p>
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>No results, sorry!</p>
+        /publishing:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>You must enter a search term</p>
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Enter a search term</p>

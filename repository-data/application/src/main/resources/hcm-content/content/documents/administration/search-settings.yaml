@@ -1,0 +1,58 @@
+/content/documents/administration/search-settings:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+  jcr:uuid: 182a0f10-d049-4dfb-a4d2-d26162c4038e
+  hippo:name: Search settings
+  hippo:versionHistory: 10ccadbe-8219-402c-afbc-4ae677339d4c
+  /search-settings[1]:
+    jcr:primaryType: search:searchsettings
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: b0394e1e-a5d8-4018-8a26-3b50892b0315
+    hippo:availability: []
+    hippostd:retainable: false
+    hippostd:state: draft
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
+    hippostdpubwf:lastModificationDate: 2024-03-20T21:23:53.019Z
+    hippostdpubwf:lastModifiedBy: admin
+    search:bloomreachErrorRate: 0.0
+    search:enabled: true
+    search:funnelbackErrorRate: 0.0
+    search:searchtype: resilient
+    search:suggestTimeoutMillis: 250
+    search:timeoutMillis: 500
+  /search-settings[2]:
+    jcr:primaryType: search:searchsettings
+    jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+    jcr:uuid: 9f3023d4-4ecc-4112-ac07-e7c66f69d9b8
+    hippo:availability: [preview]
+    hippostd:retainable: false
+    hippostd:state: unpublished
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
+    hippostdpubwf:lastModificationDate: 2024-03-20T21:24:14.195Z
+    hippostdpubwf:lastModifiedBy: admin
+    search:bloomreachErrorRate: 0.0
+    search:enabled: true
+    search:funnelbackErrorRate: 0.0
+    search:searchtype: resilient
+    search:suggestTimeoutMillis: 250
+    search:timeoutMillis: 500
+  /search-settings[3]:
+    jcr:primaryType: search:searchsettings
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 213c89da-9bfe-42e7-aea3-080ac6f93d38
+    hippo:availability: [live]
+    hippostd:retainable: false
+    hippostd:state: published
+    hippostdpubwf:createdBy: admin
+    hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
+    hippostdpubwf:lastModificationDate: 2024-03-20T21:24:14.195Z
+    hippostdpubwf:lastModifiedBy: admin
+    hippostdpubwf:publicationDate: 2024-03-20T21:24:17.858Z
+    search:bloomreachErrorRate: 0.0
+    search:enabled: true
+    search:funnelbackErrorRate: 0.0
+    search:searchtype: resilient
+    search:suggestTimeoutMillis: 250
+    search:timeoutMillis: 500
