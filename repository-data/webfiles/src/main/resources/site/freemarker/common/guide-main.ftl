@@ -142,7 +142,7 @@
 </#if>
 <#if guide.lastUpdatedDate??>
     <@hst.headContribution category="meta">
-    <meta name="dc.date.modified" content="<@fmt.formatDate value=guide.lastUpdatedDate.time type="both" pattern="YYYY-MM-dd"/>"/>
+    <meta name="dc.date.modified" content="<@fmt.formatDate value=guide.lastUpdatedDate.time type="both" pattern="YYYY-MM-dd HH:mm"/>"/>
     </@hst.headContribution>
 </#if>
 </#if>
