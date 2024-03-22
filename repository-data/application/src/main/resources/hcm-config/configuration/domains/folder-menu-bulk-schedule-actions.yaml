@@ -17,7 +17,7 @@ definitions:
           .meta:add-new-system-values: true
           operation: override
           type: string
-          value: [cmsadmin, orgs-disclosure-scotland-editors, orgs-social-security-editors, editor]
+          value: [cmsadmin, editor, mygov-editors, orgs-disclosure-scotland-editors, orgs-social-security-editors]
         hipposys:role: bulkschedule-user
         hipposys:users:
           .meta:category: system
