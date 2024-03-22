@@ -83,7 +83,8 @@ const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 let NOW = new Date();
 NOW.setHours(6,0,0,0);
 
-const newLegislationStartDate = new Date(2023, 3, 1);
+const costOfLivingLegislationEndDate = new Date(2024, 3, 1);
+
 // date override from querystring
 const qsParams = new URLSearchParams(window.location.search);
 if (qsParams.get('date')) {
@@ -202,13 +203,13 @@ const rentIncreaseForm = {
         }
         this.setupProgressResets();
 
-        if (NOW > newLegislationStartDate) {
-            this.transformMarkup2023();
-            this.use2023Legislation();
+        if (NOW < costOfLivingLegislationEndDate) {
+            this.transformMarkupCostOfLiving();
+            this.useCostOfLivingLegislation();
         }
     },
 
-    transformMarkup2023: function () {
+    transformMarkupCostOfLiving: function () {
         // transform page content
         const newRentScreen = document.querySelector('[data-step="new-rent"]');
         const newRentFrequencyQuestion = newRentScreen.querySelector('#new-rent-frequency-question');
@@ -237,7 +238,7 @@ const rentIncreaseForm = {
         newRentScreen.append(newRentWarningText);
     },
 
-    use2023Legislation: function () {
+    useCostOfLivingLegislation: function () {
         // new validation method
         commonForms.validateRentIncreaseAmount = function (field, percentage = 3) {
             let newValue = field.value;
@@ -706,7 +707,7 @@ const rentIncreaseForm = {
     },
 
     setupIncreaseAmountPage: function () {
-        if (NOW > newLegislationStartDate) {
+        if (NOW < costOfLivingLegislationEndDate) {
             const frequencyReadOnly = document.getElementById('frequency-read-only');
             frequencyReadOnly.innerText = document.querySelector(`#current-payment-frequency option[value="${formObject.currentRentFrequency}"]`).innerText;
         } else {

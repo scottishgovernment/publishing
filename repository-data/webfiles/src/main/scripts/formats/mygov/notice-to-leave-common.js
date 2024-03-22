@@ -82,6 +82,11 @@ const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 
 [].slice.call(document.querySelectorAll('form')).forEach((form) => form.reset());
 
+let NOW = new Date();
+NOW.setHours(6,0,0,0);
+
+const costOfLivingLegislationEndDate = new Date(2024, 3, 1);
+
 const noticeToLeaveForm = {
     form: new MultiPageForm({
         formSections: formSections,
@@ -181,6 +186,23 @@ const noticeToLeaveForm = {
             commonForms.setupRecaptcha();
         }
         feedback.init();
+
+        if (NOW > costOfLivingLegislationEndDate) {
+            this.revertMarkupCostOfLiving();
+        }
+    },
+
+    revertMarkupCostOfLiving: function () {
+        const groundsToRemove = [
+            'LANDLORD_TO_SELL_HARDSHIP',
+            'LANDLORD_TO_LIVE_HARDSHIP',
+            'YOU_RENT_ARREARS_SUBSTANTIAL'
+        ];
+
+        groundsToRemove.forEach(id => {
+            const ground = document.getElementById(id).parentNode;
+            ground.parentNode.removeChild(ground);
+        });
     },
 
     setupConditionalSections: function () {

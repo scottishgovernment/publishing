@@ -19,7 +19,6 @@ import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/model-tenancy-form');
 const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
-const mandatoryTemplate = require('../../templates/mygov/model-tenancy-mandatory');
 const paymentTemplate = require('../../templates/mygov/model-tenancy-payment-dates');
 const summaryOneTemplate = require('../../templates/mygov/model-tenancy-summary-1');
 const summaryTwoExcludedTemplate = require('../../templates/mygov/model-tenancy-summary-2-excluded');
@@ -40,6 +39,18 @@ const confirmDefaultModal = `<div class="modal">
         <button class="ds_no-margin  ds_button--cancel  ds_button  ds_button--small" id="js-modal-cancel">Cancel</button>
     </div>
 </div>`;
+
+let NOW = new Date();
+NOW.setHours(6,0,0,0);
+
+const costOfLivingLegislationEndDate = new Date(2024, 3, 1);
+
+let mandatoryTemplate;
+if (NOW > costOfLivingLegislationEndDate) {
+    mandatoryTemplate = require('../../templates/mygov/model-tenancy-mandatory-2024');
+} else {
+    mandatoryTemplate = require('../../templates/mygov/model-tenancy-mandatory');
+}
 
 $('form').each(function() {
     this.reset();
