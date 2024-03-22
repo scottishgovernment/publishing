@@ -16,7 +16,7 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
 /**
- * Link processor used to implement our URL guidelines. Aticles are served at their unique slug, categoeries at their
+ * Link processor used to implement our URL guidelines. Articles are served at their unique slug, categories at their
  * natural url.
  */
 public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
@@ -29,7 +29,11 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
 
     SessionSource sessionSource = () -> RequestContextProvider.get().getSession();
 
-    PathForSlugSource pathForSlugSource = PathSourceFactory.lookup();
+    /**
+     * the use of the fallback here is temporary until we have diagnosed why some slug lookup properties
+     * were missing causing published pages to 404
+     */
+    PathForSlugSource pathForSlugSource = PathSourceFactory.withMissingPropertyFallback(new QueryPathSource());
 
     @Override
     public HstLink postProcess(final HstLink link) {
