@@ -15,8 +15,8 @@
         </div>
     <#else>
         <div class="ds_metadata__item">
-            <span class="ds_metadata__key">Published</span>
-            <span class="ds_metadata__value"><strong id="sg-meta__publication-date"><@fmt.formatDate value=firstPublished.lastUpdated.time type="both" pattern="d MMMM yyyy"/></strong></span>
+            <dt class="ds_metadata__key">Published</dt>
+            <dd class="ds_metadata__value"><strong id="sg-meta__publication-date"><@fmt.formatDate value=firstPublished.lastUpdated.time type="both" pattern="d MMMM yyyy"/></strong></dd>
         </div>
     </#if>
 </dl>

@@ -249,11 +249,13 @@
                                 <tbody>
                                     <#list contentblock.paletteitems as item>
                                         <tr>
-                                            <td class="dss_palette__name">
+                                            <td class="dss_palette__colour">
                                                 <svg class="dss_palette__swatch" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
                                                     <circle fill="${item.code}" cx="20" cy="20" r="20"></circle>
                                                 </svg>
                                                 <span class="visually-hidden">${item.colourname}</span>
+                                            </td>
+                                            <td class="dss_palette__name">
                                                 <code>${item.varname}</code>
                                             </td>
                                             <td class="dss_palette__hex"><code>${item.code}</code></td>

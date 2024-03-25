@@ -11,13 +11,16 @@
     }
 
     & td {
-        padding-bottom: 24px;
+        padding-bottom: 1.5rem;
+    }
+
+    &__colour {
+        position: relative;
+        width: 2.5rem;
     }
 
     &__name {
-        padding-left: 60px;
-        position: relative;
-        width: 50%;
+        padding-left: 1.25rem;
     }
 
     &__variable {
@@ -31,9 +34,9 @@
 
     &__swatch {
         position: absolute;
-        height: 40px;
+        height: 2.5rem;
         left: 0;
-        margin-top: -4px;
-        width: 40px;
+        margin-top: -1.25rem;
+        width: 2.5rem;
     }
 }
