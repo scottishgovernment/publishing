@@ -19,16 +19,16 @@ definitions:
       hipposched:enabled: false
     /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/PollFunnelbackCurator:
       jcr:primaryType: hipposched:repositoryjob
-      hipposched:attributeNames: [pollPath]
-      hipposched:attributeValues: [/admin-api/curator/v2/collections/govscot~sp-mygov/profiles/_default/curator/]
+      hipposched:attributeNames: [ pollPaths ]
+      hipposched:attributeValues: [ '/admin-api/curator/v2/collections/govscot~sp-mygov/profiles/search/curator/,/admin-api/curator/v2/collections/govscot~sp-design-system/profiles/search/curator/,/admin-api/curator/v2/collections/govscot~ds-servicemanual/profiles/search/curator/' ]
       hipposched:enabled: true
       hipposched:repositoryJobClass: scot.gov.publishing.hippo.funnelback.scheduler.PollFunnelbackCurator
       /hipposched:triggers:
         jcr:primaryType: hipposched:triggers
         /everyMin:
           jcr:primaryType: hipposched:crontrigger
-          jcr:mixinTypes: ['mix:lockable']
+          jcr:mixinTypes: [ 'mix:lockable' ]
           jcr:uuid: d2b951cd-b467-4ffa-afb8-e7aed9dc4db4
           hipposched:cronExpression: 0 0/5 * * * ?
           hipposched:enabled: true
-          hipposched:nextFireTime: 2023-07-27T09:30:00+01:00
+          hipposched:nextFireTime: 2024-03-26T15:00:00Z
