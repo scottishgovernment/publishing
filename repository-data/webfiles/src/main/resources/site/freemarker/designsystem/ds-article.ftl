@@ -12,6 +12,8 @@
 
     <@hst.include ref="breadcrumbs"/>
 
+    <#assign accordionCount = 0 />
+
     <div class="ds_wrapper">
         <main <@lang document/> id="main-content" class="ds_layout  ds_layout--pl-component">
             <div class="ds_layout__header">
@@ -107,18 +109,20 @@
                                     <div class="example__accordion  ds_accordion" data-module="ds-accordion">
                                         <#if contentblock.showcode>
                                             <div class="ds_accordion-item  <#if contentblock.htmlexpanded>ds_accordion-item--open</#if>">
-                                                <input type="checkbox" <#if contentblock.htmlexpanded>checked</#if> class="visually-hidden  ds_accordion-item__control" id="panel-main-1" aria-labelledby="panel-main-1-heading">
+                                                <input type="checkbox" <#if contentblock.htmlexpanded>checked</#if> class="visually-hidden  ds_accordion-item__control" id="panel-main-${accordionCount}" aria-labelledby="panel-main-${accordionCount}-heading">
                                                 <div class="ds_accordion-item__header">
-                                                    <h3 id="panel-main-1-heading" class="ds_accordion-item__title">
+                                                    <h3 id="panel-main-${accordionCount}-heading" class="ds_accordion-item__title">
                                                         Sample ${contentblock.type}
                                                     </h3>
                                                     <span class="ds_accordion-item__indicator"></span>
-                                                    <label class="ds_accordion-item__label" for="panel-main-1"><span class="visually-hidden">Show this section</span></label>
+                                                    <label class="ds_accordion-item__label" for="panel-main-${accordionCount}"><span class="visually-hidden">Show this section</span></label>
                                                 </div>
                                                 <div class="ds_accordion-item__body  example__accordion-body--code">
                                                     <pre class="ds_no-margin  pre--no-border"><code class="language-${contentblock.example.language?lower_case}">${contentblock.example.code}</code></pre>
                                                 </div>
                                             </div>
+
+                                            <#assign accordionCount = accordionCount + 1 />
                                         </#if>
                                     </div>
                                 </div>
