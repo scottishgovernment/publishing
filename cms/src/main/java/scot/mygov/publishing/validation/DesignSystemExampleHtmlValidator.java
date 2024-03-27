@@ -43,8 +43,8 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
             .addAttributes("div","data-disableddates","data-dateformat","data-mindate","data-maxdate","data-symbol", DATA_THRESHOLD)
             .addAttributes("form","action","method")
             .addAttributes("img","loading","sizes","srcset")
-            .addAttributes("input","aria-autocomplete","aria-expanded","aria-owns","autocomplete",
-                    "checked","data-behaviour", DATA_THRESHOLD,"haspopup","maxlength","name","placeholder","required",
+            .addAttributes("input","aria-autocomplete","aria-expanded","aria-haspopup","aria-owns","autocomplete",
+                    "checked","data-behaviour", DATA_THRESHOLD,"maxlength","name","placeholder","required",
                     "type", VALUE, "hidden")
             .addAttributes(TEXTAREA,DATA_THRESHOLD, "data-validation", "maxlength","placeholder","required", VALUE)
             .addAttributes("label","for")
