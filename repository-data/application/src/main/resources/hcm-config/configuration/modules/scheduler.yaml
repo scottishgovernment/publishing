@@ -20,7 +20,7 @@ definitions:
     /hippo:configuration/hippo:modules/scheduler/hippo:moduleconfig/system/PollFunnelbackCurator:
       jcr:primaryType: hipposched:repositoryjob
       hipposched:attributeNames: [ pollPaths ]
-      hipposched:attributeValues: [ '/admin-api/curator/v2/collections/govscot~sp-mygov/profiles/search/curator/,/admin-api/curator/v2/collections/govscot~sp-design-system/profiles/search/curator/,/admin-api/curator/v2/collections/govscot~ds-servicemanual/profiles/search/curator/' ]
+      hipposched:attributeValues: [ '/admin-api/curator/v2/collections/govscot~sp-mygov/profiles/search/curator/,/admin-api/curator/v2/collections/govscot~sp-design-system/profiles/search/curator/,/admin-api/curator/v2/collections/govscot~sp-servicemanual/profiles/search/curator/' ]
       hipposched:enabled: true
       hipposched:repositoryJobClass: scot.gov.publishing.hippo.funnelback.scheduler.PollFunnelbackCurator
       /hipposched:triggers:
