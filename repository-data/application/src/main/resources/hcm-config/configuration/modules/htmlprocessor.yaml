@@ -6,6 +6,9 @@ definitions:
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/label:
       jcr:primaryType: hipposys:moduleconfig
       attributes: [class, for]
+    /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/select:
+      jcr:primaryType: hipposys:moduleconfig
+      attributes: [class, id]
     /hippo:configuration/hippo:modules/htmlprocessor/hippo:moduleconfig/richtext/option:
       jcr:primaryType: hipposys:moduleconfig
       attributes: [data-id, selected, disabled, value]
