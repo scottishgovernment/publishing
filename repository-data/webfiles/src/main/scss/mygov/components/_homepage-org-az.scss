@@ -9,7 +9,7 @@
     font-size: 1rem;
     grid-gap: 0.75rem;
     line-height: 1.5rem;
-    margin-top: 1.5rem;
+    @include ds_responsive-margin(4, top);
 
     @include ds_media-query(medium) {
         grid-template-columns: 1fr 1fr;

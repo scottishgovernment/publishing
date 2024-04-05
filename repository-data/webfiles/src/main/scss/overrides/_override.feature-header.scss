@@ -4,10 +4,9 @@
 \*------------------------------------*/
 
 .ds_feature-header {
-    margin-bottom: px-to-rem(32px);
+    @include ds_responsive-margin(6, bottom);
 
     @include ds_media-query(medium) {
-        margin-bottom: px-to-rem(56px);
         margin-top: px-to-rem(48px);
     }
 }
