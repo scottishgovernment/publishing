@@ -22,29 +22,6 @@
                         <#assign searchcategory = "sitesearch" />
                         <#include '../common/include/search.ftl'/>
                     </div>
-
-                    <div class="ds_feature-header__secondary">
-                        <div class="mg_hero-links">
-                            <@hst.link var="about" path="/about-mygovscot"/>
-                            <a class="mg_hero-links__link" href="${about}" data-navigation="link-hero">About</a>
-                            <@hst.link var="feedback" path="/give-feedback"/>
-                            <a class="mg_hero-links__link" href="${feedback}" data-navigation="link-hero">Feedback</a>
-                        </div>
-
-                        <p>
-                            We’re working with over 150 organisations to deliver their services online.
-                        </p>
-
-                        <@hst.link var="organisations" path="/organisations"/>
-                        <a class="ds_button  ds_button--has-icon  ds_button--max  mg_hero-az  ds_no-margin" href="${organisations}">
-                            <span class="mg_hero-az__text">
-                                <span class="large">A-Z</span>
-                                <span class="small">of Scotland's<br>organisations</span>
-                            </span>
-
-                            <span class="mg_hero-az__icon"></span>
-                        </a>
-                    </div>
                 </header>
             </div>
         </div>
@@ -56,8 +33,8 @@
                     <@hst.html hippohtml=document.prologue/>
                 </#if>
                 <div class="ds_layout  ds_layout--category-list">
-                    <#if document.popularpanelitem?has_content>
-                        <div class="ds_layout__content">
+                    <div class="ds_layout__content">
+                        <#if document.popularpanelitem?has_content>
                             <div class="popular">
                                 <h2 class="popular__title">Popular on mygov.scot:</h2>
                                 <ul class="popular__items">
@@ -70,8 +47,22 @@
                                     </#list>
                                 </ul>
                             </div>
+                        </#if>
+
+                        <div class="org-az">
+                            <@hst.link var="organisations" path="/organisations"/>
+                            <div class="org-az__description">
+                                <p>We're working with over <a href="${organisations}">150 organisations</a> to deliver their services online.</p>
+                            </div>
+                            <div>
+                                <a href="${organisations}" class="org-az__link  ds_button  ds_button--max  ds_button--secondary  ds_button--has-icon  ds_no-margin">
+                                    A-Z of Scotland's organisations
+                                    <span class="org-az__link-icon" aria-hidden="true"></span>
+                                </a>
+                            </div>
                         </div>
-                    </#if>
+                    </div>
+
                     <#if document.navigationType == "list">
                     <div class="ds_layout__list">
                     <#else>
