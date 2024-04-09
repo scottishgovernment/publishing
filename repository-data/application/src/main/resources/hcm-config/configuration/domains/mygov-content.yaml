@@ -70,3 +70,10 @@ definitions:
           operation: override
           type: string
           value: []
+      /readonly:
+        jcr:primaryType: hipposys:authrole
+        hipposys:role: readonly
+        hipposys:groups:
+          value: [orgs-social-security-authors, orgs-social-security-editors, orgs-disclosure-scotland-authors, orgs-disclosure-scotland-editors]
+
+
