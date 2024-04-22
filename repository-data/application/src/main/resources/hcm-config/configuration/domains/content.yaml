@@ -1,4 +1,9 @@
 definitions:
   config:
-    /hippo:configuration/hippo:domains/content/editor:
-      hipposys:groups: [admin, cmsadmin]
+     /hippo:configuration/hippo:domains/content/content-domain/exclude-resetpassword-folder:
+       jcr:primaryType: hipposys:facetrule
+       hipposys:equals: false
+       hipposys:facet: jcr:path
+       hipposys:filter: false
+       hipposys:type: Reference
+       hipposys:value: /content/documents/resetpassword
