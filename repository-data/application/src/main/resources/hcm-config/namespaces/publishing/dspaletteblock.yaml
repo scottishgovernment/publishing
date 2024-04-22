@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: e73ccfd2-5bc5-40ce-9e03-96fea65e5243
+          jcr:uuid: 0f01e323-0eec-4b5c-a24c-ac70a528e89c
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -33,7 +33,6 @@ definitions:
             hipposysedit:path: publishing:title
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
           /headinglevel:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -42,7 +41,6 @@ definitions:
             hipposysedit:path: publishing:headinglevel
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
-            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -54,6 +52,7 @@ definitions:
             publishing:code: ''
             publishing:name: ''
             publishing:varname: ''
+            publishing:colourname: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
