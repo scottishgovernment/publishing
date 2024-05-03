@@ -144,7 +144,7 @@
                     <dl class="ds_search-result__metadata  ds_metadata  ds_metadata--inline">
                         <#if (result.listMetadata["f"]?first)!?has_content>
                             <span class="ds_metadata__item">
-                                <dt class="ds_metadata__key  visually-hidden">Format</dt>
+                                <dt class="ds_metadata__key">Format</dt>
                                 <dd class="ds_metadata__value">
                                 ${result.listMetadata["f"]?first!}
                                 </dd>
@@ -152,7 +152,7 @@
                         </#if>
                         <#if (result.listMetadata["d"]?first)!?has_content>
                             <span class="ds_metadata__item">
-                                <dt class="ds_metadata__key  visually-hidden">Date</dt>
+                                <dt class="ds_metadata__key">Date</dt>
                                 <dd class="ds_metadata__value">
                                 ${result.listMetadata.displayDate}
                                 </dd>

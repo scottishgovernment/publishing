@@ -137,12 +137,12 @@
                             <div <@revertlang document /> id="file-download-${doc?counter}" class="ds_file-download__details">
                                 <dl class="ds_metadata  ds_metadata--inline">
                                     <div class="ds_metadata__item">
-                                        <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                                        <dt class="ds_metadata__key">File type</dt>
                                         <dd class="ds_metadata__value"><#if doc.pageCount?? && doc.pageCount != 0 >${doc.pageCount} page </#if>${fileDescription}<span class="visually-hidden">,</span></dd>
                                     </div>
 
                                     <div class="ds_metadata__item">
-                                        <dt class="ds_metadata__key  visually-hidden">File size</dt>
+                                        <dt class="ds_metadata__key">File size</dt>
                                         <dd class="ds_metadata__value"><@formatFileSize document=doc/></dd>
                                     </div>
                                 </dl>

@@ -211,13 +211,13 @@
                                     <div id="file-download-${contentblock?keep_after("@")}" class="ds_file-download__details">
                                         <dl class="ds_metadata  ds_metadata--inline">
                                             <div class="ds_metadata__item">
-                                                <dt class="ds_metadata__key  visually-hidden">File type</dt>
+                                                <dt class="ds_metadata__key">File type</dt>
                                                 <dd class="ds_metadata__value">${contentblock.type}<span class="visually-hidden">,</span></dd>
                                             </div>
 
 
                                             <div class="ds_metadata__item">
-                                                <dt class="ds_metadata__key  visually-hidden">File size</dt>
+                                                <dt class="ds_metadata__key">File size</dt>
                                                 <dd class="ds_metadata__value">${contentblock.size}</dd>
                                             </div>
 
