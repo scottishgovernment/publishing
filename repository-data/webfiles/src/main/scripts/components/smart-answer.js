@@ -161,22 +161,17 @@ class SmartAnswer {
 
                 // clear any current content
                 element.innerHTML = '';
-
                 const answerForQuestion = this.currentAnswers.find(answer => answer.id === question);
 
                 if (answerForQuestion) {
                     const responsesForQuestion = this.processedResponses.find(item => item.stepId === 'step-' + answerForQuestion.id).responses;
 
-                    let tag = '';
-                    Object.entries(responsesForQuestion).forEach(item => {
-                        if (item[1]) {
-                            tag = item[0];
-                        }
-                    });
-
-                    const requestPath = `${location}?tag=${tag}`;
+                    let tags = [];
+                    Object.entries(responsesForQuestion).forEach(item => tags.push(item[0]));
+                    const tagParams = tags.map(tag => `tag=${tag}`).join('&');
+                    let requestPath = `${location}?${tagParams}`;
                     if (!requestPaths.includes(requestPath)) {
-                        const promiseRequest = commonForms.promiseRequest(`${location}?tag=${tag}`);
+                        const promiseRequest = commonForms.promiseRequest(requestPath);
 
                         promiseRequest
                             .then(value => {
@@ -191,7 +186,7 @@ class SmartAnswer {
                             });
 
                         dynamicContentPromises.push(promiseRequest);
-                        requestPaths.push(`${location}?tag=${tag}`);
+                        requestPaths.push(requestPath);
                     }
                 }
             });
