@@ -11,12 +11,27 @@
     }
 
     & td {
-        padding-bottom: 1.5rem;
+        padding-bottom: 1.25rem;
+        padding-top: 0.25rem;
     }
 
     &__colour {
         position: relative;
         width: 2.5rem;
+
+        &::before {
+            border: 0.0625rem solid $ds_colour__grey;
+            border-radius: 2.5rem;
+            content: '';
+            height: 2.5rem;
+            left: 0;
+            mix-blend-mode: darken;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            width: 2.5rem;
+            z-index: 1;
+        }
     }
 
     &__name {
@@ -36,7 +51,7 @@
         position: absolute;
         height: 2.5rem;
         left: 0;
-        margin-top: -1.25rem;
+        top: 0;
         width: 2.5rem;
     }
 
