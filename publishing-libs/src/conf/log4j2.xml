@@ -110,6 +110,7 @@
     <!-- project logging -->
     <Logger name="scot.mygov.publishing" level="info"/>
     <Logger name="scot.gov" level="info"/>
+<!--    <Logger name="com.sun.mail" level="debug"/>-->
 
     <Root level="warn">
       <AppenderRef ref="cms"/>

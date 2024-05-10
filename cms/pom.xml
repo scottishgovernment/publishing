@@ -106,6 +106,18 @@
       <version>0.0.1-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.bloomreach.forge.resetpassword</groupId>
+      <artifactId>resetpassword-cms</artifactId>
+      <version>${forge.resetpassword.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.bloomreach.forge.resetpassword</groupId>
+      <artifactId>resetpassword-bootstrap-configuration</artifactId>
+      <version>${forge.resetpassword.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
