@@ -20,22 +20,6 @@
     <Parameter name="output-wicketpaths" value="true"/>
     -->
 
-<!--    can something like this work when the AWS SDK is installed?-->
-<!--    <Resource name="mail/Session"-->
-<!--              auth="Container"-->
-<!--              type="javax.mail.Session"-->
-<!--              mail.transport.protocol="aws"-->
-<!--              mail.aws.host="email-smtp.eu-west-1.amazonaws.com"/>-->
-<!--    mail.transport.protocol.rfc822="aws"-->
-<!--    mail.aws.port= "2465"-->
-
-<!--    <Resource name="mail/Session"-->
-<!--              auth="Container"-->
-<!--              type="javax.mail.Session"-->
-<!--              mail.transport.protocol="smtp"-->
-<!--              mail.smtp.host="email-smtp.eu-west-1.amazonaws.com"-->
-<!--              mail.smtp.port= "2465"/>-->
-
     <Resource name="mail/Session"
               auth="Container"
               type="javax.mail.Session"
