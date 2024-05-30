@@ -6,6 +6,7 @@
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.TextAndCard" -->
 <div class="ds_cb  ds_cb--card-text
 <#if neutrallinks>  ds_cb--neutral-links</#if>
+<#if removebottompadding>  ds_!_padding-bottom--0</#if>
 ">
     <div class="ds_wrapper">
         <div class="ds_cb__inner">

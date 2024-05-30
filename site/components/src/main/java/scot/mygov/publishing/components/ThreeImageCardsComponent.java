@@ -28,6 +28,7 @@ public class ThreeImageCardsComponent extends CommonComponent {
         request.setAttribute("showimages", paramInfo.getShowImages());
         request.setAttribute("smallvariant", paramInfo.getSmallVariant());
         request.setAttribute("neutrallinks", paramInfo.getNeutralLinks());
+        request.setAttribute("removebottompadding", paramInfo.getRemoveBottomPadding());
         request.setAttribute("greycards", paramInfo.getGreyCards());
     }
 

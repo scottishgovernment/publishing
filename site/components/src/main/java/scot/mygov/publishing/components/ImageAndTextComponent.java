@@ -18,5 +18,6 @@ public class ImageAndTextComponent extends EssentialsDocumentComponent {
         request.setAttribute("backgroundcolor", paramInfo.getBackgroundColor());
         request.setAttribute("foregroundcolor", paramInfo.getForegroundColor());
         request.setAttribute("neutrallinks", paramInfo.getNeutralLinks());
+        request.setAttribute("removebottompadding", paramInfo.getRemoveBottomPadding());
     }
 }

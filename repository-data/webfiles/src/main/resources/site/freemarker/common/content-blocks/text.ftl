@@ -11,7 +11,7 @@
 <#if neutrallinks>  ds_cb--neutral-links</#if>
 ">
     <div class="ds_wrapper">
-        <div class="ds_cb__inner">
+        <div class="ds_cb__inner <#if removebottompadding>  ds_!_padding-bottom--0</#if>">
             <#if document??>
                 <div class="ds_cb__text  <#if position??>ds_cb__text--${position}</#if>">
                     <@hst.html hippohtml=document.content/>

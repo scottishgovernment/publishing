@@ -33,26 +33,28 @@
 <#if backgroundcolor?? && backgroundcolor?length gt 0>  ds_cb--bg-${backgroundcolor}</#if>
 <#if foregroundcolor?? && foregroundcolor?length gt 0>  ds_cb--fg-${foregroundcolor}</#if>
 <#if neutrallinks>  ds_cb--neutral-links</#if>
+<#if removebottompadding>  ds_!_padding-bottom--0</#if>
 ">
     <div class="ds_wrapper">
         <div class="ds_cb__inner">
 
         <#list items as item>
-
-        <!-- set link where internal link has priority over external link -->
-        <#assign link>
-        <#if item.link??>
-            <@hst.link hippobean=item.link/>
-        <#elseif item.externalLink?has_content>
-            ${item.externalLink}
-        </#if>
-        </#assign>
         
             <#if item != ''>
+
+            <!-- set link where internal link has priority over external link -->
+            <#assign link>
+            <#if item.link??>
+                <@hst.link hippobean=item.link/>
+            <#elseif item.externalLink?has_content>
+                ${item.externalLink}
+            </#if>
+            </#assign>
                 <div class="ds_cb--feature-grid__item">
                     <#if showimages>
                         <div class="ds_cb--feature-grid__item-media  <#if smallvariant>ds_cb--feature-grid__item-media--small-mobile</#if>">
                             <div class="ds_aspect-box">
+                            <#if item.image??>
                             <#if link?has_content>
                                 <a href="${link}" tabindex="-1">
                             </#if>    
@@ -77,6 +79,7 @@
                                 </#if>
                             <#if link?has_content>
                                 </a>
+                            </#if>  
                             </#if>    
                             </div>
                         </div>

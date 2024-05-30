@@ -22,6 +22,7 @@ public class TextAndCardComponent extends CommonComponent {
         request.setAttribute("neutrallinks", paramInfo.getNeutralLinks());
         request.setAttribute("showimages", paramInfo.getShowImages());
         request.setAttribute("smallvariant", paramInfo.getSmallVariant());
+        request.setAttribute("removebottompadding", paramInfo.getRemoveBottomPadding());
     }
 
     void setDocument(String attr, String documentPath, HstRequest request) {

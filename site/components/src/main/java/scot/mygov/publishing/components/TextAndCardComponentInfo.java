@@ -6,7 +6,7 @@ import org.hippoecm.hst.core.parameters.FieldGroupList;
 import org.hippoecm.hst.core.parameters.Parameter;
 
 @FieldGroupList({
-    @FieldGroup(titleKey = "Appearance", value = { "neutrallinks", "showimages", "small" }),
+    @FieldGroup(titleKey = "Appearance", value = { "neutrallinks", "showimages", "small", "removebottompadding" }),
     @FieldGroup(titleKey = "Content", value = { "document1", "document2" })
 })
 
@@ -37,4 +37,7 @@ public interface TextAndCardComponentInfo {
 
     @Parameter(name = "neutrallinks", displayName = "Neutral link colour", defaultValue = "false")
     Boolean getNeutralLinks();
+
+    @Parameter(name = "removebottompadding", displayName = "Remove bottom padding", defaultValue = "false")
+    Boolean getRemoveBottomPadding();
 }
