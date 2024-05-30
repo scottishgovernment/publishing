@@ -6,7 +6,7 @@ import org.hippoecm.hst.core.parameters.FieldGroupList;
 import org.hippoecm.hst.core.parameters.Parameter;
 
 @FieldGroupList({
-    @FieldGroup(titleKey = "Appearance", value = { "position", "backgroundcolor", "fullwidth", "foregroundcolor" }),
+    @FieldGroup(titleKey = "Appearance", value = { "position", "backgroundcolor", "fullwidth", "foregroundcolor", "removebottompadding" }),
     @FieldGroup(titleKey = "Content", value = { "text", "weight" })
 })
 
@@ -32,4 +32,7 @@ public interface HeaderComponentInfo {
     @Parameter(name = "backgroundcolor", displayName = "Background colour")
     @DropDownList(valueListProvider = ComponentBackgroundColourValueListProvider.class)
     String getBackgroundColor();
+
+    @Parameter(name = "removebottompadding", displayName = "Remove bottom padding", defaultValue = "false")
+    Boolean getRemoveBottomPadding();
 }

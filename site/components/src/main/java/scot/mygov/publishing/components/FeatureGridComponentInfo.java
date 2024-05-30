@@ -11,7 +11,7 @@ import static scot.mygov.publishing.components.FeatureGridComponent.INITIAL_PATH
 import static scot.mygov.publishing.components.FeatureGridComponent.TYPE;
 
 @FieldGroupList({
-    @FieldGroup(titleKey = "Appearance", value = { "backgroundcolor", "fullwidth", "foregroundcolor", "showimages", "small", "neutrallinks" }),
+    @FieldGroup(titleKey = "Appearance", value = { "backgroundcolor", "fullwidth", "foregroundcolor", "showimages", "small", "neutrallinks", "removebottompadding" }),
     @FieldGroup(titleKey = "Content", value = { "weight", "document1", "document2", "document3", "document4" })
 })
 
@@ -72,4 +72,7 @@ public interface FeatureGridComponentInfo {
 
     @Parameter(name = "neutrallinks", displayName = "Neutral link colour", defaultValue = "false")
     Boolean getNeutralLinks();
+
+    @Parameter(name = "removebottompadding", displayName = "Remove bottom padding", defaultValue = "false")
+    Boolean getRemoveBottomPadding();
 }

@@ -10,7 +10,7 @@ import static scot.mygov.publishing.components.ThreeImageCardsComponent.INITIAL_
 import static scot.mygov.publishing.components.ThreeImageCardsComponent.TYPE;
 
 @FieldGroupList({
-    @FieldGroup(titleKey = "Appearance", value = { "greycards", "fullwidth", "showimages", "small", "neutrallinks" }),
+    @FieldGroup(titleKey = "Appearance", value = { "greycards", "fullwidth", "showimages", "small", "neutrallinks", "removebottompadding" }),
     @FieldGroup(titleKey = "Content", value = { "document1", "document2", "document3" })
 })
 
@@ -51,6 +51,9 @@ public interface ThreeImageCardsComponentInfo {
 
     @Parameter(name = "neutrallinks", displayName = "Neutral link colour", defaultValue = "false")
     Boolean getNeutralLinks();
+
+    @Parameter(name = "removebottompadding", displayName = "Remove bottom padding", defaultValue = "false")
+    Boolean getRemoveBottomPadding();
 
     @Parameter(name = "greycards", displayName = "Grey cards on white background", defaultValue = "false")
     Boolean getGreyCards();
