@@ -6,7 +6,8 @@ definitions:
         .meta:category: system
         .meta:add-new-system-values: true
         type: string
-        value: [mygov-editors, orgs-social-security-editors, orgs-disclosure-scotland-editors, editor, cmsadmin]
+        value: [mygov-editors, orgs-social-security-editors, orgs-disclosure-scotland-editors,
+          editor, cmsadmin, servicemanual-editors]
       hipposys:role: folderctxmenus-editor
       hipposys:users:
         .meta:category: system
@@ -14,7 +15,7 @@ definitions:
         operation: override
         type: string
         value: []
-    /hippo:configuration/hippo:domains/extra-folder-options/content-document-domain:
+    /hippo:configuration/hippo:domains/extra-folder-options/content-domain:
       jcr:primaryType: hipposys:domainrule
       /browse-folder-and-descendants:
         jcr:primaryType: hipposys:facetrule
@@ -22,5 +23,11 @@ definitions:
         hipposys:facet: jcr:path
         hipposys:type: Reference
         hipposys:value: /content/documents/mygov/browse
-    /hippo:configuration/hippo:domains/extra-folder-options/content-domain:
-      .meta:delete: true
+    /hippo:configuration/hippo:domains/extra-folder-options/servicemanual-content-domain:
+      jcr:primaryType: hipposys:domainrule
+      /browse-folder-and-descendants:
+        jcr:primaryType: hipposys:facetrule
+        hipposys:equals: true
+        hipposys:facet: jcr:path
+        hipposys:type: Reference
+        hipposys:value: /content/documents/servicemanual/browse
