@@ -72,7 +72,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /updateText:
             jcr:primaryType: frontend:plugin
-            caption: Update text (short)
+            caption: Update text for this page
             field: updateText
             hint: Details of the last significant update made to the content
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
@@ -81,7 +81,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /updateTextLong:
             jcr:primaryType: frontend:plugin
-            caption: Update text (long)
+            caption: Update text for the homepage
             field: updateTextLong
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
