@@ -33,6 +33,7 @@
                 name="q"
                 placeholder="Search"
                 required=""
+                spellcheck="false"
                 type="search"
                 value="${term}"
             />
