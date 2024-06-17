@@ -135,7 +135,7 @@ const global = {
             if (!url.endsWith('/')) {
                 url += '/';
             }
-            url += 'search/suggestions?partial_query=';
+            url += 'search/suggestions?q=';
             const mapping = ppp => {
                 const suggestionsObj = JSON.parse(ppp.responseText);
                 return suggestionsObj.map(suggestionsObj => ({
