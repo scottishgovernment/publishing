@@ -245,7 +245,7 @@
                     <#list response.resultPacket.contextualNavigation.categories as category>
                         <#list category.clusters as cluster>
                             <li>
-                                <a href="?q=%60${cluster.query?url}%60">${cluster.query}</a>
+                                <a href="?${cluster.query}">${cluster.label}</a>
                             </li>
                         </#list>
                     </#list>
