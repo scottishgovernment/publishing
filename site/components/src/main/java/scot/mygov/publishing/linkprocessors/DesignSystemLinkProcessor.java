@@ -18,11 +18,10 @@ public class DesignSystemLinkProcessor extends HstLinkProcessorTemplate {
     SessionSource sessionSource = () -> RequestContextProvider.get().getSession();
 
     private boolean isDesignSystemLink(HstLink link) {
-        return "designsystem".equals(link.getMount().getName());
+        return "designsystem".equals(link.getMount().getHstSite().getName());
     }
 
-    private boolean isCategoryLink(HstLink link) {
-//        return StringUtils.startsWith(link.getPath(), "browse/");
+    private boolean isBrowseLink(HstLink link) {
         return link.getPath().startsWith("browse/");
     }
 
@@ -33,12 +32,11 @@ public class DesignSystemLinkProcessor extends HstLinkProcessorTemplate {
             return link;
         }
 
-        if (!isCategoryLink(link)) {
+        if (!isBrowseLink(link)) {
             return link;
         }
 
-        // strip 'browse'
-        link.setPath(String.format("%s", link.getPathElements()[1]));
+        link.setPath(link.getPath().replace("browse/", ""));
         return link;
     }
 
@@ -53,7 +51,6 @@ public class DesignSystemLinkProcessor extends HstLinkProcessorTemplate {
             // add 'browse' to the path
             Session session = sessionSource.getSession();
             String contentPath = "/content/documents/designsystem/browse/" + link.getPath();
-
             if (!session.nodeExists(contentPath)) {
                 return link;
             }
