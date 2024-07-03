@@ -95,35 +95,38 @@ definitions:
           hst:pagetitle: Home page
           hst:refId: root
           hst:relativecontentpath: ''
-        /_default_:
+        /_any_:
           jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/ds-article
-          hst:relativecontentpath: ${1}
-          /_index_:
-            jcr:primaryType: hst:sitemapitem
-            hst:componentconfigurationid: hst:pages/ds-article
-            hst:relativecontentpath: ${1}/index
+          hst:componentconfigurationid: hst:pages/pagenotfound
+          hst:relativecontentpath: site-furniture/status/404
+        /browse:
+          jcr:primaryType: hst:sitemapitem
           /_default_:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationid: hst:pages/ds-article
-            hst:relativecontentpath: ${1}/${2}
-            hst:componentconfigurationmappingnames: ['publishing:dsarticle', 'publishing:dsexample']
-            hst:componentconfigurationmappingvalues: ['hst:pages/ds-article', 'hst:pages/ds-example']
+            hst:relativecontentpath: browse/${1}
             /_index_:
               jcr:primaryType: hst:sitemapitem
               hst:componentconfigurationid: hst:pages/ds-article
-              hst:relativecontentpath: ${1}/${2}/index
+              hst:relativecontentpath: browse/${1}/index
             /_default_:
               jcr:primaryType: hst:sitemapitem
               hst:componentconfigurationid: hst:pages/ds-article
               hst:componentconfigurationmappingnames: ['publishing:dsarticle', 'publishing:dsexample']
               hst:componentconfigurationmappingvalues: ['hst:pages/ds-article', 'hst:pages/ds-example']
-              hst:relativecontentpath: ${1}/${2}/${3}
-              hst:sitemapitemhandlerids: [trailing-slash]
-        /_any_:
-          jcr:primaryType: hst:sitemapitem
-          hst:componentconfigurationid: hst:pages/pagenotfound
-          hst:relativecontentpath: site-furniture/status/404
+              hst:relativecontentpath: browse/${1}/${2}
+              /_index_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/ds-article
+                hst:relativecontentpath: browse/${1}/${2}/index
+              /_default_:
+                jcr:primaryType: hst:sitemapitem
+                hst:componentconfigurationid: hst:pages/ds-article
+                hst:componentconfigurationmappingnames: ['publishing:dsarticle', 'publishing:dsexample']
+                hst:componentconfigurationmappingvalues: ['hst:pages/ds-article',
+                                                          'hst:pages/ds-example']
+                hst:relativecontentpath: browse/${1}/${2}/${3}
+                hst:sitemapitemhandlerids: [trailing-slash]
       /hst:sitemenus:
         jcr:primaryType: hst:sitemenus
       /hst:templates:
