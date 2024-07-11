@@ -55,6 +55,22 @@
                             </div>
                         </fieldset>
 
+                        <fieldset class="ds_question">
+                            <legend>Cookies that help with our communications and marketing</legend>
+                            <p>These cookies may be set by third party websites and do things like measure how you view YouTube videos that are on this website.</p>
+                            <div class="ds_field-group">
+                                <div class="ds_radio">
+                                    <input id="marketing-yes" value="true" name="cookie-marketing" class="ds_radio__input" type="radio" checked="true">
+                                    <label for="marketing-yes" class="ds_radio__label">On</label>
+                                </div>
+
+                                <div class="ds_radio">
+                                    <input id="marketing-no" value="false" name="cookie-marketing" class="ds_radio__input" type="radio">
+                                    <label for="marketing-no" class="ds_radio__label">Off</label>
+                                </div>
+                            </div>
+                        </fieldset>
+
                         <div id="cookie-success-message" class="form-message  form-message--success  fully-hidden">
                             <p><b>Your cookie preferences have been saved.</b></p>
                         </div>

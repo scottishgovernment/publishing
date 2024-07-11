@@ -1,0 +1,21 @@
+.youtube-embed-wrapper {
+    background: $ds_colour__background--tertiary;
+    aspect-ratio: 16/9;
+    width: 100%;
+    margin: 2rem 0;
+
+    iframe,
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    img {
+        height: auto;
+    }
+
+    &__consent {
+        padding: 1.5rem;
+    }
+}
