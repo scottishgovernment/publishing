@@ -1,0 +1,7 @@
+/content/documents/designsystem/browse:
+  .meta:order-before: featuregriditems
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable', 'mix:referenceable', 'mix:simpleVersionable']
+  hippo:name: browse
+  hippostd:foldertype: [new-dsarticle-document, new-dsexample-document, new-dsexample-folder,
+    new-dsarticle-folder, new-folder]
