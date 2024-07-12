@@ -1,0 +1,14 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/servicemanual/hst:pages:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:pages
+      /homepage:
+        jcr:primaryType: hst:component
+        hst:referencecomponent: hst:abstractpages/campaign-base
+        /main:
+          jcr:primaryType: hst:component
+          hst:template: campaign-home-main
+          /container:
+            jcr:primaryType: hst:containercomponentreference
+            hst:referencecomponent: homepage/main
