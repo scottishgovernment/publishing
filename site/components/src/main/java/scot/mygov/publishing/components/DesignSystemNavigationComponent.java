@@ -37,7 +37,7 @@ public class DesignSystemNavigationComponent extends CommonComponent {
     }
 
     Optional<HippoFolderBean> topLevelFolder(HstRequestContext context) {
-        HippoFolderBean root = (HippoFolderBean) context.getSiteContentBaseBean();
+        HippoFolderBean root = context.getSiteContentBaseBean().getBean("browse");
         HippoBean contentBean = context.getContentBean();
         return root.getChildBeans(HippoFolderBean.class)
                 .stream()
