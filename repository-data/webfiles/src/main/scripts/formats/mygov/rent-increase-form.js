@@ -81,7 +81,7 @@ const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 [].slice.call(document.querySelectorAll('form')).forEach((form) => form.reset());
 
 let NOW = new Date();
-NOW.setHours(6,0,0,0);
+NOW.setHours(0,0,0,0);
 
 const costOfLivingLegislationEndDate = new Date(2024, 3, 1);
 
@@ -125,7 +125,7 @@ const adjustDate = function (date, adjustment, capMonth) {
 window.adjustDate = adjustDate;
 
 const resetHours = function (date) {
-    date.setHours(6, 0, 0, 0);
+    date.setHours(0, 0, 0, 0);
     return date;
 };
 

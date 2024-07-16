@@ -9,6 +9,7 @@
 <p>
     You must give all tenants at least 3 months' notice of a rent increase.
     {% if isByHand %}
+    {% else %}
         You must also allow your tenant an additional 2 days to receive this notice by {{deliveryMethod}}.
     {% endif %}
 </p>
