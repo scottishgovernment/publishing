@@ -25,6 +25,13 @@ definitions:
             hipposysedit:path: publishing:answer
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /answerContentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:answerContentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -121,6 +128,18 @@ definitions:
             hint: Content displayed at the top of the results page.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /answerContentBlocks:
+            jcr:primaryType: frontend:plugin
+            caption: Content
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            contentPickerType: links
+            field: answerContentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: Content displayed at the top of the results page.
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
           /eligible:
             jcr:primaryType: frontend:plugin
             caption: Eligible

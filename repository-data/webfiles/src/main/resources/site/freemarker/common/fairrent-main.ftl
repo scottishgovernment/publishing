@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#include "macros/content-blocks.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#assign variables = hstRequestContext.getAttribute("variables")/>
@@ -66,25 +67,29 @@
                 </style>
 
                 <section id="fair-rent-introduction" class="js-fair-rent-section  fully-hidden">
-                        <@hst.html hippohtml=document.content/>
+                    <#if document.contentBlocks??>
+                        <@renderContentBlocks document.contentBlocks />
+                    </#if>
 
-                        <div class="ds_site-search">
-                            <form role="search" class="ds_site-search__form" method="GET" action="">
-                                <label class="ds_label  visually-hidden" for="site-search">Search</label>
+                    <div class="ds_site-search">
+                        <form role="search" class="ds_site-search__form" method="GET" action="">
+                            <label class="ds_label  visually-hidden" for="site-search">Search</label>
 
-                                <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
-                                    <input name="query" id="fair-rent-search-box" class="ds_input" type="text" placeholder="Search the Fair Rent Register">
+                            <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
+                                <input name="query" id="fair-rent-search-box" class="ds_input" type="text" placeholder="Search the Fair Rent Register">
 
-                                    <button type="submit" class="ds_button  ds_button--icon-only  js-site-search-button">
-                                        <span class="visually-hidden">Search the Fair Rent Register</span>
-                                        <svg class="ds_icon" role="img"><use href="${iconspath}#search"></use></svg>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+                                <button type="submit" class="ds_button  ds_button--icon-only  js-site-search-button">
+                                    <span class="visually-hidden">Search the Fair Rent Register</span>
+                                    <svg class="ds_icon" role="img"><use href="${iconspath}#search"></use></svg>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
 
-                        <@hst.html hippohtml=document.additionalContent/>
-                    </section>
+                    <#if document.additionalContentBlocks??>
+                        <@renderContentBlocks document.additionalContentBlocks />
+                    </#if>
+                </section>
 
                 <section id="fair-rent-list" class="js-fair-rent-section  fully-hidden">
                     <div class="ds_search-results">
