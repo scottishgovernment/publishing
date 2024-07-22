@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#include "macros/content-blocks.ftl">
 
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
@@ -57,7 +58,9 @@
             </#if>
 
             <div class="ds_layout__content">
-                <@hst.html hippohtml=document.content/>
+                <#if document.contentBlocks??>
+                    <@renderContentBlocks document.contentBlocks />
+                </#if>
 
                 <div class="ds_step-navigation">
                     <div class="ds_accordion" data-module="ds-accordion">
@@ -90,7 +93,9 @@
                                     <label class="ds_accordion-item__label" for="panel-${step?index}"><span class="visually-hidden">Show this section</span></label>
                                 </div>
                                 <div class="ds_accordion-item__body">
-                                    <@hst.html hippohtml=step.content/>
+                                    <#if step.contentBlocks??>
+                                        <@renderContentBlocks step.contentBlocks />
+                                    </#if>
                                 </div>
                             </div>
                         </#list>

@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#include "macros/content-blocks.ftl">
 <#include "macros/lang-attributes.ftl">
 
 <#assign variables = hstRequestContext.getAttribute("variables")/>
@@ -53,14 +54,15 @@
                             sizes="(min-width:1200px) 352px, (min-width:992px) 288px, (min-width: 768px) 224px, 448px"
                             >
                     <#else>
-                        <img loading="lazy" alt="" src="<@hst.link hippobean=document.logo/>" />
+                        <img loading="lazy" alt="" src="<@hst.link hippobean=document.logo/>">
                     </#if>
                 </div>
             </#if>
 
-
             <div class="ds_layout__content">
-                <@hst.html hippohtml=document.content/>
+                <#if document.contentBlocks??>
+                    <@renderContentBlocks document.contentBlocks />
+                </#if>
 
                 <#if sequenceable?? && sequenceable == true>
                     <!--noindex-->
@@ -99,7 +101,7 @@
 </div>
 
 <@hst.headContribution category="meta">
-    <meta name="dc.format" content="Article"/>
+    <meta name="dc.format" content="Article">
 </@hst.headContribution>
 
 </#if>
@@ -107,7 +109,7 @@
 
 <@hst.headContribution category="resourcehints">
     <#if nextlink??>
-        <link rel="prerender" href="${nextlink}"/>
+        <link rel="prerender" href="${nextlink}">
     </#if>
 </@hst.headContribution>
 

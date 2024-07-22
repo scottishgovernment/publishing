@@ -26,6 +26,13 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             hipposysedit:validators: [required]
+          /contentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:contentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required]
           /organisationtags:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -114,6 +121,19 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /contentBlocks:
+            jcr:primaryType: frontend:plugin
+            caption: Content
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            contentPickerType: links
+            field: contentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: Enter the main content of this article. You can use any HTML formatting
+              to style your content.
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
           /contentitemlanguage:
             jcr:primaryType: frontend:plugin
             caption: Content language

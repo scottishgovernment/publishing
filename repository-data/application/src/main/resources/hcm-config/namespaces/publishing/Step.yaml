@@ -43,6 +43,13 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
             hipposysedit:validators: [required]
+          /contentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:contentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -84,6 +91,18 @@ definitions:
               ckeditor.config.overlayed.json: '{language_list: [''en:English'',''gd:Gaelic
                 (Scottish)'',''ru:Russian'',''uk:Ukrainian''], disallowedContent:
                 ''h1 h2 h5 h6 pre code img;*[style]{*}'',extraPlugins: ''language,dialogadvtab2,ds_fragment'',extraAllowedContent:''embed;table[data-smallscreen];div[data-module,data-uuid,href,contenteditable];address[translate];span[lang];iframe{*}[!width,!height,!src,!frameborder,!allowfullscreen]'',format_tags:''h1;h2;h3;h4;p;pre;address'',youtube_responsive:true,youtube_privacy:true,youtube_disabled_fields:[''chkResponsive'',''chkPrivacy'',''txtEmbed'',''chkOlderCode'']}'
+          /contentBlocks:
+            jcr:primaryType: frontend:plugin
+            caption: Content
+            compoundList: publishing:cb_fragment,publishing:cb_richtext
+            contentPickerType: links
+            field: contentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
           /labeltype:
             jcr:primaryType: frontend:plugin
             caption: Label type

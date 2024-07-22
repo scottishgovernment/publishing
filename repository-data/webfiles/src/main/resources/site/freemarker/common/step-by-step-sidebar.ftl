@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#include "macros/content-blocks.ftl">
 <#include "macros/lang-attributes.ftl">
 
 <#assign variables = hstRequestContext.getAttribute("variables")/>
@@ -48,7 +49,9 @@
                     </div>
 
                     <div class="ds_accordion-item__body" style="padding-right: 16px;">
-                        <@hst.html hippohtml=step.content/>
+                        <#if step.contentBlocks??>
+                            <@renderContentBlocks step.contentBlocks />
+                        </#if>
                     </div>
                 </div>
             </#list>

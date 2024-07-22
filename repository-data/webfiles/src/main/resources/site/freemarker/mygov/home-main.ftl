@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
+<#include "../common/macros/content-blocks.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#if document??>
@@ -29,9 +30,10 @@
 
         <div class="category-lower  ds_pre-footer-background">
             <div class="ds_wrapper">
-                <#if document.prologue??>
-                    <@hst.html hippohtml=document.prologue/>
+                <#if document.prologueContentBlocks??>
+                    <@renderContentBlocks document.prologueContentBlocks />
                 </#if>
+
                 <div class="ds_layout  ds_layout--category-list">
                     <div class="ds_layout__content">
                         <#if document.popularpanelitem?has_content>
@@ -85,8 +87,8 @@
                     </div>
                 </div>
 
-                <#if document.epilogue??>
-                    <@hst.html hippohtml=document.epilogue/>
+                <#if document.epilogueContentBlocks??>
+                    <@renderContentBlocks document.epilogueContentBlocks />
                 </#if>
 
                 <div class="ds_layout  ds_layout--category-list">

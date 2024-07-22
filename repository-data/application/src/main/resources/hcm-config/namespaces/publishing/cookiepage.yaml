@@ -23,6 +23,13 @@ definitions:
             hipposysedit:path: publishing:additionalContent
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /additionalContentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:additionalContentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -134,6 +141,31 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /contentBlocks:
+            jcr:primaryType: frontend:plugin
+            caption: Content
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            contentPickerType: links
+            field: contentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: Enter the main content of this article. You can use any HTML formatting
+              to style your content.
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
+          /additionalContentBlocks:
+            jcr:primaryType: frontend:plugin
+            caption: Additional content
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            contentPickerType: links
+            field: additionalContentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
