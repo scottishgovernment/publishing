@@ -33,7 +33,7 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
      * the use of the fallback here is temporary until we have diagnosed why some slug lookup properties
      * were missing causing published pages to 404
      */
-    PathForSlugSource pathForSlugSource = PathSourceFactory.withMissingPropertyFallback(new QueryPathSource());
+    PathForSlugSource pathForSlugSource = new QueryPathSource();
 
     @Override
     public HstLink postProcess(final HstLink link) {
@@ -208,7 +208,7 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
     }
 
     boolean isLocalhost(HstLink link) {
-        return "localhost".equals(link.getMount().getVirtualHost().getName());
+        return false;
     }
 
     String siteName(HstLink link) {
