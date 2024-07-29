@@ -1,0 +1,69 @@
+definitions:
+  config:
+    /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/mygov:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:mount
+      hst:mountpoint: /hst:publishing/hst:sites/mygov
+      hst:locale: en_GB
+      publishing:gtm: /content/documents/mygov/administration/analytics/dev
+      publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
+    /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/mygov-preview:
+      .meta:residual-child-node-category: content
+      jcr:primaryType: hst:mount
+      hst:alias: mygov-staging
+      hst:mountpoint: /hst:publishing/hst:sites/mygov
+      hst:type: preview
+      preview-cookie-httponly: 'false'
+      preview-cookie-secure: 'false'
+      hst:locale: en_GB
+{{#environments}}
+    /hst:hst/hst:hosts/{{name}}/scot/mygov/www:
+      jcr:primaryType: hst:virtualhost
+      /{{name}}:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:mountpoint: /hst:publishing/hst:sites/mygov
+          hst:schemeagnostic: true
+          publishing:gtm: /content/documents/mygov/administration/analytics/{{gtm}}
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/{{recaptcha}}
+          hst:locale: en_GB
+    /hst:hst/hst:hosts/{{name}}/scot/mygov/preview:
+      jcr:primaryType: hst:virtualhost
+      /{{name}}:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:alias: mygov-staging
+          hst:mountpoint: /hst:publishing/hst:sites/mygov
+          hst:schemeagnostic: true
+          hst:type: preview
+          preview-cookie-httponly: 'false'
+          preview-cookie-secure: 'false'
+          publishing:gtm: /content/documents/mygov/administration/analytics/{{gtm}}
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/{{recaptcha}}
+          hst:locale: en_GB
+{{/environments}}
+    /hst:hst/hst:hosts/production/scot/mygov/www:
+      jcr:primaryType: hst:virtualhost
+      /hst:root:
+        jcr:primaryType: hst:mount
+        hst:mountpoint: /hst:publishing/hst:sites/mygov
+        hst:schemeagnostic: true
+        publishing:gtm: /content/documents/mygov/administration/analytics/live
+        publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
+        hst:locale: en_GB
+    /hst:hst/hst:hosts/production/scot/mygov/preview:
+      jcr:primaryType: hst:virtualhost
+      /hst:root:
+        jcr:primaryType: hst:mount
+        hst:alias: mygov-staging
+        hst:mountpoint: /hst:publishing/hst:sites/mygov
+        hst:schemeagnostic: true
+        hst:type: preview
+        preview-cookie-httponly: 'false'
+        preview-cookie-secure: 'false'
+        publishing:gtm: /content/documents/mygov/administration/analytics/live
+        publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
+        hst:locale: en_GB
+

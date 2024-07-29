@@ -1,0 +1,70 @@
+---
+sites:
+ - id: cloud
+   mount: cloud
+   reverse_slash_dns: scot/gov/campaign/cloud
+ - id: costofliving
+   mount: costofliving
+   reverse_slash_dns: scot/gov/campaign/costofliving
+ - id: ddat
+   mount: ddat
+   reverse_slash_dns: scot/gov/jobs/digital
+ - id: designsystem
+   mount: designsystem
+   reverse_slash_dns: scot/gov/designsystem
+ - id: disclosure
+   mount: disclosure
+   reverse_slash_dns: scot/gov/disclosure/www
+ - id: rentersrights
+   mount: rentersrights
+   reverse_slash_dns: scot/gov/campaign/rentersrights
+ - id: scotaccount
+   mount: scotaccount
+   reverse_slash_dns: scot/gov/campaign/scotaccount
+ - id: scotpayments
+   mount: scotpayments
+   reverse_slash_dns: scot/gov/campaign/scotpayments
+ - id: servicemanual
+   mount: servicemanual
+   reverse_slash_dns: scot/gov/servicemanual
+ - id: shorttermlets
+   mount: shorttermlets
+   reverse_slash_dns: scot/gov/campaign/shorttermlets
+ - id: tradingnation
+   mount: trading-nation
+   reverse_slash_dns: scot/mygov/tradingnation
+
+environments:
+  - name: lcl
+    gtm: dev
+    recaptcha: live
+  - name: dev
+    gtm: dev
+    recaptcha: live
+  - name: int
+    gtm: dev
+    recaptcha: dev
+  - name: exp
+    gtm: dev
+    recaptcha: live
+  - name: uat
+    gtm: dev
+    recaptcha: live
+  - name: per
+    gtm: dev
+    recaptcha: dev
+  - name: tst
+    gtm: dev
+    recaptcha: live
+  - name: blu
+    gtm: live
+    recaptcha: live
+  - name: grn
+    gtm: live
+    recaptcha: live
+  - name: live
+    gtm: live
+    recaptcha: live
+  - name: origin
+    gtm: live
+    recaptcha: live

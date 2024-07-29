@@ -15,6 +15,7 @@
   <build>
     <defaultGoal>install</defaultGoal>
     <plugins>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -29,6 +30,36 @@
           </archive>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>net.wouterdanes</groupId>
+        <artifactId>mustache-maven-plugin</artifactId>
+        <version>1.2</version>
+        <executions>
+          <execution>
+            <id>run-mustache-template</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>mustache</goal>
+            </goals>
+            <configuration>
+              <encoding>UTF-8</encoding>
+              <context>file:${project.basedir}/src/main/config/hosts/sites.yaml</context>
+              <templates>
+                <template>
+                  <templateFile>${basedir}/src/main/config/hosts/mygov.yaml.mustache</templateFile>
+                  <outputPath>${basedir}/src/main/resources/hcm-config/hst/hosts/mygov.yaml</outputPath>
+                </template>
+                <template>
+                  <templateFile>${basedir}/src/main/config/hosts/hosts.yaml.mustache</templateFile>
+                  <outputPath>${basedir}/src/main/resources/hcm-config/hst/hosts/sites.yaml</outputPath>
+                </template>
+              </templates>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
 
