@@ -38,7 +38,7 @@
         <executions>
           <execution>
             <id>run-mustache-template</id>
-            <phase>process-resources</phase>
+            <phase>generate-resources</phase>
             <goals>
               <goal>mustache</goal>
             </goals>
