@@ -1,7 +1,6 @@
 package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
-import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -9,7 +8,6 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
-
 import scot.mygov.publishing.beans.PhaseBanner;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
@@ -33,8 +31,7 @@ public class SiteHeaderComponent extends BaseHstComponent {
     }
 
     static void setWebsiteInfo(HstRequest request) {
-        Mount mount = request.getRequestContext().getResolvedMount().getMount();
-        WebsiteInfo info = mount.getChannelInfo();
+        WebsiteInfo info = MountUtils.websiteInfo(request);
         request.setAttribute("siteTitle", info.getSiteTitle());
         request.setAttribute("displaySiteTitleInHeader", info.isDisplaySiteTitleInHeader());
         request.setAttribute("logo", info.getLogo());

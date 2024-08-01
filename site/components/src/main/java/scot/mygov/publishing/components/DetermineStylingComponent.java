@@ -1,6 +1,5 @@
 package scot.mygov.publishing.components;
 
-import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.CommonComponent;
@@ -16,8 +15,7 @@ public class DetermineStylingComponent extends CommonComponent {
     }
 
     static void determineStyling(HstRequest request) {
-        Mount mount = request.getRequestContext().getResolvedMount().getMount();
-        WebsiteInfo info = mount.getChannelInfo();
+        WebsiteInfo info = MountUtils.websiteInfo(request);
 
         String style = info.getStyle();
         String css;

@@ -1,6 +1,5 @@
 package scot.mygov.publishing.components;
 
-import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -44,8 +43,7 @@ public class SEOComponent extends EssentialsDocumentComponent {
             contentBean = request.getRequestContext().getContentBean();
         }
 
-        Mount mount = request.getRequestContext().getResolvedMount().getMount();
-        WebsiteInfo websiteInfo = mount.getChannelInfo();
+        WebsiteInfo websiteInfo = MountUtils.websiteInfo(request);
         setPageTitle(request, websiteInfo.getSiteTitle(), contentBean);
         setPageImage(request, websiteInfo, contentBean);
         request.setAttribute("isSearchEnabled", websiteInfo.isSearchEnabled());

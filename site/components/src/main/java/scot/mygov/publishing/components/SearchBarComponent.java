@@ -2,7 +2,6 @@ package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
-import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent;
@@ -59,8 +58,7 @@ public class SearchBarComponent extends BaseHstComponent {
             return false;
         }
 
-        Mount mount = request.getRequestContext().getResolvedMount().getMount();
-        WebsiteInfo info = mount.getChannelInfo();
+        WebsiteInfo info = MountUtils.websiteInfo(request);
         return info.isSearchEnabled();
     }
 }

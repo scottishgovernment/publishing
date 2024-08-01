@@ -1,7 +1,6 @@
 package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
-import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import scot.mygov.publishing.channels.WebsiteInfo;
@@ -13,8 +12,7 @@ public class FeedbackComponent extends BaseHstComponent {
         super.doBeforeRender(request, response);
         request.setAttribute("layoutName", getLayoutName(request));
 
-        Mount mount = request.getRequestContext().getResolvedMount().getMount();
-        WebsiteInfo info = mount.getChannelInfo();
+        WebsiteInfo info = MountUtils.websiteInfo(request);
         request.setAttribute("isFeedbackEnabled", info.isFeedbackEnabled());
     }
 
