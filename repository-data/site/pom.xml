@@ -47,6 +47,10 @@
               <context>file:${project.basedir}/src/main/config/hosts/sites.yaml</context>
               <templates>
                 <template>
+                  <templateFile>${basedir}/src/main/config/hosts/roots.yaml.mustache</templateFile>
+                  <outputPath>${basedir}/src/main/resources/hcm-config/hst/hosts/roots.yaml</outputPath>
+                </template>
+                <template>
                   <templateFile>${basedir}/src/main/config/hosts/mygov.yaml.mustache</templateFile>
                   <outputPath>${basedir}/src/main/resources/hcm-config/hst/hosts/mygov.yaml</outputPath>
                 </template>
