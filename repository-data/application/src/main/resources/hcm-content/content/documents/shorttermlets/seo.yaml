@@ -4,10 +4,12 @@
   /home:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 43c4a1a8-ff6b-409d-bcb9-c6a402f811ce
     hippo:versionHistory: 85998f6d-e451-46ef-adb7-a5a112399a84
     /home[1]:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 3aa91a12-3ecc-45a4-b3af-b6b82bb569db
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
@@ -29,9 +31,6 @@
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:description:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:cardImage:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -41,6 +40,7 @@
     /home[2]:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 74a1dbe3-2284-4815-99fe-e327b28e3b27
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished
@@ -62,9 +62,6 @@
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:description:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:cardImage:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -74,6 +71,7 @@
     /home[3]:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 285130ee-85aa-4aba-be45-96dfc4c9dc37
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
@@ -96,9 +94,6 @@
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:description:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:cardImage:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe

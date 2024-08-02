@@ -4,11 +4,13 @@
   /home-page:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: b0f4a256-8d29-43a0-aa31-a393970d510d
     hippo:name: Home page
     hippo:versionHistory: dbe06e6c-342d-4993-b04a-4a3aa23a51d1
     /home-page[1]:
       jcr:primaryType: publishing:pageheading
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: c54515bd-0adc-4581-9159-bf03a3127f1d
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
@@ -21,9 +23,6 @@
       hippotranslation:locale: document-type-locale
       publishing:alt: ''
       publishing:title: Short term lets
-      /publishing:description:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:image:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -33,6 +32,7 @@
     /home-page[2]:
       jcr:primaryType: publishing:pageheading
       jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 951175bd-2cb0-461e-93bc-d84e855d7173
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished
@@ -44,9 +44,6 @@
       hippotranslation:locale: document-type-locale
       publishing:alt: ''
       publishing:title: Short term lets
-      /publishing:description:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:image:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -56,6 +53,7 @@
     /home-page[3]:
       jcr:primaryType: publishing:pageheading
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 3ab665d2-1bfb-43a1-932f-d24d36da3f34
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
@@ -68,9 +66,6 @@
       hippotranslation:locale: document-type-locale
       publishing:alt: ''
       publishing:title: Short term lets
-      /publishing:description:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:image:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe

@@ -4,25 +4,24 @@
   /home-page:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: e21ccfc0-826e-4383-ae1b-e61fc92e1bca
     hippo:name: Home page
     hippo:versionHistory: dbe06e6c-342d-4993-b04a-4a3aa23a51d1
     /home-page:
       jcr:primaryType: publishing:pageheading
       jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: f8700ce1-815a-4027-bf29-0295195df690
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2024-01-12T09:00:00.000+00:00
-      hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00.000+00:00
+      hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: e2c4c536-8dd3-4029-954a-e97afaff3901
       hippotranslation:locale: document-type-locale
       publishing:alt: ''
       publishing:title: Disclosure Scotland
-      /publishing:description:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:image:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe

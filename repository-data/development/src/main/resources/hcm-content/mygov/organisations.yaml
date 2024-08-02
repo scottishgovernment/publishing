@@ -37,10 +37,13 @@
         To understand the scope of mygov.scot browse our list of organisations by A-Z or sector.
       publishing:title: Organisations
       publishing:urlAliases: [/organisations/disclosure, /organisations/forestry-commission]
-      /publishing:content:
-        jcr:primaryType: hippostd:html
-        hippostd:content: |
-          <p>To understand the scope of mygov.scot browse our list of organisations either by A-Z or sector.</p>
+      /publishing:contentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>To understand the scope of mygov.scot browse our list
+            of organisations either by A-Z or sector.</p>
     /index[2]:
       jcr:primaryType: publishing:organisationlist
       jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -71,10 +74,13 @@
         To understand the scope of mygov.scot browse our list of organisations by A-Z or sector.
       publishing:title: Organisations
       publishing:urlAliases: [/organisations/disclosure, /organisations/forestry-commission]
-      /publishing:content:
-        jcr:primaryType: hippostd:html
-        hippostd:content: |
-          <p>To understand the scope of mygov.scot browse our list of organisations either by A-Z or sector.</p>
+      /publishing:contentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>To understand the scope of mygov.scot browse our list
+            of organisations either by A-Z or sector.</p>
     /index[3]:
       jcr:primaryType: publishing:organisationlist
       jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
@@ -106,10 +112,13 @@
         To understand the scope of mygov.scot browse our list of organisations by A-Z or sector.
       publishing:title: Organisations
       publishing:urlAliases: [/organisations/disclosure, /organisations/forestry-commission]
-      /publishing:content:
-        jcr:primaryType: hippostd:html
-        hippostd:content: <p>To understand the scope of mygov.scot browse our list
-          of organisations either by A-Z or sector.</p>
+      /publishing:contentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>To understand the scope of mygov.scot browse our list
+            of organisations either by A-Z or sector.</p>
   /visitscotland:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -168,18 +177,12 @@
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:notices:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:featuredroleimage:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:organisationstructure:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
     /visitscotland[2]:
       jcr:primaryType: publishing:organisation
       jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
@@ -229,18 +232,12 @@
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:notices:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:featuredroleimage:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:organisationstructure:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
     /visitscotland[3]:
       jcr:primaryType: publishing:organisation
       jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
@@ -291,15 +288,9 @@
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:notices:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:featuredroleimage:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:organisationstructure:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''

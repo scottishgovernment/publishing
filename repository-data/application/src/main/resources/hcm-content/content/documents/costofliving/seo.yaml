@@ -4,9 +4,11 @@
   /home:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 45d8a353-6bd1-413b-93f3-72a0f9cd9258
     /home[1]:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 230d89ee-5279-46ce-a931-1a31e73c6795
       hippo:availability: []
       hippostd:retainable: false
       hippostd:state: draft
@@ -28,9 +30,6 @@
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:description:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:cardImage:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -40,6 +39,7 @@
     /home[2]:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 215b7cc6-95fe-480b-a970-5e9d9cf847c0
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished
@@ -61,9 +61,6 @@
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:description:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:cardImage:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -73,6 +70,7 @@
     /home[3]:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: d2be7cee-4688-4e71-9493-f6deb0113104
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
@@ -95,9 +93,6 @@
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:description:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:cardImage:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe

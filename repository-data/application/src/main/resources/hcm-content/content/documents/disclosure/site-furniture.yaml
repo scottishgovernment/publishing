@@ -1,32 +1,39 @@
 /content/documents/disclosure/site-furniture:
-  .meta:order-before: images
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:versionable']
+  jcr:uuid: cee980ae-9273-41db-b5fd-dc5e7dbdd898
   hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror]
   /footer:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 1524ec08-c206-43cf-b40e-1382e440f521
     hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
     /privacy:
       jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 506180bb-3278-4f40-89a9-1729bb756593
       hippo:name: Privacy
-      /privacy:
+      hippo:versionHistory: 9a01ca53-8eb1-4d6d-88ce-774b609c875d
+      /privacy[1]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
+        jcr:uuid: fa333200-1d2b-4088-bcc0-db56d894afdf
         hippo:availability: [preview]
         hippostd:retainable: false
         hippostd:state: unpublished
+        hippostd:tags: [Privacy statement, privacy]
         hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-12T09:00:00.000+00:00
-        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00.000+00:00
-        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-03-05T11:04:11.913Z
+        hippostdpubwf:lastModifiedBy: andy.mcnicoll@gov.scot
         hippotranslation:id: d064f1e2-d40c-4118-b502-6a691bb2b3d3
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:lastUpdatedDate: 2024-01-12T09:00:00.000+00:00
+        publishing:contentitemlanguage: en
+        publishing:lastUpdatedDate: 2024-03-05T00:00:00Z
         publishing:metaDescription: Privacy
+        publishing:noindex: false
         publishing:permalink: /privacy/
         publishing:reportingtags: []
         publishing:sensitive: false
@@ -38,9 +45,6 @@
         publishing:summary: Privacy
         publishing:title: Privacy
         publishing:userneed: ''
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
         /publishing:logo:
           jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -50,26 +54,464 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-    /accessibility:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-      hippo:name: Accessibility
-      /accessibility:
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+          /publishing:relatedItem:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: c2f07d23-614d-4c1d-9dbd-2d0402ea8dac
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<div class=\"ds_inset-text\"> \n <div class=\"ds_inset-text__text\
+                \ focus-visible\"> \n  <p>This page covers privacy information for\
+                \ the disclosure.gov.scot website.</p> \n  <p>Privacy statements for\
+                \ the following Disclosure Scotland services are available on mygov.scot:</p>\
+                \ \n  <ul> \n   <li><a href=\"disclosure-scotlands-privacy-statement\"\
+                >disclosure and Protecting Vulnerable group scheme applications</a></li>\
+                \ \n   <li><a href=\"disclosure-scotland-privacy-statement-ukrainian-hosts\"\
+                >disclosure checks for the Homes for Ukraine scheme</a></li> \n  \
+                \ <li><a href=\"disclosure-scotland-privacy-notice-covid-19-inquiry\"\
+                >providing disclosure&nbsp;information to the covid-19 inquiry</a></li>\
+                \ \n  </ul> \n </div> \n</div><h2>What type of information we collect<span>&nbsp;</span></h2><p>We\
+                \ collect and process the following information when you visit disclosure.gov.scot:</p><ul>\
+                \ \n <li>any feedback you share with us</li> \n <li>your cookies using\
+                \ Google Analytics</li> \n <li>your IP address</li> \n</ul><p>We also\
+                \ use Google Analytics to collect information about:</p><ul> \n <li>which\
+                \ type of browser and device you used</li> \n <li>the pages you visit\
+                \ on disclosure.gov.scot</li> \n <li>how long you spend on each disclosure.gov.scot\
+                \ page</li> \n <li>how you got to the site</li> \n <li>what you click\
+                \ on while you’re visiting the site</li> \n</ul><p>Google Analytics\
+                \ data is only collected from users who have consented to share this\
+                \ data. Any information we get about you from Google Analytics will\
+                \ be anonymised before we see it. This means we will not hold any\
+                \ personally identifiable information about you, such as your name\
+                \ or address.</p><p>Additionally, we use Plausible Analytics on this\
+                \ site to collect some anonymous usage data for statistical purposes.\
+                \ This is to track overall trends in our website traffic, not to track\
+                \ individual visitors. All the data is in aggregate only. No personal\
+                \ data is collected to Plausible. Data collected includes referral\
+                \ sources, top pages, visit duration, information from the devices\
+                \ (device type, operating system, country and browser) used during\
+                \ the visit. Read more in the Plausible Analytics&nbsp;<a href=\"\
+                https://plausible.io/data-policy\">data policy</a>.</p><h2>Why we\
+                \ collect this information</h2><p>We use the information you share\
+                \ with us:</p><ul> \n <li>to improve our services</li> \n <li>give\
+                \ you access to government services</li> \n <li>to identify security\
+                \ threats</li> \n</ul><p>Our legal basis for processing this data\
+                \ is ‘legitimate interests’. That’s because:</p><ul> \n <li>it’s in\
+                \ the legitimate interests of our users to make improvements to our\
+                \ website</li> \n <li>we need to maintain the security of disclosure.gov.scot</li>\
+                \ \n</ul><p>We only collect information about you using Google Analytics\
+                \ if you consent to it.</p><p>If you do not consent to it, you can\
+                \ let us know by emailing&nbsp;<a href=\"mailto:DataProtectionOfficer@gov.scot\"\
+                >DataProtectionOfficer@gov.scot</a>.</p><h2>What we do with this information</h2><p>We\
+                \ may share your anonymised information with other agencies or public\
+                \ bodies in the Scottish Government. But this will not include personally\
+                \ identifiable information.</p><p>We’ll only share your data with\
+                \ a third party if we’re required to do so by law. For example by\
+                \ court order or to prevent fraud.</p><p>We will not:</p><ul> \n <li>sell\
+                \ or give your data to third parties</li> \n <li>share your data with\
+                \ third parties for marketing purposes</li> \n</ul><h2>How long we\
+                \ keep your information</h2><p>We will delete any feedback you share\
+                \ with us after 3 years. We keep anonymised analytics for 38 months.</p><h2>How\
+                \ we store this information</h2><p>All personal information is stored\
+                \ in the European Economic Area (EEA). Data collected by Google Analytics\
+                \ data may be processed outside the EEA.</p><p>We’re committed to\
+                \ doing everything we can to keep your data safe. We perform regular\
+                \ security tests to make sure our systems and processes are secure.</p><h2>Your\
+                \ data protection rights</h2><p>You have the right to:</p><ul> \n\
+                \ <li>see your information – through a&nbsp;<a href=\"https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-of-access/\"\
+                >subject access request</a></li> \n <li>improve your data – if you\
+                \ think the information we have is inaccurate or incomplete</li> \n\
+                \ <li>delete your information – if you do not want us to use your\
+                \ data anymore</li> \n <li>limit what we do with your data –&nbsp;<a\
+                \ href=\"https://ico.org.uk/your-data-matters/your-right-to-limit-how-organisations-use-your-data/\"\
+                >depending on the circumstances</a></li> \n <li>stop us using your\
+                \ data –&nbsp;<a href=\"https://ico.org.uk/your-data-matters/the-right-to-object-to-the-use-of-your-data/\"\
+                >depending on the circumstances</a></li> \n <li>take your data with\
+                \ you – if you want to share it to another organisation,&nbsp;<a href=\"\
+                https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-data-portability/\"\
+                >depending on the circumstances</a></li> \n</ul><h2>How to complain</h2><p>If\
+                \ you’re unhappy with how we’ve used your data, you can complain to\
+                \ the Information Commissioner’s Office (ICO):</p><h3>Contact</h3><p>Address</p><address>Information\
+                \ Commissioner's Office<br> Wycliffe House<br> Water Lane<br> Wilmslow<br>\
+                \ Cheshire<br> SK9 5AF</address><p>Phone</p><p>0303 123 1113<br> <a\
+                \ href=\"https://www.gov.uk/call-charges\">Find out about call charges</a></p><h2>Changes\
+                \ to this policy</h2><p>We may change this privacy policy. In that\
+                \ case, the ‘last updated’ date at the top of this page will also\
+                \ change.</p><h2>Feedback, help or support</h2><p>If you need any\
+                \ help or want to give any feedback you can e-mail us at:&nbsp;<a\
+                \ href=\"mailto:dsdpo@disclosurescotland.gov.scot\">dsdpo@disclosurescotland.gov.scot</a>&nbsp;</p>"
+              /disclosure-scotlands-privacy-statement:
+                jcr:primaryType: hippo:facetselect
+                hippo:docbase: 4181438f-2d5d-4c1a-a953-00c118604fe2
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /disclosure-scotland-privacy-statement-ukrainian-hosts:
+                jcr:primaryType: hippo:facetselect
+                hippo:docbase: 2a0b3b5f-9e46-43c1-a443-1d2259083ba2
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /disclosure-scotland-privacy-notice-covid-19-inquiry:
+                jcr:primaryType: hippo:facetselect
+                hippo:docbase: 2727e454-9f48-47a4-95f9-648a2f6aa0ea
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+      /privacy[2]:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
-        hippo:name: Accessibility
-        hippo:availability: [preview]
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: df0eb344-f360-4f79-a3c0-943f2c62f676
+        hippo:availability: [live]
         hippostd:retainable: false
-        hippostd:state: unpublished
+        hippostd:state: published
+        hippostd:tags: [Privacy statement, privacy]
         hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-12T09:00:00.000+00:00
-        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00.000+00:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: ec4e0c5c-80a0-44c6-b3d7-fb8785e2b78a
+        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-03-05T11:04:11.913Z
+        hippostdpubwf:lastModifiedBy: andy.mcnicoll@gov.scot
+        hippostdpubwf:publicationDate: 2024-03-05T11:04:35.266Z
+        hippotranslation:id: d064f1e2-d40c-4118-b502-6a691bb2b3d3
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:metaDescription: Accessibility
+        publishing:contentitemlanguage: en
+        publishing:lastUpdatedDate: 2024-03-05T00:00:00Z
+        publishing:metaDescription: Privacy
+        publishing:noindex: false
+        publishing:permalink: /privacy/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: privacy
+        publishing:summary: Privacy
+        publishing:title: Privacy
+        publishing:userneed: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+          /publishing:relatedItem:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: c2f07d23-614d-4c1d-9dbd-2d0402ea8dac
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<div class=\"ds_inset-text\"> \n <div class=\"ds_inset-text__text\
+                \ focus-visible\"> \n  <p>This page covers privacy information for\
+                \ the disclosure.gov.scot website.</p> \n  <p>Privacy statements for\
+                \ the following Disclosure Scotland services are available on mygov.scot:</p>\
+                \ \n  <ul> \n   <li><a href=\"disclosure-scotlands-privacy-statement\"\
+                >disclosure and Protecting Vulnerable group scheme applications</a></li>\
+                \ \n   <li><a href=\"disclosure-scotland-privacy-statement-ukrainian-hosts\"\
+                >disclosure checks for the Homes for Ukraine scheme</a></li> \n  \
+                \ <li><a href=\"disclosure-scotland-privacy-notice-covid-19-inquiry\"\
+                >providing disclosure&nbsp;information to the covid-19 inquiry</a></li>\
+                \ \n  </ul> \n </div> \n</div><h2>What type of information we collect<span>&nbsp;</span></h2><p>We\
+                \ collect and process the following information when you visit disclosure.gov.scot:</p><ul>\
+                \ \n <li>any feedback you share with us</li> \n <li>your cookies using\
+                \ Google Analytics</li> \n <li>your IP address</li> \n</ul><p>We also\
+                \ use Google Analytics to collect information about:</p><ul> \n <li>which\
+                \ type of browser and device you used</li> \n <li>the pages you visit\
+                \ on disclosure.gov.scot</li> \n <li>how long you spend on each disclosure.gov.scot\
+                \ page</li> \n <li>how you got to the site</li> \n <li>what you click\
+                \ on while you’re visiting the site</li> \n</ul><p>Google Analytics\
+                \ data is only collected from users who have consented to share this\
+                \ data. Any information we get about you from Google Analytics will\
+                \ be anonymised before we see it. This means we will not hold any\
+                \ personally identifiable information about you, such as your name\
+                \ or address.</p><p>Additionally, we use Plausible Analytics on this\
+                \ site to collect some anonymous usage data for statistical purposes.\
+                \ This is to track overall trends in our website traffic, not to track\
+                \ individual visitors. All the data is in aggregate only. No personal\
+                \ data is collected to Plausible. Data collected includes referral\
+                \ sources, top pages, visit duration, information from the devices\
+                \ (device type, operating system, country and browser) used during\
+                \ the visit. Read more in the Plausible Analytics&nbsp;<a href=\"\
+                https://plausible.io/data-policy\">data policy</a>.</p><h2>Why we\
+                \ collect this information</h2><p>We use the information you share\
+                \ with us:</p><ul> \n <li>to improve our services</li> \n <li>give\
+                \ you access to government services</li> \n <li>to identify security\
+                \ threats</li> \n</ul><p>Our legal basis for processing this data\
+                \ is ‘legitimate interests’. That’s because:</p><ul> \n <li>it’s in\
+                \ the legitimate interests of our users to make improvements to our\
+                \ website</li> \n <li>we need to maintain the security of disclosure.gov.scot</li>\
+                \ \n</ul><p>We only collect information about you using Google Analytics\
+                \ if you consent to it.</p><p>If you do not consent to it, you can\
+                \ let us know by emailing&nbsp;<a href=\"mailto:DataProtectionOfficer@gov.scot\"\
+                >DataProtectionOfficer@gov.scot</a>.</p><h2>What we do with this information</h2><p>We\
+                \ may share your anonymised information with other agencies or public\
+                \ bodies in the Scottish Government. But this will not include personally\
+                \ identifiable information.</p><p>We’ll only share your data with\
+                \ a third party if we’re required to do so by law. For example by\
+                \ court order or to prevent fraud.</p><p>We will not:</p><ul> \n <li>sell\
+                \ or give your data to third parties</li> \n <li>share your data with\
+                \ third parties for marketing purposes</li> \n</ul><h2>How long we\
+                \ keep your information</h2><p>We will delete any feedback you share\
+                \ with us after 3 years. We keep anonymised analytics for 38 months.</p><h2>How\
+                \ we store this information</h2><p>All personal information is stored\
+                \ in the European Economic Area (EEA). Data collected by Google Analytics\
+                \ data may be processed outside the EEA.</p><p>We’re committed to\
+                \ doing everything we can to keep your data safe. We perform regular\
+                \ security tests to make sure our systems and processes are secure.</p><h2>Your\
+                \ data protection rights</h2><p>You have the right to:</p><ul> \n\
+                \ <li>see your information – through a&nbsp;<a href=\"https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-of-access/\"\
+                >subject access request</a></li> \n <li>improve your data – if you\
+                \ think the information we have is inaccurate or incomplete</li> \n\
+                \ <li>delete your information – if you do not want us to use your\
+                \ data anymore</li> \n <li>limit what we do with your data –&nbsp;<a\
+                \ href=\"https://ico.org.uk/your-data-matters/your-right-to-limit-how-organisations-use-your-data/\"\
+                >depending on the circumstances</a></li> \n <li>stop us using your\
+                \ data –&nbsp;<a href=\"https://ico.org.uk/your-data-matters/the-right-to-object-to-the-use-of-your-data/\"\
+                >depending on the circumstances</a></li> \n <li>take your data with\
+                \ you – if you want to share it to another organisation,&nbsp;<a href=\"\
+                https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-data-portability/\"\
+                >depending on the circumstances</a></li> \n</ul><h2>How to complain</h2><p>If\
+                \ you’re unhappy with how we’ve used your data, you can complain to\
+                \ the Information Commissioner’s Office (ICO):</p><h3>Contact</h3><p>Address</p><address>Information\
+                \ Commissioner's Office<br> Wycliffe House<br> Water Lane<br> Wilmslow<br>\
+                \ Cheshire<br> SK9 5AF</address><p>Phone</p><p>0303 123 1113<br> <a\
+                \ href=\"https://www.gov.uk/call-charges\">Find out about call charges</a></p><h2>Changes\
+                \ to this policy</h2><p>We may change this privacy policy. In that\
+                \ case, the ‘last updated’ date at the top of this page will also\
+                \ change.</p><h2>Feedback, help or support</h2><p>If you need any\
+                \ help or want to give any feedback you can e-mail us at:&nbsp;<a\
+                \ href=\"mailto:dsdpo@disclosurescotland.gov.scot\">dsdpo@disclosurescotland.gov.scot</a>&nbsp;</p>"
+              /disclosure-scotlands-privacy-statement:
+                jcr:primaryType: hippo:facetselect
+                hippo:docbase: 4181438f-2d5d-4c1a-a953-00c118604fe2
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /disclosure-scotland-privacy-statement-ukrainian-hosts:
+                jcr:primaryType: hippo:facetselect
+                hippo:docbase: 2a0b3b5f-9e46-43c1-a443-1d2259083ba2
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /disclosure-scotland-privacy-notice-covid-19-inquiry:
+                jcr:primaryType: hippo:facetselect
+                hippo:docbase: 2727e454-9f48-47a4-95f9-648a2f6aa0ea
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+      /privacy[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: d9971ea0-4e3e-4a07-b550-2fe4de74511a
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:tags: [Privacy statement, privacy]
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-03-05T11:03:35.863Z
+        hippostdpubwf:lastModifiedBy: andy.mcnicoll@gov.scot
+        hippotranslation:id: d064f1e2-d40c-4118-b502-6a691bb2b3d3
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:contentitemlanguage: en
+        publishing:lastUpdatedDate: 2024-03-05T00:00:00Z
+        publishing:metaDescription: Privacy
+        publishing:noindex: false
+        publishing:permalink: /privacy/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: privacy
+        publishing:summary: Privacy
+        publishing:title: Privacy
+        publishing:userneed: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:relateditems:
+          jcr:primaryType: publishing:relateditems
+          publishing:title: ''
+          /publishing:relatedItem:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: c2f07d23-614d-4c1d-9dbd-2d0402ea8dac
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<div class=\"ds_inset-text\"> \n <div class=\"ds_inset-text__text\
+                \ focus-visible\"> \n  <p>This page covers privacy information for\
+                \ the disclosure.gov.scot website.</p> \n  <p>Privacy statements for\
+                \ the following Disclosure Scotland services are available on mygov.scot:</p>\
+                \ \n  <ul> \n   <li><a href=\"disclosure-scotlands-privacy-statement\"\
+                >disclosure and Protecting Vulnerable group scheme applications</a></li>\
+                \ \n   <li><a href=\"disclosure-scotland-privacy-statement-ukrainian-hosts\"\
+                >disclosure checks for the Homes for Ukraine scheme</a></li> \n  \
+                \ <li><a href=\"disclosure-scotland-privacy-notice-covid-19-inquiry\"\
+                >providing disclosure&nbsp;information to the covid-19 inquiry</a></li>\
+                \ \n  </ul> \n </div> \n</div><h2>What type of information we collect<span>&nbsp;</span></h2><p>We\
+                \ collect and process the following information when you visit disclosure.gov.scot:</p><ul>\
+                \ \n <li>any feedback you share with us</li> \n <li>your cookies using\
+                \ Google Analytics</li> \n <li>your IP address</li> \n</ul><p>We also\
+                \ use Google Analytics to collect information about:</p><ul> \n <li>which\
+                \ type of browser and device you used</li> \n <li>the pages you visit\
+                \ on disclosure.gov.scot</li> \n <li>how long you spend on each disclosure.gov.scot\
+                \ page</li> \n <li>how you got to the site</li> \n <li>what you click\
+                \ on while you’re visiting the site</li> \n</ul><p>Google Analytics\
+                \ data is only collected from users who have consented to share this\
+                \ data. Any information we get about you from Google Analytics will\
+                \ be anonymised before we see it. This means we will not hold any\
+                \ personally identifiable information about you, such as your name\
+                \ or address.</p><p>Additionally, we use Plausible Analytics on this\
+                \ site to collect some anonymous usage data for statistical purposes.\
+                \ This is to track overall trends in our website traffic, not to track\
+                \ individual visitors. All the data is in aggregate only. No personal\
+                \ data is collected to Plausible. Data collected includes referral\
+                \ sources, top pages, visit duration, information from the devices\
+                \ (device type, operating system, country and browser) used during\
+                \ the visit. Read more in the Plausible Analytics&nbsp;<a href=\"\
+                https://plausible.io/data-policy\">data policy</a>.</p><h2>Why we\
+                \ collect this information</h2><p>We use the information you share\
+                \ with us:</p><ul> \n <li>to improve our services</li> \n <li>give\
+                \ you access to government services</li> \n <li>to identify security\
+                \ threats</li> \n</ul><p>Our legal basis for processing this data\
+                \ is ‘legitimate interests’. That’s because:</p><ul> \n <li>it’s in\
+                \ the legitimate interests of our users to make improvements to our\
+                \ website</li> \n <li>we need to maintain the security of disclosure.gov.scot</li>\
+                \ \n</ul><p>We only collect information about you using Google Analytics\
+                \ if you consent to it.</p><p>If you do not consent to it, you can\
+                \ let us know by emailing&nbsp;<a href=\"mailto:DataProtectionOfficer@gov.scot\"\
+                >DataProtectionOfficer@gov.scot</a>.</p><h2>What we do with this information</h2><p>We\
+                \ may share your anonymised information with other agencies or public\
+                \ bodies in the Scottish Government. But this will not include personally\
+                \ identifiable information.</p><p>We’ll only share your data with\
+                \ a third party if we’re required to do so by law. For example by\
+                \ court order or to prevent fraud.</p><p>We will not:</p><ul> \n <li>sell\
+                \ or give your data to third parties</li> \n <li>share your data with\
+                \ third parties for marketing purposes</li> \n</ul><h2>How long we\
+                \ keep your information</h2><p>We will delete any feedback you share\
+                \ with us after 3 years. We keep anonymised analytics for 38 months.</p><h2>How\
+                \ we store this information</h2><p>All personal information is stored\
+                \ in the European Economic Area (EEA). Data collected by Google Analytics\
+                \ data may be processed outside the EEA.</p><p>We’re committed to\
+                \ doing everything we can to keep your data safe. We perform regular\
+                \ security tests to make sure our systems and processes are secure.</p><h2>Your\
+                \ data protection rights</h2><p>You have the right to:</p><ul> \n\
+                \ <li>see your information – through a&nbsp;<a href=\"https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-of-access/\"\
+                >subject access request</a></li> \n <li>improve your data – if you\
+                \ think the information we have is inaccurate or incomplete</li> \n\
+                \ <li>delete your information – if you do not want us to use your\
+                \ data anymore</li> \n <li>limit what we do with your data –&nbsp;<a\
+                \ href=\"https://ico.org.uk/your-data-matters/your-right-to-limit-how-organisations-use-your-data/\"\
+                >depending on the circumstances</a></li> \n <li>stop us using your\
+                \ data –&nbsp;<a href=\"https://ico.org.uk/your-data-matters/the-right-to-object-to-the-use-of-your-data/\"\
+                >depending on the circumstances</a></li> \n <li>take your data with\
+                \ you – if you want to share it to another organisation,&nbsp;<a href=\"\
+                https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-data-portability/\"\
+                >depending on the circumstances</a></li> \n</ul><h2>How to complain</h2><p>If\
+                \ you’re unhappy with how we’ve used your data, you can complain to\
+                \ the Information Commissioner’s Office (ICO):</p><h3>Contact</h3><p>Address</p><address>Information\
+                \ Commissioner's Office<br> Wycliffe House<br> Water Lane<br> Wilmslow<br>\
+                \ Cheshire<br> SK9 5AF</address><p>Phone</p><p>0303 123 1113<br> <a\
+                \ href=\"https://www.gov.uk/call-charges\">Find out about call charges</a></p><h2>Changes\
+                \ to this policy</h2><p>We may change this privacy policy. In that\
+                \ case, the ‘last updated’ date at the top of this page will also\
+                \ change.</p><h2>Feedback, help or support</h2><p>If you need any\
+                \ help or want to give any feedback you can e-mail us at:&nbsp;<a\
+                \ href=\"mailto:dsdpo@disclosurescotland.gov.scot\">dsdpo@disclosurescotland.gov.scot</a>&nbsp;</p>"
+              /disclosure-scotlands-privacy-statement:
+                jcr:primaryType: hippo:facetselect
+                hippo:docbase: 4181438f-2d5d-4c1a-a953-00c118604fe2
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /disclosure-scotland-privacy-statement-ukrainian-hosts:
+                jcr:primaryType: hippo:facetselect
+                hippo:docbase: 2a0b3b5f-9e46-43c1-a443-1d2259083ba2
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+              /disclosure-scotland-privacy-notice-covid-19-inquiry:
+                jcr:primaryType: hippo:facetselect
+                hippo:docbase: 2727e454-9f48-47a4-95f9-648a2f6aa0ea
+                hippo:facets: []
+                hippo:modes: []
+                hippo:values: []
+    /accessibility:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: ffffcf79-5cc1-4ec5-b693-da8fdc0057cf
+      hippo:name: Accessibility
+      hippo:versionHistory: c8691bd9-51a2-4379-baf5-380b9ca50e1e
+      /accessibility[1]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+          'mix:versionable']
+        jcr:uuid: e557090a-b485-443c-aff8-6ca1b16cd10c
+        hippo:availability: [preview]
+        hippo:name: Accessibility
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostd:tags: [accessibility, accessibility statement]
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-03-15T15:33:48.618Z
+        hippostdpubwf:lastModifiedBy: jamie.scott2@gov.scot
+        hippotranslation:id: ec4e0c5c-80a0-44c6-b3d7-fb8785e2b78a
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: |-
+          <p>15/03/2024 - text removed "By the end of 2024," at the request of Marc Lunness. JS</p>
+
+          <p>Date: 14 March 2024<br />
+          Content designer: Jamie Scott<br />
+          Peer reviewer: Andy McNicoll<br />
+          Jira link: https://sg-dtd.atlassian.net/browse/CDDB-329<br />
+          Change 1: Updated to model statement provided by Gayle Whittaker.<br />
+          Change 2: Updated to record partial WCAG 2.2 compliance, after accessibility testing by Gayle Whittaker on 13/03/24.</p>
+
+          <p>Date:&nbsp; 4 March 2024<br />
+          Content designer: Andy McNicoll<br />
+          Peer reviewer:&nbsp; Michael Giovannetti<br />
+          Summary of changes and design decisions: accessibility statement text based on Cloud site (Elaine Swan-Gordon said to base ours on this). Only change is using disclosure.gov.scot and the contact email address.</p>
+        publishing:contentitemlanguage: en
+        publishing:metaDescription: Accessibility statement for the Disclosure Scotland
+          website, disclosure.gov.scot
+        publishing:noindex: false
         publishing:permalink: /accessibility/
         publishing:reportingtags: []
         publishing:sensitive: false
@@ -78,12 +520,9 @@
         publishing:showFeedback: true
         publishing:showInParent: true
         publishing:slug: accessibility
-        publishing:summary: Accessibility
-        publishing:title: Accessibility
+        publishing:summary: Accessibility statement for disclosure.gov.scot
+        publishing:title: Accessibility statement
         publishing:userneed: ''
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
         /publishing:logo:
           jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -93,26 +532,336 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<p>This accessibility statement applies to disclosure.gov.scot.</p><p>This\
+                \ website is run by the Scottish Government. It is designed to be\
+                \ used by as many people as possible. You should be able to:</p><ul>\
+                \ \n <li>use your web browser to change colours, contrast levels and\
+                \ fonts</li> \n <li>zoom in up to 300% without loss of information</li>\
+                \ \n <li>navigate the website using just a keyboard</li> \n <li>navigate\
+                \ the website using speech recognition software</li> \n <li>listen\
+                \ to the website using a screen reader (including the most recent\
+                \ versions of JAWS, NVDA and VoiceOver)</li> \n <li>access the website\
+                \ using a mobile or tablet</li> \n</ul><p><a href=\"https://abilitynet.org.uk/\"\
+                >AbilityNet</a> has advice on making your device easier to use if\
+                \ you have a disability.</p><h2>Feedback and contact information</h2><p>We\
+                \ want to find ways to improve the accessibility of this website.</p><p>If\
+                \ you find any problems or think we’re not meeting accessibility requirements,\
+                \ email <a href=\"mailto:digital-publishing@gov.scot\">digital-publishing@gov.scot</a>\
+                \ with details.</p><h2>Enforcement procedure</h2><p>The <a href=\"\
+                https://www.equalityhumanrights.com/\">Equality and Human Rights Commission\
+                \ (EHRC)</a> is responsible for enforcing the Public Sector Bodies\
+                \ (Websites and Mobile Applications) (No. 2) Accessibility Regulations\
+                \ 2018 (the ‘accessibility regulations’).</p><p>If you’re not happy\
+                \ with how we respond to your complaint, contact the <a href=\"https://www.equalityadvisoryservice.com/\"\
+                >Equality Advisory and Support Service (EASS)</a>.</p><h2>Technical\
+                \ information about this website’s accessibility</h2><p>The Scottish\
+                \ Government is committed to making this website accessible, in accordance\
+                \ with the Public Sector Bodies (Websites and Mobile Applications)\
+                \ (No. 2) Accessibility Regulations 2018.</p><h3>Compliance status</h3><p>This\
+                \ website is partially compliant with the <a href=\"https://www.w3.org/TR/WCAG22/\"\
+                >Web Content Accessibility Guidelines (WCAG) version 2.2</a> A and\
+                \ AA success criteria. The non-compliances are listed below.</p><h2>Non-accessible\
+                \ content</h2><p>The content listed below is non-accessible for the\
+                \ following reasons.</p><h3>Non-compliance with the accessibility\
+                \ regulations</h3><h4>PDFs and other documents</h4><p>Some document\
+                \ formats such as PDF, MS Word and Excel may not be fully accessible.\
+                \ We plan to either fix these or replace them with accessible HTML\
+                \ pages.</p><p>This fails WCAG success criteria:</p><ul> \n <li>non-text\
+                \ content 1.1.1</li> \n <li>info and relationships 1.3.1</li> \n <li>meaningful\
+                \ sequence 1.3.2</li> \n <li>multiple ways 2.4.5</li> \n</ul><h2>What\
+                \ we’re doing to improve accessibility</h2><p>As part of our work\
+                \ to improve the accessibility of this website, we are reviewing our\
+                \ policy on PDFs and other methods of delivering information with\
+                \ a view to making them as accessible as possible.</p><p>We will implement\
+                \ any changes required to ensure that this website is fully compliant\
+                \ with the WCAG version 2.2 AA standard.</p><p>This site uses the\
+                \ <a href=\"https://designsystem.gov.scot/\">Scottish Government Design\
+                \ System</a> which has accessible styles, components and patterns.</p><h2>Preparation\
+                \ of this accessibility statement</h2><p>This statement was prepared\
+                \ on 14 March 2024. It was last reviewed on 14 March 2024.</p><p>The\
+                \ website was tested on 13 March 2024 by the Digital Accessibility\
+                \ Team in the Scottish Government.</p><p>The Accessibility team ran\
+                \ an automated test across the site, to detect compliance with WCAG\
+                \ 2.2 (AA). The automated tests were completed using the latest version\
+                \ of Axe. This was followed by a manual accessibility review of a\
+                \ representative sample of pages and content types and was conducted\
+                \ using assistive technology (JAWS).</p>"
+      /accessibility[2]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 86d50969-d8b6-416c-b935-dcecb53f9828
+        hippo:availability: [live]
+        hippo:name: Accessibility
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostd:tags: [accessibility, accessibility statement]
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-03-15T15:33:48.618Z
+        hippostdpubwf:lastModifiedBy: jamie.scott2@gov.scot
+        hippostdpubwf:publicationDate: 2024-03-15T15:38:04.647Z
+        hippotranslation:id: ec4e0c5c-80a0-44c6-b3d7-fb8785e2b78a
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: |-
+          <p>15/03/2024 - text removed "By the end of 2024," at the request of Marc Lunness. JS</p>
+
+          <p>Date: 14 March 2024<br />
+          Content designer: Jamie Scott<br />
+          Peer reviewer: Andy McNicoll<br />
+          Jira link: https://sg-dtd.atlassian.net/browse/CDDB-329<br />
+          Change 1: Updated to model statement provided by Gayle Whittaker.<br />
+          Change 2: Updated to record partial WCAG 2.2 compliance, after accessibility testing by Gayle Whittaker on 13/03/24.</p>
+
+          <p>Date:&nbsp; 4 March 2024<br />
+          Content designer: Andy McNicoll<br />
+          Peer reviewer:&nbsp; Michael Giovannetti<br />
+          Summary of changes and design decisions: accessibility statement text based on Cloud site (Elaine Swan-Gordon said to base ours on this). Only change is using disclosure.gov.scot and the contact email address.</p>
+        publishing:contentitemlanguage: en
+        publishing:metaDescription: Accessibility statement for the Disclosure Scotland
+          website, disclosure.gov.scot
+        publishing:noindex: false
+        publishing:permalink: /accessibility/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: accessibility
+        publishing:summary: Accessibility statement for disclosure.gov.scot
+        publishing:title: Accessibility statement
+        publishing:userneed: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<p>This accessibility statement applies to disclosure.gov.scot.</p><p>This\
+                \ website is run by the Scottish Government. It is designed to be\
+                \ used by as many people as possible. You should be able to:</p><ul>\
+                \ \n <li>use your web browser to change colours, contrast levels and\
+                \ fonts</li> \n <li>zoom in up to 300% without loss of information</li>\
+                \ \n <li>navigate the website using just a keyboard</li> \n <li>navigate\
+                \ the website using speech recognition software</li> \n <li>listen\
+                \ to the website using a screen reader (including the most recent\
+                \ versions of JAWS, NVDA and VoiceOver)</li> \n <li>access the website\
+                \ using a mobile or tablet</li> \n</ul><p><a href=\"https://abilitynet.org.uk/\"\
+                >AbilityNet</a> has advice on making your device easier to use if\
+                \ you have a disability.</p><h2>Feedback and contact information</h2><p>We\
+                \ want to find ways to improve the accessibility of this website.</p><p>If\
+                \ you find any problems or think we’re not meeting accessibility requirements,\
+                \ email <a href=\"mailto:digital-publishing@gov.scot\">digital-publishing@gov.scot</a>\
+                \ with details.</p><h2>Enforcement procedure</h2><p>The <a href=\"\
+                https://www.equalityhumanrights.com/\">Equality and Human Rights Commission\
+                \ (EHRC)</a> is responsible for enforcing the Public Sector Bodies\
+                \ (Websites and Mobile Applications) (No. 2) Accessibility Regulations\
+                \ 2018 (the ‘accessibility regulations’).</p><p>If you’re not happy\
+                \ with how we respond to your complaint, contact the <a href=\"https://www.equalityadvisoryservice.com/\"\
+                >Equality Advisory and Support Service (EASS)</a>.</p><h2>Technical\
+                \ information about this website’s accessibility</h2><p>The Scottish\
+                \ Government is committed to making this website accessible, in accordance\
+                \ with the Public Sector Bodies (Websites and Mobile Applications)\
+                \ (No. 2) Accessibility Regulations 2018.</p><h3>Compliance status</h3><p>This\
+                \ website is partially compliant with the <a href=\"https://www.w3.org/TR/WCAG22/\"\
+                >Web Content Accessibility Guidelines (WCAG) version 2.2</a> A and\
+                \ AA success criteria. The non-compliances are listed below.</p><h2>Non-accessible\
+                \ content</h2><p>The content listed below is non-accessible for the\
+                \ following reasons.</p><h3>Non-compliance with the accessibility\
+                \ regulations</h3><h4>PDFs and other documents</h4><p>Some document\
+                \ formats such as PDF, MS Word and Excel may not be fully accessible.\
+                \ We plan to either fix these or replace them with accessible HTML\
+                \ pages.</p><p>This fails WCAG success criteria:</p><ul> \n <li>non-text\
+                \ content 1.1.1</li> \n <li>info and relationships 1.3.1</li> \n <li>meaningful\
+                \ sequence 1.3.2</li> \n <li>multiple ways 2.4.5</li> \n</ul><h2>What\
+                \ we’re doing to improve accessibility</h2><p>As part of our work\
+                \ to improve the accessibility of this website, we are reviewing our\
+                \ policy on PDFs and other methods of delivering information with\
+                \ a view to making them as accessible as possible.</p><p>We will implement\
+                \ any changes required to ensure that this website is fully compliant\
+                \ with the WCAG version 2.2 AA standard.</p><p>This site uses the\
+                \ <a href=\"https://designsystem.gov.scot/\">Scottish Government Design\
+                \ System</a> which has accessible styles, components and patterns.</p><h2>Preparation\
+                \ of this accessibility statement</h2><p>This statement was prepared\
+                \ on 14 March 2024. It was last reviewed on 14 March 2024.</p><p>The\
+                \ website was tested on 13 March 2024 by the Digital Accessibility\
+                \ Team in the Scottish Government.</p><p>The Accessibility team ran\
+                \ an automated test across the site, to detect compliance with WCAG\
+                \ 2.2 (AA). The automated tests were completed using the latest version\
+                \ of Axe. This was followed by a manual accessibility review of a\
+                \ representative sample of pages and content types and was conducted\
+                \ using assistive technology (JAWS).</p>"
+      /accessibility[3]:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 4f4f973f-6d4a-4f37-aff5-a65abd045234
+        hippo:availability: []
+        hippo:name: Accessibility
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostd:tags: [accessibility, accessibility statement]
+        hippostd:transferable: false
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-04-19T09:39:49.320+01:00
+        hippostdpubwf:lastModifiedBy: jamie.scott2@gov.scot
+        hippotranslation:id: ec4e0c5c-80a0-44c6-b3d7-fb8785e2b78a
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: |-
+          <p>15/03/2024 - text removed "By the end of 2024," at the request of Marc Lunness. JS</p>
+
+          <p>Date: 14 March 2024<br />
+          Content designer: Jamie Scott<br />
+          Peer reviewer: Andy McNicoll<br />
+          Jira link: https://sg-dtd.atlassian.net/browse/CDDB-329<br />
+          Change 1: Updated to model statement provided by Gayle Whittaker.<br />
+          Change 2: Updated to record partial WCAG 2.2 compliance, after accessibility testing by Gayle Whittaker on 13/03/24.</p>
+
+          <p>Date:&nbsp; 4 March 2024<br />
+          Content designer: Andy McNicoll<br />
+          Peer reviewer:&nbsp; Michael Giovannetti<br />
+          Summary of changes and design decisions: accessibility statement text based on Cloud site (Elaine Swan-Gordon said to base ours on this). Only change is using disclosure.gov.scot and the contact email address.</p>
+        publishing:contentitemlanguage: en
+        publishing:metaDescription: Accessibility statement for the Disclosure Scotland
+          website, disclosure.gov.scot
+        publishing:noindex: false
+        publishing:permalink: /accessibility/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: accessibility
+        publishing:summary: Accessibility statement for disclosure.gov.scot
+        publishing:title: Accessibility statement
+        publishing:userneed: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<p>This accessibility statement applies to disclosure.gov.scot.</p><p>This\
+                \ website is run by the Scottish Government. It is designed to be\
+                \ used by as many people as possible. You should be able to:</p><ul>\
+                \ \n <li>use your web browser to change colours, contrast levels and\
+                \ fonts</li> \n <li>zoom in up to 300% without loss of information</li>\
+                \ \n <li>navigate the website using just a keyboard</li> \n <li>navigate\
+                \ the website using speech recognition software</li> \n <li>listen\
+                \ to the website using a screen reader (including the most recent\
+                \ versions of JAWS, NVDA and VoiceOver)</li> \n <li>access the website\
+                \ using a mobile or tablet</li> \n</ul><p><a href=\"https://abilitynet.org.uk/\"\
+                >AbilityNet</a> has advice on making your device easier to use if\
+                \ you have a disability.</p><h2>Feedback and contact information</h2><p>We\
+                \ want to find ways to improve the accessibility of this website.</p><p>If\
+                \ you find any problems or think we’re not meeting accessibility requirements,\
+                \ email <a href=\"mailto:digital-publishing@gov.scot\">digital-publishing@gov.scot</a>\
+                \ with details.</p><h2>Enforcement procedure</h2><p>The <a href=\"\
+                https://www.equalityhumanrights.com/\">Equality and Human Rights Commission\
+                \ (EHRC)</a> is responsible for enforcing the Public Sector Bodies\
+                \ (Websites and Mobile Applications) (No. 2) Accessibility Regulations\
+                \ 2018 (the ‘accessibility regulations’).</p><p>If you’re not happy\
+                \ with how we respond to your complaint, contact the <a href=\"https://www.equalityadvisoryservice.com/\"\
+                >Equality Advisory and Support Service (EASS)</a>.</p><h2>Technical\
+                \ information about this website’s accessibility</h2><p>The Scottish\
+                \ Government is committed to making this website accessible, in accordance\
+                \ with the Public Sector Bodies (Websites and Mobile Applications)\
+                \ (No. 2) Accessibility Regulations 2018.</p><h3>Compliance status</h3><p>This\
+                \ website is partially compliant with the <a href=\"https://www.w3.org/TR/WCAG22/\"\
+                >Web Content Accessibility Guidelines (WCAG) version 2.2</a> A and\
+                \ AA success criteria. The non-compliances are listed below.</p><h2>Non-accessible\
+                \ content</h2><p>The content listed below is non-accessible for the\
+                \ following reasons.</p><h3>Non-compliance with the accessibility\
+                \ regulations</h3><h4>PDFs and other documents</h4><p>Some document\
+                \ formats such as PDF, MS Word and Excel may not be fully accessible.\
+                \ We plan to either fix these or replace them with accessible HTML\
+                \ pages.</p><p>This fails WCAG success criteria:</p><ul> \n <li>non-text\
+                \ content 1.1.1</li> \n <li>info and relationships 1.3.1</li> \n <li>meaningful\
+                \ sequence 1.3.2</li> \n <li>multiple ways 2.4.5</li> \n</ul><h2>What\
+                \ we’re doing to improve accessibility</h2><p>As part of our work\
+                \ to improve the accessibility of this website, we are reviewing our\
+                \ policy on PDFs and other methods of delivering information with\
+                \ a view to making them as accessible as possible.</p><p>We will implement\
+                \ any changes required to ensure that this website is fully compliant\
+                \ with the WCAG version 2.2 AA standard.</p><p>This site uses the\
+                \ <a href=\"https://designsystem.gov.scot/\">Scottish Government Design\
+                \ System</a> which has accessible styles, components and patterns.</p><h2>Preparation\
+                \ of this accessibility statement</h2><p>This statement was prepared\
+                \ on 14 March 2024. It was last reviewed on 14 March 2024.</p><p>The\
+                \ website was tested on 13 March 2024 by the Digital Accessibility\
+                \ Team in the Scottish Government.</p><p>The Accessibility team ran\
+                \ an automated test across the site, to detect compliance with WCAG\
+                \ 2.2 (AA). The automated tests were completed using the latest version\
+                \ of Axe. This was followed by a manual accessibility review of a\
+                \ representative sample of pages and content types and was conducted\
+                \ using assistive technology (JAWS).</p>"
     /cookies:
       jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: ee29f694-80f6-4010-94d3-0b4462f83198
       hippo:name: Cookies
-      /cookies:
+      hippo:versionHistory: 9b40b752-3e18-49c6-a241-44acaecfbd08
+      /cookies[1]:
         jcr:primaryType: publishing:cookiepage
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
+          'mix:versionable']
+        jcr:uuid: 6ab1eebf-fff7-4fc2-9c2c-5eea3d28e27c
         hippo:availability: [preview]
         hippo:name: Cookies
         hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-12T09:00:00.000+00:00
-        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00.000+00:00
-        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-03-04T12:05:00.792Z
+        hippostdpubwf:lastModifiedBy: michael.giovannetti@disclosurescotland.gov.scot
         hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:metaDescription: Cookies
+        publishing:authorNotes: |-
+          <p>Date:&nbsp; 4 March 2024</p>
+
+          <p>Content designer: Andy McNicoll</p>
+
+          <p>Peer reviewer:&nbsp; Michael Giovannetti</p>
+
+          <p>Summary of changes and design decisions: cookies statement text based on Cloud site (Elaine Swan-Gordon said to base ours on this). Only change is using disclosure.gov.scot and the contact email address.</p>
+
+          <p>Date: 4 March 2024 - MG: peer reviewed, minor updates to a few sentences to make more concise/align with style guide. All good apart from that.</p>
+        publishing:metaDescription: Cookies statement for Disclosure Scotland's website,
+          disclosure.gov.scot.
         publishing:permalink: /cookies/
         publishing:reportingtags: []
         publishing:sensitive: false
@@ -121,15 +870,9 @@
         publishing:showFeedback: true
         publishing:showInParent: true
         publishing:slug: cookies
-        publishing:summary: Cookies
+        publishing:summary: Cookies statement for disclosure.gov.scot
         publishing:title: Cookies
         publishing:userneed: ''
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:additionalContent:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
         /publishing:logo:
           jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -139,8 +882,284 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<p>A cookie lets a website recognise your device\
+                \ and store some information about your preferences or interactions.</p><h2>Why\
+                \ we use cookies</h2><p>We use&nbsp;disclosure.gov.scot cookie tracking\
+                \ data to make informed decisions on whether the site is meeting your\
+                \ needs, which leads to us making improvements. For example, we monitor\
+                \ how much traffic each part of the site gets and work to improve\
+                \ areas which are not being found when they should be.</p><p>The cookies\
+                \ that we set on&nbsp;disclosure.gov.scot can not be used to identify\
+                \ you personally.&nbsp;<a href=\"https://ico.org.uk/your-data-matters/online/cookies/\"\
+                >Find out more about how to manage cookies for all websites</a></p><h2>Turn\
+                \ cookies on or off</h2><p>We use 3 main types of cookie on our website.\
+                \ You can choose which cookies you’re happy for us to use. Any data\
+                \ collected is anonymous.</p><h2>Google Analytics</h2><p>We use Google\
+                \ Analytics to collect information about how you use disclosure.gov.scot.</p><p>We\
+                \ store information about:</p><ul> \n <li>the pages you visit and\
+                \ how long you spend on each page</li> \n <li>how you got to disclosure.gov.scot</li>\
+                \ \n <li>what you click on while you’re visiting&nbsp;disclosure.gov.scot</li>\
+                \ \n</ul><p>We do not:</p><ul> \n <li>collect information that can\
+                \ be used to identify you; for example, we never receive your name\
+                \ or address</li> \n <li>make any attempt to find out the identities\
+                \ of people visiting disclosure.gov.scot</li> \n <li>allow the tools\
+                \ that we use to find out the identities of people visiting disclosure.gov.scot</li>\
+                \ \n <li>sell, trade or give your details to third parties, unless\
+                \ we are required to do it by law</li> \n</ul><p>All information we\
+                \ get through cookies and analytics will be treated in confidence.</p><p>We\
+                \ anonymise the last 3 digits of all disclosure.gov.scot user IP addresses\
+                \ for Google Analytics, so that we can ensure that you are protected\
+                \ (<a href=\"https://support.google.com/analytics/answer/2763052?hl=en\"\
+                >you can read more about how this works here</a>). We can only see\
+                \ a general overview of which regions and cities you may come from,\
+                \ not where individuals access from.</p><p><a href=\"https://support.google.com/analytics/answer/2838718?hl=en-GB\"\
+                >Find out more about security and privacy in Google Analytics.</a></p><p>You\
+                \ can opt&nbsp;<a href=\"https://tools.google.com/dlpage/gaoptout\"\
+                >out of Google analytics</a>&nbsp;cookies.</p><table> \n <thead> \n\
+                \  <tr> \n   <th>Cookie name</th> \n   <th>Description</th> \n   <th>Expiry\
+                \ time</th> \n  </tr> \n </thead> \n <tbody> \n  <tr> \n   <td>_ga</td>\
+                \ \n   <td>This is used to understand and differentiate between different\
+                \ users.</td> \n   <td>13 Months</td> \n  </tr> \n  <tr> \n   <td>_ga_&lt;container-id&gt;</td>\
+                \ \n   <td>Used to persist session state. Container ID is the identifier\
+                \ for the Google Analytics account being used.</td> \n   <td>13 Months</td>\
+                \ \n  </tr> \n  <tr> \n   <td>_gid</td> \n   <td>_gid has a different\
+                \ ID for each page set on, and a timestamp. This assists with plotting\
+                \ user journeys.</td> \n   <td>24 Hours</td> \n  </tr> \n </tbody>\
+                \ \n</table><h2>YouTube</h2><p>Pages on&nbsp;disclosure.gov.scot which\
+                \ contain YouTube videos will not set third-party cookies (we use\
+                \ YouTube-nocookie.com —&nbsp;<a href=\"https://support.google.com/youtube/answer/171780?hl=en-GB\"\
+                >find out more</a>).</p><h2>More information</h2><p>You can email\
+                \ the performance team for more information. Email:&nbsp;<a href=\"\
+                mailto:performance@gov.scot\">performance@gov.scot</a></p><h2>Feedback,\
+                \ help or support</h2><p>If you need help or want to give feedback\
+                \ you can email us at:&nbsp;<a href=\"mailto:response@disclosurescotland.gov.scot\"\
+                >response@disclosurescotland.gov.scot</a></p>"
+      /cookies[2]:
+        jcr:primaryType: publishing:cookiepage
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: e843b39e-26e9-4fbf-94fa-5b93a3ebdd19
+        hippo:availability: [live]
+        hippo:name: Cookies
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-03-04T12:05:00.792Z
+        hippostdpubwf:lastModifiedBy: michael.giovannetti@disclosurescotland.gov.scot
+        hippostdpubwf:publicationDate: 2024-03-06T06:51:38.920Z
+        hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: |-
+          <p>Date:&nbsp; 4 March 2024</p>
+
+          <p>Content designer: Andy McNicoll</p>
+
+          <p>Peer reviewer:&nbsp; Michael Giovannetti</p>
+
+          <p>Summary of changes and design decisions: cookies statement text based on Cloud site (Elaine Swan-Gordon said to base ours on this). Only change is using disclosure.gov.scot and the contact email address.</p>
+
+          <p>Date: 4 March 2024 - MG: peer reviewed, minor updates to a few sentences to make more concise/align with style guide. All good apart from that.</p>
+        publishing:metaDescription: Cookies statement for Disclosure Scotland's website,
+          disclosure.gov.scot.
+        publishing:permalink: /cookies/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookies statement for disclosure.gov.scot
+        publishing:title: Cookies
+        publishing:userneed: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<p>A cookie lets a website recognise your device\
+                \ and store some information about your preferences or interactions.</p><h2>Why\
+                \ we use cookies</h2><p>We use&nbsp;disclosure.gov.scot cookie tracking\
+                \ data to make informed decisions on whether the site is meeting your\
+                \ needs, which leads to us making improvements. For example, we monitor\
+                \ how much traffic each part of the site gets and work to improve\
+                \ areas which are not being found when they should be.</p><p>The cookies\
+                \ that we set on&nbsp;disclosure.gov.scot can not be used to identify\
+                \ you personally.&nbsp;<a href=\"https://ico.org.uk/your-data-matters/online/cookies/\"\
+                >Find out more about how to manage cookies for all websites</a></p><h2>Turn\
+                \ cookies on or off</h2><p>We use 3 main types of cookie on our website.\
+                \ You can choose which cookies you’re happy for us to use. Any data\
+                \ collected is anonymous.</p><h2>Google Analytics</h2><p>We use Google\
+                \ Analytics to collect information about how you use disclosure.gov.scot.</p><p>We\
+                \ store information about:</p><ul> \n <li>the pages you visit and\
+                \ how long you spend on each page</li> \n <li>how you got to disclosure.gov.scot</li>\
+                \ \n <li>what you click on while you’re visiting&nbsp;disclosure.gov.scot</li>\
+                \ \n</ul><p>We do not:</p><ul> \n <li>collect information that can\
+                \ be used to identify you; for example, we never receive your name\
+                \ or address</li> \n <li>make any attempt to find out the identities\
+                \ of people visiting disclosure.gov.scot</li> \n <li>allow the tools\
+                \ that we use to find out the identities of people visiting disclosure.gov.scot</li>\
+                \ \n <li>sell, trade or give your details to third parties, unless\
+                \ we are required to do it by law</li> \n</ul><p>All information we\
+                \ get through cookies and analytics will be treated in confidence.</p><p>We\
+                \ anonymise the last 3 digits of all disclosure.gov.scot user IP addresses\
+                \ for Google Analytics, so that we can ensure that you are protected\
+                \ (<a href=\"https://support.google.com/analytics/answer/2763052?hl=en\"\
+                >you can read more about how this works here</a>). We can only see\
+                \ a general overview of which regions and cities you may come from,\
+                \ not where individuals access from.</p><p><a href=\"https://support.google.com/analytics/answer/2838718?hl=en-GB\"\
+                >Find out more about security and privacy in Google Analytics.</a></p><p>You\
+                \ can opt&nbsp;<a href=\"https://tools.google.com/dlpage/gaoptout\"\
+                >out of Google analytics</a>&nbsp;cookies.</p><table> \n <thead> \n\
+                \  <tr> \n   <th>Cookie name</th> \n   <th>Description</th> \n   <th>Expiry\
+                \ time</th> \n  </tr> \n </thead> \n <tbody> \n  <tr> \n   <td>_ga</td>\
+                \ \n   <td>This is used to understand and differentiate between different\
+                \ users.</td> \n   <td>13 Months</td> \n  </tr> \n  <tr> \n   <td>_ga_&lt;container-id&gt;</td>\
+                \ \n   <td>Used to persist session state. Container ID is the identifier\
+                \ for the Google Analytics account being used.</td> \n   <td>13 Months</td>\
+                \ \n  </tr> \n  <tr> \n   <td>_gid</td> \n   <td>_gid has a different\
+                \ ID for each page set on, and a timestamp. This assists with plotting\
+                \ user journeys.</td> \n   <td>24 Hours</td> \n  </tr> \n </tbody>\
+                \ \n</table><h2>YouTube</h2><p>Pages on&nbsp;disclosure.gov.scot which\
+                \ contain YouTube videos will not set third-party cookies (we use\
+                \ YouTube-nocookie.com —&nbsp;<a href=\"https://support.google.com/youtube/answer/171780?hl=en-GB\"\
+                >find out more</a>).</p><h2>More information</h2><p>You can email\
+                \ the performance team for more information. Email:&nbsp;<a href=\"\
+                mailto:performance@gov.scot\">performance@gov.scot</a></p><h2>Feedback,\
+                \ help or support</h2><p>If you need help or want to give feedback\
+                \ you can email us at:&nbsp;<a href=\"mailto:response@disclosurescotland.gov.scot\"\
+                >response@disclosurescotland.gov.scot</a></p>"
+      /cookies[3]:
+        jcr:primaryType: publishing:cookiepage
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 96c977a1-addc-4f21-bc33-5aee1729d358
+        hippo:availability: []
+        hippo:name: Cookies
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-03-04T12:05:00.905Z
+        hippostdpubwf:lastModifiedBy: michael.giovannetti@disclosurescotland.gov.scot
+        hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: |-
+          <p>Date:&nbsp; 4 March 2024</p>
+
+          <p>Content designer: Andy McNicoll</p>
+
+          <p>Peer reviewer:&nbsp; Michael Giovannetti</p>
+
+          <p>Summary of changes and design decisions: cookies statement text based on Cloud site (Elaine Swan-Gordon said to base ours on this). Only change is using disclosure.gov.scot and the contact email address.</p>
+
+          <p>Date: 4 March 2024 - MG: peer reviewed, minor updates to a few sentences to make more concise/align with style guide. All good apart from that.</p>
+        publishing:metaDescription: Cookies statement for Disclosure Scotland's website,
+          disclosure.gov.scot.
+        publishing:permalink: /cookies/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookies statement for disclosure.gov.scot
+        publishing:title: Cookies
+        publishing:userneed: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<p>A cookie lets a website recognise your device\
+                \ and store some information about your preferences or interactions.</p><h2>Why\
+                \ we use cookies</h2><p>We use&nbsp;disclosure.gov.scot cookie tracking\
+                \ data to make informed decisions on whether the site is meeting your\
+                \ needs, which leads to us making improvements. For example, we monitor\
+                \ how much traffic each part of the site gets and work to improve\
+                \ areas which are not being found when they should be.</p><p>The cookies\
+                \ that we set on&nbsp;disclosure.gov.scot can not be used to identify\
+                \ you personally.&nbsp;<a href=\"https://ico.org.uk/your-data-matters/online/cookies/\"\
+                >Find out more about how to manage cookies for all websites</a></p><h2>Turn\
+                \ cookies on or off</h2><p>We use 3 main types of cookie on our website.\
+                \ You can choose which cookies you’re happy for us to use. Any data\
+                \ collected is anonymous.</p><h2>Google Analytics</h2><p>We use Google\
+                \ Analytics to collect information about how you use disclosure.gov.scot.</p><p>We\
+                \ store information about:</p><ul> \n <li>the pages you visit and\
+                \ how long you spend on each page</li> \n <li>how you got to disclosure.gov.scot</li>\
+                \ \n <li>what you click on while you’re visiting&nbsp;disclosure.gov.scot</li>\
+                \ \n</ul><p>We do not:</p><ul> \n <li>collect information that can\
+                \ be used to identify you; for example, we never receive your name\
+                \ or address</li> \n <li>make any attempt to find out the identities\
+                \ of people visiting disclosure.gov.scot</li> \n <li>allow the tools\
+                \ that we use to find out the identities of people visiting disclosure.gov.scot</li>\
+                \ \n <li>sell, trade or give your details to third parties, unless\
+                \ we are required to do it by law</li> \n</ul><p>All information we\
+                \ get through cookies and analytics will be treated in confidence.</p><p>We\
+                \ anonymise the last 3 digits of all disclosure.gov.scot user IP addresses\
+                \ for Google Analytics, so that we can ensure that you are protected\
+                \ (<a href=\"https://support.google.com/analytics/answer/2763052?hl=en\"\
+                >you can read more about how this works here</a>). We can only see\
+                \ a general overview of which regions and cities you may come from,\
+                \ not where individuals access from.</p><p><a href=\"https://support.google.com/analytics/answer/2838718?hl=en-GB\"\
+                >Find out more about security and privacy in Google Analytics.</a></p><p>You\
+                \ can opt&nbsp;<a href=\"https://tools.google.com/dlpage/gaoptout\"\
+                >out of Google analytics</a>&nbsp;cookies.</p><table> \n <thead> \n\
+                \  <tr> \n   <th>Cookie name</th> \n   <th>Description</th> \n   <th>Expiry\
+                \ time</th> \n  </tr> \n </thead> \n <tbody> \n  <tr> \n   <td>_ga</td>\
+                \ \n   <td>This is used to understand and differentiate between different\
+                \ users.</td> \n   <td>13 Months</td> \n  </tr> \n  <tr> \n   <td>_ga_&lt;container-id&gt;</td>\
+                \ \n   <td>Used to persist session state. Container ID is the identifier\
+                \ for the Google Analytics account being used.</td> \n   <td>13 Months</td>\
+                \ \n  </tr> \n  <tr> \n   <td>_gid</td> \n   <td>_gid has a different\
+                \ ID for each page set on, and a timestamp. This assists with plotting\
+                \ user journeys.</td> \n   <td>24 Hours</td> \n  </tr> \n </tbody>\
+                \ \n</table><h2>YouTube</h2><p>Pages on&nbsp;disclosure.gov.scot which\
+                \ contain YouTube videos will not set third-party cookies (we use\
+                \ YouTube-nocookie.com —&nbsp;<a href=\"https://support.google.com/youtube/answer/171780?hl=en-GB\"\
+                >find out more</a>).</p><h2>More information</h2><p>You can email\
+                \ the performance team for more information. Email:&nbsp;<a href=\"\
+                mailto:performance@gov.scot\">performance@gov.scot</a></p><h2>Feedback,\
+                \ help or support</h2><p>If you need help or want to give feedback\
+                \ you can email us at:&nbsp;<a href=\"mailto:response@disclosurescotland.gov.scot\"\
+                >response@disclosurescotland.gov.scot</a></p>"
   /banners:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:versionable']
+    jcr:uuid: c1e7c728-9244-4324-a001-05a78e26ca99
     hippo:name: banners
     hippostd:foldertype: [new-mourning-banner, new-notification-banner, new-phase-banner]

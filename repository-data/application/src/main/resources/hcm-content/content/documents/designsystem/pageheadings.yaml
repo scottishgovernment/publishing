@@ -4,25 +4,24 @@
   /home-page:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: a0e540af-2a92-4ac0-a102-4aa5eeb25a01
     hippo:name: Home page
     hippo:versionHistory: dbe06e6c-342d-4993-b04a-4a3aa23a51d1
-    /home-page[1]:
+    /home-page:
       jcr:primaryType: publishing:pageheading
       jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 2d13e0c5-46d8-4bef-b63c-04ed207a0dea
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2023-05-24T09:00:00.000+01:00
-      hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00.000+01:00
+      hippostdpubwf:creationDate: 2023-05-24T09:00:00+01:00
+      hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00+01:00
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: e2c4c536-8dd3-4029-954a-e97afaff3901
       hippotranslation:locale: document-type-locale
       publishing:alt: ''
       publishing:title: Design System
-      /publishing:description:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:image:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe

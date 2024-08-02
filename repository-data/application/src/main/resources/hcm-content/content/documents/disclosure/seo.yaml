@@ -5,15 +5,17 @@
   /home:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: e74ad665-68fe-4406-8add-19ef6f5f1924
     /home:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: dd28271a-3501-4cc2-ad33-6e4173fdcf34
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2024-01-12T09:00:00.000+00:00
-      hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00.000+00:00
+      hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
       hippostdpubwf:lastModifiedBy: admin
       hippotranslation:id: b646409d-1333-4a99-bc7d-5f3a0fd8e622
       hippotranslation:locale: document-type-locale
@@ -29,9 +31,6 @@
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:description:
-        jcr:primaryType: hippostd:html
-        hippostd:content: ''
       /publishing:cardImage:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
