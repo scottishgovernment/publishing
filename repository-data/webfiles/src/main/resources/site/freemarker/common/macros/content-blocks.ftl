@@ -16,7 +16,9 @@
             </#if>
 
             <div class="ds_accordion" data-module="ds-accordion">
-                <button type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+                <#if contentBlocks.items?size gt 1>
+                    <button type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+                </#if>
                 <#list contentBlock.items as item>
                     <div class="ds_accordion-item">
                         <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-${item?index}" aria-labelledby="panel-${item?index}-heading">
@@ -28,7 +30,9 @@
                             <label class="ds_accordion-item__label" for="panel-${item?index}"><span class="visually-hidden">Show this section</span></label>
                         </div>
                         <div class="ds_accordion-item__body">
-                            <@hst.html hippohtml=item.content/>
+                            <#if item.contentBlocks??>
+                                <@renderContentBlocks item.contentBlocks />
+                            </#if>
                         </div>
                     </div>
                 </#list>
