@@ -537,9 +537,9 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /twitter:
             jcr:primaryType: frontend:plugin
-            caption: Twitter
+            caption: X/Twitter
             field: twitter
-            hint: Enter the Twitter handle for this page
+            hint: Enter the X/Twitter handle for this page
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
