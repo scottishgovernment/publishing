@@ -16,7 +16,7 @@
             </#if>
 
             <div class="ds_accordion" data-module="ds-accordion">
-                <#if contentBlocks.items?size gt 1>
+                <#if contentBlock.items?size gt 1>
                     <button type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
                 </#if>
                 <#list contentBlock.items as item>
@@ -66,93 +66,6 @@
             <!--endnoindex-->
             </#if>
             <!-- end button block -->
-        </#if>
-
-        <#if hst.isNodeType(contentBlock.node, 'publishing:cb_fileDownload')>
-            <!-- file download block -->
-            <#if contentBlock.noindex>
-            <!--noindex-->
-            </#if>
-
-            <#if contentBlock.external?has_content>
-                <#assign link = contentBlock.external>
-            <#else>
-                <@hst.link var="link2" hippobean=contentBlock.internal />
-                <#assign link = link2/>
-            </#if>
-
-            <div class="ds_file-download  <#if contentBlock.highlight>ds_file-download--highlighted</#if>">
-                <div class="ds_file-download__thumbnail">
-                    <a data-button="document-cover" class="ds_file-download__thumbnail-link" aria-hidden="true" tabindex="-1" href="${link}">
-                        <span class="visually-hidden">Document cover image</span>
-                        <#if contentBlock.image??>
-                            <@hst.link var="icon" hippobean=contentBlock.image.original />
-                            <img class="ds_file-download__thumbnail-image" src="${icon}" alt="">
-                        <#else>
-                            <#assign fileThumbnailPath = '/assets/images/documents/svg/' + contentBlock.type + '.svg' />
-                            <#switch contentBlock.icon?trim?lower_case>
-                            <#case "csv">
-                                <#assign fileThumbnailPath = '/assets/images/documents/svg/csv.svg' />
-                                <#break>
-                            <#case "excel">
-                                <#assign fileThumbnailPath = '/assets/images/documents/svg/excel.svg' />
-                                <#break>
-                            <#case "geodata">
-                                <#assign fileThumbnailPath = '/assets/images/documents/svg/geodata.svg' />
-                                <#break>
-                            <#case "image">
-                                <#assign fileThumbnailPath = '/assets/images/documents/svg/image.svg' />
-                                <#break>
-                            <#case "pdf">
-                                <#assign fileThumbnailPath = '/assets/images/documents/svg/pdf.svg' />
-                                <#break>
-                            <#case "ppt">
-                                <#assign fileThumbnailPath = '/assets/images/documents/svg/ppt.svg' />
-                                <#break>
-                            <#case "rtf">
-                                <#assign fileThumbnailPath = '/assets/images/documents/svg/rtf.svg' />
-                                <#break>
-                            <#case "text">
-                                <#assign fileThumbnailPath = '/assets/images/documents/svg/text.svg' />
-                                <#break>
-                            <#case "word">
-                                <#assign fileThumbnailPath = '/assets/images/documents/svg/word.svg' />
-                                <#break>
-                            <#case "xml">
-                                <#assign fileThumbnailPath = '/assets/images/documents/svg/xml.svg' />
-                                <#break>
-                            <#default>
-                                <#assign fileThumbnailPath = '/assets/images/documents/svg/generic.svg' />
-                        </#switch>
-                            <img class="ds_file-download__thumbnail-image" src="<@hst.link path=fileThumbnailPath />" alt="" />
-                        </#if>
-                    </a>
-                </div>
-
-                <div class="ds_file-download__content">
-                    <a href="${link}" aria-describedby="file-download-${contentBlock?keep_after("@")}" class="ds_file-download__title">${contentBlock.title}</a>
-
-                    <div id="file-download-${contentBlock?keep_after("@")}" class="ds_file-download__details">
-                        <dl class="ds_metadata  ds_metadata--inline">
-                            <div class="ds_metadata__item">
-                                <dt class="ds_metadata__key">File type</dt>
-                                <dd class="ds_metadata__value">${contentBlock.type}<span class="visually-hidden">,</span></dd>
-                            </div>
-
-
-                            <div class="ds_metadata__item">
-                                <dt class="ds_metadata__key">File size</dt>
-                                <dd class="ds_metadata__value">${contentBlock.size}</dd>
-                            </div>
-
-                        </dl>
-                    </div>
-                </div>
-            </div>
-            <#if contentBlock.noindex>
-            <!--endnoindex-->
-            </#if>
-            <!-- end file download block -->
         </#if>
 
         <#if hst.isNodeType(contentBlock.node, 'publishing:cb_fragment')>

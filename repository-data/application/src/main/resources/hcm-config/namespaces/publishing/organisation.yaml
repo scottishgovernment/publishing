@@ -66,14 +66,6 @@ definitions:
             hipposysedit:path: publishing:featuredservices
             hipposysedit:primary: false
             hipposysedit:type: publishing:describedlink
-          /notices:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:notices
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
           /noticesContentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -105,14 +97,6 @@ definitions:
             hipposysedit:path: publishing:featuredroledescription
             hipposysedit:primary: false
             hipposysedit:type: Html
-          /organisationstructure:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:organisationstructure
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
           /organisationstructureContentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -413,19 +397,10 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /notices:
-            jcr:primaryType: frontend:plugin
-            caption: Notices
-            field: notices
-            hint: Only use this to create notices or alerts to important content.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /noticesContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Notices
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
             contentPickerType: links
             field: noticesContentBlocks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
@@ -514,15 +489,6 @@ definitions:
             field: organisationtitle
             hint: Title for the organisation section
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /organisationstructure:
-            jcr:primaryType: frontend:plugin
-            caption: Organisation structure
-            field: organisationstructure
-            hint: Add one or more expandable structures containing people
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

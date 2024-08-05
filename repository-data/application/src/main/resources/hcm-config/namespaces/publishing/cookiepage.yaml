@@ -15,14 +15,6 @@ definitions:
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:article', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          /additionalContent:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:additionalContent
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
           /additionalContentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -122,29 +114,10 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /content:
-            jcr:primaryType: frontend:plugin
-            caption: Content
-            field: content
-            hint: Enter the main content of this article. You can use any HTML formatting
-              to style your content.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /additionalContent:
-            jcr:primaryType: frontend:plugin
-            caption: Additional content
-            field: additionalContent
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
             contentPickerType: links
             field: contentBlocks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
@@ -157,7 +130,7 @@ definitions:
           /additionalContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Additional content
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
             contentPickerType: links
             field: additionalContentBlocks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
