@@ -58,6 +58,10 @@
                   <templateFile>${basedir}/src/main/config/hosts/hosts.yaml.mustache</templateFile>
                   <outputPath>${basedir}/src/main/resources/hcm-config/hst/hosts/sites.yaml</outputPath>
                 </template>
+                <template>
+                  <templateFile>${basedir}/src/main/config/hosts/site.yaml.mustache</templateFile>
+                  <outputPath>${basedir}/src/main/resources/hcm-config/hst/hosts/site.yaml</outputPath>
+                </template>
               </templates>
             </configuration>
           </execution>
