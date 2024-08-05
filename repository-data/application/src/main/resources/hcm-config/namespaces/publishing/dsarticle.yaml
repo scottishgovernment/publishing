@@ -136,7 +136,7 @@ definitions:
           /contentblocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            compoundList: publishing:cb_fileDownload,publishing:dscontentblock,publishing:dsexampleblock,publishing:dsfigureblock,publishing:dsliveexampleblock,publishing:dspaletteblock
+            compoundList: publishing:dsattachmentblock,publishing:dscontentblock,publishing:dsexampleblock,publishing:dsfigureblock,publishing:dsliveexampleblock,publishing:dspaletteblock
             contentPickerType: links
             field: contentblocks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin

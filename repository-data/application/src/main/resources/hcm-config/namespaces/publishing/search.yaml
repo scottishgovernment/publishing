@@ -25,14 +25,6 @@ definitions:
             hipposysedit:path: publishing:title
             hipposysedit:primary: false
             hipposysedit:type: String
-          /content:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:content
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
           /contentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -49,14 +41,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Boolean
             hipposysedit:validators: [required]
-          /noResultsMessage:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:noResultsMessage
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
           /noResultsMessageContentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -64,14 +48,6 @@ definitions:
             hipposysedit:path: publishing:noResultsMessageContentBlocks
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator]
-          /html:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:blankSearchQueryMessage
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
           /blankSearchQueryMessageContentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -124,19 +100,10 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /content:
-            jcr:primaryType: frontend:plugin
-            caption: Content
-            field: content
-            hint: Content that should appear before the search results.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
             contentPickerType: links
             field: contentBlocks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
@@ -145,19 +112,10 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               showCompoundNames: true
-          /noResultsMessage:
-            jcr:primaryType: frontend:plugin
-            caption: No results message
-            field: noResultsMessage
-            hint: Content that is shown if no results are found
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /noResultsMessageContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
             contentPickerType: links
             field: noResultsMessageContentBlocks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
@@ -166,19 +124,10 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               showCompoundNames: true
-          /blankSearchQueryMessage:
-            jcr:primaryType: frontend:plugin
-            caption: Blank search query message
-            field: html
-            hint: Content that is shown is no search term has been supplied
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /blankSearchQueryMessageContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
             contentPickerType: links
             field: blankSearchQueryMessageContentBlocks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin

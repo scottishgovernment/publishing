@@ -17,15 +17,6 @@ definitions:
             'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           hipposysedit:validators: [variables-validator]
-          /content:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:content
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-            hipposysedit:validators: [required]
           /contentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -61,25 +52,10 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /content:
-            jcr:primaryType: frontend:plugin
-            caption: Content
-            field: content
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
-                extraAllowedContent: ''table[data-smallscreen];address[translate];'',
-                format_tags: ''h2;h3;h4;p;address'', removePlugins: ''sourcearea,codemirror,youtube'',
-                extraPlugins: ''ds_button,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',
-                removeButtons: ''Indent,Outdent'',
-                stylesSet: ''limitedstyles_{language}:./limitedstyles.js'' }'
           /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
             contentPickerType: links
             field: contentBlocks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin

@@ -57,14 +57,6 @@ definitions:
             hipposysedit:path: publishing:externalLink
             hipposysedit:primary: false
             hipposysedit:type: String
-          /html:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:content
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
           /contentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -154,18 +146,6 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /content:
-            jcr:primaryType: frontend:plugin
-            caption: Content
-            field: html
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
-                removePlugins: ''sourcearea,codemirror,youtube,specialchar'', removeButtons:
-                ''Styles,Table,PickImage,Underline,Strike,Subscript,Superscript,Indent,Outdent''}'
           /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content

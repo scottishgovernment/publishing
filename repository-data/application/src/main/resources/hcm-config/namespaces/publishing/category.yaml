@@ -42,22 +42,6 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Boolean
             hipposysedit:validators: [required]
-          /prologue:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:prologue
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /epilogue:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:epilogue
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
           /prologueContentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -215,30 +199,10 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /prologue:
-            jcr:primaryType: frontend:plugin
-            caption: Prologue
-            field: prologue
-            hint: Enter content that will appear at the top of this page, above the
-              main article content. This is optional.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /epilogue:
-            jcr:primaryType: frontend:plugin
-            caption: Epilogue
-            field: epilogue
-            hint: Enter content that will appear at the end of this page, after the
-              main article content. This is optional.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /prologueContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Prologue
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
             contentPickerType: links
             field: prologueContentBlocks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
@@ -251,7 +215,7 @@ definitions:
           /epilogueContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Epilogue
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fileDownload,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
             contentPickerType: links
             field: epilogueContentBlocks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
