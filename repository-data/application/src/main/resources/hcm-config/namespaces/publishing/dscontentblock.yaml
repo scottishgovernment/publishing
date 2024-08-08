@@ -3,11 +3,9 @@ definitions:
     /hippo:namespaces/publishing/dscontentblock:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 8b04f9a5-3174-4b61-b04d-0997bdc9ba36
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: f5907c91-e2e2-4223-955d-859d7d231088
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
