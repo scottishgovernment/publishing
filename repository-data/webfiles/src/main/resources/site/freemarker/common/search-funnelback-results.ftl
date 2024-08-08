@@ -45,7 +45,7 @@
         <h2 class="visually-hidden">Search</h2>
         <div id="no-search-results" class="ds_no-search-results">
             <#if document.blankSearchQueryMessageontentBlocks??>
-                <@renderContentBlocks document.blankSearchQueryMessageontentBlocks />
+                <@renderContentBlocks document.blankSearchQueryMessageContentBlocks />
             </#if>
         </div>
         </#if>
