@@ -1,7 +1,7 @@
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#function slugify string>
-    <#return string?lower_case?replace(' ', '-')?replace(',', '')?replace('(', '')?replace(')', '') />
+    <#return string?lower_case?replace('[^a-zA-Z0-9 ]+','','r')?replace('[ ]+','-','r') />
 </#function>
 
 <#macro renderContentBlocks contentBlocks>
