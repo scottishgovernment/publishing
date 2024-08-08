@@ -45,8 +45,8 @@
 
         <div class="category-lower  ds_pre-footer-background">
             <div class="ds_wrapper">
-                <#if document.document.prologueContentBlocks??>
-                    <@renderContentBlocks document.document.prologueContentBlocks />
+                <#if document.prologueContentBlocks??>
+                    <@renderContentBlocks document.prologueContentBlocks />
                 </#if>
 
                 <!--noindex-->
