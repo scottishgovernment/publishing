@@ -132,3 +132,12 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/disclosure/administration
+      /digitalconnectivity:
+        jcr:primaryType: hipposys:domainrule
+        /include-digitalconnectivity-administration-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/digitalconnectivity/administration
