@@ -74,8 +74,8 @@
                 </div>
                 <!--endnoindex-->
 
-                <#if document.document.epilogueContentBlocks??>
-                    <@renderContentBlocks document.document.epilogueContentBlocks />
+                <#if document.epilogueContentBlocks??>
+                    <@renderContentBlocks document.epilogueContentBlocks />
                 </#if>
 
                 <#include 'feedback-wrapper.ftl'>
