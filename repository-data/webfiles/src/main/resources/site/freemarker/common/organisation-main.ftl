@@ -163,7 +163,7 @@
                 <!--endnoindex-->
             </#if>
 
-            <#if document.featuredrole?has_content || document.organisationstructureContentBlocks??>
+            <#if document.featuredrole?has_content || document.organisationstructureContentBlocks?has_content>
             <div class="ds_layout__organisation">
                 <section id="organisation" class="page-section">
                     <h2>${document.organisationtitle}</h2>
