@@ -33,20 +33,22 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
             hipposysedit:validators: [required]
-          /prologueContentBlocks:
+          /prologue:
             jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:prologueContentBlocks
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
-          /epilogueContentBlocks:
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:prologue
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
+          /epilogue:
             jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:epilogueContentBlocks
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:epilogue
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
           /showSummaries:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -186,32 +188,26 @@ definitions:
               link text on the homepage
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /prologueContentBlocks:
+          /prologue:
             jcr:primaryType: frontend:plugin
             caption: Prologue
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
-            contentPickerType: links
-            field: prologueContentBlocks
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
+            field: prologue
             hint: Enter content that will appear at the top of this page, above the
               main article content. This is optional.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              showCompoundNames: true
-          /epilogueContentBlocks:
+          /epilogue:
             jcr:primaryType: frontend:plugin
             caption: Epilogue
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
-            contentPickerType: links
-            field: epilogueContentBlocks
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
+            field: epilogue
             hint: Enter content that will appear at the end of this page, after the
               main article content. This is optional.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              showCompoundNames: true
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title

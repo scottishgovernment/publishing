@@ -96,4 +96,8 @@ public class Article extends Base {
     public Boolean getShowFeedback() {
         return getSingleProperty("publishing:showFeedback");
     }
+
+    public List<HippoBean> getContentBlocks() {
+        return getChildBeansByName("publishing:contentblocks");
+    }
 }

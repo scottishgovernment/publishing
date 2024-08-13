@@ -1,7 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "../include/cms-placeholders.ftl">
-<#include "../macros/content-blocks.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Video" -->
 
@@ -42,9 +41,7 @@
                 </div>
 
                 <div class="ds_cb__text">
-                    <#if document.contentBlocks??>
-                        <@renderContentBlocks document.contentBlocks />
-                    </#if>
+                    <@hst.html hippohtml=document.content/>
                 </div>
 
                 <@hst.manageContent hippobean=document documentTemplateQuery="new-video-document" parameterName="document" rootPath="videos"/>

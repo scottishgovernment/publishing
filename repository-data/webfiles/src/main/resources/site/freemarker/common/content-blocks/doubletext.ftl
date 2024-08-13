@@ -1,7 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "../include/cms-placeholders.ftl">
-<#include "../macros/content-blocks.ftl">
 
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
@@ -16,7 +15,7 @@
 
             <#if document1??>
                 <div class="ds_cb__text" style="position: relative">
-                    <@renderContentBlocks document1.contentBlocks />
+                    <@hst.html hippohtml=document1.content/>
 
                     <@hst.manageContent hippobean=document1 documentTemplateQuery="new-text-document" parameterName="document1" rootPath="text"/>
                 </div>
@@ -30,7 +29,7 @@
 
             <#if document2??>
                 <div class="ds_cb__text">
-                    <@renderContentBlocks document2.contentBlocks />
+                    <@hst.html hippohtml=document2.content/>
 
                     <@hst.manageContent hippobean=document2 documentTemplateQuery="new-text-document" parameterName="document2" rootPath="text"/>
                 </div>

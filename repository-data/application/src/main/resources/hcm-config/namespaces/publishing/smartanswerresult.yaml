@@ -17,13 +17,14 @@ definitions:
             'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           hipposysedit:validators: [variables-validator]
-          /answerContentBlocks:
+          /answer:
             jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:answerContentBlocks
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:answer
+            hipposysedit:primary: false
+            hipposysedit:type: hippostd:html
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -111,18 +112,15 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /answerContentBlocks:
+          /answer:
             jcr:primaryType: frontend:plugin
             caption: Content
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_insetText,publishing:cb_laFinder,publishing:cb_richtext,publishing:cb_warningText
-            contentPickerType: links
-            field: answerContentBlocks
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            field: answer
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             hint: Content displayed at the top of the results page.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              showCompoundNames: true
           /eligible:
             jcr:primaryType: frontend:plugin
             caption: Eligible

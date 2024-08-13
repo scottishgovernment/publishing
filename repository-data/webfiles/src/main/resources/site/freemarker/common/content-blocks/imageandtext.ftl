@@ -1,7 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "../include/cms-placeholders.ftl">
-<#include "../macros/content-blocks.ftl">
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Imageandtext" -->
 
 <#assign variables = hstRequestContext.getAttribute("variables")/>
@@ -17,9 +16,7 @@
         <div class="ds_cb__inner">
             <#if document??>
                 <div class="ds_cb__text">
-                    <#if document.contentBlocks??>
-                        <@renderContentBlocks document.contentBlocks />
-                    </#if>
+                    <@hst.html hippohtml=document.content/>
                 </div>
 
                 <div class="ds_cb__poster">

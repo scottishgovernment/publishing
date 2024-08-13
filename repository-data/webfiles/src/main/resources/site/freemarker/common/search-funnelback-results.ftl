@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
-<#include "macros/content-blocks.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <#setting url_escaping_charset='utf-8'>
 <#macro highlightSearchTerm text>
@@ -32,9 +31,7 @@
             <h2 class="visually-hidden">Search</h2>
 
             <div id="no-search-results" class="ds_no-search-results">
-                <#if document.noResultsMessageContentBlocks??>
-                    <@renderContentBlocks document.noResultsMessageContentBlocks />
-                </#if>
+                <@hst.html hippohtml=document.noResultsMessage/>
             </div>
         </#if>
 
@@ -44,9 +41,7 @@
         !(response.curator.advertExhibits)?has_content>
         <h2 class="visually-hidden">Search</h2>
         <div id="no-search-results" class="ds_no-search-results">
-            <#if document.blankSearchQueryMessageContentBlocks??>
-                <@renderContentBlocks document.blankSearchQueryMessageContentBlocks />
-            </#if>
+            <@hst.html hippohtml=document.blankSearchQueryMessage/>
         </div>
         </#if>
 
@@ -240,7 +235,7 @@
                 </ul>
             </nav>
             </#if>
-
+    
         </#if>
 
         <#if (response.resultPacket.contextualNavigation.categories)!?size &gt; 0>
@@ -257,7 +252,7 @@
                 </ul>
             </aside>
         </#if>
-
+    
     </#if>
 
 <#else>

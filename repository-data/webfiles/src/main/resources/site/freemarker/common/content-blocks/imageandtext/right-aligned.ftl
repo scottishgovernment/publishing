@@ -1,8 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "../../include/cms-placeholders.ftl">
-<#include "../../macros/content-blocks.ftl">
-
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 
@@ -41,9 +39,7 @@
                 </div>
 
                 <div class="ds_cb__text">
-                    <#if document.contentBlocks??>
-                        <@renderContentBlocks document.contentBlocks />
-                    </#if>
+                    <@hst.html hippohtml=document.content/>
                 </div>
 
                 <@hst.manageContent hippobean=document documentTemplateQuery="new-imageandtext-document" parameterName="document" rootPath="images"/>

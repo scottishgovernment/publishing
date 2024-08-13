@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
-<#include "macros/content-blocks.ftl">
 
 <#if document??>
 <div class="cms-editable">
@@ -17,9 +16,7 @@
             </div>
 
             <div class="ds_layout__content">
-                <#if document.contentBlocks??>
-                    <@renderContentBlocks document.contentBlocks />
-                </#if>
+                <@hst.html hippohtml=document.content/>
 
                 <div class="ds_!_margin-top--4  ds_!_margin-bottom--8" id="cookie-form-box">
                     <form id="cookie-preferences">
@@ -82,9 +79,7 @@
                     </form>
                 </div>
 
-                <#if document.additionalContentBlocks??>
-                    <@renderContentBlocks document.additionalContentBlocks />
-                </#if>
+                <@hst.html hippohtml=document.additionalContent/>
             </div>
         </main>
     </div>

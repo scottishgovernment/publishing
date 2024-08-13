@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
-<#include "macros/content-blocks.ftl">
 
 <div class="cms-editable">
     <div class="ds_wrapper">
@@ -13,10 +12,7 @@
             </div>
 
             <div class="ds_layout__content">
-                <#if document.contentBlocks??>
-                    <@renderContentBlocks document.contentBlocks />
-                </#if>
-
+                <@hst.html hippohtml=document.content/>
                 <#if autoCompleteEnabled>
                     <#assign ds_autocomplete = true />
                 </#if>

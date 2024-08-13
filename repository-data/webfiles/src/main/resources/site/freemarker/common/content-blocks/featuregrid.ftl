@@ -1,7 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "../include/cms-placeholders.ftl">
-<#include "../macros/content-blocks.ftl">
 
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
@@ -29,7 +28,7 @@
         <div class="ds_cb__inner">
 
         <#list items as item>
-
+        
             <#if item != ''>
 
             <!-- set link where internal link has priority over external link -->
@@ -48,7 +47,7 @@
                             <#if item.image??>
                             <#if link?has_content>
                                 <a href="${link}" tabindex="-1">
-                            </#if>
+                            </#if>    
                                 <#if item.image.xlargesixcolumns??>
                                     <img class="ds_aspect-box__inner" alt="${item.alt}" src="<@hst.link hippobean=item.image.xlargesixcolumns />"
                                             width="${item.image.xlargesixcolumns.width?c}"
@@ -70,8 +69,8 @@
                                 </#if>
                             <#if link?has_content>
                                 </a>
-                            </#if>
-                            </#if>
+                            </#if>   
+                            </#if> 
                             </div>
                         </div>
                     </#if>
@@ -84,11 +83,11 @@
                             </#if>
                         </${weight}>
                     </#if>
-
-                    <#if item.contentBlocks??>
-                        <div class="ds_cb--feature-grid__item-summary">
-                            <@renderContentBlocks item.contentBlocks />
-                        </div>
+                    <@hst.html var="htmlcontent" hippohtml=item.content/>
+                    <#if htmlcontent?has_content>
+                    <div class="ds_cb--feature-grid__item-summary">
+                        <@hst.html hippohtml=item.content/>
+                    </div>
                     </#if>
 
                     <@hst.manageContent hippobean=item documentTemplateQuery="new-featuregriditem-document" parameterName="item" rootPath="featuregriditems"/>

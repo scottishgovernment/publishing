@@ -1,6 +1,5 @@
 <#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
-<#include "../common/macros/content-blocks.ftl">
 
 <@hst.include ref="seo"/>
 
@@ -71,9 +70,7 @@
             <div class="ds_cb__inner">
                 <div class="ds_cb__text  ds_cb__content">
                     <div class="listing__content">
-                        <#if document.contentBlocks??>
-                            <@renderContentBlocks document.contentBlocks />
-                        </#if>
+                        <@hst.html hippohtml=document.content/>
                     </div>
 
                     <#if document.link?has_content>

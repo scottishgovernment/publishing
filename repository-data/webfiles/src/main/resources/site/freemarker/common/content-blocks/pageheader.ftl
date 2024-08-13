@@ -1,8 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "../include/cms-placeholders.ftl">
-<#include "../macros/content-blocks.ftl">
-
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.Pageheading" -->
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <#assign variables = hstRequestContext.getAttribute("variables")/>
@@ -23,9 +21,7 @@
                     <div class="ds_page-header">
                         <h1 class="ds_page-header__title<#if lightheader>  ds_page-header__title--light</#if>">${document.title}</h1>
                     </div>
-                    <#if document.descriptionContentBlocks??>
-                        <@renderContentBlocks document.descriptionContentBlocks />
-                    </#if>
+                    <@hst.html hippohtml=document.description/>
                     <#if document.cta??>
                     <#if document.link??>
                     <a href="<@hst.link hippobean=document.link/>" class="ds_button ds_button--has-icon">${document.cta}<svg class="ds_icon" aria-hidden="true" role="img">
