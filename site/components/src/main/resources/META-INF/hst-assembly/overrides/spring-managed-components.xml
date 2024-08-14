@@ -12,28 +12,6 @@
 
     <bean id="funnelbackSearchService" class="scot.gov.publishing.hippo.funnelback.component.FunnelbackSearchService">
 
-        <property name="sites">
-            <map>
-                <entry key="mygov">
-                    <list>
-                        <value>www.mygov.scot</value>
-                    </list>
-                </entry>
-
-                <entry key="designsystem">
-                    <list>
-                        <value>designsystem.gov.scot</value>
-                    </list>
-                </entry>
-
-                <entry key="servicemanual">
-                    <list>
-                        <value>servicemanual.gov.scot</value>
-                    </list>
-                </entry>
-            </map>
-        </property>
-
         <property name="collections">
             <map>
                 <entry key="mygov" value="govscot~sp-mygov"/>
