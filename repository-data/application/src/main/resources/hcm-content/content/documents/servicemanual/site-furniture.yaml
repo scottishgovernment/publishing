@@ -1,39 +1,36 @@
 /content/documents/servicemanual/site-furniture:
+  .meta:order-before: images
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:versionable']
-  jcr:uuid: d93d1fdc-1f24-453f-a56f-7e442f8738b0
-  hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror,
-    new-collection]
+  jcr:uuid: e3c219d1-ca32-4dad-bd40-6731f6454469
+  hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror]
   /footer:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: e3a4a2c1-3ef4-4a03-87b9-f439b17c2810
+    jcr:uuid: 7f66181d-ae8b-47eb-ab24-3cf7106ce9ad
     hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
     /privacy:
       jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 67357bc0-3f0f-40c5-aa41-259622a8a6e0
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 3ee8524d-c616-4886-8aaf-f5d62332232c
       hippo:name: Privacy
-      hippo:versionHistory: 0df4f6ee-47b3-4c6e-ae5c-e1b6f97f5c9b
-      /privacy[1]:
+      /privacy:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable', 'mix:versionable']
-        jcr:uuid: 55dea3a2-ba02-4dee-93b5-1700c8de9dac
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 322f5917-ed7d-4166-b3ad-c057dacd804d
         hippo:availability: [preview]
         hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2024-01-10T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-02-04T21:40:31.507Z
-        hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
+        hippostdpubwf:lastModificationDate: 2024-01-10T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d064f1e2-d40c-4118-b502-6a691bb2b3d3
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:lastUpdatedDate: 2024-01-10T00:00:00Z
+        publishing:lastUpdatedDate: 2024-01-10T09:00:00Z
         publishing:metaDescription: Privacy
-        publishing:noindex: false
         publishing:permalink: /privacy/
         publishing:reportingtags: []
         publishing:sensitive: false
@@ -45,6 +42,9 @@
         publishing:summary: Privacy
         publishing:title: Privacy
         publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
         /publishing:logo:
           jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -54,351 +54,28 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:contentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<h2>What type of information we collect</h2><p>We\
-                \ collect and process the following information when you visit&nbsp;servicemanual.gov.scot:</p><ul>\
-                \ \n <li>any feedback you share with us</li> \n <li>your cookies using\
-                \ Google Analytics</li> \n <li>your IP address</li> \n</ul><p>We also\
-                \ use Google Analytics to collect information about:</p><ul> \n <li>which\
-                \ type of browser and device you used</li> \n <li>the pages you visit\
-                \ on servicemanual.gov.scot</li> \n <li>how long you spend on each\
-                \ servicemanual.gov.scot&nbsp;page</li> \n <li>how you got to the\
-                \ site</li> \n <li>what you click on while you’re visiting the site</li>\
-                \ \n</ul><p>Google Analytics data is only collected from users who\
-                \ have consented to share this data. Any information we get about\
-                \ you from Google Analytics will be anonymised before we see it. This\
-                \ means we will not hold any personally identifiable information about\
-                \ you, such as your name or address.</p><p>Additionally, we use Plausible\
-                \ Analytics on this site to collect some anonymous usage data for\
-                \ statistical purposes. This is to track overall trends in our website\
-                \ traffic, not to track individual visitors. All the data is in aggregate\
-                \ only. No personal data is collected to Plausible. Data collected\
-                \ includes referral sources, top pages, visit duration, information\
-                \ from the devices (device type, operating system, country and browser)\
-                \ used during the visit. Read more in the Plausible Analytics&nbsp;<a\
-                \ href=\"https://plausible.io/data-policy\">data policy</a>.</p><h2>Why\
-                \ we collect this information</h2><p>We use the information you share\
-                \ with us:</p><ul> \n <li>to improve our services</li> \n <li>give\
-                \ you access to government services</li> \n <li>to identify security\
-                \ threats</li> \n</ul><p>Our legal basis for processing this data\
-                \ is ‘legitimate interests’. That’s because:</p><ul> \n <li>it’s in\
-                \ the legitimate interests of our users to make improvements to our\
-                \ website</li> \n <li>we need to maintain the security of servicemanual.gov.scot</li>\
-                \ \n</ul><p>We only collect information about you using Google Analytics\
-                \ if you consent to it.</p><p>If you do not consent to it, you can\
-                \ let us know by emailing <a href=\"mailto:DataProtectionOfficer@gov.scot\"\
-                >DataProtectionOfficer@gov.scot</a>.</p><h2>What we do with this information</h2><p>We\
-                \ may share your anonymised information with other agencies or public\
-                \ bodies in the Scottish Government. But this will not include personally\
-                \ identifiable information.</p><p>We’ll only share your data with\
-                \ a third party if we’re required to do so by law. For example by\
-                \ court order or to prevent fraud.</p><p>We will not:</p><ul> \n <li>sell\
-                \ or give your data to third parties</li> \n <li>share your data with\
-                \ third parties for marketing purposes</li> \n</ul><h2>How long we\
-                \ keep your information</h2><p>We will delete any feedback you share\
-                \ with us after 3 years. We keep anonymised analytics for 38 months.</p><h2>How\
-                \ we store this information</h2><p>All personal information is stored\
-                \ in the European Economic Area (EEA). Data collected by Google Analytics\
-                \ data may be processed outside the EEA.</p><p>We’re committed to\
-                \ doing everything we can to keep your data safe. We perform regular\
-                \ security tests to make sure our systems and processes are secure.</p><h2>Your\
-                \ data protection rights</h2><p>You have the right to:</p><ul> \n\
-                \ <li>see your information – through a <a href=\"https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-of-access/\"\
-                >subject access request</a></li> \n <li>improve your data – if you\
-                \ think the information we have is inaccurate or incomplete</li> \n\
-                \ <li>delete your information – if you do not want us to use your\
-                \ data anymore</li> \n <li>limit what we do with your data – <a href=\"\
-                https://ico.org.uk/your-data-matters/your-right-to-limit-how-organisations-use-your-data/\"\
-                >depending on the circumstances</a></li> \n <li>stop us using your\
-                \ data – <a href=\"https://ico.org.uk/your-data-matters/the-right-to-object-to-the-use-of-your-data/\"\
-                >depending on the circumstances</a></li> \n <li>take your data with\
-                \ you – if you want to share it to another organisation, <a href=\"\
-                https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-data-portability/\"\
-                >depending on the circumstances</a></li> \n</ul><h2>How to complain</h2><p>If\
-                \ you’re unhappy with how we’ve used your data, you can complain to\
-                \ the Information Commissioner’s Office (ICO):</p><div class=\"ds_contact-details\"\
-                > \n <h3>Contact</h3> \n <p>Address</p> \n <address>Information Commissioner's\
-                \ Office<br> Wycliffe House<br> Water Lane<br> Wilmslow<br> Cheshire<br>\
-                \ SK9 5AF</address> \n</div><div class=\"ds_contact-details__item\"\
-                > \n <p>Phone</p> \n <p>0303 123 1113<br> <a href=\"https://www.gov.uk/call-charges\"\
-                >Find out about call charges</a></p> \n</div><h2>Changes to this policy</h2><p>We\
-                \ may change this privacy policy. In that case, the ‘last updated’\
-                \ date at the top of this page will also change.</p><div class=\"\
-                ds_article-aside\"> \n <h2>Feedback, help or support</h2> \n <p>If\
-                \ you need any help or want to give any feedback, you can email us\
-                \ at: <a href=\"mailto:DSSM@gov.scot\">DSSM@gov.scot</a>.</p> \n</div>"
-      /privacy[2]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
-        jcr:uuid: 121b8b9b-768c-4d54-a61a-3abc7ba96bc1
-        hippo:availability: [live]
-        hippostd:retainable: false
-        hippostd:state: published
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-10T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-02-04T21:40:31.507Z
-        hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-        hippostdpubwf:publicationDate: 2024-02-04T21:40:35.132Z
-        hippotranslation:id: d064f1e2-d40c-4118-b502-6a691bb2b3d3
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:lastUpdatedDate: 2024-01-10T00:00:00Z
-        publishing:metaDescription: Privacy
-        publishing:noindex: false
-        publishing:permalink: /privacy/
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Privacy
-        publishing:serviceproviders: []
-        publishing:showFeedback: true
-        publishing:showInParent: true
-        publishing:slug: privacy
-        publishing:summary: Privacy
-        publishing:title: Privacy
-        publishing:userneed: ''
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:contentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<h2>What type of information we collect</h2><p>We\
-                \ collect and process the following information when you visit&nbsp;servicemanual.gov.scot:</p><ul>\
-                \ \n <li>any feedback you share with us</li> \n <li>your cookies using\
-                \ Google Analytics</li> \n <li>your IP address</li> \n</ul><p>We also\
-                \ use Google Analytics to collect information about:</p><ul> \n <li>which\
-                \ type of browser and device you used</li> \n <li>the pages you visit\
-                \ on servicemanual.gov.scot</li> \n <li>how long you spend on each\
-                \ servicemanual.gov.scot&nbsp;page</li> \n <li>how you got to the\
-                \ site</li> \n <li>what you click on while you’re visiting the site</li>\
-                \ \n</ul><p>Google Analytics data is only collected from users who\
-                \ have consented to share this data. Any information we get about\
-                \ you from Google Analytics will be anonymised before we see it. This\
-                \ means we will not hold any personally identifiable information about\
-                \ you, such as your name or address.</p><p>Additionally, we use Plausible\
-                \ Analytics on this site to collect some anonymous usage data for\
-                \ statistical purposes. This is to track overall trends in our website\
-                \ traffic, not to track individual visitors. All the data is in aggregate\
-                \ only. No personal data is collected to Plausible. Data collected\
-                \ includes referral sources, top pages, visit duration, information\
-                \ from the devices (device type, operating system, country and browser)\
-                \ used during the visit. Read more in the Plausible Analytics&nbsp;<a\
-                \ href=\"https://plausible.io/data-policy\">data policy</a>.</p><h2>Why\
-                \ we collect this information</h2><p>We use the information you share\
-                \ with us:</p><ul> \n <li>to improve our services</li> \n <li>give\
-                \ you access to government services</li> \n <li>to identify security\
-                \ threats</li> \n</ul><p>Our legal basis for processing this data\
-                \ is ‘legitimate interests’. That’s because:</p><ul> \n <li>it’s in\
-                \ the legitimate interests of our users to make improvements to our\
-                \ website</li> \n <li>we need to maintain the security of servicemanual.gov.scot</li>\
-                \ \n</ul><p>We only collect information about you using Google Analytics\
-                \ if you consent to it.</p><p>If you do not consent to it, you can\
-                \ let us know by emailing <a href=\"mailto:DataProtectionOfficer@gov.scot\"\
-                >DataProtectionOfficer@gov.scot</a>.</p><h2>What we do with this information</h2><p>We\
-                \ may share your anonymised information with other agencies or public\
-                \ bodies in the Scottish Government. But this will not include personally\
-                \ identifiable information.</p><p>We’ll only share your data with\
-                \ a third party if we’re required to do so by law. For example by\
-                \ court order or to prevent fraud.</p><p>We will not:</p><ul> \n <li>sell\
-                \ or give your data to third parties</li> \n <li>share your data with\
-                \ third parties for marketing purposes</li> \n</ul><h2>How long we\
-                \ keep your information</h2><p>We will delete any feedback you share\
-                \ with us after 3 years. We keep anonymised analytics for 38 months.</p><h2>How\
-                \ we store this information</h2><p>All personal information is stored\
-                \ in the European Economic Area (EEA). Data collected by Google Analytics\
-                \ data may be processed outside the EEA.</p><p>We’re committed to\
-                \ doing everything we can to keep your data safe. We perform regular\
-                \ security tests to make sure our systems and processes are secure.</p><h2>Your\
-                \ data protection rights</h2><p>You have the right to:</p><ul> \n\
-                \ <li>see your information – through a <a href=\"https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-of-access/\"\
-                >subject access request</a></li> \n <li>improve your data – if you\
-                \ think the information we have is inaccurate or incomplete</li> \n\
-                \ <li>delete your information – if you do not want us to use your\
-                \ data anymore</li> \n <li>limit what we do with your data – <a href=\"\
-                https://ico.org.uk/your-data-matters/your-right-to-limit-how-organisations-use-your-data/\"\
-                >depending on the circumstances</a></li> \n <li>stop us using your\
-                \ data – <a href=\"https://ico.org.uk/your-data-matters/the-right-to-object-to-the-use-of-your-data/\"\
-                >depending on the circumstances</a></li> \n <li>take your data with\
-                \ you – if you want to share it to another organisation, <a href=\"\
-                https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-data-portability/\"\
-                >depending on the circumstances</a></li> \n</ul><h2>How to complain</h2><p>If\
-                \ you’re unhappy with how we’ve used your data, you can complain to\
-                \ the Information Commissioner’s Office (ICO):</p><div class=\"ds_contact-details\"\
-                > \n <h3>Contact</h3> \n <p>Address</p> \n <address>Information Commissioner's\
-                \ Office<br> Wycliffe House<br> Water Lane<br> Wilmslow<br> Cheshire<br>\
-                \ SK9 5AF</address> \n</div><div class=\"ds_contact-details__item\"\
-                > \n <p>Phone</p> \n <p>0303 123 1113<br> <a href=\"https://www.gov.uk/call-charges\"\
-                >Find out about call charges</a></p> \n</div><h2>Changes to this policy</h2><p>We\
-                \ may change this privacy policy. In that case, the ‘last updated’\
-                \ date at the top of this page will also change.</p><div class=\"\
-                ds_article-aside\"> \n <h2>Feedback, help or support</h2> \n <p>If\
-                \ you need any help or want to give any feedback, you can email us\
-                \ at: <a href=\"mailto:DSSM@gov.scot\">DSSM@gov.scot</a>.</p> \n</div>"
-      /privacy[3]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
-        jcr:uuid: 80788023-2779-491f-805e-cce93f56f82d
-        hippo:availability: []
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-10T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-04-23T08:51:13.072+01:00
-        hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-        hippotranslation:id: d064f1e2-d40c-4118-b502-6a691bb2b3d3
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:lastUpdatedDate: 2024-01-10T00:00:00Z
-        publishing:metaDescription: Privacy
-        publishing:noindex: false
-        publishing:permalink: /privacy/
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Privacy
-        publishing:serviceproviders: []
-        publishing:showFeedback: true
-        publishing:showInParent: true
-        publishing:slug: privacy
-        publishing:summary: Privacy
-        publishing:title: Privacy
-        publishing:userneed: ''
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:contentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<h2>What type of information we collect</h2><p>We\
-                \ collect and process the following information when you visit&nbsp;servicemanual.gov.scot:</p><ul>\
-                \ \n <li>any feedback you share with us</li> \n <li>your cookies using\
-                \ Google Analytics</li> \n <li>your IP address</li> \n</ul><p>We also\
-                \ use Google Analytics to collect information about:</p><ul> \n <li>which\
-                \ type of browser and device you used</li> \n <li>the pages you visit\
-                \ on servicemanual.gov.scot</li> \n <li>how long you spend on each\
-                \ servicemanual.gov.scot&nbsp;page</li> \n <li>how you got to the\
-                \ site</li> \n <li>what you click on while you’re visiting the site</li>\
-                \ \n</ul><p>Google Analytics data is only collected from users who\
-                \ have consented to share this data. Any information we get about\
-                \ you from Google Analytics will be anonymised before we see it. This\
-                \ means we will not hold any personally identifiable information about\
-                \ you, such as your name or address.</p><p>Additionally, we use Plausible\
-                \ Analytics on this site to collect some anonymous usage data for\
-                \ statistical purposes. This is to track overall trends in our website\
-                \ traffic, not to track individual visitors. All the data is in aggregate\
-                \ only. No personal data is collected to Plausible. Data collected\
-                \ includes referral sources, top pages, visit duration, information\
-                \ from the devices (device type, operating system, country and browser)\
-                \ used during the visit. Read more in the Plausible Analytics&nbsp;<a\
-                \ href=\"https://plausible.io/data-policy\">data policy</a>.</p><h2>Why\
-                \ we collect this information</h2><p>We use the information you share\
-                \ with us:</p><ul> \n <li>to improve our services</li> \n <li>give\
-                \ you access to government services</li> \n <li>to identify security\
-                \ threats</li> \n</ul><p>Our legal basis for processing this data\
-                \ is ‘legitimate interests’. That’s because:</p><ul> \n <li>it’s in\
-                \ the legitimate interests of our users to make improvements to our\
-                \ website</li> \n <li>we need to maintain the security of servicemanual.gov.scot</li>\
-                \ \n</ul><p>We only collect information about you using Google Analytics\
-                \ if you consent to it.</p><p>If you do not consent to it, you can\
-                \ let us know by emailing <a href=\"mailto:DataProtectionOfficer@gov.scot\"\
-                >DataProtectionOfficer@gov.scot</a>.</p><h2>What we do with this information</h2><p>We\
-                \ may share your anonymised information with other agencies or public\
-                \ bodies in the Scottish Government. But this will not include personally\
-                \ identifiable information.</p><p>We’ll only share your data with\
-                \ a third party if we’re required to do so by law. For example by\
-                \ court order or to prevent fraud.</p><p>We will not:</p><ul> \n <li>sell\
-                \ or give your data to third parties</li> \n <li>share your data with\
-                \ third parties for marketing purposes</li> \n</ul><h2>How long we\
-                \ keep your information</h2><p>We will delete any feedback you share\
-                \ with us after 3 years. We keep anonymised analytics for 38 months.</p><h2>How\
-                \ we store this information</h2><p>All personal information is stored\
-                \ in the European Economic Area (EEA). Data collected by Google Analytics\
-                \ data may be processed outside the EEA.</p><p>We’re committed to\
-                \ doing everything we can to keep your data safe. We perform regular\
-                \ security tests to make sure our systems and processes are secure.</p><h2>Your\
-                \ data protection rights</h2><p>You have the right to:</p><ul> \n\
-                \ <li>see your information – through a <a href=\"https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-of-access/\"\
-                >subject access request</a></li> \n <li>improve your data – if you\
-                \ think the information we have is inaccurate or incomplete</li> \n\
-                \ <li>delete your information – if you do not want us to use your\
-                \ data anymore</li> \n <li>limit what we do with your data – <a href=\"\
-                https://ico.org.uk/your-data-matters/your-right-to-limit-how-organisations-use-your-data/\"\
-                >depending on the circumstances</a></li> \n <li>stop us using your\
-                \ data – <a href=\"https://ico.org.uk/your-data-matters/the-right-to-object-to-the-use-of-your-data/\"\
-                >depending on the circumstances</a></li> \n <li>take your data with\
-                \ you – if you want to share it to another organisation, <a href=\"\
-                https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-data-portability/\"\
-                >depending on the circumstances</a></li> \n</ul><h2>How to complain</h2><p>If\
-                \ you’re unhappy with how we’ve used your data, you can complain to\
-                \ the Information Commissioner’s Office (ICO):</p><div class=\"ds_contact-details\"\
-                > \n <h3>Contact</h3> \n <p>Address</p> \n <address>Information Commissioner's\
-                \ Office<br> Wycliffe House<br> Water Lane<br> Wilmslow<br> Cheshire<br>\
-                \ SK9 5AF</address> \n</div><div class=\"ds_contact-details__item\"\
-                > \n <p>Phone</p> \n <p>0303 123 1113<br> <a href=\"https://www.gov.uk/call-charges\"\
-                >Find out about call charges</a></p> \n</div><h2>Changes to this policy</h2><p>We\
-                \ may change this privacy policy. In that case, the ‘last updated’\
-                \ date at the top of this page will also change.</p><div class=\"\
-                ds_article-aside\"> \n <h2>Feedback, help or support</h2> \n <p>If\
-                \ you need any help or want to give any feedback, you can email us\
-                \ at: <a href=\"mailto:DSSM@gov.scot\">DSSM@gov.scot</a>.</p> \n</div>"
     /accessibility:
       jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 9e7de23d-1489-40ca-97cf-c1a94b5cac85
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 5669c0e4-3115-4f13-b1af-03c41f34c7fb
       hippo:name: Accessibility
-      hippo:versionHistory: 9d293ef7-9ee1-4c9e-ad3d-4a4cec5abb4e
-      /accessibility[1]:
+      /accessibility:
         jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
-          'mix:versionable']
-        jcr:uuid: 93ec0b81-09c8-4a6c-a77a-7c0c0c50f2bc
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 8f723f16-4dbf-4056-944f-107c090b86a0
         hippo:availability: [preview]
         hippo:name: Accessibility
         hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2024-01-10T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-03-14T14:03:24.321Z
-        hippostdpubwf:lastModifiedBy: elaine.gibb@gov.scot
+        hippostdpubwf:lastModificationDate: 2024-01-10T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: ec4e0c5c-80a0-44c6-b3d7-fb8785e2b78a
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
         publishing:metaDescription: Accessibility
-        publishing:noindex: false
         publishing:permalink: /accessibility/
         publishing:reportingtags: []
         publishing:sensitive: false
@@ -407,9 +84,12 @@
         publishing:showFeedback: true
         publishing:showInParent: true
         publishing:slug: accessibility
-        publishing:summary: Accessibility statement for servicemanual.gov.scot
-        publishing:title: Accessibility statement
+        publishing:summary: Accessibility
+        publishing:title: Accessibility
         publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
         /publishing:logo:
           jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -419,245 +99,23 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:contentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p>This accessibility statement applies to servicemanual.gov.scot.&nbsp;</p><p>This\
-                \ website is run by the Scottish Government. It is designed to be\
-                \ used by as many people as possible. Our website includes:</p><ul>\
-                \ \n <li>easier-to-read colours</li> \n <li>larger fonts</li> \n <li>plain\
-                \ English</li> \n <li>keyboard only navigation</li> \n</ul><p><a rel=\"\
-                noopener noreferrer\" href=\"https://abilitynet.org.uk/\" target=\"\
-                _blank\">AbilityNet</a> has advice on making your device easier to\
-                \ use if you have a disability.&nbsp;</p><h2>Feedback</h2><p>We’re\
-                \ always looking to improve the accessibility of this website.&nbsp;</p><p>If\
-                \ you find any problems not listed on this page or think we’re not\
-                \ meeting accessibility requirements, contact&nbsp;<a href=\"mailto:dssm@gov.scot\"\
-                >DSSM@gov.scot</a>&nbsp;with details of the problem you have encountered.&nbsp;</p><h2>Enforcement\
-                \ procedure</h2><p>The <a rel=\"noopener noreferrer\" href=\"https://www.equalityhumanrights.com/en\"\
-                \ target=\"_blank\">Equality and Human Rights Commission (EHRC)</a>&nbsp;is\
-                \ responsible for enforcing the Public Sector Bodies (Websites and\
-                \ Mobile Applications) (No. 2) Accessibility Regulations 2018 (the\
-                \ ‘accessibility regulations’). If you’re not happy with how we respond\
-                \ to your complaint, contact the <a rel=\"noopener noreferrer\" href=\"\
-                https://www.equalityadvisoryservice.com/\" target=\"_blank\">Equality\
-                \ Advisory and Support Service (EASS)</a>.&nbsp;</p><h2>Technical\
-                \ information about this website’s accessibility&nbsp;</h2><p>The\
-                \ Scottish Government is committed to making this website accessible,\
-                \ in accordance with the Public Sector Bodies (Websites and Mobile\
-                \ Applications) (No. 2) Accessibility Regulations 2018.&nbsp;</p><h2>Compliance\
-                \ status&nbsp;</h2><p>This website is fully compliant with the <a\
-                \ rel=\"noopener noreferrer\" href=\"https://www.w3.org/TR/WCAG22/\"\
-                \ target=\"_blank\">Web Content Accessibility Guidelines (WCAG) version\
-                \ 2.2</a> AA standard.&nbsp;</p><h2>Preparation of this accessibility\
-                \ statement&nbsp;</h2><p>This statement was prepared on 1 February\
-                \ 2024. It was last reviewed on 1 February 2024.&nbsp;</p><p>This\
-                \ website was last tested on 2 February 2024 by the Digital Accessibility\
-                \ Team in the Scottish Government.&nbsp;</p><p>The Digital Accessibility\
-                \ Team ran an automated test across the site, to detect compliance\
-                \ with WCAG 2.2 (AA). The automated tests were completed using the\
-                \ latest version of <a rel=\"noopener noreferrer\" href=\"https://www.deque.com/axe/\"\
-                \ target=\"_blank\">Axe</a>. This was followed by a manual accessibility\
-                \ review of a representative sample of pages and content types and\
-                \ was conducted using assistive technology in accordance with the\
-                \ most used (JAWS and NVDA).&nbsp;</p>"
-      /accessibility[2]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
-        jcr:uuid: 837f7908-6cb5-466e-9fa5-52d572cc65a0
-        hippo:availability: [live]
-        hippo:name: Accessibility
-        hippostd:retainable: false
-        hippostd:state: published
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-10T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-03-14T14:03:24.321Z
-        hippostdpubwf:lastModifiedBy: elaine.gibb@gov.scot
-        hippostdpubwf:publicationDate: 2024-03-14T14:03:31.611Z
-        hippotranslation:id: ec4e0c5c-80a0-44c6-b3d7-fb8785e2b78a
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:metaDescription: Accessibility
-        publishing:noindex: false
-        publishing:permalink: /accessibility/
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Accessibility
-        publishing:serviceproviders: []
-        publishing:showFeedback: true
-        publishing:showInParent: true
-        publishing:slug: accessibility
-        publishing:summary: Accessibility statement for servicemanual.gov.scot
-        publishing:title: Accessibility statement
-        publishing:userneed: ''
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:contentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p>This accessibility statement applies to servicemanual.gov.scot.&nbsp;</p><p>This\
-                \ website is run by the Scottish Government. It is designed to be\
-                \ used by as many people as possible. Our website includes:</p><ul>\
-                \ \n <li>easier-to-read colours</li> \n <li>larger fonts</li> \n <li>plain\
-                \ English</li> \n <li>keyboard only navigation</li> \n</ul><p><a rel=\"\
-                noopener noreferrer\" href=\"https://abilitynet.org.uk/\" target=\"\
-                _blank\">AbilityNet</a> has advice on making your device easier to\
-                \ use if you have a disability.&nbsp;</p><h2>Feedback</h2><p>We’re\
-                \ always looking to improve the accessibility of this website.&nbsp;</p><p>If\
-                \ you find any problems not listed on this page or think we’re not\
-                \ meeting accessibility requirements, contact&nbsp;<a href=\"mailto:dssm@gov.scot\"\
-                >DSSM@gov.scot</a>&nbsp;with details of the problem you have encountered.&nbsp;</p><h2>Enforcement\
-                \ procedure</h2><p>The <a rel=\"noopener noreferrer\" href=\"https://www.equalityhumanrights.com/en\"\
-                \ target=\"_blank\">Equality and Human Rights Commission (EHRC)</a>&nbsp;is\
-                \ responsible for enforcing the Public Sector Bodies (Websites and\
-                \ Mobile Applications) (No. 2) Accessibility Regulations 2018 (the\
-                \ ‘accessibility regulations’). If you’re not happy with how we respond\
-                \ to your complaint, contact the <a rel=\"noopener noreferrer\" href=\"\
-                https://www.equalityadvisoryservice.com/\" target=\"_blank\">Equality\
-                \ Advisory and Support Service (EASS)</a>.&nbsp;</p><h2>Technical\
-                \ information about this website’s accessibility&nbsp;</h2><p>The\
-                \ Scottish Government is committed to making this website accessible,\
-                \ in accordance with the Public Sector Bodies (Websites and Mobile\
-                \ Applications) (No. 2) Accessibility Regulations 2018.&nbsp;</p><h2>Compliance\
-                \ status&nbsp;</h2><p>This website is fully compliant with the <a\
-                \ rel=\"noopener noreferrer\" href=\"https://www.w3.org/TR/WCAG22/\"\
-                \ target=\"_blank\">Web Content Accessibility Guidelines (WCAG) version\
-                \ 2.2</a> AA standard.&nbsp;</p><h2>Preparation of this accessibility\
-                \ statement&nbsp;</h2><p>This statement was prepared on 1 February\
-                \ 2024. It was last reviewed on 1 February 2024.&nbsp;</p><p>This\
-                \ website was last tested on 2 February 2024 by the Digital Accessibility\
-                \ Team in the Scottish Government.&nbsp;</p><p>The Digital Accessibility\
-                \ Team ran an automated test across the site, to detect compliance\
-                \ with WCAG 2.2 (AA). The automated tests were completed using the\
-                \ latest version of <a rel=\"noopener noreferrer\" href=\"https://www.deque.com/axe/\"\
-                \ target=\"_blank\">Axe</a>. This was followed by a manual accessibility\
-                \ review of a representative sample of pages and content types and\
-                \ was conducted using assistive technology in accordance with the\
-                \ most used (JAWS and NVDA).&nbsp;</p>"
-      /accessibility[3]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
-        jcr:uuid: 957c008b-2df2-4290-bde8-c7244ba3399c
-        hippo:availability: []
-        hippo:name: Accessibility
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-10T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-03-14T14:03:24.420Z
-        hippostdpubwf:lastModifiedBy: elaine.gibb@gov.scot
-        hippotranslation:id: ec4e0c5c-80a0-44c6-b3d7-fb8785e2b78a
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:metaDescription: Accessibility
-        publishing:noindex: false
-        publishing:permalink: /accessibility/
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Accessibility
-        publishing:serviceproviders: []
-        publishing:showFeedback: true
-        publishing:showInParent: true
-        publishing:slug: accessibility
-        publishing:summary: Accessibility statement for servicemanual.gov.scot
-        publishing:title: Accessibility statement
-        publishing:userneed: ''
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:contentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p>This accessibility statement applies to servicemanual.gov.scot.&nbsp;</p><p>This\
-                \ website is run by the Scottish Government. It is designed to be\
-                \ used by as many people as possible. Our website includes:</p><ul>\
-                \ \n <li>easier-to-read colours</li> \n <li>larger fonts</li> \n <li>plain\
-                \ English</li> \n <li>keyboard only navigation</li> \n</ul><p><a rel=\"\
-                noopener noreferrer\" href=\"https://abilitynet.org.uk/\" target=\"\
-                _blank\">AbilityNet</a> has advice on making your device easier to\
-                \ use if you have a disability.&nbsp;</p><h2>Feedback</h2><p>We’re\
-                \ always looking to improve the accessibility of this website.&nbsp;</p><p>If\
-                \ you find any problems not listed on this page or think we’re not\
-                \ meeting accessibility requirements, contact&nbsp;<a href=\"mailto:dssm@gov.scot\"\
-                >DSSM@gov.scot</a>&nbsp;with details of the problem you have encountered.&nbsp;</p><h2>Enforcement\
-                \ procedure</h2><p>The <a rel=\"noopener noreferrer\" href=\"https://www.equalityhumanrights.com/en\"\
-                \ target=\"_blank\">Equality and Human Rights Commission (EHRC)</a>&nbsp;is\
-                \ responsible for enforcing the Public Sector Bodies (Websites and\
-                \ Mobile Applications) (No. 2) Accessibility Regulations 2018 (the\
-                \ ‘accessibility regulations’). If you’re not happy with how we respond\
-                \ to your complaint, contact the <a rel=\"noopener noreferrer\" href=\"\
-                https://www.equalityadvisoryservice.com/\" target=\"_blank\">Equality\
-                \ Advisory and Support Service (EASS)</a>.&nbsp;</p><h2>Technical\
-                \ information about this website’s accessibility&nbsp;</h2><p>The\
-                \ Scottish Government is committed to making this website accessible,\
-                \ in accordance with the Public Sector Bodies (Websites and Mobile\
-                \ Applications) (No. 2) Accessibility Regulations 2018.&nbsp;</p><h2>Compliance\
-                \ status&nbsp;</h2><p>This website is fully compliant with the <a\
-                \ rel=\"noopener noreferrer\" href=\"https://www.w3.org/TR/WCAG22/\"\
-                \ target=\"_blank\">Web Content Accessibility Guidelines (WCAG) version\
-                \ 2.2</a> AA standard.&nbsp;</p><h2>Preparation of this accessibility\
-                \ statement&nbsp;</h2><p>This statement was prepared on 1 February\
-                \ 2024. It was last reviewed on 1 February 2024.&nbsp;</p><p>This\
-                \ website was last tested on 2 February 2024 by the Digital Accessibility\
-                \ Team in the Scottish Government.&nbsp;</p><p>The Digital Accessibility\
-                \ Team ran an automated test across the site, to detect compliance\
-                \ with WCAG 2.2 (AA). The automated tests were completed using the\
-                \ latest version of <a rel=\"noopener noreferrer\" href=\"https://www.deque.com/axe/\"\
-                \ target=\"_blank\">Axe</a>. This was followed by a manual accessibility\
-                \ review of a representative sample of pages and content types and\
-                \ was conducted using assistive technology in accordance with the\
-                \ most used (JAWS and NVDA).&nbsp;</p>"
     /cookies:
       jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 5eddb6fa-14c4-43dc-8fed-0ab095185bd7
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 421bfa0d-b2d6-4038-b653-880ea7149fc5
       hippo:name: Cookies
-      hippo:versionHistory: df961aa3-11bf-4c1c-97eb-6e5556c58bfa
-      /cookies[1]:
+      /cookies:
         jcr:primaryType: publishing:cookiepage
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable',
-          'mix:versionable']
-        jcr:uuid: eeacfc6d-6630-47d7-b2da-a7b6438a1d45
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 29c17066-89f7-4d8c-8bbb-bf4caa957c8e
         hippo:availability: [preview]
         hippo:name: Cookies
         hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
         hippostdpubwf:creationDate: 2024-01-10T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-02-04T21:40:51.208Z
-        hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
+        hippostdpubwf:lastModificationDate: 2024-01-10T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
@@ -674,6 +132,12 @@
         publishing:summary: Cookies
         publishing:title: Cookies
         publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:additionalContent:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
         /publishing:logo:
           jcr:primaryType: hippogallerypicker:imagelink
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -683,1226 +147,102 @@
         /publishing:contentOwner:
           jcr:primaryType: hippo:mirror
           hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:additionalContentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<h2>Google Analytics</h2><p>We use Google Analytics\
-                \ to collect information about how you use servicemanual.gov.scot.</p><p>We\
-                \ store information about:</p><ul> \n <li>the pages you visit and\
-                \ how long you spend on each page</li> \n <li>how you got to servicemanual.gov.scot</li>\
-                \ \n <li>what you click on while you’re visiting servicemanual.gov.scot</li>\
-                \ \n</ul><p>We do not:</p><ul> \n <li>collect information that can\
-                \ be used to identify you; for example, we never receive your name\
-                \ or address</li> \n <li>make any attempt to find out the identities\
-                \ of people visiting servicemanual.gov.scot</li> \n <li>allow the\
-                \ tools that we use to find out the identities of people visiting\
-                \ servicemanual.gov.scot</li> \n <li>sell, trade or give your details\
-                \ to third parties, unless we are required to do it by law</li> \n\
-                </ul><p>All information we get through cookies and analytics will\
-                \ be treated in confidence.</p><p>We anonymise the last 3 digits of\
-                \ all&nbsp;servicemanual.gov.scot user IP addresses for Google Analytics,\
-                \ so that we can ensure that you are protected (<a href=\"https://support.google.com/analytics/answer/2763052?hl=en\"\
-                >you can read more about how this works here</a>). We can only see\
-                \ a general overview of which regions and cities you may come from,\
-                \ not where individuals access from.</p><p><a href=\"https://support.google.com/analytics/answer/2838718?hl=en-GB\"\
-                >Find out more about security and privacy in Google Analytics.</a></p><p>You\
-                \ can opt <a href=\"https://tools.google.com/dlpage/gaoptout\">out\
-                \ of Google analytics</a> cookies.</p><table class=\"ds_table\"> \n\
-                \ <thead> \n  <tr> \n   <th>Cookie name</th> \n   <th>Description</th>\
-                \ \n   <th>Expiry time</th> \n  </tr> \n </thead> \n <tbody> \n  <tr>\
-                \ \n   <td>_ga</td> \n   <td>This is used to understand and differentiate\
-                \ between different users.</td> \n   <td>13 Months</td> \n  </tr>\
-                \ \n  <tr> \n   <td>_ga_&lt;container-id&gt;</td> \n   <td>Used to\
-                \ persist session state. Container ID is the identifier for the Google\
-                \ Analytics account being used.</td> \n   <td>13 Months</td> \n  </tr>\
-                \ \n  <tr> \n   <td>_gid</td> \n   <td>_gid has a different ID for\
-                \ each page set on, and a timestamp. This assists with plotting user\
-                \ journeys.</td> \n   <td>24 Hours</td> \n  </tr> \n </tbody> \n</table><h2>YouTube</h2><p>Pages\
-                \ on servicemanual.gov.scot which contain YouTube videos will not\
-                \ set third-party cookies (we use YouTube-nocookie.com — <a href=\"\
-                https://support.google.com/youtube/answer/171780?hl=en-GB\">you can\
-                \ read more here</a>).</p><h2>Feedback, help or support</h2><div class=\"\
-                ds_article-aside\"> \n <p>If you need any help or want to give any\
-                \ feedback, you can email us at: <a href=\"mailto:DSSM@gov.scot\"\
-                >DSSM@gov.scot</a></p> \n</div>"
-        /publishing:contentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p>A cookie lets a website recognise your device\
-                \ and store some information about your preferences or interactions.</p><h2>Why\
-                \ we use cookies</h2><p>We use servicemanual.gov.scot cookie tracking\
-                \ data to make informed decisions on whether the site is meeting your\
-                \ needs, which leads to us making improvements. For example, we monitor\
-                \ how much traffic each part of the site gets and work to improve\
-                \ areas which are not being found when they should be.</p><div class=\"\
-                ds_inset-text\"> \n <div class=\"ds_inset-text__text\"> \n  <p>The\
-                \ cookies that we set on servicemanual.gov.scot can not be used to\
-                \ identify you personally. <a href=\"https://ico.org.uk/for-the-public/online/cookies/\"\
-                >Find out more about how to manage cookies for all websites</a>.</p>\
-                \ \n </div> \n</div><h2>Turn cookies on or off</h2><p>We use 3 main\
-                \ types of cookie on our website. You can choose which cookies you’\
-                re happy for us to use. Any data collected is anonymous.</p>"
-      /cookies[2]:
-        jcr:primaryType: publishing:cookiepage
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
-        jcr:uuid: 06c4cf6b-9202-4ed0-8f0e-1710028e5cf0
-        hippo:availability: [live]
-        hippo:name: Cookies
-        hippostd:retainable: false
-        hippostd:state: published
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-10T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-02-04T21:40:51.208Z
-        hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-        hippostdpubwf:publicationDate: 2024-02-04T21:40:56.475Z
-        hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:metaDescription: Cookies
-        publishing:permalink: /cookies/
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Cookies
-        publishing:serviceproviders: []
-        publishing:showFeedback: true
-        publishing:showInParent: true
-        publishing:slug: cookies
-        publishing:summary: Cookies
-        publishing:title: Cookies
-        publishing:userneed: ''
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:contentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p>A cookie lets a website recognise your device\
-                \ and store some information about your preferences or interactions.</p><h2>Why\
-                \ we use cookies</h2><p>We use servicemanual.gov.scot cookie tracking\
-                \ data to make informed decisions on whether the site is meeting your\
-                \ needs, which leads to us making improvements. For example, we monitor\
-                \ how much traffic each part of the site gets and work to improve\
-                \ areas which are not being found when they should be.</p><div class=\"\
-                ds_inset-text\"> \n <div class=\"ds_inset-text__text\"> \n  <p>The\
-                \ cookies that we set on servicemanual.gov.scot can not be used to\
-                \ identify you personally. <a href=\"https://ico.org.uk/for-the-public/online/cookies/\"\
-                >Find out more about how to manage cookies for all websites</a>.</p>\
-                \ \n </div> \n</div><h2>Turn cookies on or off</h2><p>We use 3 main\
-                \ types of cookie on our website. You can choose which cookies you’\
-                re happy for us to use. Any data collected is anonymous.</p>"
-        /publishing:additionalContentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<h2>Google Analytics</h2><p>We use Google Analytics\
-                \ to collect information about how you use servicemanual.gov.scot.</p><p>We\
-                \ store information about:</p><ul> \n <li>the pages you visit and\
-                \ how long you spend on each page</li> \n <li>how you got to servicemanual.gov.scot</li>\
-                \ \n <li>what you click on while you’re visiting servicemanual.gov.scot</li>\
-                \ \n</ul><p>We do not:</p><ul> \n <li>collect information that can\
-                \ be used to identify you; for example, we never receive your name\
-                \ or address</li> \n <li>make any attempt to find out the identities\
-                \ of people visiting servicemanual.gov.scot</li> \n <li>allow the\
-                \ tools that we use to find out the identities of people visiting\
-                \ servicemanual.gov.scot</li> \n <li>sell, trade or give your details\
-                \ to third parties, unless we are required to do it by law</li> \n\
-                </ul><p>All information we get through cookies and analytics will\
-                \ be treated in confidence.</p><p>We anonymise the last 3 digits of\
-                \ all&nbsp;servicemanual.gov.scot user IP addresses for Google Analytics,\
-                \ so that we can ensure that you are protected (<a href=\"https://support.google.com/analytics/answer/2763052?hl=en\"\
-                >you can read more about how this works here</a>). We can only see\
-                \ a general overview of which regions and cities you may come from,\
-                \ not where individuals access from.</p><p><a href=\"https://support.google.com/analytics/answer/2838718?hl=en-GB\"\
-                >Find out more about security and privacy in Google Analytics.</a></p><p>You\
-                \ can opt <a href=\"https://tools.google.com/dlpage/gaoptout\">out\
-                \ of Google analytics</a> cookies.</p><table class=\"ds_table\"> \n\
-                \ <thead> \n  <tr> \n   <th>Cookie name</th> \n   <th>Description</th>\
-                \ \n   <th>Expiry time</th> \n  </tr> \n </thead> \n <tbody> \n  <tr>\
-                \ \n   <td>_ga</td> \n   <td>This is used to understand and differentiate\
-                \ between different users.</td> \n   <td>13 Months</td> \n  </tr>\
-                \ \n  <tr> \n   <td>_ga_&lt;container-id&gt;</td> \n   <td>Used to\
-                \ persist session state. Container ID is the identifier for the Google\
-                \ Analytics account being used.</td> \n   <td>13 Months</td> \n  </tr>\
-                \ \n  <tr> \n   <td>_gid</td> \n   <td>_gid has a different ID for\
-                \ each page set on, and a timestamp. This assists with plotting user\
-                \ journeys.</td> \n   <td>24 Hours</td> \n  </tr> \n </tbody> \n</table><h2>YouTube</h2><p>Pages\
-                \ on servicemanual.gov.scot which contain YouTube videos will not\
-                \ set third-party cookies (we use YouTube-nocookie.com — <a href=\"\
-                https://support.google.com/youtube/answer/171780?hl=en-GB\">you can\
-                \ read more here</a>).</p><h2>Feedback, help or support</h2><div class=\"\
-                ds_article-aside\"> \n <p>If you need any help or want to give any\
-                \ feedback, you can email us at: <a href=\"mailto:DSSM@gov.scot\"\
-                >DSSM@gov.scot</a></p> \n</div>"
-      /cookies[3]:
-        jcr:primaryType: publishing:cookiepage
-        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
-        jcr:uuid: 703ebf65-c7ea-41d3-bc5b-39e5847ed3d2
-        hippo:availability: []
-        hippo:name: Cookies
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-10T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-02-04T21:40:51.341Z
-        hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-        hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:metaDescription: Cookies
-        publishing:permalink: /cookies/
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: Cookies
-        publishing:serviceproviders: []
-        publishing:showFeedback: true
-        publishing:showInParent: true
-        publishing:slug: cookies
-        publishing:summary: Cookies
-        publishing:title: Cookies
-        publishing:userneed: ''
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:contentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p>A cookie lets a website recognise your device\
-                \ and store some information about your preferences or interactions.</p><h2>Why\
-                \ we use cookies</h2><p>We use servicemanual.gov.scot cookie tracking\
-                \ data to make informed decisions on whether the site is meeting your\
-                \ needs, which leads to us making improvements. For example, we monitor\
-                \ how much traffic each part of the site gets and work to improve\
-                \ areas which are not being found when they should be.</p><div class=\"\
-                ds_inset-text\"> \n <div class=\"ds_inset-text__text\"> \n  <p>The\
-                \ cookies that we set on servicemanual.gov.scot can not be used to\
-                \ identify you personally. <a href=\"https://ico.org.uk/for-the-public/online/cookies/\"\
-                >Find out more about how to manage cookies for all websites</a>.</p>\
-                \ \n </div> \n</div><h2>Turn cookies on or off</h2><p>We use 3 main\
-                \ types of cookie on our website. You can choose which cookies you’\
-                re happy for us to use. Any data collected is anonymous.</p>"
-        /publishing:additionalContentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<h2>Google Analytics</h2><p>We use Google Analytics\
-                \ to collect information about how you use servicemanual.gov.scot.</p><p>We\
-                \ store information about:</p><ul> \n <li>the pages you visit and\
-                \ how long you spend on each page</li> \n <li>how you got to servicemanual.gov.scot</li>\
-                \ \n <li>what you click on while you’re visiting servicemanual.gov.scot</li>\
-                \ \n</ul><p>We do not:</p><ul> \n <li>collect information that can\
-                \ be used to identify you; for example, we never receive your name\
-                \ or address</li> \n <li>make any attempt to find out the identities\
-                \ of people visiting servicemanual.gov.scot</li> \n <li>allow the\
-                \ tools that we use to find out the identities of people visiting\
-                \ servicemanual.gov.scot</li> \n <li>sell, trade or give your details\
-                \ to third parties, unless we are required to do it by law</li> \n\
-                </ul><p>All information we get through cookies and analytics will\
-                \ be treated in confidence.</p><p>We anonymise the last 3 digits of\
-                \ all&nbsp;servicemanual.gov.scot user IP addresses for Google Analytics,\
-                \ so that we can ensure that you are protected (<a href=\"https://support.google.com/analytics/answer/2763052?hl=en\"\
-                >you can read more about how this works here</a>). We can only see\
-                \ a general overview of which regions and cities you may come from,\
-                \ not where individuals access from.</p><p><a href=\"https://support.google.com/analytics/answer/2838718?hl=en-GB\"\
-                >Find out more about security and privacy in Google Analytics.</a></p><p>You\
-                \ can opt <a href=\"https://tools.google.com/dlpage/gaoptout\">out\
-                \ of Google analytics</a> cookies.</p><table class=\"ds_table\"> \n\
-                \ <thead> \n  <tr> \n   <th>Cookie name</th> \n   <th>Description</th>\
-                \ \n   <th>Expiry time</th> \n  </tr> \n </thead> \n <tbody> \n  <tr>\
-                \ \n   <td>_ga</td> \n   <td>This is used to understand and differentiate\
-                \ between different users.</td> \n   <td>13 Months</td> \n  </tr>\
-                \ \n  <tr> \n   <td>_ga_&lt;container-id&gt;</td> \n   <td>Used to\
-                \ persist session state. Container ID is the identifier for the Google\
-                \ Analytics account being used.</td> \n   <td>13 Months</td> \n  </tr>\
-                \ \n  <tr> \n   <td>_gid</td> \n   <td>_gid has a different ID for\
-                \ each page set on, and a timestamp. This assists with plotting user\
-                \ journeys.</td> \n   <td>24 Hours</td> \n  </tr> \n </tbody> \n</table><h2>YouTube</h2><p>Pages\
-                \ on servicemanual.gov.scot which contain YouTube videos will not\
-                \ set third-party cookies (we use YouTube-nocookie.com — <a href=\"\
-                https://support.google.com/youtube/answer/171780?hl=en-GB\">you can\
-                \ read more here</a>).</p><h2>Feedback, help or support</h2><div class=\"\
-                ds_article-aside\"> \n <p>If you need any help or want to give any\
-                \ feedback, you can email us at: <a href=\"mailto:DSSM@gov.scot\"\
-                >DSSM@gov.scot</a></p> \n</div>"
-    /about:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: f2b70e10-0348-4d47-b06c-c3cb322fe035
-      hippo:name: About
-      hippo:versionHistory: 475320a0-303b-44aa-b632-f20b235ef049
-      /about[1]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-        jcr:uuid: c6526c01-b63e-4606-9371-3a626f0abd87
-        hippo:availability: []
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
-        hippostdpubwf:creationDate: 2024-03-15T10:40:16.726Z
-        hippostdpubwf:lastModificationDate: 2024-03-15T16:17:57.549Z
-        hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-        hippotranslation:id: 397f8189-6bbb-426e-aac7-1b06c833be5a
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:lifeEvents: []
-        publishing:metaDescription: About the Digital Scotland Service Manual (DSSM)
-          and the DSSM service
-        publishing:noindex: false
-        publishing:organisationtags: []
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: About
-        publishing:serviceproviders: []
-        publishing:showFeedback: true
-        publishing:showInParent: true
-        publishing:slug: about
-        publishing:summary: About the Digital Scotland Service Manual (DSSM) and the
-          DSSM service
-        publishing:title: About us
-        publishing:userneed: ''
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:contentBlocks[1]:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p>Designed to embed system level thinking at the\
-                \ local level, the Digital Scotland Service Manual (DSSM) will streamline\
-                \ the delivery of consistent and user-friendly digital public services\
-                \ through shared standards, guidance and resources.&nbsp;&nbsp;</p><p>The\
-                \ manual will be iteratively developed, with new content, content\
-                \ pathways, and products and services released incrementally.&nbsp;&nbsp;</p><p>We’\
-                ve released the minimum viable product version of the new manual and\
-                \ we’re still in the very early stages. We would encourage everyone\
-                \ to take a look at the manual and <a href=\"mailto:DSSM@gov.scot\"\
-                ><u>give us feedback</u></a> and suggestions on how we can make it\
-                \ better.&nbsp;</p><p>We expect to transition from a project team\
-                \ to business as usual operations before the end of 2024, after which\
-                \ the products and services we own, or that are referenced in our\
-                \ content, will be subject to continuous improvement, based on both\
-                \ user and business needs.&nbsp;</p><p><strong>What the DSSM will\
-                \ contain and do</strong></p><p>We will deliver both products and\
-                \ services. These are:</p><ul> \n <li>standards via the <a href=\"\
-                https://www.gov.scot/publications/digital-scotland-service-standard/\"\
-                ><u>Digital Scotland Service Standard</u></a></li> \n <li>online guidance\
-                \ via this website&nbsp;</li> \n <li>tools to help&nbsp;you do your\
-                \ work more efficiently&nbsp;</li> \n <li>templates such as business\
-                \ cases, discovery reports and project plans&nbsp;</li> \n <li>patterns\
-                \ and wireframes to build websites that are consistent and easy to\
-                \ set up&nbsp;</li> \n <li>shared data repositories&nbsp;</li> \n\
-                \ <li>common components such as Cloud platform, identity (ScotAccount)\
-                \ and payments (ScotPayments)&nbsp;&nbsp;</li> \n <li>access to DDaT\
-                \ communities of practice and other networks to share expertise, ideas\
-                \ and collaborate&nbsp;&nbsp;</li> \n <li>training via the Scottish\
-                \ Digital Academy&nbsp;</li> \n <li>expert advice and targeted support\
-                \ for projects prioritised as part of a new portfolio management process&nbsp;&nbsp;</li>\
-                \ \n</ul><p><strong>Who DSSM is for</strong></p><p>The Service Manual\
-                \ is for those about to start or currently undertaking digital transformation\
-                \ projects in the Scottish public sector, specifically those assessed\
-                \ under the Technology Assurance Framework (TAF). Those outside of\
-                \ TAF can also make use of the manual but won’t be able to access\
-                \ some aspect of advice.&nbsp;</p><p>Products will be available to\
-                \ everyone in the public sector, although we expect that you’ll need\
-                \ a defined level of digital maturity to make best use of them. Digital\
-                \ maturity refers to your organisation or project’s capability to\
-                \ effectively leverage digital technologies and mindsets when carrying\
-                \ out digital transformation.&nbsp;</p><p>To use our products, we’\
-                d expect you to have&nbsp;</p><ul> \n <li>medium or high digital maturity&nbsp;</li>\
-                \ \n <li>medium or high digital capability&nbsp;</li> \n</ul><p>Services\
-                \ will also be available to everyone in the public sector. Similarly,\
-                \ we’d expect you’ll need a defined level of digital maturity to make\
-                \ best use of them. Digital maturity refers to your organisation or\
-                \ project’s capability to effectively leverage digital technologies\
-                \ and mindsets when carrying out digital transformation.&nbsp;</p><p>To\
-                \ use our components and community services, we’d expect you to have:&nbsp;</p><ul>\
-                \ \n <li>medium or high digital maturity&nbsp;</li> \n <li>medium\
-                \ or high digital capability&nbsp;</li> \n</ul><p>To use our training\
-                \ services, we’d expect you to have:&nbsp;</p><ul> \n <li>low or medium\
-                \ digital maturity&nbsp;</li> \n <li>low or medium digital capability&nbsp;</li>\
-                \ \n</ul><p>To access expert advice users (targeted support for those\
-                \ on TAF only) we’d expect you to have:&nbsp;</p><ul> \n <li>low or\
-                \ medium digital maturity&nbsp;</li> \n <li>low or medium digital\
-                \ capability&nbsp;</li> \n</ul><p>Our work is focused around 3 themes.\
-                \ These are:&nbsp;</p><ul> \n <li>delivering consistently high quality\
-                \ digital public services&nbsp;</li> \n <li>supporting colleagues\
-                \ to embrace news ways of working</li> \n <li>giving colleagues the\
-                \ things they need to build and scale digital public services&nbsp;</li>\
-                \ \n</ul>"
-        /publishing:contentBlocks[2]:
-          jcr:primaryType: publishing:cb_accordion
-          publishing:noindex: false
-          /publishing:items[1]:
-            jcr:primaryType: publishing:cb_accordionpanel
-            publishing:title: Delivering consistently high quality digital public
-              services 
-            /publishing:contentBlocks:
-              jcr:primaryType: publishing:cb_richtext
-              publishing:noindex: false
-              /publishing:content:
-                jcr:primaryType: hippostd:html
-                hippostd:content: "<p>To do this we will:&nbsp;</p><ul> \n <li>develop\
-                  \ a new operating model for people undertaking digital transformation\
-                  \ projects&nbsp;&nbsp;</li> \n <li>own and continually improve the\
-                  \ standards that everyone needs to meet&nbsp;</li> \n <li>publish\
-                  \ guidance on a wide range of topics to support how people approach\
-                  \ the delivery of digital public services&nbsp;</li> \n</ul>"
-          /publishing:items[2]:
-            jcr:primaryType: publishing:cb_accordionpanel
-            publishing:title: Supporting colleagues to embrace news ways of working 
-            /publishing:contentBlocks:
-              jcr:primaryType: publishing:cb_richtext
-              publishing:noindex: false
-              /publishing:content:
-                jcr:primaryType: hippostd:html
-                hippostd:content: "<p>We will support others to adapt and adopt standards\
-                  \ through&nbsp;&nbsp;</p><ul> \n <li>Tools&nbsp;</li> \n <li>expert\
-                  \ advice for those subject to the Technology Assurance Framework\
-                  \ (TAF), specifically for those with presumed low-medium digital\
-                  \ capability and maturity&nbsp;</li> \n</ul><ul> \n <li>access to\
-                  \ communities of practice to share ideas, ask for advice and build\
-                  \ connections&nbsp;</li> \n <li>we will work in partnership with\
-                  \ the Scottish Digital Academy to identify and develop training\
-                  \ courses for those with low-medium digital capability and maturity&nbsp;</li>\
-                  \ \n</ul>"
-          /publishing:items[3]:
-            jcr:primaryType: publishing:cb_accordionpanel
-            publishing:title: Giving colleagues the things they need to build and
-              scale digital public services 
-            /publishing:contentBlocks:
-              jcr:primaryType: publishing:cb_richtext
-              publishing:noindex: false
-              /publishing:content:
-                jcr:primaryType: hippostd:html
-                hippostd:content: "<p>The manual will become the single source of\
-                  \ assets that people need to follow guidance and meet our standards,\
-                  \ assets that will be available are:&nbsp;</p><ul> \n <li>Templates&nbsp;</li>\
-                  \ \n <li>Patterns&nbsp;</li> \n <li>Repositories&nbsp;</li> \n <li>Common\
-                  \ components such as Cloud platform, identity (ScotAccount) and\
-                  \ payments (ScotPayments)&nbsp;&nbsp;</li> \n</ul>"
-        /publishing:contentBlocks[3]:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p><strong></strong></p><ul> \n</ul><p><strong></strong></p><ul>\
-                \ \n</ul><p><strong></strong></p><ul> \n</ul>"
-      /about[2]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-        jcr:uuid: dc52cb3c-32a4-40a2-a18c-152d19bf0c52
-        hippo:availability: [preview]
-        hippostd:retainable: false
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
-        hippostdpubwf:creationDate: 2024-03-15T10:40:16.726Z
-        hippostdpubwf:lastModificationDate: 2024-03-15T16:17:57.448Z
-        hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-        hippotranslation:id: 397f8189-6bbb-426e-aac7-1b06c833be5a
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:lifeEvents: []
-        publishing:metaDescription: About the Digital Scotland Service Manual (DSSM)
-          and the DSSM service
-        publishing:noindex: false
-        publishing:organisationtags: []
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: About
-        publishing:serviceproviders: []
-        publishing:showFeedback: true
-        publishing:showInParent: true
-        publishing:slug: about
-        publishing:summary: About the Digital Scotland Service Manual (DSSM) and the
-          DSSM service
-        publishing:title: About us
-        publishing:userneed: ''
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:contentBlocks[1]:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p>Designed to embed system level thinking at the\
-                \ local level, the Digital Scotland Service Manual (DSSM) will streamline\
-                \ the delivery of consistent and user-friendly digital public services\
-                \ through shared standards, guidance and resources.&nbsp;&nbsp;</p><p>The\
-                \ manual will be iteratively developed, with new content, content\
-                \ pathways, and products and services released incrementally.&nbsp;&nbsp;</p><p>We’\
-                ve released the minimum viable product version of the new manual and\
-                \ we’re still in the very early stages. We would encourage everyone\
-                \ to take a look at the manual and <a href=\"mailto:DSSM@gov.scot\"\
-                ><u>give us feedback</u></a> and suggestions on how we can make it\
-                \ better.&nbsp;</p><p>We expect to transition from a project team\
-                \ to business as usual operations before the end of 2024, after which\
-                \ the products and services we own, or that are referenced in our\
-                \ content, will be subject to continuous improvement, based on both\
-                \ user and business needs.&nbsp;</p><p><strong>What the DSSM will\
-                \ contain and do</strong></p><p>We will deliver both products and\
-                \ services. These are:</p><ul> \n <li>standards via the <a href=\"\
-                https://www.gov.scot/publications/digital-scotland-service-standard/\"\
-                ><u>Digital Scotland Service Standard</u></a></li> \n <li>online guidance\
-                \ via this website&nbsp;</li> \n <li>tools to help&nbsp;you do your\
-                \ work more efficiently&nbsp;</li> \n <li>templates such as business\
-                \ cases, discovery reports and project plans&nbsp;</li> \n <li>patterns\
-                \ and wireframes to build websites that are consistent and easy to\
-                \ set up&nbsp;</li> \n <li>shared data repositories&nbsp;</li> \n\
-                \ <li>common components such as Cloud platform, identity (ScotAccount)\
-                \ and payments (ScotPayments)&nbsp;&nbsp;</li> \n <li>access to DDaT\
-                \ communities of practice and other networks to share expertise, ideas\
-                \ and collaborate&nbsp;&nbsp;</li> \n <li>training via the Scottish\
-                \ Digital Academy&nbsp;</li> \n <li>expert advice and targeted support\
-                \ for projects prioritised as part of a new portfolio management process&nbsp;&nbsp;</li>\
-                \ \n</ul><p><strong>Who DSSM is for</strong></p><p>The Service Manual\
-                \ is for those about to start or currently undertaking digital transformation\
-                \ projects in the Scottish public sector, specifically those assessed\
-                \ under the Technology Assurance Framework (TAF). Those outside of\
-                \ TAF can also make use of the manual but won’t be able to access\
-                \ some aspect of advice.&nbsp;</p><p>Products will be available to\
-                \ everyone in the public sector, although we expect that you’ll need\
-                \ a defined level of digital maturity to make best use of them. Digital\
-                \ maturity refers to your organisation or project’s capability to\
-                \ effectively leverage digital technologies and mindsets when carrying\
-                \ out digital transformation.&nbsp;</p><p>To use our products, we’\
-                d expect you to have&nbsp;</p><ul> \n <li>medium or high digital maturity&nbsp;</li>\
-                \ \n <li>medium or high digital capability&nbsp;</li> \n</ul><p>Services\
-                \ will also be available to everyone in the public sector. Similarly,\
-                \ we’d expect you’ll need a defined level of digital maturity to make\
-                \ best use of them. Digital maturity refers to your organisation or\
-                \ project’s capability to effectively leverage digital technologies\
-                \ and mindsets when carrying out digital transformation.&nbsp;</p><p>To\
-                \ use our components and community services, we’d expect you to have:&nbsp;</p><ul>\
-                \ \n <li>medium or high digital maturity&nbsp;</li> \n <li>medium\
-                \ or high digital capability&nbsp;</li> \n</ul><p>To use our training\
-                \ services, we’d expect you to have:&nbsp;</p><ul> \n <li>low or medium\
-                \ digital maturity&nbsp;</li> \n <li>low or medium digital capability&nbsp;</li>\
-                \ \n</ul><p>To access expert advice users (targeted support for those\
-                \ on TAF only) we’d expect you to have:&nbsp;</p><ul> \n <li>low or\
-                \ medium digital maturity&nbsp;</li> \n <li>low or medium digital\
-                \ capability&nbsp;</li> \n</ul><p>Our work is focused around 3 themes.\
-                \ These are:&nbsp;</p><ul> \n <li>delivering consistently high quality\
-                \ digital public services&nbsp;</li> \n <li>supporting colleagues\
-                \ to embrace news ways of working</li> \n <li>giving colleagues the\
-                \ things they need to build and scale digital public services&nbsp;</li>\
-                \ \n</ul>"
-        /publishing:contentBlocks[2]:
-          jcr:primaryType: publishing:cb_accordion
-          publishing:noindex: false
-          /publishing:items[1]:
-            jcr:primaryType: publishing:cb_accordionpanel
-            publishing:title: Delivering consistently high quality digital public
-              services 
-            /publishing:contentBlocks:
-              jcr:primaryType: publishing:cb_richtext
-              publishing:noindex: false
-              /publishing:content:
-                jcr:primaryType: hippostd:html
-                hippostd:content: "<p>To do this we will:&nbsp;</p><ul> \n <li>develop\
-                  \ a new operating model for people undertaking digital transformation\
-                  \ projects&nbsp;&nbsp;</li> \n <li>own and continually improve the\
-                  \ standards that everyone needs to meet&nbsp;</li> \n <li>publish\
-                  \ guidance on a wide range of topics to support how people approach\
-                  \ the delivery of digital public services&nbsp;</li> \n</ul>"
-          /publishing:items[2]:
-            jcr:primaryType: publishing:cb_accordionpanel
-            publishing:title: Supporting colleagues to embrace news ways of working 
-            /publishing:contentBlocks:
-              jcr:primaryType: publishing:cb_richtext
-              publishing:noindex: false
-              /publishing:content:
-                jcr:primaryType: hippostd:html
-                hippostd:content: "<p>We will support others to adapt and adopt standards\
-                  \ through&nbsp;&nbsp;</p><ul> \n <li>Tools&nbsp;</li> \n <li>expert\
-                  \ advice for those subject to the Technology Assurance Framework\
-                  \ (TAF), specifically for those with presumed low-medium digital\
-                  \ capability and maturity&nbsp;</li> \n</ul><ul> \n <li>access to\
-                  \ communities of practice to share ideas, ask for advice and build\
-                  \ connections&nbsp;</li> \n <li>we will work in partnership with\
-                  \ the Scottish Digital Academy to identify and develop training\
-                  \ courses for those with low-medium digital capability and maturity&nbsp;</li>\
-                  \ \n</ul>"
-          /publishing:items[3]:
-            jcr:primaryType: publishing:cb_accordionpanel
-            publishing:title: Giving colleagues the things they need to build and
-              scale digital public services 
-            /publishing:contentBlocks:
-              jcr:primaryType: publishing:cb_richtext
-              publishing:noindex: false
-              /publishing:content:
-                jcr:primaryType: hippostd:html
-                hippostd:content: "<p>The manual will become the single source of\
-                  \ assets that people need to follow guidance and meet our standards,\
-                  \ assets that will be available are:&nbsp;</p><ul> \n <li>Templates&nbsp;</li>\
-                  \ \n <li>Patterns&nbsp;</li> \n <li>Repositories&nbsp;</li> \n <li>Common\
-                  \ components such as Cloud platform, identity (ScotAccount) and\
-                  \ payments (ScotPayments)&nbsp;&nbsp;</li> \n</ul>"
-        /publishing:contentBlocks[3]:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p><strong></strong></p><ul> \n</ul><p><strong></strong></p><ul>\
-                \ \n</ul><p><strong></strong></p><ul> \n</ul>"
-      /about[3]:
-        jcr:primaryType: publishing:article
-        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-        jcr:uuid: 11f77916-3faf-424b-8e23-067027fcf472
-        hippo:availability: [live]
-        hippostd:retainable: false
-        hippostd:state: published
-        hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
-        hippostdpubwf:creationDate: 2024-03-15T10:40:16.726Z
-        hippostdpubwf:lastModificationDate: 2024-03-15T16:17:57.448Z
-        hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-        hippostdpubwf:publicationDate: 2024-03-20T21:58:25.246Z
-        hippotranslation:id: 397f8189-6bbb-426e-aac7-1b06c833be5a
-        hippotranslation:locale: document-type-locale
-        publishing:audience: ''
-        publishing:authorNotes: ''
-        publishing:contentitemlanguage: en
-        publishing:lifeEvents: []
-        publishing:metaDescription: About the Digital Scotland Service Manual (DSSM)
-          and the DSSM service
-        publishing:noindex: false
-        publishing:organisationtags: []
-        publishing:reportingtags: []
-        publishing:sensitive: false
-        publishing:seoTitle: About
-        publishing:serviceproviders: []
-        publishing:showFeedback: true
-        publishing:showInParent: true
-        publishing:slug: about
-        publishing:summary: About the Digital Scotland Service Manual (DSSM) and the
-          DSSM service
-        publishing:title: About us
-        publishing:userneed: ''
-        /publishing:contentOwner:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /publishing:logo:
-          jcr:primaryType: hippogallerypicker:imagelink
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          hippo:facets: []
-          hippo:modes: []
-          hippo:values: []
-        /publishing:contentBlocks[1]:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p>Designed to embed system level thinking at the\
-                \ local level, the Digital Scotland Service Manual (DSSM) will streamline\
-                \ the delivery of consistent and user-friendly digital public services\
-                \ through shared standards, guidance and resources.&nbsp;&nbsp;</p><p>The\
-                \ manual will be iteratively developed, with new content, content\
-                \ pathways, and products and services released incrementally.&nbsp;&nbsp;</p><p>We’\
-                ve released the minimum viable product version of the new manual and\
-                \ we’re still in the very early stages. We would encourage everyone\
-                \ to take a look at the manual and <a href=\"mailto:DSSM@gov.scot\"\
-                ><u>give us feedback</u></a> and suggestions on how we can make it\
-                \ better.&nbsp;</p><p>We expect to transition from a project team\
-                \ to business as usual operations before the end of 2024, after which\
-                \ the products and services we own, or that are referenced in our\
-                \ content, will be subject to continuous improvement, based on both\
-                \ user and business needs.&nbsp;</p><p><strong>What the DSSM will\
-                \ contain and do</strong></p><p>We will deliver both products and\
-                \ services. These are:</p><ul> \n <li>standards via the <a href=\"\
-                https://www.gov.scot/publications/digital-scotland-service-standard/\"\
-                ><u>Digital Scotland Service Standard</u></a></li> \n <li>online guidance\
-                \ via this website&nbsp;</li> \n <li>tools to help&nbsp;you do your\
-                \ work more efficiently&nbsp;</li> \n <li>templates such as business\
-                \ cases, discovery reports and project plans&nbsp;</li> \n <li>patterns\
-                \ and wireframes to build websites that are consistent and easy to\
-                \ set up&nbsp;</li> \n <li>shared data repositories&nbsp;</li> \n\
-                \ <li>common components such as Cloud platform, identity (ScotAccount)\
-                \ and payments (ScotPayments)&nbsp;&nbsp;</li> \n <li>access to DDaT\
-                \ communities of practice and other networks to share expertise, ideas\
-                \ and collaborate&nbsp;&nbsp;</li> \n <li>training via the Scottish\
-                \ Digital Academy&nbsp;</li> \n <li>expert advice and targeted support\
-                \ for projects prioritised as part of a new portfolio management process&nbsp;&nbsp;</li>\
-                \ \n</ul><p><strong>Who DSSM is for</strong></p><p>The Service Manual\
-                \ is for those about to start or currently undertaking digital transformation\
-                \ projects in the Scottish public sector, specifically those assessed\
-                \ under the Technology Assurance Framework (TAF). Those outside of\
-                \ TAF can also make use of the manual but won’t be able to access\
-                \ some aspect of advice.&nbsp;</p><p>Products will be available to\
-                \ everyone in the public sector, although we expect that you’ll need\
-                \ a defined level of digital maturity to make best use of them. Digital\
-                \ maturity refers to your organisation or project’s capability to\
-                \ effectively leverage digital technologies and mindsets when carrying\
-                \ out digital transformation.&nbsp;</p><p>To use our products, we’\
-                d expect you to have&nbsp;</p><ul> \n <li>medium or high digital maturity&nbsp;</li>\
-                \ \n <li>medium or high digital capability&nbsp;</li> \n</ul><p>Services\
-                \ will also be available to everyone in the public sector. Similarly,\
-                \ we’d expect you’ll need a defined level of digital maturity to make\
-                \ best use of them. Digital maturity refers to your organisation or\
-                \ project’s capability to effectively leverage digital technologies\
-                \ and mindsets when carrying out digital transformation.&nbsp;</p><p>To\
-                \ use our components and community services, we’d expect you to have:&nbsp;</p><ul>\
-                \ \n <li>medium or high digital maturity&nbsp;</li> \n <li>medium\
-                \ or high digital capability&nbsp;</li> \n</ul><p>To use our training\
-                \ services, we’d expect you to have:&nbsp;</p><ul> \n <li>low or medium\
-                \ digital maturity&nbsp;</li> \n <li>low or medium digital capability&nbsp;</li>\
-                \ \n</ul><p>To access expert advice users (targeted support for those\
-                \ on TAF only) we’d expect you to have:&nbsp;</p><ul> \n <li>low or\
-                \ medium digital maturity&nbsp;</li> \n <li>low or medium digital\
-                \ capability&nbsp;</li> \n</ul><p>Our work is focused around 3 themes.\
-                \ These are:&nbsp;</p><ul> \n <li>delivering consistently high quality\
-                \ digital public services&nbsp;</li> \n <li>supporting colleagues\
-                \ to embrace news ways of working</li> \n <li>giving colleagues the\
-                \ things they need to build and scale digital public services&nbsp;</li>\
-                \ \n</ul>"
-        /publishing:contentBlocks[2]:
-          jcr:primaryType: publishing:cb_accordion
-          publishing:noindex: false
-          /publishing:items[1]:
-            jcr:primaryType: publishing:cb_accordionpanel
-            publishing:title: Delivering consistently high quality digital public
-              services 
-            /publishing:contentBlocks:
-              jcr:primaryType: publishing:cb_richtext
-              publishing:noindex: false
-              /publishing:content:
-                jcr:primaryType: hippostd:html
-                hippostd:content: "<p>To do this we will:&nbsp;</p><ul> \n <li>develop\
-                  \ a new operating model for people undertaking digital transformation\
-                  \ projects&nbsp;&nbsp;</li> \n <li>own and continually improve the\
-                  \ standards that everyone needs to meet&nbsp;</li> \n <li>publish\
-                  \ guidance on a wide range of topics to support how people approach\
-                  \ the delivery of digital public services&nbsp;</li> \n</ul>"
-          /publishing:items[2]:
-            jcr:primaryType: publishing:cb_accordionpanel
-            publishing:title: Supporting colleagues to embrace news ways of working 
-            /publishing:contentBlocks:
-              jcr:primaryType: publishing:cb_richtext
-              publishing:noindex: false
-              /publishing:content:
-                jcr:primaryType: hippostd:html
-                hippostd:content: "<p>We will support others to adapt and adopt standards\
-                  \ through&nbsp;&nbsp;</p><ul> \n <li>Tools&nbsp;</li> \n <li>expert\
-                  \ advice for those subject to the Technology Assurance Framework\
-                  \ (TAF), specifically for those with presumed low-medium digital\
-                  \ capability and maturity&nbsp;</li> \n</ul><ul> \n <li>access to\
-                  \ communities of practice to share ideas, ask for advice and build\
-                  \ connections&nbsp;</li> \n <li>we will work in partnership with\
-                  \ the Scottish Digital Academy to identify and develop training\
-                  \ courses for those with low-medium digital capability and maturity&nbsp;</li>\
-                  \ \n</ul>"
-          /publishing:items[3]:
-            jcr:primaryType: publishing:cb_accordionpanel
-            publishing:title: Giving colleagues the things they need to build and
-              scale digital public services 
-            /publishing:contentBlocks:
-              jcr:primaryType: publishing:cb_richtext
-              publishing:noindex: false
-              /publishing:content:
-                jcr:primaryType: hippostd:html
-                hippostd:content: "<p>The manual will become the single source of\
-                  \ assets that people need to follow guidance and meet our standards,\
-                  \ assets that will be available are:&nbsp;</p><ul> \n <li>Templates&nbsp;</li>\
-                  \ \n <li>Patterns&nbsp;</li> \n <li>Repositories&nbsp;</li> \n <li>Common\
-                  \ components such as Cloud platform, identity (ScotAccount) and\
-                  \ payments (ScotPayments)&nbsp;&nbsp;</li> \n</ul>"
-        /publishing:contentBlocks[3]:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p><strong></strong></p><ul> \n</ul><p><strong></strong></p><ul>\
-                \ \n</ul><p><strong></strong></p><ul> \n</ul>"
   /banners:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:versionable']
-    jcr:uuid: a27acc1f-7c62-4b82-a956-840abde588c9
+    jcr:uuid: dc1f3566-5fa9-4cb6-ae8e-eba2d44c62cd
     hippo:name: banners
     hippostd:foldertype: [new-mourning-banner, new-notification-banner, new-phase-banner]
-    /beta-banner:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 88fe0029-eef7-426c-b5f5-4fd755bfdc5b
-      hippo:name: beta banner
-      hippo:versionHistory: 610b8377-5c53-4416-8f33-205b5eb9b43d
-      /beta-banner[1]:
-        jcr:primaryType: publishing:phasebanner
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: e81cf365-5cef-4b10-870f-4c7267e1a0d8
-        hippo:availability: []
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
-        hippostdpubwf:creationDate: 2024-01-17T16:14:31.061Z
-        hippostdpubwf:lastModificationDate: 2024-01-31T14:44:46.227Z
-        hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-        hippotranslation:id: b10b2da5-8d43-4052-b869-2e7bb2dd623c
-        hippotranslation:locale: document-type-locale
-        publishing:tag: Beta
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: This is a new service. Your <a href="mailto:DSSM@gov.scot">feedback</a>
-            will help us to improve it.
-      /beta-banner[2]:
-        jcr:primaryType: publishing:phasebanner
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: 7b8cf353-d632-40a4-af45-c806e83db24c
-        hippo:availability: [preview]
-        hippostd:retainable: false
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
-        hippostdpubwf:creationDate: 2024-01-17T16:14:31.061Z
-        hippostdpubwf:lastModificationDate: 2024-01-31T14:44:46.136Z
-        hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-        hippotranslation:id: b10b2da5-8d43-4052-b869-2e7bb2dd623c
-        hippotranslation:locale: document-type-locale
-        publishing:tag: Beta
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: This is a new service. Your <a href="mailto:DSSM@gov.scot">feedback</a>
-            will help us to improve it.
-      /beta-banner[3]:
-        jcr:primaryType: publishing:phasebanner
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 12d6521a-f55b-437a-ac72-0bc90e7c2f60
-        hippo:availability: [live]
-        hippostd:retainable: false
-        hippostd:state: published
-        hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
-        hippostdpubwf:creationDate: 2024-01-17T16:14:31.061Z
-        hippostdpubwf:lastModificationDate: 2024-01-31T14:44:46.136Z
-        hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-        hippostdpubwf:publicationDate: 2024-02-02T18:06:08.196Z
-        hippotranslation:id: b10b2da5-8d43-4052-b869-2e7bb2dd623c
-        hippotranslation:locale: document-type-locale
-        publishing:tag: Beta
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: This is a new service. Your <a href="mailto:DSSM@gov.scot">feedback</a>
-            will help us to improve it.
   /search:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: c1eec9a4-790d-4af6-a90d-5943eb7504a3
-    hippostd:foldertype: [new-collection, new-document, new-search-document]
+    jcr:uuid: a7c38d8b-ea52-4ac8-b593-85a242287f67
+    hippostd:foldertype: [new-search-document]
     /search-results:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 5831e0ab-5dfe-4ca4-8bcf-e27e9b691766
-      hippo:name: Search
-      hippo:versionHistory: 250b9195-1870-47a1-ac94-a15ef8c1522a
+      jcr:uuid: 7b4a3aae-fc68-4f8f-9065-f21e09f28190
+      hippo:name: search
+      hippo:versionHistory: cfc65ba0-b5ce-48e7-bb0f-5390238c7c16
       /search-results[1]:
         jcr:primaryType: publishing:search
-        jcr:mixinTypes: ['mix:versionable']
-        jcr:uuid: d003549c-6d2c-4b5d-8a1f-00085b829410
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 78b81b8e-808e-42e0-b0a2-c0a54ceeb3b4
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-12T10:25:34.133Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T13:22:52.429Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 34ce7ba4-2ab1-42f0-b7ac-dae3f8bfe57c
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: Search results
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Some contrent in here</p>
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>No results, sorry!</p>
+        /publishing:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>You must enter a search term</p>
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Enter a search term</p>
+      /search-results[2]:
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 74a5eff3-3af9-45a6-8cfe-6e937de9869f
         hippo:availability: [preview]
         hippostd:retainable: false
         hippostd:state: unpublished
-        hippostdpubwf:createdBy: david.sinclair@gov.scot
-        hippostdpubwf:creationDate: 2023-08-08T14:21:21.730+01:00
-        hippostdpubwf:lastModificationDate: 2024-01-24T15:59:12.034Z
-        hippostdpubwf:lastModifiedBy: david.kindness@gov.scot
-        hippotranslation:id: 4d2f2479-b392-477a-ac91-59bcd08b8a7a
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-12T10:25:34.133Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T13:23:01.537Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 34ce7ba4-2ab1-42f0-b7ac-dae3f8bfe57c
         hippotranslation:locale: document-type-locale
         publishing:showFeedback: true
-        publishing:title: Search
-        /publishing:blankSearchQueryMessageContentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: <p><strong></strong><strong>0 results</strong>, please
-                fill in the search field.</p>
-        /publishing:noResultsMessageContentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p><strong>There are no matching results.</strong></p><p>Improve\
-                \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
-                \ \n <li>using fewer keywords</li> \n <li>searching for something\
-                \ less specific</li> \n</ul>"
-      /search-results[2]:
+        publishing:title: Search results
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Some contrent in here</p>
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>No results, sorry!</p>
+        /publishing:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>You must enter a search term</p>
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Enter a search term</p>
+      /search-results[3]:
         jcr:primaryType: publishing:search
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: f398a6ea-80b1-4662-8e79-66b3805c14f2
+        jcr:uuid: 61d105d9-37a1-4192-a6a7-5f815a9ba25a
         hippo:availability: [live]
         hippostd:retainable: false
         hippostd:state: published
-        hippostdpubwf:createdBy: david.sinclair@gov.scot
-        hippostdpubwf:creationDate: 2023-08-08T14:21:21.730+01:00
-        hippostdpubwf:lastModificationDate: 2024-01-24T15:59:12.034Z
-        hippostdpubwf:lastModifiedBy: david.kindness@gov.scot
-        hippostdpubwf:publicationDate: 2024-04-03T13:36:52.032+01:00
-        hippotranslation:id: 4d2f2479-b392-477a-ac91-59bcd08b8a7a
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-01-12T10:25:34.133Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T13:23:01.537Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2024-01-12T13:23:03.711Z
+        hippotranslation:id: 34ce7ba4-2ab1-42f0-b7ac-dae3f8bfe57c
         hippotranslation:locale: document-type-locale
         publishing:showFeedback: true
-        publishing:title: Search
-        /publishing:noResultsMessageContentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p><strong>There are no matching results.</strong></p><p>Improve\
-                \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
-                \ \n <li>using fewer keywords</li> \n <li>searching for something\
-                \ less specific</li> \n</ul>"
-        /publishing:blankSearchQueryMessageContentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: <p><strong></strong><strong>0 results</strong>, please
-                fill in the search field.</p>
-  /privacy---user-research-survey:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 9209a6d8-2f49-41ba-9058-954985a2411e
-    hippo:name: Privacy - user research survey
-    hippo:versionHistory: 0baf3e97-a581-452d-9a9e-ae4fc54fd181
-    /privacy---user-research-survey[1]:
-      jcr:primaryType: publishing:article
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: 8e0e2e00-05f3-4499-8eb4-3e68778d3ab7
-      hippo:availability: []
-      hippostd:retainable: false
-      hippostd:state: draft
-      hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
-      hippostdpubwf:creationDate: 2024-06-17T10:53:57.567+01:00
-      hippostdpubwf:lastModificationDate: 2024-07-29T10:27:08.435+01:00
-      hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-      hippotranslation:id: 32504b2b-21d1-4a81-be29-9e8aa911e361
-      hippotranslation:locale: document-type-locale
-      publishing:audience: ''
-      publishing:authorNotes: ''
-      publishing:contentitemlanguage: en
-      publishing:lifeEvents: []
-      publishing:metaDescription: Privacy Notice for Digital Scotland Service Manual
-        (DSSM), Digital Directorate
-      publishing:noindex: false
-      publishing:organisationtags: []
-      publishing:reportingtags: []
-      publishing:sensitive: false
-      publishing:seoTitle: Privacy - user research survey
-      publishing:serviceproviders: []
-      publishing:showFeedback: true
-      publishing:showInParent: true
-      publishing:slug: privacy-user-research-survey
-      publishing:summary: Privacy Notice for Digital Scotland Service Manual (DSSM),
-        Digital Directorate
-      publishing:title: Privacy - user research survey
-      publishing:userneed: ''
-      /publishing:contentOwner:
-        jcr:primaryType: hippo:mirror
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-      /publishing:logo:
-        jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /publishing:contentBlocks:
-        jcr:primaryType: publishing:cb_richtext
-        publishing:noindex: false
-        /publishing:contentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: "<h2>Who we are and what data we're collecting about\
-              \ you</h2><p>We’re user researchers working with a team in the People,\
-              \ Strategy and Corporate Services division of the Scottish Government’\
-              s Digital Directorate. If you submit your responses to our survey, you'll\
-              \ automatically share your email address with us. We're collecting and\
-              \ processing the following information about you:&nbsp;</p><ul> \n <li>\
-              \ <p>your name</p> </li> \n <li> <p>your email</p> </li> \n <li> <p>basic\
-              \ information about your job</p> </li> \n <li> <p>basic information\
-              \ about your experience, if any, of working on a digital project</p>\
-              \ </li> \n</ul><p>Under the UK General Data Protection Regulation (UK\
-              \ GDPR), the lawful basis we rely on for processing this information\
-              \ is Article 6(a) of the UK GDPR: Consent.</p><h2>Why we're processing\
-              \ this data</h2><p>We're processing this data so we can understand your\
-              \ professional background and invite you to research sessions.</p><h2>How\
-              \ long we'll keep your data</h2><p>We'll store your data for one year\
-              \ from when you shared it with us. Then we’ll delete it. We'll keep\
-              \ it in secure computer folders that only a small team of researchers\
-              \ can access.</p><h2>Your rights</h2><p>Your rights are:</p><ul> \n\
-              \ <li> <p>it's up to you if you decide to submit this survey. You do\
-              \ not have to do it because you have a job with the Scottish Government</p>\
-              \ </li> \n <li> <p>you do not have to take part in research because\
-              \ you have a job with the Scottish Government</p> </li> \n <li> <p>you\
-              \ have the right to ask us to delete or update any data we hold about\
-              \ you at any point. You can do this by emailing&nbsp;<a href=\"mailto:UserResearch-DSSM@gov.scot\"\
-              >UserResearch-DSSM@gov.scot</a>. If you do this, we will respond to\
-              \ you in one month or less &nbsp;</p> </li> \n <li> <p>if you're concerned\
-              \ about how we collected or used your data, you can contact the Scottish\
-              \ Government Data Protection Office at&nbsp;<a href=\"mailto:DataProtectionOfficer@gov.scot\"\
-              >DataProtectionOfficer@gov.scot</a>. They check that we keep what people\
-              \ tell us private</p> </li> \n</ul><p>If you're still concerned about\
-              \ data protection, you can contact the Information Commissioner's Office\
-              \ (ICO). You can contact the ICO:</p><ul> \n <li> <p>by email on&nbsp;<a\
-              \ href=\"mailto:casework@ico.org.uk\">casework@ico.org.uk</a></p> </li>\
-              \ \n <li> <p>by phone on 0303 123 1113</p> </li> \n</ul><p>You can also\
-              \ write to the ICO. Send your letter to:<br> The Information Commissioner’\
-              s Office – Scotland<br> Queen Elizabeth House<br> Sibbald Walk<br> Edinburgh<br>\
-              \ EH8 8FT</p>"
-    /privacy---user-research-survey[2]:
-      jcr:primaryType: publishing:article
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
-      jcr:uuid: 9f5bf979-07c1-4ccf-9439-7693767e3237
-      hippo:availability: [preview]
-      hippostd:retainable: false
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
-      hippostdpubwf:creationDate: 2024-06-17T10:53:57.567+01:00
-      hippostdpubwf:lastModificationDate: 2024-07-29T10:27:08.281+01:00
-      hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-      hippotranslation:id: 32504b2b-21d1-4a81-be29-9e8aa911e361
-      hippotranslation:locale: document-type-locale
-      publishing:audience: ''
-      publishing:authorNotes: ''
-      publishing:contentitemlanguage: en
-      publishing:lifeEvents: []
-      publishing:metaDescription: Privacy Notice for Digital Scotland Service Manual
-        (DSSM), Digital Directorate
-      publishing:noindex: false
-      publishing:organisationtags: []
-      publishing:reportingtags: []
-      publishing:sensitive: false
-      publishing:seoTitle: Privacy - user research survey
-      publishing:serviceproviders: []
-      publishing:showFeedback: true
-      publishing:showInParent: true
-      publishing:slug: privacy-user-research-survey
-      publishing:summary: Privacy Notice for Digital Scotland Service Manual (DSSM),
-        Digital Directorate
-      publishing:title: Privacy - user research survey
-      publishing:userneed: ''
-      /publishing:contentOwner:
-        jcr:primaryType: hippo:mirror
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-      /publishing:logo:
-        jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /publishing:contentBlocks:
-        jcr:primaryType: publishing:cb_richtext
-        publishing:noindex: false
-        /publishing:contentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: "<h2>Who we are and what data we're collecting about\
-              \ you</h2><p>We’re user researchers working with a team in the People,\
-              \ Strategy and Corporate Services division of the Scottish Government’\
-              s Digital Directorate. If you submit your responses to our survey, you'll\
-              \ automatically share your email address with us. We're collecting and\
-              \ processing the following information about you:&nbsp;</p><ul> \n <li>\
-              \ <p>your name</p> </li> \n <li> <p>your email</p> </li> \n <li> <p>basic\
-              \ information about your job</p> </li> \n <li> <p>basic information\
-              \ about your experience, if any, of working on a digital project</p>\
-              \ </li> \n</ul><p>Under the UK General Data Protection Regulation (UK\
-              \ GDPR), the lawful basis we rely on for processing this information\
-              \ is Article 6(a) of the UK GDPR: Consent.</p><h2>Why we're processing\
-              \ this data</h2><p>We're processing this data so we can understand your\
-              \ professional background and invite you to research sessions.</p><h2>How\
-              \ long we'll keep your data</h2><p>We'll store your data for one year\
-              \ from when you shared it with us. Then we’ll delete it. We'll keep\
-              \ it in secure computer folders that only a small team of researchers\
-              \ can access.</p><h2>Your rights</h2><p>Your rights are:</p><ul> \n\
-              \ <li> <p>it's up to you if you decide to submit this survey. You do\
-              \ not have to do it because you have a job with the Scottish Government</p>\
-              \ </li> \n <li> <p>you do not have to take part in research because\
-              \ you have a job with the Scottish Government</p> </li> \n <li> <p>you\
-              \ have the right to ask us to delete or update any data we hold about\
-              \ you at any point. You can do this by emailing&nbsp;<a href=\"mailto:UserResearch-DSSM@gov.scot\"\
-              >UserResearch-DSSM@gov.scot</a>. If you do this, we will respond to\
-              \ you in one month or less &nbsp;</p> </li> \n <li> <p>if you're concerned\
-              \ about how we collected or used your data, you can contact the Scottish\
-              \ Government Data Protection Office at&nbsp;<a href=\"mailto:DataProtectionOfficer@gov.scot\"\
-              >DataProtectionOfficer@gov.scot</a>. They check that we keep what people\
-              \ tell us private</p> </li> \n</ul><p>If you're still concerned about\
-              \ data protection, you can contact the Information Commissioner's Office\
-              \ (ICO). You can contact the ICO:</p><ul> \n <li> <p>by email on&nbsp;<a\
-              \ href=\"mailto:casework@ico.org.uk\">casework@ico.org.uk</a></p> </li>\
-              \ \n <li> <p>by phone on 0303 123 1113</p> </li> \n</ul><p>You can also\
-              \ write to the ICO. Send your letter to:<br> The Information Commissioner’\
-              s Office – Scotland<br> Queen Elizabeth House<br> Sibbald Walk<br> Edinburgh<br>\
-              \ EH8 8FT</p>"
-    /privacy---user-research-survey[3]:
-      jcr:primaryType: publishing:article
-      jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
-      jcr:uuid: 5335fa76-045a-4ed7-bfe7-9de6ad4e9410
-      hippo:availability: [live]
-      hippostd:retainable: false
-      hippostd:state: published
-      hippostdpubwf:createdBy: paul.wellingsclare@gov.scot
-      hippostdpubwf:creationDate: 2024-06-17T10:53:57.567+01:00
-      hippostdpubwf:lastModificationDate: 2024-07-29T10:27:08.281+01:00
-      hippostdpubwf:lastModifiedBy: paul.wellingsclare@gov.scot
-      hippostdpubwf:publicationDate: 2024-07-29T10:27:11.463+01:00
-      hippotranslation:id: 32504b2b-21d1-4a81-be29-9e8aa911e361
-      hippotranslation:locale: document-type-locale
-      publishing:audience: ''
-      publishing:authorNotes: ''
-      publishing:contentitemlanguage: en
-      publishing:lifeEvents: []
-      publishing:metaDescription: Privacy Notice for Digital Scotland Service Manual
-        (DSSM), Digital Directorate
-      publishing:noindex: false
-      publishing:organisationtags: []
-      publishing:reportingtags: []
-      publishing:sensitive: false
-      publishing:seoTitle: Privacy - user research survey
-      publishing:serviceproviders: []
-      publishing:showFeedback: true
-      publishing:showInParent: true
-      publishing:slug: privacy-user-research-survey
-      publishing:summary: Privacy Notice for Digital Scotland Service Manual (DSSM),
-        Digital Directorate
-      publishing:title: Privacy - user research survey
-      publishing:userneed: ''
-      /publishing:contentOwner:
-        jcr:primaryType: hippo:mirror
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-      /publishing:logo:
-        jcr:primaryType: hippogallerypicker:imagelink
-        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        hippo:facets: []
-        hippo:modes: []
-        hippo:values: []
-      /publishing:contentBlocks:
-        jcr:primaryType: publishing:cb_richtext
-        publishing:noindex: false
-        /publishing:contentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: "<h2>Who we are and what data we're collecting about\
-              \ you</h2><p>We’re user researchers working with a team in the People,\
-              \ Strategy and Corporate Services division of the Scottish Government’\
-              s Digital Directorate. If you submit your responses to our survey, you'll\
-              \ automatically share your email address with us. We're collecting and\
-              \ processing the following information about you:&nbsp;</p><ul> \n <li>\
-              \ <p>your name</p> </li> \n <li> <p>your email</p> </li> \n <li> <p>basic\
-              \ information about your job</p> </li> \n <li> <p>basic information\
-              \ about your experience, if any, of working on a digital project</p>\
-              \ </li> \n</ul><p>Under the UK General Data Protection Regulation (UK\
-              \ GDPR), the lawful basis we rely on for processing this information\
-              \ is Article 6(a) of the UK GDPR: Consent.</p><h2>Why we're processing\
-              \ this data</h2><p>We're processing this data so we can understand your\
-              \ professional background and invite you to research sessions.</p><h2>How\
-              \ long we'll keep your data</h2><p>We'll store your data for one year\
-              \ from when you shared it with us. Then we’ll delete it. We'll keep\
-              \ it in secure computer folders that only a small team of researchers\
-              \ can access.</p><h2>Your rights</h2><p>Your rights are:</p><ul> \n\
-              \ <li> <p>it's up to you if you decide to submit this survey. You do\
-              \ not have to do it because you have a job with the Scottish Government</p>\
-              \ </li> \n <li> <p>you do not have to take part in research because\
-              \ you have a job with the Scottish Government</p> </li> \n <li> <p>you\
-              \ have the right to ask us to delete or update any data we hold about\
-              \ you at any point. You can do this by emailing&nbsp;<a href=\"mailto:UserResearch-DSSM@gov.scot\"\
-              >UserResearch-DSSM@gov.scot</a>. If you do this, we will respond to\
-              \ you in one month or less &nbsp;</p> </li> \n <li> <p>if you're concerned\
-              \ about how we collected or used your data, you can contact the Scottish\
-              \ Government Data Protection Office at&nbsp;<a href=\"mailto:DataProtectionOfficer@gov.scot\"\
-              >DataProtectionOfficer@gov.scot</a>. They check that we keep what people\
-              \ tell us private</p> </li> \n</ul><p>If you're still concerned about\
-              \ data protection, you can contact the Information Commissioner's Office\
-              \ (ICO). You can contact the ICO:</p><ul> \n <li> <p>by email on&nbsp;<a\
-              \ href=\"mailto:casework@ico.org.uk\">casework@ico.org.uk</a></p> </li>\
-              \ \n <li> <p>by phone on 0303 123 1113</p> </li> \n</ul><p>You can also\
-              \ write to the ICO. Send your letter to:<br> The Information Commissioner’\
-              s Office – Scotland<br> Queen Elizabeth House<br> Sibbald Walk<br> Edinburgh<br>\
-              \ EH8 8FT</p>"
+        publishing:title: Search results
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Some contrent in here</p>
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>No results, sorry!</p>
+        /publishing:html:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>You must enter a search term</p>
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p>Enter a search term</p>

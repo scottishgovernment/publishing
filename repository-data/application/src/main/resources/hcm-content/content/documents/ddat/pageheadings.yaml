@@ -23,6 +23,9 @@
       hippotranslation:locale: document-type-locale
       publishing:alt: ''
       publishing:title: Digital, Data and Technology
+      /publishing:description:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
       /publishing:image:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -44,6 +47,9 @@
       hippotranslation:locale: document-type-locale
       publishing:alt: ''
       publishing:title: Digital, Data and Technology
+      /publishing:description:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
       /publishing:image:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -66,6 +72,9 @@
       hippotranslation:locale: document-type-locale
       publishing:alt: ''
       publishing:title: Digital, Data and Technology
+      /publishing:description:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
       /publishing:image:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -93,18 +102,15 @@
       hippotranslation:locale: document-type-locale
       publishing:alt: ''
       publishing:title: Vacancies
+      /publishing:description:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Vacancies introduction</p>
       /publishing:image:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:descriptionContentBlocks:
-        jcr:primaryType: publishing:cb_richtext
-        publishing:noindex: false
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: <p>Vacancies introduction</p>
     /vacancies[2]:
       jcr:primaryType: publishing:pageheading
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -120,18 +126,15 @@
       hippotranslation:locale: document-type-locale
       publishing:alt: ''
       publishing:title: Vacancies
+      /publishing:description:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Vacancies introduction</p>
       /publishing:image:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:descriptionContentBlocks:
-        jcr:primaryType: publishing:cb_richtext
-        publishing:noindex: false
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: <p>Vacancies introduction</p>
     /vacancies[3]:
       jcr:primaryType: publishing:pageheading
       jcr:mixinTypes: ['mix:referenceable']
@@ -148,15 +151,12 @@
       hippotranslation:locale: document-type-locale
       publishing:alt: ''
       publishing:title: Vacancies
+      /publishing:description:
+        jcr:primaryType: hippostd:html
+        hippostd:content: <p>Vacancies introduction</p>
       /publishing:image:
         jcr:primaryType: hippogallerypicker:imagelink
         hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
         hippo:facets: []
         hippo:modes: []
         hippo:values: []
-      /publishing:descriptionContentBlocks:
-        jcr:primaryType: publishing:cb_richtext
-        publishing:noindex: false
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: <p>Vacancies introduction</p>

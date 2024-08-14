@@ -5,7 +5,7 @@ definitions:
       jcr:mixinTypes: ['hipposys:implementation']
       hippostd:icon: addfolder_ico
       hippostd:modify: [./_name, $name, './hippotranslation:id', $uuid, './hippotranslation:locale',
-        $inherited]
+                        $inherited]
       hipposys:classname: org.hippoecm.repository.impl.query.DirectPath
       jcr:language: xpath
       jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-publishing-smartanswer/hippostd:templates/node()
@@ -38,18 +38,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [aberdeen-city-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /aberdeenshire-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -71,18 +68,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [aberdeenshire-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /angus-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -104,18 +98,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [angus-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /argyll--bute-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -137,18 +128,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [argyll-bute-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /clackmannanshire-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -170,18 +158,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [clackmannanshire-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /comhairle-nan-eilean-siar-western-isles-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -203,18 +188,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [comhairle-nan-eilean-siar-western-isles-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /dumfries-and-galloway-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -236,18 +218,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [dumfries-and-galloway-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /dundee-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -269,18 +248,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [dundee-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>conetent</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>conetent</p>
           /east-ayrshire-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -302,18 +278,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [east-ayrshire-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /east-dunbartonshire-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -335,18 +308,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [east-dunbartonshire-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /east-lothian-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -368,18 +338,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [east-lothian-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /east-renfrewshire-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -401,18 +368,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [east-renfrewshire-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /edinburgh-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -434,18 +398,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [city-of-edinburgh-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /falkirk-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -467,18 +428,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [falkirk-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /fife-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -500,18 +458,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [fife-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /glasgow-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -533,18 +488,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [glasgow-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /highland-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -566,18 +518,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [highland-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /inverclyde-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -599,18 +548,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [inverclyde-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /midlothian-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -633,18 +579,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [midlothian-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /moray-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -666,18 +609,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [moray-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /north-ayrshire-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -699,18 +639,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [north-ayrshire-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /north-lanarkshire-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -732,18 +669,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [north-lanarkshire-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /orkney-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -765,18 +699,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [orkney-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /perth--kinross-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -799,18 +730,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [perth-kinross-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /renfrewshire-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -832,18 +760,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [renfrewshire-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /scottish-borders-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -865,18 +790,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [scottish-borders-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /shetland-islands-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -898,18 +820,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [shetland-islands-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /south-ayrshire-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -931,18 +850,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [south-ayrshire-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /south-lanarkshire-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -964,18 +880,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [south-lanarkshire-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /stirling-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -997,18 +910,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [stirling-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /west-dunbartonshire-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -1030,18 +940,15 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: [west-dunbartonshire-council]
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
           /west-lothian-council:
             jcr:primaryType: hippo:handle
             jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
@@ -1063,15 +970,12 @@ definitions:
               publishing:authorNotes: ''
               publishing:localauthorities: []
               publishing:organisationtags: []
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>content</p>
               /publishing:contentOwner:
                 jcr:primaryType: hippo:mirror
                 hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
               /publishing:authorNotes:
                 jcr:primaryType: hippostd:html
                 hippostd:content: ''
-              /publishing:contentBlocks:
-                jcr:primaryType: publishing:cb_richtext
-                publishing:noindex: false
-                /publishing:content:
-                  jcr:primaryType: hippostd:html
-                  hippostd:content: <p>content</p>
