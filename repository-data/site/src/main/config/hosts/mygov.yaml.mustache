@@ -45,6 +45,20 @@ definitions:
           publishing:gtm: /content/documents/mygov/administration/analytics/{{gtm}}
           publishing:recaptcha: /content/documents/mygov/administration/recaptcha/{{recaptcha}}
           hst:locale: en_GB
+    /hst:hst/hst:hosts/{{name}}/site/itecs/{{name}}:
+      jcr:primaryType: hst:virtualhost
+      /mygov:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:alias: mygov-site
+          hst:mountpoint: /hst:publishing/hst:sites/mygov
+          hst:schemeagnostic: true
+          hst:nochannelinfo: true
+          publishing:alias: mygov
+          publishing:gtm: /content/documents/mygov/administration/analytics/{{gtm}}
+          publishing:recaptcha: /content/documents/mygov/administration/recaptcha/{{recaptcha}}
+          hst:locale: en_GB
 {{/environments}}
     /hst:hst/hst:hosts/production/scot/mygov/www:
       jcr:primaryType: hst:virtualhost
