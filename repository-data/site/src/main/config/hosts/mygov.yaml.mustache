@@ -3,6 +3,7 @@ definitions:
     /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/mygov:
       .meta:residual-child-node-category: content
       jcr:primaryType: hst:mount
+      hst:alias: mygov
       hst:mountpoint: /hst:publishing/hst:sites/mygov
       hst:locale: en_GB
       publishing:gtm: /content/documents/mygov/administration/analytics/dev
@@ -23,6 +24,7 @@ definitions:
         jcr:primaryType: hst:virtualhost
         /hst:root:
           jcr:primaryType: hst:mount
+          hst:alias: mygov
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
           publishing:gtm: /content/documents/mygov/administration/analytics/{{gtm}}
@@ -48,6 +50,7 @@ definitions:
       jcr:primaryType: hst:virtualhost
       /hst:root:
         jcr:primaryType: hst:mount
+        hst:alias: mygov
         hst:mountpoint: /hst:publishing/hst:sites/mygov
         hst:schemeagnostic: true
         publishing:gtm: /content/documents/mygov/administration/analytics/live
@@ -66,4 +69,3 @@ definitions:
         publishing:gtm: /content/documents/mygov/administration/analytics/live
         publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
         hst:locale: en_GB
-
