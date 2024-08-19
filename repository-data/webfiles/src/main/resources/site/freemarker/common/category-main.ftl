@@ -7,12 +7,12 @@
 
 <div class="cms-editable">
     <@hst.manageContent hippobean=document />
+    <@hst.include ref="breadcrumbs"/>
 
 
     <main id="main-content">
 
         <div class="category-upper">
-            <@hst.include ref="breadcrumbs"/>
 
             <div class="ds_wrapper">
                 <header class="ds_feature-header  ds_feature-header--wide">
