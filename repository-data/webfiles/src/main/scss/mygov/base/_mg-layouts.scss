@@ -373,3 +373,18 @@ $site-prefix: 'mg_';
         }
     }
 }
+
+/// MGS-7728 Category list: grey-background area does not extend all the way to the footer on short pages
+
+.ds_page__middle:has(.category-lower) {
+    grid-template-rows: auto;
+
+    > .cms-editable {
+        display: grid;
+    }
+
+    > .cms-editable > #main-content {
+        display: grid;
+        grid-template-rows: auto 1fr;
+    }
+}
