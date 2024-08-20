@@ -379,8 +379,12 @@ $site-prefix: 'mg_';
 .ds_page__middle:has(.category-lower) {
     grid-template-rows: auto;
 
+    &:has(.ds_breadcrumbs) {
+        grid-template-rows: auto 1fr;
+    }
+
     > .cms-editable {
-        display: grid;
+        display: contents;
     }
 
     > .cms-editable > #main-content {
