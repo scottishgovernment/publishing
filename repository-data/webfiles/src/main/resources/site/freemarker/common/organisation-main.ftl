@@ -61,9 +61,7 @@
                         <p>${document.summary}</p>
                     </#if>
 
-                    <#if document.noticesContentBlocks??>
-                        <@renderContentBlocks document.noticesContentBlocks />
-                    </#if>
+                    <@hst.html hippohtml=document.notices/>
                 </section>
             </div>
 
