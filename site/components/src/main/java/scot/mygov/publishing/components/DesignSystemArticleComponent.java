@@ -20,12 +20,10 @@ public class DesignSystemArticleComponent extends ArticleComponent {
         if (!hasContentBean(request)) {
             return;
         }
-
         HippoBean contentBean = request.getRequestContext().getContentBean();
         request.setAttribute("isNew", isNew(contentBean));
         request.setAttribute("type", type(request, contentBean));
         request.setAttribute("date", date(contentBean));
-
         request.setAttribute("format", "Article");
         HippoBean topLevelAncestor = topLevelAncestor(contentBean, request.getRequestContext().getSiteContentBaseBean());
         String topLevelTitle = title(topLevelAncestor);
@@ -58,9 +56,11 @@ public class DesignSystemArticleComponent extends ArticleComponent {
     }
 
     HippoBean topLevelAncestor(HippoBean contentBean, HippoBean baseBean) {
+        HippoBean browseFolder = baseBean.getBean("browse");
+
         // get the parents until we reach a folder whose parent is the site base bean ... then get the index
         HippoBean bean = contentBean;
-        while (!isTopLevelParent(bean, baseBean)) {
+        while (!isTopLevelParent(bean, browseFolder)) {
             bean = bean.getParentBean();
         }
         return bean.getBean("index");
