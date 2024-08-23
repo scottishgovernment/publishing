@@ -8,7 +8,6 @@
 import BloomreachWebfile from './tools/bloomreach-webfile';
 import ContentSelect from './components/content-select';
 import NotificationBanner from './components/notification';
-import removeDisallowedCookies from './tools/remove-disallowed-cookies';
 import Tabs from './components/mygov/old-ds-tabs';
 import ToggleLink from './components/toggle-link';
 import UpdateHistory from './components/update-history';
@@ -259,7 +258,7 @@ const global = {
 
         if (!storage.isJsonString(permissionsString)) {
             const permissions = {};
-            permissions.statistics = true;
+            permissions.statistics = false;
             permissions.preferences = true;
 
             storage.setCookie(storage.categories.necessary,
@@ -284,36 +283,9 @@ const global = {
 
         // bind a click handler to the close button
         cookieNotice.addEventListener('click', function (event) {
-            if (event.target.classList.contains('js-accept-cookie')) {
+            if (event.target.classList.contains('js-accept-all-cookies')) {
                 event.preventDefault();
-
-                const cookiePermissions = JSON.parse(JSON.stringify(storage.categories));
-                for (const key in cookiePermissions) {
-                    if (!cookiePermissions.hasOwnProperty(key)) { continue; }
-
-                    cookiePermissions[key] = true;
-                }
-
-                storage.setCookie(
-                    storage.categories.necessary,
-                    'cookiePermissions',
-                    JSON.stringify(cookiePermissions),
-                    365
-                );
-
-                storage.setCookie(
-                    storage.categories.necessary,
-                    'cookie-notification-acknowledged',
-                    'yes',
-                    365
-                );
-
-                document.querySelector('.js-initial-cookie-content').classList.add('fully-hidden');
-                document.querySelector('.js-confirm-cookie-content').classList.remove('fully-hidden');
-            }
-
-            if (event.target.classList.contains('js-accept-essential-cookies')) {
-                removeDisallowedCookies();
+                window.initGTM();
             }
         });
     }
