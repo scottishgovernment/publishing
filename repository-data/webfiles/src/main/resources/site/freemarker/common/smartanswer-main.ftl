@@ -76,8 +76,8 @@
 
                                     <${fieldsetElName} class="mg_no-margin--last-child  " id="question-${question.name}" data-validation="<#if questionType='radiobuttons'>requiredRadio<#elseif questionType='checkboxes'>atLeastOneCheckbox</#if>">
                                         <${legendElName} class="ds_page-header">
-                                            <span class="mg_smart-answer__parent-title">${document.title}</span>
-                                            <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">
+                                            <span aria-hidden="true" id="question-${question.name}-parent" class="mg_smart-answer__parent-title"><span class="visually-hidden">Part of:</span> ${document.title}</span>
+                                            <h1 aria-describedby="question-${question.name}-parent" class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">
                                                 ${question.title}
                                             </h1>
                                         </${legendElName}>

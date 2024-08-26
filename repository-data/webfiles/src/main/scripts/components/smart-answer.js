@@ -99,6 +99,11 @@ class SmartAnswer {
         return url;
     }
 
+    clearErrorSummary() {
+        const errorSummaryItems = [].slice.call(this.errorSummary.querySelectorAll('.ds_error-summary__list li'));
+        errorSummaryItems.forEach(item => item.parentNode.removeChild(item));
+    }
+
     getResponsesFromUrl() {
         let responses = [];
         if (this.useHashBangs) {
@@ -199,6 +204,7 @@ class SmartAnswer {
     }
 
     hideErrorSummary() {
+        this.clearErrorSummary();
         this.errorSummary.classList.add('fully-hidden');
         document.title = `${this.stepTitle}`;
     }
@@ -206,6 +212,8 @@ class SmartAnswer {
     initErrorSummary() {
         this.errorSummary.addEventListener('click', (event) => {
             if (event.target.classList.contains('ds_error-summary__link')) {
+                event.preventDefault();
+
                 const targetElement = document.querySelector(event.target.href.substring(event.target.href.indexOf('#')));
 
                 if (targetElement.nodeName === 'FIELDSET') {
@@ -363,7 +371,7 @@ class SmartAnswer {
            for (let i = 0, il = validations.length; i < il; i++) {
                validationChecks.push(commonForms[validations[i]]);
             }
-            commonForms.validateInput(item, validationChecks);
+           commonForms.validateInput(item, validationChecks);
         });
 
         const invalidFields = [].slice.call(stepContainer.querySelectorAll('[aria-invalid="true"]'));
