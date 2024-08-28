@@ -1,5 +1,8 @@
 $legacy-prefix: 'mg_leg_' !default;
 
+.brc-capitalise {
+    text-transform: capitalize;
+}
 
 .#{$legacy-prefix}result {
     position: relative;
@@ -48,6 +51,7 @@ $legacy-prefix: 'mg_leg_' !default;
         border-width: 1px 0;
         overflow: hidden;
         padding: 16px 0 8px;
+        text-wrap: pretty;
     }
 
     .relief {

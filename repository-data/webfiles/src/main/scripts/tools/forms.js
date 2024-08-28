@@ -281,6 +281,21 @@ const commonForms = {
         return valid;
     },
 
+    validScottishPostcode: function (field) {
+        let message = 'Enter a valid postcode in Scotland, for example EH6 6QQ.';
+        let trimmedValue = field.value.trim();
+
+        const scottishPostcodeRegExp = new RegExp('^(AB|DD|DG|EH|FK|G|HS|IV|KA|KW|KY|ML|PA|PH|TD|ZE)[0-9]{1,2} {0,2}[0-9][ABD-HJLN-UW-Z]{2}$');
+        let postcodeValue = trimmedValue.toUpperCase().replace(/\s+/g, '');
+
+        let valid = trimmedValue === '' || postcodeValue.match(scottishPostcodeRegExp) !== null;
+
+        commonForms.toggleFormErrors(field, valid, 'invalid-postcode', 'Postcode', message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-postcode', message);
+
+        return valid;
+    },
+
     validEmail: function (field) {
         const message = 'Enter a valid email address, for example firstname.surname@example.com';
         const trimmedValue = field.value.trim();
@@ -699,11 +714,7 @@ const commonForms = {
                 errorContainer.id = `${fieldId}-errors`;
                 errorContainer.dataset.field = fieldId;
 
-                if (field.querySelector('legend')) {
-                    field.closest('.ds_question').querySelector('legend').insertAdjacentElement('afterend', errorContainer);
-                } else {
-                    field.closest('.ds_question').querySelector('label').insertAdjacentElement('afterend', errorContainer);
-                }
+                document.querySelector(`[for=${field.id}]`).insertAdjacentElement('afterend', errorContainer);
             }
 
             for (let key in field.errors) {
