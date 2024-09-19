@@ -8,27 +8,22 @@
     {% for answer in answers %}
         {% if answer.type !== 'confirm' and answer.type !== 'confirmcheckbox' %}
             <li class="ds_summary-list__item">
-                <span class="ds_summary-list__key">{{answer.title | safe}}</span>
+                <span class="ds_summary-list__key" id="key-{{loop.index}}">{{answer.title | safe}}</span>
                 <span class="ds_summary-list__value">
-                    <span class="visually-hidden">Your answer is:</span>
                     {% if answer.responses.length > 1 %}
-                        <ul class="ds_no-bullets">
-                            {% for response in answer.responses %}
-                                <li><q class="ds_summary-list__answer">{{response.text}}</q></li>
-                            {% endfor %}
-                        </ul>
+                    <ul class="ds_no-bullets">
+                        {% for response in answer.responses %}
+                            <li><q class="ds_summary-list__answer">{{response.text}}</q></li>
+                        {% endfor %}
+                    </ul>
                     {% else %}
-                        <q class="ds_summary-list__answer">{{answer.responses[0].text}}</q>
+                    <q class="ds_summary-list__answer">{{answer.responses[0].text}}</q>
                     {% endif %}
                 </span>
                 <div class="ds_summary-list__actions">
-                    <ul class="ds_summary-list__actions-list">
-                        <li class="ds_summary-list__actions-list-item">
-                            <button class="ds_link  js-change-answer" data-questionid="{{answer.id}}" data-path="{{answer.path}}" data-button="button-change-{{answer.id}}">
-                                Change <span class="visually-hidden">your answer for: <q>{{answer.title | safe}}</q></span>
-                            </button>
-                        </li>
-                    </ul>
+                    <button class="ds_link  js-change-answer" data-questionid="{{answer.id}}" data-path="{{answer.path}}" aria-describedby="key-{{loop.index}}">
+                        Change
+                    </button>
                 </div>
             </li>
         {% endif %}
