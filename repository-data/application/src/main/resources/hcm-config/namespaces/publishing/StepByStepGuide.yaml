@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 222c03b0-40cd-4d01-8db4-44a13e08cbac
+          jcr:uuid: a723ecd1-3437-4f43-a87c-e79048e2cb3f
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -33,7 +33,13 @@ definitions:
             hipposysedit:path: publishing:content
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            hipposysedit:validators: [required]
+          /contentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:contentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required]
           /Step:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -68,7 +74,7 @@ definitions:
           publishing:reportingtags: []
           publishing:serviceproviders: []
           publishing:metaDescription: ''
-          jcr:uuid: e66dcd4a-bec2-49bd-81bf-0a558fa495dd
+          jcr:uuid: 6d4241f1-a8f4-44a4-933c-2729c0d49262
           hippostdpubwf:creationDate: 2022-10-04T10:42:17.231+01:00
           hippostdpubwf:lastModificationDate: 2022-10-04T10:42:17.231+01:00
           /publishing:contentOwner:
@@ -82,6 +88,9 @@ definitions:
             publishing:description: ''
             publishing:labeltype: numbered
             publishing:title: ''
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -143,24 +152,18 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /content:
+          /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            field: content
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: contentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
             hint: Content that will appear above the steps.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /steps:
-            jcr:primaryType: frontend:plugin
-            caption: Steps
-            field: Step
-            hint: The steps that make up this guide
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
@@ -185,6 +188,15 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
+          /steps:
+            jcr:primaryType: frontend:plugin
+            caption: Steps
+            field: Step
+            hint: The steps that make up this guide
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /reportingtags:
             jcr:primaryType: frontend:plugin
             caption: Reporting tags
@@ -323,6 +335,16 @@ definitions:
             hint: The 'Last updated' date displayed in the article heading. If left
               blank no date will be displayed
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /content:
+            jcr:primaryType: frontend:plugin
+            caption: Old content
+            field: content
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions of contenr
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

@@ -40,6 +40,8 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
 
     private static final String HREF = "href";
 
+    private static final String SLUG_PROPERTY = "publishing:slug";
+
     private HippoUtils hippoUtils = new HippoUtils();
 
     @Override
@@ -73,13 +75,22 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
     }
 
     String getStepByStepSlug(Node node) throws RepositoryException {
-        Node doc = node.getParent().getParent();
-        return doc.hasProperty("publishing:slug") ? doc.getProperty("publishing:slug").getString() : null;
+        Node stepByStep = getStepByStep(node);
+        return stepByStep != null ? stepByStep.getProperty(SLUG_PROPERTY).getString() : null;
+    }
+
+    Node getStepByStep(Node node) throws RepositoryException {
+        if (node.isNodeType("hippo:handle")) {
+            return null;
+        }
+
+        return node.hasProperty(SLUG_PROPERTY) ? node : getStepByStep(node.getParent());
     }
 
     boolean isStep(Node node) throws RepositoryException {
         return startsWith(node.getParent().getName(), "publishing:step");
     }
+
     boolean isStepByStep(HippoBean bean) {
         return bean != null && bean instanceof StepByStepGuide;
     }

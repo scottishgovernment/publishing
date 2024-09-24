@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: be665516-934f-43ea-98a2-316a521679e9
+          jcr:uuid: b4386504-ba42-4920-b86a-cf044741735b
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:smartanswerquestion', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -65,7 +65,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:smartanswerconfirmationpage
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 7d87afed-6961-49a3-8511-2b8efe85184e
+          jcr:uuid: 0d95d660-e283-4da0-ad89-3f3e694fbe29
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -109,7 +109,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Content
             field: content
-            hint: Content
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

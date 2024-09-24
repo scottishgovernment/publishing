@@ -28,7 +28,7 @@ public class StepByStepComponent extends EssentialsContentComponent {
 
     private static final Logger LOG = LoggerFactory.getLogger(StepByStepComponent.class);
 
-    private static final String LINK_PATH = "publishing:steps/publishing:content/*/@hippo:docbase";
+    private static final String LINK_PATH = "publishing:steps/publishing:contentBlocks/publishing:content/*/@hippo:docbase";
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -50,7 +50,7 @@ public class StepByStepComponent extends EssentialsContentComponent {
             request.setAttribute("primaryStepByStep", primaryStepByStep.get());
         }
 
-        // this is used to populate related items, we want guide pages to display the related items
+        // this is used to populate related items, we waadnt guide pages to display the related items
         // for the parent guide
         if (contentBean instanceof GuidePage) {
             GuidePage guidePage = (GuidePage) contentBean;
@@ -75,7 +75,9 @@ public class StepByStepComponent extends EssentialsContentComponent {
         try {
             HippoBean scope = request.getRequestContext().getSiteContentBaseBean();
             HstQuery query = createIncomingBeansQuery(bean, scope, LINK_PATH, StepByStepGuide.class, false);
+            LOG.info("incoming {}", query);
             HstQueryResult result = query.execute();
+            LOG.info("incoming count {}", result.getSize());
             return wrappersForStepByStepQueryResults(result.getHippoBeans(), bean, navParam);
         } catch (QueryException e) {
             LOG.error("Query error trying to find step by sides guides for {}", bean.getPath(), e);
@@ -114,11 +116,14 @@ public class StepByStepComponent extends EssentialsContentComponent {
     }
 
     boolean mentionsNode(Step step, HippoDocumentBean bean) {
-        HippoHtml html = step.getContent();
+        List<HippoBean> richTexts = step.getChildBeans("publishing:cb_richtext");
         String handleUUID = bean.getCanonicalHandleUUID();
-        return html.<HippoBean>getChildBeans("hippo:facetselect")
-                .stream()
-                .anyMatch(facet ->  facet.<String>getSingleProperty("hippo:docbase").equals(handleUUID));
+        return richTexts.stream().anyMatch(richText -> {
+            HippoBean content = richText.getBean("publishing:content");
+            return content.<HippoBean>getChildBeans("hippo:facetselect")
+                    .stream()
+                    .anyMatch(facet -> facet.<String>getSingleProperty("hippo:docbase").equals(handleUUID));
+        });
     }
 
     void addGuideStepBySteps(HippoDocumentBean contentBean, HstRequest request, List<StepByStepWrapper> wrappers, String nav) {

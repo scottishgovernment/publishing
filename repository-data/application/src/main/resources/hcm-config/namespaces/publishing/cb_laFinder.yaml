@@ -1,0 +1,232 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/cb_laFinder:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 70a1216e-bb81-4001-bdb1-3ac14e6e5fe7
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 918c2587-3ab6-42ed-b413-1c50bb3dfb13
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: c5252596-ffbd-4481-a432-1ef5cde04170
+          hipposysedit:node: true
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /title:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /placeholder:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:placeholder
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /links:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:links
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:linkwithlabel
+          /noindex:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:noindex
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:cb_laFinder
+          publishing:title: Select your council
+          publishing:placeholder: Choose your council
+          publishing:noindex: false
+          /publishing:links:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Aberdeen City Council
+            publishing:url: https://www.aberdeencity.gov.uk/
+          /publishing:links[2]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Aberdeenshire Council
+            publishing:url: https://www.aberdeenshire.gov.uk/
+          /publishing:links[3]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Angus Council
+            publishing:url: https://www.angus.gov.uk/
+          /publishing:links[4]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Argyll and Bute Council
+            publishing:url: https://www.argyll-bute.gov.uk/
+          /publishing:links[5]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Clackmannanshire Council
+            publishing:url: https://www.clacks.gov.uk/
+          /publishing:links[6]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Comhairle nan Eilean Siar (Western Isles Council)
+            publishing:url: https://cne-siar.gov.uk/
+          /publishing:links[7]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Dumfries and Galloway Council
+            publishing:url: https://www.dumgal.gov.uk/
+          /publishing:links[8]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Dundee City Council
+            publishing:url: https://dundeecity.gov.uk/
+          /publishing:links[9]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: East Ayrshire Council
+            publishing:url: https://www.east-ayrshire.gov.uk
+          /publishing:links[10]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: East Dunbartonshire Council
+            publishing:url: https://www.eastdunbarton.gov.uk/
+          /publishing:links[11]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: East Lothian Council
+            publishing:url: https://www.eastlothian.gov.uk/
+          /publishing:links[12]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: East Renfrewshire Council
+            publishing:url: https://www.eastrenfrewshire.gov.uk/
+          /publishing:links[13]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Edinburgh Council
+            publishing:url: https://www.edinburgh.gov.uk/
+          /publishing:links[14]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Falkirk Council
+            publishing:url: https://www.falkirk.gov.uk/
+          /publishing:links[15]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Fife Council
+            publishing:url: https://www.fife.gov.uk/
+          /publishing:links[16]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Glasgow City Council
+            publishing:url: https://www.glasgow.gov.uk/
+          /publishing:links[17]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Highland Council
+            publishing:url: https://www.highland.gov.uk/
+          /publishing:links[18]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Inverclyde Council
+            publishing:url: https://www.inverclyde.gov.uk/
+          /publishing:links[19]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Midlothian Council
+            publishing:url: https://www.midlothian.gov.uk/
+          /publishing:links[20]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Moray Council
+            publishing:url: http://www.moray.gov.uk/
+          /publishing:links[21]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: North Ayrshire Council
+            publishing:url: https://www.north-ayrshire.gov.uk
+          /publishing:links[22]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: North Lanarkshire Council
+            publishing:url: https://www.northlanarkshire.gov.uk/
+          /publishing:links[23]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Orkney Islands Council
+            publishing:url: https://www.orkney.gov.uk/
+          /publishing:links[24]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Perth and Kinross Council
+            publishing:url: https://www.pkc.gov.uk/
+          /publishing:links[25]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Renfrewshire Council
+            publishing:url: https://www.renfrewshire.gov.uk/
+          /publishing:links[26]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Scottish Borders Council
+            publishing:url: https://www.scotborders.gov.uk/
+          /publishing:links[27]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Shetland Council
+            publishing:url: https://www.shetland.gov.uk/
+          /publishing:links[28]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: South Ayrshire Council
+            publishing:url: https://www.south-ayrshire.gov.uk/
+          /publishing:links[29]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: South Lanarkshire Council
+            publishing:url: https://www.southlanarkshire.gov.uk/
+          /publishing:links[30]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: Stirling Council
+            publishing:url: https://www.stirling.gov.uk/
+          /publishing:links[31]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: West Dunbartonshire Council
+            publishing:url: https://www.west-dunbarton.gov.uk/
+          /publishing:links[32]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: West Lothian Council
+            publishing:url: https://www.westlothian.gov.uk/
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /title:
+            jcr:primaryType: frontend:plugin
+            caption: Title
+            field: title
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /placeholder:
+            jcr:primaryType: frontend:plugin
+            caption: Placeholder
+            field: placeholder
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /links:
+            jcr:primaryType: frontend:plugin
+            caption: Link
+            field: links
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /noindex:
+            jcr:primaryType: frontend:plugin
+            caption: Add noindex tags
+            field: noindex
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

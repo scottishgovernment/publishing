@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#include "macros/content-blocks.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#assign variables = hstRequestContext.getAttribute("variables")/>
@@ -7,13 +8,19 @@
 
 <#macro dynamicResultsForItem item>
     <#list item.dynamicresults as dynamicresult>
-        <@hst.html hippohtml=dynamicresult.prologue/>
+        <#if dynamicresult.prologueContentBlocks??>
+            <@renderContentBlocks dynamicresult.prologueContentBlocks />
+        </#if>
+
         <div class="mg_smart-answer__dynamic-result"
             id="dynamic-result-${item.name}-${dynamicresult.question.name}"
             data-location="<@hst.link fullyQualified=true hippobean=root/>fragments${dynamicresult.folder.path}"
             data-question="${dynamicresult.question.name}">
         </div>
-        <@hst.html hippohtml=dynamicresult.epilogue/>
+
+        <#if dynamicresult.epilogueContentBlocks??>
+            <@renderContentBlocks dynamicresult.epilogueContentBlocks />
+        </#if>
     </#list>
 </#macro>
 
@@ -82,7 +89,9 @@
                                             </h1>
                                         </${legendElName}>
 
-                                        <@hst.html hippohtml=question.content/>
+                                        <#if question.contentBlocks??>
+                                            <@renderContentBlocks question.contentBlocks />
+                                        </#if>
 
                                         <#switch questionType>
                                             <#case 'dropdown'>
@@ -191,7 +200,9 @@
                                     </h1>
                                 </header>
 
-                                <@hst.html hippohtml=answer.answer/>
+                                <#if answer.answerContentBlocks??>
+                                    <@renderContentBlocks answer.answerContentBlocks />
+                                </#if>
 
                                 <@dynamicResultsForItem answer/>
                             </section>
