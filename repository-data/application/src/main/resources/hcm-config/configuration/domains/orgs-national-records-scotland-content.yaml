@@ -1,0 +1,50 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/orgs-national-records-scotland-content:
+      jcr:primaryType: hipposys:domain
+      /editor:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [orgs-national-records-scotland-editors]
+        hipposys:role: editor
+      /include-non-variant-nodes:
+        jcr:primaryType: hipposys:domainrule
+        /include-non-variant-nodes:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: nodetype
+          hipposys:type: String
+          hipposys:value: hippostd:publishable
+        /content-and-descendants:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/mygov
+        /exclude-mygov-banners-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: false
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/mygov/site-furniture/banners
+      /author:
+        jcr:primaryType: hipposys:authrole
+        hipposys:groups:
+          .meta:category: system
+          .meta:add-new-system-values: true
+          type: string
+          value: [orgs-national-records-scotland-authors]
+        hipposys:role: author
+      /tagged-content-domain:
+        jcr:primaryType: hipposys:domainrule
+        /include-national-records-scotland-documents:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: publishing:organisationtags
+          hipposys:filter: false
+          hipposys:type: String
+          hipposys:value: national-records-scotland
