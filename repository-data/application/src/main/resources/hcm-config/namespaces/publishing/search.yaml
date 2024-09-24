@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: b5c7efd1-644a-4076-aaa2-5404597070a4
+          jcr:uuid: 55bfb522-65c5-42a8-975e-a2b5887d523e
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -33,6 +33,13 @@ definitions:
             hipposysedit:path: publishing:content
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /contentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:contentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
           /isFeedbackEnabled:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -50,6 +57,13 @@ definitions:
             hipposysedit:path: publishing:noResultsMessage
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /noResultsMessageContentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:noResultsMessageContentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
           /html:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -58,6 +72,13 @@ definitions:
             hipposysedit:path: publishing:blankSearchQueryMessage
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /blankSearchQueryMessageContentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:blankSearchQueryMessageContentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -70,7 +91,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           publishing:title: ''
-          jcr:uuid: 1f79632a-87b5-4f12-a2c2-0d4ecaf681b2
+          jcr:uuid: f92a8eb6-8e99-4012-977c-3dbb93daccc9
           hippostdpubwf:lastModificationDate: 2020-09-02T08:59:50.853+01:00
           hippostdpubwf:creationDate: 2020-09-02T08:59:50.853+01:00
           publishing:showFeedback: true
@@ -103,39 +124,78 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /content:
+          /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            field: content
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: contentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
             hint: Content that should appear before the search results.
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
+          /content:
+            jcr:primaryType: frontend:plugin
+            caption: Old content
+            field: content
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /noResultsMessage:
+          /noResultsMessageContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: No results message
-            field: noResultsMessage
-            hint: Content that is shown if no results are found
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: noResultsMessageContentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: Content that is shown if no results are found
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /blankSearchQueryMessage:
+              showCompoundNames: true
+          /blankSearchQueryMessageContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Blank search query message
-            field: html
-            hint: Content that is shown is no search term has been supplied
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: blankSearchQueryMessageContentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: Content that is shown is no search term has been supplied
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
           /showFeedback:
             jcr:primaryType: frontend:plugin
             caption: Show Feedback?
             field: isFeedbackEnabled
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /noResultsMessage:
+            jcr:primaryType: frontend:plugin
+            caption: Old no results message
+            field: noResultsMessage
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /blankSearchQueryMessage:
+            jcr:primaryType: frontend:plugin
+            caption: Old blank search query message
+            field: html
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

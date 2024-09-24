@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 6996f10e-d691-410e-aa45-1646450c99f3
+          jcr:uuid: 9662483d-d0f4-467f-91a3-a1282ead8059
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -25,6 +25,13 @@ definitions:
             hipposysedit:path: publishing:content
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /contentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:contentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
           /exitFunction:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -66,7 +73,7 @@ definitions:
             what page to go to ...
           publishing:title: ''
           publishing:organisationtags: []
-          jcr:uuid: db7c18e0-a6a8-49e0-a66b-35d764c4196b
+          jcr:uuid: 9ab0b52d-003e-4862-ba76-96c8b47d3cfb
           hippostdpubwf:lastModificationDate: 2021-05-17T11:10:03.989+01:00
           hippostdpubwf:creationDate: 2021-05-17T11:10:03.989+01:00
           /publishing:content:
@@ -92,15 +99,18 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /content:
+          /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            field: content
-            hint: Content
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: contentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: Content
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
           /exitFunction:
             jcr:primaryType: frontend:plugin
             caption: Exit function
@@ -116,6 +126,16 @@ definitions:
             hint: List of organisations able to edit and publish the content in this
               document
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /content:
+            jcr:primaryType: frontend:plugin
+            caption: Old Content
+            field: content
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

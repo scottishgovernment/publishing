@@ -1,62 +1,57 @@
 definitions:
   config:
-    /hippo:namespaces/publishing/status:
+    /hippo:namespaces/publishing/cb_accordion:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: efe93cc6-a2f5-4b92-92ac-70921a864b50
+      jcr:uuid: 8fc5c852-bc89-4f2d-8a5a-f4bdf532f838
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 42b3b74a-7e74-4238-97e8-e72b036ba55d
+        jcr:uuid: 6ce7d2c3-43a4-4866-ae60-331ed546716f
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: be69b765-a1a6-4075-b4bd-52a566cc37f8
+          jcr:uuid: ffb246b6-4d49-4a60-accb-3adfc675bcd2
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
-            'hippotranslation:translated']
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          /title:
+          /items:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:title
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /content:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:content
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /contentBlocks:
-            jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
             hipposysedit:ordered: true
-            hipposysedit:path: publishing:contentBlocks
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+            hipposysedit:path: publishing:items
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:cb_accordionpanel
+          /noindex:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:noindex
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /headingLevel:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:headingLevel
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: publishing:status
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
-          publishing:title: ''
-          jcr:uuid: 65ff2527-6726-43f7-aa8a-64310ce15e77
-          hippostdpubwf:lastModificationDate: 2021-03-16T08:45:17.678Z
-          hippostdpubwf:creationDate: 2021-03-16T08:45:17.678Z
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
+          jcr:primaryType: publishing:cb_accordion
+          publishing:noindex: false
+          publishing:headingLevel: h3
+          /publishing:items:
+            jcr:primaryType: publishing:cb_accordionpanel
+            publishing:title: ''
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: ''
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -68,32 +63,31 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /title:
+          /headingLevel:
             jcr:primaryType: frontend:plugin
-            caption: Title
-            field: title
+            caption: Heading level
+            field: headingLevel
+            hint: The heading level to use for the accordion items' headings.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /content:
+              selectable.options: h2,h3,h4
+          /items:
             jcr:primaryType: frontend:plugin
-            caption: Content
-            field: content
+            caption: Accordion item
+            field: items
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /contentBlocks:
+          /noindex:
             jcr:primaryType: frontend:plugin
-            caption: Content
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
-            contentPickerType: links
-            field: contentBlocks
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
+            caption: Add noindex tags
+            field: noindex
             hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              showCompoundNames: true

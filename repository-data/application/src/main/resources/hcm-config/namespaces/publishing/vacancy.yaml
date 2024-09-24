@@ -48,6 +48,13 @@ definitions:
             hipposysedit:path: publishing:content
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /contentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:contentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
           /link:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -186,15 +193,18 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /content:
+          /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            field: content
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: contentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
           /link:
             jcr:primaryType: frontend:plugin
             caption: Link
@@ -210,6 +220,15 @@ definitions:
             field: date
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /content:
+            jcr:primaryType: frontend:plugin
+            caption: Content
+            field: content
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

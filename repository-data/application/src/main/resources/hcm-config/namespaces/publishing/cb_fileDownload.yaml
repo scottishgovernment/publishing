@@ -1,36 +1,21 @@
 definitions:
   config:
-    /hippo:namespaces/publishing/pageheading:
+    /hippo:namespaces/publishing/cb_fileDownload:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 2da7c6a2-d91e-45ab-985a-c3fc6c59207d
+      jcr:uuid: 86fbc790-2493-41cf-a58c-95c8d63f3247
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: ee9cb2ba-cc5f-4428-853a-2a1b3f29a4cb
+        jcr:uuid: a1cd245f-1a87-4e59-b0c1-f96b38291250
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 2f1bcaae-f36f-4bd8-9493-c0b986056933
+          jcr:uuid: a32209be-a623-4476-acfc-4f1f945dd9ab
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
-            'hippotranslation:translated']
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          /description:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:description
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /descriptionContentBlocks:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:descriptionContentBlocks
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
+          hipposysedit:validators: [variables-validator]
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -40,14 +25,31 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
-          /alt:
+          /size:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:alt
+            hipposysedit:path: publishing:size
             hipposysedit:primary: false
             hipposysedit:type: String
+          /type:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:type
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /icon:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:icon
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
           /image:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -56,58 +58,56 @@ definitions:
             hipposysedit:path: publishing:image
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
-          /cta:
+          /string:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:cta
+            hipposysedit:path: publishing:external
             hipposysedit:primary: false
             hipposysedit:type: String
-          /link:
+          /internal:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:link
+            hipposysedit:path: publishing:internal
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
-          /externalLink:
+          /highlight:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:externalLink
+            hipposysedit:path: publishing:highlight
             hipposysedit:primary: false
-            hipposysedit:type: String
+            hipposysedit:type: Boolean
+          /noindex:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:noindex
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: publishing:pageheading
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:primaryType: publishing:cb_fileDownload
           publishing:title: ''
-          publishing:alt: ''
-          jcr:uuid: cbb5318b-f8d7-43c8-9f46-a41dd6cb729f
-          hippostdpubwf:lastModificationDate: 2021-07-29T10:15:50.235+01:00
-          hippostdpubwf:creationDate: 2021-07-29T10:15:50.235+01:00
-          publishing:externalLink: ''
-          publishing:cta: ''
-          /publishing:description:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
+          publishing:size: ''
+          publishing:type: ''
+          publishing:icon: generic
+          publishing:external: ''
+          publishing:noindex: false
+          publishing:highlight: false
           /publishing:image:
             jcr:primaryType: hippogallerypicker:imagelink
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
-          /publishing:link:
+          /publishing:internal:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
@@ -125,75 +125,74 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Title
             field: title
-            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /external:
+            jcr:primaryType: frontend:plugin
+            caption: External link
+            field: string
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /internal:
+            jcr:primaryType: frontend:plugin
+            caption: Internal file
+            field: internal
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /type:
+            jcr:primaryType: frontend:plugin
+            caption: File type
+            field: type
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /size:
+            jcr:primaryType: frontend:plugin
+            caption: File size
+            field: size
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /icon:
+            jcr:primaryType: frontend:plugin
+            caption: Icon
+            field: icon
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: csv,excel,file,geodata,image,pdf,ppt,rtf,text,word,xml,generic
           /image:
             jcr:primaryType: frontend:plugin
-            caption: Image
+            caption: Custom icon
             field: image
-            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /alt:
+          /highlight:
             jcr:primaryType: frontend:plugin
-            caption: Alt
-            field: alt
+            caption: Highlight file
+            field: highlight
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /description:
+          /noindex:
             jcr:primaryType: frontend:plugin
-            caption: Description
-            field: description
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
+            caption: Add noindex tags
+            field: noindex
             hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
-                extraAllowedContent: ''table[data-smallscreen];address[translate];'',
-                format_tags: ''h2;h3;h4;p;address'', removePlugins: ''sourcearea,codemirror,youtube'',
-                extraPlugins: ''ds_button,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',
-                removeButtons: ''Indent,Outdent'', stylesSet: ''limitedstyles_{language}:./limitedstyles.js''
-                }'
-          /descriptionContentBlocks:
-            jcr:primaryType: frontend:plugin
-            caption: Content
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
-            contentPickerType: links
-            field: descriptionContentBlocks
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              showCompoundNames: true
-          /cta:
-            jcr:primaryType: frontend:plugin
-            caption: Call to action label
-            field: cta
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /link:
-            jcr:primaryType: frontend:plugin
-            caption: Call to action link
-            field: link
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /externalLink:
-            jcr:primaryType: frontend:plugin
-            caption: Call to action external link
-            field: externalLink
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

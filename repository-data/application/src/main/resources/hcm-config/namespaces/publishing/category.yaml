@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 8a309fd9-00e1-480a-8c33-1c1704591d8c
+          jcr:uuid: f685f9bd-e647-4248-96b4-0f36b2650af0
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -58,6 +58,20 @@ definitions:
             hipposysedit:path: publishing:epilogue
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /prologueContentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:prologueContentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
+          /epilogueContentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:epilogueContentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
           /showSummaries:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -88,7 +102,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: d08a3d51-0834-42b8-9c66-c6c7410b02c8
+          jcr:uuid: 5bd27235-1f85-4011-99b9-1606d3bcf87b
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:59.186+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:59.186+01:00
           publishing:seoTitle: ''
@@ -201,26 +215,32 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /prologue:
+          /prologueContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Prologue
-            field: prologue
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: prologueContentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
             hint: Enter content that will appear at the top of this page, above the
               main article content. This is optional.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /epilogue:
+              showCompoundNames: true
+          /epilogueContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Epilogue
-            field: epilogue
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: epilogueContentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
             hint: Enter content that will appear at the end of this page, after the
               main article content. This is optional.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
@@ -342,6 +362,26 @@ definitions:
             hint: List of organisations able to edit and publish the content in this
               document
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /prologue:
+            jcr:primaryType: frontend:plugin
+            caption: Old prologue
+            field: prologue
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /epilogue:
+            jcr:primaryType: frontend:plugin
+            caption: Old epilogue
+            field: epilogue
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

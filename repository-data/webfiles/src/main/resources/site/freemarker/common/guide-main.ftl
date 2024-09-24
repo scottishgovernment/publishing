@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#include "macros/content-blocks.ftl">
 <#include "macros/lang-attributes.ftl">
 
 <#if document??>
@@ -84,7 +85,9 @@
             </#if>
 
             <div class="ds_layout__content">
-                <@hst.html hippohtml=document.content/>
+                <#if document.contentBlocks??>
+                    <@renderContentBlocks document.contentBlocks />
+                </#if>
 
                 <!--noindex-->
                 <nav class="ds_sequential-nav" aria-label="Article navigation">

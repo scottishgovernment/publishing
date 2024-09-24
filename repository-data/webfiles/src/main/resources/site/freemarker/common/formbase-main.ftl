@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
-
+<#include "macros/content-blocks.ftl">
 
 <#if document??>
 <#assign variables = hstRequestContext.getAttribute("variables")/>
@@ -47,13 +47,14 @@
                             <input type="hidden" id="recaptchaSitekey" value="${recaptchaSitekey}"/>
                             <input type="hidden" id="recaptchaEnabled" value="${recaptchaEnabled?c}"/>
 
-                            <@hst.html hippohtml=document.content/>
+                            <#if document.contentBlocks??>
+                                <@renderContentBlocks document.contentBlocks />
+                            </#if>
                         </div>
 
                         <div id="cms-additional-content-source" class="fully-hidden">
-                            <@hst.html var="htmladditional" hippohtml=document.additionalContent/>
-                            <#if htmladditional?has_content>
-                                <@hst.html hippohtml=document.additionalContent/>
+                            <#if document.additionalContentBlocks??>
+                                <@renderContentBlocks document.additionalContentBlocks />
                             </#if>
                         </div>
                     </div>

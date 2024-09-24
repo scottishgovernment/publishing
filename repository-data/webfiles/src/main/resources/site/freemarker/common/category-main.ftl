@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#include "macros/content-blocks.ftl">
 
 <#if document??>
 <#assign variables = hstRequestContext.getAttribute("variables")/>
@@ -44,9 +45,8 @@
 
         <div class="category-lower  ds_pre-footer-background">
             <div class="ds_wrapper">
-                <@hst.html var="htmlprologue" hippohtml=document.prologue/>
-                <#if htmlprologue?has_content>
-                    <@hst.html hippohtml=document.prologue/>
+                <#if document.document.prologueContentBlocks??>
+                    <@renderContentBlocks document.document.prologueContentBlocks />
                 </#if>
 
                 <!--noindex-->
@@ -74,9 +74,8 @@
                 </div>
                 <!--endnoindex-->
 
-                <@hst.html var="htmlepilogue" hippohtml=document.epilogue/>
-                <#if htmlepilogue?has_content>
-                    <@hst.html hippohtml=document.epilogue/>
+                <#if document.epilogueContentBlocks??>
+                    <@renderContentBlocks document.epilogueContentBlocks />
                 </#if>
 
                 <#include 'feedback-wrapper.ftl'>

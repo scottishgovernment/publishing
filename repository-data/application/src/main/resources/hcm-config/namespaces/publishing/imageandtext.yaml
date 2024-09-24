@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c6b9b046-c590-4018-93c4-32649317fca2
+          jcr:uuid: 13775e83-3a97-4cae-9fb5-0821ac9f0c12
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -43,7 +43,13 @@ definitions:
             hipposysedit:path: publishing:content
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            hipposysedit:validators: [required]
+          /contentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:contentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -56,7 +62,7 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           publishing:alt: ''
-          jcr:uuid: 833e1943-8ba2-4108-961e-6dd4399b7d5e
+          jcr:uuid: 7cd3880c-d061-4f07-919c-278d191c2e7f
           hippostdpubwf:lastModificationDate: 2021-07-09T06:40:28.896+01:00
           hippostdpubwf:creationDate: 2021-07-09T06:40:28.896+01:00
           /publishing:image:
@@ -97,11 +103,24 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /content:
+          /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            field: content
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: contentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
             hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
+          /content:
+            jcr:primaryType: frontend:plugin
+            caption: Old content
+            field: content
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -110,5 +129,5 @@ definitions:
                 extraAllowedContent: ''table[data-smallscreen];address[translate];'',
                 format_tags: ''h2;h3;h4;p;address'', removePlugins: ''sourcearea,codemirror,youtube'',
                 extraPlugins: ''ds_button,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',
-                removeButtons: ''Indent,Outdent'',
-                stylesSet: ''limitedstyles_{language}:./limitedstyles.js'' }'
+                removeButtons: ''Indent,Outdent'', stylesSet: ''limitedstyles_{language}:./limitedstyles.js''
+                }'

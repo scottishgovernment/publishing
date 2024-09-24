@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: db5c0ef2-8859-4178-9ba7-b2f2dfd16032
+          jcr:uuid: b803a1a2-f89b-420e-9989-391da739cbe6
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -49,6 +49,20 @@ definitions:
             hipposysedit:path: publishing:epilogue
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /prologueContentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:prologueContentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
+          /epilogueContentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:epilogueContentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
           /showSummaries:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -70,7 +84,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:home
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 2212700b-044f-4bb5-8334-c6e8cf3c385e
+          jcr:uuid: 68bcacab-8c61-4b62-b111-65d8d907518f
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -188,26 +202,32 @@ definitions:
               link text on the homepage
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /prologue:
+          /prologueContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Prologue
-            field: prologue
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: prologueContentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
             hint: Enter content that will appear at the top of this page, above the
               main article content. This is optional.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /epilogue:
+              showCompoundNames: true
+          /epilogueContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Epilogue
-            field: epilogue
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: epilogueContentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
             hint: Enter content that will appear at the end of this page, after the
               main article content. This is optional.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
@@ -269,6 +289,26 @@ definitions:
             field: showFeedback
             hint: Should this page include the ability to leave user feedback?
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /prologue:
+            jcr:primaryType: frontend:plugin
+            caption: Old prologue
+            field: prologue
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /epilogue:
+            jcr:primaryType: frontend:plugin
+            caption: Old epilogue
+            field: epilogue
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#include "macros/content-blocks.ftl">
 <#include "macros/format-file-size.ftl">
 <#include "macros/lang-attributes.ftl">
 
@@ -37,7 +38,9 @@
             <div class="ds_layout__content">
 
                 <div class="body-content">
-                    <@hst.html hippohtml=document.content/>
+                    <#if document.contentBlocks??>
+                        <@renderContentBlocks document.contentBlocks />
+                    </#if>
                 </div>
 
                 <#list document.documents as doc>

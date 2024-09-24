@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: ff83f298-9d2b-49fd-8146-74cf5af8c31c
+          jcr:uuid: 2244ad24-9f44-466c-b0d6-699503bf124a
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -42,7 +42,13 @@ definitions:
             hipposysedit:path: publishing:content
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            hipposysedit:validators: [required]
+          /contentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:contentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator, required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -72,18 +78,18 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /content:
+          /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            field: html
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            compoundList: publishing:cb_fragment,publishing:cb_richtext
+            contentPickerType: links
+            field: contentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{language_list: [''en:English'',''gd:Gaelic
-                (Scottish)'',''ru:Russian'',''uk:Ukrainian''], disallowedContent:
-                ''h1 h2 h5 h6 pre code img;*[style]{*}'',extraPlugins: ''language,dialogadvtab2,ds_fragment'',extraAllowedContent:''embed;table[data-smallscreen];div[data-module,data-uuid,href,contenteditable];address[translate];span[lang];iframe{*}[!width,!height,!src,!frameborder,!allowfullscreen]'',format_tags:''h1;h2;h3;h4;p;pre;address'',youtube_responsive:true,youtube_privacy:true,youtube_disabled_fields:[''chkResponsive'',''chkPrivacy'',''txtEmbed'',''chkOlderCode'']}'
+              showCompoundNames: true
           /labeltype:
             jcr:primaryType: frontend:plugin
             caption: Label type
@@ -95,3 +101,16 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               orientation: vertical
               source: /content/documents/publishing/valuelists/steplabeltypes
+          /content:
+            jcr:primaryType: frontend:plugin
+            caption: Old content
+            field: html
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.overlayed.json: '{language_list: [''en:English'',''gd:Gaelic
+                (Scottish)'',''ru:Russian'',''uk:Ukrainian''], disallowedContent:
+                ''h1 h2 h5 h6 pre code img;*[style]{*}'',extraPlugins: ''language,dialogadvtab2,ds_fragment'',extraAllowedContent:''embed;table[data-smallscreen];div[data-module,data-uuid,href,contenteditable];address[translate];span[lang];iframe{*}[!width,!height,!src,!frameborder,!allowfullscreen]'',format_tags:''h1;h2;h3;h4;p;pre;address'',youtube_responsive:true,youtube_privacy:true,youtube_disabled_fields:[''chkResponsive'',''chkPrivacy'',''txtEmbed'',''chkOlderCode'']}'

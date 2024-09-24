@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 7a32ed84-f48c-403e-84ad-a01a7c5dd843
+          jcr:uuid: 39c99bc8-ec2f-4815-b5cd-18026f21f275
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:article', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -23,6 +23,13 @@ definitions:
             hipposysedit:path: publishing:additionalContent
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+          /additionalContentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:additionalContentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -40,7 +47,7 @@ definitions:
           publishing:title: ''
           publishing:slug: ''
           publishing:metaDescription: ''
-          jcr:uuid: 65a5721c-145e-47d4-8ef6-391e00aaf5db
+          jcr:uuid: 9a1cc2a0-d2e6-4e30-9bdf-bac13a796dba
           hippostdpubwf:lastModificationDate: 2021-03-31T09:44:42.933+01:00
           hippostdpubwf:creationDate: 2021-03-31T09:44:42.933+01:00
           publishing:showFeedback: true
@@ -115,25 +122,31 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /content:
+          /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            field: content
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: contentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
             hint: Enter the main content of this article. You can use any HTML formatting
               to style your content.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /additionalContent:
+              showCompoundNames: true
+          /additionalContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Additional content
-            field: additionalContent
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: additionalContentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              showCompoundNames: true
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
@@ -220,3 +233,22 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               source: /content/documents/publishing/valuelists/reportingtags
+          /content:
+            jcr:primaryType: frontend:plugin
+            caption: Old content
+            field: content
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /additionalContent:
+            jcr:primaryType: frontend:plugin
+            caption: Old additional content
+            field: additionalContent
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

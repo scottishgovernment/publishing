@@ -1,82 +1,81 @@
 definitions:
   config:
-    /hippo:namespaces/publishing/contentcontact:
+    /hippo:namespaces/publishing/cb_button:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 5075b6f8-5f85-4526-92ca-cb99d9f6e0b5
+      jcr:uuid: c53cbdf6-5612-4560-847d-042de1dd5edf
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 29ee5b77-0c07-4bce-a271-4b3990be0261
+        jcr:uuid: 54c615e9-d0d9-4229-a9d7-836cdf1e54a3
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 72c2a101-6160-44c2-931a-2970df6ba28b
+          jcr:uuid: d1a2026d-cab1-4c1c-96a4-6b5b08717739
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
-            'hippotranslation:translated']
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          /name:
+          /content:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:name
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /email:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:email
+            hipposysedit:path: publishing:content
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
-          /notes:
+          /type:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:notes
+            hipposysedit:path: publishing:type
             hipposysedit:primary: false
-            hipposysedit:type: Html
-          /phone:
+            hipposysedit:type: StaticDropdown
+          /externallink:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:phone
+            hipposysedit:path: publishing:externallink
             hipposysedit:primary: false
             hipposysedit:type: String
-          /organisationtags:
+          /internallink:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:organisationtags
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:internallink
             hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [organisationtag-validator]
+            hipposysedit:type: hippo:mirror
+          /hasarrow:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:hasarrow
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /noindex:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:noindex
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: publishing:contentcontact
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
-          publishing:notes: ''
-          publishing:name: ''
-          publishing:email: ''
-          publishing:phone: ''
-          publishing:organisationtags: []
-          jcr:uuid: c54b8ed0-87d1-46bd-ab36-74fb727c96b2
-          hippostdpubwf:lastModificationDate: 2020-07-03T06:45:02.525+01:00
-          hippostdpubwf:creationDate: 2020-07-03T06:45:02.525+01:00
+          jcr:primaryType: publishing:cb_button
+          publishing:content: ''
+          publishing:type: Primary
+          publishing:externallink: ''
+          publishing:hasarrow: false
+          publishing:noindex: false
+          /publishing:internallink:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -88,45 +87,54 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /name:
+          /content:
             jcr:primaryType: frontend:plugin
-            caption: Name
-            field: name
+            caption: Content
+            field: content
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /email:
+          /type:
             jcr:primaryType: frontend:plugin
-            caption: Email
-            field: email
+            caption: Type
+            field: type
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /phone:
+              selectable.options: Primary,Secondary,Cancel
+          /externallink:
             jcr:primaryType: frontend:plugin
-            caption: Phone
-            field: phone
+            caption: External link
+            field: externallink
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /notes:
+          /internallink:
             jcr:primaryType: frontend:plugin
-            caption: Notes
-            field: notes
+            caption: Internal link
+            field: internallink
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /hasarrow:
+            jcr:primaryType: frontend:plugin
+            caption: Has arrow
+            field: hasarrow
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /organisationtags:
+          /noindex:
             jcr:primaryType: frontend:plugin
-            caption: Organisation tags
-            field: organisationtags
-            hint: List of organisations able to edit and publish the content in this
-              document
+            caption: Add noindex tags
+            field: noindex
+            hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
