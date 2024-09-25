@@ -2,7 +2,6 @@ package scot.mygov.publishing.htmlrewriter;
 
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
-import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.rewriter.impl.SimpleContentRewriter;
 import org.hippoecm.hst.core.request.HstRequestContext;
 
@@ -14,7 +13,6 @@ import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scot.mygov.publishing.HippoUtils;
-import scot.mygov.publishing.beans.StepByStepGuide;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
@@ -46,9 +44,17 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
 
     @Override
     public String rewrite(String html, Node node, HstRequestContext requestContext,  Mount targetMount) {
+        try {
+            return doRewrite(html, node, requestContext, targetMount);
+        } catch (RepositoryException e) {
+            LOG.error("failed to rewrite html ", e);
+            return html;
+        }
+    }
 
-        HippoBean bean = requestContext.getContentBean();
-        if (hasFragments(html) || isStepByStep(bean)) {
+    public String doRewrite(String html, Node node, HstRequestContext requestContext,  Mount targetMount)
+            throws RepositoryException {
+        if (hasFragments(html) || isStepByStep(node)) {
             Document doc = Jsoup.parse(html);
             rewriteFragments(doc, node, requestContext, targetMount);
             rewriteStepByStep(doc, node);
@@ -62,15 +68,10 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
         return html.indexOf(FRAGMENT_CLASS) != -1;
     }
 
-    public void rewriteStepByStep(Document doc, Node node) {
-
-        try {
-            String slug = getStepByStepSlug(node);
-            if (slug != null) {
-                rewriteStepByStepLinks(doc, slug);
-            }
-        } catch (RepositoryException e) {
-            LOG.error("failed to rewrite step by step links", e);
+    public void rewriteStepByStep(Document doc, Node node) throws RepositoryException {
+        String slug = getStepByStepSlug(node);
+        if (slug != null) {
+            rewriteStepByStepLinks(doc, slug);
         }
     }
 
@@ -87,40 +88,42 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
         return node.hasProperty(SLUG_PROPERTY) ? node : getStepByStep(node.getParent());
     }
 
-    boolean isStep(Node node) throws RepositoryException {
-        return startsWith(node.getParent().getName(), "publishing:step");
+    boolean isStepByStep(Node node) throws RepositoryException {
+        try {
+            Node stepByStep = getStepByStep(node);
+            return  stepByStep != null;
+        } catch (RepositoryException e) {
+            LOG.error("arg", e);
+            return false;
+        }
     }
 
-    boolean isStepByStep(HippoBean bean) {
-        return bean != null && bean instanceof StepByStepGuide;
-    }
-
-    public void rewriteFragments(Document doc, Node node, HstRequestContext requestContext,  Mount targetMount) {
+    public void rewriteFragments(Document doc, Node node, HstRequestContext requestContext,  Mount targetMount)
+            throws RepositoryException {
         List<Element> fragments = doc.select("div.fragment");
-        fragments.stream().forEach(fragDiv -> rewriteFragment(fragDiv, node, requestContext, targetMount));
+        for (Element fragment : fragments) {
+            rewriteFragment(fragment, node, requestContext, targetMount);
+        }
     }
 
-    public void rewriteFragment(Element fragDiv, Node node, HstRequestContext requestContext,  Mount targetMount) {
+    public void rewriteFragment(Element fragDiv, Node node, HstRequestContext requestContext,  Mount targetMount)
+            throws RepositoryException {
         String uuid = fragDiv.attr("data-uuid");
         String fragmentContent = getFragmentContent(uuid, node,requestContext, targetMount);
         fragDiv.after(fragmentContent);
         fragDiv.remove();
     }
 
-    String getFragmentContent(String uuid, Node node, HstRequestContext requestContext,  Mount targetMount) {
+    String getFragmentContent(String uuid, Node node, HstRequestContext requestContext,  Mount targetMount) throws RepositoryException {
 
-        try {
-            Node fragmentHandle = requestContext.getSession().getNodeByIdentifier(uuid);
-            Node fragmentVariant = getFragmentVariant(node, fragmentHandle);
-            Node fragmentHtmlNode = fragmentVariant.getNode("publishing:content");
-            String html = fragmentHtmlNode.getProperty("hippostd:content").getString();
+        Node fragmentHandle = requestContext.getSession().getNodeByIdentifier(uuid);
+        Node fragmentVariant = getFragmentVariant(node, fragmentHandle);
+        Node fragmentHtmlNode = fragmentVariant.getNode("publishing:content");
+        String html = fragmentHtmlNode.getProperty("hippostd:content").getString();
 
-            // rewrite the html so that internal links work
-            return super.rewrite(html, fragmentHtmlNode, requestContext, targetMount);
-        } catch (RepositoryException e) {
-            LOG.warn("Failed to inject fragment {}", uuid, e);
-            return "";
-        }
+        // rewrite the html so that internal links work
+        return super.rewrite(html, fragmentHtmlNode, requestContext, targetMount);
+
     }
 
     Node getFragmentVariant(Node htmlNode, Node fragmentHandle) throws RepositoryException {
@@ -155,18 +158,13 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
         link.attr(HREF, newHref.toString());
     }
 
-    private String replaceVariables(final String html){
+    private String replaceVariables(final String html) throws RepositoryException {
         return (html.contains("[[") && html.contains("]]")) ? getReplaceTextWithValue(html) : html;
     }
 
-    public static String getReplaceTextWithValue(String text) {
-        try {
-            Session session = RequestContextProvider.get().getSession();
-            return MessageUtils.replaceMessagesByBundle(getVariablesResourceBundle(session), text, "[[", "]]");
-        } catch (RepositoryException e) {
-            LOG.error("Failed ot get session for getReplaceTextWithValue", e);
-            return text;
-        }
+    public static String getReplaceTextWithValue(String text) throws RepositoryException {
+        Session session = RequestContextProvider.get().getSession();
+        return MessageUtils.replaceMessagesByBundle(getVariablesResourceBundle(session), text, "[[", "]]");
     }
 
 }
