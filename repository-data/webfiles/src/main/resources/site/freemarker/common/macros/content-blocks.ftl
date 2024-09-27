@@ -59,10 +59,10 @@
                 ds_button
                 <#if contentBlock.type == 'Secondary'>ds_button--secondary
                 <#elseif contentBlock.type == 'Cancel'>ds_button--cancel</#if>
-                <#if contentBlock.hasarrow??>ds_button--has-icon</#if>">
+                <#if contentBlock.hasarrow>ds_button--has-icon</#if>">
                 ${contentBlock.content}
 
-                <#if contentBlock.hasarrow??>
+                <#if contentBlock.hasarrow>
                     <svg class="ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#chevron_right"></use></svg>
                 </#if>
             </a>
