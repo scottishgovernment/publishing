@@ -28,6 +28,12 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/mygov/site-furniture/banners
+        /include-variables-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:type: Reference
+          hipposys:value: /content/documents/var/socsec
       /author:
         jcr:primaryType: hipposys:authrole
         hipposys:groups: [orgs-social-security-authors]
