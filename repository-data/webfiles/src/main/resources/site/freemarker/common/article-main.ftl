@@ -101,7 +101,7 @@
 </div>
 
 <@hst.headContribution category="meta">
-    <meta name="dc.format" content="Article">
+    <meta name="dc.format" content="Article"/>
 </@hst.headContribution>
 
 </#if>
