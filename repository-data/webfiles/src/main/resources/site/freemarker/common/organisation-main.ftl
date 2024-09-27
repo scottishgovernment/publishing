@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#include "macros/content-blocks.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#if document??>
@@ -60,7 +61,9 @@
                         <p>${document.summary}</p>
                     </#if>
 
-                    <@hst.html hippohtml=document.notices/>
+                    <#if document.noticesContentBlocks??>
+                        <@renderContentBlocks document.noticesContentBlocks />
+                    </#if>
                 </section>
             </div>
 
