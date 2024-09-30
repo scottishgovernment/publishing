@@ -163,8 +163,8 @@
                 <!--endnoindex-->
             </#if>
 
-            <@hst.html var="organisationstructure" hippohtml=document.organisationstructure/>
-            <#if document.featuredrole?has_content || organisationstructure?has_content>
+
+            <#if document.featuredrole?has_content || document.organisationstructureContentBlocks??>
             <div class="ds_layout__organisation">
                 <section id="organisation" class="page-section">
                     <h2>${document.organisationtitle}</h2>

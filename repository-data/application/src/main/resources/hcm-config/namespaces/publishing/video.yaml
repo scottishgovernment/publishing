@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: bb0cb88f-705c-447a-9a60-2be97b52386b
+          jcr:uuid: 6a8bed0e-11c7-46a0-8ac0-97f89e5f56ab
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -71,7 +71,7 @@ definitions:
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: e550dd02-9f88-4c96-839a-a6f99c6f5270
+          jcr:uuid: 03a54549-6f95-4d1f-bd9a-31cfded2f032
           hippostdpubwf:lastModificationDate: 2021-07-20T15:18:19.826+01:00
           hippostdpubwf:creationDate: 2021-07-20T15:18:19.826+01:00
           publishing:url: ''
@@ -137,9 +137,10 @@ definitions:
               showCompoundNames: true
           /content:
             jcr:primaryType: frontend:plugin
-            caption: Content
+            caption: Old content
             field: content
-            hint: ''
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -148,5 +149,5 @@ definitions:
                 extraAllowedContent: ''table[data-smallscreen];address[translate];'',
                 format_tags: ''h2;h3;h4;p;address'', removePlugins: ''sourcearea,codemirror,youtube'',
                 extraPlugins: ''ds_button,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',
-                removeButtons: ''Indent,Outdent'',
-                stylesSet: ''limitedstyles_{language}:./limitedstyles.js'' }'
+                removeButtons: ''Indent,Outdent'', stylesSet: ''limitedstyles_{language}:./limitedstyles.js''
+                }'
