@@ -164,12 +164,13 @@
             </#if>
 
 
-            <#if document.featuredrole?has_content || document.organisationstructureContentBlocks??>
+            <#if document.featuredrole?has_content || document.organisationstructureContentBlocks?has_content>
             <div class="ds_layout__organisation">
                 <section id="organisation" class="page-section">
                     <h2>${document.organisationtitle}</h2>
 
-                    <#if document.featuredrole??>
+                    <#if document.featuredrole?has_content>
+
                         <!-- featured role -->
                         <div class="mg_org-person">
                             <div class="mg_org-person__image">
@@ -204,11 +205,11 @@
                             </div>
                         </div>
                         <!-- /end featured role -->
-
+                    </#if>
                         <#if document.organisationstructureContentBlocks??>
                             <@renderContentBlocks document.organisationstructureContentBlocks />
                         </#if>
-                    </#if>
+
                 </section>
             </div>
             </#if>
