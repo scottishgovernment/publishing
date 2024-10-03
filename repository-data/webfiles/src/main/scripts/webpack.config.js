@@ -45,7 +45,8 @@ const commonItems = {
 
         // designsystem examples
         'autocomplete-demo':            path.resolve(__dirname, './formats/designsystem/autocomplete-demo'),
-        'datepicker-demo':              path.resolve(__dirname, './formats/designsystem/datepicker-demo')
+        'datepicker-demo':              path.resolve(__dirname, './formats/designsystem/datepicker-demo'),
+        'search-filter-demo':           path.resolve(__dirname, './formats/designsystem/search-filter-demo')
     },
 
     externals: {
