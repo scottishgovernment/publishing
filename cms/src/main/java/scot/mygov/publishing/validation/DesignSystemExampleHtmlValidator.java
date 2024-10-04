@@ -31,34 +31,35 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
     // we allow script tags so that we can allow non executable script tags.
     // we then use a node visitor to remove executable ones.
     Safelist safelist = Safelist.relaxed()
-            .addTags(SCRIPT, "address", "article","aside","br","details","fieldset","footer","form","header","hr","input","label","legend",
-                    "main","mark","nav","option","section","select","style","summary","svg",TEXTAREA,"use")
+            .addTags(SCRIPT, "address", "article", "aside", "br", "details", "fieldset", "footer", "form", "header", "hr", "input", "label", "legend",
+                    "main", "mark", "nav", "option", "section", "select", "style", "summary", "svg", TEXTAREA, "use")
 
             .preserveRelativeLinks(true)
             .addAttributes(SCRIPT, "type")
-            .addAttributes(":all","aria-controls","aria-current","aria-describedby","aria-hidden",
-                    "aria-invalid","aria-label","aria-labelledby","aria-live","aria-required",
-                    "class","data-label","data-module","focusable","id","role","tabindex","translate")
-            .addAttributes("button", "disabled", "type")
-            .addAttributes("div","data-disableddates","data-dateformat","data-mindate","data-maxdate","data-symbol", DATA_THRESHOLD)
-            .addAttributes("form","action","method")
-            .addAttributes("img","loading","sizes","srcset")
-            .addAttributes("input","aria-autocomplete","aria-expanded","aria-haspopup","aria-owns","autocomplete",
-                    "checked","data-behaviour", DATA_THRESHOLD,"maxlength","name","placeholder","required","spellcheck",
+            .addAttributes(":all","aria-controls", "aria-current", "aria-describedby", "aria-hidden",
+                    "aria-invalid", "aria-label", "aria-labelledby", "aria-live", "aria-required",
+                    "class","data-label","data-module","focusable", "id", "role", "tabindex", "translate")
+            .addAttributes("button", "disabled", "form", "type")
+            .addAttributes("div","data-disableddates", "data-dateformat", "data-mindate", "data-maxdate", "data-symbol", DATA_THRESHOLD)
+            .addAttributes("fieldset","form")
+            .addAttributes("form","action", "method")
+            .addAttributes("img","loading", "sizes", "srcset")
+            .addAttributes("input","aria-autocomplete", "aria-expanded", "aria-haspopup", "aria-owns", "autocomplete",
+                    "checked", "data-behaviour", DATA_THRESHOLD, "form", "maxlength", "name", "placeholder", "required", "spellcheck",
                     "type", VALUE, "hidden")
-            .addAttributes(TEXTAREA,DATA_THRESHOLD, "data-validation", "maxlength","placeholder","required", VALUE)
-            .addAttributes("label","for")
-            .addAttributes("ol","data-total","start")
+            .addAttributes(TEXTAREA,DATA_THRESHOLD, "data-validation", "maxlength", "placeholder", "required", VALUE)
+            .addAttributes("label","for", "form")
+            .addAttributes("ol","data-total", "start")
             .addAttributes("option","selected", VALUE)
-            .addAttributes("select","name")
+            .addAttributes("select","name", "form")
             .addAttributes("svg","aria-hidden")
             .addAttributes("table","data-smallscreen")
             .addAttributes("td","align")
             .addAttributes("th","align")
-            .addAttributes(TEXTAREA,"rows","name")
+            .addAttributes(TEXTAREA,"form", "name", "rows")
             .addAttributes("use","href")
 
-            .removeProtocols("img","src","http","https");
+            .removeProtocols("img","src","http", "https");
 
     @Override
     public Optional<Violation> validate(ValidationContext context, String html) {
