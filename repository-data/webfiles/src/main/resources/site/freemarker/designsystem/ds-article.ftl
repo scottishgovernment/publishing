@@ -16,20 +16,18 @@
 
     <div class="ds_wrapper">
         <main <@lang document/> id="main-content" class="ds_layout  ds_layout--pl-component">
+
+            <@hst.include ref="sidebar"/>
+            
             <div class="ds_layout__header">
                 <header class="ds_page-header">
                     <#if type?has_content>
-                        <span class="ds_page-header__label  ds_content-label">
-                            <#if isNew><span class="ds_tag">New</span></#if>
-                            ${type}
-                        </span>
+                    <#if isNew><strong class="ds_page-header__tag ds_tag">New</strong></#if><span class="ds_page-header__label  ds_content-label">${type}</span>
                     </#if>
                     <h1 class="ds_page-header__title"><#if document.title??>${document.title}</#if></h1>
                     <#include "./metadata.ftl"/>
                 </header>
             </div>
-
-            <@hst.include ref="sidebar"/>
 
             <#if document.logo??>
                 <div <@revertlang document />  class="ds_layout__partner  mg_partner-logo">

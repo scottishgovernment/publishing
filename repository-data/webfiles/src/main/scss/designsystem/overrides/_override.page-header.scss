@@ -1,0 +1,10 @@
+/*
+ PAGE HEADER ADDITION
+ */
+
+ .ds_page-header {
+    &__tag.ds_tag {
+        @include ds_small-size;
+        margin-right: 0.25rem;
+    }
+ }
