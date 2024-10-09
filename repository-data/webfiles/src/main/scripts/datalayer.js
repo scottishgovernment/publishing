@@ -13,6 +13,8 @@
     const serviceProviders = datalayerScriptElement.dataset.serviceproviders;
     const format = datalayerScriptElement.dataset.format;
     const siteid = datalayerScriptElement.dataset.siteid;
+    const lastUpdated = datalayerScriptElement.dataset.lastupdated;
+    const dateCreated = datalayerScriptElement.dataset.datecreated;
 
     window.dataLayer = window.dataLayer || [];
 
@@ -50,6 +52,14 @@
 
     if (present(siteid)) {
         obj.siteid = siteid;
+    }
+
+    if (present(lastUpdated)) {
+        obj.lastUpdated = lastUpdated;
+    }
+
+    if (present(dateCreated)) {
+        obj.dateCreated = dateCreated;
     }
 
     window.dataLayer.push(obj);
