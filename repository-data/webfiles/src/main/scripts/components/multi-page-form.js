@@ -497,6 +497,16 @@ function updatePageNav () {
         templateData = this.settings.pageNavFunction() || {};
     }
 
+    // hacky way to find if there's already a start button
+    const firstSection = this.flattenedSections()[1];
+    const firstPageUrl = `#!/${firstSection.section}/${firstSection.slug}/`;
+    const firstSectionContainer = document.querySelector(`[data-step="${this.flattenedSections()[0].slug}"]`);
+
+    if (firstSectionContainer.offsetParent && firstSectionContainer.querySelector(`[href="${firstPageUrl}"]`)) {
+        templateData.doNotShowButtons = true;
+    }
+    // end hacky way to find if there's already a start button
+
     templateData.currentStep = this.getCurrentStep();
     const prevStep = this.getPrevStep();
     const nextStep = this.getNextStep();

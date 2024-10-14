@@ -1,3 +1,5 @@
+{% if doNotShowButtons %}
+{% else %}
 <div class="ds_button-group">
     {% if prevStep %}
         <a title="{{prevStep.title}}" id="button-back" href="#!/{{prevStep.section}}/{{prevStep.slug}}/" class="ds_button  ds_button--cancel  ds_button--has-icon  ds_button--has-icon--left  js-validate-step">
@@ -34,3 +36,4 @@
         </a>
     {% endif %}
 </div>
+{% endif %}
