@@ -21,7 +21,7 @@ public class VariablesHelper {
     public static final String VARIABLES_PATH = "/content/documents/var";
 
     public static final String VARIABLE_QUERY = "/jcr:root" + VARIABLES_PATH
-            + "//element(*, resourcebundle:resourcebundle)/@resourcebundle:id";
+            + "//element(*, resourcebundle:resourcebundle)[hippostd:state = 'published']/@resourcebundle:id";
 
     private VariablesHelper() {
         // hide constructor
@@ -47,8 +47,7 @@ public class VariablesHelper {
             while (entries.hasNext()) {
                 String bundleName = entries.nextRow().getValue("resourcebundle:id").getString();
                 //using directly the HST ResourceBundleUtil to reduce overhead
-                ResourceBundle bundle = org.hippoecm.hst.resourcebundle.ResourceBundleUtils.getBundle(bundleName, null);
-                allVariableResourceBundles.add(bundle);
+                addBundleIfPresent(bundleName, allVariableResourceBundles);
             }
 
             // in case of resource bundles containing entries with identical keys or resource bundle with the
@@ -59,6 +58,15 @@ public class VariablesHelper {
         } catch (RepositoryException e) {
             LOG.error("Failed to query for variables resource bundle documents.", e);
             return new EmptyResourceBundle();
+        }
+    }
+
+    static void addBundleIfPresent(String name, List<ResourceBundle> bundles) {
+        try {
+            ResourceBundle bundle = org.hippoecm.hst.resourcebundle.ResourceBundleUtils.getBundle(name, null);
+            bundles.add(bundle);
+        } catch (MissingResourceException e) {
+            LOG.error("Unable to find bundle {}", name, e);
         }
     }
 
