@@ -2,8 +2,6 @@
 <#include "./include/imports.ftl">
 
 <#if document??>
-    <#if !dateCreated??><#assign dateCreated = document.getSingleProperty('hippostdpubwf:creationDate')/></#if>
-    <#if !lastUpdated??><#assign lastUpdated = document.getSingleProperty('hippostdpubwf:lastModificationDate')/></#if>
     <@hst.headContribution category="googleTagManagerDataLayer">
 
     <!-- Google Tag Manager (GTM) -->
@@ -12,12 +10,12 @@
         <#if userType??>data-usertype="${userType?js_string}"</#if>
         <#if document.audience?has_content>data-audience="${document.audience?js_string}"</#if>
         <#if reportingTags?has_content>data-reportingtags="<#list reportingTags as item>${item?js_string}<#sep>|</#sep></#list>"</#if>
-        <#if document.lifeEvents?has_content>data-lifeevents="<#list document.lifeEvents as item><#if item?has_content>${item?js_string}<#sep>|</#sep></#if></#list>"</#if>
-        <#if document.serviceproviders?has_content>data-serviceproviders="<#list document.serviceproviders as item>${item?js_string}<#sep>|</#sep></#list>"</#if>
+        <#if document.lifeEvents?? && document.lifeEvents?has_content>data-lifeevents="<#list document.lifeEvents as item><#if item?has_content>${item?js_string}<#sep>|</#sep></#if></#list>"</#if>
+        <#if document.serviceproviders?? && document.serviceproviders?has_content>data-serviceproviders="<#list document.serviceproviders as item>${item?js_string}<#sep>|</#sep></#list>"</#if>
         <#if gtmName??>data-format="${gtmName?js_string}"</#if>
         <#if gtmId??>data-siteid="${gtmId?js_string}"</#if>
-        data-lastupdated='<@fmt.formatDate value=lastUpdated.time type="Date" pattern="dd/MM/yyyy" />'
-        data-datecreated='<@fmt.formatDate value=dateCreated.time type="Date" pattern="dd/MM/yyyy" />'
+        <#if lastUpdated??>data-lastupdated='<@fmt.formatDate value=lastUpdated.time type="Date" pattern="dd/MM/yyyy" />'</#if>
+        <#if dateCreated??>data-datecreated='<@fmt.formatDate value=dateCreated.time type="Date" pattern="dd/MM/yyyy" />'</#if>
         >
     </script>
     </@hst.headContribution>

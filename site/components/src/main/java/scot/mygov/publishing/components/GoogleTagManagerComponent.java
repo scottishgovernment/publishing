@@ -60,6 +60,9 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
         HippoBean document = request.getRequestContext().getContentBean();
 
         if (document != null) {
+
+            addDates(document, request);
+
             Set<String> reportingTags = new HashSet<>();
             addReportingTags(document, reportingTags);
 
@@ -79,6 +82,11 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
             document = notFoundBean(request);
         }
         request.setAttribute("document", document);
+    }
+
+    void addDates(HippoBean document, HstRequest request) {
+        request.setAttribute("dateCreated", document.getSingleProperty("hippostdpubwf:creationDate"));
+        request.setAttribute("lastUpdated", document.getSingleProperty("hippostdpubwf:lastModificationDate"));
     }
 
     HippoBean getFirstGuidePage(HstRequest request) {

@@ -66,11 +66,6 @@ public class Category extends Base {
         return getMultipleProperty("publishing:serviceproviders");
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:lifeEvents")
-    public String[] getLifeEvents() {
-        return getMultipleProperty("publishing:lifeEvents");
-    }
-
     @HippoEssentialsGenerated(internalName = "publishing:userneed")
     public String getUserneed() {
         return getSingleProperty("publishing:userneed");
