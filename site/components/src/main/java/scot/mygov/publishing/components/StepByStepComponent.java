@@ -75,9 +75,7 @@ public class StepByStepComponent extends EssentialsContentComponent {
         try {
             HippoBean scope = request.getRequestContext().getSiteContentBaseBean();
             HstQuery query = createIncomingBeansQuery(bean, scope, LINK_PATH, StepByStepGuide.class, false);
-            LOG.info("incoming {}", query);
             HstQueryResult result = query.execute();
-            LOG.info("incoming count {}", result.getSize());
             return wrappersForStepByStepQueryResults(result.getHippoBeans(), bean, navParam);
         } catch (QueryException e) {
             LOG.error("Query error trying to find step by sides guides for {}", bean.getPath(), e);
