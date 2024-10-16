@@ -62,9 +62,10 @@
         <aside <@revertlang document /> class="ds_article-aside">
             <h2 class="gamma">Also part of</h2>
             <ul class="ds_no-bullets">
-                <#list otherStepByStepGuides as stepByStepGuide>
+                <#list otherStepByStepGuides as stepByStep>
+                    <@hst.link var="link" hippobean=stepByStep.stepByStepGuide/>
                     <li>
-                        <a <@langcompare link document/> href="<@hst.link var=link hippobean=stepByStepGuide.stepByStepGuide/>">
+                        <a <@langcompare stepByStep.stepByStepGuide document/> href="${link}">
                             ${stepByStepGuide.stepByStepGuide.title}
                         </a>
                     </li>
@@ -78,10 +79,11 @@
         <aside <@revertlang document /> class="ds_article-aside">
             <h2 class="gamma">Part of</h2>
             <ul class="ds_no-bullets">
-                <#list stepBySteps as stepbystep>
+                <#list stepBySteps as stepByStep>
+                    <@hst.link var="link" hippobean=stepByStep.stepByStepGuide/>
                     <li>
-                        <a <@langcompare link document/> href="<@hst.link var=link hippobean=stepbystep.stepByStepGuide/>">
-                            ${stepbystep.stepByStepGuide.title}
+                        <a <@langcompare stepByStep.stepByStepGuide document/> href="${link}">
+                            ${stepByStep.stepByStepGuide.title}
                         </a>
                     </li>
                 </#list>

@@ -7,7 +7,7 @@
 <#macro langcompare doc1 doc2 default="en"><#t>
     <#assign doc1lang = default /><#t>
     <#assign doc2lang = default /><#t>
-    <#if doc1.contentitemlanguage??><#t>
+    <#if doc1?? && doc1.contentitemlanguage??><#t>
         <#assign doc1lang = doc1.contentitemlanguage /><#t>
     </#if><#t>
     <#if doc2?? && doc2.contentitemlanguage??><#t>
