@@ -66,39 +66,41 @@
                     <div class="ds_accordion" data-module="ds-accordion">
                         <button data-accordion="accordion-open-all" type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
 
-                        <#assign stepcount = 0 />
-                        <#list document.steps as step>
+                        <ol class="ds_step-navigation__list">
+                            <#assign stepcount = 0 />
 
-                            <#if step.labeltype == 'or' || step.labeltype == 'and'>
-                            <#else>
-                                <#assign stepcount = stepcount + 1 />
-                            </#if>
+                            <#list document.steps as step>
+                                <#if step.labeltype == 'or' || step.labeltype == 'and'>
+                                <#else>
+                                    <#assign stepcount = stepcount + 1 />
+                                </#if>
 
-                            <div class="ds_accordion-item  <#if step.labeltype == "or">ds_step-navigation__or<#elseif step.labeltype == "and">ds_step-navigation__and</#if>">
-                                <span class="ds_step-navigation__count">
-                                    <#if step.labeltype == 'or'>
-                                        or <span class="visually-hidden">(instead of step ${stepcount})</span>
-                                    <#elseif step.labeltype == 'and'>
-                                        and <span class="visually-hidden">(as well as step ${stepcount})</span>
-                                    <#else>
-                                        <span class="visually-hidden">Step </span>${stepcount}
-                                    </#if>
-                                </span>
-                                <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-${step?index}" aria-labelledby="panel-${step?index}-heading" />
-                                <div class="ds_accordion-item__header">
-                                    <h3 id="panel-${step?index}-heading" class="ds_accordion-item__title">
-                                        ${step.title}
-                                    </h3>
-                                    <span class="ds_accordion-item__indicator"></span>
-                                    <label class="ds_accordion-item__label" for="panel-${step?index}"><span class="visually-hidden">Show this section</span></label>
-                                </div>
-                                <div class="ds_accordion-item__body">
-                                    <#if step.contentBlocks??>
-                                        <@renderContentBlocks step.contentBlocks />
-                                    </#if>
-                                </div>
-                            </div>
-                        </#list>
+                                <li value="${stepcount}" class="ds_accordion-item  <#if step.labeltype == "or">ds_step-navigation__or<#elseif step.labeltype == "and">ds_step-navigation__and</#if>">
+                                    <span class="ds_step-navigation__count">
+                                        <#if step.labeltype == 'or'>
+                                            or <span class="visually-hidden">(instead of step ${stepcount})</span>
+                                        <#elseif step.labeltype == 'and'>
+                                            and <span class="visually-hidden">(as well as step ${stepcount})</span>
+                                        <#else>
+                                            <span class="visually-hidden">Step </span>${stepcount}
+                                        </#if>
+                                    </span>
+                                    <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-${step?index}" aria-labelledby="panel-${step?index}-heading" />
+                                    <div class="ds_accordion-item__header">
+                                        <h3 id="panel-${step?index}-heading" class="ds_accordion-item__title">
+                                            ${step.title}
+                                        </h3>
+                                        <span class="ds_accordion-item__indicator"></span>
+                                        <label class="ds_accordion-item__label" for="panel-${step?index}"><span class="visually-hidden">Show this section</span></label>
+                                    </div>
+                                    <div class="ds_accordion-item__body">
+                                        <#if step.contentBlocks??>
+                                            <@hst.html hippohtml=step.content/>
+                                        </#if>
+                                    </div>
+                                </li>
+                            </#list>
+                        </ol>
                     </div>
                 </div>
             </div>

@@ -127,8 +127,10 @@ const global = {
 
         const accordionItems = [].slice.call(document.querySelectorAll('.ds_accordion-item'));
 
+        const parentlessAccordionItems = accordionItems.filter(item => !item.closest('.ds_accordion'));
+
         // add indicator element to each accordion item
-        accordionItems.forEach(accordionItem => {
+        parentlessAccordionItems.forEach(accordionItem => {
             if (!accordionItem.querySelector('.ds_accordion-item__indicator')) {
                 const indicatorElement = document.createElement('span');
                 const titleElement = accordionItem.querySelector('.ds_accordion-item__title');
@@ -141,7 +143,7 @@ const global = {
         const groups = [];
         let groupItems = [];
 
-        accordionItems.forEach(accordionItem => {
+        parentlessAccordionItems.forEach(accordionItem => {
             if(accordionItem.parentNode.classList.contains('ds_accordion')) {
                 return;
             }
