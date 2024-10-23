@@ -11,7 +11,7 @@
     <p>{{property.address}}</p>
     </div>
 
-    <div class="block right">
+    <div class="block">
     <h4>Rateable value</h4>
     <p>{{property.rv | currencyFormatted}}</p>
 
@@ -19,7 +19,7 @@
     <p>{{property.baseLiability | currencyFormatted}}</p>
     </div>
 
-    <div class="relief right block">
+    <div class="relief block">
     <h3>Relief you can apply for</h3>
 
     {% if property.appliedRelief %}
@@ -36,11 +36,11 @@
 
     </div>
 
-    <div class="liability block right">
-    <h4>Net liability</h4>
-    <p>The amount you might have to pay:</p>
+    <div class="liability block">
+        <h4>Net liability</h4>
+        <p>The amount you might have to pay:</p>
 
-    <p class="large heavy">{{property.netLiability | currencyFormatted}}</p>
+        <p class="large heavy">{{property.netLiability | currencyFormatted}}</p>
     </div>
 
     <p class="clear-results"><a href="#!/overview/" class="ds_button  ds_button--cancel  js-clear-results">Clear results and start again</a></p>
@@ -84,7 +84,7 @@
         <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-{{loop.index}}" aria-labelledby="panel-{{loop.index}}-heading" />
         <div class="ds_accordion-item__header">
             <h3 id="panel-{{loop.index}}-heading" class="ds_accordion-item__title">
-                {% if property.occupwier %}{{property.occupierName}}{% else %}{{property.address}}{% endif %}
+                {% if property.occupier %}{{property.occupierName}}{% else %}{{property.address}}{% endif %}
             </h3>
             <span class="ds_accordion-item__indicator"></span>
             <label class="ds_accordion-item__label" for="panel-{{loop.index}}"><span class="visually-hidden">Show this section</span></label>
@@ -96,13 +96,32 @@
     {% endfor %}
 </div>
 {% elif properties.length > 1 %}
-<div class="mg_tab-container  mg_tab-container--{{properties.length}}" data-module="mg-tabs">
+<div class="ds_tabs" data-module="ds-tabs">
+    <nav class="ds_tabs__navigation" aria-labelledby="ds_tabs__title">
+        <h2 id="ds_tabs__title">Properties</h2>
+        <ul class="ds_tabs__list" id="tablist">
+            {% for property in properties %}
+                {% if loop.index === 0 %}
+                    <li class="ds_tabs__tab  ds_current" aria-current="page">
+                        <span class="ds_tabs__tab-link" href="#${tab-{{loop.index}}}">
+                            Property {{loop.index}}
+                        </span>
+                    </li>
+                {% else %}
+                    <li class="ds_tabs__tab">
+                        <a class="ds_tabs__tab-link" href="#tab-{{loop.index}}">
+                            Property {{loop.index}}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+
     {% for property in properties %}
-    <input class="mg_tab__radio" type="radio" checked="" name="tabs" id="tab{{loop.index}}" />
-    <div class="mg_tab__header"><label id="tab{{loop.index}}-label" aria-controls="tab{{loop.index}}-content" role="tab" class="mg_tab__label" for="tab{{loop.index}}">Property {{loop.index}}</label></div>
-    <div tabindex="0" id="tab{{loop.index}}-content" class="mg_tab__content" role="tabpanel" aria-labelledby="tab{{loop.index}}-label">
-        {{ propertyDetails(property, loop.index0)}}
-    </div>
+        <div class="ds_tabs__content  ds_tabs__content--bordered" id="tab-{{loop.index}}">
+            {{ propertyDetails(property, loop.index0)}}
+        </div>
     {% endfor %}
 </div>
 {% else %}

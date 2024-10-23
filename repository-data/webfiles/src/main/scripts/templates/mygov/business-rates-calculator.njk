@@ -8,42 +8,59 @@
         </a>
     </section>
 
-    <section data-step="property" class="fully-hidden form-section">
-        <h2>Search for a property</h2>
+    <section data-step="property" class="fully-hidden  form-section  form-section--unpad">
+        <div class="ds_page-header">
+            <span id="search-subtitle" class="mg_smart-answer__parent-title">Non-domestic rates calculator</span>
+            <h1 class="ds_page-header__title" aria-describedby="search-subtitle">
+                Search for a property
+            </h1>
+        </div>
 
         <form id="postcode-form">
             <div class="ds_question">
-                <label class="ds_label" for="postcode">Enter business postcode</label>
+                <fieldset>
+                    <legend>Search by business postcode</legend>
+                    <label class="ds_label" for="postcode">Postcode</label>
 
-                <div class="ds_input__wrapper">
-                    <input class="ds_input  ds_input--fixed-10  postcode-search" type="text" id="postcode" placeholder="e.g. EH7 4EL">
-                    <button id="find-by-postcode" class="js-find-address-button  ds_button">Find address</button>
-                </div>
-                <p><a href="#" id="dont-know-postcode" data-button="button-dont-know-postcode" class="small  js-show-address-search">I do not know the postcode</a></p>
+                    <input class="ds_input  ds_input--fixed-10  postcode-search" type="text" id="postcode" placeholder="e.g. EH7 4EL" data-validation="requiredField validScottishPostcode">
+                    <button id="find-by-postcode" class="js-find-address-button  ds_button  ds_no-margin" type="submit">Find property</button>
+                </fieldset>
             </div>
+
+            <p><button id="dont-know-postcode" data-button="button-dont-know-postcode" class="ds_link  ds_no-margin  js-show-address-search" type="button">I do not know the postcode</button></p>
         </form>
 
         <form id="address-form" class="fully-hidden">
-            <fieldset>
-                <legend>Search by street and town</legend>
-                <div class="ds_question" id="street-and-town">
+            <p><button class="ds_link  ds_no-margin  js-show-postcode-search" type="button">Return to postcode lookup</button></p>
+
+            <div class="ds_question" id="street-and-town">
+                <fieldset>
+                    <legend>Search by street and town or city</legend>
                     <label class="ds_label" for="address">Street</label>
                     <input placeholder="e.g. High Street" type="text" class="ds_input" id="address">
 
-                    <label class="ds_label" for="town">Town</label>
-                    <input placeholder="e.g. Edinburgh" type="text" class="ds_input" id="town">
-                </div>
-
-                <button style="margin-top: 0;" id="find-by-address" class="ds_button">Find by street/town</button>
-            </fieldset>
+                    <label class="ds_label" for="town">Town or city</label>
+                    <input placeholder="e.g. Edinburgh" type="text" class="ds_input" id="town" data-validation="requiredField">
+                    <button class="ds_button  ds_no-margin" id="find-by-address" type="submit">Find property</button>
+                </fieldset>
+            </div>
         </form>
 
-        <div id="property-select-wrapper"></div>
+        <div id="property-select-wrapper">
+            <div id="property-select-playback"></div>
+            <div id="property-select-form"></div>
+        </div>
         <div id="property-error-wrapper"></div>
     </section>
 
-    <section data-step="result" class="fully-hidden form-section  form-section--unpad">
-        <h2 class="emphasis">Results</h2>
+    <section data-step="result" class="fully-hidden  form-section  form-section--unpad">
+        <div class="ds_page-header">
+            <span id="results-subtitle" class="mg_smart-answer__parent-title">Non-domestic rates calculator</span>
+            <h1 class="ds_page-header__title" aria-describedby="results-subtitle">
+                Results
+            </h1>
+        </div>
+
         <div id="property-results"></div>
     </section>
 </div>

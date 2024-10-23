@@ -5,13 +5,13 @@
 import MultiPageForm from '../../components/multi-page-form';
 import feedback from '../../components/feedback';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
+import temporaryFocus from '@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
+import PromiseRequest from '@scottish-government/design-system/src/base/tools/promise-request/promise-request';
+import commonForms from '../../tools/forms';
 
-const PolyPromise = require('../../vendor/promise-polyfill').default;
 const formTemplate = require('../../templates/mygov/business-rates-calculator');
 const propertySelectTemplate = require('../../templates/mygov/business-rates-calculator-propertyselect');
 const propertyResultsTemplate = require('../../templates/mygov/business-rates-calculator-results');
-const postcodeRegExp = new RegExp('^([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {0,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR ?0AA)$');
-const scottishPostcodeRegExp = new RegExp('^(AB|DD|DG|EH|FK|G|HS|IV|KA|KW|KY|ML|PA|PH|TD|ZE)[0-9]{1,2} {0,2}[0-9][ABD-HJLN-UW-Z]{2}$');
 
 const formSections = [
     {
@@ -44,7 +44,8 @@ const formSections = [
                 slug: 'property',
                 title: 'Property',
                 hideSubsectionNav: true,
-                hideSectionNav: true
+                hideSectionNav: true,
+                noFormBox: true
             }
         ]
     },
@@ -81,6 +82,8 @@ const businessRatesCalculator = {
                 if (businessRatesCalculator.selectedProperties.length) {
                     businessRatesCalculator.calculateResults();
                     businessRatesCalculator.showResults();
+                    const tabSets = [].slice.call(document.querySelectorAll('[data-module="ds-tabs"]'));
+                    tabSets.forEach(tabSet => new window.DS.components.Tabs(tabSet).init());
                 } else {
                     window.location.hash = "!/property";
                 }
@@ -107,17 +110,29 @@ const businessRatesCalculator = {
             return false;
         }
         const overviewContent = formTemplateContainer.innerHTML;
+
+        // somewhat jank way of moving the overview header
+        const overviewHeader = document.querySelector('.ds_page-header');
+
         formTemplateContainer.innerHTML = formTemplate.render({
             iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
             webfilesPath: bloomreachWebfile()
         });
-        formTemplateContainer.querySelector('#overview').innerHTML = overviewContent + formTemplateContainer.querySelector('#overview').innerHTML;
+        formTemplateContainer.querySelector('#overview').innerHTML = overviewHeader.outerHTML + overviewContent + formTemplateContainer.querySelector('#overview').innerHTML;
+
+        overviewHeader.parentNode.removeChild(overviewHeader);
 
         this.selectedProperties = [];
 
-        this.form.validateStep = this.validateStep;
         this.form.init();
         feedback.init();
+
+        this.addressSearchForm = document.querySelector('#address-form');
+        this.postcodeSearchForm = document.querySelector('#postcode-form');
+        this.propertySelectWrapper = document.querySelector('#property-select-wrapper');
+        this.propertySelectPlayback = document.querySelector('#property-select-playback');
+        this.propertySelectForm = document.querySelector('#property-select-form');
+        this.errorSummary = document.querySelector('#feedback-box');
 
         // taken from provided spreadsheet
         this.ratesCalculatorData = {};
@@ -159,12 +174,20 @@ const businessRatesCalculator = {
         document.body.addEventListener('click', (event) => {
             if (event.target.classList.contains('js-show-address-search')) {
                 event.preventDefault();
-                this.showAddress();
+                this.showAddressSearch();
+            } else if (event.target.classList.contains('js-show-postcode-search')) {
+                event.preventDefault();
+                this.showPostcodeSearch();
             } else if (event.target.classList.contains('js-add-another')) {
                 this.resetForms();
             } else if (event.target.classList.contains('js-clear-results')) {
                 this.selectedProperties = [];
                 this.resetForms();
+            } else if (event.target.classList.contains('js-show-results')) {
+                if (!this.validateStep('property')) {
+                    event.preventDefault();
+                    this.showErrorSummary();
+                }
             } else if (event.target.classList.contains('js-remove-property')) {
                 event.preventDefault();
                 this.removePropertyFromResults(event.target.getAttribute('data-property-index'));
@@ -172,7 +195,7 @@ const businessRatesCalculator = {
         });
 
         document.body.addEventListener('change', (event) => {
-            if (event.target === document.querySelector('#property-select')) {
+            if (event.target === this.propertySelectWrapper) {
                 event.preventDefault();
                 businessRatesCalculator.setCurrentProperty();
             }
@@ -188,204 +211,6 @@ const businessRatesCalculator = {
                 this.findByAddress();
             }
         });
-    },
-
-    findByPostcode: function () {
-        const postcode = document.querySelector('#postcode');
-        const postcodeValue = postcode.value.toUpperCase().replace(/\s+/g, '');
-
-        this.cleanOnSearch();
-
-        // check whether it's a valid postcode
-        if (postcodeValue.match(postcodeRegExp)) {
-            // now check whether it's a Scottish postcode
-            if (postcodeValue.match(scottishPostcodeRegExp)) {
-                this.getProperties(postcodeValue);
-            } else {
-                this.addFieldError('postcode', 'You have entered a postcode associated with an address outside Scotland. This site can only be used to calculate Business Rates for Scottish companies. <a href="https://www.gov.uk/calculate-your-business-rates">Please visit gov.uk for more information</a>.');
-                postcode.focus();
-            }
-        } else {
-            this.addFieldError('postcode', 'Please try searching again using a full business postcode.');
-            postcode.focus();
-        }
-    },
-
-    findByAddress: function () {
-        const address = document.querySelector('#address');
-        const town = document.querySelector('#town');
-
-        this.cleanOnSearch();
-
-        if (town.value === '' && address.value === '') {
-            this.addFieldGroupError('street-and-town', 'Please enter a street or town.');
-            address.focus();
-        } else {
-            this.getProperties((address.value + ' ' + town.value).trim());
-        }
-    },
-
-    showAddress: function () {
-        document.querySelector('#address-form').classList.remove('fully-hidden');
-    },
-
-    /**
-     * Reset all forms within this tool.
-     */
-    resetForms: function () {
-        delete this.currentProperty;
-        delete this.searchResults;
-
-        [].slice.call(document.querySelectorAll('[data-step="property"] input[type="text"]')).forEach(input => {
-            input.value = '';
-        });
-
-        [].slice.call(document.querySelectorAll('[data-step="property"] input[type="radio"]')).forEach(radio => {
-            radio.removeAttribute('checked');
-        });
-
-        [].slice.call(document.querySelectorAll('[data-step="property"] select')).forEach(select => {
-            select.querySelector('option:checked').removeAttribute('selected');
-        });
-
-        this.cleanOnSearch();
-
-        // hide address inputs
-        document.querySelector('#address-form').classList.add('fully-hidden');
-    },
-
-    cleanOnSearch: function () {
-        // remove errors
-        this.removeFieldError('postcode');
-        this.removeFieldGroupError('street-and-town');
-
-        // remove property list
-        document.getElementById('property-select-wrapper').innerHTML = '';
-    },
-
-    getProperties: function (searchTerm) {
-        // disable buttons
-        const postcodeButton = document.getElementById('find-by-postcode');
-        const addressButton = document.getElementById('find-by-address');
-        postcodeButton.setAttribute('disabled', true);
-        addressButton.setAttribute('disabled', true);
-        const propertySelectWrapper = document.querySelector('#property-select-wrapper');
-
-        // do search
-        this.promiseRequest(`${businessRatesCalculator.apiUrl}${searchTerm}`)
-            .then(
-                (data) => {
-                    const result = JSON.parse(data.response);
-
-                    if (result.properties && result.properties.length) {
-                        delete propertySelectWrapper.dataset.error;
-                        businessRatesCalculator.searchResults = result.properties;
-                        businessRatesCalculator.showSearchResults();
-                    } else if (result.resultType === 'too-many-results') {
-                        propertySelectWrapper.dataset.error = 'too-many-results';
-                        propertySelectWrapper.innerHTML = `<h3>Too many results</h3>
-                        <p>Sorry, the information you entered returned too many properties. Please enter more of the address or postcode. Use the <a href="http://www.royalmail.com/find-a-postcode">Royal Mail website</a> to find the postcode.</p>`;
-                    } else {
-                        propertySelectWrapper.dataset.error = 'no-results-found';
-                        propertySelectWrapper.innerHTML = `<h3>No results found</h3>
-                        <p>Please check that the address or postcode you're searching for is valid and in Scotland. The calculator uses address data from the Scottish Assessors Association (SAA).</p>
-                        <p>If you have entered a valid business location and your property can't be found, <a id="unlisted" href="https://www.saa.gov.uk/contact-us/feedback/">please report this to the Scottish Assessors Association</a>.</p>`;
-                        }
-                    // enable buttons
-                    postcodeButton.removeAttribute('disabled');
-                    addressButton.removeAttribute('disabled');
-                },
-                (error) => {
-                    propertySelectWrapper.dataset.error = 'no-results-found';
-                    propertySelectWrapper.innerHTML = `<h3>No results found</h3>
-                    <p>Please check that the address or postcode you're searching for is valid and in Scotland. The calculator uses address data from the Scottish Assessors Association (SAA).</p>
-                    <p>If you have entered a valid business location and your property can't be found, <a id="unlisted" href="https://www.saa.gov.uk/contact-us/feedback/">please report this to the Scottish Assessors Association</a>.</p>`;
-
-                    // enable buttons
-                    postcodeButton.removeAttribute('disabled');
-                    addressButton.removeAttribute('disabled');
-                }
-            );
-    },
-
-    /**
-     * A large business supplement is added to properties with a rateable value over the supplement threshold
-     * @param {number} rateableValue of a property
-     * @return {number} the property's base liability
-     */
-    getBaseLiability: function (rateableValue) {
-        let poundage = this.ratesCalculatorData.poundage;
-
-        if (rateableValue > this.ratesCalculatorData.large_business_supplement_threshold) {
-            poundage = poundage + this.ratesCalculatorData.large_business_supplement;
-        } else if (this.ratesCalculatorData.intermediate_business_supplement_threshold && rateableValue > this.ratesCalculatorData.intermediate_business_supplement_threshold) {
-            poundage = poundage + this.ratesCalculatorData.intermediate_business_supplement;
-        }
-
-        return rateableValue * poundage;
-    },
-
-    showSearchResults: function () {
-        const resultsData = {
-            searchResults: this.searchResults,
-            showAsSelect: true
-        };
-
-        if (resultsData.searchResults.length === 1) {
-            // show a single property if there is only one result
-            resultsData.showAsSelect = false;
-        }
-
-        resultsData.searchResults.forEach(result => {
-            if (result.occupier.length) {
-                result.occupierName = result.occupier[0].name.split('\n')[0];
-            }
-        });
-
-        resultsData.iconsFile = bloomreachWebfile('/assets/images/icons/icons.stack.svg');
-        document.querySelector('#property-select-wrapper').innerHTML = propertySelectTemplate.render(resultsData);
-
-        // preselect the first item if we have one property result
-        if (this.searchResults.length === 1) {
-            // select the first property
-            document.querySelector('#property-list input[type=radio]').checked = true;
-        }
-
-        businessRatesCalculator.setCurrentProperty();
-    },
-
-    /**
-     * Sets the object representing a building in the current calculation to equal the search-result
-     * referenced by the currently-selected OPTION tag in the DOM's SELECT list of buildings or to
-     * the the single returned property if the returned property set has only one entry.
-     */
-    setCurrentProperty: function () {
-        let selectedProperty;
-
-        // add selected property
-        if (this.searchResults.length === 1) {
-            this.currentProperty = this.searchResults[0];
-        } else {
-            selectedProperty = document.querySelector('#property-list option:checked');
-            this.currentProperty = this.searchResults[selectedProperty.value];
-        }
-    },
-
-    updateOrAddProperty: function () {
-        let match = false;
-
-        for (let i = 0, il = this.selectedProperties.length; i < il; i++) {
-            if (this.selectedProperties[i].address === this.currentProperty.address && this.selectedProperties[i].occupierName === this.currentProperty.occupierName) {
-                match = true;
-                this.selectedProperties[i] = this.currentProperty;
-                break;
-            }
-        }
-
-        if (!match) {
-            // store the completed current property on root scope's selectedProperties
-            this.selectedProperties.push(this.currentProperty);
-        }
     },
 
     calculateResults: function () {
@@ -433,6 +258,136 @@ const businessRatesCalculator = {
                 property.netLiability = Math.max(property.netLiability - property.appliedRelief.amount.toFixed(2), 0);
             }
         }
+    },
+
+    cleanOnSearch: function () {
+        // remove errors
+        this.errorSummary.querySelector('.form-errors').innerHTML = '';
+
+        // remove property list
+        this.propertySelectPlayback.innerHTML = '';
+        this.propertySelectForm.innerHTML = '';
+    },
+
+    findByAddress: function () {
+        const address = document.querySelector('#address');
+        const town = document.querySelector('#town');
+
+        this.cleanOnSearch();
+
+        if (this.validateStep('property')) {
+            this.getProperties((address.value + ' ' + town.value).trim());
+            this.searchType = 'street-town';
+
+            const fields = [];
+            if (address.value !== '') {
+                fields.push(address.value);
+            }
+            if (town.value !== '') {
+                fields.push(town.value);
+            }
+            this.searchValue = fields.join(', ');
+        } else {
+            this.showErrorSummary();
+        }
+    },
+
+    findByPostcode: function () {
+        const postcodeField = document.querySelector('#postcode');
+        const postcodeValue = postcodeField.value.toUpperCase().replace(/\s+/g, '');
+
+        this.cleanOnSearch();
+
+        if (this.validateStep('property')) {
+            this.getProperties(postcodeValue);
+            this.searchType = 'postcode';
+            this.searchValue = postcodeValue;
+        } else {
+            this.showErrorSummary();
+        }
+    },
+
+    /**
+     * A large business supplement is added to properties with a rateable value over the supplement threshold
+     * @param {number} rateableValue of a property
+     * @return {number} the property's base liability
+     */
+    getBaseLiability: function (rateableValue) {
+        let poundage = this.ratesCalculatorData.poundage;
+
+        if (rateableValue > this.ratesCalculatorData.large_business_supplement_threshold) {
+            poundage = poundage + this.ratesCalculatorData.large_business_supplement;
+        } else if (this.ratesCalculatorData.intermediate_business_supplement_threshold && rateableValue > this.ratesCalculatorData.intermediate_business_supplement_threshold) {
+            poundage = poundage + this.ratesCalculatorData.intermediate_business_supplement;
+        }
+
+        return rateableValue * poundage;
+    },
+
+    getProperties: function (searchTerm) {
+        // disable buttons
+        const postcodeButton = document.getElementById('find-by-postcode');
+        const addressButton = document.getElementById('find-by-address');
+        postcodeButton.setAttribute('disabled', true);
+        addressButton.setAttribute('disabled', true);
+
+        // do search
+        PromiseRequest(`${businessRatesCalculator.apiUrl}${searchTerm}`)
+            .then(
+                (data) => {
+                    const result = JSON.parse(data.response);
+
+                    if (result.properties && result.properties.length) {
+                        delete this.propertySelectWrapper.dataset.error;
+                        businessRatesCalculator.searchResults = result.properties;
+                        businessRatesCalculator.showSearchResults();
+                    } else if (result.resultType === 'too-many-results') {
+                        this.propertySelectWrapper.dataset.error = 'too-many-results';
+                        this.propertySelectForm.innerHTML = `<h3>Too many results</h3>
+                        <p>Sorry, the information you entered returned too many properties. Please enter more of the address or postcode. Use the <a href="http://www.royalmail.com/find-a-postcode">Royal Mail website</a> to find the postcode.</p>`;
+                    } else {
+                        this.propertySelectWrapper.dataset.error = 'no-results-found';
+                        this.propertySelectForm.innerHTML = `<h3>No results found</h3>
+                        <p>Please check that the address or postcode you're searching for is valid and in Scotland. The calculator uses address data from the Scottish Assessors Association (SAA).</p>
+                        <p>If you have entered a valid business location and your property can't be found, <a id="unlisted" href="https://www.saa.gov.uk/contact-us/feedback/">please report this to the Scottish Assessors Association</a>.</p>`;
+                        }
+                },
+                (error) => {
+                    this.propertySelectWrapper.dataset.error = 'no-results-found';
+                    this.propertySelectForm.innerHTML = `<h3>No results found</h3>
+                    <p>Please check that the address or postcode you're searching for is valid and in Scotland. The calculator uses address data from the Scottish Assessors Association (SAA).</p>
+                    <p>If you have entered a valid business location and your property can't be found, <a id="unlisted" href="https://www.saa.gov.uk/contact-us/feedback/">please report this to the Scottish Assessors Association</a>.</p>`;
+                }
+        )
+            .finally(() => {
+                // enable buttons
+                postcodeButton.removeAttribute('disabled');
+                addressButton.removeAttribute('disabled');
+
+                const playbackData = {};
+                if (this.searchType === 'postcode') {
+                    playbackData.type = 'Postcode';
+                    playbackData.value = this.searchValue;
+                    playbackData.buttonClass = 'js-show-postcode-search';
+                } else {
+                    playbackData.type = 'Street and town';
+                    playbackData.value = this.searchValue;
+                    playbackData.buttonClass = 'js-show-address-search';
+                }
+
+                this.propertySelectPlayback.innerHTML = `<dl class="ds_prefilled-value-list" aria-label="Your current answers">
+                    <dt class="ds_prefilled-value-list__key">${playbackData.type}</dt>
+                    <dd class="ds_prefilled-value-list__value">
+                        <div class="brc-capitalise">${playbackData.value}</div>
+                        <button class="ds_link  ds_prefilled-value-list__value-actions  ${playbackData.buttonClass}">Change <span class="visually-hidden">${playbackData.type}<</span></button>
+                    </dd>
+                </dl>`;
+
+                this.addressSearchForm.classList.add('fully-hidden');
+                this.postcodeSearchForm.classList.add('fully-hidden');
+                this.propertySelectWrapper.classList.remove('fully-hidden');
+                temporaryFocus(this.propertySelectWrapper);
+            });
     },
 
     /**
@@ -486,108 +441,6 @@ const businessRatesCalculator = {
         return sbbsReliefFraction;
     },
 
-    showResults: function () {
-        const resultsContainer = document.querySelector('#property-results');
-        resultsContainer.innerHTML = propertyResultsTemplate.render({ properties: this.selectedProperties });
-    },
-
-    addFieldGroupError: function (fieldGroupId, message) {
-        const fieldGroup = document.getElementById(fieldGroupId);
-
-        fieldGroup.classList.add('ds_question--error');
-
-        const messageEl = document.createElement('p');
-        messageEl.classList.add('ds_question__error-message');
-        messageEl.setAttribute('data-form', 'error-more-detail');
-        messageEl.innerHTML = message;
-
-        fieldGroup.insertBefore(messageEl, fieldGroup.firstChild);
-
-        const fields = [].slice.call(fieldGroup.querySelectorAll('input, textarea, select'));
-
-        fields.forEach(field => {
-            field.classList.add('ds_input--error');
-            field.setAttribute('aria-invalid', true);
-        });
-    },
-
-    removeFieldGroupError: function (fieldGroupId) {
-        const fieldGroup = document.getElementById(fieldGroupId);
-
-        fieldGroup.classList.remove('ds_question--error');
-
-        const fields = [].slice.call(fieldGroup.querySelectorAll('input, textarea, select'));
-
-        fields.forEach(field => {
-            field.classList.remove('ds_input--error');
-            field.removeAttribute('aria-invalid');
-        });
-
-        const messageEl = fieldGroup.querySelector('.ds_question__error-message');
-        if (messageEl) {
-            messageEl.parentNode.removeChild(messageEl);
-        }
-    },
-
-    addFieldError: function (fieldId, message) {
-        const field = document.getElementById(fieldId);
-
-        this.removeFieldError(fieldId);
-
-        field.closest('.ds_question').classList.add('ds_question--error');
-        field.classList.add('ds_input--error');
-        field.setAttribute('aria-invalid', true);
-
-        const messageEl = document.createElement('p');
-        messageEl.classList.add('ds_question__error-message');
-        messageEl.setAttribute('data-form', 'error-more-detail');
-        messageEl.innerHTML = message;
-
-        if (field.parentNode.classList.contains('ds_input__wrapper')) {
-            field.parentNode.insertAdjacentElement('beforebegin', messageEl);
-        } else {
-            field.insertAdjacentElement('beforebegin', messageEl);
-        }
-    },
-
-    removeFieldError: function (fieldId) {
-        const field = document.getElementById(fieldId);
-
-        const questionEl = field.closest('.ds_question');
-        questionEl.classList.remove('ds_question--error');
-        field.classList.remove('ds_input--error');
-        field.removeAttribute('aria-invalid');
-
-        const messageEl = questionEl.querySelector('.ds_question__error-message');
-        if (messageEl) {
-            messageEl.parentNode.removeChild(messageEl);
-        }
-    },
-
-    promiseRequest: (url, method = 'GET') => {
-        const request = new XMLHttpRequest();
-
-        return new PolyPromise((resolve, reject) => {
-            request.onreadystatechange = () => {
-                if (request.readyState !== 4) {
-                    return;
-                }
-
-                if (request.status >= 200 && request.status < 300) {
-                    resolve(request);
-                } else {
-                    reject({
-                        status: request.status,
-                        statusText: request.statusText
-                    });
-                }
-            };
-
-            request.open(method, url, true);
-            request.send();
-        });
-    },
-
     removePropertyFromResults: function (propertyIndex) {
         // remove property from selectedProperties array
         this.selectedProperties.splice(propertyIndex, 1);
@@ -597,11 +450,137 @@ const businessRatesCalculator = {
         businessRatesCalculator.showResults();
     },
 
-    errorMessageMarkup: function (fieldId, message) {
-        const messageEl = document.createElement('p');
-        messageEl.classList.add('error', 'invalid-field', 'ds_error-summary__list');
-        messageEl.innerHTML = `<a class="ds_error-summary__link" href="#${fieldId}">${message}</a>`;
-        return messageEl;
+    /**
+     * Reset all forms within this tool.
+     */
+    resetForms: function () {
+        delete this.currentProperty;
+        delete this.searchResults;
+
+        [].slice.call(document.querySelectorAll('[data-step="property"] input[type="text"]')).forEach(input => {
+            input.value = '';
+        });
+
+        [].slice.call(document.querySelectorAll('[data-step="property"] input[type="radio"]')).forEach(radio => {
+            radio.removeAttribute('checked');
+        });
+
+        [].slice.call(document.querySelectorAll('[data-step="property"] select')).forEach(select => {
+            select.querySelector('option:checked').removeAttribute('selected');
+        });
+
+        this.cleanOnSearch();
+        this.showPostcodeSearch();
+    },
+
+    /**
+     * Sets the object representing a building in the current calculation to equal the search-result
+     * referenced by the currently-selected OPTION tag in the DOM's SELECT list of buildings or to
+     * the the single returned property if the returned property set has only one entry.
+     */
+    setCurrentProperty: function () {
+        let selectedProperty;
+
+        // add selected property
+        if (this.searchResults.length === 1) {
+            this.currentProperty = this.searchResults[0];
+        } else {
+            selectedProperty = document.querySelector('#property-list option:checked');
+            this.currentProperty = this.searchResults[selectedProperty.value];
+        }
+    },
+
+    showAddressSearch: function () {
+        this.addressSearchForm.classList.remove('fully-hidden');
+        this.postcodeSearchForm.classList.add('fully-hidden');
+        this.propertySelectWrapper.classList.add('fully-hidden');
+        temporaryFocus(this.addressSearchForm);
+    },
+
+    showErrorSummary: function () {
+        this.errorSummary.classList.remove('fully-hidden');
+        temporaryFocus(this.errorSummary);
+    },
+
+    showPostcodeSearch: function () {
+        this.addressSearchForm.classList.add('fully-hidden');
+        this.postcodeSearchForm.classList.remove('fully-hidden');
+        this.propertySelectWrapper.classList.add('fully-hidden');
+        temporaryFocus(this.postcodeSearchForm);
+    },
+
+    showResults: function () {
+        const resultsContainer = document.querySelector('#property-results');
+        resultsContainer.innerHTML = propertyResultsTemplate.render({ properties: this.selectedProperties });
+    },
+
+    showSearchResults: function () {
+        const resultsData = {
+            searchResults: this.searchResults,
+            showAsSelect: true
+        };
+
+        if (resultsData.searchResults.length === 1) {
+            // show a single property if there is only one result
+            resultsData.showAsSelect = false;
+        }
+
+        resultsData.searchResults.forEach(result => {
+            if (result.occupier.length) {
+                result.occupierName = result.occupier[0].name.split('\n')[0];
+            }
+        });
+
+        resultsData.iconsFile = bloomreachWebfile('/assets/images/icons/icons.stack.svg');
+        this.propertySelectForm.innerHTML = propertySelectTemplate.render(resultsData);
+
+        // preselect the first item if we have one property result
+        if (this.searchResults.length === 1) {
+            // select the first property
+            document.querySelector('#property-list input[type=radio]').checked = true;
+        }
+
+        businessRatesCalculator.setCurrentProperty();
+    },
+
+    updateOrAddProperty: function () {
+        let match = false;
+
+        for (let i = 0, il = this.selectedProperties.length; i < il; i++) {
+            if (this.selectedProperties[i].address === this.currentProperty.address && this.selectedProperties[i].occupierName === this.currentProperty.occupierName) {
+                match = true;
+                this.selectedProperties[i] = this.currentProperty;
+                break;
+            }
+        }
+
+        if (!match) {
+            // store the completed current property on root scope's selectedProperties
+            this.selectedProperties.push(this.currentProperty);
+        }
+    },
+
+    validateStep: function (step) {
+        /*
+         * look for data-validation attributes in current step & PERFORM VALIDATION
+         * do not allow progress if invalid
+         */
+
+       const stepContainer = document.querySelector(`[data-step="${step}"]`);
+       const itemsThatNeedToBeValidated = [].slice.call(stepContainer.querySelectorAll('[data-validation]')).filter(item => item.offsetParent);
+
+       itemsThatNeedToBeValidated.forEach(item => {
+           const validations = item.getAttribute('data-validation').split(' ');
+           const validationChecks = [];
+           for (let i = 0, il = validations.length; i < il; i++) {
+               validationChecks.push(commonForms[validations[i]]);
+            }
+            commonForms.validateInput(item, validationChecks);
+        });
+
+        const invalidFields = [].slice.call(stepContainer.querySelectorAll('[aria-invalid="true"]')).filter(item => item.offsetParent);
+
+        return invalidFields.length === 0;
     }
 };
 

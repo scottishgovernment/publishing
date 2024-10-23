@@ -8,7 +8,6 @@
 import BloomreachWebfile from './tools/bloomreach-webfile';
 import ContentSelect from './components/content-select';
 import NotificationBanner from './components/notification';
-import Tabs from './components/mygov/old-ds-tabs';
 import ToggleLink from './components/toggle-link';
 import UpdateHistory from './components/update-history';
 import storage from '../../../node_modules/@scottish-government/design-system/src/base/tools/storage/storage';
@@ -235,8 +234,8 @@ const global = {
             mobileTables.init();
         }
 
-        const tabSets = [].slice.call(document.querySelectorAll('[data-module="mg-tabs"]'));
-        tabSets.forEach(tabSet => new Tabs(tabSet).init());
+        const tabSets = [].slice.call(document.querySelectorAll('[data-module="ds-tabs"]'));
+        tabSets.forEach(tabSet => new window.DS.components.Tabs(tabSet).init());
 
         window.DS.components.skipLinks.init();
 

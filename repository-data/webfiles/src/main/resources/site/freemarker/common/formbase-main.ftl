@@ -14,6 +14,16 @@
         <div class="ds_wrapper">
             <main id="main-content" class="ds_layout  mg_layout--paged-form">
                 <div class="ds_layout__header">
+                    <div class="ds_error-summary  fully-hidden  client-error" id="feedback-box" aria-labelledby="error-summary-title" role="alert" aria-live="assertive">
+                        <h2 class="ds_error-summary__title" id="error-summary-title">There is a problem</h2>
+
+                        <p>There were some errors found on this page:</p>
+
+                        <div class="form-errors">
+
+                        </div>
+                    </div>
+
                     <header class="ds_page-header">
                         <h1 class="ds_page-header__title">${document.title}</h1>
                         <dl class="ds_page-header__metadata  ds_metadata">
@@ -33,15 +43,7 @@
 
                 <div class="ds_layout__form-content">
                     <div class="multi-page-form" name="${document.formtype}">
-                        <div class="ds_error-summary  fully-hidden  client-error" id="feedback-box" aria-labelledby="error-summary-title" role="alert" aria-live="assertive">
-                            <h2 class="ds_error-summary__title" id="error-summary-title">There is a problem</h2>
 
-                            <p>There were some errors found on this page:</p>
-
-                            <div class="form-errors">
-
-                            </div>
-                        </div>
 
                         <div id="form-container">
                             <input type="hidden" id="recaptchaSitekey" value="${recaptchaSitekey}"/>
