@@ -55,7 +55,7 @@ definitions:
             hipposysedit:ordered: true
             hipposysedit:path: publishing:additionalContentBlocks
             hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator, required]
+            hipposysedit:validators: [contentblocks-validator]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
