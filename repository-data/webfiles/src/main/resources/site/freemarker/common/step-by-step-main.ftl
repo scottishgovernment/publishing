@@ -95,7 +95,7 @@
                                     </div>
                                     <div class="ds_accordion-item__body">
                                         <#if step.contentBlocks??>
-                                            <@hst.html hippohtml=step.content/>
+                                            <@renderContentBlocks step.contentBlocks />
                                         </#if>
                                     </div>
                                 </li>

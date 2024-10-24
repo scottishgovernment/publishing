@@ -51,7 +51,7 @@
 
                         <div class="ds_accordion-item__body" style="padding-right: 16px;">
                             <#if step.contentBlocks??>
-                                <@hst.html hippohtml=step.content/>
+                                <@renderContentBlocks step.contentBlocks />
                             </#if>
                         </div>
                     </li>
