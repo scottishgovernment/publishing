@@ -397,6 +397,8 @@
                         id: 'txtCaption',
                         requiredContent: 'caption',
                         label: editor.lang.table.caption,
+                        required: true,
+                        validate: CKEDITOR.dialog.validate.notEmpty( 'Tables must have a caption.' ),
                         setup: function (selectedTable) {
                             this.enable();
 
@@ -434,22 +436,6 @@
                                 for (var i = captionElement.count() - 1; i >= 0; i--)
                                     captionElement.getItem(i).remove();
                             }
-                        }
-                    },
-                    {
-                        type: 'text',
-                        id: 'txtSummary',
-                        bidi: true,
-                        requiredContent: 'table[summary]',
-                        label: editor.lang.table.summary,
-                        setup: function (selectedTable) {
-                            this.setValue(selectedTable.getAttribute('summary') || '');
-                        },
-                        commit: function (data, selectedTable) {
-                            if (this.getValue())
-                                selectedTable.setAttribute('summary', this.getValue());
-                            else
-                                selectedTable.removeAttribute('summary');
                         }
                     }]
                 }]
