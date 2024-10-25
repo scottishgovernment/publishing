@@ -398,7 +398,7 @@
                         requiredContent: 'caption',
                         label: editor.lang.table.caption,
                         required: true,
-                        validate: CKEDITOR.dialog.validate.notEmpty( 'Tables must have a caption.' ),
+                        validate: CKEDITOR.dialog.validate.notEmpty( 'Table must have a caption.' ),
                         setup: function (selectedTable) {
                             this.enable();
 
