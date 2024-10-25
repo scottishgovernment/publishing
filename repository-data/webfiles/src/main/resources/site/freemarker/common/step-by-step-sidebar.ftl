@@ -68,7 +68,7 @@
                     <@hst.link var="link" hippobean=stepByStep.stepByStepGuide/>
                     <li>
                         <a <@langcompare stepByStep.stepByStepGuide document/> href="${link}">
-                            ${stepByStepGuide.stepByStepGuide.title}
+                            ${stepByStep.stepByStepGuide.title}
                         </a>
                     </li>
                 </#list>
