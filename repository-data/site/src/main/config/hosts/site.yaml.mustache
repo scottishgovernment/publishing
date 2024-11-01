@@ -1,24 +1,20 @@
 definitions:
   config:
 {{#environments}}
-    /hst:hst/hst:hosts/{{name}}/site:
+    /hst:hst/hst:hosts/{{name}}/site/itecs/{{name}}:
       jcr:primaryType: hst:virtualhost
-      /itecs:
-        jcr:primaryType: hst:virtualhost
-        /{{name}}:
-          jcr:primaryType: hst:virtualhost
 {{#sites}}
-          /{{id}}:
-            jcr:primaryType: hst:virtualhost
-            /hst:root:
-              jcr:primaryType: hst:mount
-              hst:alias: {{id}}-site
-              hst:mountpoint: /hst:publishing/hst:sites/{{mount}}
-              hst:schemeagnostic: true
-              hst:nochannelinfo: true
-              publishing:alias: {{id}}
-              publishing:gtm: /content/documents/{{mount}}/administration/analytics/{{gtm}}
-              hst:locale: en_GB
+      /{{id}}:
+        jcr:primaryType: hst:virtualhost
+        /hst:root:
+          jcr:primaryType: hst:mount
+          hst:alias: {{id}}-site
+          hst:mountpoint: /hst:publishing/hst:sites/{{mount}}
+          hst:schemeagnostic: true
+          hst:nochannelinfo: true
+          publishing:alias: {{id}}
+          publishing:gtm: /content/documents/{{mount}}/administration/analytics/{{gtm}}
+          hst:locale: en_GB
 {{/sites}}
 
 {{/environments}}
