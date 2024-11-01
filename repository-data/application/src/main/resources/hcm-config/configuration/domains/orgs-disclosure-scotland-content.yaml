@@ -41,12 +41,3 @@ definitions:
         hipposys:groups: [orgs-disclosure-scotland-editors]
         hipposys:role: editor
         hipposys:users: []
-      /variables:
-        jcr:primaryType: hipposys:domainrule
-        /include-valuelists-folder:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: true
-          hipposys:facet: jcr:path
-          hipposys:filter: false
-          hipposys:type: Reference
-          hipposys:value: /content/documents/var/disclosure

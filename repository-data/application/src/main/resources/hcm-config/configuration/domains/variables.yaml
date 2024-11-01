@@ -8,19 +8,13 @@ definitions:
         hipposys:role: readonly
       /author:
         jcr:primaryType: hipposys:authrole
-        hipposys:groups:
-          .meta:category: system
-          .meta:add-new-system-values: true
-          type: string
-          value: [authors, mygov-authors]
+        hipposys:groups: [ author, mygov-authors, orgs-social-security-authors, orgs-disclosure-scotland-authors,
+                           orgs-national-records-scotland-authors]
         hipposys:role: author
       /editor:
         jcr:primaryType: hipposys:authrole
-        hipposys:groups:
-          .meta:category: system
-          .meta:add-new-system-values: true
-          type: string
-          value: [editors, mygov-editors]
+        hipposys:groups: [ editor, mygov-editors, orgs-social-security-editors, orgs-disclosure-scotland-editors,
+                           orgs-national-records-scotland-editors ]
         hipposys:role: editor
       /variables:
         jcr:primaryType: hipposys:domainrule
