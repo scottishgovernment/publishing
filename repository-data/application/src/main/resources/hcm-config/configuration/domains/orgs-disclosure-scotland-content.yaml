@@ -32,6 +32,15 @@ definitions:
           hipposys:filter: false
           hipposys:type: String
           hipposys:value: disclosure-scotland
+      /variables:
+        jcr:primaryType: hipposys:domainrule
+        /include-valuelists-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/var/disclosure
       /author:
         jcr:primaryType: hipposys:authrole
         hipposys:groups: [orgs-disclosure-scotland-authors]

@@ -1,0 +1,38 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:users/org-nrs-editor:
+      jcr:primaryType: hipposys:user
+      hipposys:active: true
+      hipposys:password: temp
+      hipposys:securityprovider: internal
+    /hippo:configuration/hippo:users/org-disclosure-author:
+      jcr:primaryType: hipposys:user
+      hipposys:active: true
+      hipposys:password: temp
+      hipposys:securityprovider: internal
+    /hippo:configuration/hippo:users/org-socsec-editor:
+      jcr:primaryType: hipposys:user
+      hipposys:active: true
+      hipposys:password: temp
+      hipposys:securityprovider: internal
+    /hippo:configuration/hippo:users/mygov-editor:
+      jcr:primaryType: hipposys:user
+      hipposys:active: true
+      hipposys:password: temp
+      hipposys:securityprovider: internal
+    /hippo:configuration/hippo:groups/orgs-disclosure-scotland-authors:
+      hipposys:members:
+        type: string
+        value: [org-disclosure-author]
+    /hippo:configuration/hippo:groups/orgs-social-security-editors:
+      hipposys:members:
+        type: string
+        value: [org-socsec-editor]
+    /hippo:configuration/hippo:groups/orgs-national-records-scotland-editors:
+      hipposys:members:
+        type: string
+        value: [org-nrs-editor]
+    /hippo:configuration/hippo:groups/mygov-editors:
+      hipposys:members:
+        type: string
+        value: [mygov-editor]

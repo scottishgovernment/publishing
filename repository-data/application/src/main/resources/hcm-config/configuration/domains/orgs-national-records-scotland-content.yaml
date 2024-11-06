@@ -48,3 +48,12 @@ definitions:
           hipposys:filter: false
           hipposys:type: String
           hipposys:value: national-records-scotland
+      /variables:
+        jcr:primaryType: hipposys:domainrule
+        /include-valuelists-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/var/nrs
