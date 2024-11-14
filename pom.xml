@@ -10,10 +10,8 @@
 
   <name>Digital Publishing</name>
   <description>Digital Publishing</description>
-    <modules>
-        <module>variable-interpolation</module>
-    </modules>
-    <groupId>scot.mygov.publishing</groupId>
+
+  <groupId>scot.mygov.publishing</groupId>
   <artifactId>publishing</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
@@ -258,6 +256,7 @@
         <module>platform-deb</module>
         <module>migration-rest</module>
         <module>imageprocessing</module>
+        <module>variable-interpolation</module>
       </modules>
     </profile>
 
