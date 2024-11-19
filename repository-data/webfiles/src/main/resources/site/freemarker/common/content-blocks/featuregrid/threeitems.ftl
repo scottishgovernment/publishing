@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "../../include/cms-placeholders.ftl">
+<#include "../../macros/content-blocks.ftl">
 
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
@@ -87,11 +88,10 @@
                             </#if>
                         </${weight}>
                     </#if>
-                    <@hst.html var="htmlcontent" hippohtml=item.content/>
-                    <#if htmlcontent?has_content>
-                    <div class="ds_cb--feature-grid__item-summary">
-                        <@hst.html hippohtml=item.content/>
-                    </div>
+                    <#if item.contentBlocks??>
+                        <div class="ds_cb--feature-grid__item-summary">
+                            <@renderContentBlocks item.contentBlocks />
+                        </div>
                     </#if>
 
                     <@hst.manageContent hippobean=item documentTemplateQuery="new-featuregriditem-document" parameterName="item" rootPath="featuregriditems"/>

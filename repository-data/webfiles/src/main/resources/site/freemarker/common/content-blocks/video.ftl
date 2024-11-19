@@ -18,6 +18,7 @@
         <div class="ds_cb__inner">
             <#if document??>
                 <div class="ds_cb__poster">
+                    <#if document.image??>
                     <a target="_blank" class="ds_cb__poster-link" href="${document.url}">
                         <#if document.image.xlargesixcolumns??>
                             <img class="ds_cb__poster-video" alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
@@ -39,6 +40,7 @@
                             <img loading="lazy" src="<@hst.link hippobean=document.image />" alt="${document.alt}"/>
                         </#if>
                     </a>
+                    </#if>
                 </div>
 
                 <div class="ds_cb__text">

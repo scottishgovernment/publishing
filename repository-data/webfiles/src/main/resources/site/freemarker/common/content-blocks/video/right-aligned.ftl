@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../../include/imports.ftl">
 <#include "../../include/cms-placeholders.ftl">
+<#include "../../macros/content-blocks.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#assign variables = hstRequestContext.getAttribute("variables")/>
@@ -20,10 +21,13 @@
             <#if document??>
 
                 <div class="ds_cb__text">
-                    <@hst.html hippohtml=document.content/>
+                    <#if document.contentBlocks??>
+                        <@renderContentBlocks document.contentBlocks />
+                    </#if>
                 </div>
 
                 <div class="ds_cb__poster">
+                    <#if document.image??>
                     <a target="_blank" class="ds_cb__poster-link" href="${document.url}">
                         <#if document.image.xlargesixcolumns??>
                             <img class="ds_cb__poster-video" alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
@@ -45,6 +49,7 @@
                             <img loading="lazy" src="<@hst.link hippobean=document.image />" alt="${document.alt}"/>
                         </#if>
                     </a>
+                    </#if>
                 </div>
 
                 <@hst.manageContent hippobean=document documentTemplateQuery="new-video-document" parameterName="document" rootPath="videos"/>

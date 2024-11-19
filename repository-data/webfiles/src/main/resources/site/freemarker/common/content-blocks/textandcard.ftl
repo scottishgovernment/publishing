@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "../include/imports.ftl">
 <#include "../include/cms-placeholders.ftl">
+<#include "../macros/content-blocks.ftl">
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#-- @ftlvariable name="document" type="scot.mygov.publishing.beans.TextAndCard" -->
@@ -12,7 +13,9 @@
         <div class="ds_cb__inner">
             <#if document1??>
             <div class="ds_cb__text">
-                <@hst.html hippohtml=document1.content/>
+                <#if document1.contentBlocks??>
+                    <@renderContentBlocks document1.contentBlocks />
+                </#if>
                 <@hst.manageContent hippobean=document1 documentTemplateQuery="new-text-document" parameterName="document1" rootPath="text"/>
             </div>
             <#elseif editMode>
@@ -27,6 +30,7 @@
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <div class="ds_aspect-box">
+                            <#if document2.image??>
                                 <#if document2.image.xlargefourcolumns??>
                                     <img class="ds_aspect-box__inner" alt="${document2.alt}" src="<@hst.link hippobean=document2.image.xlargefourcolumns />"
                                             width="${document2.image.xlargefourcolumns.width?c}"
@@ -46,6 +50,7 @@
                                 <#else>
                                     <img loading="lazy" class="ds_aspect-box__inner" src="<@hst.link hippobean=document2.image />" alt="${document2.alt}"/>
                                 </#if>
+                            </#if>
                             </div>
                         </div>
                     </#if>

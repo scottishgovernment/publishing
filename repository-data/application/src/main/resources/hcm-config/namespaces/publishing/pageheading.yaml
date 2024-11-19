@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 2f1bcaae-f36f-4bd8-9493-c0b986056933
+          jcr:uuid: 1bdbf84b-cb2d-4505-9cd4-282054b1d738
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -93,7 +93,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable']
           publishing:title: ''
           publishing:alt: ''
-          jcr:uuid: cbb5318b-f8d7-43c8-9f46-a41dd6cb729f
+          jcr:uuid: 2479fe2a-0d41-49ad-8589-baeab0cfc79d
           hippostdpubwf:lastModificationDate: 2021-07-29T10:15:50.235+01:00
           hippostdpubwf:creationDate: 2021-07-29T10:15:50.235+01:00
           publishing:externalLink: ''
@@ -147,21 +147,6 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /description:
-            jcr:primaryType: frontend:plugin
-            caption: Description
-            field: description
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            hint: ''
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
-                extraAllowedContent: ''table[data-smallscreen];address[translate];'',
-                format_tags: ''h2;h3;h4;p;address'', removePlugins: ''sourcearea,codemirror,youtube'',
-                extraPlugins: ''ds_button,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',
-                removeButtons: ''Indent,Outdent'', stylesSet: ''limitedstyles_{language}:./limitedstyles.js''
-                }'
           /descriptionContentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
@@ -198,3 +183,19 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /description:
+            jcr:primaryType: frontend:plugin
+            caption: Old description
+            field: description
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: This field is no longer used but is retained in order to support
+              reverting to old versions if this document
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ckeditor.config.overlayed.json: '{ disallowedContent: ''*[style]{*}'',
+                extraAllowedContent: ''table[data-smallscreen];address[translate];'',
+                format_tags: ''h2;h3;h4;p;address'', removePlugins: ''sourcearea,codemirror,youtube'',
+                extraPlugins: ''ds_button,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_la-finder'',
+                removeButtons: ''Indent,Outdent'', stylesSet: ''limitedstyles_{language}:./limitedstyles.js''
+                }'

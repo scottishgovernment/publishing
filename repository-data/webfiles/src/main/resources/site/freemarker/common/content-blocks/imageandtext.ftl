@@ -23,6 +23,7 @@
                 </div>
 
                 <div class="ds_cb__poster">
+                    <#if document.image??>
                     <#if document.image.xlargesixcolumns??>
                         <img alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
                                 width="${document.image.xlargesixcolumns.width?c}"
@@ -41,6 +42,7 @@
                                 >
                     <#else>
                         <img loading="lazy" src="<@hst.link hippobean=document.image />" alt="${document.alt}"/>
+                    </#if>
                     </#if>
                 </div>
 

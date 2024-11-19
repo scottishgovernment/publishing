@@ -35,6 +35,7 @@
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <div class="ds_aspect-box">
+                            <#if card.image??>
                                 <#if card.image.xlargefourcolumns??>
                                     <img class="ds_aspect-box__inner" alt="${card.alt}" src="<@hst.link hippobean=card.image.xlargefourcolumns />"
                                             width="${card.image.xlargefourcolumns.width?c}"
@@ -54,6 +55,7 @@
                                 <#else>
                                     <img loading="lazy" class="ds_aspect-box__inner" src="<@hst.link hippobean=card.image />" alt="${card.alt}"/>
                                 </#if>
+                            </#if>
                             </div>
                         </div>
                     </#if>
