@@ -1,0 +1,14 @@
+/*------------------------------------*\
+    CHECK PROGRESS LINK
+\*------------------------------------*/
+
+.mg_check-progress {
+    display: inline-block;
+    margin-top: 1.5rem;
+}
+
+@include ds_media-query (medium) {
+    .mobile-only {
+        display: none;
+    }
+}

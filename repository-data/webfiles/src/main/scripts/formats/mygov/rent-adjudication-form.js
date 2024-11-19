@@ -130,7 +130,7 @@ import _ from '../../vendor/lodash/dist/tinydash.es6.js';
 import $ from 'jquery';
 import feedback from '../../components/feedback';
 import EditableTable from '../../components/editable-table';
-import MultiPageForm from '../../components/multi-page-form';
+import MultiPageForm from '../../components/multi-page-form-legacy';
 import PostcodeLookup from '../../components/postcode-lookup';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
@@ -140,8 +140,6 @@ import bloomreachWebfile from '../../tools/bloomreach-webfile';
 const formTemplate = require('../../templates/mygov/rent-adjudication-form');
 const summaryTemplate = require('../../templates/mygov/rent-adjudication-summary');
 const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
-const sectionNavTemplate = require('../../templates/visited-only-section-nav');
-const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 
 $('form').each(function() {
     this.reset();
@@ -189,8 +187,6 @@ const rentAdjudicationForm = {
                 return arguments[0].toUpperCase();
             }
         }],
-        sectionTemplate: sectionNavTemplate,
-        subsectionTemplate: subNavTemplate,
         pageNavFunction: function () {return commonForms.pageNavFunction('overview', rentAdjudicationForm.form.currentStep);},
         pageNavTemplate: housingFormPageNavTemplate
     }),
@@ -404,7 +400,8 @@ const rentAdjudicationForm = {
     },
 
     validateStep: function () {
-        return commonForms.validateStep(rentAdjudicationForm.form.currentStep);
+        const stepContainer = document.querySelector(`section[data-step="${rentAdjudicationForm.form.currentStep.slug}"]`);
+        return commonForms.validateStep(stepContainer);
     },
 
     prepareFormDataForPost: function (formData) {

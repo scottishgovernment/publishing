@@ -1,571 +1,532 @@
-// MODEL TENANCY FORM
-
-/* global require grecaptcha expireRecaptcha */
-
-'use strict';
-const formObject = {'propertyType':null, 'propertyInRpz': false, 'buildingOther':null,'furnishingType':'','propertyAddress':null,'hmoProperty':'','hmo24ContactNumber':null,'hmoRegistrationExpiryDate':null,'hmoRenewalApplicationSubmitted':false,'tenancyStartDate':null,'rentAmount':null,'rentPaymentFrequency':null,'rentPaymentScheduleObject':{},'rentPaymentSchedule': null,'rentPayableInAdvance':null,'rentPaymentMethod':null,'firstPaymentAmount':null,'firstPaymentDate':null,'firstPaymentPeriodEnd':null,'servicesIncludedInRent':[],includedAreasOrFacilities:[],sharedFacilities:[],excludedAreasFacilities:[],'communicationsAgreement':'','depositAmount':null,'tenancyDepositSchemeAdministrator':null,'services':null,'facilities':[],'landlords':{'landlord-1':{}},'lettingAgent':{'name':null,'address':{'building':null,'street':null,'town':null,'postcode':null},'telephone':null,'registrationNumber':null},'agent':{'name':null,'address':{'building':null,'street':null,'town':null,'postcode':null},'telephone':null},'factor':{'name':null,'address':{'building':null,'street':null,'town':null,'postcode':null},'telephone':null,'registrationNumber':null},'tenants':{'tenant-1':{}},'optionalTerms':{'contentsAndConditions':null,'localAuthorityTaxesAndCharges':null,'utilities':null,'commonParts':null,'alterations':null,'privateGarden':null,'roof':null,'binsAndRecycling':null,'storage':null,'dangerousSubstances':null,'pets':null,'smoking':null},'additionalTerms':{'additional-term-1':{}}};
-
-import $ from 'jquery';
-import feedback from '../../components/feedback';
-import EditableTable from '../../components/editable-table';
-import MultiPageForm from '../../components/multi-page-form';
-import PostcodeLookup from '../../components/postcode-lookup';
-import formSections from '../../components/mygov/housing-forms/model-tenancy-sections';
-import formMapping from '../../components/mygov/housing-forms/model-tenancy-mapping';
-import commonForms from '../../tools/forms';
-import commonHousing from '../../tools/housing';
-import DSDatePicker from '../../../../../node_modules/@scottish-government/design-system/src/components/date-picker/date-picker';
+import AddAnother from '../../components/add-another';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
+import commonForms from '../../tools/forms';
+import formMapping from '../../components/mygov/housing-forms/model-tenancy-mapping';
+import MultiPageForm from "../../components/multi-page-form";
+import PostcodeLookup from '../../components/postcode-lookup';
+import PromiseRequest from '@scottish-government/design-system/src/base/tools/promise-request/promise-request';
+import temporaryFocus from '@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
 
+const additionalTermsDeleteTemplate = require('../../templates/mygov/housing-form-subprocesses/additional-terms-delete');
+const additionalTermsFormTemplate = require('../../templates/mygov/housing-form-subprocesses/additional-terms-form');
+const additionalTermsSummaryTemplate = require('../../templates/mygov/housing-form-subprocesses/additional-terms-summary');
+const editableTermTemplate = require('../../templates/mygov/housing-form-subprocesses/editable-term');
 const formTemplate = require('../../templates/mygov/model-tenancy-form');
-const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
-const paymentTemplate = require('../../templates/mygov/model-tenancy-payment-dates');
-const summaryOneTemplate = require('../../templates/mygov/model-tenancy-summary-1');
-const summaryTwoExcludedTemplate = require('../../templates/mygov/model-tenancy-summary-2-excluded');
-const summaryTwoTemplate = require('../../templates/mygov/model-tenancy-summary-2');
-
-const confirmDefaultModal = `<div class="modal">
-    <div class="modal__overlay"></div>
-    <div class="modal__dialog">
-
-        <a href="#" id="js-modal-close" class="modal__close" ds_button  ds_button--icon-only  ds_button--small  ds_button--cancel">
-            <span class="visually-hidden">Close</span>
-            <svg class="ds_icon" aria-hidden="true" role="img"><use href="/assets/images/icons/icons.stack.svg#close"></use></svg>
-        </a>
-
-        <h2 class="modal__title">Reset to recommended text?</h2>
-        <p class="modal__body">Note: You will lose all of your custom text and will revert to the recommended term provided.</p>
-        <button class="ds_no-margin  ds_button  ds_button--small" id="js-modal-continue">Continue</button>
-        <button class="ds_no-margin  ds_button--cancel  ds_button  ds_button--small" id="js-modal-cancel">Cancel</button>
-    </div>
-</div>`;
-
-let NOW = new Date();
-NOW.setHours(6,0,0,0);
-
-const costOfLivingLegislationEndDate = new Date(2024, 3, 1);
-
-let mandatoryTemplate;
-if (NOW > costOfLivingLegislationEndDate) {
-    mandatoryTemplate = require('../../templates/mygov/model-tenancy-mandatory-2024');
-} else {
-    mandatoryTemplate = require('../../templates/mygov/model-tenancy-mandatory');
-}
-
-$('form').each(function() {
-    this.reset();
-});
+const landlordsDeleteTemplate = require('../../templates/mygov/housing-form-subprocesses/landlords-delete');
+const landlordsFormTemplate = require('../../templates/mygov/housing-form-subprocesses/landlords-form');
+const landlordsSummaryTemplate = require('../../templates/mygov/housing-form-subprocesses/landlords-summary');
+const lettingAgentServicesDeleteTemplate = require('../../templates/mygov/housing-form-subprocesses/letting-agent-services-delete');
+const lettingAgentServicesFormTemplate = require('../../templates/mygov/housing-form-subprocesses/letting-agent-services-form');
+const lettingAgentServicesSummaryTemplate = require('../../templates/mygov/housing-form-subprocesses/letting-agent-services-summary');
+const mandatoryTemplate = require('../../templates/mygov/model-tenancy-mandatory-2024');
+const rentFrequencyDetailsTemplate = require('../../templates/mygov/model-tenancy-rent-frequency-detail');
+const servicesDeleteTemplate = require('../../templates/mygov/housing-form-subprocesses/services-delete');
+const servicesFormTemplate = require('../../templates/mygov/housing-form-subprocesses/services-form');
+const servicesSummaryTemplate = require('../../templates/mygov/housing-form-subprocesses/services-summary');
+const summaryTemplate = require('../../templates/mygov/model-tenancy-form-summary');
+const tenantsDeleteTemplate = require('../../templates/mygov/housing-form-subprocesses/tenants-delete');
+const tenantsFormTemplate = require('../../templates/mygov/housing-form-subprocesses/tenants-form');
+const tenantsSummaryTemplate = require('../../templates/mygov/housing-form-subprocesses/tenants-summary');
+const whatsIncludedDeleteTemplate = require('../../templates/mygov/housing-form-subprocesses/whats-included-delete');
+const whatsIncludedFormTemplate = require('../../templates/mygov/housing-form-subprocesses/whats-included-form');
+const whatsIncludedSummaryTemplate = require('../../templates/mygov/housing-form-subprocesses/whats-included-summary');
 
 const modelTenancyForm = {
     form: new MultiPageForm({
-        formId: 'model-tenancy-form',
-        formSections: formSections,
-        formMapping: formMapping,
-        formObject: formObject,
         formEvents: {
-            updateSummary1: function () {
-                const summaryContainer = document.querySelector('#summary-container-1');
-                const html = summaryOneTemplate.render(modelTenancyForm.form.settings.formObject);
-                summaryContainer.innerHTML = html;
-                commonHousing.summaryAccordion(summaryContainer);
-                window.DS.tracking.init(summaryContainer);
+            /**
+             * Enable or disable the HMO pages of the form based on the user's response to the
+             * 'property is a HMO' question
+             */
+            enableOrDisableHMOPages: () => {
+                const isHMOProperty = modelTenancyForm.form.formDataObject.hmoProperty === 'true';
+
+                const hmoDetailsPage = modelTenancyForm.form.getPage('slug', 'hmo-details');
+                hmoDetailsPage.disabled = !isHMOProperty;
             },
-            updateSummary2: function () {
-                const summaryContainer2 = document.querySelector('#summary-container-2');
-                const summaryContainer2Excluded = document.querySelector('#summary-container-2-excluded');
 
-                const summaryObject = JSON.parse(JSON.stringify(modelTenancyForm.form.settings.formObject));
+            /**
+             * Enable or disable the letting agent pages of the form based on the user's response to
+             * the 'a letting agent looks after thei property' question
+             */
+            enableOrDisableLettingAgentPages: () => {
+                const hasLettingAgent = modelTenancyForm.form.formDataObject.hasLettingAgent === 'letting-agent-yes'
 
-                summaryObject.hasTenants = Object.values(summaryObject.tenants)[0].name;
-                summaryObject.hasLandlords = Object.values(summaryObject.landlords)[0].name;
-                summaryObject.mandatory2 = true;
-                const mandatoryHtml = mandatoryTemplate.render(summaryObject);
+                const lettingAgentDetailsPage = modelTenancyForm.form.getPage('slug', 'letting-agent-details');
+                const lettingAgentServicesPage = modelTenancyForm.form.getPage('slug', 'letting-agent-services');
 
-                const extraTermsHtml = summaryTwoTemplate.render(summaryObject);
-                const excludedHtml = summaryTwoExcludedTemplate.render(summaryObject);
-                summaryContainer2.innerHTML = mandatoryHtml + extraTermsHtml;
-                summaryContainer2Excluded.innerHTML = excludedHtml;
-                commonHousing.summaryAccordion(summaryContainer2);
-                commonHousing.summaryAccordion(summaryContainer2Excluded);
-
-                window.DS.tracking.init(summaryContainer2);
-                window.DS.tracking.init(summaryContainer2Excluded);
+                lettingAgentDetailsPage.disabled = !hasLettingAgent;
+                lettingAgentServicesPage.disabled = !hasLettingAgent;
             },
-            updateMandatoryTerms: function () {
+
+            /**
+             * Render a client-side template for mandatory terms populated with relevant data
+             * entered into the form so far
+             */
+            renderMandatoryTerms: function () {
                 const mandatoryTermsContainer = document.querySelector('#mandatory-terms-container');
-                const summaryObject = JSON.parse(JSON.stringify(modelTenancyForm.form.settings.formObject));
+                const summaryObject = JSON.parse(JSON.stringify(modelTenancyForm.form.formDataObject));
 
-                summaryObject.hasTenants = Object.values(summaryObject.tenants)[0].name;
-                summaryObject.hasLandlords = Object.values(summaryObject.landlords)[0].name;
-                const html = mandatoryTemplate.render(summaryObject);
+                summaryObject.hasTenants = Object.values(summaryObject.tenants).length;
+                summaryObject.hasLandlords = Object.values(summaryObject.landlords).length;
 
-                mandatoryTermsContainer.innerHTML = html + '</div>';
-                commonHousing.summaryAccordion(mandatoryTermsContainer);
-                window.DS.tracking.init(mandatoryTermsContainer);
+                mandatoryTermsContainer.innerHTML = mandatoryTemplate.render(summaryObject);
+
+                // window.DS.tracking.init(mandatoryTermsContainer);
+            },
+
+            /**
+             * Call the form's renderEditableTerm function
+             */
+            renderEditableTerm: () => {
+                modelTenancyForm.renderEditableTerm();
+            },
+
+            /**
+             * Render a client-side template for the form summary populated with data entered into
+             * the form
+             * Set an event listener to handle clicks on action buttons in the summary list
+             */
+            renderSummary: () => {
+                const summaryObject = JSON.parse(JSON.stringify(modelTenancyForm.form.formDataObject));
+                const summaryContainer = document.querySelector('#summary');
+
+                summaryObject.hasTenants = Object.values(summaryObject.tenants).length;
+                summaryObject.hasLandlords = Object.values(summaryObject.landlords).length;
+                summaryObject.mandatory2 = true;
+
+                summaryObject.facilitiesByType = {
+                    excluded: modelTenancyForm.form.formDataObject.facilities.filter(item => item.type.toLowerCase() === 'excluded'),
+                    included: modelTenancyForm.form.formDataObject.facilities.filter(item => item.type.toLowerCase() === 'included'),
+                    shared: modelTenancyForm.form.formDataObject.facilities.filter(item => item.type.toLowerCase() === 'shared')
+                };
+
+                if (modelTenancyForm.form.formDataObject.servicesLookedAfterByLettingAgent.length > 0) {
+                    summaryObject.servicesProvidedByLettingAgent = modelTenancyForm.form.formDataObject.servicesLookedAfterByLettingAgent.filter(item => item.value.toLowerCase() === 'yes');
+                    summaryObject.servicesLettingAgentIsFirstContactFor = modelTenancyForm.form.formDataObject.servicesLookedAfterByLettingAgent.filter(item => item.value.toLowerCase() === 'no');
+                }
+
+                summaryContainer.innerHTML = summaryTemplate.render(summaryObject);
+
+                const mandatoryTermsContainer = summaryContainer.querySelector('#mandatory-terms-container-summary');
+                mandatoryTermsContainer.innerHTML = mandatoryTemplate.render(summaryObject);
+
+                summaryContainer.addEventListener('click', event => {
+                    if (event.target.classList.contains('js-change')) {
+                        const pageToNavigateTo = event.target.dataset.slug;
+                        modelTenancyForm.form.goToPage(modelTenancyForm.form.getPage('slug', pageToNavigateTo));
+                    }
+                });
             }
         },
+        formMapping: formMapping,
         modifiers: [{
             pattern: new RegExp(/\.postcode$/),
             transformFunction: function () {
                 return arguments[0].toUpperCase();
             }
         }],
-        pageNavFunction: pageNavFunction,
-        pageNavTemplate: housingFormPageNavTemplate
+        sections: [
+            {
+                slug: 'property',
+                title: 'About the property',
+                pages: [
+                    {
+                        slug: 'property-address',
+                        title: 'What\'s the property address',
+                    },
+                    {
+                        headerType: 'legend',
+                        slug: 'property-type',
+                        title: 'What type of property is it?'
+                    },
+                    {
+                        slug: 'property-included',
+                        title: 'What\'s included in the tenancy agreement?',
+                        titleShort: 'What\'s included?',
+                        triggerEventOnEntry: 'renderWhatsIncludedAddAnother'
+                    },
+                    {
+                        headerType: 'legend',
+                        slug: 'property-furnished',
+                        title: 'Is the property furnished?'
+                    },
+                    {
+                        noSummaryButton: true,
+                        slug: 'property-hmo',
+                        title: 'Is the property a House in Multiple Occupation (HMO)?',
+                        titleShort: 'Is the property a HMO?',
+                        triggerEventOnExit: 'enableOrDisableHMOPages'
+                    },
+                    {
+                        disabled: true,
+                        slug: 'hmo-details',
+                        title: 'HMO details',
+                    }
+                ]
+            },
+            {
+                slug: 'tenancy',
+                title: 'About the tenancy',
+                pages: [
+                    {
+                        slug: 'tenancy-start',
+                        title: 'When does the tenancy start?'
+                    },
+                    {
+                        slug: 'tenancy-payment-method',
+                        title: 'How will the tenant pay rent?'
+                    },
+                    {
+                        slug: 'tenancy-payment-frequency',
+                        title: 'How often will the tenant pay rent?'
+                    },
+                    {
+                        slug: 'tenancy-payment-frequency-details',
+                        title: 'Rent frequency details',
+                        triggerEventOnEntry: 'renderRentFrequencyDetails'
+                    },
+                    {
+                        slug: 'tenancy-payment-amount',
+                        title: 'How much will each of these rent payments be?'
+                    },
+                    {
+                        slug: 'tenancy-payment-type',
+                        title: 'Will they pay in advance or in arrears?'
+                    },
+                    {
+                        slug: 'tenancy-services',
+                        title: 'What services are included in the rent?',
+                        triggerEventOnEntry: 'renderServicesAddAnother'
+                    },
+                    {
+                        slug: 'tenancy-first-payment',
+                        title: 'First rent payment'
+                    },
+                    {
+                        slug: 'tenancy-deposit',
+                        title: 'Deposit'
+                    },
+                    {
+                        slug: 'tenancy-communication-agreement',
+                        title: 'How will you and the tenant(s) communicate?',
+                    }
+                ]
+            },
+            {
+                slug: 'managing',
+                title: 'Managing the property',
+                pages: [
+                    {
+                        noSummaryButton: true,
+                        slug: 'letting-agent',
+                        title: 'Is a letting agent managing the property?',
+                        triggerEventOnExit: 'enableOrDisableLettingAgentPages'
+                    },
+                    {
+                        disabled: true,
+                        slug: 'letting-agent-details',
+                        title: 'Letting agent details',
+                    },
+                    {
+                        disabled: true,
+                        slug: 'letting-agent-services',
+                        title: 'Letting agent services',
+                        triggerEventOnEntry: 'renderLettingAgentServicesAddAnother'
+                    },
+                    {
+                        slug: 'landlords',
+                        title: 'Landlord details',
+                        triggerEventOnEntry: 'renderLandlordsAddAnother'
+                    }
+                ]
+            },
+            {
+                slug: 'tenants',
+                title: 'About the tenants',
+                pages: [
+                    {
+                        slug: 'tenant-details',
+                        title: 'Tenant details',
+                        triggerEventOnEntry: 'renderTenantsAddAnother'
+                    }
+                ]
+            },
+            {
+                slug: 'mandatory-terms',
+                title: 'Review mandatory terms',
+                pages: [
+                    {
+                        slug: 'must-include-terms',
+                        title: 'Must-include terms',
+                        triggerEventOnEntry: 'renderMandatoryTerms'
+                    },
+                    {
+                        slug: 'notification-about-other-tenants',
+                        title: 'Notification about other tenants',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'ending-the-tenancy',
+                        title: 'Ending the tenancy',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    }
+                ]
+            },
+            {
+                slug: 'optional-terms',
+                title: 'Add optional terms',
+                pages: [
+                    {
+                        slug: 'extra-terms',
+                        title: 'Extra terms'
+                    },
+                    {
+                        slug: 'contents-and-conditions',
+                        title: 'Contents and condition',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'local-authority-taxes-and-charges',
+                        title: 'Local authority taxes/charges',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'utilities',
+                        title: 'Utilities',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'alterations',
+                        title: 'Alterations',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'common-parts',
+                        title: 'Common parts',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'private-garden',
+                        title: 'Private garden',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'roof',
+                        title: 'Roof',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'bins-and-recycling',
+                        title: 'Bins and recycling',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'storage',
+                        title: 'Storage',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'dangerous-substances',
+                        title: 'Dangerous substances',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'pets',
+                        title: 'Pets',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'smoking',
+                        title: 'Smoking',
+                        triggerEventOnEntry: 'renderEditableTerm'
+                    },
+                    {
+                        slug: 'additional-terms',
+                        title: 'Additional terms',
+                        triggerEventOnEntry: 'renderAdditionalTermsAddAnother'
+                    }
+                ]
+            },
+            {
+                hideTracker: true,
+                showInTracker: false,
+                slug: 'review',
+                title: 'Review',
+                pages: [
+                    {
+                        nextText: 'Confirm and continue',
+                        noSummaryButton: true,
+                        showInTracker: false,
+                        slug: 'review',
+                        title: 'Review your tenancy agreement',
+                        triggerEventOnEntry: 'renderSummary'
+                    }
+                ]
+            },
+            {
+                hideTracker: true,
+                showInTracker: false,
+                slug: 'download',
+                title: 'Download',
+                pages: [
+                    {
+                        nextText: 'Yes, I have downloaded',
+                        noSummaryButton: true,
+                        showInTracker: false,
+                        slug: 'download',
+                        title: 'Your tenancy agreement is ready'
+                    }
+                ]
+            },
+            {
+                hideTracker: true,
+                showInTracker: false,
+                slug: 'confirmation',
+                title: 'Confirmation',
+                pages: [{
+                    noSummaryButton: true,
+                    showInTracker: false,
+                    slug: 'confirmation',
+                    title: 'Thank you'
+                }]
+            },
+        ]
     }),
 
     downloadCount: { word: 0, pdf: 0 },
 
     init: function () {
-        // append form template
-        const formTemplateContainer = document.querySelector('#form-container');
-        if (!formTemplateContainer) {
-            return false;
-        }
-        const overviewContent = formTemplateContainer.innerHTML;
-
         this.recaptchaSitekey = document.getElementById('recaptchaSitekey').value;
         this.recaptchaEnabled = document.getElementById('recaptchaEnabled').value === 'true';
-        formTemplateContainer.innerHTML = formTemplate.render({
-            tenants: true,
-            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
-            webfilesPath: bloomreachWebfile(),
-            assetsPath: document.getElementById('site-root-path').value.replace('mygov', '') + 'assets',
-            recaptchaEnabled: this.recaptchaEnabled,
-            recaptchaSitekey: this.recaptchaSitekey
-        });
-        formTemplateContainer.querySelector('#overview').innerHTML = overviewContent;
 
         commonForms.appendCaptchaScript();
 
-        feedback.init();
-        this.getDefaultText();
-        commonHousing.setManualLinkSections();
-        this.setupExtraTerms();
-        this.setupRepeatingSections();
-        this.setupDatePickers();
-        this.setupValidations();
-        this.setupPostcodeLookups();
-        this.setupPaymentDatePickers();
-        if (this.recaptchaEnabled) {
-            commonForms.setupRecaptcha();
-        }
-        modelTenancyForm.form.validateStep = modelTenancyForm.validateStep;
-
-        new EditableTable({ // NOSONAR
-            tableContainer: document.querySelector('#facilities-table'),
-            dataPath: 'facilities',
-            fields: [{
-                title: 'Facility name',
-                slug: 'name',
-                validation: 'requiredField'
-            }, {
-                title: 'Type',
-                slug: 'type',
-                validation: 'requiredField',
-                options: [
-                    {displayName: '', value: ''},
-                    {displayName: 'Included', value: 'INCLUDED'},
-                    {displayName: 'Excluded', value: 'EXCLUDED'},
-                    {displayName: 'Shared', value: 'SHARED'}
-                ]
-            }],
-            addText: 'Add area or facility'
-        });
-
-        new EditableTable({ // NOSONAR
-            tableContainer: document.querySelector('#services-table'),
-            dataPath: 'servicesIncludedInRent',
-            fields: [{
-                title: 'Service name',
-                slug: 'name',
-                validation: 'requiredField'
-            }, {
-                title: 'Amount (per rent payment)',
-                slug: 'value',
-                format: 'currency',
-                validation: 'validCurrency requiredField'
-            }],
-            addText: 'Add a service'
-        });
-
-        new EditableTable({ // NOSONAR
-            tableContainer: document.querySelector('#letting-agent-services-table'),
-            dataPath: 'servicesProvidedByLettingAgent',
-            fields: [{
-                title: 'Service name',
-                slug: 'name',
-                validation: 'requiredField'
-            }, {
-                title: 'Is the letting agent the first point of contact for this service?',
-                slug: 'lettingAgentIsFirstContact',
-                type: 'radio',
-                options: [
-                    {displayName: 'Yes', value: 'YES'},
-                    {displayName: 'No', value: 'NO'}
-                ],
-                validation: 'requiredRadio'
-            }],
-            addText: 'Add a service'
-        });
-
-        new EditableTable({ // NOSONAR
-            tableContainer: document.querySelector('#letting-agent-other-services-table'),
-            dataPath: 'servicesLettingAgentIsFirstContactFor',
-            fields: [{
-                title: 'Service name',
-                slug: 'name',
-                validation: 'requiredField'
-            }],
-            addText: 'Add a service'
-        });
-    },
-
-    getDefaultText: function(section, termSection){
-        $.ajax('/service/housing/model-tenancy/template')
-            .done(function(data){
-                if (section && termSection) {
-                    modelTenancyForm.form.settings.formObject[termSection][section] = data[termSection][section];
-                    $(`[data-term-title=${section}]`).val(data[termSection][section]).trigger('change');
-                } else {
-                    modelTenancyForm.form.settings.formObject = data;
-                    modelTenancyForm.form.settings.formObject.rentPaymentScheduleObject = {};
-                }
+        this.getDefaultText()
+            .then(data => {
+                this.form.formDataObject = JSON.parse(data.responseText);
             })
-            .always(function(){
-                if (!section){
-                    modelTenancyForm.form.init();
+            .then(data => {
+                // reformat terms
+                function capitaliseFirstLetter(val) {
+                    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
                 }
-                modelTenancyForm.form.settings.formObject.tenants = { 'tenant-1': { name: '', email: '', telephone: '', address: {} } };
-                modelTenancyForm.form.settings.formObject.landlords = { 'landlord-1': { name: '', email: '', telephone: '', address: {}, registrationNumber: '' } };
-                modelTenancyForm.form.settings.formObject.additionalTerms = { 'additional-term-1': { title: '', content: '' } };
-                modelTenancyForm.form.settings.formObject.excludedTerms = {};
-                modelTenancyForm.form.settings.formObject.facilities = [];
-                // Terms sections need to not be fully hidden initally to accurately resize them for content length
-                $('#extra-terms, #extra-terms section').addClass('hidden--hard');
+
+                this.form.formDataObject.optionalTermsAsArray = Object.entries(this.form.formDataObject.optionalTerms).map(([name, content]) => ({ name, content }));
+                this.form.formDataObject.optionalTermsAsArray.forEach(item => {
+                    item.slug = item.name.replace(/([A-Z])/g, '-$1').toLowerCase()
+                    item.title = capitaliseFirstLetter(item.name.replace(/([A-Z])/g, ' $1').toLowerCase());
+                    item.type = 'optional';
+                });
+
+                // reformat mandatory terms
+                this.form.formDataObject.mustIncludeTermsAsArray = Object.entries(this.form.formDataObject.mustIncludeTerms).map(([name, content]) => ({ name, content }));
+                this.form.formDataObject.mustIncludeTermsAsArray.forEach(item => {
+                    item.slug = item.name.replace(/([A-Z])/g, '-$1').toLowerCase()
+                    item.title = capitaliseFirstLetter(item.name.replace(/([A-Z])/g, ' $1').toLowerCase());
+                    item.type = 'mandatory';
+                });
+
+                // end reformat terms
+
+                this.form.formDataObject.facilities = [];
+
+                this.form.initialDataObject = JSON.parse(JSON.stringify(this.form.formDataObject));
+
+                this.defaultTerms = {
+                    ...JSON.parse(JSON.stringify(this.form.initialDataObject.optionalTerms)),
+                    ...JSON.parse(JSON.stringify(this.form.initialDataObject.mustIncludeTerms))
+                };
+
+                this.renderForm();
+
+                this.attachEventHandlers();
+                this.setupAddAnothers();
+                this.setupDatePickers();
+                this.setupPostcodeLookups();
+                this.setupValidation();
+
+                if (this.recaptchaEnabled) {
+                    commonForms.setupRecaptcha();
+                }
+
+                this.form.init();
             });
     },
 
-
-
-    setupExtraTerms: function () {
-        const toggleOptionalTerm = function (fieldName, termSection, exclude) {
-            modelTenancyForm.form.settings.formObject.excludedTerms = modelTenancyForm.form.settings.formObject.excludedTerms || {};
-
-            if (exclude === true) {
-                modelTenancyForm.form.settings.formObject.excludedTerms[fieldName] = modelTenancyForm.form.settings.formObject[termSection][fieldName];
-                delete modelTenancyForm.form.settings.formObject[termSection][fieldName];
-            } else {
-                modelTenancyForm.form.settings.formObject[termSection][fieldName] = modelTenancyForm.form.settings.formObject.excludedTerms[fieldName];
-                delete modelTenancyForm.form.settings.formObject.excludedTerms[fieldName];
-            }
-        };
-
-        $('body').on('click', '.js-edit-term', function(event){
-            event.preventDefault();
-            $(this).parent().siblings('.js-term-content').attr('disabled', false).removeClass('remove')[0].focus();
-            $(this).siblings('.js-reset-term, .js-save-term').removeClass('fully-hidden');
-            $(this).addClass('fully-hidden');
-        });
-
-        $('body').on('change', '.js-include-term', function(){
-            const currentStep = modelTenancyForm.form.currentStep;
-            const currentSection = `[data-step="${currentStep.slug}"]`;
-            const fieldName = $(currentSection).find('.js-term-content').attr('data-term-title');
-            let termSection = 'optionalTerms';
-            if (currentStep.section === 'must-include-terms'){
-                termSection = 'mustIncludeTerms';
-            }
-
-            if (this.checked === true){
-                currentStep.excluded = false;
-                $(currentSection).find('.js-term-content').attr('disabled', true).removeClass('remove');
-                $(currentSection).find('.js-edit-term').removeClass('fully-hidden');
-                modelTenancyForm.form.updateFormNav();
-                toggleOptionalTerm(fieldName, termSection, false);
-            } else {
-                currentStep.excluded = true;
-                $(currentSection).find('.js-term-content').attr('disabled', true).addClass('remove');
-                $(currentSection).find('.js-reset-term, .js-edit-term').addClass('fully-hidden');
-                modelTenancyForm.form.updateFormNav();
-                toggleOptionalTerm(fieldName, termSection, true);
-            }
-            $(currentSection).find('.js-save-term').addClass('fully-hidden');
-        });
-
-        $('body').on('click', '.js-reset-term', function(event){
-            event.preventDefault();
-            // open modal to confirm revert to default text
-            $(this).parent().siblings('textarea').after(confirmDefaultModal);
-            $('.modal')[0].focus();
-
-            $('#js-modal-cancel, #js-modal-close, .modal__overlay').on('click', function(){
-                $('.modal').remove();
-            });
-
-            const resetButton = this;
-
-            $('#js-modal-continue').on('click', function(){
-                const currentTextArea = $(resetButton).parent().siblings('textarea')[0];
-                const sectionTitle = currentTextArea.getAttribute('data-term-title');
-
-                // find out if we're in the optionalTerms or the mustIncludeTerms
-                const currentStep = modelTenancyForm.form.currentStep;
-                let termSection = 'optionalTerms';
-                if (currentStep.section === 'must-include-terms'){
-                    termSection = 'mustIncludeTerms';
-                }
-                modelTenancyForm.getDefaultText(sectionTitle, termSection);
-
-                $(currentTextArea).attr('disabled', true).removeClass('remove');
-                $(resetButton).siblings('.js-save-term, .js-edit-term').addClass('fully-hidden');
-                $(resetButton).addClass('fully-hidden');
-                $('.modal').remove();
-            });
-        });
-
-        $('body').on('click', '.js-save-term', function(event){
-            event.preventDefault();
-            $(this).parent().siblings('textarea').attr('disabled', true);
-            $(this).siblings('.js-edit-term').removeClass('fully-hidden');
-            $(this).addClass('fully-hidden');
-        });
-
-        // make textareas resize to fit content for terms
-        $('#extra-terms textarea, #must-include-terms textarea').each(function(){
-            // set initial height
-            const contentHeight = $(this)[0].scrollHeight;
-            $(this).height(contentHeight);
-
-            $(this).on('paste input change', function () {
-                const borderTop = parseFloat($(this).css('borderTopWidth'));
-                const borderBottom = parseFloat($(this).css('borderBottomWidth'));
-
-                if ($(this).outerHeight() > this.scrollHeight) {
-                    $(this).height('84px');
-                }
-                while ($(this).outerHeight() < this.scrollHeight + borderTop + borderBottom) {
-                    $(this).height($(this).height() + 1);
-                }
-            });
-
-            $(this).on('keypress', function() {
-                modelTenancyForm.form.settings.formObject.editedTerms = modelTenancyForm.form.settings.formObject.editedTerms || [];
-                const termTitle = $(this).attr('data-term-title');
-
-                if ($.inArray(termTitle, modelTenancyForm.form.settings.formObject.editedTerms) < 0) {
-                    modelTenancyForm.form.settings.formObject.editedTerms.push(termTitle);
-                }
-            });
-        });
-    },
-
-    setupRepeatingSections: function () {
-        const sections = [
-            {
-                name: 'tenants',
-                nameInput: '.js-tenant-name',
-                container: '.js-tenants-container',
-                template: require('../../templates/tenant-html'),
-                slug: 'tenant',
-                stepTitle: 'Tenant',
-                guarantor: true,
-                fieldMappings: function(number) {
-                    const fieldMappings = {};
-                    fieldMappings['tenants[\'tenant-' + number + '\'].name'] = `#tenant-${number}-name`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].email'] = `#tenant-${number}-email`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].telephone'] = `#tenant-${number}-phone`;
-                    fieldMappings[`tenants[tenant-${number}].address`] = new PostcodeLookup(document.getElementById(`tenant-${number}-postcode-lookup`));
-                    fieldMappings['tenants[\'tenant-' + number + '\'].address.building'] = `#tenant-${number}-address-building`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].address.street'] = `#tenant-${number}-address-street`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].address.town'] = `#tenant-${number}-address-town`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].address.region'] = `#tenant-${number}-address-region`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].address.postcode'] = `#tenant-${number}-postcode`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.name'] = `#guarantor-${number}-name`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].hasGuarantor'] = `[name="guarantor-${number}-query"]`;
-                    fieldMappings[`tenants[tenant-${number}].guarantor.address`] = new PostcodeLookup(document.getElementById(`guarantor-${number}-postcode-lookup`));
-                    fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.building'] = `#guarantor-${number}-address-building`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.street'] = `#guarantor-${number}-address-street`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.town'] = `#guarantor-${number}-address-town`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.region'] = `#guarantor-${number}-address-region`;
-                    fieldMappings['tenants[\'tenant-' + number + '\'].guarantor.address.postcode'] = `#guarantor-${number}-postcode`;
-                    return fieldMappings;
-                }
-            },
-            {
-                name: 'landlords',
-                group: 'managing-the-property',
-                nameInput: '.js-landlord-name',
-                container: '.js-landlords-container',
-                template: require('../../templates/landlord-html'),
-                slug: 'landlord',
-                stepTitle: 'Landlord',
-                fieldMappings: function(number) {
-                    const fieldMappings = {};
-                    fieldMappings['landlords[\'landlord-' + number + '\'].name'] = `#landlord-${number}-name`;
-                    fieldMappings['landlords[\'landlord-' + number + '\'].email'] = `#landlord-${number}-email`;
-                    fieldMappings['landlords[\'landlord-' + number + '\'].telephone'] = `#landlord-${number}-phone`;
-                    fieldMappings[`landlords[landlord-${number}].address`] = new PostcodeLookup(document.getElementById(`landlord-${number}-postcode-lookup`));
-                    fieldMappings['landlords[\'landlord-' + number + '\'].address.building'] = `#landlord-${number}-address-building`;
-                    fieldMappings['landlords[\'landlord-' + number + '\'].address.street'] = `#landlord-${number}-address-street`;
-                    fieldMappings['landlords[\'landlord-' + number + '\'].address.town'] = `#landlord-${number}-address-town`;
-                    fieldMappings['landlords[\'landlord-' + number + '\'].address.region'] = `#landlord-${number}-address-region`;
-                    fieldMappings['landlords[\'landlord-' + number + '\'].address.postcode'] = `#landlord-${number}-postcode`;
-                    fieldMappings['landlords[\'landlord-' + number + '\'].registrationNumber'] = `#landlord-${number}-registration`;
-                    return fieldMappings;
-                }
-            },
-            {
-                name: 'additional-terms',
-                container: '.js-terms-container',
-                slug: 'additional-term',
-                template: require('../../templates/mygov/mta-additional-term-html'),
-                stepTitle: 'Additional terms',
-                fieldMappings: function(number) {
-                    const fieldMappings = {};
-                    fieldMappings['additionalTerms[\'additional-term-' + number + '\'].title'] = `#additional-term-${number}-title`;
-                    fieldMappings['additionalTerms[\'additional-term-' + number + '\'].content'] = `#additional-term-${number}-content`;
-                    return fieldMappings;
-                }
-            }
-        ];
-
-        commonHousing.setupRepeatingSections(sections, this.form);
-
-        // additional page change event:
-        // if the summary page has been visited AND we're on a page before the summary page, show the "back to summary" button
-        $('#page-nav').on('change', function(){
-            const summaryStep = modelTenancyForm.form.getStep('slug', 'part-1-summary');
-            const formSectionsFlattened = modelTenancyForm.form.flattenedSections(true);
-
-            const thisStepIndex = formSectionsFlattened.findIndex(function (element) {
-                return element.slug === modelTenancyForm.form.currentStep.slug;
-            });
-            const summaryStepIndex = formSectionsFlattened.findIndex(function (element) {
-                return element.slug === summaryStep.slug;
-            });
-
-            const goToSummaryButton = $('#go-to-summary');
-
-            if (summaryStep.visited && thisStepIndex < summaryStepIndex) {
-                goToSummaryButton.removeClass('fully-hidden');
-            } else {
-                goToSummaryButton.addClass('fully-hidden');
-            }
-        });
-    },
-
-    setupDatePickers: function () {
-        const startDatePicker = new DSDatePicker(document.getElementById('tenancy-start-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
-        const hmoDatePicker = new DSDatePicker(document.getElementById('hmo-expiry-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
-        const firstPaymentDatePicker = new DSDatePicker(document.getElementById('first-payment-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
-        const firstPaymentEndDatePicker = new DSDatePicker(document.getElementById('first-payment-end-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
-
-        startDatePicker.init();
-        hmoDatePicker.init();
-        firstPaymentDatePicker.init();
-        firstPaymentEndDatePicker.init();
-    },
-
-    setupValidations: function () {
-        // the "other" radio option needs to enable/disable validation on its associated text input
-        $('[name="property-building"]').on('change', function () {
-            if ($('[name="property-building"]:checked').val() === 'OTHER') {
-                $('#building-other').attr('data-validation', 'requiredField')
-                    .parent().removeClass('fully-hidden');
-            } else {
-                $('#building-other').removeAttr('data-validation aria-invalid')
-                    .removeClass('ds_input--error')
-                    .next('.current-errors')
-                    .remove();
-                $('#building-other').parent().addClass('fully-hidden');
-            }
-        });
-
-        // On click of error playback link, scroll to above field so label is visible
-        $('body').on('click', '.client-error a', function (event) {
-            const targetElement = document.querySelector(this.hash);
-            const question = targetElement.closest('.ds_question');
-
-            const elementToScrollTo = question || targetElement;
-            if (elementToScrollTo) {
-                elementToScrollTo.scrollIntoView();
+    attachEventHandlers: function () {
+        document.querySelector('#form-content').addEventListener('click', event => {
+            if (event.target.classList.contains('js-download-file')) {
                 event.preventDefault();
+
+                const downloadForm = document.querySelector('#mta-document-download');
+                const downloadType = event.target.dataset.documenttype
+                downloadForm.querySelector('input[name="type"]').value = downloadType;
+
+                const formData = JSON.parse(JSON.stringify(this.form.formDataObject));
+                const data = this.prepareFormDataForPost(formData);
+
+                // tracking
+                this.downloadCount[downloadType] = this.downloadCount[downloadType] + 1;
+
+                const includedTerms = commonForms.objectKeys(data.optionalTerms);
+                const excludedTerms = data.excludedTerms || [];
+                const editedTerms = data.editedTerms || [];
+                delete data.editedTerms;
+
+                commonForms.track({
+                    'event': 'formSubmitted',
+                    'formId': 'model-tenancy-form',
+                    'downloadType': downloadType,
+                    'downloadCount': this.downloadCount,
+                    'tenantNumber': data.tenants.length,
+                    'landlordNumber': data.landlords.length,
+                    'additionalTermNumber': data.additionalTerms.length,
+                    'includedTerms': includedTerms,
+                    'excludedTerms': excludedTerms,
+                    'editedTerms': editedTerms
+                });
+
+                downloadForm.querySelector('input[name="data"]').value = encodeURIComponent(JSON.stringify(data));
+
+                this.form.pauseUnloadEvent = true;
+                downloadForm.submit();
+
+                if (this.recaptchaEnabled) {
+                    expireRecaptcha();
+                }
             }
         });
-    },
 
-    setupPostcodeLookups: function() {
-        const rpzComplete = function(rpzData){
-            modelTenancyForm.form.settings.formObject.inRentPressureZone = rpzData.inRentPressureZone;
-        };
-
-        const notScottishMessage = 'The postcode you\'ve entered is not a Scottish postcode.' +
-        ' You can only create a Scottish Government Model Tenancy Agreement for' +
-        ' homes in Scotland. <a href="https://www.gov.uk/tenancy-agreements-a-guide-for' +
-        '-landlords" target="_blank">Find out more about UK tenancy agreements' +
-        ' (opens in a new window)</a>.';
-
-        modelTenancyForm.form.settings.formMapping.propertyAddress = new PostcodeLookup(
-            document.getElementById('property-postcode-lookup'),
-            {
-                rpz: true, // NOSONAR
-                rpzComplete: rpzComplete,
-                notScottishMessage: notScottishMessage,
-                readOnly: true
-            }
-        );
-        modelTenancyForm.form.settings.formMapping['lettingAgent.address'] = new PostcodeLookup(document.getElementById('letting-agent-postcode-lookup'));
-    },
-
-    setupPaymentDatePickers: function() {
-        const that = this;
-        // On choosing a payment frequency, display more options for when during each period rent is due
-        $('#tenancy-payment-frequency').on('change', function(){
-            if (!$(this).val()) {
-                return;
-            }
-
-            const paymentData  = {};
-            paymentData[$(this).val()] = true;
-
-            const paymentHtml = paymentTemplate.render(paymentData);
-            $('#tenancy-payment-dates').html(paymentHtml);
-
+        const paymentFrequencyContainer = document.getElementById('payment-frequency');
+        paymentFrequencyContainer.addEventListener('change', event => {
             // Reset the form's data on what the schedule is
-            that.form.settings.formObject.rentPaymentScheduleObject = {};
-
-            // Map new fields to formObject
-            const fieldMappings = {
-                'rentPaymentScheduleObject.day': '#tenancy-payment-frequency-day',
-                'rentPaymentScheduleObject.week': '#tenancy-payment-frequency-week',
-                'rentPaymentScheduleObject.date': '#tenancy-payment-frequency-date'
-            };
-
-            for (const key in fieldMappings) {
-                if (!fieldMappings.hasOwnProperty(key)) { continue; }
-                that.form.mapField(key, fieldMappings[key]);
-            }
+            modelTenancyForm.form.formDataObject.rentPaymentScheduleObject = {};
         });
     },
 
-    validateStep: function () {
-        return commonForms.validateStep(modelTenancyForm.form.currentStep);
+    getDefaultText: function () {
+        return PromiseRequest('/service/housing/model-tenancy/template');
     },
 
-    prepareFormDataForPost: function (formData) {
-        // 1. build up the guarantors
-        const tenants = formData.tenants,
-            guarantors = [];
+    /**
+     * Process the form data into the format that the backend expects
+     * @param {object} formData
+     * @returns {object}
+     */
+    prepareFormDataForPost(formData) {
+        // Property address as string not object
+        formData.propertyAddress = this.form.formMapping.propertyAddress.getAddressAsString();
 
-        for (const key in tenants) {
-            const tenant = tenants[key];
+        // build guarantors
+        const tenants = formData.tenants;
 
-            if (tenant.hasGuarantor === 'guarantor-yes') {
+        tenants.forEach(tenant => {
+            if (tenant.guarantor) {
                 let guarantorMatch = false;
                 tenant.guarantor.address = tenant.guarantor.address || {};
 
-                for (let i = 0, il = guarantors.length; i < il; i++) {
+                for (let i = 0, il = formData.guarantors.length; i < il; i++) {
                     const guarantor = guarantors[i];
 
                     if (guarantor.name === tenant.guarantor.name &&
@@ -577,7 +538,7 @@ const modelTenancyForm = {
                 }
 
                 if (!guarantorMatch) {
-                    guarantors.push({
+                    formData.guarantors.push({
                         name: tenant.guarantor.name,
                         address: {
                             building: tenant.guarantor.address.building,
@@ -586,25 +547,19 @@ const modelTenancyForm = {
                             region: tenant.guarantor.address.region,
                             postcode: tenant.guarantor.address.postcode
                         },
-                        tenantNames: [ tenant.name ]
+                        tenantNames: [tenant.name]
                     });
                 }
+
+                delete tenant.guarantor;
             }
-            delete tenant.guarantor;
-            delete tenant.hasGuarantor;
-            delete tenant.hasGuarantor_text;
-        }
+        });
 
-        if (guarantors.length > 0) {
-            formData.guarantors = guarantors;
-        }
-
-        // 2. Format dates to YYYY-MM-DD
+        // format dates to YYYY-MM-DD
         const dateFields = ['tenancyStartDate', 'firstPaymentDate', 'firstPaymentPeriodEnd', 'hmoRegistrationExpiryDate'];
-
         for (const field of dateFields) {
             let value = formData[field];
-            if (value === null || value.split(' ').join('') === ''){
+            if (value === null || value.split(' ').join('') === '') {
                 continue;
             }
 
@@ -613,7 +568,7 @@ const modelTenancyForm = {
             let dateRegex = new RegExp(/\d{1,2}\/\d{1,2}\/\d{4}/);
 
             if (value.match(dateRegex)) {
-                let dateAsArray = value.trim().replace(/-/g, '/').split('/');
+                let dateAsArray = value.replace(/-/g, '/').split('/');
 
                 // check date is a valid date
                 const day = dateAsArray[0];
@@ -628,38 +583,32 @@ const modelTenancyForm = {
             } else {
                 formData[field] = null;
             }
-        }
+        };
 
-        // 3. Add value from 'other' option in property type field if selected
-        if ($('#building-other-query').is(':checked')) {
-            formData.propertyType = $('#building-other').val();
+        // Add value from 'other' option in property type field if selected
+        const selectedPropertyTypeRadio = document.querySelector('[name="property-building"]:checked');
+        const selectedPropertyTypeLabel = document.querySelector(`label[for="${selectedPropertyTypeRadio.id}"]`);
+        if (selectedPropertyTypeRadio.value.toUpperCase() === 'OTHER') {
+            formData.propertyType = document.querySelector('#building-other').value;
         } else {
-            formData.propertyType = $('[name="property-building"]:checked + label').text();
+            formData.propertyType = selectedPropertyTypeLabel.innerText;
         }
 
-        // 4. Shred the facilities into expected places
+        // Shred the facilities into expected places
         formData.includedAreasOrFacilities = formData.includedAreasOrFacilities || [];
         formData.excludedAreasFacilities = formData.excludedAreasFacilities || [];
         formData.sharedFacilities = formData.sharedFacilities || [];
-        for (let j = 0, jl = formData.facilities.length; j < jl; j++) {
-            const facility = formData.facilities[j];
-
-            if (facility.type === 'INCLUDED') {
+        for (const facility of formData.facilities) {
+            if (facility.type.toUpperCase() === 'INCLUDED') {
                 formData.includedAreasOrFacilities.push(facility.name);
-            } else if (facility.type === 'EXCLUDED') {
+            } else if (facility.type.toUpperCase() === 'EXCLUDED') {
                 formData.excludedAreasFacilities.push(facility.name);
-            } else if (facility.type === 'SHARED') {
+            } else if (facility.type.toUpperCase() === 'SHARED') {
                 formData.sharedFacilities.push(facility.name);
             }
         }
 
-        // 5. Format tenants, landlords, additional and excluded terms into arrays
-        formData.tenants = commonForms.objectValues(formData.tenants);
-        formData.landlords = commonForms.objectValues(formData.landlords);
-        formData.additionalTerms = commonForms.objectValues(formData.additionalTerms);
-        formData.excludedTerms = commonForms.objectKeys(formData.excludedTerms);
-
-        // 6. Format rent payment schedule into a sentence string
+        // Format rent payment schedule into a sentence string
         const frequency = formData.rentPaymentFrequency;
         const schedule = formData.rentPaymentScheduleObject;
 
@@ -668,105 +617,490 @@ const modelTenancyForm = {
         const week = schedule.week || '';
         const date = schedule.date || '';
 
-        if (commonForms.objectKeys(schedule).length > 0){
+        if (commonForms.objectKeys(schedule).length > 0) {
             switch (frequency) {
-            case 'WEEKLY':
-                scheduleString = day;
-                break;
-            case 'FORTNIGHTLY':
-            case 'EVERY_FOUR_WEEKS':
-                scheduleString = `{$day} of the ${week.toLowerCase()}`;
-                break;
-            case 'CALENDAR_MONTH':
-                scheduleString = `the ${date} of the month`;
-                break;
-            case 'QUARTERLY':
-            case 'EVERY_SIX_MONTHS':
-                scheduleString = `the ${date}`;
-                break;
-            default:
-                break;
+                case 'WEEKLY':
+                    scheduleString = day;
+                    break;
+                case 'FORTNIGHTLY':
+                case 'EVERY_FOUR_WEEKS':
+                    scheduleString = `{$day} of the ${week.toLowerCase()}`;
+                    break;
+                case 'CALENDAR_MONTH':
+                    scheduleString = `the ${date} of the month`;
+                    break;
+                case 'QUARTERLY':
+                case 'EVERY_SIX_MONTHS':
+                    scheduleString = `the ${date}`;
+                    break;
+                default:
+                    break;
             }
         }
 
         formData.rentPaymentSchedule = scheduleString;
 
-        // 7. Remove letting agent details if user has said there is none
-        if (formData.hasLettingAgent === 'no'){
-            formData.lettingAgent = null;
+        // return optional terms to expected format
+        formData.optionalTerms = {};
+        formData.optionalTermsAsArray.filter(item => !item.excluded).forEach(item => formData.optionalTerms[item.name] = item.content);
+        formData.excludedTerms = formData.optionalTermsAsArray.filter(item => item.excluded).map(item => item.name);
+
+        // letting agent services
+        formData.servicesProvidedByLettingAgent = formData.servicesLookedAfterByLettingAgent
+            .filter(item => item.value.toUpperCase() === 'YES')
+            .map(item => { return { name: item.name, lettingAgentIsFirstContact: item.value.toUpperCase() } });
+
+        formData.servicesLettingAgentIsFirstContactFor = formData.servicesLookedAfterByLettingAgent
+            .filter(item => item.value.toUpperCase() === 'NO')
+            .map(item => { return { name: item.name } });
+
+        // Add recaptcha data
+        if (this.recaptchaEnabled) {
+            formData.recaptcha = grecaptcha.getResponse();
+        }
+        return formData;
+    },
+
+    /**
+     * Render an "additional terms" add another widget, map its data to the form data object on save
+     */
+    renderAdditionalTermsAddAnother() {
+        const data = modelTenancyForm.form.formDataObject.additionalTerms || [];
+
+        const additionalTermsAddAnother = new AddAnother({
+            addString: 'You have added the term <strong>{{title}}</strong> to the tenancy agreement.',
+            changeString: 'You have changed the term <strong>{{title}}</strong> on the tenancy agreement.',
+            deleteString: 'You have deleted the term <strong>{{title}}</strong> from the tenancy agreement.',
+            nameString: 'Additional term',
+
+            buttonText: 'Add a term',
+            container: document.getElementById('additional-terms-add-another'),
+            data: data,
+            deleteTemplate: additionalTermsDeleteTemplate,
+            formTemplate: additionalTermsFormTemplate,
+            summaryTemplate: additionalTermsSummaryTemplate,
+
+            onSave: formContainer => {
+                modelTenancyForm.form.formDataObject.additionalTerms = additionalTermsAddAnother.getData();
+
+                return {
+                    title: formContainer.querySelector('#additional-term-title').value,
+                    content: formContainer.querySelector('#additional-term-content').value,
+                }
+            }
+        });
+
+        additionalTermsAddAnother.init();
+    },
+
+    /**
+     * Render an editable term
+     * Set up the editable term's event listeners
+     * Map the term to the form data object
+     */
+    renderEditableTerm() {
+        const editableTermContainer = document.querySelector('.js-form-page:not(.fully-hidden) .js-editable');
+        let currentTerm;
+
+        if (editableTermContainer.dataset.type === 'mandatory') {
+            currentTerm = this.form.formDataObject.mustIncludeTermsAsArray.filter(item => item.slug === editableTermContainer.dataset.slug)[0]
+        } else {
+            currentTerm = this.form.formDataObject.optionalTermsAsArray.filter(item => item.slug === editableTermContainer.dataset.slug)[0]
         }
 
-        // 8. Remove HMO info if the user has said the property is not HMO
-        if (formData.hmoProperty === 'false') {
-            formData.hmo24ContactNumber = null;
-            formData.hmoRegistrationExpiryDate = null;
-            formData.hmoRenewalApplicationSubmitted = false;
+        const templateData = {
+            checkboxId: editableTermContainer.dataset.query,
+            label: 'Term description',
+            slug: currentTerm.slug,
+            excluded: !!currentTerm.excluded,
+            value: currentTerm.content
+        };
+
+        editableTermContainer.innerHTML = editableTermTemplate.render(templateData);
+
+        const resetButtons = editableTermContainer.querySelector('.mg_editable-term__reset');
+
+        editableTermContainer.querySelector('.mg_editable-term').addEventListener('click', event => {
+            if (event.target.classList.contains('js-editable-term-reset-link')) {
+                // show reset buttons, tempfocus reset buttons
+                resetButtons.classList.remove('fully-hidden');
+                temporaryFocus(resetButtons);
+            }
+            if (event.target.classList.contains('js-editable-term-reset-confirm')) {
+                // reset term, hide reset buttons, tempfocus editable
+                if (editableTermContainer.dataset.type === 'mandatory') {
+                    this.form.formDataObject.mustIncludeTerms[editableTermContainer.dataset.term] = this.defaultTerms[editableTermContainer.dataset.term];
+                } else {
+                    this.form.formDataObject.optionalTerms[editableTermContainer.dataset.term] = this.defaultTerms[editableTermContainer.dataset.term];
+                }
+                this.form.formEvents.renderEditableTerm();
+                temporaryFocus(editableTermContainer);
+            }
+            if (event.target.classList.contains('js-editable-term-reset-cancel')) {
+                // hide reset buttons
+                resetButtons.classList.add('fully-hidden');
+            }
+
+            if (event.target.classList.contains('js-include-term')) {
+                const termSlug = event.target.dataset.slug;
+
+                if (event.target.closest('.js-editable').dataset.type === 'mandatory') {
+                    this.form.formDataObject.mustIncludeTermsAsArray.filter(item => item.slug === termSlug)[0].excluded = !event.target.checked;
+                } else {
+                    this.form.formDataObject.optionalTermsAsArray.filter(item => item.slug === termSlug)[0].excluded = !event.target.checked;
+                }
+            }
+        });
+    },
+
+    /**
+     * Render the form into the form content container
+     */
+    renderForm() {
+        const formTemplateContainer = document.querySelector('#form-content');
+        if (!formTemplateContainer) {
+            return false;
         }
-        return commonForms.trimObjectValues(formData);
+
+        formTemplateContainer.innerHTML = formTemplate.render({
+            tenants: true,
+            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
+            webfilesPath: bloomreachWebfile(),
+            assetsPath: document.getElementById('site-root-path').value.replace('mygov', '') + 'assets',
+            recaptchaEnabled: this.recaptchaEnabled,
+            recaptchaSitekey: this.recaptchaSitekey,
+            ...this.form.formDataObject
+        });
+    },
+
+    /**
+     * Render a "landlords" add another widget, map its data to the form data object on save
+     */
+    renderLandlordsAddAnother() {
+        const data = modelTenancyForm.form.formDataObject.landlords || [];
+
+        const landlordsAddAnother = new AddAnother({
+            addString: 'You have added the landlord <strong>{{name}}</strong> to the tenancy agreement.',
+            changeString: 'You have changed the landlord <strong>{{name}}</strong> on the tenancy agreement.',
+            deleteString: 'You have deleted the landlord <strong>{{name}}</strong> from the tenancy agreement.',
+            nameString: 'Landlord',
+
+            buttonText: 'Add a landlord',
+            container: document.getElementById('landlords-add-another'),
+            data: data,
+            deleteTemplate: landlordsDeleteTemplate,
+            formTemplate: landlordsFormTemplate,
+            summaryTemplate: landlordsSummaryTemplate,
+
+            onRenderForm: formContainer => {
+                landlordsAddAnother.landlordPostcodeLookup = new PostcodeLookup(formContainer.querySelector('#landlord-postcode-lookup'));
+            },
+
+            onSave: formContainer => {
+                modelTenancyForm.form.formDataObject.landlords = landlordsAddAnother.getData();
+
+                return {
+                    address: landlordsAddAnother.landlordPostcodeLookup.getAddressAsObject(),
+                    email: formContainer.querySelector('#landlord-email').value,
+                    name: formContainer.querySelector('#landlord-name').value,
+                    registrationNumber: formContainer.querySelector('#landlord-registration').value,
+                    telephone: formContainer.querySelector('#landlord-phone').value
+                }
+            }
+        });
+
+        landlordsAddAnother.init();
+    },
+
+    /**
+     * Render a "letting agent services" add another widget, map its data to the form data object on save
+     */
+    renderLettingAgentServicesAddAnother() {
+        const data = modelTenancyForm.form.formDataObject.servicesLookedAfterByLettingAgent || [];
+        const lettingAgentServicesAddAnother = new AddAnother({
+            addString: 'You have added the service <strong>{{name}}</strong> to the tenancy agreement.',
+            changeString: 'You have changed the service <strong>{{name}}</strong> on the tenancy agreement.',
+            deleteString: 'You have deleted the service <strong>{{name}}</strong> from the tenancy agreement.',
+            nameString: 'Service',
+
+            buttonText: 'Add a service',
+            container: document.getElementById('letting-agent-services-add-another'),
+            data: data,
+            deleteTemplate: lettingAgentServicesDeleteTemplate,
+            formTemplate: lettingAgentServicesFormTemplate,
+            summaryTemplate: lettingAgentServicesSummaryTemplate,
+
+            onSave: formContainer => {
+                modelTenancyForm.form.formDataObject.servicesLookedAfterByLettingAgent = lettingAgentServicesAddAnother.getData();
+
+                return {
+                    name: formContainer.querySelector('#letting-agent-service-name').value,
+                    value: formContainer.querySelector('[name="letting-agent-first-contact"]:checked').value
+                }
+            }
+        });
+
+        lettingAgentServicesAddAnother.init();
+    },
+
+    /**
+     * Render the relevant rent frequency details for fields for the selected rent frequency
+     * Map the rent frequency fields to the form object
+     */
+    renderRentFrequencyDetails() {
+        const rentFrequencyContainer = document.querySelector('#tenancy-payment-frequency-details-question-container');
+
+        rentFrequencyContainer.innerHTML = rentFrequencyDetailsTemplate.render({
+            frequency: modelTenancyForm.form.formDataObject.rentPaymentFrequency,
+            title: `Payment frequency: ${modelTenancyForm.form.formDataObject.rentPaymentFrequency_text}`,
+            day: modelTenancyForm.form.formDataObject.rentPaymentScheduleObject.day,
+            week: modelTenancyForm.form.formDataObject.rentPaymentScheduleObject.week,
+            date: modelTenancyForm.form.formDataObject.rentPaymentScheduleObject.date
+        });
+
+        // Map new fields
+        const fieldMappings = {
+            'rentPaymentScheduleObject.day': '#tenancy-payment-frequency-day',
+            'rentPaymentScheduleObject.week': '#tenancy-payment-frequency-week',
+            'rentPaymentScheduleObject.date': '#tenancy-payment-frequency-date'
+        };
+
+        for (const key in fieldMappings) {
+            if (!fieldMappings.hasOwnProperty(key)) { continue; }
+            modelTenancyForm.form.mapField(key, fieldMappings[key]);
+        }
+    },
+
+    /**
+     * Render a "services" add another widget, map its data to the form data object on save
+     */
+    renderServicesAddAnother() {
+        const data = modelTenancyForm.form.formDataObject.servicesIncludedInRent;
+
+        const servicesAddAnother = new AddAnother({
+            addString: 'You have added the service <strong>{{name}}</strong> to the tenancy agreement.',
+            changeString: 'You have changed the service <strong>{{name}}</strong> on the tenancy agreement.',
+            deleteString: 'You have deleted the service <strong>{{name}}</strong> from the tenancy agreement.',
+            nameString: 'Service',
+
+            buttonText: 'Add a service',
+            container: document.getElementById('services-add-another'),
+            data: data,
+            deleteTemplate: servicesDeleteTemplate,
+            formTemplate: servicesFormTemplate,
+            summaryTemplate: servicesSummaryTemplate,
+
+            onSave: formContainer => {
+                modelTenancyForm.form.formDataObject.servicesIncludedInRent = servicesAddAnother.getData();
+
+                return {
+                    name: formContainer.querySelector('#service-name').value,
+                    value: formContainer.querySelector('#service-amount').value
+                }
+            }
+        });
+
+        servicesAddAnother.init();
+    },
+
+    /**
+     * Render a "tenants" add another widget, map its data to the form data object on save
+     */
+    renderTenantsAddAnother() {
+        const data = modelTenancyForm.form.formDataObject.tenants || [];
+
+        const tenantsAddAnother = new AddAnother({
+            addString: 'You have added the tenant <strong>{{name}}</strong> to the tenancy agreement.',
+            changeString: 'You have changed the tenant <strong>{{name}}</strong> on the tenancy agreement.',
+            deleteString: 'You have deleted the tenant <strong>{{name}}</strong> from the tenancy agreement.',
+            nameString: 'Tenant',
+
+            buttonText: 'Add a tenant',
+            container: document.getElementById('tenants-add-another'),
+            data: data,
+            deleteTemplate: tenantsDeleteTemplate,
+            formTemplate: tenantsFormTemplate,
+            summaryTemplate: tenantsSummaryTemplate,
+
+            onRenderForm: formContainer => {
+                tenantsAddAnother.tenantPostcodeLookup = new PostcodeLookup(formContainer.querySelector('#tenant-postcode-lookup'));
+                tenantsAddAnother.guarantorPostcodeLookup = new PostcodeLookup(formContainer.querySelector('#guarantor-postcode-lookup'));
+            },
+
+            onSave: formContainer => {
+                modelTenancyForm.form.formDataObject.tenants = tenantsAddAnother.getData();
+
+                const data = {
+                    address: tenantsAddAnother.tenantPostcodeLookup.getAddressAsObject(),
+                    email: formContainer.querySelector('#tenant-email').value,
+                    name: formContainer.querySelector('#tenant-name').value,
+                    telephone: formContainer.querySelector('#tenant-phone').value
+                }
+
+                if (!!formContainer.querySelector('#guarantor-name').value.length || Object.keys(tenantsAddAnother.guarantorPostcodeLookup.getAddressAsObject()).length > 0) {
+                    data.guarantor = {
+                        name: formContainer.querySelector('#guarantor-name').value,
+                        address: tenantsAddAnother.guarantorPostcodeLookup.getAddressAsObject()
+                    }
+                }
+
+                return data;
+            }
+        });
+
+        tenantsAddAnother.init();
+    },
+
+    /**
+     * Render a "what's included" add another widget, map its data to the form data object on save
+     */
+    renderWhatsIncludedAddAnother() {
+        const data = modelTenancyForm.form.formDataObject.facilities;
+
+        const whatsIncludedAddAnother = new AddAnother({
+            addString: 'You have added the area/facility <strong>{{name}}</strong> to the tenancy agreement.',
+            changeString: 'You have changed the area/facility <strong>{{name}}</strong> on the tenancy agreement.',
+            deleteString: 'You have deleted the area/facility <strong>{{name}}</strong> from the tenancy agreement.',
+            nameString: 'Area or facility',
+
+            buttonText: 'Add an area or facility',
+            container: document.getElementById('whats-included-add-another'),
+            data: data,
+            deleteTemplate: whatsIncludedDeleteTemplate,
+            formTemplate: whatsIncludedFormTemplate,
+            summaryTemplate: whatsIncludedSummaryTemplate,
+
+            onSave: formContainer => {
+                modelTenancyForm.form.formDataObject.facilities = whatsIncludedAddAnother.getData();
+
+                return {
+                    name: formContainer.querySelector('#facility-name').value,
+                    type: formContainer.querySelector('[name="facility-type"]:checked').value
+                }
+            }
+        });
+
+        whatsIncludedAddAnother.init();
+    },
+
+    /**
+     * Add form events for each of the "add another" widgets, to be called on page transitions
+     */
+    setupAddAnothers() {
+        this.form.formEvents.renderAdditionalTermsAddAnother = this.renderAdditionalTermsAddAnother;
+        this.form.formEvents.renderLandlordsAddAnother = this.renderLandlordsAddAnother;
+        this.form.formEvents.renderLettingAgentServicesAddAnother = this.renderLettingAgentServicesAddAnother;
+        this.form.formEvents.renderLettingAgentOtherServicesAddAnother = this.renderLettingAgentOtherServicesAddAnother;
+        this.form.formEvents.renderRentFrequencyDetails = this.renderRentFrequencyDetails;
+        this.form.formEvents.renderServicesAddAnother = this.renderServicesAddAnother;
+        this.form.formEvents.renderTenantsAddAnother = this.renderTenantsAddAnother;
+        this.form.formEvents.renderWhatsIncludedAddAnother = this.renderWhatsIncludedAddAnother;
+    },
+
+    /**
+     * Instantiate and initialise DS date picker components
+     */
+    setupDatePickers() {
+        const startDatePicker = new window.DS.components.DSDatePicker(document.getElementById('tenancy-start-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const hmoDatePicker = new window.DS.components.DSDatePicker(document.getElementById('hmo-expiry-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const firstPaymentDatePicker = new window.DS.components.DSDatePicker(document.getElementById('first-payment-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
+        const firstPaymentEndDatePicker = new window.DS.components.DSDatePicker(document.getElementById('first-payment-end-date-picker'), {minDate: new Date(), imagePath: bloomreachWebfile('/assets/images/icons/')});
+
+        startDatePicker.init();
+        hmoDatePicker.init();
+        firstPaymentDatePicker.init();
+        firstPaymentEndDatePicker.init();
+    },
+
+    setupPostcodeLookups: function () {
+        const rpzComplete = function(rpzData){
+            this.form.formDataObject.inRentPressureZone = rpzData.inRentPressureZone;
+        };
+
+        this.form.formMapping.propertyAddress = new PostcodeLookup(
+            document.getElementById('property-postcode-lookup'),
+            {
+                notScottishMessage: 'The postcode you\'ve entered is not a Scottish postcode.' +
+                ' You can only create a Scottish Government Model Tenancy Agreement for' +
+                ' homes in Scotland. <a href="https://www.gov.uk/tenancy-agreements-a-guide-for' +
+                '-landlords" target="_blank">Find out more about UK tenancy agreements' +
+                ' (opens in a new window)</a>.',
+                readOnly: false,
+                rpz: true, // NOSONAR
+                rpzComplete: rpzComplete
+            }
+        );
+        this.form.formMapping['lettingAgent.address'] = new PostcodeLookup(document.getElementById('letting-agent-postcode-lookup'));
+    },
+
+    /**
+     * Set up custom validators
+     */
+    setupValidation() {
+        commonForms.atLeastOneTenant = function () {
+            const tenantRepeater = document.querySelector('#tenants-add-another');
+
+            const fieldName = 'Tenants';
+            const valid = modelTenancyForm.form.formDataObject.tenants.length > 0;
+
+            if (valid) {
+                delete tenantRepeater.dataset.invalid;
+            } else {
+                tenantRepeater.dataset.invalid = true;
+            }
+
+            let message = 'You must enter at least one tenant';
+
+            commonForms.toggleFormErrors(tenantRepeater, valid, message, fieldName);
+
+            return valid;
+        }
+
+        commonForms.atLeastOneLandlord = function () {
+            const landlordRepeater = document.querySelector('#landlords-add-another');
+
+            const fieldName = 'Landlords';
+            const valid = modelTenancyForm.form.formDataObject.landlords.length > 0;
+
+            if (valid) {
+                delete landlordRepeater.dataset.invalid;
+            } else {
+                landlordRepeater.dataset.invalid = true;
+            }
+
+            let message = 'You must enter at least one landlord';
+
+            commonForms.toggleFormErrors(landlordRepeater, valid, message, fieldName);
+
+            return valid;
+        }
+
+        // conditional fields
+        const propertyBuildingContainer = document.getElementById('property-building');
+        const propertyBuildingOtherElement = document.getElementById('building-other');
+        propertyBuildingContainer.addEventListener('change', event => {
+            if (event.target.value && event.target.value.toUpperCase() === 'OTHER') {
+                propertyBuildingOtherElement.dataset.validation = 'requiredField';
+                propertyBuildingOtherElement.setAttribute('aria-required', true);
+            } else {
+                delete propertyBuildingOtherElement.dataset.validation;
+                propertyBuildingOtherElement.removeAttribute('aria-required');
+            }
+        });
+
+        const paymentMethodContainer = document.getElementById('payment-method');
+        const paymentMethodOtherElement = document.getElementById('tenancy-payment-method-other-text');
+        paymentMethodContainer.addEventListener('change', event => {
+            if (event.target.value && event.target.value.toUpperCase() === 'OTHER') {
+                paymentMethodOtherElement.dataset.validation = 'requiredField';
+                paymentMethodOtherElement.setAttribute('aria-required', true);
+            } else {
+                delete paymentMethodOtherElement.dataset.validation;
+                paymentMethodOtherElement.removeAttribute('aria-required');
+            }
+        });
     }
-};
-
-function pageNavFunction () {
-    // which extra buttons do we show?
-    const pageNavData = {};
-    const currentStep = modelTenancyForm.form.currentStep;
-
-    pageNavData.backToDetails = currentStep.slug === 'part-2-summary';
-    pageNavData.startPage = currentStep.slug === 'summary';
-
-    const stepIsLastInSection = currentStep.slug === $(`[data-step="${currentStep.section}"] section:last`).attr('data-step');
-
-    if (stepIsLastInSection) {
-        pageNavData.addLandlord = (currentStep.section === 'managing-the-property' && currentStep.slug !== 'letting-agent');
-        pageNavData.addTenant = currentStep.section === 'tenants';
-        pageNavData.addTerm = currentStep.section === 'additional-terms';
-    }
-
-    return pageNavData;
 }
-
-$('.multi-page-form').on('click', '.js-download-file', function (event) {
-    event.preventDefault();
-
-    const documentDownloadForm = $('#mta-document-download');
-    documentDownloadForm.find('input[name="type"]').val($(this).closest('.js-document-container').attr('data-documenttype'));
-
-    const formData = JSON.parse(JSON.stringify(modelTenancyForm.form.settings.formObject));
-    const data = modelTenancyForm.prepareFormDataForPost(formData);
-
-    if (modelTenancyForm.recaptchaEnabled) {
-        data.recaptcha = grecaptcha.getResponse();
-    }
-
-    // analytics tracking
-    const downloadType = documentDownloadForm.find('input[name=type]').val();
-    modelTenancyForm.downloadCount[downloadType.toLowerCase()]++;
-
-    const includedTerms = commonForms.objectKeys(data.optionalTerms);
-    const excludedTerms = data.excludedTerms || [];
-    const editedTerms = data.editedTerms || [];
-    delete data.editedTerms;
-
-    commonForms.track({
-        'event': 'formSubmitted',
-        'formId': 'model-tenancy-form',
-        'downloadType': downloadType,
-        'downloadCount': modelTenancyForm.downloadCount,
-        'tenantNumber': data.tenants.length,
-        'landlordNumber': data.landlords.length,
-        'additionalTermNumber': data.additionalTerms.length,
-        'includedTerms': includedTerms,
-        'excludedTerms': excludedTerms,
-        'editedTerms': editedTerms
-    });
-
-    // Set hidden data field to have value of JSON data
-    documentDownloadForm.find('input[name="data"]').val(encodeURIComponent(JSON.stringify(data)));
-    documentDownloadForm.trigger('submit');
-    if (modelTenancyForm.recaptchaEnabled) {
-        expireRecaptcha();
-    }
-});
 
 window.format = modelTenancyForm;
 window.format.init();

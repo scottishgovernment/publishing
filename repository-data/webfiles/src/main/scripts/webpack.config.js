@@ -30,6 +30,7 @@ const commonItems = {
         'fair-rent-register':           path.resolve(__dirname, './formats/mygov/fair-rent-register.js'),
         'fair-rent-register-result':    path.resolve(__dirname, './formats/mygov/fair-rent-register-result.js'),
         'model-tenancy-form':           path.resolve(__dirname, './formats/mygov/model-tenancy-form.js'),
+        'model-tenancy-form-legacy':    path.resolve(__dirname, './formats/mygov/model-tenancy-form-legacy.js'),
         'non-provision-form':           path.resolve(__dirname, './formats/mygov/non-provision-form.js'),
         'notice-to-leave-form':         path.resolve(__dirname, './formats/mygov/notice-to-leave-form.js'),
         'overseas-travel-declaration-form': path.resolve(__dirname, './formats/mygov/overseas-travel-declaration-form.js'),

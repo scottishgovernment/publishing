@@ -8,7 +8,7 @@ import bloomreachWebfile from '../../tools/bloomreach-webfile';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import feedback from '../../components/feedback';
-import MultiPageForm from '../../components/multi-page-form';
+import MultiPageForm from '../../components/multi-page-form-legacy';
 
 const formTemplate = require('../../templates/mygov/ukraine-volunteer-home-form');
 
@@ -23,10 +23,7 @@ const formSections = [
         pages: [
             {
                 slug: 'your-details',
-                title: 'Your detils',
-                hideSectionNav: true,
-                hideSubsectionNav: true,
-                noFormBox: true
+                title: 'Your detils'
             }
         ]
     },
@@ -40,10 +37,7 @@ const formSections = [
         pages: [
             {
                 slug: 'thank-you',
-                title: 'Thank you',
-                hideSectionNav: true,
-                hideSubsectionNav: true,
-                noFormBox: true
+                title: 'Thank you'
             }
         ]
     }
@@ -59,8 +53,7 @@ const ukraineVolunteerHomeForm = {
         },
         formObject: {},
         formEvents: {},
-        modifiers: [],
-        noSectionNav: true
+        modifiers: []
     }),
 
     init: function () {
@@ -151,7 +144,8 @@ const ukraineVolunteerHomeForm = {
     },
 
     validateStep: function () {
-        return commonHousing.validateStep(ukraineVolunteerHomeForm.form.currentStep);
+        const stepContainer = document.querySelector(`section[data-step="${ukraineVolunteerHomeForm.form.currentStep.slug}"]`);
+        return commonForms.validateStep(stepContainer);
     }
 };
 

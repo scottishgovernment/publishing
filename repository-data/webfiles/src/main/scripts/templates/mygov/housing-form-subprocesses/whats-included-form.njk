@@ -1,0 +1,36 @@
+<div id="whats-included-form">
+    <h1 class="ds_!_margin-top--4">Area or facility {{number}}</h1>
+
+    <div class="ds_question">
+        <label class="ds_label" for="facility-name">Area or facility name</label>
+        <input type="text" value="{{data.name}}" data-validation="requiredField" aria-required="true" id="facility-name" class="ds_input">
+    </div>
+
+    <div class="ds_question">
+        <fieldset aria-required="true" id="facility-type" data-validation="requiredRadio">
+            <legend>
+                Tenant access
+            </legend>
+
+            <div class="ds_field-group">
+                <div class="ds_radio">
+                    <input {% if data.type === 'Included' %}checked{% endif %} value="Included" id="facility-included" name="facility-type" class="ds_radio__input" type="radio">
+                    <label for="facility-included" class="ds_radio__label">Included</label>
+                </div>
+                <div class="ds_radio">
+                    <input {% if data.type === 'Excluded' %}checked{% endif %} value="Excluded" id="facility-excluded" name="facility-type" class="ds_radio__input" type="radio">
+                    <label for="facility-excluded" class="ds_radio__label">Excluded</label>
+                </div>
+                <div class="ds_radio">
+                    <input {% if data.type === 'Shared' %}checked{% endif %} value="Shared" id="facility-shared" name="facility-type" class="ds_radio__input" type="radio">
+                    <label for="facility-shared" class="ds_radio__label">Shared</label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="ds_button-group">
+        <button type="button" class="ds_button  ds_button--cancel  js-cancel-item">Cancel</button>
+        <button type="button" class="ds_button  js-save-item">Confirm</button>
+    </div>
+</div>

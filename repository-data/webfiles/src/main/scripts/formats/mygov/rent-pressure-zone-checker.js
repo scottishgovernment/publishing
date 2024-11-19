@@ -2,7 +2,7 @@
 
 'use strict';
 
-import MultiPageForm from '../../components/multi-page-form';
+import MultiPageForm from '../../components/multi-page-form-legacy';
 import PostcodeLookup from '../../components/postcode-lookup';
 import feedback from '../../components/feedback';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
@@ -16,16 +16,12 @@ const formSections = [
             slug: 'part-0',
             title: 'Part zero'
         },
-        hideFromSectionNav: true,
         slug: 'overview',
         title: 'Overview',
         pages: [
             {
                 slug: 'overview',
-                title: 'Overview',
-                hideSubsectionNav: true,
-                hideSectionNav: true,
-                noFormBox: true
+                title: 'Overview'
             }
         ]
     },
@@ -39,8 +35,7 @@ const formSections = [
         pages: [
             {
                 slug: 'postcode',
-                title: 'Postcode',
-                hideSubsectionNav: true
+                title: 'Postcode'
             }
         ]
     }
