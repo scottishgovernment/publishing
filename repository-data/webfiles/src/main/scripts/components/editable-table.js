@@ -5,7 +5,7 @@
 'use strict';
 
 import commonForms from '../tools/forms';
-import _ from '../vendor/lodash/dist/tinydash.es6';
+import _ from '../vendor/lodash/dist/lodash.custom';
 
 const editableTableTemplate = require('../templates/editable-table');
 

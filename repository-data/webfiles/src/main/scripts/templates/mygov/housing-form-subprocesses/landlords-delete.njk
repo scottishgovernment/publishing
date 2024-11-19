@@ -1,0 +1,46 @@
+{% from "../../macros.njk" import addressFromObject %}
+
+<div id="landlords-delete">
+    <h1 class="ds_!_margin-top--4">Confirm you want to delete {{item.name}}</h1>
+
+    <div class="ds_summary-card">
+        <div class="ds_summary-card__header">
+            <h3 class="ds_summary-card__header-title">{{item.name}}</h3>
+        </div>
+        <div class="ds_summary-card__content">
+            <ol class="ds_summary-list">
+                <li class="ds_summary-list__item">
+                    <span class="ds_summary-list__key">Landlord registration number</span>
+                    <span class="ds_summary-list__value">
+                        <q class="ds_summary-list__answer">{{item.registrationNumber}}</q>
+                    </span>
+                </li>
+                <li class="ds_summary-list__item">
+                    <span class="ds_summary-list__key">Email</span>
+                    <span class="ds_summary-list__value">
+                        <q class="ds_summary-list__answer">{{item.email}}</q>
+                    </span>
+                </li>
+                <li class="ds_summary-list__item">
+                    <span class="ds_summary-list__key">Phone number</span>
+                    <span class="ds_summary-list__value">
+                        <q class="ds_summary-list__answer">{{item.telephone}}</q>
+                    </span>
+                </li>
+                <li class="ds_summary-list__item">
+                    <span class="ds_summary-list__key">Address</span>
+                    <span class="ds_summary-list__value">
+                        <q class="ds_summary-list__answer">
+                            {{addressFromObject(item.address)}}
+                        </q>
+                    </span>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="ds_button-group">
+        <button type="button" class="ds_button  ds_button--cancel  js-cancel-item">Cancel</button>
+        <button data-index="{{index}}" type="button" class="ds_button  js-confirm-remove-item">Yes, delete</button>
+    </div>
+</div>

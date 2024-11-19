@@ -214,7 +214,8 @@ const rentImprovementsForm = {
     },
 
     validateStep: function () {
-        return commonForms.validateStep(rentImprovementsForm.form.currentStep);
+        const stepContainer = document.querySelector(`section[data-step="${rentImprovementsForm.form.currentStep.slug}"]`);
+        return commonForms.validateStep(stepContainer);
     },
 
     prepareFormDataForPost: function (formData) {

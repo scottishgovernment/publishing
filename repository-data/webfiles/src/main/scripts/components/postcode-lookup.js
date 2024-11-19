@@ -4,8 +4,8 @@
 
 'use strict';
 
-import PromiseRequest from '../../../../node_modules/@scottish-government/design-system/src/base/tools/promise-request/promise-request';
-import temporaryFocus from '../../../../node_modules/@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
+import PromiseRequest from '@scottish-government/design-system/src/base/tools/promise-request/promise-request';
+import temporaryFocus from '@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
 
 const postcodeResultsTemplate = require('../templates/postcode-results');
 
@@ -46,7 +46,6 @@ class PostcodeLookup {
         this.endpointUrl = '/service/housing/postcode/address-lookup';
 
         this.PromiseRequest = PromiseRequest;
-
         // auto-init
         this.init();
     }
@@ -174,11 +173,13 @@ class PostcodeLookup {
         const addressObject = {};
 
         if (this.mode === 'lookup') {
-            addressObject.building = this.selectedAddress.building;
-            addressObject.street = this.selectedAddress.street;
-            addressObject.town = this.selectedAddress.town;
-            addressObject.region = this.selectedAddress.region;
-            addressObject.postcode = this.selectedAddress.postcode;
+            if (this.selectedAddress) {
+                addressObject.building = this.selectedAddress.building;
+                addressObject.street = this.selectedAddress.street;
+                addressObject.town = this.selectedAddress.town;
+                addressObject.region = this.selectedAddress.region;
+                addressObject.postcode = this.selectedAddress.postcode;
+            }
         } else {
             addressObject.building = this.buildingInput.value;
             addressObject.street = this.streetInput.value;

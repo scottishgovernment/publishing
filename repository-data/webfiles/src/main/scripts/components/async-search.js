@@ -1,7 +1,6 @@
 'use strict';
 
-import PromiseRequest from '../../../../node_modules/@scottish-government/design-system/src/base/tools/promise-request/promise-request';
-import temporaryFocus from '../../../../node_modules/@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
+import PromiseRequest from '@scottish-government/design-system/src/base/tools/promise-request/promise-request';
 
 class AsyncSearch {
     constructor(asyncSearch) {

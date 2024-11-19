@@ -1,0 +1,32 @@
+<div id="letting-agent-services-form">
+    <h1 class="ds_!_margin-top--4">Service {{number}}</h1>
+
+    <div class="ds_question">
+        <label class="ds_label" for="letting-agent-service-name">Service name</label>
+        <input type="text" value="{{data.name}}" data-validation="requiredField" aria-required="true" id="letting-agent-service-name" class="ds_input">
+    </div>
+
+    <div class="ds_question">
+        <fieldset id="letting-agent-first-contact" data-validation="requiredRadio">
+            <legend>
+                Is the letting agent the first point of contact for this service?
+            </legend>
+
+            <div class="ds_field-group">
+                <div class="ds_radio">
+                    <input {% if data.value === 'Yes' %}checked{% endif %} value="Yes" id="first-contact-yes" name="letting-agent-first-contact" class="ds_radio__input" type="radio">
+                    <label for="first-contact-yes" class="ds_radio__label">Yes</label>
+                </div>
+                <div class="ds_radio">
+                    <input {% if data.value === 'No' %}checked{% endif %} value="No" id="first-contact-no" name="letting-agent-first-contact" class="ds_radio__input" type="radio">
+                    <label for="first-contact-no" class="ds_radio__label">No</label>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="ds_button-group">
+        <button type="button" class="ds_button  ds_button--cancel  js-cancel-item">Cancel</button>
+        <button type="button" class="ds_button  js-save-item">Confirm</button>
+    </div>
+</div>

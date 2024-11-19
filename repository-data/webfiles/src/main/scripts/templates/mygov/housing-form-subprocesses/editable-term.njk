@@ -1,0 +1,20 @@
+<div class="mg_editable-term">
+    <label class="ds_label" for="editable-term-{{slug}}-value">{{label}}</label>
+    <p class="ds_hint-text">You can edit the following section or <button class="ds_link  js-editable-term-reset-link" type="button">reset to recommended text</button>.</p>
+    <textarea id="editable-term-{{slug}}-value" rows="11" class="ds_input">{{value}}</textarea>
+
+    <div class="mg_editable-term__reset  fully-hidden">
+        <h2>Reset to recommended text?</h2>
+        <p>Note: you will lose all of your custom text and will revert to the recommended term provided.</p>
+
+        <div class="ds_button-group  ds_no-margin--top">
+            <button class="ds_button  ds_button--secondary  js-editable-term-reset-confirm" type="button">Yes, reset</button>
+            <button class="ds_button  ds_button--cancel  js-editable-term-reset-cancel" type="button">No, cancel</button>
+        </div>
+    </div>
+
+    <div class="ds_checkbox">
+        <input {%if excluded %}{% else %}checked{% endif %} class="ds_checkbox__input  js-include-term" data-slug="{{slug}}" id="{{checkboxId}}" type="checkbox">
+        <label class="ds_checkbox__label" for="{{checkboxId}}">Include this text in my agreement</label>
+    </div>
+</div>

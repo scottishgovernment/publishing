@@ -11,10 +11,10 @@ import feedback from './components/feedback';
 import NotificationBanner from './components/notification';
 import ToggleLink from './components/toggle-link';
 import UpdateHistory from './components/update-history';
-import storage from '../../../node_modules/@scottish-government/design-system/src/base/tools/storage/storage';
+import storage from '@scottish-government/design-system/src/base/tools/storage/storage';
 
 import './vendor/polyfills';
-import '../../../node_modules/@scottish-government/design-system/src/all';
+import '@scottish-government/design-system/src/all';
 
 const global = {
     notes: [],

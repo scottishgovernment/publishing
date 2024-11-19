@@ -3,7 +3,7 @@
 'use strict';
 
 import $ from 'jquery';
-import _ from '../../vendor/lodash/dist/tinydash.es6';
+import _ from '../../vendor/lodash/dist/lodash.custom';
 import commonForms from '../../tools/forms';
 
 let submitted = false,

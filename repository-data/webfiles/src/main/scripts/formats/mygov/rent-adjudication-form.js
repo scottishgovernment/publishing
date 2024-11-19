@@ -404,7 +404,8 @@ const rentAdjudicationForm = {
     },
 
     validateStep: function () {
-        return commonForms.validateStep(rentAdjudicationForm.form.currentStep);
+        const stepContainer = document.querySelector(`section[data-step="${rentAdjudicationForm.form.currentStep.slug}"]`);
+        return commonForms.validateStep(stepContainer);
     },
 
     prepareFormDataForPost: function (formData) {

@@ -1,0 +1,84 @@
+<div id="progess-indicator">
+    <div class="ds_progress">
+        <div class="ds_progress__header">
+            <h2 class="ds_h3  ds_progress__title">Your progress</h2>
+
+            <p class="ds_progress__content">You have completed {{completedSectionCount}} of {{sectionCount}} sections.</p>
+
+            <progress class="ds_progress__meter" max="{{sectionCount}}" value="{{completedSectionCount}}">{{completedSectionCount}} sections complete</progress>
+        </div>
+
+        {% if type == 'static' %}
+            <ol class="timeline">
+                {% for section in sections %}
+                    {% if section.showInTracker == false %}
+                    {% else %}
+                        <li class="ds_progress__section  {% if section.complete %}ds_progress__section--complete{% endif %}  {% if section.current %}ds_progress__section--current{% endif %}">
+                            <h3 class="ds_progress__section-title">
+                                {{section.title}}
+                                <span class="visually-hidden">{% if section.current %}(current section){% endif %}</span>
+                                <span class="visually-hidden">{% if section.complete %}(complete){% else %}(not completed){% endif %}</span>
+                            </h3>
+
+                            {% if section.pages %}
+                            <ol class="ds_progress__pages">
+                                {% for page in section.pages %}
+                                    {% if page.disabled %}
+                                    {% else %}
+                                        <li {% if page.current %}class="ds_current" aria-current="step"{% endif %}>
+                                            {% if page.titleShort %}{{page.titleShort}}{% else %}{{page.title}}{% endif %}
+                                            <span class="visually-hidden">{% if page.current %}(current step){% endif %}</span>
+                                            <span class="visually-hidden">{% if page.complete %}(complete){% else %}(not completed){% endif %}</span>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ol>
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        {% else %}
+            <div class="ds_accordion  ds_accordion--small" data-module="ds-accordion">
+                <button type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+
+                <ol class="ds_progress__sections">
+                {% for section in sections %}
+                    {% if section.showInTracker == false %}
+                    {% else %}
+                    <li class="ds_accordion-item  ds_progress__section  {% if section.complete %}ds_progress__section--complete{% endif %}  {% if section.current %}ds_progress__section--current{% endif %}">
+                        <input {%if section.open %}checked{% endif %} data-section="{{section.slug}}" type="checkbox" class="visually-hidden  ds_accordion-item__control" id="progress-{{loop.index}}" aria-labelledby="progress-{{loop.index}}-heading">
+
+                        <div class="ds_accordion-item__header">
+                            <h3 id="progress-{{loop.index}}-heading" class="ds_accordion-item__title  ds_progress__section-title">
+                                {{section.title}}
+                                <span class="visually-hidden">{% if section.current %}(current section){% endif %}</span>
+                                <span class="visually-hidden">{% if section.complete %}(complete){% else %}(not completed){% endif %}</span>
+                            </h3>
+                            <span aria-hidden="true" class="ds_accordion-item__indicator"></span>
+                            <label class="ds_accordion-item__label" for="progress-{{loop.index}}"><span class="visually-hidden">Show this section</span></label>
+                        </div>
+                        <div class="ds_accordion-item__body">
+                            {% if section.pages %}
+                            <ol class="ds_progress__pages">
+                                {% for page in section.pages %}
+                                    {% if page.disabled %}
+                                    {% else %}
+                                        <li {% if page.current %}class="ds_current" aria-current="step"{% endif %}>
+                                            {% if page.titleShort %}{{page.titleShort}}{% else %}{{page.title}}{% endif %}
+                                            <span class="visually-hidden">{% if page.current %}(current step){% endif %}</span>
+                                            <span class="visually-hidden">{% if page.complete %}(complete){% else %}(not completed){% endif %}</span>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ol>
+                            {% endif %}
+                        </div>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+                </ol>
+            </div>
+        {% endif %}
+    </div>
+</div>

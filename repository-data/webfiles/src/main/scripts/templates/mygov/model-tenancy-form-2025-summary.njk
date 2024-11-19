@@ -1,0 +1,558 @@
+{% from "../macros.njk" import addressFromObject %}
+
+{% macro optionalTerms(excluded) %}
+    {% set count = 0 %}
+    {% for item in optionalTermsAsArray %}
+        {% if item.excluded == excluded %}
+            {% set count = count + 1 %}
+        {% endif %}
+    {% endfor %}
+
+    {% if count > 0 %}
+        <div class="ds_accordion" data-module="ds-accordion">
+            <button type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+
+            {% for item in optionalTermsAsArray %}
+                {% if (excluded and item.excluded) or (excluded != true and item.excluded != true) %}
+                <div class="ds_accordion-item">
+                    <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-{{item.slug}}-{{idModifier}}" aria-labelledby="panel-{{item.slug}}-heading" />
+                    <div class="ds_accordion-item__header">
+                        <h3 id="panel-{{item.slug}}-heading-{{idModifier}}" class="ds_accordion-item__title">
+                            {{item.title}}
+                        </h3>
+                        <span class="ds_accordion-item__indicator"></span>
+                        <label class="ds_accordion-item__label" for="panel-{{item.slug}}-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+                    </div>
+
+                    <div class="ds_accordion-item__body" id="accordion-item-{{item.slug}}-{{idModifier}}">
+                        {{ item.content | paragraphify | safe }}
+
+                        {% if item.name == 'alterations' %}
+                        <p>Any request for adaptations, auxiliary aids or services under section 37 of the Equality Act
+                            2010 or section 52 of the Housing (Scotland) Act 2006 must be made in writing to the
+                            Landlord and any other owners of the common parts, where appropriate. Consent for
+                            alterations requested under this legislation should not be unreasonably withheld. If no
+                            consent is given for the adaptations you may appeal to the Tribunal in relation to section
+                            52 (or sheriff court in relation to section 37) within 6 months of being notified of the
+                            decision. Before doing this, you may find it helpful to discuss your circumstance with your
+                            local Citizens Advice Bureau, Shelter Scotland or the local authority for the area where the
+                            Let Property is situated.</p>
+                        {% endif %}
+
+                        <button class="ds_link  js-change" type="button" data-slug="{{item.slug}}" aria-describedby="panel-{{item.slug}}-heading-{{idModifier}}">Change</button>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+            {% if excluded != true and item.excluded != true %}
+                {% for item in additionalTerms %}
+                    {% set itemSlug = 'additional-term' + loop.index %}
+                    <div class="ds_accordion-item">
+                        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-{{itemSlug}}-{{idModifier}}" aria-labelledby="panel-{{itemSlug}}-heading" />
+                        <div class="ds_accordion-item__header">
+                            <h3 id="panel-{{itemSlug}}-heading-{{idModifier}}" class="ds_accordion-item__title">
+                                {{item.title}}
+                            </h3>
+                            <span class="ds_accordion-item__indicator"></span>
+                            <label class="ds_accordion-item__label" for="panel-{{itemSlug}}-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+                        </div>
+
+                        <div class="ds_accordion-item__body" id="accordion-item-{{itemSlug}}-{{idModifier}}">
+                            {{ item.content | paragraphify | safe }}
+
+                            <button class="ds_link  js-change" type="button" data-slug="additional-terms" aria-describedby="panel-{{itemSlug}}-heading-{{idModifier}}">Change</button>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% else %}
+        <p>None</p>
+    {% endif %}
+{% endmacro %}
+
+<section>
+    <h2>1. About the property</h2>
+
+    <dl class="ds_summary-list  mg_summary-list--cya">
+        {% set itemSlug = 'property-address' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Property address</dt>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{addressFromObject(propertyAddress)}}</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </div>
+
+        {% set itemSlug = 'property-type' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Type of home</dt>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">
+                {{ propertyType_text}}
+                {% if (propertyType == 'OTHER') %}
+                    {% if buildingOther %}
+                        ({{ buildingOther}})
+                    {% endif %}
+                {% endif %}
+            </q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </div>
+
+        {% set itemSlug = 'property-included' %}
+        <div class="ds_summary-list__item">
+            <dt id="{{itemSlug}}-title" class="ds_summary-list__key">
+                Areas and facilities
+            </dt>
+
+            <dd class="ds_summary-list__value">
+                {% if facilities.length %}
+                <dl>
+                    {% if facilitiesByType.included.length %}
+                        <dt>Included</dt>
+                        {% for facility in facilitiesByType.included %}
+                            <dd>{{facility.name}}</dd>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if facilitiesByType.shared.length %}
+                        <dt>Shared</dt>
+                        {% for facility in facilitiesByType.shared %}
+                            <dd>{{facility.name}}</dd>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if facilitiesByType.excluded.length %}
+                        <dt>Excluded</dt>
+                        {% for facility in facilitiesByType.excluded %}
+                            <dd>{{facility.name}}</dd>
+                        {% endfor %}
+                    {% endif %}
+                </dl>
+                {% else %}
+                    None
+                {% endif %}
+            </dd>
+
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="property-included" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'property-furnished' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Is the property furnished?</dt>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{ furnishingType_text}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'property-hmo' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">House in Multiple Occupation (HMO)</dt>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">
+                {% if (hmoProperty == 'true') %}Yes{% endif %}{% if (hmoProperty == 'false') %}No{% endif %}
+            </q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% if (hmoProperty == 'true') %}
+            <div class="ds_summary-list__item">
+                <dt class="ds_summary-list__key" id="{{itemSlug}}-title2">HMO 24 hour contact number</dt>
+                <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">
+                    {{ hmo24ContactNumber }}
+                </q></dd>
+                <dd class="ds_summary-list__actions">
+                    <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title2">Change</button>
+                </dd>
+            </div>
+
+            <div class="ds_summary-list__item">
+                <dt class="ds_summary-list__key" id="{{itemSlug}}-title3">HMO license expiry date</dt>
+                <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">
+                    {{ hmoRegistrationExpiryDate }}
+                </q></dd>
+                <dd class="ds_summary-list__actions">
+                    <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title3">Change</button>
+                </dd>
+            </div>
+        {% endif %}
+    </dl>
+</section>
+
+<section>
+    <h2>2. About the tenancy</h2>
+
+    <dl class="ds_summary-list  mg_summary-list--cya">
+        {% set itemSlug = 'tenancy-start' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Tenancy start date</dt>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{tenancyStartDate}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'tenancy-payment-method' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Payment method</dd>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{rentPaymentMethod}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'tenancy-payment-frequency' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">How often will the tenant pay rent?</dt>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{rentPaymentFrequency_text}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'tenancy-payment-frequency-details' %}
+        <div class="ds_summary-list__item">
+            <dt id="{{itemSlug}}-title" class="ds_summary-list__key">Payment frequency details</dt>
+            <dd class="ds_summary-list__value">
+                <dl>
+                    {% if rentPaymentScheduleObject.week %}
+                        <dt>Payment week</dt>
+                        <dd>{{rentPaymentScheduleObject.week}}</dt>
+                    {% endif %}
+
+                    {% if rentPaymentScheduleObject.day %}
+                        <dt>Payment day</dt>
+                        <dd>{{rentPaymentScheduleObject.day}}</dd>
+                    {% endif %}
+
+                    {% if rentPaymentFrequency === 'CALENDAR_MONTH' %}
+                        <dt>On which day of the month</dt>
+                        <dd>{{rentPaymentScheduleObject.date}}</dd>
+                    {% elif rentPaymentFrequency === 'QUARTERLY' %}
+                        <dt>On which day of the quarter</dt>
+                        <dd>{{rentPaymentScheduleObject.date}}</dd>
+                    {% elif rentPaymentFrequency === 'EVERY_SIX_MONTHS' %}
+                        <dt>On which day of the 6 month period</dt>
+                        <dd>{{rentPaymentScheduleObject.date}}</dd>
+                    {% endif %}
+                </dl>
+            </dd>
+
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'tenancy-first-payment-due' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">First rent payment due on</dt>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{firstPaymentDate}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'tenancy-payment-amount' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Rent payment amount</dt>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{rentAmount | currency}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'tenancy-payment-type' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Advance or arrears</dt>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{% if rentPayableInAdvance %}Advance{% else %}Arrears{% endif %}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% for item in servicesIncludedInRent %}
+            {% set itemSlug = 'tenancy-services' + '-' + loop.index %}
+            <div class="ds_summary-list__item">
+                <dt id="{{itemSlug}}-title" class="ds_summary-list__key">Service {{loop.index}}</dt>
+                <dd class="ds_summary-list__value">
+                    <dl>
+                        <dt>Name</dt>
+                        <dd>{{item.name}}</dt>
+
+                        <dt>Amount (per rent payment)</dt>
+                        <dd>{{item.value | currency}}</dd>
+                    </dl>
+                </dd>
+
+                <dd class="ds_summary-list__actions">
+                    <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+                </dd>
+            </div>
+        {% endfor %}
+
+        {% set itemSlug = 'tenancy-first-payment' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">First payment</dd>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{firstPaymentAmount | currency}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'tenancy-first-payment-due' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">First payment due on</dd>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{firstPaymentDate}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'tenancy-first-payment-period-end' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">First covers rent from the start date of the tenancy until</dd>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{firstPaymentPeriodEnd}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'tenancy-deposit' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Deposit</dd>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{depositAmount | currency}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'tenancy-deposit-scheme' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Deposit scheme</dd>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{tenancyDepositSchemeAdministrator}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'tenancy-communication-agreement' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Communication</dd>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{communicationsAgreement_text}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+    </dl>
+</section>
+
+<section>
+    <h2>3. Managing the property</h2>
+    <dl class="ds_summary-list  mg_summary-list--cya">
+        {% if hasLettingAgent === 'letting-agent-no' %}
+            {% set itemSlug = 'letting-agent' %}
+            <div class="ds_summary-list__item">
+                <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Letting agent</dt>
+                <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">None</q></dd>
+                <dd class="ds_summary-list__actions">
+                    <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+                </dd>
+            </div>
+        {% else %}
+            {% set itemSlug = 'letting-agent-details' %}
+            {% if lettingAgent.name %}
+                <div class="ds_summary-list__item">
+                    <dt class="ds_summary-list__key" id="{{itemSlug}}-name">Letting agent name</dt>
+                    <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{lettingAgent.name}}</q></dd>
+                    <dd class="ds_summary-list__actions">
+                        <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-name">Change</button>
+                    </dd>
+                </div>
+            {% endif %}
+
+            {% if lettingAgent.registrationNumber %}
+                <div class="ds_summary-list__item">
+                    <dt class="ds_summary-list__key" id="{{itemSlug}}-registration">Letting agent registration number</dt>
+                    <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{lettingAgent.registrationNumber}}</q></dd>
+                    <dd class="ds_summary-list__actions">
+                        <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-registration">Change</button>
+                    </dd>
+                </div>
+            {% endif %}
+
+            {% if lettingAgent.email %}
+                <div class="ds_summary-list__item">
+                    <dt class="ds_summary-list__key" id="{{itemSlug}}-email">Letting agent email</dt>
+                    <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{lettingAgent.email}}</q></dd>
+                    <dd class="ds_summary-list__actions">
+                        <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-email">Change</button>
+                    </dd>
+                </div>
+            {% endif %}
+
+            {% if lettingAgent.telephone %}
+                <div class="ds_summary-list__item">
+                    <dt class="ds_summary-list__key" id="{{itemSlug}}-telephone">Letting agent telephone</dt>
+                    <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{lettingAgent.telephone}}</q></dd>
+                    <dd class="ds_summary-list__actions">
+                        <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-telephone">Change</button>
+                    </dd>
+                </div>
+            {% endif %}
+
+            {% if lettingAgent.address %}
+                <div class="ds_summary-list__item">
+                    <dt class="ds_summary-list__key" id="{{itemSlug}}-address">Letting agent address</dt>
+                    <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{addressFromObject(lettingAgent.address)}}</q></dd>
+                    <dd class="ds_summary-list__actions">
+                        <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-address">Change</button>
+                    </dd>
+                </div>
+            {% endif %}
+        {% endif %}
+
+        {% set itemSlug = 'letting-agent-services' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-provided">Services provided by the letting agent</dt>
+            <dd class="ds_summary-list__value">
+                {% if servicesProvidedByLettingAgent.length == 1 %}
+                    {{servicesProvidedByLettingAgent[0].name}}
+                {% elif servicesProvidedByLettingAgent.length > 1 %}
+                    <ul>
+                        {% for item in servicesProvidedByLettingAgent %}
+                            <li>{{item.name}}
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    None
+                {% endif %}
+            </dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-provided">Change</button>
+            </dd>
+        </div>
+
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key"id="{{itemSlug}}-contact">Services the letting agent is first point of contact for</dt>
+            <dd class="ds_summary-list__value">
+                {% if servicesLettingAgentIsFirstContactFor.length == 1 %}
+                    {{servicesLettingAgentIsFirstContactFor[0].name}}
+                {% elif servicesLettingAgentIsFirstContactFor.length > 1 %}
+                    <ul>
+                        {% for item in servicesLettingAgentIsFirstContactFor %}
+                            <li>{{item.name}}
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    None
+                {% endif %}
+            </dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-contact">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'landlords' %}
+        {% for item in landlords %}
+            <div class="ds_summary-list__item">
+                <dt class="ds_summary-list__key" id="{{itemSlug}}-{{loop.index}}">Landlord {{loop.index}}</dt>
+                <dd class="ds_summary-list__value">
+                    <dl>
+                        <div>
+                            <dt>Name</dt>
+                            <dd>{{item.name}}</dd>
+                        </div>
+                        {% if item.registrationNumber %}
+                            <div>
+                                <dt>Registration number</dt>
+                                <dd>{{item.registrationNumber}}</dd>
+                            </div>
+                        {% endif %}
+                        <div>
+                            <dt>Email</dt>
+                            <dd>{{item.email}}</dd>
+                        </div>
+                        <div>
+                            <dt>Phone</dt>
+                            <dd>{{item.phone}}</dd>
+                        </div>
+                        <div>
+                            <dt>Address</dt>
+                            <dd>{{addressFromObject(item.address)}}</dd>
+                        </div>
+                    </dl>
+                </dd>
+                <dd class="ds_summary-list__actions">
+                    <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-{{loop.index}}">Change</button>
+                </dd>
+            </div>
+        {% endfor %}
+    </dl>
+</section>
+
+<section>
+    <h2>4. About the tenants</h2>
+
+    {% set itemSlug = 'tenants' %}
+    {% if tenants.length %}
+        <dl class="ds_summary-list  mg_summary-list--cya">
+            {% for item in tenants %}
+                <div class="ds_summary-list__item">
+                    <dt class="ds_summary-list__key" id="{{itemSlug}}-{{loop.index}}">Tenant {{loop.index}}</dt>
+
+                    <dd class="ds_summary-list__value">
+                        <dl>
+                            <dt>Name</dt>
+                            <dd>{{item.name}}</dd>
+
+                            <dt>Phone number</dt>
+                            <dd>{{item.telephone}}</dd>
+
+                            <dt>Email</dt>
+                            <dd>{{item.email}}</dd>
+
+                            <dt>Address</dt>
+                            <dd>{{addressFromObject(item.address)}}</dd>
+
+                            {% if item.gurantor.name %}
+                                <dt>Guarantor</dt>
+                                <dd>
+                                    {{item.guarantor.name}}<br />
+                                    {{addressFromObject(item.guarantor.address)}}
+                                </dd>
+                            {% endif %}
+                        </dl>
+                    </dd>
+
+                    <dd class="ds_summary-list__actions">
+                        <button class="ds_link  js-change" type="button" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-{{loop.index}}">Change</button>
+                    </dd>
+                </div>
+            {% endfor %}
+        </dl>
+    {% endif %}
+</section>
+
+<section>
+    <h2>5. Mandatory terms</h2>
+
+    <div id="mandatory-terms-container-summary"></div>
+</section>
+
+<section>
+    <h2>6. Optional terms</h2>
+
+    {{optionalTerms()}}
+</section>
+
+<section>
+    <h2>7. Excluded terms</h2>
+
+    {{optionalTerms(true)}}
+</section>

@@ -1,0 +1,21 @@
+/*------------------------------------*\
+    SUMMARY LIST OVERRIDES
+\*------------------------------------*/
+
+@include ds_media-query (medium) {
+    .mg_summary-list--cya {
+        table-layout: fixed;
+
+        .ds_summary-list__key {
+            width: 30%;
+        }
+
+        .ds_summary-list__value {
+            width: 50%;
+        }
+
+        .ds_summary-list__actions {
+            width: 20%;
+        }
+    }
+}

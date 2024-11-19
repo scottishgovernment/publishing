@@ -1,7 +1,30 @@
-{% macro postcodeLookup(name, required=false, readOnly=false, noRPZAllowed=false, onlyRPZAllowed=false, note=false) %}
+{% macro addressFromObject(address) %}
+    {%- if address.building -%}{{address.building}}<br>{%- endif -%}
+    {%- if address.street -%}{{address.street}}<br>{%- endif -%}
+    {%- if address.town -%}{{address.town}}<br>{%- endif -%}
+    {%- if address.region -%}{{address.region}}<br>{%- endif -%}
+    {%- if address.postcode -%}{{address.postcode}}{%- endif -%}
+{% endmacro %}
 
-<div id="{{name}}-postcode-lookup" class="js-postcode-lookup">
-    <div class="ds_address__lookup">
+{% macro buttons(options) %}
+<div class="ds_button-group">
+    {% if options.back != false %}<button type="button" class="ds_button  ds_button--fixed  ds_button--secondary  js-prev-page">{% if options.backText %}{{options.backText}}{% else %}Back{% endif %}</button>{% endif %}
+    {% if options.next != false %}<button type="button" class="ds_button  ds_button--fixed  js-next-page">{% if options.nextText %}{{options.nextText}}{% else %}Continue{% endif %}</button>{% endif %}
+</div>
+{% endmacro %}
+
+{% macro pageTitle(title, sectionTitle) %}
+    <div class="ds_page-header">
+        <span class="ds_page-header__label  ds_content-label">{{sectionTitle}}</span>
+        <h1 class="ds_page-header__title">{{title | safe}}</h1>
+
+        <a class="mobile-only  mg_check-progress  js-check-progress" href="#form-progress">Check progress</a>
+    </div>
+{% endmacro %}
+
+{% macro postcodeLookup(name, address, required=false, readOnly=false, noRPZAllowed=false, onlyRPZAllowed=false, note=false) %}
+<div id="{{name}}-postcode-lookup" class="js-postcode-lookup" data-module="mg-postcode-lookup">
+    <div class="ds_address__lookup  {% if address %}fully-hidden{% endif %}">
         <fieldset>
             <div class="ds_question">
                 <label class="ds_label" for="{{name}}-postcode-search">
@@ -14,6 +37,7 @@
                     id="{{name}}-postcode-search"
                     name="{{name}}-postcode-search"
                     type="text"
+                    value="{{address.postcode}}"
                 />
 
                 <button class="ds_button  ds_no-margin--top  js-postcode-search" type="submit">Find address</button>
@@ -24,8 +48,6 @@
                 {% endif %}
             </div>
         </fieldset>
-
-
     </div>
 
     <div class="ds_address__results  fully-hidden">
@@ -63,8 +85,7 @@
         {% endif %}
     </div>
 
-    <div class="ds_address__manual  fully-hidden">
-
+    <div class="ds_address__manual  {% if address %}{% else %}fully-hidden{% endif %}">
         <div id="{{name}}-manual-address">
             <fieldset>
                 <legend>Tell us the full address</legend>
@@ -76,32 +97,31 @@
                         <label class="ds_label" for="{{name}}-address-building">
                             Building and street <span class="visually-hidden">line 1 of 2</span>
                         </label>
-                        <input {% if autocomplete %}autocomplete="address-line1"{% endif %} type="text" id="{{name}}-address-building" name="{{name}}-address-building" class="ds_input  js-manual-building" {% if required %}data-validation="requiredBuildingOrStreet"{% endif %}>
+                        <input value="{{address.building}}" {% if autocomplete %}autocomplete="address-line1"{% endif %} type="text" id="{{name}}-address-building" name="{{name}}-address-building" class="ds_input  js-manual-building" {% if required %}data-validation="requiredBuildingOrStreet"{% endif %}>
 
                         <label class="ds_label  visually-hidden" for="{{name}}-address-street">
                             Building and street line 2 of 2
                         </label>
-                        <input {% if autocomplete %}autocomplete="address-line2"{% endif %}type="text" id="{{name}}-address-street" name="{{name}}-address-street" class="ds_input  js-manual-street">
+                        <input value="{{address.street}}" {% if autocomplete %}autocomplete="address-line2"{% endif %}type="text" id="{{name}}-address-street" name="{{name}}-address-street" class="ds_input  js-manual-street">
                     </div>
                 </div>
 
                 <div class="ds_question">
                     <label class="ds_label" for="{{name}}-address-town">City or town</label>
-                    <input {% if autocomplete %}autocomplete="address-level2"{% endif %}type="text" id="{{name}}-address-town" name="{{name}}-address-town" class="ds_input  js-manual-town" {% if required %}data-validation="requiredField"{% endif %}>
+                    <input value="{{address.town}}" {% if autocomplete %}autocomplete="address-level2"{% endif %}type="text" id="{{name}}-address-town" name="{{name}}-address-town" class="ds_input  js-manual-town" {% if required %}data-validation="requiredField" aria-required="true"{% endif %}>
                 </div>
 
                 <div class="ds_question">
-                    <label class="ds_label" for="{{name}}-address-region">County</label>
-                    <input {% if autocomplete %}autocomplete="address-county"{% endif %} type="text" id="{{name}}-address-region" name="{{name}}-address-region" class="ds_input  js-manual-region">
+                    <label class="ds_label" for="{{name}}-address-region">County (optional)</label>
+                    <input value="{{address.region}}" {% if autocomplete %}autocomplete="address-county"{% endif %} type="text" id="{{name}}-address-region" name="{{name}}-address-region" class="ds_input  js-manual-region">
                 </div>
 
                 <div class="ds_question">
                     <label class="ds_label" for="{{name}}-postcode">Postcode</label>
-                    <input {% if autocomplete %}autocomplete="postcode"{% endif %} type="text" id="{{name}}-postcode" name="{{name}}-postcode" class="ds_input  uppercase  ds_input--fixed-10  js-manual-postcode" {% if required %}data-validation="requiredField"{% endif %}>
+                    <input value="{{address.postcode}}" {% if autocomplete %}autocomplete="postcode"{% endif %} type="text" id="{{name}}-postcode" name="{{name}}-postcode" class="ds_input  uppercase  ds_input--fixed-10  js-manual-postcode" {% if required %}data-validation="requiredField" aria-required="true"{% endif %}>
                 </div>
             </fieldset>
         </div>
     </div>
 </div>
-
 {% endmacro %}

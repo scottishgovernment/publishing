@@ -4,7 +4,7 @@
 
 import commonForms from './forms';
 import $ from 'jquery';
-import { Accordion } from '../../../../node_modules/@scottish-government/design-system/src/all';
+import { Accordion } from '@scottish-government/design-system/src/all';
 
 const commonHousing = {
     camelify: function (string) {
@@ -16,30 +16,6 @@ const commonHousing = {
     summaryAccordion: function (scope) {
         const accordionElements = [].slice.call(scope.querySelectorAll('[data-module="ds-accordion"]'));
         accordionElements.forEach(accordionElement => new Accordion(accordionElement).init());
-    },
-
-    validateStep: function (step) {
-        /* look for data-validation attributes in current step & PERFORM VALIDATION
-         * do not allow progress if invalid
-         */
-        const stepContainer = $(`section[data-step="${step.slug}"]`);
-        const fieldsThatNeedToBeValidated = stepContainer.find('[data-validation]:visible:not(.no-validate)');
-
-        fieldsThatNeedToBeValidated.each(function (index, element) {
-            const validations = element.getAttribute('data-validation').split(' ');
-            const validationChecks = [];
-            for (let i = 0, il = validations.length; i < il; i++) {
-                if (commonForms[validations[i]]) {
-                    validationChecks.push(commonForms[validations[i]]);
-                }
-            }
-
-            commonForms.validateInput(this, validationChecks);
-        });
-
-        const invalidFields = stepContainer.find('[aria-invalid="true"]:visible');
-
-        return invalidFields.length === 0;
     },
 
     validateSummary: function () {

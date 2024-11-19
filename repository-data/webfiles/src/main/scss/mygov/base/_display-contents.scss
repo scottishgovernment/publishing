@@ -1,0 +1,9 @@
+@mixin mg_display-contents {
+    display: contents;
+}
+
+.mg_form-page,
+.mg_form-container,
+.mg_display-contents {
+    @include mg_display-contents;
+}

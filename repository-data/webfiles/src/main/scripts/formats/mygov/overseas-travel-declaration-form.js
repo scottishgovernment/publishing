@@ -124,7 +124,7 @@ import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
-import DSDatePicker from '../../../../../node_modules/@scottish-government/design-system/src/components/date-picker/date-picker';
+import DSDatePicker from '@scottish-government/design-system/src/components/date-picker/date-picker';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/overseas-travel-declaration-form');
@@ -216,7 +216,8 @@ const overseasTravelForm = {
     },
 
     validateStep: function () {
-        return commonHousing.validateStep(overseasTravelForm.form.currentStep);
+        const stepContainer = document.querySelector(`section[data-step="${overseasTravelForm.form.currentStep.slug}"]`);
+        return commonForms.validateStep(stepContainer);
     },
 
     prepareFormDataForPost: function (formData) {

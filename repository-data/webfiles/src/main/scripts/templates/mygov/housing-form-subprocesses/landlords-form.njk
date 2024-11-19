@@ -1,0 +1,48 @@
+{% from "../../macros.njk" import postcodeLookup %}
+
+<div id="landlords-form">
+    <h1 class="ds_!_margin-top--4">Landlord {{number}}</h1>
+
+    {% if injectedContent %}<p>{{injectedContent}}</p>{% endif %}
+
+    <div class="ds_question">
+        <label class="ds_label" for="landlord-name">Full name</label>
+        <input value="{{data.name}}" data-validation="requiredField" aria-required="true" type="text" id="landlord-name" class="ds_input">
+    </div>
+
+    {% if hide_registrationNumber %}
+    {% else %}
+    <div class="ds_question">
+        <label class="ds_label" for="landlord-registration">Landlord registration number (optional)</label>
+        <div class="ds_hint-text">
+            <p><a href="https://www.mygov.scot/renting-your-property-out/registration/" target="_blank">Find out more if you don't have a landlord registration number.</a></p>
+            <p>If you have applied for Landlord Registration and are waiting to receive your registration number leave this field blank.</p>
+            <p>Landlord registration numbers use the format 123456/123/12345.</p>
+        </div>
+        <input value="{{data.registrationNumber}}" data-validation="regexMatch" data-errormessage="Landlord registration number is not in a recognised format (e.g. 123456/123/12345)" pattern="\d{5,7}[\-\/ ]\d{3}[\-\/ ]\d{5}" type="text" id="landlord-registration" class="ds_input">
+    </div>
+    {% endif %}
+
+    {% if hide_email %}
+    {% else %}
+        <div class="ds_question">
+            <label class="ds_label" for="landlord-email">Email</label>
+            <input value="{{data.email}}" data-validation="validEmail requiredField" aria-required="true" type="text" id="landlord-email" class="ds_input">
+        </div>
+    {% endif %}
+
+    {% if hide_phone %}
+    {% else %}
+        <div class="ds_question">
+            <label class="ds_label" for="landlord-phone">Phone number</label>
+            <input value="{{data.telephone}}" data-validation="validPhone requiredField" aria-required="true" type="text" id="landlord-phone" class="ds_input  ds_input--fixed-20">
+        </div>
+    {% endif %}
+
+    {{ postcodeLookup('landlord', address=data.address, required=true) }}
+
+    <div class="ds_button-group">
+        <button type="button" class="ds_button  ds_button--cancel  js-cancel-item">Cancel</button>
+        <button type="button" class="ds_button  js-save-item">Confirm</button>
+    </div>
+</div>

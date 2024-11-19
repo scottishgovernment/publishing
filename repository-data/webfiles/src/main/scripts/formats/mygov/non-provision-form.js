@@ -69,7 +69,6 @@ const formSections = [
             title: 'Part zero',
             hideFromSectionNav: true
         },
-        hideFromSectionNav: true,
         slug: 'overview',
         title: 'Overview',
         pages: [
@@ -264,7 +263,7 @@ import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
-import DSDatePicker from '../../../../../node_modules/@scottish-government/design-system/src/components/date-picker/date-picker';
+import DSDatePicker from '@scottish-government/design-system/src/components/date-picker/date-picker';
 
 const formTemplate = require('../../templates/mygov/non-provision-form');
 const summaryTemplate = require('../../templates/mygov/non-provision-summary');

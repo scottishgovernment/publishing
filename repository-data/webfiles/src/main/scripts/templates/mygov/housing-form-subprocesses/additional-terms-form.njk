@@ -1,0 +1,18 @@
+<div id="additional-terms-form">
+    <h1 class="ds_!_margin-top--4">Additional term {{number}}</h1>
+
+    <div class="ds_question">
+        <label class="ds_label" for="additional-term-title">Title</label>
+        <input type="text" value="{{data.title}}" data-validation="requiredField" aria-required="true" id="additional-term-title" class="ds_input">
+    </div>
+
+    <div class="ds_question">
+        <label class="ds_label" for="additional-term-content">Content</label>
+        <textarea id="additional-term-content" class="ds_input" data-validation="requiredField" aria-required="true" rows="11">{{data.content}}</textarea>
+    </div>
+
+    <div class="ds_button-group">
+        <button type="button" class="ds_button  ds_button--cancel  js-cancel-item">Cancel</button>
+        <button type="button" class="ds_button  js-save-item">Confirm</button>
+    </div>
+</div>
