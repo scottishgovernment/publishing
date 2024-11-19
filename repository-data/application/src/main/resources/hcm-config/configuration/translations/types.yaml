@@ -84,6 +84,25 @@ definitions:
     /hippo:configuration/hippo:translations/hippo:types/publishing:formbase:
       jcr:primaryType: hipposys:resourcebundles
       /en:
+        jcr:name: Form base (legacy)
+        jcr:primaryType: hipposys:resourcebundle
+        publishing:tags: Keywords
+        publishing:tagssupport: Keyword suggestions
+      /nl:
+        jcr:primaryType: hipposys:resourcebundle
+        publishing:tags: Trefwoorden
+        publishing:tagssupport: Gesuggereerde trefwoorden
+      /de:
+        jcr:primaryType: hipposys:resourcebundle
+        publishing:tags: Stichworte
+        publishing:tagssupport: Stichwortvorschläge
+      /fr:
+        jcr:primaryType: hipposys:resourcebundle
+        publishing:tags: Mots-clés
+        publishing:tagssupport: Suggestions de mots-clés
+    /hippo:configuration/hippo:translations/hippo:types/publishing:formbasetwo:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
         jcr:name: Form base
         jcr:primaryType: hipposys:resourcebundle
         publishing:tags: Keywords

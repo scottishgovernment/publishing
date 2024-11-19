@@ -1,10 +1,13 @@
 $multi-page-form-padding: 24px;
 
 .multi-page-form {
-    padding: $multi-page-form-padding;
 
-    .form-section--unpad {
-        margin: #{$multi-page-form-padding * -1};
+    &--legacy {
+        padding: $multi-page-form-padding;
+
+        .form-section--unpad {
+            margin: #{$multi-page-form-padding * -1};
+        }
     }
 
     .remove {
@@ -26,11 +29,4 @@ $multi-page-form-padding: 24px;
             margin-left: 0.5em;
         }
     }
-}
-
-
-.mg_section-navigation {
-    border-bottom: 4px solid $ds_colour__brand;
-    display: flex;
-    justify-content: space-between;
 }

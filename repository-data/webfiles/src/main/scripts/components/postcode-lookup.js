@@ -4,8 +4,8 @@
 
 'use strict';
 
-import PromiseRequest from '../../../../node_modules/@scottish-government/design-system/src/base/tools/promise-request/promise-request';
-import temporaryFocus from '../../../../node_modules/@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
+import PromiseRequest from '@scottish-government/design-system/src/base/tools/promise-request/promise-request';
+import temporaryFocus from '@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
 
 const postcodeResultsTemplate = require('../templates/postcode-results');
 
@@ -39,7 +39,6 @@ class PostcodeLookup {
         this.endpointUrl = '/service/housing/postcode/address-lookup';
 
         this.PromiseRequest = PromiseRequest;
-
         // auto-init
         this.init();
     }
@@ -162,13 +161,23 @@ class PostcodeLookup {
     }
 
     getAddressAsObject() {
-        return {
-            building: this.selectedAddress.building,
-            street: this.selectedAddress.street,
-            town: this.selectedAddress.town,
-            region: this.selectedAddress.region,
-            postcode: this.selectedAddress.postcode
-        };
+        let address = {};
+
+        if (!this.manualElement.classList.contains('fully-hidden')) {
+            address.building = this.buildingInput.value;
+            address.postcode = this.manualPostcodeInput.value;
+            address.region = this.regionInput.value;
+            address.street = this.streetInput.value;
+            address.town = this.townInput.value;
+        } else if (this.selectedAddress) {
+            address.building = this.selectedAddress.building;
+            address.postcode = this.selectedAddress.postcode;
+            address.region = this.selectedAddress.region;
+            address.street = this.selectedAddress.street;
+            address.town = this.selectedAddress.town;
+        }
+
+        return address;
     }
 
     getAddressAsString() {

@@ -1,0 +1,69 @@
+{% from "../../macros.njk" import addressFromObject %}
+
+<div id="landlords-summary">
+    <div class="js-message-container" aria-live="polite"></div>
+
+    <p class="js-status">
+        {% if data.length > 1 %}
+        You have added <strong>{{data.length}}</strong> landlords.
+        {% elif data.length === 1 %}
+        You have added <strong>1</strong> landlord.
+        {% else %}
+        You have not added any landlords.
+        {% endif %}
+    </p>
+
+    {% if data.length %}
+        {% for item in data %}
+            <div class="ds_summary-card">
+                <div class="ds_summary-card__header">
+                    <h3 class="ds_summary-card__header-title" id="card-{{loop.index}}-title">{{item.name}}</h3>
+                    <ul class="ds_summary-card__actions-list">
+                        <li class="ds_summary-card__actions-list-item">
+                            <button data-index="{{loop.index0}}" type="button" class="ds_link  js-change-item" aria-describedby="card-{{loop.index}}-title">
+                                Change <span class="visually-hidden">{{item.name}}</span>
+                            </button>
+                        </li>
+                        <li class="ds_summary-card__actions-list-item">
+                            <button data-index="{{loop.index0}}" type="button" class="ds_link  js-remove-item" aria-describedby="card-{{loop.index}}-title">
+                                Delete <span class="visually-hidden">{{item.name}}</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ds_summary-card__content">
+                    <ol class="ds_summary-list">
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Landlord registration number</span>
+                            <span class="ds_summary-list__value">
+                                <q class="ds_summary-list__answer">{{item.registrationNumber}}</q>
+                            </span>
+                        </li>
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Email</span>
+                            <span class="ds_summary-list__value">
+                                <q class="ds_summary-list__answer">{{item.email}}</q>
+                            </span>
+                        </li>
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Phone number</span>
+                            <span class="ds_summary-list__value">
+                                <q class="ds_summary-list__answer">{{item.telephone}}</q>
+                            </span>
+                        </li>
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Address</span>
+                            <span class="ds_summary-list__value">
+                                <q class="ds_summary-list__answer">
+                                    {{addressFromObject(item.address)}}
+                                </q>
+                            </span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <button class="ds_button  ds_button--secondary  ds_no-margin--top  js-add-another">{{addButtonText}}</button>
+</div>

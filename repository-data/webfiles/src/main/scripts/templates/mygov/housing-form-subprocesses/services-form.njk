@@ -1,0 +1,20 @@
+<div id="services-form">
+    <h1 class="ds_!_margin-top--4">Service {{number}}</h1>
+
+    <div class="ds_question">
+        <label class="ds_label" for="service-name">Service name</label>
+        <input type="text" value="{{data.name}}" data-validation="requiredField" aria-required="true" id="service-name" class="ds_input">
+    </div>
+
+    <div class="ds_question">
+        <label class="ds_label" for="service-amount">Amount (per rent payment)</label>
+        <div class="ds_currency-wrapper">
+            <input data-validation="validCurrency requiredField" value="{{data.value}}" class="ds_input  ds_input--fixed-4" type="text" id="service-amount">
+        </div>
+    </div>
+
+    <div class="ds_button-group">
+        <button type="button" class="ds_button  ds_button--cancel  js-cancel-item">Cancel</button>
+        <button type="button" class="ds_button  js-save-item">Confirm</button>
+    </div>
+</div>
