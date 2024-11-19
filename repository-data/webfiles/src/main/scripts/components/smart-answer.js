@@ -1,7 +1,8 @@
 /* global document, window, require */
 
 import commonForms from '../tools/forms';
-import temporaryFocus from '../../../../node_modules/@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
+import PromiseRequest from '@scottish-government/design-system/src/base/tools/promise-request/promise-request';
+import temporaryFocus from '@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
 const PolyPromise = require('../vendor/promise-polyfill').default;
 
 class SmartAnswer {
@@ -186,7 +187,7 @@ class SmartAnswer {
                     const tagParams = tags.map(tag => `tag=${tag}`).join('&');
                     let requestPath = `${location}?${tagParams}`;
                     if (!requestPaths.includes(requestPath)) {
-                        const promiseRequest = commonForms.promiseRequest(requestPath);
+                        const promiseRequest = PromiseRequest(requestPath);
 
                         promiseRequest
                             .then(value => {

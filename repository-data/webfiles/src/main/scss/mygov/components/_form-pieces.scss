@@ -3,6 +3,10 @@ $multi-page-form-padding: 24px;
 .multi-page-form {
     padding: $multi-page-form-padding;
 
+    &--2025 {
+        padding: 0;
+    }
+
     .form-section--unpad {
         margin: #{$multi-page-form-padding * -1};
     }
@@ -27,7 +31,6 @@ $multi-page-form-padding: 24px;
         }
     }
 }
-
 
 .mg_section-navigation {
     border-bottom: 4px solid $ds_colour__brand;

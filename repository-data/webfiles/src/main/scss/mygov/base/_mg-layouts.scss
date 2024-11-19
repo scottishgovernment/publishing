@@ -2,14 +2,12 @@
     SITE PAGE LAYOUTS
 \*------------------------------------*/
 
-$site-prefix: 'mg_';
-
-.#{$site-prefix}layout {
+.mg_layout {
 
 }
 
 @include ds_media-query(medium) {
-    .#{$site-prefix}layout {
+    .mg_layout {
         &--org-hub {
             > .ds_layout {
                 &__header {
@@ -56,11 +54,34 @@ $site-prefix: 'mg_';
                 }
             }
         }
+
+        &--paged-form--2025 {
+            > .ds_layout {
+                &__progress {
+                    float: left;
+                    @include ds_colwidth(3);
+                }
+
+                &__form-content {
+                    float: left;
+                    @include ds_colwidth(9);
+                }
+
+                &__feedback {
+                    @include ds_colwidth(9);
+                }
+
+                &__sidebar {
+                    clear: both;
+                    @include ds_colwidth(9);
+                }
+            }
+        }
     }
 }
 
 @include ds_media-query(large) {
-    .#{$site-prefix}layout {
+    .mg_layout {
         &--org-hub {
             > .ds_layout {
                 &__contact {
@@ -83,6 +104,28 @@ $site-prefix: 'mg_';
                 }
 
                 &__subsection-progress {
+                    float: left;
+                    @include ds_colwidth(3);
+                }
+
+                &__form-content {
+                    float: left;
+                    @include ds_colwidth(7);
+                }
+
+                &__feedback {
+                    @include ds_colwidth(7);
+                }
+
+                &__sidebar {
+                    @include ds_colwidth(7);
+                }
+            }
+        }
+
+        &--paged-form--2025 {
+            > .ds_layout {
+                &__progress {
                     float: left;
                     @include ds_colwidth(3);
                 }
@@ -129,7 +172,7 @@ $site-prefix: 'mg_';
     $grid-area-org-connect:         B;
 
     /**
-     * paged form additions
+     * paged form additions (legacy)
      * S: section nav
      * U: subsection nav
      * F: form contents
@@ -137,6 +180,18 @@ $site-prefix: 'mg_';
     $grid-area-form-section:    S;
     $grid-area-form-subsection: U;
     $grid-area-form-content:    F;
+
+    /**
+     * paged form additions
+     * P: form progress
+     */
+    $grid-area-form-progress:   P;
+
+    /**
+     * form additions
+     * e: error summary container
+     */
+     $grid-area-error:  e;
 
     .ds_layout {
         &__organisation {
@@ -168,18 +223,35 @@ $site-prefix: 'mg_';
             grid-area: $grid-area-form-subsection;
         }
 
+        &__progress {
+            grid-area: $grid-area-form-progress;
+        }
+
         &__form-content {
             grid-area: $grid-area-form-content;
         }
+
+        .ds_layout__error {
+            grid-area: $grid-area-error
+        }
     }
 
-    .#{$site-prefix}layout {
+    .mg_layout {
         &--paged-form {
             grid-template-areas:
                 'h h'
                 'S S'
                 'U U'
                 'F F'
+                's s'
+                'f f';
+        }
+
+        &--paged-form--2025 {
+            grid-template-areas:
+                'h h'
+                'F F'
+                'P P'
                 's s'
                 'f f';
         }
@@ -208,13 +280,22 @@ $site-prefix: 'mg_';
     }
 
     @include ds_media-query(small) {
-        .#{$site-prefix}layout {
+        .mg_layout {
             &--paged-form {
                 grid-template-areas:
                     'h h h h h h'
                     'S S S S S S'
                     'U U U U U U'
                     'F F F F F F'
+                    's s s s s s'
+                    'f f f f f f';
+            }
+
+            &--paged-form--2025 {
+                grid-template-areas:
+                    'h h h h h h'
+                    'F F F F F F'
+                    'P P P P P P'
                     's s s s s s'
                     'f f f f f f';
             }
@@ -243,12 +324,20 @@ $site-prefix: 'mg_';
     }
 
     @include ds_media-query(medium) {
-        .#{$site-prefix}layout {
+        .mg_layout {
             &--paged-form {
                 grid-template-areas:
                     'h h h h h h h h h h h h'
                     'S S S S S S S S S S S S'
                     'F F F F F F F F F U U U'
+                    's s s s s s s s s . . .'
+                    'f f f f f f f f f . . .';
+            }
+
+            &--paged-form--2025 {
+                grid-template-areas:
+                    'h h h h h h h h h h h h'
+                    'F F F F F F F F F P P P'
                     's s s s s s s s s . . .'
                     'f f f f f f f f f . . .';
             }
@@ -275,12 +364,20 @@ $site-prefix: 'mg_';
     }
 
     @include ds_media-query(large) {
-        .#{$site-prefix}layout {
+        .mg_layout {
             &--paged-form {
                 grid-template-areas:
                     'h h h h h h h h h h h h'
                     'S S S S S S S S S S . .'
                     'F F F F F F F U U U . .'
+                    's s s s s s s . . . . .'
+                    'f f f f f f f . . . . .';
+            }
+
+            &--paged-form--2025 {
+                grid-template-areas:
+                    'h h h h h h h h h h h h'
+                    'F F F F F F F P P P . .'
                     's s s s s s s . . . . .'
                     'f f f f f f f . . . . .';
             }
@@ -296,7 +393,7 @@ $site-prefix: 'mg_';
     }
 
     @include ds_media-query(xlarge) {
-        .#{$site-prefix}layout {
+        .mg_layout {
             &--org-hub {
                 grid-template-areas:
                     'h h h h h h h h p p p p'
@@ -308,6 +405,46 @@ $site-prefix: 'mg_';
                     'f f f f f f f f . . . .'
             }
         }
+    }
+}
+
+.mg_layout--form {
+    grid-template-areas: 'e e' 'c c' 's s' 's s';
+}
+
+@include ds_media-query(small) {
+    .mg_layout--form {
+        grid-template-areas:
+            'e e e e e e'
+            'c c c c c c'
+            's s s s s s'
+            's s s s s s'
+    }
+}
+
+@include ds_media-query(medium) {
+    .mg_layout--form {
+        grid-template-areas:
+            'e e e e e e e e . . . .'
+            'c c c c c c c c . . . .'
+            'c c c c c c c c s s s s'
+            'c c c c c c c c s s s s';
+        grid-template-rows: auto auto auto 1fr;
+    }
+
+    .mg_layout--form .ds_layout__content {
+        display: grid;
+        grid-template-rows: subgrid;
+    }
+}
+
+@include ds_media-query(xlarge) {
+    .mg_layout--form {
+        grid-template-areas:
+            'e e e e e e e . . . . .'
+            'c c c c c c c . . . . .'
+            'c c c c c c c . s s s s'
+            'c c c c c c c . s s s s';
     }
 }
 

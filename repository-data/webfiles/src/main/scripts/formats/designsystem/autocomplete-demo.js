@@ -1,5 +1,5 @@
-import Autocomplete from '../../../../../node_modules/@scottish-government/design-system/src/components/autocomplete/autocomplete';
-import tracking from '../../../../../node_modules/@scottish-government/design-system/src/base/tools/tracking/tracking';
+import Autocomplete from '@scottish-government/design-system/src/components/autocomplete/autocomplete';
+import tracking from '@scottish-government/design-system/src/base/tools/tracking/tracking';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 window.DS = window.DS || {};

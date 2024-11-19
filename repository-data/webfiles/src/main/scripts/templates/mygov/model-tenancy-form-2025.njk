@@ -1,0 +1,1182 @@
+{% from "../macros.njk" import buttons, pageTitle, postcodeLookup %}
+
+<form class="mg_display-contents">
+
+    {% set sectionTitle = 'About the property' %}
+    <div data-slug="property-address" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">
+                {{ pageTitle('What&rsquo;s the property address?', sectionTitle) }}
+            </div>
+
+            <div class="mg_form-container__content  ds_form">
+                {{ postcodeLookup('property', readOnly=true, note=true, required=true) }}
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="property-type" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('What type of property is it?', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_question">
+                    <fieldset id="property-building" data-validation="requiredRadio">
+                        <legend class="visually-hidden">What type of property is it?</legend>
+                        <div class="ds_field-group">
+                            <div class="ds_radio">
+                                <input type="radio" id="building-flat" name="property-building" class="ds_radio__input" value="FLAT">
+                                <label for="building-flat" class="ds_radio__label">Flat</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="building-bungalow" name="property-building" class="ds_radio__input" value="BUNGALOW">
+                                <label for="building-bungalow" class="ds_radio__label">Bungalow</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="building-cottage" name="property-building" class="ds_radio__input" value="COTTAGE">
+                                <label for="building-cottage" class="ds_radio__label">Cottage</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="building-terraced" name="property-building" class="ds_radio__input" value="TERRACED">
+                                <label for="building-terraced" class="ds_radio__label">Terraced house</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="building-semi" name="property-building" class="ds_radio__input" value="SEMI">
+                                <label for="building-semi" class="ds_radio__label">Semi-detached house</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="building-detached" name="property-building" class="ds_radio__input" value="DETACHED">
+                                <label for="building-detached" class="ds_radio__label">Detached house</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="building-other-query" name="property-building" class="ds_radio__input" value="OTHER">
+                                <label for="building-other-query" class="ds_radio__label">Other</label>
+
+                                <div class="ds_reveal-content" style="display: block">
+                                    <div class="ds_question">
+                                        <label class="ds_label" for="building-other">Building type description</label>
+                                        <input type="text" id="building-other" class="ds_input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div data-slot="navigation" class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="property-included" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('What&rsquo;s included in the tenancy agreement?', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div id="whats-included-add-another">
+
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="property-furnished" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Is the property furnished?', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_inset-text">
+                    <div class="ds_inset-text__text">
+                        <p><a href="#">Find out more about furnished, part-furnished and unfurnished homes</a> (opens in a new tab).</p>
+
+                        <p>You'll need to list what the home contains in a inventory. The inventory should come with the tenancy agreement. You'll need to agree the inventory with the tenant.</p>
+                    </div>
+                </div>
+
+                <div class="ds_question">
+                    <fieldset id="property-furnishing" data-validation="requiredRadio">
+                        <legend class="visually-hidden">Is the property furnished?</legend>
+                        <div class="ds_field-group">
+                            <div class="ds_radio">
+                                <input type="radio" id="furnishing-none" name="property-furnishing" class="ds_radio__input" value="UNFURNISHED" >
+                                <label for="furnishing-none" class="ds_radio__label">Unfurnished</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="furnishing-part" name="property-furnishing" class="ds_radio__input" value="PARTLY_FURNISHED">
+                                <label for="furnishing-part" class="ds_radio__label">Part Furnished</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="furnishing-full" name="property-furnishing" class="ds_radio__input" value="FURNISHED">
+                                <label for="furnishing-full" class="ds_radio__label">Furnished</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="property-hmo" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container" id="property-hmo-query">
+            <div class="mg_form-container__title">{{ pageTitle('Is the home for rent a House in Multiple Occupation (HMO)?', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <p>You need a HMO licence if:</p>
+                <ul>
+                    <li>you rent your property out to 3 or more tenants over the age of 16</li>
+                    <li>3 or more of these tenants are not related or part of the same family</li>
+                    <li>your property is the only, or the main, place they live</li>
+                </ul>
+
+                <div class="ds_inset-text">
+                    <div class="ds_inset-text__text">
+                        <a target="_blank" href="/renting-your-property-out/registration/">If you need a HMO license but do not have one, find out how to get one (opens in a new window).</a>
+                    </div>
+                </div>
+
+                <div class="ds_question">
+                    <fieldset id="property-hmo" data-validation="requiredRadio">
+                        <legend class="visually-hidden">Is the home for rent a House in Multiple Occupation (HMO)?</legend>
+                        <div class="ds_field-group">
+                            <div class="ds_radio">
+                                <input type="radio" id="hmo-yes" name="property-hmo" class="ds_radio__input" value="true">
+                                <label for="hmo-yes" class="ds_radio__label">Yes</label>
+                            </div>
+
+                            <div class="ds_radio">
+                                <input type="radio" id="hmo-no" name="property-hmo" class="ds_radio__input" value="false">
+                                <label for="hmo-no" class="ds_radio__label">No</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="hmo-details" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('HMO details', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_question">
+                    <label class="ds_label" for="hmo-contact">HMO 24 hour contact number</label>
+                    <input type="text" id="hmo-contact" class="ds_input  ds_input--fixed-20" data-validation="validPhone requiredField" aria-required="true">
+                </div>
+
+                <div class="ds_question">
+                    <a id="hmo-expiry-link"></a>
+                    <label class="ds_label" for="hmo-expiry">HMO licence expiry date</label>
+
+                    <div class="ds_hint-text">
+                        <p>Use DD/MM/YYYY format.</p>
+                    </div>
+
+                    <div id="hmo-expiry-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                        <div class="ds_input__wrapper">
+                            <input type="text" id="hmo-expiry" class="ds_input  ds_input--fixed-10" placeholder="e.g. 01/12/2019" data-mindate="12/01/2017" data-validation="dateRegex futureDate requiredField" aria-required="true">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ds_question">
+                    <h3>If you have submitted a renewal application please indicate</h3>
+
+                    <div class="ds_checkbox  ds_checkbox--small">
+                        <input type="checkbox" id="hmo-renewal" name="hmoRenewalApplicationSubmitted" class="ds_checkbox__input">
+                        <label for="hmo-renewal" class="ds_checkbox__label">HMO renewal application submitted</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    {% set sectionTitle = 'About the tenancy' %}
+
+    <div data-slug="tenancy-start" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('When does the tenancy start?', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_question">
+                    <label class="ds_label" for="tenancy-start-date">Tenancy start date</label>
+
+                    <div class="ds_hint-text">
+                        <p>Use DD/MM/YYYY format.</p>
+                    </div>
+
+                    <div id="tenancy-start-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                        <div class="ds_input__wrapper">
+                            <input type="text" id="tenancy-start-date" class="ds_input  ds_input--fixed-10" placeholder="e.g. 01/12/2019" data-mindate="12/01/2017" data-validation="dateRegex futureDate requiredField" aria-required="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="tenancy-payment-method" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('How will the tenant pay rent?', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_question">
+                    <fieldset id="payment-method" data-validation="requiredRadio">
+                        <legend>Choose payment method</legend>
+                        <div class="ds_field-group">
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-method-bacs" name="payment-method" class="ds_radio__input" value="BACS">
+                                <label for="tenancy-payment-method-bacs" class="ds_radio__label">BACS</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-method-direct-debit" name="payment-method" class="ds_radio__input" value="Direct debit">
+                                <label for="tenancy-payment-method-direct-debit" class="ds_radio__label">Direct debit</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-method-bank-transfer" name="payment-method" class="ds_radio__input" value="Bank transfer">
+                                <label for="tenancy-payment-method-bank-transfer" class="ds_radio__label">Bank transfer</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-method-cash" name="payment-method" class="ds_radio__input" value="Cash">
+                                <label for="tenancy-payment-method-cash" class="ds_radio__label">Cash</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-method-cheque" name="payment-method" class="ds_radio__input" value="Cheque">
+                                <label for="tenancy-payment-method-cheque" class="ds_radio__label">Cheque</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-method-standing-order" name="payment-method" class="ds_radio__input" value="Standing order">
+                                <label for="tenancy-payment-method-standing-order" class="ds_radio__label">Standing order</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-method-other" name="payment-method" class="ds_radio__input" value="Other">
+                                <label for="tenancy-payment-method-other" class="ds_radio__label">Other</label>
+
+                                <div class="ds_reveal-content" style="display: block">
+                                    <div class="ds_question">
+                                        <label class="ds_label" for="tenancy-payment-method-other-text">Other payment method</label>
+                                        <input type="text" id="tenancy-payment-method-other-text" class="ds_input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="tenancy-payment-frequency" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('How often will the tenant pay rent?', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_question">
+                    <fieldset id="payment-frequency" data-validation="requiredRadio">
+                        <legend>Choose how often</legend>
+                        <div class="ds_field-group">
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-frequency-weekly" name="payment-frequency" class="ds_radio__input" value="WEEKLY">
+                                <label for="tenancy-payment-frequency-weekly" class="ds_radio__label">Weekly</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-frequency-fortnightly" name="payment-frequency" class="ds_radio__input" value="FORTNIGHTLY">
+                                <label for="tenancy-payment-frequency-fortnightly" class="ds_radio__label">Fortnightly</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-frequency-4-weeks" name="payment-frequency" class="ds_radio__input" value="EVERY_FOUR_WEEKS">
+                                <label for="tenancy-payment-frequency-4-weeks" class="ds_radio__label">Four weekly</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-frequency-monthly" name="payment-frequency" class="ds_radio__input" value="CALENDAR_MONTH">
+                                <label for="tenancy-payment-frequency-monthly" class="ds_radio__label">Monthly</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-frequency-quarterly" name="payment-frequency" class="ds_radio__input" value="QUARTERLY">
+                                <label for="tenancy-payment-frequency-quarterly" class="ds_radio__label">Quarterly</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-frequency-6-months" name="payment-frequency" class="ds_radio__input" value="EVERY_SIX_MONTHS">
+                                <label for="tenancy-payment-frequency-6-months" class="ds_radio__label">Every 6 months</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="tenancy-payment-frequency-details" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div id="tenancy-payment-frequency-details-question-container" class="mg_display-contents">
+                <div class="mg_form-container__title">{{ pageTitle('Payment frequency detail', sectionTitle) }}</div>
+
+                <div class="mg_form-container__content">
+                    <p>No rent frequency selected.</p>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="tenancy-payment-amount" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('How much will each of these payments be?', sectionTitle) }}</div>
+
+            <div class="ds_question">
+                <label class="ds_label" for="tenancy-rent-amount">Rent payment amount</label>
+                <p class="ds_hint-text">e.g. £750.00</p>
+                <div class="ds_currency-wrapper">
+                    <input data-validation="validCurrency requiredField" aria-required="true" type="text" id="tenancy-rent-amount" class="ds_input  ds_input--fixed-10">
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+
+    <div data-slug="tenancy-payment-type" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container" aria-required="true" id="property-hmo-query">
+            <div class="mg_form-container__title">{{ pageTitle('Will they pay in advance or in arrears?', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_question">
+                    <fieldset id="payment-advance" data-validation="requiredRadio">
+                        <legend class="visually-hidden">Will they pay in advance or in arrears?</legend>
+                        <div class="ds_field-group">
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-advance" name="payment-advance" class="ds_radio__input" value="true">
+                                <label for="tenancy-payment-advance" class="ds_radio__label">Advance</label>
+                                <p class="ds_hint-text">This means you&rsquo;re paid for the period coming up, e.g. the month ahead</p>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="tenancy-payment-arrears" name="payment-advance" class="ds_radio__input" value="false">
+                                <label for="tenancy-payment-arrears" class="ds_radio__label">Arrears</label>
+                                <p class="ds_hint-text">This means you&rsquo;re paid for the time that&rsquo;s just passed, e.g. for the last month</p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="tenancy-services" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('What services are included in the rent?', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div id="services-add-another">
+
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="tenancy-first-payment-due" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('When is the first rent payment due?', sectionTitle) }}</div>
+
+
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="tenancy-first-payment" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('First rent payment', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_question">
+                    <label class="ds_label" for="first-payment-amount">How much is the first rent payment?</label>
+                    <p class="ds_hint-text">This does not include the deposit. It can be for the same amount as normal rent payments or a different amount.</p>
+                    <div class="ds_currency-wrapper">
+                        <input type="text" id="first-payment-amount" class="ds_input  ds_input--fixed-10" data-validation="validCurrency requiredField" aria-required="true">
+                    </div>
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="first-payment-date">When will your tenant make this first payment?</label>
+                    <div class="ds_hint-text">
+                        <p>Use DD/MM/YYYY format.</p>
+                    </div>
+
+                    <div id="first-payment-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                        <div class="ds_input__wrapper">
+                            <input type="text" id="first-payment-date" class="ds_input  ds_input--fixed-10  js-end-date-input" placeholder="e.g. 01/12/2020" data-validation="dateRegex futureDate requiredField" aria-required="true">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="first-payment-end-date">The first payment covers rent from the start date of the tenancy until:</label>
+                    <div class="ds_hint-text">
+                        <p>Use DD/MM/YYYY format.</p>
+                    </div>
+
+                    <div id="first-payment-end-date-picker" data-module="ds-datepicker" class="ds_datepicker">
+                        <div class="ds_input__wrapper">
+                            <input type="text" id="first-payment-end-date" class="ds_input  ds_input--fixed-10  js-end-date-input" placeholder="e.g. 01/12/2020" data-validation="dateRegex futureDate requiredField" aria-required="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="tenancy-deposit" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('How much is the deposit?', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_question">
+                    <label class="ds_label" for="deposit-amount">Deposit amount?</label>
+
+                    <div class="ds_hint-text">
+                        <p>The deposit can be a maximum of 2 months&rsquo; rent.</p>
+                    </div>
+
+                    <div class="ds_currency-wrapper">
+                        <input type="text" id="deposit-amount" class="ds_input  ds_input--fixed-10" placeholder="e.g. 375.00" data-validation="validCurrency requiredField" aria-required="true">
+                    </div>
+                </div>
+
+                <div class="ds_question">
+                    <fieldset id="deposit-scheme" data-validation="requiredRadio">
+                        <legend class="ds_label">Which deposit scheme are you using?</legend>
+                        <div class="ds_field-group">
+                            <div class="ds_radio">
+                                <input type="radio" id="deposit-scheme-lpss" name="deposit-scheme" class="ds_radio__input" value="Letting Protection Service Scotland">
+                                <label for="deposit-scheme-lpss" class="ds_radio__label">Letting Protection Service Scotland</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="deposit-scheme-safedeposits" name="deposit-scheme" class="ds_radio__input" value="Safedeposits Scotland">
+                                <label for="deposit-scheme-safedeposits" class="ds_radio__label">Safedeposits Scotland</label>
+                            </div>
+                            <div class="ds_radio">
+                                <input type="radio" id="deposit-scheme-mydeposits" name="deposit-scheme" class="ds_radio__input" value="Mydeposits Scotland">
+                                <label for="deposit-scheme-mydeposits" class="ds_radio__label">Mydeposits Scotland</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="tenancy-communication-agreement" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('How will you and the tenant(s) communicate?', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_warning-text">
+                    <strong class="ds_warning-text__icon" aria-hidden="true">!</strong>
+                    <strong class="visually-hidden">Warning</strong>
+                    <div class="ds_warning-text__text">
+                        You must agree with your tenant how you can both send things, like a legal notice, to each other.
+                    </div>
+                </div>
+
+                <div class="ds_question">
+                    <fieldset id="communication-agreement" data-validation="requiredRadio">
+                        <legend>
+                            What have you agreed with your tenant?
+                        </legend>
+
+                        <div class="ds_field-group">
+                            <div class="ds_radio">
+                                <input type="radio" id="communication-post" name="communication-agreement" class="ds_radio__input" value="HARDCOPY">
+                                <label for="communication-post" class="ds_radio__label">By paper &mdash; in post or in person</label>
+                            </div>
+
+                            <div class="ds_radio">
+                                <input type="radio" id="communication-email" name="communication-agreement" class="ds_radio__input" value="EMAIL">
+                                <label for="communication-email" class="ds_radio__label">By email</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    {% set sectionTitle = 'Managing the property' %}
+
+    <div data-slug="letting-agent" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Is a letting agent managing the property?', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_question">
+                    <fieldset id="letting-agent-query" data-validation="requiredRadio">
+                        <legend class="visually-hidden">Is a letting agent managing the property?</legend>
+                        <div class="ds_field-group">
+                            <div class="ds_radio">
+                                <input type="radio" id="letting-agent-yes" name="letting-agent-query" class="ds_radio__input" value="letting-agent-yes">
+                                <label for="letting-agent-yes" class="ds_radio__label">Yes</label>
+                            </div>
+
+                            <div class="ds_radio">
+                                <input type="radio" id="letting-agent-no" name="letting-agent-query" class="ds_radio__input" value="letting-agent-no">
+                                <label for="letting-agent-no" class="ds_radio__label">No</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="letting-agent-details" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Letting agent details', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_question">
+                    <label class="ds_label" for="letting-agent-name">Full name</label>
+                    <input type="text" id="letting-agent-name" class="ds_input" data-validation="requiredField" aria-required="true">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="letting-agent-registration">Letting agent registration number</label>
+                    <input type="text" id="letting-agent-registration" class="ds_input" data-validation="requiredField" aria-required="true">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="letting-agent-email">Email</label>
+                    <input type="text" id="letting-agent-email" class="ds_input" data-validation="validEmail requiredField" aria-required="true">
+                </div>
+
+                <div class="ds_question">
+                    <label class="ds_label" for="letting-agent-phone">Phone number</label>
+                    <input type="text" id="letting-agent-phone" class="ds_input  ds_input--fixed-20" data-validation="validPhone requiredField" aria-required="true">
+                </div>
+
+                {{ postcodeLookup('letting-agent', required=true) }}
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="letting-agent-services" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Letting agent services', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div id="letting-agent-services-add-another">
+
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="landlords" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Landlord details', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div id="landlords-add-another" data-validation="atLeastOneLandlord" data-highlightonerror="false">
+
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="tenant-details" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Tenant details', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div id="tenants-add-another" data-validation="atLeastOneTenant" data-highlightonerror="false">
+
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    {% set sectionTitle = 'Review mandatory terms' %}
+    <div data-slug="must-include-terms" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Mandatory terms', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <p>These are the terms that, by law, you must give your tenant as part of a new tenancy agreement in Scotland.</p>
+                <p>In the final tenancy agreement these terms are known as the &lsquo;mandatory clauses&rsquo; of your contract. </p>
+                <p>You can&rsquo;t change or get rid of any of these terms.</p>
+                <p>They cover things like:</p>
+                <ul>
+                    <li>data protection</li>
+                    <li>access for repairs</li>
+                    <li>safety, such as laws about smoke detectors and gas safety</li>
+                </ul>
+
+                <p>Your input has been inserted into the mandatory terms and is <span class="summary__user-input">shown in bold text</span>. If you notice any errors you can go back to the relevant section and correct them.</p>
+
+                <div id="mandatory-terms-container">
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="notification-about-other-tenants" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Notification about other residents', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_inset-text">
+                    <div class="ds_inset-text__text">
+                        This &lsquo;must-include term&rsquo; contains some text that you can change, if you prefer.
+                    </div>
+                </div>
+
+                <p>If a person aged 16 or over (who is not a Joint Tenant) occupies the Let Property with the
+                    Tenant as that person&rsquo;s only or principal home, the Tenant must tell the Landlord in writing
+                    that person&rsquo;s name, and the person&rsquo;s relationship to the Tenant.</p>
+
+                <p>If that person subsequently leaves the Let Property the Tenant must tell the Landlord.</p>
+
+                <p>The Tenant will take reasonable care to ensure that anyone living with them does not do
+                    anything that would be a breach of this Agreement if they were the Tenant.</p>
+
+                <div class="js-editable" data-type="mandatory" data-slug="notification-residents" data-query="notification-query"></div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="ending-the-tenancy" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Ending the tenancy', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div class="ds_inset-text">
+                    <div class="ds_inset-text__text">
+                        This &lsquo;must-include term&rsquo; contains some text that you can change, if you prefer.
+                    </div>
+                </div>
+
+                <p>This Tenancy may be ended by:-</p>
+
+                <ul>
+                    <li>The Tenant giving notice to the Landlord
+
+                        <ul>
+                            <li>The Tenant giving the Landlord at least 28 days&rsquo; notice in writing to terminate
+                                the tenancy, or an earlier date if the Landlord is content to waive the minimum
+                                28 day notice period.  Where the Landlord agrees to waive the notice period, his
+                                or her agreement must be in writing.  The tenancy will come to an end on the
+                                date specified in the notice or, where appropriate, the earlier date agreed
+                                between the Tenant and Landlord.  To end a joint tenancy, all the Joint Tenants
+                                must agree to end the tenancy.  One Joint Tenant cannot terminate the joint
+                                tenancy on behalf of all Joint Tenants.</li>
+                        </ul>
+
+                    </li>
+
+                    <li>The Landlord giving notice to the Tenant, which is only possible using one of the 18
+                        grounds for eviction set out in schedule 3 of the Act.  This can happen either:-
+
+                        <ul>
+                            <li>By the Landlord giving the Tenant a Notice to Leave stating one or more of the
+                                eviction grounds, and the Tenant choosing to leave.  In this case, the tenancy
+                                will come to an end on the day specified in the Notice to Leave, or the day on
+                                which the Tenant actually leaves the Let Property, whichever is the later.</li>
+
+                        or:-
+
+                            <li>By the Landlord giving the Tenant a Notice to Leave stating one or more of the
+                                eviction grounds and then, if the Tenant chooses not to leave on the day after
+                                the notice period expires, subsequently obtaining an eviction order from the
+                                Tribunal on the stated eviction ground(s).  In this case, the tenancy will come
+                                to an end on the date specified in the eviction order. </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p>The Landlord can bring the tenancy to an end only if one of the 18 grounds for eviction
+                    apply. If the Landlord serves a Notice to Leave on the Tenant, he or she must specify which
+                    eviction ground(s) is being used, and give the reasons why they believe this eviction ground
+                    applies.</p>
+
+                <p>If the Landlord applies to the Tribunal for an eviction order, the Tribunal will ask the
+                    Landlord to provide supporting evidence for any eviction ground(s) being used.</p>
+
+                <p>The amount of notice a Landlord must give the Tenant will depend on which eviction ground is
+                    being used by the Landlord and how long the Tenant has lived in the Let Property.</p>
+
+                <p>The Landlord must give the Tenant at least 28 days&rsquo; notice if, on the day the Tenant receives
+                    the Notice to Leave, the Tenant has been entitled to occupy the Let Property for six months
+                    or less, or if the eviction ground (or grounds) that the Landlord is stating is one or more
+                    of the following. The Tenant: </p>
+
+                <ul>
+                    <li>is not occupying the Let Property as his or her only or principal home</li>
+                    <li>has breached the tenancy agreement</li>
+                    <li>is rent arrears for three or more consecutive months</li>
+                    <li>has a relevant criminal conviction</li>
+                    <li>has engaged in relevant antisocial behaviour</li>
+                    <li>has associated with a person who has relevant conviction or has engaged in antisocial
+                        behaviour. </li>
+                </ul>
+
+                <p>The Landlord must give the Tenant at least 84 days&rsquo; notice if, on the date the Tenant
+                    receives the Notice to Leave, the Tenant has been entitled to occupy the Let Property for
+                    over six months and the Notice to Leave does not rely exclusively on one (or more) of the
+                    eviction grounds already mentioned in this paragraph. </p>
+
+                <p>The Landlord must secure repossession only by lawful means and must comply with all relevant
+                    legislation affecting private residential tenancies.</p>
+
+                <br>
+                <h3>SCHEDULE 3 TO THE ACT &mdash; EVICTION GROUNDS</h3>
+
+                <p>Schedule 3 sets out the 18 grounds under which a Landlord may seek eviction. </p>
+
+                <ul>
+                    <li>The Landlord intends to sell the Let Property for market value within three months of
+                        the Tenant ceasing to occupy it.</li>
+                    <li>Let Property to be sold by the mortgage lender.</li>
+                    <li>The Landlord intends to refurbish and this will entail significantly disruptive works
+                        to, or in relation to, the Let Property.</li>
+                    <li>The Landlord intends to live in the Let Property as his or her only or principal home.</li>
+                    <li>The Landlord intends to use the Let Property for a purpose other than providing a person
+                        with a home.</li>
+                    <li>The Let Property is held for a person engaged in the work of a religious denomination as
+                        a residence from which the duties of such a person are to be performed; the Let Property
+                        has previously been used for that purpose; and the Let Property is required for that
+                        purpose.</li>
+                    <li>The Tenant is not occupying the Let Property as his or her only or principal home or has
+                        abandoned the Let Property.</li>
+                    <li>After the start date of the tenancy, the Tenant is convicted of using, or allowing the
+                        use of, the Let Property for an immoral or illegal purpose, or is convicted of an
+                        imprisonable offence committed in or in the locality of the Let Property. The
+                        application must usually be made within 12 months of the Tenant&rsquo;s conviction.</li>
+                    <li>A member of the Landlord&rsquo;s family intends to live in the Let Property as his or her only
+                        or principal home.</li>
+                    <li>The tenancy was entered into on account of the Tenant having an assessed need for
+                        community care and the Tenant has since been assessed as no longer having such need.</li>
+                    <li>The Tenant has breached the tenancy agreement – this excludes the payment of rent.</li>
+                    <li>The Tenant has acted in an anti-social manner to another person and the Tribunal is
+                        satisfied that it is reasonable to issue an eviction order given the nature of the
+                        behaviour and who it was in relation to or where it occurred.  The application must
+                        usually be made within 12 months of the antisocial behaviour occurring.</li>
+                    <li>The Tenant is associating in the Let Property with a person who has a relevant
+                        onviction or who has engaged in relevant anti-social behaviour. A relevant conviction
+                        is a conviction which, if it was the Tenant&rsquo;s, would entitle the Tribunal to issue an
+                        eviction order. Relevant anti-social behaviour means behaviour which, if engaged in by
+                        the Tenant, would entitle the Tribunal to issue an eviction order. The application must
+                        usually be made within 12 months of the conviction or antisocial behaviour.</li>
+                    <li>Landlord registration has been refused or revoked by a local authority.</li>
+                    <li>House in Multiple Occupation (HMO) license revoked by the local authority.</li>
+                    <li>Overcrowding statutory notice in respect of the let property has been served on the
+                        Landlord.</li>
+                    <li>The Tenant is in rent arrears over three consecutive months. In deciding whether it is
+                        reasonable to evict, the Tribunal will consider whether the Tenant being in arrears is
+                        due to a delay or failure in the payment of a relevant benefit and the extent the
+                        landlord has complied with pre-action requirements for rent arrears are required by The
+                        Rent Arrears Pre-Action Requirements (Coronavirus) (Scotland) Regulations 2020.</li>
+                    <li>The tenancy was granted to an employee and the Tenant is no longer an employee.</li>
+                </ul>
+
+                <div class="js-editable" data-type="mandatory" data-slug="ending-the-tenancy" data-query="ending-tenancy-query"></div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    {% set sectionTitle = 'Add optional terms' %}
+    <div data-slug="extra-terms" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Extra terms', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <p>These are terms you can choose to have in your tenancy agreement. </p>
+
+                <p>In your final tenancy agreement they are known as the &lsquo;discretionary clauses&rsquo; of your contract.</p>
+
+                <p>You can amend or delete any of the terms if you do not think they apply to your property.</p>
+
+                <p>They cover things like:</p>
+
+                <ul>
+                    <li>payment of bills such as gas or electric by the tenant</li>
+                    <li>a rule that there shouldn&rsquo;t be any smoking in the property</li>
+                    <li>a rule that pets aren&rsquo;t allowed in the property</li>
+                    <li>rules around shared areas, if there are any</li>
+                    <li>a rule that the tenant must dispose of rubbish in the right way</li>
+                </ul>
+
+                <div class="ds_warning-text">
+                    <strong class="ds_warning-text__icon" aria-hidden="true">!</strong>
+                    <strong class="visually-hidden">Warning</strong>
+                    <div class="warning-text__text">
+                        You should read through these terms to check they are right for your tenancy agreement.</div>
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    {% for item in optionalTermsAsArray %}
+        <div data-slug="{{item.slug}}" class="fully-hidden  mg_form-page  js-form-page">
+            <div class="mg_form-container">
+                <div class="mg_form-container__title">{{ pageTitle(item.title, sectionTitle) }}</div>
+
+                <div class="mg_form-container__content  ds_form">
+                    {% if item.name == 'alterations' %}
+                    <div class="ds_inset-text">
+                        <div class="ds_inset-text__text">
+                            If you give this section to your tenant, you can&rsquo;t edit all its text. You can only
+                            change or edit the first paragraph.
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="js-editable" data-excluded="{{item.excluded}}" data-slug="{{item.slug}}" data-query="{{item.slug}}-query"></div>
+
+                    {% if item.name == 'alterations' %}
+                    <p>Any request for adaptations, auxiliary aids or services under section 37 of the Equality Act
+                        2010 or section 52 of the Housing (Scotland) Act 2006 must be made in writing to the
+                        Landlord and any other owners of the common parts, where appropriate. Consent for
+                        alterations requested under this legislation should not be unreasonably withheld. If no
+                        consent is given for the adaptations you may appeal to the Tribunal in relation to section
+                        52 (or sheriff court in relation to section 37) within 6 months of being notified of the
+                        decision. Before doing this, you may find it helpful to discuss your circumstance with your
+                        local Citizens Advice Bureau, Shelter Scotland or the local authority for the area where the
+                        Let Property is situated.</p>
+                    {% endif %}
+                </div>
+
+                <div class="mg_form-container__nav">
+                    {{buttons()}}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div data-slug="additional-terms" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Additional terms', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <div id="additional-terms-add-another"></div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons()}}
+            </div>
+        </div>
+    </div>
+
+    {% set sectionTitle = 'Review' %}
+    <div data-slug="review" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Review your tenancy agreement', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <p>Review your tenancy agreement before proceeding to download the document.</p>
+                <p>You can make any required changes using the &lsquo;Change&rsquo; links on this page.</p>
+
+                <div id="summary">
+                </div>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons({nextText: 'Confirm and continue'})}}
+            </div>
+        </div>
+    </div>
+
+    {% set sectionTitle = 'Download' %}
+    <div data-slug="download" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">{{ pageTitle('Your tenancy agreement is ready', sectionTitle) }}</div>
+
+            <div class="mg_form-container__content  ds_form">
+                <p>You need to complete the following challenge before you can download your tenancy agreement.</p>
+
+                {% if recaptchaEnabled %}
+                <div id="recaptcha" class="g-recaptcha"
+                data-sitekey="{{ recaptchaSitekey }}"
+                data-callback="checkRecaptcha"
+                data-expired-callback="expireRecaptcha"></div>
+                {% endif %}
+
+                <h2>Your download includes:</h2>
+
+                <ul>
+                    <li>your tenancy agreement, with all the details you&rsquo;ve entered</li>
+                    <li>the terms of your tenancy agreement you must include, known as &lsquo;mandatory clauses&rsquo;, which are written in bold in your download</li>
+                    <li>the terms of your tenancy agreement you&rsquo;ve chosen to include, known as &lsquo;discretionary clauses&rsquo;, which are written in a normal font</li>
+                    <li>the Scottish Government&rsquo;s &lsquo;easy read notes&rsquo; that help explain the tenancy agreement and the tenancy agreement&rsquo;s clauses</li>
+                    <li>any terms of your own you&rsquo;ve added, if any</li>
+                </ul>
+
+                <h2>You must give your tenant:</h2>
+
+                <ul>
+                    <li>the tenancy agreement</li>
+                    <li>the must-include terms of your tenancy agreement, known as &lsquo;mandatory clauses&rsquo;, which are written in bold in your download</li>
+                    <li>the Scottish Government&rsquo;s &lsquo;easy read notes&rsquo; that help explain the tenancy agreement and the tenancy agreement&rsquo;s clauses</li>
+                </ul>
+
+                <p>If you do not give your tenant these, your tenant can apply to a first-tier tribunal and make a claim for up to 3 months&rsquo; rent.</p>
+
+                <p>If you&rsquo;ve got more details you want to add to your tenancy agreement you can choose the Word document download, save it to your computer and add them later.</p>
+
+                <p>Or you can download and print this tenancy agreement and fill in what you need by hand.</p>
+
+                <h2>Signing the agreement</h2>
+
+                <p>You and your tenant can finish this agreement by signing:</p>
+
+                <ul>
+                    <li>a Word document or PDF</li>
+                    <li>a paper copy</li>
+                </ul>
+
+                <div class="ds_accordion" data-module="ds-accordion">
+                    <button  type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+
+                    <div class="ds_accordion-item">
+                        <input type="checkbox" id="panel-1" class="visually-hidden  ds_accordion-item__control" aria-labelledby="panel-1-heading">
+                        <div class="ds_accordion-item__header">
+                            <h3 id="panel-1-heading" class="ds_accordion-item__title">
+                                Signing a Word document or PDF
+                            </h3>
+                            <span class="ds_accordion-item__indicator"></span>
+                            <label class="ds_accordion-item__label" for="panel-1"><span class="visually-hidden">Show this section</span></label>
+                        </div>
+                        <div class="ds_accordion-item__body">
+                            <p>The most common way you can sign a word document is by opening the document in Microsoft Word and typing your name where you need to sign.</p>
+
+                            <p>If it's a PDF, you can open the document in <a target="_blank" href="https://acrobat.adobe.com/uk/en/acrobat/pdf-reader.html">Adobe Acrobat Reader DC</a> and use Adobe's 'fill &amp; sign' tool.</p>
+
+                            <p>If you do not have Adobe Acrobat Reader DC you can get it as a <a target="_blank" href="https://get.adobe.com/uk/reader/">free download</a>. You can also read Adobe's advice about <a target="_blank" href="https://helpx.adobe.com/reader/using/sign-pdfs.html">signing a PDF</a> if you need more help.</p>
+
+                            <h3>No need to print</h3>
+
+                            <p>You and your tenant can send a signed tenancy agreement by email. You don’t need to print it.</p>
+
+                            <h3>Keep a version saved</h3>
+
+                            <p>You should keep a record of emails you send to and receive from your tenant. This includes emails about your tenancy agreement.</p>
+                        </div>
+                    </div>
+
+                    <div class="ds_accordion-item">
+                        <input type="checkbox" id="panel-2" class="visually-hidden  ds_accordion-item__control" aria-labelledby="panel-2-heading">
+                        <div class="ds_accordion-item__header">
+                            <h3 id="panel-2-heading" class="ds_accordion-item__title">
+                                If you sign a paper copy
+                            </h3>
+                            <span class="ds_accordion-item__indicator"></span>
+                            <label class="ds_accordion-item__label" for="panel-2"><span class="visually-hidden">Show this section</span></label>
+                        </div>
+                        <div class="ds_accordion-item__body">
+                            <p>If you do this you'll need to have 2 versions signed, one for your tenant to keep and one for you to keep.</p>
+
+                            <p>You and your tenant can either sign the agreements in person or you can post both copies for your tenant to sign.</p>
+
+                            <p>No one needs to witness the signing of this agreement.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Documents to download</h2>
+
+                <section class="document-section  ds_block-margins">
+                    <div class="ds_file-download  js-document-container">
+                        <div class="ds_file-download__thumbnail">
+                            <button data-documenttype="WORD" {% if recaptchaEnabled %}disabled="true"{% endif %} data-button="document-cover" class="ds_file-download__thumbnail-link  ds_link  js-download-file" aria-hidden="true" tabindex="-1" type="button">
+                                <span class="visually-hidden">Document cover image</span>
+                                <img class="ds_file-download__thumbnail-image  ds_file-download__thumbnail-image--generic"
+                                    src="{{assetsPath}}/images/documents/svg/word.svg"
+                                    loading="lazy"
+                                    alt="">
+                            </button>
+                        </div>
+
+                        <div class="ds_file-download__content">
+                            <p class="ds_file-download__title" id="file-title-word">Your tenancy agreement - Word document</p>
+
+                            <div id="file-download-word" class="ds_file-download__details">
+                                <dl class="ds_metadata  ds_metadata--inline">
+                                    <div class="ds_metadata__item">
+                                        <dt class="ds_metadata__key">File type</dt>
+                                        <dd class="ds_metadata__value">Word document (.docx)</dd>
+                                    </div>
+                                </dl>
+                            </div>
+
+                            <div>
+                                <button data-documenttype="WORD" {% if recaptchaEnabled %}disabled="true"{% endif %} aria-labelledby="file-title-word" aria-describedby="file-download-word" type="button" class="ds_file-download__button  ds_button  ds_button--small  ds_button--secondary  ds_no-margin  js-download-file">
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ds_file-download  js-document-container">
+                        <div class="ds_file-download__thumbnail">
+                            <button data-documenttype="PDF" {% if recaptchaEnabled %}disabled="true"{% endif %} data-button="document-cover" class="ds_file-download__thumbnail-link  ds_link  js-download-file" aria-hidden="true" tabindex="-1" type="button">
+                                <span class="visually-hidden">Document cover image</span>
+                                <img class="ds_file-download__thumbnail-image  ds_file-download__thumbnail-image--generic"
+                                    src="{{assetsPath}}/images/documents/svg/pdf.svg"
+                                    loading="lazy"
+                                    alt="">
+                            </button>
+                        </div>
+
+                        <div class="ds_file-download__content">
+                            <p class="ds_file-download__title" id="file-title-pdf">Your tenancy agreement - PDF document</p>
+
+                            <div id="file-download-pdf" class="ds_file-download__details">
+                                <dl class="ds_metadata  ds_metadata--inline">
+                                    <div class="ds_metadata__item">
+                                        <dt class="ds_metadata__key">File type</dt>
+                                        <dd class="ds_metadata__value">PDF document</dd>
+                                    </div>
+                                </dl>
+                            </div>
+
+                            <div>
+                                <button data-documenttype="PDF" {% if recaptchaEnabled %}disabled="true"{% endif %} aria-labelledby="file-title-pdf" aria-describedby="file-download-pdf" type="button" class="ds_file-download__button  ds_button  ds_button--small  ds_button--secondary  ds_no-margin  js-download-file">
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="mg_form-container__nav">
+                {{buttons({nextText: 'Yes, I have downloaded'})}}
+            </div>
+        </div>
+    </div>
+
+    <div data-slug="confirmation" class="fully-hidden  mg_form-page  js-form-page">
+        <div class="mg_form-container">
+            <div class="mg_form-container__title">
+                <div class="ds_notification-panel  ds_notification-panel--success">
+                    <h1 class="ds_notification-panel__title">Thank you</h1>
+                    <div class="ds_notification-panel__content"><p>You have successfully used the tenancy form tool.</p></div>
+                </div>
+            </div>
+
+            <div class="mg_form-container__content  ds_form">
+                <p>You have downloaded the tenancy form documents created in the required formats using the tenancy form generation tool.</p>
+
+                <h2>What happens next</h2>
+
+                <p>You can continue to use the tenancy agreement documents created. Kindly ensure the documents are completed with relevant information before sharing with required people.</p>
+            </div>
+        </div>
+
+        <div class="mg_form-container__nav">
+            {{buttons()}}
+        </div>
+    </div>
+
+</form>
+
+<form id="mta-document-download" action="/service/housing/model-tenancy/form" method="POST" enctype="multipart/form-data" class="mta-form-download  fully-hidden">
+    <input type="hidden" name="data" value="">
+    <input type="hidden" name="type" value="">
+</form>

@@ -19,7 +19,7 @@
             <p class="small"><a href="https://www.mygov.scot/renting-your-property-out/registration/" target="_blank">Find out more if you don't have a landlord registration number.</a></p>
             <p class="small">If you have applied for Landlord Registration and are waiting to receive your registration number leave this field blank.</p>
             <p class="small">Landlord registration numbers use the format 123456/123/12345.</p>
-            <input data-validation="regexMatch" data-errormessage="Landlord registration number is not in a recognised format (e.g. 123456/123/12345)" pattern="^\d{5,7}[-/ ]\d{3}[-/ ]\d{5}$" type="text" id="landlord-{{index}}-registration" class="ds_input">
+            <input data-validation="regexMatch" data-errormessage="Landlord registration number is not in a recognised format (e.g. 123456/123/12345)" pattern="^\d{5,7}[-\/ ]\d{3}[-\/ ]\d{5}$" type="text" id="landlord-{{index}}-registration" class="ds_input">
         </div>
         {% endif %}
 

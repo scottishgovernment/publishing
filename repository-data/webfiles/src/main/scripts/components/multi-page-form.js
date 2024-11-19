@@ -4,7 +4,7 @@
 
 import $ from 'jquery';
 import '../vendor/jquery.routes';
-import _ from '../vendor/lodash/dist/tinydash.es6';
+import _ from '../vendor/lodash/dist/lodash.custom';
 import bloomreachWebfile from '../tools/bloomreach-webfile';
 import temporaryFocus from '../../../../node_modules/@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
 
@@ -829,13 +829,13 @@ function mapField (dataPath, selector) {
 /**
  * Adds validation to page navigation buttons
  */
-function setupStepValidation () {
+function setupStepValidation() {
     const form = this;
     if (typeof form.validateStep === 'function') {
         $('body').on('click', '.js-validate-step', function (event) {
             // clear all errors before checking for new/remaining ones
             [].slice.call(document.querySelectorAll('.form-errors')).forEach(formError => formError.innerHTML = '');
-            const errorSummary = document.querySelector('.ds_error-summary');
+            const errorSummary = document.querySelector('.js-error-summary-container .ds_error-summary');
 
             // only perform validation on nav if we are progressing forward in the form
             // todo: AND it's a form people can't skip forward in
@@ -858,7 +858,8 @@ function setupStepValidation () {
                 return;
             }
 
-            const stepIsValid = form.validateStep(form.getCurrentStep());
+            const stepContainer = document.querySelector(`section[data-step="${form.getCurrentStep().slug}"]`);
+            const stepIsValid = form.validateStep(stepContainer);
 
             if (!stepIsValid){
                 // push information about the error to Google Analytics data layer
@@ -875,16 +876,15 @@ function setupStepValidation () {
                 window.dataLayer = window.dataLayer || [];
                 window.dataLayer.push(details);
 
+
                 if (errorSummary) {
                     errorSummary.classList.remove('fully-hidden');
                     errorSummary.setAttribute('aria-hidden', 'false');
                     errorSummary.scrollIntoView();
                     window.DS.tracking.init(errorSummary);
                 }
-            } else {
-                errorSummary.classList.add('fully-hidden');
-                errorSummary.setAttribute('aria-hidden', 'true');
             }
+
             return stepIsValid;
         });
     }

@@ -28,6 +28,7 @@ public class SiteHeaderComponent extends BaseHstComponent {
         setWebsiteInfo(request);
         setPhaseBanner(request);
         setCanonical(request);
+        setServiceName(request);
     }
 
     static void setWebsiteInfo(HstRequest request) {
@@ -58,14 +59,25 @@ public class SiteHeaderComponent extends BaseHstComponent {
         if (contentBean == null) {
             contentBean = context.getSiteContentBaseBean();
         }
-        List<HstLink>  links = linkCreator.createAllAvailableCanonicals(
+        List<HstLink> links = linkCreator.createAllAvailableCanonicals(
                 contentBean.getNode(), context, "live", "production");
         if (!links.isEmpty()) {
             HstLink link = links.get(0);
             String canonical = link.toUrlForm(context, true);
             request.setAttribute("canonical", canonical);
         }
-
     }
 
+    static void setServiceName(HstRequest request) {
+        HstRequestContext context = request.getRequestContext();
+        HippoBean contentBean = context.getContentBean();
+
+        Boolean isServicePage = contentBean.getContentType().equals("publishing:tenancyagreementform");
+
+        if (Boolean.TRUE.equals(isServicePage)) {
+            request.setAttribute("serviceName", contentBean.getSingleProperty("publishing:title"));
+        }
+
+        request.setAttribute("isServicePage", isServicePage);
+    }
 }

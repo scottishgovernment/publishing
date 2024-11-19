@@ -88,8 +88,7 @@ const businessRatesCalculator = {
                     window.location.hash = "!/property";
                 }
             }
-        },
-        noSectionNav: true
+        }
     }),
 
     apiUrl: '/address/?search=',

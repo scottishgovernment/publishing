@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/tenancyagreementform:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/base
+      /main:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.FormBaseComponent
+        hst:template: tenancyagreementform-main
+        /breadcrumbs:
+          jcr:primaryType: hst:component
+          hst:referencecomponent: hst:components/breadcrumbs
+        /feedback:
+          jcr:primaryType: hst:component
+          hst:referencecomponent: hst:components/feedback
