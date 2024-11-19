@@ -66,19 +66,14 @@ const formSections = [
     {
         group: {
             slug: 'part-0',
-            title: 'Part zero',
-            hideFromSectionNav: true
+            title: 'Part zero'
         },
-        hideFromSectionNav: true,
         slug: 'overview',
         title: 'Overview',
         pages: [
             {
                 slug: 'overview',
-                title: 'Overview',
-                hideSubsectionNav: true,
-                hideSectionNav: true,
-                noFormBox: true
+                title: 'Overview'
             }
         ]
     },
@@ -93,8 +88,7 @@ const formSections = [
         pages: [
             {
                 slug: 'property-address',
-                title: 'Property address',
-                hideSubsectionNav: true
+                title: 'Property address'
             }
         ]
     },
@@ -192,8 +186,6 @@ const formSections = [
             {
                 slug: 'summary',
                 title: 'Summary',
-                hideSubsectionNav: true,
-                noFormBox: true,
                 triggerEvent: 'updateSummary'
             }
         ]
@@ -209,9 +201,7 @@ const formSections = [
         pages: [
             {
                 slug: 'notice-download',
-                title: 'Download',
-                hideSubsectionNav: true,
-                noFormBox: true
+                title: 'Download'
             }
         ]
     }
@@ -270,8 +260,6 @@ import DSDatePicker from '../../../../../node_modules/@scottish-government/desig
 const formTemplate = require('../../templates/mygov/non-provision-form');
 const summaryTemplate = require('../../templates/mygov/non-provision-summary');
 const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
-const sectionNavTemplate = require('../../templates/visited-only-section-nav');
-const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 const noticeTemplate = require('../../templates/mygov/non-provision-notice-end');
 
 const adjustDate = function (date, adjustment, capMonth) {
@@ -369,8 +357,6 @@ const nonProvisionForm = {
                 document.querySelector('#notice-end-container').innerHTML = html;
             }
         },
-        sectionTemplate: sectionNavTemplate,
-        subsectionTemplate: subNavTemplate,
         pageNavTemplate: housingFormPageNavTemplate,
         pageNavFunction: pageNavFunction
     }),

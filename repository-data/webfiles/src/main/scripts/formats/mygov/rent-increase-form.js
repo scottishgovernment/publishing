@@ -75,8 +75,6 @@ const formTemplate = require('../../templates/mygov/rent-increase-form');
 const summaryTemplate = require('../../templates/mygov/rent-increase-summary');
 const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
 const dateOfIncreaseTemplate = require('../../templates/mygov/rent-increase-date-of-increase');
-const sectionNavTemplate = require('../../templates/visited-only-section-nav');
-const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 
 [].slice.call(document.querySelectorAll('form')).forEach((form) => form.reset());
 
@@ -161,9 +159,7 @@ const rentIncreaseForm = {
             }
         }],
         pageNavFunction: function () {return commonForms.pageNavFunction('overview', rentIncreaseForm.form.currentStep);},
-        pageNavTemplate: housingFormPageNavTemplate,
-        sectionTemplate: sectionNavTemplate,
-        subsectionTemplate: subNavTemplate
+        pageNavTemplate: housingFormPageNavTemplate
     }),
 
     init: function () {

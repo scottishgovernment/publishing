@@ -4,6 +4,8 @@
 
 'use strict';
 
+import temporaryFocus from "@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus";
+
 const commonForms = {
     /**
      * prepends zeroes to a number, up to a set length
@@ -747,7 +749,8 @@ const commonForms = {
 
         const fieldErrorContainer = document.querySelector(`.${field.id}-errors`);
         const fieldErrors = [].slice.call(fieldErrorContainer.querySelectorAll(`.${errorClass}`));
-
+        const errorSummaryElement = document.querySelector('.ds_error-summary');
+console.log('toggle form errors', valid, field)
         if (!valid) {
             if (fieldErrors.length === 0) {
                 const errorEl = document.createElement('li');
@@ -761,9 +764,10 @@ const commonForms = {
                 });
             }
 
-            document.querySelector('.client-error').classList.remove('fully-hidden');
+            errorSummaryElement.classList.remove('fully-hidden');
+            temporaryFocus(errorSummaryElement);
         } else {
-            if (document.querySelector('.client-error').classList.contains('fully-hidden')) {
+            if (errorSummaryElement.classList.contains('fully-hidden')) {
                 fieldErrorContainer.parentNode.removeChild(fieldErrorContainer);
             } else {
                 fieldErrors.forEach(fieldError => {
@@ -771,7 +775,7 @@ const commonForms = {
                 });
             }
 
-            document.querySelector('.client-error').classList.add('fully-hidden');
+            errorSummaryElement.classList.add('fully-hidden');
         }
     },
 
@@ -786,6 +790,10 @@ const commonForms = {
     validateInput: function (field, validationChecks, highlightField = true) {
         commonForms.appendErrorContainer(field);
         let valid = true;
+
+        if (field.dataset.highlightonerror === 'false') {
+            highlightField = false;
+        }
 
         for (let i = 0; i < validationChecks.length; i++) {
             if (validationChecks[i] && validationChecks[i](field) === false) {
@@ -930,14 +938,12 @@ const commonForms = {
         return pageNavData;
     },
 
-    validateStep: function (step) {
+    validateStep: function (container) {
         /* look for data-validation attributes in current step & PERFORM VALIDATION
          * do not allow progress if invalid
          */
 
-        const stepContainer = document.querySelector(`section[data-step="${step.slug}"]`);
-        const itemsThatNeedToBeValidated = [].slice.call(stepContainer.querySelectorAll('[data-validation]')).filter(item => item.offsetParent);
-
+        const itemsThatNeedToBeValidated = [].slice.call(container.querySelectorAll('[data-validation]')).filter(item => item.offsetParent);
         itemsThatNeedToBeValidated.forEach(item => {
             const validations = item.getAttribute('data-validation').split(' ');
             const validationChecks = [];
@@ -950,7 +956,7 @@ const commonForms = {
             commonForms.validateInput(item, validationChecks);
         });
 
-        const invalidFields = [].slice.call(stepContainer.querySelectorAll('[aria-invalid="true"]')).filter(item => item.offsetParent);
+        const invalidFields = [].slice.call(container.querySelectorAll('[aria-invalid="true"],[data-invalid="true"]')).filter(item => item.offsetParent);
 
         return invalidFields.length === 0;
     },

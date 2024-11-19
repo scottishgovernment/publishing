@@ -675,7 +675,7 @@ const modelTenancyForm = {
                 break;
             case 'FORTNIGHTLY':
             case 'EVERY_FOUR_WEEKS':
-                scheduleString = `{$day} of the ${week.toLowerCase()}`;
+                scheduleString = `${day} of the ${week.toLowerCase()}`;
                 break;
             case 'CALENDAR_MONTH':
                 scheduleString = `the ${date} of the month`;
@@ -737,6 +737,8 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     if (modelTenancyForm.recaptchaEnabled) {
         data.recaptcha = grecaptcha.getResponse();
     }
+
+console.log(data)
 
     // analytics tracking
     const downloadType = documentDownloadForm.find('input[name=type]').val();

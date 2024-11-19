@@ -16,16 +16,12 @@ const formSections = [
             slug: 'part-0',
             title: 'Part zero'
         },
-        hideFromSectionNav: true,
         slug: 'overview',
         title: 'Overview',
         pages: [
             {
                 slug: 'overview',
-                title: 'Overview',
-                hideSubsectionNav: true,
-                hideSectionNav: true,
-                noFormBox: true
+                title: 'Overview'
             }
         ]
     },
@@ -39,8 +35,7 @@ const formSections = [
         pages: [
             {
                 slug: 'postcode',
-                title: 'Postcode',
-                hideSubsectionNav: true
+                title: 'Postcode'
             }
         ]
     }

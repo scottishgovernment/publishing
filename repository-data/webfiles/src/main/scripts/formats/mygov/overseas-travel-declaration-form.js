@@ -46,16 +46,12 @@ const formSections = [
             slug: 'part-0',
             title: 'Part zero'
         },
-        hideFromSectionNav: true,
         slug: 'overview',
         title: 'Overview',
         pages: [
             {
                 slug: 'overview',
                 title: 'Overview',
-                hideSubsectionNav: true,
-                hideSectionNav: true,
-                noFormBox: true
             }
         ]
     },
@@ -111,9 +107,7 @@ const formSections = [
         pages: [
             {
                 slug: 'download',
-                title: 'Download',
-                hideSubsectionNav: true,
-                noFormBox: true
+                title: 'Download'
             }
         ]
     }
@@ -130,8 +124,6 @@ import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/overseas-travel-declaration-form');
 const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
-const sectionNavTemplate = require('../../templates/visited-only-section-nav');
-const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 
 $('form').each(function() {
     this.reset();
@@ -150,8 +142,6 @@ const overseasTravelForm = {
                 return arguments[0].toUpperCase();
             }
         }],
-        sectionTemplate: sectionNavTemplate,
-        subsectionTemplate: subNavTemplate,
         pageNavFunction: function () {return commonForms.pageNavFunction('overview', overseasTravelForm.form.currentStep);},
         pageNavTemplate: housingFormPageNavTemplate
     }),
