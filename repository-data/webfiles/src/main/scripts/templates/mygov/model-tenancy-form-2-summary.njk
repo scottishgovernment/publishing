@@ -1,0 +1,661 @@
+{% from "../macros.njk" import addressFromObject %}
+
+{% macro terms(items, idModifier) %}
+    <div class="ds_accordion" data-module="ds-accordion">
+        <button type="button" class="ds_link  ds_accordion__open-all  js-open-all">Open all <span class="visually-hidden">sections</span></button>
+
+        {% if items.contentsAndConditions %}
+        <div class="ds_accordion-item">
+            <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-contents-and-condition-{{idModifier}}" aria-labelledby="panel-contents-and-condition-heading" />
+            <div class="ds_accordion-item__header">
+                <h3 id="panel-contents-and-condition-heading-{{idModifier}}" class="ds_accordion-item__title">
+                    Contents and condition
+                </h3>
+                <span class="ds_accordion-item__indicator"></span>
+                <label class="ds_accordion-item__label" for="panel-contents-and-condition-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+            </div>
+
+            <div class="ds_accordion-item__body" id="accordion-item-contents-and-condition-{{idModifier}}">
+                {{ items.contentsAndConditions | paragraphify | safe }}
+
+                <a href="#!/contents-and-condition">Change <span class="visually-hidden">contents and condition</span></a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if items.localAuthorityTaxesAndCharges %}
+        <div class="ds_accordion-item">
+            <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-local-authority-{{idModifier}}" aria-labelledby="panel-local-authority-heading" />
+            <div class="ds_accordion-item__header">
+                <h3 id="panel-local-authority-heading-{{idModifier}}" class="ds_accordion-item__title">
+                    Local authority taxes/charges
+                </h3>
+                <span class="ds_accordion-item__indicator"></span>
+                <label class="ds_accordion-item__label" for="panel-local-authority-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+            </div>
+
+            <div class="ds_accordion-item__body" id="accordion-item-local-authority-{{idModifier}}">
+                {{ items.localAuthorityTaxesAndCharges | paragraphify | safe }}
+
+                <a href="#!/local-authority-taxes">Change <span class="visually-hidden">local authority taxes/charges</span></a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if items.utilities %}
+        <div class="ds_accordion-item">
+            <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-utilities-{{idModifier}}" aria-labelledby="panel-utilities-heading" />
+            <div class="ds_accordion-item__header">
+                <h3 id="panel-utilities-heading-{{idModifier}}" class="ds_accordion-item__title">
+                    Utilities
+                </h3>
+                <span class="ds_accordion-item__indicator"></span>
+                <label class="ds_accordion-item__label" for="panel-utilities-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+            </div>
+
+            <div class="ds_accordion-item__body" id="accordion-item-utilities-{{idModifier}}">
+                {{ items.utilities | paragraphify | safe }}
+
+                <a href="#!/utilities">Change <span class="visually-hidden">utilities</span></a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if items.alterations %}
+        <div class="ds_accordion-item">
+            <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-alterations-{{idModifier}}" aria-labelledby="panel-alterations-1-heading" />
+            <div class="ds_accordion-item__header">
+                <h3 id="panel-alterations-heading-{{idModifier}}" class="ds_accordion-item__title">
+                    Alterations
+                </h3>
+                <span class="ds_accordion-item__indicator"></span>
+                <label class="ds_accordion-item__label" for="panel-alterations-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+            </div>
+
+            <div class="ds_accordion-item__body" id="accordion-item-alterations-{{idModifier}}">
+                {{ items.alterations | paragraphify | safe }}
+
+                <p>Any request for adaptations, auxiliary aids or services under section 37 of the Equality Act 2010 or section 52 of the Housing (Scotland) Act 2006 must be made in writing to the Landlord and any other owners of the common parts, where appropriate. Consent for alterations requested under this legislation should not be unreasonably withheld. If no consent is given for the adaptations you may appeal to the Tribunal in relation to section 52 (or sheriff court in relation to section 37) within 6 months of being notified of the decision. Before doing this, you may find it helpful to discuss your circumstance with your local Citizens Advice Bureau, Shelter Scotland or the local authority for the area where the Let Property is situated.</p>
+
+                <a href="#!/alterations">Change <span class="visually-hidden">alterations</span></a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if items.commonParts %}
+        <div class="ds_accordion-item">
+            <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-common-parts-{{idModifier}}" aria-labelledby="panel-common-parts-heading" />
+            <div class="ds_accordion-item__header">
+                <h3 id="panel-common-parts-heading-{{idModifier}}" class="ds_accordion-item__title">
+                    Common parts
+                </h3>
+                <span class="ds_accordion-item__indicator"></span>
+                <label class="ds_accordion-item__label" for="panel-common-parts-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+            </div>
+
+            <div class="ds_accordion-item__body" id="accordion-item-common-parts-{{idModifier}}">
+                {{ items.commonParts | paragraphify | safe }}
+
+                <a href="#!/common-parts">Change <span class="visually-hidden">common parts</span></a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if items.privateGarden %}
+        <div class="ds_accordion-item">
+            <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-private-garden-{{idModifier}}" aria-labelledby="panel-private-garden-heading" />
+            <div class="ds_accordion-item__header">
+                <h3 id="panel-private-garden-heading-{{idModifier}}" class="ds_accordion-item__title">
+                    Private garden
+                </h3>
+                <span class="ds_accordion-item__indicator"></span>
+                <label class="ds_accordion-item__label" for="panel-private-garden-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+            </div>
+
+            <div class="ds_accordion-item__body" id="accordion-item-private-garden-{{idModifier}}">
+                {{ items.privateGarden | paragraphify | safe }}
+
+                <a href="#!/private-garden">Change <span class="visually-hidden">private garden</span></a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if items.roof %}
+        <div class="ds_accordion-item">
+            <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-roof-{{idModifier}}" aria-labelledby="panel-roof-heading" />
+            <div class="ds_accordion-item__header">
+                <h3 id="panel-roof-heading-{{idModifier}}" class="ds_accordion-item__title">
+                    Roof
+                </h3>
+                <span class="ds_accordion-item__indicator"></span>
+                <label class="ds_accordion-item__label" for="panel-roof-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+            </div>
+
+            <div class="ds_accordion-item__body" id="accordion-item-roof-{{idModifier}}">
+                {{ items.roof | paragraphify | safe }}
+
+                <a href="#!/roof">Change <span class="visually-hidden">roof</span></a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if items.binsAndRecycling %}
+        <div class="ds_accordion-item">
+            <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-bins-and-recycling-{{idModifier}}" aria-labelledby="panel-bins-and-recycling-heading" />
+            <div class="ds_accordion-item__header">
+                <h3 id="panel-bins-and-recycling-heading-{{idModifier}}" class="ds_accordion-item__title">
+                    Bins and recycling
+                </h3>
+                <span class="ds_accordion-item__indicator"></span>
+                <label class="ds_accordion-item__label" for="panel-bins-and-recycling-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+            </div>
+
+            <div class="ds_accordion-item__body" id="accordion-item-bins-and-recycling-{{idModifier}}">
+                {{ items.binsAndRecycling | paragraphify | safe }}
+
+                <a href="#!/bins-and-recycling">Change <span class="visually-hidden">bins and recycling</span></a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if items.storage %}
+        <div class="ds_accordion-item">
+            <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-storage-{{idModifier}}" aria-labelledby="panel-storage-heading" />
+            <div class="ds_accordion-item__header">
+                <h3 id="panel-storage-heading-{{idModifier}}" class="ds_accordion-item__title">
+                    Storage
+                </h3>
+                <span class="ds_accordion-item__indicator"></span>
+                <label class="ds_accordion-item__label" for="panel-storage-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+            </div>
+
+            <div class="ds_accordion-item__body" id="accordion-item-storage-{{idModifier}}">
+                {{ items.storage | paragraphify | safe }}
+
+                <a href="#!/storage">Change <span class="visually-hidden">storage</span></a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if items.dangerousSubstances %}
+        <div class="ds_accordion-item">
+            <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-dangerous-substances-{{idModifier}}" aria-labelledby="panel-dangerous-substances-heading" />
+            <div class="ds_accordion-item__header">
+                <h3 id="panel-dangerous-substances-heading-{{idModifier}}" class="ds_accordion-item__title">
+                    Dangerous substances
+                </h3>
+                <span class="ds_accordion-item__indicator"></span>
+                <label class="ds_accordion-item__label" for="panel-dangerous-substances-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+            </div>
+
+            <div class="ds_accordion-item__body" id="accordion-item-dangerous-substances-{{idModifier}}">
+                {{ items.dangerousSubstances | paragraphify | safe }}
+
+                <a href="#!/dangerous-substances">Change <span class="visually-hidden">dangerous substances</span></a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if items.pets %}
+        <div class="ds_accordion-item">
+            <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-pets-{{idModifier}}" aria-labelledby="panel-pets-heading" />
+            <div class="ds_accordion-item__header">
+                <h3 id="panel-pets-heading-{{idModifier}}" class="ds_accordion-item__title">
+                    Pets
+                </h3>
+                <span class="ds_accordion-item__indicator"></span>
+                <label class="ds_accordion-item__label" for="panel-pets-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+            </div>
+
+            <div class="ds_accordion-item__body" id="accordion-item-pets-{{idModifier}}">
+                {{ items.pets | paragraphify | safe }}
+
+                <a href="#!/pets">Change <span class="visually-hidden">pets</span></a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if items.smoking %}
+        <div class="ds_accordion-item">
+            <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-smoking-{{idModifier}}" aria-labelledby="panel-smoking-heading" />
+            <div class="ds_accordion-item__header">
+                <h3 id="panel-smoking-heading-{{idModifier}}" class="ds_accordion-item__title">
+                    Smoking
+                </h3>
+                <span class="ds_accordion-item__indicator"></span>
+                <label class="ds_accordion-item__label" for="panel-smoking-{{idModifier}}"><span class="visually-hidden">Show this section</span></label>
+            </div>
+
+            <div class="ds_accordion-item__body" id="accordion-item-smoking-{{idModifier}}">
+                {{ items.smoking | paragraphify | safe }}
+
+                <a href="#!/smoking">Change <span class="visually-hidden">pets</span></a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+
+<section>
+    <h2>1. About the property</h2>
+
+    <dl class="ds_summary-list">
+        {% set itemSlug = 'property-address' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Property address</dt>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{addressFromObject(propertyAddress)}}</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </div>
+
+        {% set itemSlug = 'property-type' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Type of home</dt>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">
+                {{ propertyType_text}}
+                {% if (propertyType == 'OTHER') %}
+                    {% if buildingOther %}
+                        ({{ buildingOther}})
+                    {% endif %}
+                {% endif %}
+            </q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </div>
+
+
+        {% set itemSlug = 'property-included' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key">Areas and facilities</dt>
+            <dd class="ds_summary-list__value">
+                {% for facility in facilities %}
+                <dl>
+                    <dt>Name</dt>
+                    <dd>{{facility.name}}</dt>
+
+                    <dt>Type</dt>
+                    <dd>{{facility.type}}</dd>
+                </dl>
+                {% endfor %}
+            </dd>
+
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'property-furnished' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">Is the property furnished?</dt>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">{{ furnishingType_text}}</q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% set itemSlug = 'property-hmo' %}
+        <div class="ds_summary-list__item">
+            <dt class="ds_summary-list__key" id="{{itemSlug}}-title">House in Multiple Occupation (HMO)</dt>
+            <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">
+                {% if (hmoProperty == 'true') %}Yes{% endif %}{% if (hmoProperty == 'false') %}No{% endif %}
+            </q></dd>
+            <dd class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </dd>
+        </div>
+
+        {% if (hmoProperty == 'true') %}
+            <div class="ds_summary-list__item">
+                <dt class="ds_summary-list__key" id="{{itemSlug}}-title2">HMO 24 hour contact number</dt>
+                <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">
+                    {{ hmo24ContactNumber }}
+                </q></dd>
+                <dd class="ds_summary-list__actions">
+                    <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title2">Change</button>
+                </dd>
+            </div>
+
+            <div class="ds_summary-list__item">
+                <dt class="ds_summary-list__key" id="{{itemSlug}}-title3">HMO license expiry date</dt>
+                <dd class="ds_summary-list__value"><q class="ds_summary-list__answer">
+                    {{ hmoRegistrationExpiryDate }}
+                </q></dd>
+                <dd class="ds_summary-list__actions">
+                    <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title3">Change</button>
+                </dd>
+            </div>
+        {% endif %}
+    </dl>
+</section>
+
+<section>
+    <h2>2. About the tenancy</h2>
+
+    <ul class="ds_summary-list">
+        {% set itemSlug = 'tenancy-start' %}
+        <li class="ds_summary-list__item">
+            <span class="ds_summary-list__key" id="{{itemSlug}}-title">Tenancy start date</span>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{tenancyStartDate}}</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </li>
+
+        {% set itemSlug = 'tenancy-payment-frequency' %}
+        <li class="ds_summary-list__item">
+            <span class="ds_summary-list__key" id="{{itemSlug}}-title">How often will the tenant pay rent?</span>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{rentPaymentFrequency_text}}</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </li>
+
+        {% set itemSlug = 'tenancy-first-payment-due' %}
+        <li class="ds_summary-list__item">
+            <span class="ds_summary-list__key" id="{{itemSlug}}-title">First rent payment due on</span>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{firstPaymentDate}}</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </li>
+
+        {% set itemSlug = 'tenancy-payment-type' %}
+        <li class="ds_summary-list__item">
+            <span class="ds_summary-list__key" id="{{itemSlug}}-title">Advance or arrears</span>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{% if rentPayableInAdvance %}Advance{% else %}Arrears{% endif %}</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </li>
+    </ul>
+
+    <h3>Service details</h3>
+    {% set itemSlug = 'tenancy-services' %}
+    {% if servicesIncludedInRent.length %}
+        {% for item in servicesIncludedInRent %}
+            <div class="ds_summary-card">
+                <div class="ds_summary-card__header">
+                    <h3 class="ds_summary-card__header-title" id="card-{{loop.index}}-title">{{item.name}}</h3>
+                    <ul class="ds_summary-card__actions-list">
+                        <li class="ds_summary-card__actions-list-item">
+                            <button data-index="{{loop.index0}}" type="button" class="ds_link  js-change-item" aria-describedby="card-{{index}}-title">Change</button>
+                        </li>
+                        <li class="ds_summary-card__actions-list-item">
+                            <button data-index="{{loop.index0}}" type="button" class="ds_link  js-remove-item" aria-describedby="card-{{index}}-title">Delete</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ds_summary-card__content">
+                    <ol class="ds_summary-list">
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Amount (per rent payment)</span>
+                            <span class="ds_summary-list__value">
+                                <q class="ds_summary-list__answer">{{item.value | currency}}</q>
+                            </span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+    <p>No services</p>
+    {% endif %}
+
+    <ul class="ds_summary-list">
+        {% set itemSlug = 'tenancy-payment-method' %}
+        <li class="ds_summary-list__item">
+            <span class="ds_summary-list__key" id="{{itemSlug}}-title">Payment method</span>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{rentPaymentMethod}}</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </li>
+
+        {% set itemSlug = 'tenancy-first-payment' %}
+        <li class="ds_summary-list__item">
+            <span class="ds_summary-list__key" id="{{itemSlug}}-title">First payment</span>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{firstPaymentAmount | currency}}</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </li>
+
+        <li class="ds_summary-list__item">
+            <span class="ds_summary-list__key" id="{{itemSlug}}-title">What period does the first rent payment cover?</span>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">XXXXX to {{firstPaymentPeriodEnd}}</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </li>
+
+        <li class="ds_summary-list__item">
+            <span class="ds_summary-list__key" id="{{itemSlug}}-title">Are subsequent rent payments the same amount?</span>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">XXXXXX</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </li>
+
+        {% set itemSlug = 'tenancy-deposit' %}
+        <li class="ds_summary-list__item">
+            <span class="ds_summary-list__key" id="{{itemSlug}}-title">Deposit</span>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{depositAmount | currency}}</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </li>
+
+        {% set itemSlug = 'tenancy-deposit-scheme' %}
+        <li class="ds_summary-list__item">
+            <span class="ds_summary-list__key" id="{{itemSlug}}-title">Deposit scheme</span>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{tenancyDepositSchemeAdministrator}}</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </li>
+
+        {% set itemSlug = 'tenancy-communication-agreement' %}
+        <li class="ds_summary-list__item">
+            <span class="ds_summary-list__key" id="{{itemSlug}}-title">Communication</span>
+            <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{communicationsAgreement_text}}</q></span>
+            <div class="ds_summary-list__actions">
+                <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<section>
+    <h2>3. Managing the property</h2>
+    <ul class="ds_summary-list">
+        {% if hasLettingAgent === 'letting-agent-no' %}
+            {% set itemSlug = 'letting-agent' %}
+            <li class="ds_summary-list__item">
+                <span class="ds_summary-list__key" id="{{itemSlug}}-title">Letting agent</span>
+                <span class="ds_summary-list__value"><q class="ds_summary-list__answer">None</q></span>
+                <div class="ds_summary-list__actions">
+                    <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-title">Change</button>
+                </div>
+            </li>
+        {% else %}
+            {% set itemSlug = 'letting-agent-details' %}
+            {% if lettingAgent.name %}
+                <li class="ds_summary-list__item">
+                    <span class="ds_summary-list__key" id="{{itemSlug}}-name">Letting agent name</span>
+                    <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{lettingAgent.name}}</q></span>
+                    <div class="ds_summary-list__actions">
+                        <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-name">Change</button>
+                    </div>
+                </li>
+            {% endif %}
+
+            {% if lettingAgent.registrationNumber %}
+                <li class="ds_summary-list__item">
+                    <span class="ds_summary-list__key" id="{{itemSlug}}-registration">Letting agent registration number</span>
+                    <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{lettingAgent.registrationNumber}}</q></span>
+                    <div class="ds_summary-list__actions">
+                        <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-registration">Change</button>
+                    </div>
+                </li>
+            {% endif %}
+
+            {% if lettingAgent.email %}
+                <li class="ds_summary-list__item">
+                    <span class="ds_summary-list__key" id="{{itemSlug}}-email">Letting agent email</span>
+                    <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{lettingAgent.email}}</q></span>
+                    <div class="ds_summary-list__actions">
+                        <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-email">Change</button>
+                    </div>
+                </li>
+            {% endif %}
+
+            {% if lettingAgent.telephone %}
+                <li class="ds_summary-list__item">
+                    <span class="ds_summary-list__key" id="{{itemSlug}}-telephone">Letting agent telephone</span>
+                    <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{lettingAgent.telephone}}</q></span>
+                    <div class="ds_summary-list__actions">
+                        <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-telephone">Change</button>
+                    </div>
+                </li>
+            {% endif %}
+
+            {% if lettingAgent.address %}
+                <li class="ds_summary-list__item">
+                    <span class="ds_summary-list__key" id="{{itemSlug}}-address">Letting agent address</span>
+                    <span class="ds_summary-list__value"><q class="ds_summary-list__answer">{{addressFromObject(lettingAgent.address)}}</q></span>
+                    <div class="ds_summary-list__actions">
+                        <button class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-address">Change</button>
+                    </div>
+                </li>
+            {% endif %}
+        {% endif %}
+    </ul>
+
+    TODO: letting agent services
+
+    <h3>Landlord details</h3>
+    {% set itemSlug = 'landlords' %}
+    {% if landlords.length %}
+        {% for item in landlords %}
+            <div class="ds_summary-card">
+                <div class="ds_summary-card__header">
+                    <h3 class="ds_summary-card__header-title" id="{{itemSlug}}-{{loop.index}}-title">{{item.name}}</h3>
+                    <ul class="ds_summary-card__actions-list">
+                        <li class="ds_summary-card__actions-list-item">
+                            <button type="button" class="ds_link  js-change" data-slug="{{itemSlug}}" aria-describedby="{{itemSlug}}-{{index}}-title">Change</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ds_summary-card__content">
+                    <ol class="ds_summary-list">
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Landlord registration number</span>
+                            <span class="ds_summary-list__value">
+                                <q class="ds_summary-list__answer">{{item.registrationNumber}}</q>
+                            </span>
+                        </li>
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Email</span>
+                            <span class="ds_summary-list__value">
+                                <q class="ds_summary-list__answer">{{item.email}}</q>
+                            </span>
+                        </li>
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Phone number</span>
+                            <span class="ds_summary-list__value">
+                                <q class="ds_summary-list__answer">{{item.telephone}}</q>
+                            </span>
+                        </li>
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Address</span>
+                            <span class="ds_summary-list__value">
+                                <q class="ds_summary-list__answer">{{addressFromObject(item.address)}}</q>
+                            </span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+    <p>No landlords</p>
+    {% endif %}
+</section>
+
+<section>
+    <h2>4. About the tenants</h2>
+
+    <h3>Tenant details</h3>
+    {% set itemSlug = 'tenants' %}
+    {% if tenants.length %}
+        {% for item in tenants %}
+            <div class="ds_summary-card">
+                <div class="ds_summary-card__header">
+                    <h3 class="ds_summary-card__header-title" id="card-{{loop.index}}-title">{{item.name}}</h3>
+                    <ul class="ds_summary-card__actions-list">
+                        <li class="ds_summary-card__actions-list-item">
+                            <button data-index="{{loop.index0}}" type="button" class="ds_link  js-change-item" aria-describedby="card-{{index}}-title">Change</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="ds_summary-card__content">
+                    <ol class="ds_summary-list">
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Phone number</span>
+                            <span class="ds_summary-list__value">
+                                <q class="ds_summary-list__answer">{{item.telephone}}</q>
+                            </span>
+                        </li>
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Email</span>
+                            <span class="ds_summary-list__value">
+                                <q class="ds_summary-list__answer">{{item.email}}</q>
+                            </span>
+                        </li>
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Address</span>
+                            <span class="ds_summary-list__value">
+                                <q class="ds_summary-list__answer">{{addressFromObject(item.address)}}</q>
+                            </span>
+                        </li>
+                        <li class="ds_summary-list__item">
+                            <span class="ds_summary-list__key">Guarantor details</span>
+                            <span class="ds_summary-list__value">
+                                {% if item.guarantor.name %}
+                                    <q class="ds_summary-list__answer">
+                                        {{item.guarantor.name}}<br />
+                                        {{addressFromObject(item.guarantor.address)}}
+                                    </q>
+                                {% else %}
+                                    None
+                                {% endif %}
+                            </span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+    <p>No tenants</p>
+    {% endif %}
+</section>
+
+<section>
+    <h2>5. Mandatory terms</h2>
+
+    <div id="mandatory-terms-container-summary"></div>
+</section>
+
+<section>
+    <h2>6. Optional terms</h2>
+
+    {{terms(optionalTerms, 'optional')}}
+</section>
+
+<section>
+    <h2>7. Excluded terms</h2>
+
+    {{terms(excludedTerms, 'excluded')}}
+</section>

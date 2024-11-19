@@ -71,14 +71,12 @@ import PostcodeLookup from '../../components/postcode-lookup';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import formSections from '../../components/mygov/housing-forms/notice-to-leave-sections';
-import DSDatePicker from '../../../../../node_modules/@scottish-government/design-system/src/components/date-picker/date-picker';
+import DSDatePicker from '@scottish-government/design-system/src/components/date-picker/date-picker';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/notice-to-leave-form');
 const summaryTemplate = require('../../templates/mygov/notice-to-leave-summary');
 const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
-const sectionNavTemplate = require('../../templates/visited-only-section-nav');
-const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 
 [].slice.call(document.querySelectorAll('form')).forEach((form) => form.reset());
 
@@ -115,8 +113,6 @@ const noticeToLeaveForm = {
                 return arguments[0].toUpperCase();
             }
         }],
-        sectionTemplate: sectionNavTemplate,
-        subsectionTemplate: subNavTemplate,
         pageNavFunction: function () {return commonForms.pageNavFunction('overview', noticeToLeaveForm.form.currentStep);},
         pageNavTemplate: housingFormPageNavTemplate
     }),

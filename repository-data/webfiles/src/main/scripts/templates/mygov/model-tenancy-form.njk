@@ -1,17 +1,62 @@
 {% from "../macros.njk" import postcodeLookup %}
 
+
+
+
+<!--
+HEADER
+CONTENT  SIDEBAR
+NAV      SIDEBAR
+FEEDBACK
+-->
+
+
+<div class="mg_layout--formbase">
+
+<div class="ds_page-header">
+    <span id="section-title" class="mg_smart-answer__parent-title">About the property</span>
+    <h1 id="page-title" class="ds_page-header__title">
+        What's the property address?
+    </h1>
+</div>
+
+<div class="form-content"></div>
+<div class="form-nav"></div>
+<div class="form-sidebar"></div>
+
+</div>
+
+
+
+
+
+
 <form id="mta-form">
 
-    <section id="overview" data-step="summary" class="form-section  form-section--unpad">
+    <section id="overview" data-step="summary" class="form-section">
 
     </section>
 
 <section data-step="property" class="fully-hidden form-section">
     <div>
         <section data-step="property-details" class="fully-hidden form-step">
-            <h2>Property details</h2>
+            <div class="ds_page-header">
+                <span class="mg_smart-answer__parent-title">About the property</span>
+                <h1 class="ds_page-header__title">
+                    What's the property address?
+                </h1>
+            </div>
 
             {{ postcodeLookup('property', readOnly=true, note=true) }}
+        </section>
+
+        <section data-step="property-type" class="fully-hidden form-step">
+            <div class="ds_page-header">
+                <span class="mg_smart-answer__parent-title">About the property</span>
+                <h1 class="ds_page-header__title">
+                    What type of property is it?
+                </h1>
+            </div>
 
             <div class="ds_question">
                 <h3 class="beta">Type of home</h3>
@@ -47,7 +92,7 @@
                             <input value="OTHER" id="building-other-query" name="property-building" class="ds_radio__input" type="radio"  />
                             <label for="building-other-query" class="ds_radio__label">Other</label>
 
-                            <div class="ds_reveal-content">
+                            <div class="ds_reveal-content" style="display: block">
                                 <label class="ds_label" for="building-other">Building type description</label><br />
                                 <input type="text" id="building-other" class="ds_input">
                             </div>
@@ -55,7 +100,15 @@
                     </div>
                 </fieldset>
             </div>
+        </section>
 
+        <section data-step="property-included" class="fully-hidden form-step">
+            <div class="ds_page-header">
+                <span class="mg_smart-answer__parent-title">About the property</span>
+                <h1 class="ds_page-header__title">
+                    What's included?
+                </h1>
+            </div>
 
             <h3 class="beta">Other parts of your property and facilities</h3>
 
@@ -74,8 +127,13 @@
             <div id="facilities-table"></div>
         </section>
 
-        <section data-step="property-furnishings" class="fully-hidden form-step">
-            <h2>Furnishings</h2>
+        <section data-step="property-furnished" class="fully-hidden form-step">
+            <div class="ds_page-header">
+                <span class="mg_smart-answer__parent-title">About the property</span>
+                <h1 class="ds_page-header__title">
+                    Is the property furnished?
+                </h1>
+            </div>
 
             <div id="property-furnishing">
                 <p>You need to say whether the home in this tenancy agreement is:</p>
@@ -112,7 +170,12 @@
         </section>
 
         <section data-step="property-hmo" class="fully-hidden form-step">
-            <h2>House in Multiple Occupation (HMO)</h2>
+            <div class="ds_page-header">
+                <span class="mg_smart-answer__parent-title">About the property</span>
+                <h1 class="ds_page-header__title">
+                    Is the house a HMO?
+                </h1>
+            </div>
 
             <p>You need a HMO licence if:</p>
             <ul>

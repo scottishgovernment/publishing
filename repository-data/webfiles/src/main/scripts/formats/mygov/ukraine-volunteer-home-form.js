@@ -23,10 +23,7 @@ const formSections = [
         pages: [
             {
                 slug: 'your-details',
-                title: 'Your detils',
-                hideSectionNav: true,
-                hideSubsectionNav: true,
-                noFormBox: true
+                title: 'Your detils'
             }
         ]
     },
@@ -40,10 +37,7 @@ const formSections = [
         pages: [
             {
                 slug: 'thank-you',
-                title: 'Thank you',
-                hideSectionNav: true,
-                hideSubsectionNav: true,
-                noFormBox: true
+                title: 'Thank you'
             }
         ]
     }
@@ -59,8 +53,7 @@ const ukraineVolunteerHomeForm = {
         },
         formObject: {},
         formEvents: {},
-        modifiers: [],
-        noSectionNav: true
+        modifiers: []
     }),
 
     init: function () {
