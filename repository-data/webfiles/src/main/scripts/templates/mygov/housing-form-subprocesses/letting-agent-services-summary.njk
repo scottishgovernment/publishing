@@ -1,0 +1,46 @@
+<div id="letting-agent-services-summary">
+    <div class="js-message-container" aria-live="polite"></div>
+
+    <h2>Services looked after by the letting agent</h2>
+
+    <p>If your letting agent looks after a service for you, such as repairs or complaints, you need to list these things for your tenant.</p>
+
+    <p class="js-status">
+        {% if data.length > 1 %}
+        You have added <strong>{{data.length}}</strong> services.
+        {% elif data.length === 1 %}
+        You have added <strong>1</strong> service.
+        {% else %}
+        You have not added any services.
+        {% endif %}
+    </p>
+
+    {% if data.length %}
+        <ol class="ds_summary-list">
+            {% for item in data %}
+                <li class="ds_summary-list__item">
+                    <span class="ds_summary-list__key" id="item-{{loop.index}}-key">{{item.name}}</span>
+                    <span class="ds_summary-list__value">
+                        <q class="ds_summary-list__answer">{{item.value}}</q>
+                    </span>
+                    <div class="ds_summary-list__actions">
+                        <ul class="ds_summary-list__actions-list">
+                            <li class="ds_summary-list__actions-list-item">
+                                <button data-index="{{loop.index0}}" type="button" class="ds_link  js-change-item" aria-describedby="item-{{loop.index}}-key">
+                                    Change <span class="visually-hidden">{{item.name}}</span>
+                                </button>
+                            </li>
+                            <li class="ds_summary-list__actions-list-item">
+                                <button data-index="{{loop.index0}}" type="button" class="ds_link  js-remove-item" aria-describedby="item-{{loop.index}}-key">
+                                    Remove <span class="visually-hidden">{{item.name}}</span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+
+    <button class="ds_button  ds_button--secondary  ds_no-margin--top  js-add-another">{{addButtonText}}</button>
+</div>

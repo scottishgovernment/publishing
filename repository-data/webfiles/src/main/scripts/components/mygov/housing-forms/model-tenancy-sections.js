@@ -2,53 +2,42 @@
 
 const formSections = [
     {
-        group: {
-            slug: 'part-0',
-            title: 'Part zero',
-            hideFromSectionNav: true
-        },
-        hideFromSectionNav: true,
         slug: 'summary',
         title: 'Summary',
         pages: [
             {
                 slug: 'summary',
-                title: 'Summary',
-                hideSubsectionNav: true,
-                hideSectionNav: true,
-                noFormBox: true
+                title: 'Summary'
             }
         ]
     },
     {
-        group: {
-            slug: 'part-1',
-            title: 'The details',
-            iconLeft: true
-        },
         slug: 'property',
         title: 'Property',
         pages: [
             {
-                slug: 'property-details',
-                title: 'Property details'
+                slug: 'property-address',
+                title: 'What\'s the property address?'
             },
             {
-                slug: 'property-furnishings',
-                title: 'Furnishings'
+                slug: 'property-type',
+                title: 'What type of property is it?'
+            },
+            {
+                slug: 'property-included',
+                title: 'What\'s included?'
+            },
+            {
+                slug: 'property-furnished',
+                title: 'Is the property furnished?'
             },
             {
                 slug: 'property-hmo',
-                title: 'HMO'
+                title: 'Is the property a HMO?'
             }
         ]
     },
     {
-        group: {
-            slug: 'part-1',
-            title: 'The details',
-            iconLeft: true
-        },
         slug: 'tenancy',
         title: 'Tenancy',
         pages: [
@@ -75,11 +64,6 @@ const formSections = [
         ]
     },
     {
-        group: {
-            slug: 'part-1',
-            title: 'The details',
-            iconLeft: true
-        },
         slug: 'managing-the-property',
         title: 'Managing the property',
         pages: [
@@ -90,46 +74,29 @@ const formSections = [
         ]
     },
     {
-        group: {
-            slug: 'part-1',
-            title: 'The details',
-            iconLeft: true
-        },
         slug: 'tenants',
         title: 'Tenants',
         pages: [
         ]
     },
     {
-        group: {
-            slug: 'part-1',
-            title: 'The details',
-            iconLeft: true
-        },
         slug: 'end-of-part-1',
         title: 'Summary',
         pages: [
             {
                 slug: 'part-1-summary',
                 title: 'Summary',
-                hideSubsectionNav: true,
-                noFormBox: true,
                 triggerEvent: 'updateSummary1'
             }
         ]
     },
     {
-        group: {
-            slug: 'part-2',
-            title: 'The terms'
-        },
         slug: 'must-include-terms',
         title: 'Must-include terms',
         pages: [
             {
                 slug: 'must-include-terms-list',
                 title: 'Must-include terms',
-                noFormBox: true,
                 triggerEvent: 'updateMandatoryTerms'
             },
             {
@@ -143,17 +110,12 @@ const formSections = [
         ]
     },
     {
-        group: {
-            slug: 'part-2',
-            title: 'The terms'
-        },
         slug: 'extra-terms',
         title: 'Extra terms',
         pages: [
             {
                 slug: 'extra-terms-overview',
-                title: 'Extra terms',
-                noFormBox: true
+                title: 'Extra terms'
             },
             {
                 slug: 'contents-and-condition',
@@ -206,44 +168,28 @@ const formSections = [
         ]
     },
     {
-        group: {
-            slug: 'part-2',
-            title: 'The terms'
-        },
         slug: 'additional-terms',
         title: 'Additional terms',
         pages: []
     },
     {
-        group: {
-            slug: 'part-2',
-            title: 'The Terms'
-        },
         slug: 'end-of-part-2',
         title: 'Summary',
         pages: [
             {
                 slug: 'part-2-summary',
                 title: 'Summary',
-                hideSubsectionNav: true,
-                noFormBox: true,
                 triggerEvent: 'updateSummary2'
             }
         ]
     },
     {
-        group: {
-            slug: 'part-2',
-            title: 'The terms'
-        },
         slug: 'download',
         title: 'Download',
         pages: [
             {
                 slug: 'tenancy-download',
-                title: 'Download',
-                hideSubsectionNav: true,
-                noFormBox: true
+                title: 'Download'
             }
         ]
     }

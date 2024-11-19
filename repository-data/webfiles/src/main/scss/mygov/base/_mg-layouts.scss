@@ -31,12 +31,7 @@ $site-prefix: 'mg_';
 
         &--paged-form {
             > .ds_layout {
-                &__section-progress {
-                    clear: both;
-                    @include ds_colwidth(12);
-                }
-
-                &__subsection-progress {
+                &__progress {
                     float: left;
                     @include ds_colwidth(3);
                 }
@@ -77,12 +72,7 @@ $site-prefix: 'mg_';
 
         &--paged-form {
             > .ds_layout {
-                &__section-progress {
-                    clear: both;
-                    @include ds_colwidth(10);
-                }
-
-                &__subsection-progress {
+                &__progress {
                     float: left;
                     @include ds_colwidth(3);
                 }
@@ -130,11 +120,10 @@ $site-prefix: 'mg_';
 
     /**
      * paged form additions
-     * S: section nav
-     * U: subsection nav
+     * P: form progress
      * F: form contents
      */
-    $grid-area-form-section:    S;
+    $grid-area-form-progress:   P;
     $grid-area-form-subsection: U;
     $grid-area-form-content:    F;
 
@@ -160,12 +149,8 @@ $site-prefix: 'mg_';
             grid-area: $grid-area-org-connect;
         }
 
-        &__section-progress {
-            grid-area: $grid-area-form-section;
-        }
-
-        &__subsection-progress {
-            grid-area: $grid-area-form-subsection;
+        &__progress {
+            grid-area: $grid-area-form-progress;
         }
 
         &__form-content {
@@ -177,9 +162,8 @@ $site-prefix: 'mg_';
         &--paged-form {
             grid-template-areas:
                 'h h'
-                'S S'
-                'U U'
                 'F F'
+                'P P'
                 's s'
                 'f f';
         }
@@ -212,9 +196,8 @@ $site-prefix: 'mg_';
             &--paged-form {
                 grid-template-areas:
                     'h h h h h h'
-                    'S S S S S S'
-                    'U U U U U U'
                     'F F F F F F'
+                    'P P P P P P'
                     's s s s s s'
                     'f f f f f f';
             }
@@ -247,8 +230,7 @@ $site-prefix: 'mg_';
             &--paged-form {
                 grid-template-areas:
                     'h h h h h h h h h h h h'
-                    'S S S S S S S S S S S S'
-                    'F F F F F F F F F U U U'
+                    'F F F F F F F F F P P P'
                     's s s s s s s s s . . .'
                     'f f f f f f f f f . . .';
             }
@@ -279,8 +261,7 @@ $site-prefix: 'mg_';
             &--paged-form {
                 grid-template-areas:
                     'h h h h h h h h h h h h'
-                    'S S S S S S S S S S . .'
-                    'F F F F F F F U U U . .'
+                    'F F F F F F F P P P . .'
                     's s s s s s s . . . . .'
                     'f f f f f f f . . . . .';
             }

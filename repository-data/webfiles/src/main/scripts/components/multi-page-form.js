@@ -4,9 +4,8 @@
 
 import $ from 'jquery';
 import '../vendor/jquery.routes';
-import _ from '../vendor/lodash/dist/tinydash.es6';
-import bloomreachWebfile from '../tools/bloomreach-webfile';
-import temporaryFocus from '../../../../node_modules/@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
+import _ from '../vendor/lodash/dist/lodash.custom';
+import temporaryFocus from '@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
 
 const MultiPageForm = function (settings) {
     this.settings = {};
@@ -39,8 +38,6 @@ const MultiPageForm = function (settings) {
     this.resetProgressToStep = resetProgressToStep;
 
     this.templates = {
-        sectionNav: require('../templates/section-nav'),
-        subsectionNav: require('../templates/subsection-nav'),
         pageNav: require('../templates/page-nav')
     };
 };
@@ -390,20 +387,6 @@ function goToStep(step) {
         temporaryFocus(subsection[0]);
     }
 
-    if ($('#section-progess-indicator').length > 0) {
-        const formTopOffset = $('#section-progess-indicator').offset().top;
-
-        if (window.pageYOffset > formTopOffset) {
-            window.scrollTo(window.pageXOffset, formTopOffset);
-        }
-    }
-
-    if (step.noFormBox) {
-        $('.multi-page-form').removeClass('form-box');
-    } else {
-        $('.multi-page-form').addClass('form-box');
-    }
-
     this.updateFormNav();
     this.updatePageLabelWithCurrentStep();
     document.title = this.getStepTitle(step);
@@ -427,7 +410,7 @@ function goToStep(step) {
  * Updates the secondary (sub)section nav
  */
 function updateFormNav (navs) {
-    let navsToUpdate = {pageNav: true, sectionNav: true, subsectionNav: true};
+    let navsToUpdate = {pageNav: true};
     navsToUpdate = $.extend(navsToUpdate, navs);
 
     const flattenedSections = this.flattenedSections(false);
@@ -436,75 +419,6 @@ function updateFormNav (navs) {
 
     if (!currentStep) {
         return;
-    }
-
-    if (navsToUpdate.sectionNav) {
-        let sectionTemplate;
-
-        if (this.settings.sectionTemplate) {
-            sectionTemplate = this.settings.sectionTemplate;
-        } else {
-            sectionTemplate = this.templates.sectionNav;
-        }
-
-        const groups = [];
-
-        const findIndexFunction = function (element) {
-            return element.slug === this.group.slug;
-        };
-
-        this.settings.formSections.forEach(function (formSection) {
-            let groupIndex = groups.findIndex(findIndexFunction, formSection);
-
-            if (formSection.group && groupIndex < 0) {
-                delete formSection.group.current;
-                groups.push(formSection.group);
-                groupIndex = groups.length - 1;
-                groups[groupIndex].sections = [];
-            }
-
-            for (let j = 0; j < formSection.pages.length; j++) {
-                if (formSection.pages[j].visited === true){
-                    formSection.visited = true;
-                }
-            }
-
-            formSection.firstActivePage = formSection.pages.filter(page => !page.hidden).shift();
-            groups[groupIndex].sections.push(formSection);
-
-            if (formSection.current) {
-                groups[groupIndex].current = true;
-            }
-        });
-
-        const sectionHtml = sectionTemplate.render({
-            iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg'),
-            groups: groups,
-            hideSectionNav: currentStep.hideSectionNav
-        });
-        $('#section-progess-indicator').html(sectionHtml);
-    }
-
-    if (navsToUpdate.subsectionNav) {
-        const subsectionPages = {
-            pages: flattenedSections.filter(function (page) {
-                return page.section === currentStep.section;
-            }),
-            sectionTitle: currentStep.sectionTitle,
-            hideSubsectionNav: currentStep.hideSubsectionNav
-        };
-
-        let subsectionTemplate;
-
-        if (this.settings.subsectionTemplate) {
-            subsectionTemplate = this.settings.subsectionTemplate;
-        } else {
-            subsectionTemplate = this.templates.subsectionNav;
-        }
-
-        $('#subsection-progess-indicator').html(subsectionTemplate.render(subsectionPages));
-        const subsectionNav = new DS.components.SideNavigation(document.querySelector('#form-subnavigation'));
-        subsectionNav.init();
     }
 
     if (navsToUpdate.pageNav) {
@@ -543,7 +457,6 @@ function updatePageNav () {
         pageNavTemplate = this.templates.pageNav;
     }
 
-    templateData.iconsFile = bloomreachWebfile('/assets/images/icons/icons.stack.svg');
     const pageNavHtml = pageNavTemplate.render(templateData);
 
     const pageNavElement = document.getElementById('page-nav');

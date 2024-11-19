@@ -83,8 +83,9 @@
 }
 
 .summary__blank, .blank-if-empty:empty {
-    background: $ds_colour__grey--lighter;
+    background: $ds_colour__blue--light;
     border-bottom: 2px solid $ds_colour__blue--dark;
+    display: inline-block;
     margin-left: 0;
 
     &:before {
@@ -96,7 +97,8 @@
 }
 
 .summary__user-input {
-    background: $ds_colour__grey--lighter;
+    color: $ds_colour__blue--dark;
+    background: $ds_colour__blue--light;
     font-weight: $bold;
 }
 

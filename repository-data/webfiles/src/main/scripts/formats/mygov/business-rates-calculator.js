@@ -19,16 +19,12 @@ const formSections = [
             slug: 'part-0',
             title: 'Part zero'
         },
-        hideFromSectionNav: true,
         slug: 'overview',
         title: 'Overview',
         pages: [
             {
                 slug: 'overview',
                 title: 'Overview',
-                hideSubsectionNav: true,
-                hideSectionNav: true,
-                noFormBox: true
             }
         ]
     },
@@ -60,10 +56,7 @@ const formSections = [
             {
                 slug: 'result',
                 title: 'Results',
-                hideSubsectionNav: true,
-                hideSectionNav: true,
-                triggerEvent: 'createResultsPage',
-                noFormBox: true
+                triggerEvent: 'createResultsPage'
             }
         ]
     }
@@ -88,8 +81,7 @@ const businessRatesCalculator = {
                     window.location.hash = "!/property";
                 }
             }
-        },
-        noSectionNav: true
+        }
     }),
 
     apiUrl: '/address/?search=',

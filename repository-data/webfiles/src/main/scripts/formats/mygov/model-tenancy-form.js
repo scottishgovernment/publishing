@@ -14,7 +14,7 @@ import formSections from '../../components/mygov/housing-forms/model-tenancy-sec
 import formMapping from '../../components/mygov/housing-forms/model-tenancy-mapping';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
-import DSDatePicker from '../../../../../node_modules/@scottish-government/design-system/src/components/date-picker/date-picker';
+import DSDatePicker from '@scottish-government/design-system/src/components/date-picker/date-picker';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/model-tenancy-form');
@@ -675,7 +675,7 @@ const modelTenancyForm = {
                 break;
             case 'FORTNIGHTLY':
             case 'EVERY_FOUR_WEEKS':
-                scheduleString = `{$day} of the ${week.toLowerCase()}`;
+                scheduleString = `${day} of the ${week.toLowerCase()}`;
                 break;
             case 'CALENDAR_MONTH':
                 scheduleString = `the ${date} of the month`;
@@ -737,6 +737,8 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     if (modelTenancyForm.recaptchaEnabled) {
         data.recaptcha = grecaptcha.getResponse();
     }
+
+console.log(data)
 
     // analytics tracking
     const downloadType = documentDownloadForm.find('input[name=type]').val();

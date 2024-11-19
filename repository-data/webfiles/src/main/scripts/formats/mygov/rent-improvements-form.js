@@ -47,8 +47,6 @@ import bloomreachWebfile from '../../tools/bloomreach-webfile';
 const formTemplate = require('../../templates/mygov/rent-improvements-form');
 const summaryTemplate = require('../../templates/mygov/rent-improvements-summary');
 const housingFormPageNavTemplate = require('../../templates/housing-form-pagenav');
-const sectionNavTemplate = require('../../templates/visited-only-section-nav');
-const subNavTemplate = require('../../templates/visited-only-subsection-nav');
 const downloadTemplate = require('../../templates/mygov/rent-improvements-download');
 
 $('form').each(function() {
@@ -96,8 +94,6 @@ const rentImprovementsForm = {
                 return arguments[0].toUpperCase();
             }
         }],
-        sectionTemplate: sectionNavTemplate,
-        subsectionTemplate: subNavTemplate,
         pageNavFunction: function () {return commonForms.pageNavFunction('overview', rentImprovementsForm.form.currentStep);},
         pageNavTemplate: housingFormPageNavTemplate
     }),
