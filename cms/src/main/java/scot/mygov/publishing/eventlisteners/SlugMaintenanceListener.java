@@ -69,18 +69,26 @@ public class SlugMaintenanceListener {
             return;
         }
 
-        if (!session.nodeExists(event.subjectPath())) {
-            return;
-        }
-
-        Node subject = session.getNode(event.subjectPath());
-        if (!requiresSlug(subject)) {
+        Node subject = subject(event);
+        if (subject == null || !requiresSlug(subject)) {
             return;
         }
 
         handleEventByAction(event, subject);
     }
 
+    Node subject(HippoWorkflowEvent event) throws RepositoryException {
+        if (session.nodeExists(event.subjectPath())) {
+            return session.getNode(event.subjectPath());
+        }
+
+        try {
+            return session.getNodeByIdentifier(event.subjectId());
+        } catch (ItemNotFoundException e) {
+            LOG.error("Item not found: {}", event.subjectId(), e);
+            return null;
+        }
+    }
     void handleEventByAction(HippoWorkflowEvent event, Node subject) throws RepositoryException {
 
         switch (event.action()) {
@@ -100,6 +108,9 @@ public class SlugMaintenanceListener {
                 removeLookup(subject, PREVIEW);
                 break;
 
+            case "move":
+                updateLookup(subject, PREVIEW);
+                break;
             default:
         }
     }
