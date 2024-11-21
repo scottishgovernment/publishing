@@ -32,7 +32,7 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
     // we then use a node visitor to remove executable ones.
     Safelist safelist = Safelist.relaxed()
             .addTags(SCRIPT, "address", "article", "aside", "br", "details", "fieldset", "footer", "form", "header", "hr", "input", "label", "legend",
-                    "main", "mark", "nav", "option", "section", "select", "style", "summary", "svg", TEXTAREA, "use")
+                    "main", "mark", "nav", "option", "section", "select", "style", "summary", "svg", TEXTAREA, "use", "wbr")
 
             .preserveRelativeLinks(true)
             .addAttributes(SCRIPT, "type")
