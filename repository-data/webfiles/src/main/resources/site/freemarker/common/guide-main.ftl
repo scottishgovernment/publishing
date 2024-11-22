@@ -44,18 +44,20 @@
 
                     <ul class="ds_contents-nav__list">
                         <#list children as child>
-                        <li class="ds_contents-nav__item">
-                            <#if child.bean == document>
-                                <span <@langcompare child.bean document /> class="ds_contents-nav__link  ds_current">
-                                    ${child.bean.title}
-                                </span>
-                            <#else>
-                                <@hst.link var="link" hippobean=child.bean/>
-                                <a <@langcompare child.bean document /> href="${link}" class="ds_contents-nav__link">
-                                    ${child.bean.title}
-                                </a>
-                            </#if>
+                        <#if child.bean == document>
+                        <li class="ds_contents-nav__item" aria-current="page">
+                            <span <@langcompare child.bean document /> class="ds_contents-nav__link  ds_current">
+                                ${child.bean.title}
+                            </span>
                         </li>
+                        <#else>
+                        <li class="ds_contents-nav__item">
+                            <@hst.link var="link" hippobean=child.bean/>
+                            <a <@langcompare child.bean document /> href="${link}" class="ds_contents-nav__link">
+                                ${child.bean.title}
+                            </a>
+                        </li>
+                        </#if>
                         </#list>
                     </ul>
                 </nav>

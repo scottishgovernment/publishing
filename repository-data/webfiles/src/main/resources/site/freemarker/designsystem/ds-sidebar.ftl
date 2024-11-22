@@ -18,9 +18,9 @@
                <li class="ds_side-navigation__item">
 
                     <#if child.currentItem>
-                        <span class="ds_side-navigation__link  ds_current">
+                        <a class="ds_side-navigation__link  ds_current" href="<@hst.link link=child.link/>" aria-current="page">
                             ${child.title}
-                        </span>
+                        </a>
                     <#else>
                         <a class="ds_side-navigation__link" href="<@hst.link link=child.link/>">
                             ${child.title}
@@ -32,9 +32,9 @@
                             <#list child.children as grandchild>
                                 <li class="ds_side-navigation__item">
                                     <#if grandchild.currentItem>
-                                        <span class="ds_side-navigation__link  ds_current">
+                                        <a class="ds_side-navigation__link  ds_current" href="<@hst.link link=grandchild.link/>" aria-current="page">
                                             ${grandchild.title}
-                                        </span>
+                                        </a>
                                     <#else>
                                         <a class="ds_side-navigation__link" href="<@hst.link link=grandchild.link/>">
                                             ${grandchild.title}
