@@ -1,0 +1,104 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/externalservicefinder:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 5c7cedaa-d137-4619-891e-70a56219e63d
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 674abdfd-3393-49ac-beb9-b9ec60720d6f
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: 863b6a1e-2d1d-40d8-8610-1fc146df81ce
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:abstractservicefinder', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /links:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:links
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:linkwithlabel
+            hipposysedit:validators: [required]
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:externalservicefinder
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes: ['mix:referenceable']
+          publishing:title: ''
+          publishing:placeholder: ''
+          jcr:uuid: 096ebf5e-e166-4c5c-a8f0-b49a7ba43678
+          hippostdpubwf:lastModificationDate: 2024-11-27T08:59:48.694Z
+          hippostdpubwf:creationDate: 2024-11-27T08:59:48.694Z
+          publishing:sort: false
+          publishing:callToActionPrefix: ''
+          /publishing:links:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:label: ''
+            publishing:url: ''
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /title:
+            jcr:primaryType: frontend:plugin
+            caption: Title
+            field: title
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /placeholder:
+            jcr:primaryType: frontend:plugin
+            caption: Placeholder
+            field: placeholder
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /sort:
+            jcr:primaryType: frontend:plugin
+            caption: Maintain services in alphabetical order?
+            field: sort
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /callToActionPrefix:
+            jcr:primaryType: frontend:plugin
+            caption: Call to action prefix
+            field: callToActionPrefix
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /links:
+            jcr:primaryType: frontend:plugin
+            caption: Links
+            field: links
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

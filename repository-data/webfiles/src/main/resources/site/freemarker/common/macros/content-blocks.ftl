@@ -172,39 +172,6 @@
             <#-- end fragment block -->
         </#if>
 
-        <#if hst.isNodeType(contentBlock.node, 'publishing:cb_laFinder')>
-            <#-- LA finder block -->
-            <#if contentBlock.noindex>
-            <!--noindex-->
-            </#if>
-
-            <div data-type="button" class="dd finder-hero form-box js-contentselect">
-                <label for="council-select-${idModifier}" class="ds_label">
-                    ${contentBlock.title}
-                </label>
-
-                <div class="ds_input--fluid-two-thirds ds_select-wrapper">
-                    <select id="council-select-${idModifier}" class="ds_select">
-                        <option disabled="disabled" selected="selected">${contentBlock.placeholder}</option>
-                        <#list contentBlock.links as link>
-                            <option data-id="${slugify(link.label)}">${link.label}</option>
-                        </#list>
-                    </select>
-                    <span aria-hidden="true" class="ds_select-arrow"></span>
-                </div>
-
-                <#list contentBlock.links as link>
-                    <a href="${link.url}" id="dd-${slugify(link.label)}"
-                    class="ds_button ds_button--max fully-hidden">${link.label}</a>
-                </#list>
-            </div>
-
-            <#if contentBlock.noindex>
-            <!--endnoindex-->
-            </#if>
-            <#-- end LA finder block -->
-        </#if>
-
         <#if hst.isNodeType(contentBlock.node, 'publishing:cb_richtext')>
             <#-- rich text block -->
             <#if contentBlock.noindex>

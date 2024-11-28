@@ -60,7 +60,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              nodetypes: ['publishing:fragment']
+              nodetypes: ['publishing:fragment', 'publishing:internalservicefinder', 'publishing:externalservicefinder', 'publishing:councilservicefinder']
           /noindex:
             jcr:primaryType: frontend:plugin
             caption: Add noindex tags

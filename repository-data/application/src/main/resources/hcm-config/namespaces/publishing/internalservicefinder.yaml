@@ -1,0 +1,106 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/internalservicefinder:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 180768e1-d51b-4d5a-b3c5-b0cc90d507d0
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 00c250ee-cd14-4911-82ba-c0131607722e
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: b64a1627-a7a3-4568-a512-8dc12d00984c
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:abstractservicefinder', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /internallinkwithlabel:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:internallinkwithlabel
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:internallinkwithlabel
+            hipposysedit:validators: [required]
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:internalservicefinder
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes: ['mix:referenceable']
+          publishing:title: ''
+          publishing:placeholder: ''
+          jcr:uuid: d117284c-57e0-4bbf-bff3-da2a65a8255c
+          hippostdpubwf:lastModificationDate: 2024-11-27T08:58:24.727Z
+          hippostdpubwf:creationDate: 2024-11-27T08:58:24.728Z
+          publishing:sort: false
+          publishing:callToActionPrefix: ''
+          /publishing:internallinkwithlabel:
+            jcr:primaryType: publishing:internallinkwithlabel
+            publishing:label: ''
+            /publishing:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /title:
+            jcr:primaryType: frontend:plugin
+            caption: Title
+            field: title
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /placeholder:
+            jcr:primaryType: frontend:plugin
+            caption: Placeholder
+            field: placeholder
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /sort:
+            jcr:primaryType: frontend:plugin
+            caption: Maintain services in alphabetical order?
+            field: sort
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /callToActionPrefix:
+            jcr:primaryType: frontend:plugin
+            caption: Call to action prefix
+            field: callToActionPrefix
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /internallinkwithlabel:
+            jcr:primaryType: frontend:plugin
+            caption: Links
+            field: internallinkwithlabel
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

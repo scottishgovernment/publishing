@@ -43,6 +43,9 @@
 [publishing:UpdateHistory] > hippo:compound, hippostd:relaxed
   orderable
 
+[publishing:abstractservicefinder] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:analytics] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
@@ -80,6 +83,12 @@
   orderable
 
 [publishing:cookiepage] > hippostd:relaxed, hippotranslation:translated, publishing:article
+  orderable
+
+[publishing:externalservicefinder] > hippostd:relaxed, hippotranslation:translated, publishing:abstractservicefinder
+  orderable
+
+[publishing:councilservicefinder] > hippostd:relaxed, hippotranslation:translated, publishing:externalservicefinder
   orderable
 
 [publishing:describedlink] > hippo:compound, hippostd:relaxed
@@ -155,6 +164,12 @@
   orderable
 
 [publishing:imageandtext] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:internallinkwithlabel] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:internalservicefinder] > hippostd:relaxed, hippotranslation:translated, publishing:abstractservicefinder
   orderable
 
 [publishing:linkwithlabel] > hippo:compound, hippostd:relaxed
@@ -248,3 +263,4 @@
 
 [publishing:video] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
+
