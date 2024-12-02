@@ -20,6 +20,7 @@ const MultiPageForm = function (settings) {
     this.flattenedSections = flattenedSections;
     this.getPrevStep = getPrevStep;
     this.getNextStep = getNextStep;
+    this.getStepTitle = getStepTitle;
     this.goToStart = goToStart;
     this.goToStep = goToStep;
     this.updateFormNav = updateFormNav;
@@ -205,6 +206,27 @@ function getStep (property, condition) {
     return step;
 }
 
+function getStepTitle(step, error = false) {
+    if (!step) {
+        return document.title;
+    }
+
+    const stepElement = document.querySelector(`section[data-step="${step.slug}"]`);
+
+    const stepTitleElement = stepElement.querySelector('.js-page-title');
+    const parentTitleElement = stepElement.querySelector('.js-parent-title');
+
+    if (!stepTitleElement || !parentTitleElement) {
+        return document.title;
+    }
+
+    if (error) {
+        return `Error: ${stepTitleElement.innerText} - ${parentTitleElement.innerText}`;
+    } else {
+        return `${stepTitleElement.innerText} - ${parentTitleElement.innerText}`;
+    }
+}
+
 /**
  * Gets a step from the section tree
  * @param {number} offset - the amount to traverse through the form section tree
@@ -333,7 +355,7 @@ function goToStart () {
  * Navigates to a specified step, sets that step as current, and updates the view
  * @param {object} step - step to navigate to
  */
-function goToStep (step) {
+function goToStep(step) {
     const currentStep = this.getCurrentStep();
 
     if (currentStep) {
@@ -384,6 +406,7 @@ function goToStep (step) {
 
     this.updateFormNav();
     this.updatePageLabelWithCurrentStep();
+    document.title = this.getStepTitle(step);
 
     if (step.triggerEvent) {
         if (this.settings.formEvents[step.triggerEvent]) {

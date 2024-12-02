@@ -714,7 +714,11 @@ const commonForms = {
                 errorContainer.id = `${fieldId}-errors`;
                 errorContainer.dataset.field = fieldId;
 
-                document.querySelector(`[for=${field.id}]`).insertAdjacentElement('afterend', errorContainer);
+                if (field.nodeName === 'FIELDSET') {
+                    field.querySelector('legend').insertAdjacentElement('afterend', errorContainer);
+                } else {
+                    document.querySelector(`[for=${field.id}]`).insertAdjacentElement('afterend', errorContainer);
+                }
             }
 
             for (let key in field.errors) {

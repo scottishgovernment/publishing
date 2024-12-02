@@ -83,7 +83,7 @@
 
                                     <${fieldsetElName} class="mg_no-margin--last-child  " id="question-${question.name}" data-validation="<#if questionType='radiobuttons'>requiredRadio<#elseif questionType='checkboxes'>atLeastOneCheckbox</#if>">
                                         <${legendElName} class="ds_page-header">
-                                            <span aria-hidden="true" id="question-${question.name}-parent" class="mg_smart-answer__parent-title"><span class="visually-hidden">Part of:</span> ${document.title}</span>
+                                            <span aria-hidden="true" id="question-${question.name}-parent" class="mg_smart-answer__parent-title"><span class="visually-hidden">Part of:</span> <span class="js-parent-title">${document.title}</span></span>
                                             <h1 aria-describedby="question-${question.name}-parent" class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">
                                                 ${question.title}
                                             </h1>
@@ -194,7 +194,7 @@
                         <#list answers as answer>
                             <section class="mg_smart-answer__answer  mg_smart-answer__step" id="step-${answer.name}" <#if answer.eligible><#else>data-ineligible="true"</#if>>
                                 <header class="ds_page-header">
-                                    <span class="mg_smart-answer__parent-title">${document.title}</span>
+                                    <span aria-hidden="true" class="mg_smart-answer__parent-title"><span class="visually-hidden">Part of:</span> <span class="js-parent-title">${document.title}</span></span>
                                     <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">
                                         ${answer.title}
                                     </h1>

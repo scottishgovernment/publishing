@@ -288,6 +288,7 @@ const businessRatesCalculator = {
             }
             this.searchValue = fields.join(', ');
         } else {
+            document.title = this.form.getStepTitle(this.form.getCurrentStep(), true);
             this.showErrorSummary();
         }
     },
@@ -303,6 +304,7 @@ const businessRatesCalculator = {
             this.searchType = 'postcode';
             this.searchValue = postcodeValue;
         } else {
+            document.title = this.form.getStepTitle(this.form.getCurrentStep(), true);
             this.showErrorSummary();
         }
     },

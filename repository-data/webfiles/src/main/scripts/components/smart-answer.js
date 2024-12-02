@@ -141,6 +141,16 @@ class SmartAnswer {
         return nextStep;
     }
 
+    getStepTitle(step, error = false) {
+        const stepTitle = step.querySelector('.js-question-title').innerText;
+        const parentTitle = step.querySelector('.js-parent-title').innerText;
+        if (error) {
+            return `Error: ${stepTitle} - ${parentTitle}`;
+        } else {
+            return `${stepTitle} - ${parentTitle}`;
+        }
+    }
+
     goToPageFromUrl(focus = true) {
         this.interpretUrl();
 
@@ -206,7 +216,7 @@ class SmartAnswer {
     hideErrorSummary() {
         this.clearErrorSummary();
         this.errorSummary.classList.add('fully-hidden');
-        document.title = `${this.stepTitle}`;
+        document.title = this.getStepTitle(this.currentStepElement);
     }
 
     initErrorSummary() {
@@ -315,7 +325,7 @@ class SmartAnswer {
 
     showErrorSummary() {
         this.errorSummary.classList.remove('fully-hidden');
-        document.title = `Error: ${this.stepTitle} - Mygov`;
+        document.title = this.getStepTitle(this.currentStepElement, true);
         this.errorSummary.focus();
     }
 
@@ -341,8 +351,7 @@ class SmartAnswer {
             question.classList.remove('ds_question--error');
         });
 
-        this.stepTitle = step.querySelector('.js-question-title').innerText;
-        document.title = `${this.stepTitle}`;
+        document.title = this.getStepTitle(step);
 
         // populate the answer list
         const answerListHtml = this.answersTemplate.render({
