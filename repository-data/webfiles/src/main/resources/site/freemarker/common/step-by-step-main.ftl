@@ -75,6 +75,11 @@
                                     <#assign stepcount = stepcount + 1 />
                                 </#if>
 
+                                <#assign headingLevel = "h2" />
+                                <#if document.headingLevel??>
+                                    <#assign headingLevel = document.headingLevel />
+                                </#if>
+
                                 <li value="${stepcount}" class="ds_accordion-item  <#if step.labeltype == "or">ds_step-navigation__or<#elseif step.labeltype == "and">ds_step-navigation__and</#if>">
                                     <span class="ds_step-navigation__count">
                                         <#if step.labeltype == 'or'>
@@ -87,9 +92,9 @@
                                     </span>
                                     <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-${step?index}" aria-labelledby="panel-${step?index}-heading" />
                                     <div class="ds_accordion-item__header">
-                                        <h3 id="panel-${step?index}-heading" class="ds_accordion-item__title">
+                                        <${headingLevel} id="panel-${step?index}-heading" class="ds_accordion-item__title">
                                             ${step.title}
-                                        </h3>
+                                        </${headingLevel}>
                                         <span class="ds_accordion-item__indicator"></span>
                                         <label class="ds_accordion-item__label" for="panel-${step?index}"><span class="visually-hidden">Show this section</span></label>
                                     </div>

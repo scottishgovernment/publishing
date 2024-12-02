@@ -7,7 +7,7 @@
 <!--noindex-->
 <#if stepBySteps?? && stepBySteps?size gt 0>
 <aside class="ds_callout  ds_step-navigation-top" aria-labelledby="step-navigation-topbar">
-    <h3 id="step-navigation-topbar">Part of <#if stepBySteps?size gt 1><span class="visually-hidden">${stepBySteps?size} step by step guides</span></#if></h3>
+    <span class="ds_h3" id="step-navigation-topbar">Part of <#if stepBySteps?size gt 1><span class="visually-hidden">${stepBySteps?size} step by step guides</span></#if></span>
     <#if stepBySteps?size gt 1>
         <ul class="ds_no-bullets">
             <#list stepBySteps as stepbystep>

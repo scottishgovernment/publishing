@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: a723ecd1-3437-4f43-a87c-e79048e2cb3f
+          jcr:uuid: c3858d9d-221e-4d2d-947f-ad92f489ef17
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -49,6 +49,14 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: publishing:Step
             hipposysedit:validators: [required]
+          /headingLevel:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:headingLevel
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -74,9 +82,10 @@ definitions:
           publishing:reportingtags: []
           publishing:serviceproviders: []
           publishing:metaDescription: ''
-          jcr:uuid: 6d4241f1-a8f4-44a4-933c-2729c0d49262
+          jcr:uuid: c662f5d6-84f9-4310-b059-a9f55fc84e25
           hippostdpubwf:creationDate: 2022-10-04T10:42:17.231+01:00
           hippostdpubwf:lastModificationDate: 2022-10-04T10:42:17.231+01:00
+          publishing:headingLevel: h2
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -197,6 +206,16 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /headingLevel:
+            jcr:primaryType: frontend:plugin
+            caption: Steps accordion heading level
+            field: headingLevel
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: h2,h3,h4
           /reportingtags:
             jcr:primaryType: frontend:plugin
             caption: Reporting tags
