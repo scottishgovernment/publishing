@@ -76,7 +76,10 @@ $site-prefix: "mg_";
     padding-bottom: 64px;
 }
 
-
+// override to force the step nav title to use display: block now it's not a block-level element
+.ds_step-navigation-top .ds_h3 {
+    display: block;
+}
 
 /**
  * CONTENT BLOCKS FROM DESIGN SYSTEM CONTENT BLOCKS
