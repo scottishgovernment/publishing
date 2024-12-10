@@ -2,7 +2,8 @@
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
   jcr:uuid: c5fe3727-5e10-4962-a719-d700ecaa1a7d
-  hippostd:foldertype: [new-searchsettings-document, new-recaptcha-folder, new-siteverification-document]
+  hippostd:foldertype: [new-searchsettings-document, new-recaptcha-folder, new-siteverification-document,
+    new-valuelist]
   /robots:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -820,3 +821,22 @@
         hippotranslation:locale: inherited locale
         publishing:enabled: true
         publishing:sitekey: 6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV
+  /topics:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: ab8bc3b4-54a3-402e-bcb4-c815026b03dd
+    /topics:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 214aa42f-ac9d-403f-8a0a-a4dbad71d13c
+      hippo:availability: [live, preview]
+      hippotranslation:id: 71eb72e6-9af4-4fd6-bf04-d810bc4ccd7d
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: broadband
+        selection:label: Brodband
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: mobile
+        selection:label: Mobile

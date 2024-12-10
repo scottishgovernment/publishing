@@ -1,0 +1,7 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:modules/topics-rest:
+      jcr:primaryType: hipposys:module
+      hipposys:className: scot.gov.topics.Module
+      /hippo:moduleconfig:
+        jcr:primaryType: hipposched:jobregistry

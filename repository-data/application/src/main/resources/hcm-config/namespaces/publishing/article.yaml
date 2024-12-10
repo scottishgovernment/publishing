@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 406a228f-6600-4ccb-a90c-19efff8c331e
+          jcr:uuid: c17916d0-1996-497f-a235-ad8b123ad463
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippotaxonomy:classifiable', 'hippostd:relaxed']
@@ -82,6 +82,14 @@ definitions:
             hipposysedit:path: publishing:contentitemlanguage
             hipposysedit:primary: false
             hipposysedit:type: DynamicDropdown
+          /sitetopic:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:sitetopic
+            hipposysedit:primary: false
+            hipposysedit:type: OpenUiString
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -95,7 +103,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
-          jcr:uuid: 0edb6e33-75dd-45b8-8ed1-b3354971976e
+          jcr:uuid: 089b2556-bf46-4cba-a5b0-142b0aabb9e7
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
           publishing:seoTitle: ''
@@ -113,6 +121,7 @@ definitions:
           publishing:lifeEvents: []
           publishing:noindex: false
           publishing:contentitemlanguage: en
+          publishing:sitetopic: ['']
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -459,3 +468,13 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /sitetopic:
+            jcr:primaryType: frontend:plugin
+            caption: Site specific topic
+            field: sitetopic
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ui.extension: sitetopicselector
