@@ -2365,6 +2365,53 @@
           hippo:facets: []
           hippo:modes: []
           hippo:values: []
+    /test:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 862c6828-ee2a-4897-b9b9-88d07d08b951
+      /test:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+        jcr:uuid: 170c6e81-008f-4242-af8f-710ace20db67
+        hippo:availability: []
+        hippostd:holder: admin
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2024-12-13T14:38:14.774Z
+        hippostdpubwf:lastModificationDate: 2024-12-13T14:38:14.775Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 303bd8bd-e7a5-40e0-b256-9c417d215a21
+        hippotranslation:locale: document-type-locale
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:contentitemlanguage: en
+        publishing:lifeEvents: []
+        publishing:metaDescription: ''
+        publishing:noindex: false
+        publishing:organisationtags: []
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: test
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:sitetopic: ['']
+        publishing:slug: test
+        publishing:summary: ''
+        publishing:title: test
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
   /reptiles:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
@@ -40551,93 +40598,3 @@
         /publishing:content:
           jcr:primaryType: hippostd:html
           hippostd:content: <p>some content at the top</p>
-  /test-internal:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: 0b94cbb8-175b-47c3-8836-fe4067f24b27
-    hippo:name: test internal
-    /test-internal:
-      jcr:primaryType: publishing:internalservicefinder
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 5b73f527-1c4c-4d42-941c-5bb5729f97b7
-      hippo:availability: []
-      hippostd:holder: admin
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2024-12-04T15:05:35.757Z
-      hippostdpubwf:lastModificationDate: 2024-12-04T15:05:35.757Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: ed1f047b-7e3c-44bf-a958-6137e1ca0b9f
-      hippotranslation:locale: document-type-locale
-      publishing:callToActionPrefix: ''
-      publishing:placeholder: ''
-      publishing:sort: false
-      publishing:title: ''
-      /publishing:internallinkwithlabel[1]:
-        jcr:primaryType: publishing:internallinkwithlabel
-        publishing:label: ''
-        /publishing:link:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-      /publishing:internallinkwithlabel[2]:
-        jcr:primaryType: publishing:internallinkwithlabel
-        publishing:label: ''
-        /publishing:link:
-          jcr:primaryType: hippo:mirror
-          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-  /council-service-finder:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: e8679b65-784e-4eb0-a643-b8cb1b2f4882
-    hippo:name: council service finder
-    /council-service-finder[1]:
-      jcr:primaryType: publishing:councilservicefinder
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 2383ed3a-9ec3-4028-a256-e01a3ecf6646
-      hippo:availability: []
-      hippostd:holder: admin
-      hippostd:retainable: false
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2024-12-04T15:08:17.498Z
-      hippostdpubwf:lastModificationDate: 2024-12-04T15:14:25.207Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 453ccabe-bfa6-46cd-b5e8-a17e351ef2fc
-      hippotranslation:locale: document-type-locale
-      publishing:callToActionPrefix: sdsdf
-      publishing:placeholder: ssfsdf
-      publishing:sort: false
-      publishing:title: sdfsdf
-      /publishing:links[1]:
-        jcr:primaryType: publishing:linkwithlabel
-        publishing:label: Edinburgh Council
-        publishing:url: https://www.edinburgh.gov.uk/
-      /publishing:links[2]:
-        jcr:primaryType: publishing:linkwithlabel
-        publishing:label: Glasgow Council
-        publishing:url: https://www.glasgow.gov.uk/
-    /council-service-finder[2]:
-      jcr:primaryType: publishing:councilservicefinder
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: e346117e-ac78-498d-a097-92ef3edcbd07
-      hippo:availability: [preview]
-      hippostd:retainable: false
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2024-12-04T15:08:17.498Z
-      hippostdpubwf:lastModificationDate: 2024-12-04T15:13:25.132Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippotranslation:id: 453ccabe-bfa6-46cd-b5e8-a17e351ef2fc
-      hippotranslation:locale: document-type-locale
-      publishing:callToActionPrefix: sdsdf
-      publishing:placeholder: ssfsdf
-      publishing:sort: false
-      publishing:title: sdfsdf
-      /publishing:links[1]:
-        jcr:primaryType: publishing:linkwithlabel
-        publishing:label: Edinburgh Council
-        publishing:url: https://www.edinburgh.gov.uk/
-      /publishing:links[2]:
-        jcr:primaryType: publishing:linkwithlabel
-        publishing:label: Glasgow Council
-        publishing:url: https://www.glasgow.gov.uk/
