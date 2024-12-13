@@ -41,6 +41,9 @@ class Notification {
                 );
             });
         }
+
+        // set initialised
+        this.notification.classList.add('js-initialised');
     }
 }
 
