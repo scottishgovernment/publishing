@@ -10,7 +10,6 @@ set the size
 when in readonly show the right one
 **/
 
-
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     const ui = await UiExtension.register();
@@ -29,16 +28,18 @@ document.addEventListener('DOMContentLoaded', async () => {
               const option = document.createElement( 'option' );
               option.text = topic.label;
               option.value = topic.key;
+              if (option.value === value) {
+                option.selected = true;
+                showFieldValue(topic.label);
+              }
               select.add(option);
           });
 
-        showFieldValue(value);
-        initSetFieldValueButton(ui, brDocument);
+          console.log(ui)
+          console.log(brDocument)
 
-    });
-
-    // should these be after the url has been fetched, put them in the callback?
-
+          initSetFieldValueButton(ui, brDocument);
+        });
   } catch (error) {
     console.error('Failed to register extension:', error.message);
     console.error('- error code:', error.code);
@@ -46,15 +47,17 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function initSetFieldValueButton(ui, brDocument) {
-
     const label = document.querySelector('#fieldValue');
+    const select = document.querySelector('#topics-select');
+
     if (brDocument.mode !== 'edit') {
-        label.style.display = 'none';
+        select.style.display = 'none';
         // set the value here
         return;
+    } else {
+        label.style.display = 'none';
     }
 
-    const select = document.querySelector('#topics-select');
     select.onchange = (event) => {
         ui.document.field.setValue(event.target.value);
     };
