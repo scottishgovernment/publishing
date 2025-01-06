@@ -283,6 +283,9 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
             Node mirrorTarget = session.getNodeByIdentifier(targetUuid);
             String stateSummary = getNodeStateSummary(mirrorTarget);
             Node mirrorTargetVariant = getVariant(mirrorTarget, stateSummary);
+            if (mirrorTargetVariant == null) {
+                return "false";
+            }
             String mirrorState = mirrorTargetVariant.getProperty(HIPPOSTD_STATE).getString();
             boolean isPublished = "published".equals(mirrorState);
             return Boolean.toString(isPublished);
