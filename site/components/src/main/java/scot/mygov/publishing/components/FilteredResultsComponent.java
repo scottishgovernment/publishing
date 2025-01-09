@@ -1,0 +1,208 @@
+package scot.mygov.publishing.components;
+
+import org.hippoecm.hst.content.beans.query.HstQuery;
+import org.hippoecm.hst.content.beans.query.builder.Constraint;
+import org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder;
+import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoFolder;
+import org.hippoecm.hst.core.component.HstRequest;
+import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.request.ComponentConfiguration;
+import org.hippoecm.hst.core.request.HstRequestContext;
+import org.hippoecm.hst.util.SearchInputParsingUtils;
+import org.hippoecm.repository.util.DateTools;
+import org.onehippo.cms7.essentials.components.EssentialsListComponent;
+import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
+import org.onehippo.forge.selection.hst.contentbean.ValueList;
+import org.onehippo.forge.selection.hst.util.SelectionUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import scot.gov.publishing.hippo.funnelback.component.FilterButtonGroups;
+import scot.gov.publishing.hippo.funnelback.component.Search;
+import scot.gov.publishing.hippo.funnelback.component.SearchBuilder;
+import scot.gov.publishing.hippo.funnelback.component.Sort;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+
+import static java.util.stream.Collectors.toList;
+import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
+
+public class FilteredResultsComponent extends EssentialsListComponent {
+
+    /**
+     * TODO: paramtatise the type right now hard codesd to publishing:News but want to use this also for publications I think.
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(FilteredResultsComponent.class);
+
+    @Override
+    public void init(ServletContext servletContext, ComponentConfiguration componentConfig) {
+    }
+
+    @Override
+    public void doBeforeRender(final HstRequest request,
+                               final HstResponse response) {
+        super.doBeforeRender(request, response);
+        setContentBeanWith404(request, response);
+
+        Search search = search(request);
+        request.setAttribute("search", search);
+        request.setAttribute("filterButtons", FilterButtonGroups.filterButtonGroups(search));
+    }
+
+    Search search(HstRequest request) {
+        String query = param(request, "q");
+
+        int page = getCurrentPage(request);
+
+        // we only want to use paramaters that are supported
+        LocalDate begin = date(request, "begin");
+        LocalDate end = date(request, "end");
+        SearchBuilder searchBuilder = new SearchBuilder()
+                .query(query)
+                .page(page)
+                .fromDate(begin)
+                .toDate(end)
+                .request(request);
+        addTopics(request, searchBuilder);
+        searchBuilder.sort(sort(request));
+        return searchBuilder.build();
+    }
+
+    Sort sort(HstRequest request) {
+        String sortParam = getAnyParameter(request, "sort");
+        if (isBlank(sortParam)) {
+            return Sort.DATE;
+        }
+
+        try {
+            return Sort.valueOf(sortParam.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            LOG.error("Invalid sort value {}, defaulting to date", sortParam, e);
+            return Sort.DATE;
+        }
+    }
+
+    void addTopics(HstRequest request, SearchBuilder searchBuilder) {
+
+        //  - topics: a ; separated list of topics
+        //  - topic: multiple topic params can be supplied and each one will be added
+        Map<String, String> topicsMap = topics(request);
+        String [] topics = request.getParameterMap().get("topic");
+        if (topics == null) {
+            return;
+        }
+        for (String topic : topics) {
+            searchBuilder.topics(topic, topicsMap);
+        }
+    }
+
+    static Map<String, String> topics(HstRequest request) {
+        HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
+        HippoFolder administration = baseBean.getBean("administration");
+        HippoBean topicsList = administration.getBean("topics");
+        if (topicsList == null) {
+            return Collections.emptyMap();
+        }
+        return SelectionUtil.valueListAsMap((ValueList) topicsList);
+    }
+
+    private static String param(HstRequest request, String param) {
+        HstRequestContext requestContext = request.getRequestContext();
+        HttpServletRequest servletRequest = requestContext.getServletRequest();
+        return servletRequest.getParameter(param);
+    }
+
+    LocalDate date(HstRequest request, String dateParam) {
+        String dateValue = param(request, dateParam);
+        if (isBlank(dateValue)) {
+            return null;
+        }
+        return LocalDate.parse(dateValue, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    }
+
+
+    @Override
+    protected <T extends EssentialsListComponentInfo>
+    HstQuery buildQuery(final HstRequest request, final T paramInfo, final HippoBean scope) {
+        int pageSize = getPageSize(request, paramInfo);
+        int page = getCurrentPage(request);
+        int offset = (page - 1) * pageSize;
+        HippoBean scopeFolder = scope.isHippoFolderBean() ? scope : scope.getParentBean();
+        HstQueryBuilder builder = HstQueryBuilder.create(scopeFolder);
+        Search search = search(request);
+        HstQueryBuilder queryBuilder = builder.ofTypes("publishing:News")
+                .where(constraints(search))
+                .limit(pageSize)
+                .offset(offset);
+        // addOrderBy(queryBuilder, search.getSort());   ??? do we need this
+        return queryBuilder.build();
+    }
+
+    private Constraint constraints(Search search) {
+        List<Constraint> constraints = new ArrayList<>();
+        addTermConstraints(constraints, search);
+        //addTopicsConstraint(constraints, search);
+        addDateConstraint(constraints, search);
+        constraints = constraints.stream().filter(Objects::nonNull).collect(toList());
+        return ConstraintBuilder.and(constraints.toArray(new Constraint[] {}));
+    }
+
+    private void addTermConstraints(List<Constraint> constraints, Search search) {
+        String parsedTerm = SearchInputParsingUtils.parse(search.getQuery(), false);
+        if (isBlank(parsedTerm)) {
+            return;
+        }
+        constraints.add(ConstraintBuilder.or(fieldConstraints(parsedTerm)));
+    }
+
+    Constraint [] fieldConstraints(String term) {
+        List<String> fieldNames = new ArrayList<>();
+        fieldNames.add("publishing:title");
+        List<Constraint> constraints = fieldNames
+                .stream()
+                .map(field -> ConstraintBuilder.constraint(field).contains(term))
+                .collect(toList());
+        return constraints.toArray(new Constraint[constraints.size()]);
+    }
+
+    public static void addDateConstraint(List<Constraint> constraints, Search search) {
+
+        if (search.getToDate() != null && search.getFromDate() != null) {
+            Calendar beginCal = getCalendar(search.getFromDate());
+            Calendar endCal = getCalendar(search.getToDate());
+            constraints.add(constraint("publishing:publicationDate").between(beginCal, endCal, DateTools.Resolution.DAY));
+        }
+
+        addBeginFilter(constraints, search);
+        addEndFilter(constraints, search);
+    }
+
+    static void addBeginFilter(List<Constraint> constraints, Search search) {
+        if (search.getFromDate() == null ) {
+            return;
+        }
+
+        Calendar calendar = getCalendar(search.getFromDate());
+        constraints.add(constraint("field").greaterOrEqualThan(calendar, DateTools.Resolution.DAY));
+    }
+
+    static void addEndFilter(List<Constraint> constraints, Search search) {
+        if (search.getToDate() == null ) {
+            return;
+        }
+
+        Calendar calendar = getCalendar(search.getToDate());
+        constraints.add(constraint("publishing:publicationDate").lessOrEqualThan(calendar, DateTools.Resolution.DAY));
+    }
+
+    static  Calendar getCalendar(LocalDate localDate) {
+        return GregorianCalendar.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+    }
+}

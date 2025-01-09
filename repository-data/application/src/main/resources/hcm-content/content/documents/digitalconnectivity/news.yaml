@@ -1,0 +1,299 @@
+/content/documents/digitalconnectivity/news:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named']
+  hippo:name: News
+  hippostd:foldertype: [new-News-year-folder]
+  /2024:
+    jcr:primaryType: hippostd:folder
+    hippostd:foldertype: [new-News-month-folder]
+    /12:
+      jcr:primaryType: hippostd:folder
+      hippostd:foldertype: [new-News-document]
+      /one:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: a62ac1b5-0b1d-45e0-84a2-0792cb600697
+        hippo:versionHistory: 84a870d0-b60d-4588-b5c0-3d7eec25eabb
+        /one[1]:
+          jcr:primaryType: publishing:News
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 6da30a3c-f52c-4e28-920d-15e46da05a86
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-12-17T10:40:22.467Z
+          hippostdpubwf:lastModificationDate: 2024-12-17T11:07:48.168Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a83d702f-72a0-44b6-bf0d-f3f03f68d72a
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: one
+          publishing:publicationDate: 2024-12-01T10:40:00Z
+          publishing:seoTitle: one
+          publishing:summary: one
+          publishing:title: one
+          /publishing:Image:
+            jcr:primaryType: publishing:Image
+            publishing:alt: ''
+            publishing:caption: ''
+            publishing:credit: ''
+            /publishing:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a6355ec2-96a0-4475-a87d-fb584514296c
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /one[2]:
+          jcr:primaryType: publishing:News
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: f368e881-f91d-4410-a2fb-2925421cf842
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-12-17T10:40:22.467Z
+          hippostdpubwf:lastModificationDate: 2024-12-17T11:07:55.026Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: a83d702f-72a0-44b6-bf0d-f3f03f68d72a
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: one
+          publishing:publicationDate: 2024-12-01T10:40:00Z
+          publishing:seoTitle: one
+          publishing:summary: one
+          publishing:title: one
+          /publishing:Image:
+            jcr:primaryType: publishing:Image
+            publishing:alt: ''
+            publishing:caption: ''
+            publishing:credit: ''
+            /publishing:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a6355ec2-96a0-4475-a87d-fb584514296c
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /one[3]:
+          jcr:primaryType: publishing:News
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: b8bd5eff-3690-4cdd-9f41-37b02a75c941
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-12-17T10:40:22.467Z
+          hippostdpubwf:lastModificationDate: 2024-12-17T11:07:55.026Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-12-17T11:08:13.808Z
+          hippotranslation:id: a83d702f-72a0-44b6-bf0d-f3f03f68d72a
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: one
+          publishing:publicationDate: 2024-12-01T10:40:00Z
+          publishing:seoTitle: one
+          publishing:summary: one
+          publishing:title: one
+          /publishing:Image:
+            jcr:primaryType: publishing:Image
+            publishing:alt: ''
+            publishing:caption: ''
+            publishing:credit: ''
+            /publishing:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a6355ec2-96a0-4475-a87d-fb584514296c
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+      /two:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: b90abda9-9b7f-44fd-91ba-157cc773c574
+        hippo:versionHistory: 5237c63d-2881-495a-8449-26dc5b81ff00
+        /two[1]:
+          jcr:primaryType: publishing:News
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: db099fb1-9f8b-43b3-b820-db24b301fa33
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-12-17T10:40:53.198Z
+          hippostdpubwf:lastModificationDate: 2024-12-17T11:07:57.456Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 2fcc9b6b-a75d-4846-9a31-7b7fe1649653
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: two
+          publishing:publicationDate: 2024-12-02T10:42:00Z
+          publishing:seoTitle: two
+          publishing:summary: two
+          publishing:title: two
+          /publishing:Image:
+            jcr:primaryType: publishing:Image
+            publishing:alt: ''
+            publishing:caption: ''
+            publishing:credit: ''
+            /publishing:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a6355ec2-96a0-4475-a87d-fb584514296c
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /two[2]:
+          jcr:primaryType: publishing:News
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: dea6714f-2298-42ce-a3de-d31dfe28d24a
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-12-17T10:40:53.198Z
+          hippostdpubwf:lastModificationDate: 2024-12-17T11:08:01.862Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 2fcc9b6b-a75d-4846-9a31-7b7fe1649653
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: two
+          publishing:publicationDate: 2024-12-02T10:42:00Z
+          publishing:seoTitle: two
+          publishing:summary: two
+          publishing:title: two
+          /publishing:Image:
+            jcr:primaryType: publishing:Image
+            publishing:alt: ''
+            publishing:caption: ''
+            publishing:credit: ''
+            /publishing:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a6355ec2-96a0-4475-a87d-fb584514296c
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /two[3]:
+          jcr:primaryType: publishing:News
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f3cf129c-d3ac-49eb-9138-f42b0eef8323
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-12-17T10:40:53.198Z
+          hippostdpubwf:lastModificationDate: 2024-12-17T11:08:01.862Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-12-17T11:08:13.931Z
+          hippotranslation:id: 2fcc9b6b-a75d-4846-9a31-7b7fe1649653
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: two
+          publishing:publicationDate: 2024-12-02T10:42:00Z
+          publishing:seoTitle: two
+          publishing:summary: two
+          publishing:title: two
+          /publishing:Image:
+            jcr:primaryType: publishing:Image
+            publishing:alt: ''
+            publishing:caption: ''
+            publishing:credit: ''
+            /publishing:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a6355ec2-96a0-4475-a87d-fb584514296c
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+      /three:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 85ce8ba4-029d-4e13-b8cc-db7f1997729b
+        hippo:versionHistory: 22a0bd5d-1898-4e64-80a5-5cd5f797f24f
+        /three[1]:
+          jcr:primaryType: publishing:News
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: ab1ee146-25bd-4bd8-826c-8a01dfe48064
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-12-17T10:41:18.462Z
+          hippostdpubwf:lastModificationDate: 2024-12-17T11:08:03.724Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 6b2418ee-b2fb-4ebe-847a-a0a6ee1724ee
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: three
+          publishing:publicationDate: 2024-12-03T10:42:00Z
+          publishing:seoTitle: three
+          publishing:summary: three
+          publishing:title: three
+          /publishing:Image:
+            jcr:primaryType: publishing:Image
+            publishing:alt: ''
+            publishing:caption: ''
+            publishing:credit: ''
+            /publishing:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a6355ec2-96a0-4475-a87d-fb584514296c
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /three[2]:
+          jcr:primaryType: publishing:News
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 0acd0ed8-e56f-4ae7-ac05-40e7947249ad
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-12-17T10:41:18.462Z
+          hippostdpubwf:lastModificationDate: 2024-12-17T11:08:09.260Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 6b2418ee-b2fb-4ebe-847a-a0a6ee1724ee
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: three
+          publishing:publicationDate: 2024-12-03T10:42:00Z
+          publishing:seoTitle: three
+          publishing:summary: three
+          publishing:title: three
+          /publishing:Image:
+            jcr:primaryType: publishing:Image
+            publishing:alt: ''
+            publishing:caption: ''
+            publishing:credit: ''
+            /publishing:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a6355ec2-96a0-4475-a87d-fb584514296c
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []
+        /three[3]:
+          jcr:primaryType: publishing:News
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: ba388358-70db-43d0-861d-d588e8fef2f9
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-12-17T10:41:18.462Z
+          hippostdpubwf:lastModificationDate: 2024-12-17T11:08:09.260Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-12-17T11:08:14.018Z
+          hippotranslation:id: 6b2418ee-b2fb-4ebe-847a-a0a6ee1724ee
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:metaDescription: three
+          publishing:publicationDate: 2024-12-03T10:42:00Z
+          publishing:seoTitle: three
+          publishing:summary: three
+          publishing:title: three
+          /publishing:Image:
+            jcr:primaryType: publishing:Image
+            publishing:alt: ''
+            publishing:caption: ''
+            publishing:credit: ''
+            /publishing:image:
+              jcr:primaryType: hippogallerypicker:imagelink
+              hippo:docbase: a6355ec2-96a0-4475-a87d-fb584514296c
+              hippo:facets: []
+              hippo:modes: []
+              hippo:values: []

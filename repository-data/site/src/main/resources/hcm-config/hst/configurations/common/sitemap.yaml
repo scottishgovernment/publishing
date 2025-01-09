@@ -364,3 +364,16 @@ definitions:
             hst:excludedforlinkrewriting: true
             hst:hiddeninchannelmanager: true
             hst:namedpipeline: JaxrsRestPlainPipeline
+      /news:
+        jcr:primaryType: hst:sitemapitem
+        hst:relativecontentpath: news
+        /_any_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/news
+          hst:sitemapitemhandlerids: [trailing-slash]
+          hst:relativecontentpath: ${parent}/${1}
+        /_index_:
+          jcr:primaryType: hst:sitemapitem
+          hst:sitemapitemhandlerids: [trailing-slash]
+          hst:relativecontentpath: ${parent}/index
+          hst:componentconfigurationid: hst:pages/newslistpage
