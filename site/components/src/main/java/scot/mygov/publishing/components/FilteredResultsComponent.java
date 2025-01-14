@@ -7,7 +7,6 @@ import org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoBeanIterator;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -44,26 +43,24 @@ import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 @ParametersInfo(type = FilteredResultsComponentInfo.class)
 public class FilteredResultsComponent extends EssentialsListComponent {
 
-    /**
-     * TODO:
-     *  - ony query the current site, might already work this way
-     *  -
-     */
     private static final Logger LOG = LoggerFactory.getLogger(FilteredResultsComponent.class);
 
     private static final int PAGE_SIZE = 10;
 
+    private Collection<String> fieldNames = new ArrayList<>();
+
     @Override
     public void init(ServletContext servletContext, ComponentConfiguration componentConfig) {
         super.init(servletContext, componentConfig);
+        Collections.addAll(fieldNames, "publishing:title",
+                "publishing:summary",
+                "publishing:contentBlocks/publishing:content/hippostd:content");
     }
 
     @Override
-    public void doBeforeRender(final HstRequest request,
-                               final HstResponse response) {
+    public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
         setContentBeanWith404(request, response);
-
         Search search = search(request);
         request.setAttribute("search", search);
         request.setAttribute("filterButtons", FilterButtonGroups.filterButtonGroups(search));
@@ -71,10 +68,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
 
     Search search(HstRequest request) {
         String query = param(request, "q");
-
         int page = getCurrentPage(request);
-
-        // we only want to use paramaters that are supported
         LocalDate begin = date(request, "begin");
         LocalDate end = date(request, "end");
         SearchBuilder searchBuilder = new SearchBuilder()
@@ -103,17 +97,12 @@ public class FilteredResultsComponent extends EssentialsListComponent {
     }
 
     void addTopics(HstRequest request, SearchBuilder searchBuilder) {
-
-        //  - topics: a ; separated list of topics
-        //  - topic: multiple topic params can be supplied and each one will be added
         Map<String, String> topicsMap = topics(request);
         String [] topics = request.getParameterMap().get("topic");
         if (topics == null) {
             return;
         }
-        for (String topic : topics) {
-            searchBuilder.topics(topic, topicsMap);
-        }
+        Arrays.stream(topics).forEach(topic -> searchBuilder.topics(topic, topicsMap));
     }
 
     static Map<String, String> topics(HstRequest request) {
@@ -139,12 +128,13 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         }
         return LocalDate.parse(dateValue, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
+
     @Override
     protected <T extends EssentialsListComponentInfo>
-    Pageable<HippoBean> executeQuery(final HstRequest request, final T paramInfo, final HstQuery query) throws QueryException {
-        final int pageSize = getPageSize(request, paramInfo);
-        final int page = getCurrentPage(request);
-        final HstQueryResult queryResult = query.execute();
+    Pageable<HippoBean> executeQuery(HstRequest request, T paramInfo, HstQuery query) throws QueryException {
+        int pageSize = getPageSize(request, paramInfo);
+        int page = getCurrentPage(request);
+        HstQueryResult queryResult = query.execute();
         populateResponse(request, queryResult);
         return getPageableFactory().createPageable(
                 queryResult.getHippoBeans(),
@@ -152,6 +142,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
                 pageSize,
                 page);
     }
+
     void populateResponse(HstRequest request, HstQueryResult queryResult) {
         Search search = search(request);
         SearchResponse searchResponse = response(queryResult, search);
@@ -211,7 +202,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
                 .where(constraints(search))
                 .limit(pageSize)
                 .offset(offset);
-        // addOrderBy(queryBuilder, search.getSort());   ??? do we need this
+        // addOrderBy(queryBuilder, search.getSort());   TODO ??? do we need this? Dont think design calls for a sort
         return queryBuilder.build();
     }
 
@@ -233,8 +224,6 @@ public class FilteredResultsComponent extends EssentialsListComponent {
     }
 
     Constraint [] fieldConstraints(String term) {
-        List<String> fieldNames = new ArrayList<>();
-        fieldNames.add("publishing:title");
         List<Constraint> constraints = fieldNames
                 .stream()
                 .map(field -> ConstraintBuilder.constraint(field).contains(term))
@@ -243,7 +232,21 @@ public class FilteredResultsComponent extends EssentialsListComponent {
     }
 
     private void addTopicsConstraint(List<Constraint> constraints, Search search) {
+        if (search.getTopics().isEmpty()) {
+            return;
+        }
 
+        Constraint [] constraintsArray = search.getTopics().keySet()
+                .stream().map(this::topicConstraint).map(this::orConstraint).toArray(Constraint[]::new);
+        constraints.add(ConstraintBuilder.or(constraintsArray));
+    }
+
+    Constraint orConstraint(Constraint constraint) {
+        return or(constraint);
+    }
+
+    Constraint topicConstraint(String topic) {
+        return constraint("publishing:topic").equalTo(topic);
     }
 
     public static void addDateConstraint(List<Constraint> constraints, Search search) {

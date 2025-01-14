@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 2ab9114a-975d-4290-8be7-c49b4d91dc89
+          jcr:uuid: c425c2a2-37db-4221-97e4-61db2240bb75
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -40,6 +40,14 @@ definitions:
             hipposysedit:path: publishing:contentBlocks
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator]
+          /topic:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:topic
+            hipposysedit:primary: false
+            hipposysedit:type: OpenUiString
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -57,9 +65,10 @@ definitions:
           publishing:title: ''
           publishing:publicationDate: 0001-01-01T12:00:00Z
           publishing:metaDescription: ''
-          jcr:uuid: 751821ea-4a8a-4c60-9d36-830a7b8308e9
+          jcr:uuid: b8c56c9c-9a2b-4ebb-b8f8-50e1cf47490f
           hippostdpubwf:lastModificationDate: 2024-12-16T10:39:25.468Z
           hippostdpubwf:creationDate: 2024-12-16T10:39:25.468Z
+          publishing:topic: ['']
           /publishing:Image:
             jcr:primaryType: publishing:Image
             publishing:alt: ''
@@ -154,6 +163,15 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /topic:
+            jcr:primaryType: frontend:plugin
+            caption: Topic
+            field: topic
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.left.item
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ui.extension: sitetopicselector
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
