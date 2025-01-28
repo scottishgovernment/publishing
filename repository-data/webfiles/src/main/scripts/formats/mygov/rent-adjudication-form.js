@@ -22,16 +22,16 @@ const formObject = {
     'propertyType': null,
     'rooms': [{
         name: 'Living rooms',
-        quantity: 1
+        quantity: 0
     },{
         name: 'Bedrooms',
-        quantity: 1
+        quantity: 0
     },{
         name: 'Kitchens',
-        quantity: 1
+        quantity: 0
     },{
         name: 'Bathrooms',
-        quantity: 1
+        quantity: 0
     },{
         name: 'WC',
         quantity: 0
@@ -126,6 +126,7 @@ const formMapping = {
     'notAvailableForInspection': '#property-inspection-dates'
 };
 
+import _ from '../../vendor/lodash/dist/tinydash.es6.js';
 import $ from 'jquery';
 import feedback from '../../components/feedback';
 import EditableTable from '../../components/editable-table';
@@ -170,7 +171,6 @@ const rentAdjudicationForm = {
                 if (typeof rentAdjudicationForm.form.settings.formMapping.propertyAddress.getAddressAsString === 'function') {
                     const propertySpan = $('.js-declaration-address');
                     const addressToInsert = rentAdjudicationForm.form.settings.formMapping.propertyAddress.getAddressAsString() || '_______';
-
                     propertySpan.text(addressToInsert);
                 }
             },
@@ -257,6 +257,27 @@ const rentAdjudicationForm = {
             ],
             addText: 'Add a room'
         });
+
+
+        /**
+         * Prompt user to confirm page exit to help prevent accidental data loss
+         * @param {event} event
+         */
+        this.initialDataObject = JSON.parse(JSON.stringify(formObject));
+
+        const beforeUnloadHandler = (event) => {
+            const initialDataObject = this.initialDataObject || {};
+            if (!this.pauseUnloadEvent && !_.isEqual(initialDataObject, this.form.formObject)) {
+                // Recommended
+                event.preventDefault();
+
+                // Included for legacy support, e.g. Chrome/Edge < 119
+                event.returnValue = true;
+            }
+            this.pauseUnloadEvent = false;
+        };
+        window.addEventListener('beforeunload', beforeUnloadHandler);
+        this.pauseUnloadEvent = false;
     },
 
     setupBackToSummary: function () {

@@ -58,7 +58,7 @@
                                         </fieldset>
                                     {% else %}
                                         <div class="ds_select-wrapper  et_select--small  editable-table__edit">
-                                            <select id="{{name}}-{{field.slug}}-{{itemIndex}}" {% if field.validation %}data-validation="{{validation}}"{% endif %} data-field="{{field.slug}}" class="js-value  ds_select  no-validate">
+                                            <select id="{{name}}-{{field.slug}}-{{itemIndex}}" {% if field.validation %}data-validation="{{option.validation}}"{% endif %} data-field="{{field.slug}}" class="js-value  ds_select  no-validate">
                                                 {% for option in field.options %}
                                                     <option {% if (option.value == value) %}selected{% endif %} value="{{option.value}}">{{option.displayName}}</option>
                                                 {% endfor %}
@@ -93,11 +93,11 @@
                     {% if data.readonly %}
                     {% else %}
                         <td>
-                            <button class="ds_button  editable-table__view  js-edit-button" aria-label="Edit item {{loop.index}}">Edit</button>
-                            <button class="ds_button  ds_button--cancel  editable-table__view  js-remove-button" aria-label="Remove item {{loop.index}}">Remove</button>
+                            <button class="ds_button  ds_button--small  editable-table__view  js-edit-button" aria-label="Edit item {{loop.index}}">Edit</button>
+                            <button class="ds_button  ds_button--small  ds_button--cancel  editable-table__view  js-remove-button" aria-label="Remove item {{loop.index}}">Remove</button>
 
-                            <button class="ds_button  editable-table__edit  js-save-button" aria-label="Save item {{loop.index}}">Save</button>
-                            <button class="ds_button  ds_button--cancel  editable-table__edit  js-cancel-button" aria-label="Cancel edit of item {{loop.index}}">Cancel</button>
+                            <button class="ds_button  ds_button--small  editable-table__edit  js-save-button" aria-label="Save item {{loop.index}}">Save</button>
+                            <button class="ds_button  ds_button--small  ds_button--cancel  editable-table__edit  js-cancel-button" aria-label="Cancel edit of item {{loop.index}}">Cancel</button>
                         </td>
                     {% endif %}
                 </tr>
@@ -107,7 +107,7 @@
                 {% for field in fields %}
                     <td></td>
                 {% endfor %}
-                <td><button class="ds_button  editable-table__add-button  js-show-add-form">{{addText}}</button></td>
+                <td><button class="ds_button  ds_button--small  editable-table__add-button  js-show-add-form">{{addText}}</button></td>
             </tr>
 
             <tr class="editable-table__add-form  js-add-form">

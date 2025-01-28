@@ -21,6 +21,13 @@ class PostcodeLookup {
         this.element = element;
         this.options = options;
 
+        this.modes = {
+            lookup: 'lookup',
+            manual: 'manual'
+        }
+
+        this.mode = this.modes.lookup;
+
         this.lookupElement = element.querySelector('.ds_address__lookup');
         this.resultsElement = element.querySelector('.ds_address__results');
         this.manualElement = element.querySelector('.ds_address__manual');
@@ -53,6 +60,7 @@ class PostcodeLookup {
 
             if (event.target.classList.contains('js-show-manual-entry')) {
                 event.preventDefault();
+                this.mode = this.modes.manual;
                 this.showSection(this.manualElement);
             }
 
@@ -60,6 +68,7 @@ class PostcodeLookup {
                 event.preventDefault();
                 delete this.selectedAddress;
                 this.resultsSelectElement.html = '';
+                this.mode = this.modes.lookup;
                 this.showSection(this.lookupElement);
             }
         });
@@ -162,13 +171,23 @@ class PostcodeLookup {
     }
 
     getAddressAsObject() {
-        return {
-            building: this.selectedAddress.building,
-            street: this.selectedAddress.street,
-            town: this.selectedAddress.town,
-            region: this.selectedAddress.region,
-            postcode: this.selectedAddress.postcode
-        };
+        const addressObject = {};
+
+        if (this.mode === 'lookup') {
+            addressObject.building = this.selectedAddress.building;
+            addressObject.street = this.selectedAddress.street;
+            addressObject.town = this.selectedAddress.town;
+            addressObject.region = this.selectedAddress.region;
+            addressObject.postcode = this.selectedAddress.postcode;
+        } else {
+            addressObject.building = this.buildingInput.value;
+            addressObject.street = this.streetInput.value;
+            addressObject.town = this.townInput.value;
+            addressObject.region = this.regionInput.value;
+            addressObject.postcode = this.manualPostcodeInput.value;
+        }
+
+        return addressObject;
     }
 
     getAddressAsString() {

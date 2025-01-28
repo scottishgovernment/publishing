@@ -196,7 +196,7 @@ const formSections = [
     {
         group: {
             slug: 'download',
-            title: 'Download',
+            title: 'Finish',
             hideFromGroupNav: true
         },
         slug: 'declaration',
@@ -213,15 +213,15 @@ const formSections = [
     {
         group: {
             slug: 'download',
-            title: 'Download',
+            title: 'Finish',
             hideFromGroupNav: true
         },
         slug: 'download',
-        title: 'Download',
+        title: 'Send application',
         pages: [
             {
                 slug: 'form-download',
-                title: 'Download',
+                title: 'Send application',
                 hideSubsectionNav: true,
                 noFormBox: true,
                 triggerEvent: 'checkInventory'

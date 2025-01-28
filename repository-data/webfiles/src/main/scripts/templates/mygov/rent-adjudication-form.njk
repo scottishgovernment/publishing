@@ -543,28 +543,33 @@
     <section data-step="declaration" class="fully-hidden form-step">
         <h2>Declaration</h2>
 
-        <div class="ds_question">
-            <fieldset id="declaration-checkbox" data-validation="atLeastOneCheckbox" data-message="You must confirm the declaration to complete this form." class="no-validate">
-                <legend class="visually-hidden">Form Declaration</legend>
-                <div class="ds_checkbox  ds_checkbox--small">
-                    <input class="ds_checkbox__input" id="form-declaration" type="checkbox" />
-                    <label class="ds_checkbox__label" for="form-declaration">
-                        <p>I apply to a Rent Officer for a determination of the open market rent for the property at <span class="js-declaration-address summary__user-input"></span>.</p>
-                        <p>I confirm I have sent Part 3 of the rent increase notice to my Landlord to let them know that I am applying to a Rent Officer.</p>
-                        <p>I apply to a Rent Officer for a decision on the amount of additional rent that can be charged as a result of improvements made to the let property.</p>
-                    </label>
-                </div>
-            </fieldset>
-        </div>
+        <ul>
+            <li>I apply to a Rent Officer for a determination of the open market rent for the property at <span class="js-declaration-address summary__user-input"></span>.</li>
+            <li>I confirm I have sent Part 3 of the rent increase notice to my Landlord to let them know that I am applying to a Rent Officer.</li>
+            <li>I apply to a Rent Officer for a decision on the amount of additional rent that can be charged as a result of improvements made to the let property.</li>
+        </ul>
     </section>
 
     <section data-step="download" class="form-section  fully-hidden">
 
         <section data-step="form-download" class="fully-hidden form-step">
 
-            <h2>Apply</h2>
+            <h2>You must send your application to Rent Service Scotland</h2>
 
-            <p>To apply you'll need to download your finished form.</p>
+            <p>
+                This tool has created a completed application form using the details you&rsquo;ve provided.
+                This is called a &lsquo;Referral by a tenant to a rent officer&rsquo; form.
+            </p>
+
+            <p>To submit your application to Rent Service Scotland, you now need to:</p>
+
+            <ol>
+                <li>Download your completed application form.</li>
+                <li>Get copies of your tenancy agreement and rent increase notice.</li>
+                <li>Email or post all of these documents to Rent Service Scotland.</li>
+            </ol>
+
+            <h3>Step 1 of 3: Download your completed form</h3>
 
             <p>You need to complete the following challenge before you can download your application.</p>
 
@@ -588,13 +593,13 @@
                     </div>
 
                     <div class="ds_file-download__content">
-                        <p class="ds_file-download__title" id="file-title-pdf">Your application - PDF document</p>
+                        <p class="ds_file-download__title" id="file-title-pdf">Your Rent Service Scotland application - PDF document</p>
 
                         <div id="file-download-pdf" class="ds_file-download__details">
                             <dl class="ds_metadata  ds_metadata--inline">
                                 <div class="ds_metadata__item">
                                     <dt class="ds_metadata__key">File type</dt>
-                                    <dd class="ds_metadata__value"><b>PDF document</b></dd>
+                                    <dd class="ds_metadata__value">PDF document</dd>
                                 </div>
                             </dl>
                         </div>
@@ -608,32 +613,60 @@
                 </div>
             </section>
 
-            <p>You should also include:</p>
-
+            <h3>Step 2 of 3: Get the other documents you need</h3>
+            <p>You&rsquo;ll need copies of the following documents to send with your application form:</p>
             <ul>
-                <li>the Rent Increase Notice you got from your landlord telling you about your rent increase</li>
-                <li class="js-hide-if-no-inventory">a list of furniture you're charged for as part of the rent</li>
                 <li>your tenancy agreement</li>
+                <li>the rent increase notice</li>
+            </ul>
+            <p>Send copies, do not send the original documents.</p>
+            <p>You can send these documents as:</p>
+            <ul>
+                <li>scanned copies</li>
+                <li>electronic copies, for example a PDF version</li>
+                <li>photos of the documents taken on your smartphone</li>
+                <li>photocopies</li>
             </ul>
 
-            <p>You can email these, and your form, to: <a href="mailto:rss.dundee@gov.scot">rss.dundee@gov.scot</a>.</p>
+            <h3>Step 3 of 3: Send to Rent Service Scotland</h3>
 
-            <p>If you can't email, you can post them to:</p>
+            <p>Email or post these 3 documents to Rent Service Scotland:</p>
+            <ul>
+                <li>the completed application form you&rsquo;ve downloaded</li>
+                <li>a copy of your tenancy agreement</li>
+                <li>a copy of the rent increase notice</li>
+            </ul>
 
-            <address tranlate="no">Rent Service Scotland (RSS)<br />
-                Compass House<br />
-                11 Riverside Drive<br />
-                Dundee<br />
-                DD1 4NY</address>
+            <p>Rent Service Scotland need all of these documents to be able to make a decision about your rent increase challenge.</p>
 
-            <p>You should also fill in and give your landlord part 3 of your Rent Increase Notice. This tells your landlord you're going to apply to Rent Service Scotland.</p>
+            <p>They must receive your application within 21 days of the date you got your rent increase notice. They cannot give any extension to this 21 day deadline or accept any late applications.</p>
 
-            <h2>If anything changes</h2>
+            <div class="ds_contact-details">
+                <address>
+                    <dl>
+                        <div class="ds_contact-details__item">
+                            <dt>Email</dt>
+                            <dd translate="no"><a href="mailto:rss.dundee@gov.scot">rss.dundee@gov.scot</a></dd>
+                        </div>
+                        <div class="ds_contact-details__item">
+                            <dt>Address</dt>
+                            <dd translate="no">
+                                Rent Service Scotland<br>
+                                Compass House<br>
+                                11 Riverside Drive<br>
+                                Dundee<br>
+                                DD1 4NY
+                            </dd>
+                        </div>
+                    </dl>
+                </address>
+            </div>
 
-            <p>You must inform Rent Service Scotland if any of the answers you've given in this form change.</p>
+            <h2>When you will get a decision</h2>
 
-            <p>You can contact Rent Service Scotland on: 0300 244 7000</p>
-
+            <p>Rent Service Scotland will aim to decide what your rent amount should be within 40 days of getting your application.</p>
+            <p>They&rsquo;ll let you know if they need to visit the property to make a decision.</p>
+            <p>They&rsquo;ll contact you and your landlord by email to tell you their decision. If you do not have an email address, they&rsquo;ll send you a letter with their decision.</p>
         </section>
     </section>
 </form>

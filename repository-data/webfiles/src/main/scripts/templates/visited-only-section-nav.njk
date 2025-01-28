@@ -24,14 +24,14 @@
                     </div>
                 {% else %}
                     <div class="section-nav__group  section-nav__link group" style="padding: 0;">
-                        <a class="ds_no-margin  ds_button  ds_button--small  ds_button--secondary  ds_button--has-icon  {% if iconLeft %}ds_button--has-icon--left{% endif %}" href="#!/{{group.sections[0].slug}}/{{group.sections[0].pages[0].slug}}/">
-                            {% if iconLeft %}
+                        <a class="ds_no-margin  ds_button  ds_button--small  ds_button--secondary  ds_button--has-icon  {% if group.iconLeft %}ds_button--has-icon--left{% endif %}" href="#!/{{group.sections[0].slug}}/{{group.sections[0].pages[0].slug}}/">
+                            {% if group.iconLeft %}
                                 <svg class="ds_icon">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ iconsFile }}#chevron_left">
                                 </use></svg>
                             {% endif %}
-                            {{title}}
-                            {% if iconLeft %}
+                            {{group.title}}
+                            {% if group.iconLeft %}
                             {% else %}
                                 <svg class="ds_icon">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{ iconsFile }}#chevron_right">
