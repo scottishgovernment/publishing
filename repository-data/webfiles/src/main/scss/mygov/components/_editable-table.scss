@@ -15,9 +15,9 @@
 }
 
 .editable-table__value {
-    left: 9px;
+    left: 12px;
     position: relative;
-    top: 4px;
+    top: 11px;
 }
 
 .editable-table__table + .editable-table__add-container {
@@ -108,25 +108,10 @@
     position: relative;
 
     .ds_select {
-        height: 36px;
         min-width: 100px;
-        padding-top: 2px;
+        padding-top: 0;
+        padding-bottom: 0;
     }
-
-    .ds_select-arrow {
-        height: 40px;
-        width: 40px;
-
-        &::before {
-            right: 12px;
-            top: 10px;
-        }
-    }
-}
-
-.et_input--small {
-    height: 40px;
-    min-height: auto;
 }
 
 .et_currency-wrapper--small {
@@ -141,4 +126,8 @@
     > .ds_input:focus {
         padding-left: 24px;
     }
+}
+
+.editable-table__edit-row .editable-table__edit.ds_select-wrapper {
+    display: grid;
 }
