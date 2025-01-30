@@ -24,17 +24,26 @@
 [publishing:Fragment] > hippostd:relaxed, hippostd:taggable, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:Image] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publishing:ImageCard] > hippogallery:imageset, hippogallery:relaxed
 
 [publishing:ImageDefault] > hippogallery:imageset, hippogallery:relaxed
+
+[publishing:base] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:LandingPage] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
+[publishing:News] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
 
 [publishing:PublishingDocument] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:Step] > hippo:compound, hippostd:relaxed
-  orderable
-
-[publishing:base] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
 [publishing:StepByStepGuide] > hippostd:relaxed, hippotranslation:translated, publishing:base
@@ -65,6 +74,9 @@
   orderable
 
 [publishing:cb_fragment] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:cb_image] > hippo:compound, hippostd:relaxed
   orderable
 
 [publishing:cb_laFinder] > hippo:compound, hippostd:relaxed

@@ -17,6 +17,7 @@ const commonItems = {
         'category':                     path.resolve(__dirname, './formats/category.js'),
         'cookie-preferences':           path.resolve(__dirname, './formats/cookie-preferences.js'),
         'default':                      path.resolve(__dirname, './formats/default-format.js'),
+        'filtered-list':                path.resolve(__dirname, './formats/filtered-list.js'),
         'guide':                        path.resolve(__dirname, './formats/guide.js'),
         'home':                         path.resolve(__dirname, './formats/home.js'),
         'organisation':                 path.resolve(__dirname, './formats/organisation.js'),

@@ -175,6 +175,27 @@ definitions:
           /base-plausibleanalytics:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/plausibleanalytics.ftl
+          /news-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/news-main.ftl
+          /latestnews:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/content-blocks/latestnews.ftl
+          /filteredlist.page:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/filteredlist/page.ftl
+          /filteredlist.filter:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/filteredlist/filter.ftl
+          /filteredlist.results.ftl:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/filteredlist/filter.ftl
+          /filteredlist.side-filter:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/filteredlist/filter.ftl
+          /filteredlist.results:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/filteredlist/results.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
@@ -252,6 +273,12 @@ definitions:
               hst:iconpath: icons/featuregrid.svg
               hst:label: Feature grid
               hst:template: featuregrid
+            /latestNews:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.LatestNewsComponent
+              hst:iconpath: icons/latestnews.svg
+              hst:label: Latest news
+              hst:template: latestnews
       /publishing:
         jcr:primaryType: hst:configuration
         hst:inheritsfrom: [../common]

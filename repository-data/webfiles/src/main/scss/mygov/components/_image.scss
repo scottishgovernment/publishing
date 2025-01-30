@@ -1,0 +1,16 @@
+// Image with caption (currently just on news articles)
+
+.mg_image {
+
+    img {
+        display: block;
+    }
+
+    &__caption {
+        @include ds_small-size--fixed;
+        border-left: 1px solid $ds_colour__border;
+        margin-top: 0.5rem;
+        padding: 0.5rem 1rem 0.5rem calc(0.75rem - 1px);
+    }
+
+}

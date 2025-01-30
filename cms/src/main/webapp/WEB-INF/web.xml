@@ -203,6 +203,21 @@
   </servlet>
 
   <servlet>
+    <servlet-name>SiteTopicSelectorResourceServlet</servlet-name>
+    <servlet-class>org.onehippo.cms7.utilities.servlet.ResourceServlet</servlet-class>
+    <init-param>
+      <param-name>jarPathPrefix</param-name>
+      <param-value>/sitetopicselector</param-value>
+    </init-param>
+    <init-param>
+      <param-name>allowedResourcePaths</param-name>
+      <param-value>
+        ^/.*\..*
+      </param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
     <servlet-name>LoggingServlet</servlet-name>
     <servlet-class>org.hippoecm.repository.LoggingServlet</servlet-class>
     <load-on-startup>3</load-on-startup>
@@ -259,6 +274,11 @@
   <servlet-mapping>
     <servlet-name>SkinResourceServlet</servlet-name>
     <url-pattern>/skin/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>SiteTopicSelectorResourceServlet</servlet-name>
+    <url-pattern>/sitetopicselector/*</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Document Field Extension Example</title>
+        <script type="text/javascript" src="https://unpkg.com/@bloomreach/ui-extension/dist/ui-extension.min.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+
+
+<style>
+:root {
+    --focus-accent-color: #147ac8;
+}
+
+body {
+    color: rgba(0, 0, 0, .87);
+    font-family: "Open Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+select {
+    cursor: pointer;
+}
+
+select.dropdown-plugin {
+    width: 99%;
+}
+
+.hippo-editor-field select {
+    background: 0 0;
+    border: 1px solid rgba(0, 0, 0, .38);
+    border-radius: 4px;
+    min-height: 36px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.hippo-editor-field select:focus {
+    border-color: var(--focus-accent-color);
+    box-shadow: 0 0 0 1px var(--focus-accent-color);
+}
+
+.visually-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+}
+
+</style>
+
+    </head>
+    <body>
+        <div id="fieldValue"></div>
+        <div class="hippo-editor-field">
+            <label for="topics-select" class="visually-hidden">Choose a topic</label>
+            <select class="dropdown-plugin" id="topics-select">
+                <option value="option0">Choose One</option>
+            </select>
+        </div>
+    </body>
+</html>

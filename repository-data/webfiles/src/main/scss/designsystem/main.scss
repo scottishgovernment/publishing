@@ -63,12 +63,17 @@ $use-legacy-site-navigation: false;
 @import "components/component.toggle-link";
 @import "components/component.whats-new";
 
+@import "../components/filters";
+@import "../components/link-major";
+
 @import "../mygov/components/feedback";
 
 @import "../highlight";
 
 @import "overrides/override.file-download";
 @import "overrides/override.page-header";
+
+@import "../overrides/override.link-list";
 
 
 

@@ -104,7 +104,9 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
     void addReportingTags(HippoBean bean, Set<String> reportingTags) {
         if (bean instanceof Base) {
             Base base = (Base) bean;
-            Collections.addAll(reportingTags, base.getReportingtags());
+            if (base.getReportingtags() != null) {
+                Collections.addAll(reportingTags, base.getReportingtags());
+            }
         }
     }
 
