@@ -12,7 +12,7 @@ import javax.jcr.Session;
 
 public class Module extends AbstractReconfigurableDaemonModule {
 
-    private static final String PATH = "/internal/topics";
+    private static final String PATH = "/topics";
 
     @Override
     protected void doConfigure(Node module) throws RepositoryException {
