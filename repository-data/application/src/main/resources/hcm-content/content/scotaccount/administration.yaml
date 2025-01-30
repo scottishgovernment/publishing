@@ -1,7 +1,7 @@
 /content/documents/scotaccount/administration:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
-  hippostd:foldertype: [new-siteverification-document]
+  hippostd:foldertype: [new-siteverification-document, new-valuelist]
   /robots:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']

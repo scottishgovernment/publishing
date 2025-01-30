@@ -1,7 +1,7 @@
 /content/documents/cloud/administration:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
-  hippostd:foldertype: [new-siteverification-document]
+  hippostd:foldertype: [new-siteverification-document, new-valuelist]
   /robots:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -63,3 +63,14 @@
         publishing:env: ''
         publishing:notes: For live we do not include the env or auth in the url.
         publishing:plausibleAnalyticsDomains: [cloud.campaign.gov.scot]
+  /topics:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 80d8f689-5940-4fa2-a837-31846265d7c9
+    /topics:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: c9a983a6-c67e-4f95-b1c1-d50f940feaef
+      hippo:availability: [live, preview]
+      hippotranslation:id: 25f8ce5f-58f8-4229-93cd-652e848fad60
+      hippotranslation:locale: inherited - from query
