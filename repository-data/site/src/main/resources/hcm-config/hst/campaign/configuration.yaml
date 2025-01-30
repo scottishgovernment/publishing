@@ -81,6 +81,12 @@ definitions:
             hst:iconpath: icons/browse.svg
             hst:label: Browse
             hst:template: browse
+          /latestNews:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.LatestNewsComponent
+            hst:iconpath: icons/latestnews.svg
+            hst:label: Latest news
+            hst:template: latestnews
       /hst:components:
         jcr:primaryType: hst:components
       /hst:pages:

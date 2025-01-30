@@ -1,0 +1,233 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/News:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: e1f89a11-b4de-4f3e-ac8d-c6199f5215da
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 445b484f-ab97-413e-a189-56e755c8b335
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          jcr:uuid: c0460358-d037-46a8-a0b7-2638f84cf2bb
+          /publicationDate:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:publicationDate
+            hipposysedit:primary: false
+            hipposysedit:type: Date
+            hipposysedit:validators: [required]
+          /Image:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:Image
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:Image
+            hipposysedit:validators: [optional]
+          /contentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:contentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
+          /topics:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:topics
+            hipposysedit:primary: false
+            hipposysedit:type: OpenUiString
+          /dynamicdropdown:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:contentitemlanguage
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:News
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes: ['mix:referenceable']
+          publishing:authorNotes: ''
+          publishing:seoTitle: ''
+          publishing:summary: ''
+          publishing:title: ''
+          publishing:publicationDate: 0001-01-01T12:00:00Z
+          publishing:metaDescription: ''
+          hippostdpubwf:lastModificationDate: 2024-12-16T10:39:25.468Z
+          hippostdpubwf:creationDate: 2024-12-16T10:39:25.468Z
+          publishing:topics: ['']
+          publishing:contentitemlanguage: en
+          jcr:uuid: 824bd697-0c13-4a94-9af4-577dea1ac1a5
+          publishing:showFeedback: true
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /title:
+            jcr:primaryType: frontend:plugin
+            caption: Title
+            field: title
+            hint: Enter a title for this page.  This will appear at the top of the
+              page on the live site and will also be used in any links to this page.
+              A title is required for all pages. It must be between 3 and 255 characters.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '255'
+          /summary:
+            jcr:primaryType: frontend:plugin
+            caption: Summary
+            field: summary
+            hint: "Enter a summary of this page.  This summary will be used in places\
+              \ where this page is listed on the live website, such as a category\
+              \ page and in search results. \r\n\r\nIt must be between 3 and 255 characters."
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /publicationDate:
+            jcr:primaryType: frontend:plugin
+            caption: Date
+            field: publicationDate
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /contentBlocks:
+            jcr:primaryType: frontend:plugin
+            caption: Content
+            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_image,publishing:cb_laFinder,publishing:cb_richtext
+            contentPickerType: links
+            field: contentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              compoundNamesMaxLength: 90
+              showCompoundNames: false
+              showTitles: false
+              startCollapsed: false
+              titleMapping: []
+          /contentitemlanguage:
+            jcr:primaryType: frontend:plugin
+            caption: Content language
+            field: dynamicdropdown
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              showDefault: 'false'
+              source: /content/documents/publishing/valuelists/contentitemlanguages
+              valuelistProvider: ''
+          /Image:
+            jcr:primaryType: frontend:plugin
+            caption: Image
+            field: Image
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /topics:
+            jcr:primaryType: frontend:plugin
+            caption: Topic
+            field: topics
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              ui.extension: sitetopicselector
+          /seoTitle:
+            jcr:primaryType: frontend:plugin
+            caption: SEO title
+            field: seoTitle
+            hint: "This title will be used by search engines when indexing the content\
+              \ to add it to search results. \r\n\r\nIt must be between 3 and 60 characters.\
+              \ You can test yours at: https://moz.com/learn/seo/title-tag"
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '60'
+          /metaDescription:
+            jcr:primaryType: frontend:plugin
+            caption: Meta description
+            field: metaDescription
+            hint: "Describe what content this page covers. Search engines will use\
+              \ this content when displaying links to the site in the search listings.\
+              \ \r\n\r\nThe description must be between 3 and 255 characters."
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '255'
+          /tags:
+            jcr:primaryType: frontend:plugin
+            engine: ${engine}
+            mode: ${mode}
+            plugin.class: org.onehippo.forge.ecmtagging.editor.TagsPlugin
+            search.paths: /content
+            wicket.id: ${cluster.id}.field
+            wicket.model: ${wicket.model}
+            widget.cols: '20'
+            widget.rows: '2'
+            /yui.config:
+              jcr:primaryType: frontend:pluginconfig
+              anim.vert: true
+              container.id: tagging-autocomplete
+              schema.fields: [label, url]
+              schema.result.list: response.results
+              use.shadow: true
+              /schema.meta.fields:
+                jcr:primaryType: frontend:pluginconfig
+                totalHits: response.totalHits
+          /authorNotes:
+            jcr:primaryType: frontend:plugin
+            caption: Author notes
+            field: authorNotes
+            hint: Enter any notes relevant to this content item.  This will not appear
+              on the page itself.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showFeedback:
+            jcr:primaryType: frontend:plugin
+            caption: Show feedback?
+            field: showFeedback
+            hint: Should this page include the ability to leave user feedback?
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig

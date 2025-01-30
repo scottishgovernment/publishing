@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scot.mygov.publishing.beans.ColumnImage;
 import scot.mygov.publishing.beans.ImageCard;
+import scot.mygov.publishing.beans.News;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
 import javax.jcr.RepositoryException;
@@ -49,6 +50,12 @@ public class SEOComponent extends EssentialsDocumentComponent {
         request.setAttribute("isSearchEnabled", websiteInfo.isSearchEnabled());
         request.setAttribute("contentBean", contentBean);
         request.setAttribute("baseBean", request.getRequestContext().getSiteContentBaseBean());
+
+        // if this is a news item then override date
+        News news = request.getRequestContext().getContentBean(News.class);
+        if (news != null) {
+            request.setAttribute("date", news.getPublicationDate());
+        }
         setCanonical(request);
     }
 
@@ -80,17 +87,21 @@ public class SEOComponent extends EssentialsDocumentComponent {
         }
 
         if (imageCard == null) {
+            imageCard = NewsComponent.getImage(request);
+        }
+
+        if (imageCard == null) {
             imageCard = getDefaultImageCardForSite(request.getRequestContext(), websiteInfo);
         }
 
         request.setAttribute("cardImage", imageCard);
     }
 
-    public ColumnImage getDefaultImageCardForSite(HstRequestContext requestContext, WebsiteInfo websiteInfo) {
+    static ColumnImage getDefaultImageCardForSite(HstRequestContext requestContext, WebsiteInfo websiteInfo) {
         try {
             Object e = requestContext.getObjectConverter().getObject(
                     requestContext.getSession(), websiteInfo.getDefaultCardImage());
-            if(e != null && ColumnImage.class.isAssignableFrom(e.getClass())) {
+            if (e != null && ColumnImage.class.isAssignableFrom(e.getClass())) {
                 return (ColumnImage) e;
             }
 
