@@ -14,9 +14,7 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 
 import java.util.Arrays;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
 import static scot.mygov.publishing.components.FilteredResultsComponent.topicsMap;
 
