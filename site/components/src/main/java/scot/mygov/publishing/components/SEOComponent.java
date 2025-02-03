@@ -16,6 +16,7 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 
 import javax.jcr.RepositoryException;
 
+import static scot.mygov.publishing.components.NewsComponent.addTopics;
 import static scot.mygov.publishing.components.SiteHeaderComponent.setCanonical;
 
 /**
@@ -52,6 +53,7 @@ public class SEOComponent extends EssentialsDocumentComponent {
         request.setAttribute("baseBean", request.getRequestContext().getSiteContentBaseBean());
 
         // if this is a news item then override date
+        addTopics(request);
         News news = request.getRequestContext().getContentBean(News.class);
         if (news != null) {
             request.setAttribute("date", news.getPublicationDate());

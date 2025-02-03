@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f949d474-0da4-4be7-bcd7-54298d71b99b
+          jcr:uuid: b93e8c5e-b5d4-4fa2-bf6b-08fc5c4ce2ec
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -83,6 +83,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+              nodetypes: ['publishing:ColumnImage']
           /alt:
             jcr:primaryType: frontend:plugin
             caption: Alt

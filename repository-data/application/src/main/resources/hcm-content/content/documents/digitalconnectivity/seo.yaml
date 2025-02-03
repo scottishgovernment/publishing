@@ -1,4 +1,5 @@
 /content/documents/digitalconnectivity/seo:
+  .meta:order-before: news
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named']
   hippo:name: Seo
@@ -6,9 +7,11 @@
   /home:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 1a463ee3-6be7-48e2-a2e5-b7f936f81836
     /home:
       jcr:primaryType: publishing:seo
       jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 5a36abd1-a934-46ab-bb3f-6a4f30cea992
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished

@@ -36,6 +36,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+import static java.util.Collections.emptyMap;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
@@ -120,12 +121,20 @@ public class FilteredResultsComponent extends EssentialsListComponent {
 
     static Map<String, String> topicsMap(HstRequest request) {
         HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
-        HippoFolder administration = baseBean.getBean("administration");
-        HippoBean topicsList = administration.getBean("topics");
+        HippoBean topicsList = getTopicsList(baseBean);
         if (topicsList == null) {
-            return Collections.emptyMap();
+            return emptyMap();
         }
         return SelectionUtil.valueListAsMap((ValueList) topicsList);
+    }
+
+    static HippoBean getTopicsList(HippoBean baseBean) {
+        HippoFolder administration = baseBean.getBean("administration");
+        if (administration == null) {
+            return null;
+        }
+
+        return administration.getBean("topics");
     }
 
     static String param(HstRequest request, String param) {

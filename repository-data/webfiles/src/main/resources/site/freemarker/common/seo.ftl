@@ -25,9 +25,9 @@
         </#if>
     </@hst.headContribution>
 
-    <#if contentBean.tags??>
+    <#if contentBean.topics??>
         <@hst.headContribution category="meta">
-            <meta name="dc.subject" content="<#list contentBean.tags as tag>${tag}<#sep>, </#sep></#list>"/>
+            <meta name="dc.subject" content="</#list><#list topics as topic>${topic}<#sep>, </#sep></#list>"/>
         </@hst.headContribution>
     </#if>
     <#if contentBean.lastUpdatedDate??>

@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static java.util.Arrays.asList;
+import static java.util.stream.Collectors.toList;
 import static scot.mygov.publishing.components.FilteredResultsComponent.topicsMap;
 
 public class NewsComponent extends EssentialsContentComponent  {
@@ -27,23 +29,30 @@ public class NewsComponent extends EssentialsContentComponent  {
 
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
-        Map<String, String> topicsMap = topicsMap(request);
 
-        News news = request.getRequestContext().getContentBean(News.class);
-        if (news != null) {
-            // the custom field is not generated in the bean
-            String[] topics = news.getMultipleProperty("publishing:topics", new String[0]);
-            request.setAttribute("topics",
-                    Arrays.asList(topics).stream().filter(StringUtils::isNotBlank).collect(Collectors.toList()));
-        }
-        request.setAttribute("topicsMap", topicsMap);
-        request.setAttribute("image", getImage(request));
 
+        addTopics(request);
         // populate the organisation information from WebsiteInfo
+        request.setAttribute("image", getImage(request));
         WebsiteInfo websiteInfo = MountUtils.websiteInfo(request);
         request.setAttribute("logo", websiteInfo.getLogo());
         request.setAttribute("logoalttext", websiteInfo.getLogoAltText());
         request.setAttribute("orgurl", orgUrl(request, websiteInfo));
+    }
+
+    public static void addTopics(HstRequest request) {
+
+        Map<String, String> topicsMap = topicsMap(request);
+        request.setAttribute("topicsMap", topicsMap);
+
+        News news = request.getRequestContext().getContentBean(News.class);
+        if (news == null) {
+            return;
+        }
+
+        // the custom field is not generated in the bean
+        String[] topics = news.getMultipleProperty("publishing:topics", new String[0]);
+        request.setAttribute("topics", Arrays.stream(topics).filter(StringUtils::isNotBlank).collect(toList()));
     }
 
     String orgUrl(HstRequest request, WebsiteInfo websiteInfo) {

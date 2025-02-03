@@ -26,6 +26,7 @@ import java.util.Set;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static scot.mygov.publishing.components.NewsComponent.addTopics;
 import static scot.mygov.publishing.components.PageNotFoundComponent.notFoundBean;
 
 /**
@@ -52,6 +53,7 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
         setGtmId(request);
         setUserType(request);
         setMountDependentAttributes(request);
+        addTopics(request);
 
         // set the document to use to populate meta data in the gtm data layer.
         //
