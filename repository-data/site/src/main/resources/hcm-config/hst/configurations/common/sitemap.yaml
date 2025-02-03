@@ -377,3 +377,16 @@ definitions:
           hst:sitemapitemhandlerids: [trailing-slash]
           hst:relativecontentpath: ${parent}/index
           hst:componentconfigurationid: hst:pages/newslistpage
+      /publications:
+        jcr:primaryType: hst:sitemapitem
+        hst:relativecontentpath: publications
+        /_any_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/publication
+          hst:relativecontentpath: ${parent}/${1}
+          hst:sitemapitemhandlerids: [trailing-slash]
+        /_index_:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/publicationlistpage
+          hst:relativecontentpath: ${parent}/index
+          hst:sitemapitemhandlerids: [trailing-slash]

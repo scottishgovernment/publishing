@@ -49,19 +49,10 @@ public class MirrorEventListener {
         }
 
         HippoNode handle = (HippoNode) session.getNodeByIdentifier(event.subjectId());
-        Node published = getPublishedOrDraftVariant(handle);
+        Node published = hippoUtils.getPublishedOrDraftVariant(handle);
         if (published != null && published.isNodeType("publishing:mirror")) {
             updateMirrorName(published);
         }
-    }
-
-    Node getPublishedOrDraftVariant(Node handle) throws RepositoryException {
-        Node published = hippoUtils.getPublishedVariant(handle);
-        if (published != null) {
-            return published;
-        }
-
-        return hippoUtils.getDraftVariant(handle);
     }
 
     boolean isSuccessfulPublish(HippoWorkflowEvent event) {

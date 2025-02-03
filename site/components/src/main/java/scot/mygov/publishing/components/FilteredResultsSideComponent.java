@@ -19,6 +19,9 @@ public class FilteredResultsSideComponent extends BaseHstComponent {
                 .fromDate(date(request, "begin"))
                 .toDate(date(request, "end"));
         FilteredResultsComponent.getTopics(request).stream().forEach(topic -> searchBuilder.topics(topic, topicsMap));
+        Map<String, String> publicationTypesMap = publicationTypesMap(request);
+        publicationTypesMap.keySet().stream().forEach(key -> searchBuilder.publicationTypes(key, publicationTypesMap));
+        request.setAttribute("publicationTypesMap", publicationTypesMap);
         request.setAttribute("topicsMap", topicsMap);
         request.setAttribute("search", searchBuilder.build());
     }

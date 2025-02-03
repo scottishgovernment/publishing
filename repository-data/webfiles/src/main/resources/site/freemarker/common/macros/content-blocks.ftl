@@ -261,5 +261,19 @@
             <#-- end rich text block -->
         </#if>
 
+        <#if hst.isNodeType(contentBlock.node, 'publishing:document')>
+            <#-- rich text block -->
+            <#if contentBlock.noindex>
+            <!--noindex-->
+            </#if>
+
+            ${contentBlock.title}
+            <#if contentBlock.noindex>
+            <!--endnoindex-->
+            </#if>
+            <#-- end rich text block -->
+        </#if>
+
+
     </#list>
 </#macro>

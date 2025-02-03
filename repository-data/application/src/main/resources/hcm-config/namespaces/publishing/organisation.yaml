@@ -11,252 +11,11 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: db508ff8-1548-4650-b147-d1bb539e5101
-          hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
-            'hippostd:relaxed']
-          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          hipposysedit:validators: [variables-validator]
-          /content:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:content
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /serviceprovider:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:serviceprovider
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-          /sector:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:sector
-            hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
-          /logo:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:logo
-            hipposysedit:primary: false
-            hipposysedit:type: hippogallerypicker:imagelink
-          /organisationtags:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:organisationtags
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [organisationtag-validator]
-          /featuredservices:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:featuredservices
-            hipposysedit:primary: false
-            hipposysedit:type: publishing:describedlink
-          /notices:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:notices
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /noticesContentBlocks:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:noticesContentBlocks
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
-          /featuredroleimage:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:featuredroleimage
-            hipposysedit:primary: false
-            hipposysedit:type: hippogallerypicker:imagelink
-          /featuredrolename:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:featuredrolename
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /featuredroledescription:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:featuredroledescription
-            hipposysedit:primary: false
-            hipposysedit:type: Html
-          /organisationstructure:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:organisationstructure
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /organisationstructureContentBlocks:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:organisationstructureContentBlocks
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
-          /fax:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:fax
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /email:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:email
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /address:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:address
-            hipposysedit:primary: false
-            hipposysedit:type: Html
-          /twitter:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:twitter
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /flickr:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:flickr
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /website:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:website
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /facebook:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:facebook
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /youtube:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:youtube
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /blog:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:blog
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /featuredrole:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:featuredrole
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /featureditem:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: true
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:featureditem
-            hipposysedit:primary: false
-            hipposysedit:type: publishing:featureditem
-          /html:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:phone
-            hipposysedit:primary: false
-            hipposysedit:type: Html
-          /featureditemstitle:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:featureditemstitle
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /featuredservicestitle:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:featuredservicestitle
-            hipposysedit:primary: false
-            hipposysedit:type: String
-          /organisationtitle:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:organisationtitle
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required]
-          /linkedin:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:linkedin
-            hipposysedit:primary: false
-            hipposysedit:type: String
-        /hipposysedit:nodetype[2]:
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: 6bb15aa6-d6b6-4231-9fba-693e79e06532
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:taggable', 'hippotranslation:translated',
             'hippostd:relaxed']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           hipposysedit:validators: [variables-validator]
           /content:
             jcr:primaryType: hipposysedit:field
@@ -508,7 +267,7 @@ definitions:
           publishing:authorNotes: ''
           publishing:serviceproviders: []
           publishing:metaDescription: ''
-          jcr:uuid: 46d9c76e-8067-40f2-af12-7af2ee4b074f
+          jcr:uuid: 0e50f1be-d7a4-4b06-be12-60e1f71ec3e6
           hippostdpubwf:lastModificationDate: 2020-06-30T08:47:27.466+01:00
           hippostdpubwf:creationDate: 2020-06-30T08:47:27.466+01:00
           publishing:serviceprovider: ''
@@ -533,71 +292,6 @@ definitions:
           publishing:reportingtags: []
           publishing:organisationtags: []
           publishing:linkedin: ''
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /publishing:logo:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /publishing:notices:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /publishing:featuredroleimage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
-          /publishing:organisationstructure:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
-          /publishing:contentOwner:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /hipposysedit:prototype[2]:
-          jcr:primaryType: nt:unstructured
-          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostd:taggable',
-            'hippostdpubwf:document', 'hippotranslation:translated', 'mix:referenceable']
-          jcr:uuid: 79ac7b8a-d1ed-4dcb-a676-bf213c75c130
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2020-06-30T08:47:27.466+01:00
-          hippostdpubwf:lastModificationDate: 2020-06-30T08:47:27.466+01:00
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          publishing:address: ''
-          publishing:authorNotes: ''
-          publishing:blog: ''
-          publishing:email: ''
-          publishing:facebook: ''
-          publishing:fax: ''
-          publishing:featureditemstitle: How we work
-          publishing:featuredrole: ''
-          publishing:featuredroledescription: ''
-          publishing:featuredrolename: ''
-          publishing:featuredservicestitle: Our services
-          publishing:flickr: ''
-          publishing:linkedin: ''
-          publishing:metaDescription: ''
-          publishing:organisationtags: []
-          publishing:organisationtitle: Our organisation
-          publishing:phone: ''
-          publishing:reportingtags: []
-          publishing:sector: ''
-          publishing:seoTitle: ''
-          publishing:serviceprovider: ''
-          publishing:serviceproviders: []
-          publishing:showFeedback: true
-          publishing:summary: ''
-          publishing:title: ''
-          publishing:twitter: ''
-          publishing:website: ''
-          publishing:youtube: ''
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -714,8 +408,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Content
             field: content
-            hint: Enter the main content for this organisation. You can use any HTML formatting
-              to style your content.
+            hint: Enter the main content for this organisation. You can use any HTML
+              formatting to style your content.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

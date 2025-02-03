@@ -93,6 +93,63 @@
                     </div>
                 </#if>
 
+                <#if publicationTypesMap??>
+                    <div class="ds_accordion-item">
+                        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-2" aria-labelledby="panel-2-heading" />
+                        <div class="ds_accordion-item__header">
+                            <h3 id="panel-2-heading" class="ds_accordion-item__title">
+                                Publication types
+                                <div class="ds_search-filters__filter-count">
+                                    <#assign count = 0/>
+                                    <#list publicationTypesMap?keys as item>
+                                        <#list search.publicationTypes?keys as selectedItem>
+                                            <#if selectedItem == item>
+                                                <#assign count = count + 1 />
+                                            </#if>
+                                        </#list>
+                                    </#list>
+
+                                    <#if count gt 0>
+                                        (${count} selected)
+                                    </#if>
+                                </div>
+                            </h3>
+                            <span class="ds_accordion-item__indicator"></span>
+                            <label class="ds_accordion-item__label" for="panel-2"><span class="visually-hidden">Show this section</span></label>
+                        </div>
+                        <div class="ds_accordion-item__body">
+                            <fieldset>
+                                <legend class="visually-hidden">Select which Publication types you would like to see</legend>
+
+                                <div class="ds_search-filters__scrollable">
+                                    <div class="ds_search-filters__checkboxes">
+                                        <#list publicationTypesMap?keys as item>
+                                            <#assign isSelected = false/>
+
+                                            <#list search.publicationTypes?keys as selectedItem>
+                                                <#if selectedItem == item>
+                                                    <#assign isSelected = true/>
+                                                </#if>
+                                            </#list>
+
+                                            <div class="ds_checkbox  ds_checkbox--small">
+                                                <input
+                                                    <#if isSelected == true>
+                                                        checked=true
+                                                    </#if>
+                                                    id="${item}" name="publicationTypes" value="${item}" class="ds_checkbox__input" type="checkbox">
+                                                <label for="${item}" class="ds_checkbox__label">${(publicationTypesMap[item])?replace("/","/<wbr>")?no_esc}</label>
+                                            </div>
+                                        </#list>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </#if>
+
+
+
                 <div class="ds_accordion-item">
                     <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-3" aria-labelledby="panel-3-heading" />
                     <div class="ds_accordion-item__header">
