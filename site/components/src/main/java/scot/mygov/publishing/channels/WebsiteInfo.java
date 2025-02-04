@@ -38,7 +38,7 @@ public interface WebsiteInfo extends ChannelInfo {
     @DropDownList(valueListProvider = ChannelColourValueListProvider.class)
     String getColor2();
 
-    @Parameter(name = "defaultCardImage", required = false)
+    @Parameter(name = "defaultCardImage", required = true)
     @JcrPath(
             pickerConfiguration = "cms-pickers/images",
             isRelative = true,
