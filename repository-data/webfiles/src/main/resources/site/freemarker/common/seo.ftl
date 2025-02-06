@@ -25,10 +25,12 @@
         </#if>
     </@hst.headContribution>
 
-    <#if contentBean.topics??>
+    <#if subjects?has_content>
         <@hst.headContribution category="meta">
-            <meta name="dc.subject" content="</#list><#list topics as topic>${topic}<#sep>, </#sep></#list>"/>
+            <meta name="dc.subject" content="<#list subjects as subject>${subject}<#sep>, </#sep></#list>"/>
         </@hst.headContribution>
+    <#else>
+
     </#if>
     <#if contentBean.lastUpdatedDate??>
         <@hst.headContribution category="meta">

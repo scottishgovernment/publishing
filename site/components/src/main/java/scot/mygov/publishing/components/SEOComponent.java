@@ -16,7 +16,10 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 
 import javax.jcr.RepositoryException;
 
-import static scot.mygov.publishing.components.NewsComponent.addTopics;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static scot.mygov.publishing.components.SiteHeaderComponent.setCanonical;
 
 /**
@@ -53,11 +56,11 @@ public class SEOComponent extends EssentialsDocumentComponent {
         request.setAttribute("baseBean", request.getRequestContext().getSiteContentBaseBean());
 
         // if this is a news item then override date
-        addTopics(request);
         News news = request.getRequestContext().getContentBean(News.class);
         if (news != null) {
             request.setAttribute("date", news.getPublicationDate());
         }
+        request.setAttribute("subjects", getSubjects(contentBean));
         setCanonical(request);
     }
 
@@ -112,6 +115,23 @@ public class SEOComponent extends EssentialsDocumentComponent {
         } catch (ObjectBeanManagerException | RepositoryException e) {
             LOG.error("Exception trying to get default image card for site {}", websiteInfo.getSiteTitle(), e);
             return null;
+        }
+    }
+
+    /**
+     * The dc.subject is populated from topics and tags
+     */
+    List<String> getSubjects(HippoBean document) {
+        List<String> subjects = new ArrayList<>();
+        addValuesIfNotNull(document, "publishing:topics", subjects);
+        addValuesIfNotNull(document, "hippostd:tags", subjects);
+        return subjects;
+    }
+
+    void addValuesIfNotNull(HippoBean document, String prop, List<String> values) {
+        String [] propValues = document.getMultipleProperty(prop);
+        if (propValues != null) {
+            values.addAll(Arrays.asList(propValues));
         }
     }
 }
