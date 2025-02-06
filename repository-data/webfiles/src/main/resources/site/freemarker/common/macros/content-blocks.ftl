@@ -181,7 +181,7 @@
             <#if contentBlock.image??>
             <#if contentBlock.image.image?has_content>
                 <figure class="mg_image">
-                <#if document.image.image.xlargeeightcolumnsdoubled??>
+                <#if contentBlock.image.image.xlargeeightcolumnsdoubled??>
                     <img alt="${contentBlock.image.alt}" src="<@hst.link hippobean=contentBlock.image.image.xlargeeightcolumns />"
                         loading="lazy"
                         width="${contentBlock.image.image.xlargeeightcolumns.width?c}"
