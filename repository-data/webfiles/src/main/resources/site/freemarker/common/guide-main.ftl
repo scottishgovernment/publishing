@@ -96,7 +96,7 @@
                     <#if prev??>
                         <div class="ds_sequential-nav__item  ds_sequential-nav__item--prev">
                             <@hst.link var="prevlink" hippobean=prev/>
-                            <a <@langcompare prev document/> title="Previous section" href="${prevlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--left">
+                            <a <@langcompare prev document/> href="${prevlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--left">
                                 <span class="ds_sequential-nav__text" data-label="previous">
                                 ${prev.title}
                                 </span>
@@ -106,7 +106,7 @@
                     <#if next??>
                         <div class="ds_sequential-nav__item  ds_sequential-nav__item--next">
                             <@hst.link var="nextlink" hippobean=next/>
-                            <a <@langcompare next document/> title="Next section" href="${nextlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--right">
+                            <a <@langcompare next document/> href="${nextlink}" class="ds_sequential-nav__button  ds_sequential-nav__button--right">
                                 <span class="ds_sequential-nav__text" data-label="next">
                                 ${next.title}
                                 </span>
