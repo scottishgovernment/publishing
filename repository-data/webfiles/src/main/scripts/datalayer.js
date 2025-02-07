@@ -6,15 +6,17 @@
         return;
     }
 
-    const userType = datalayerScriptElement.dataset.usertype;
     const audience = datalayerScriptElement.dataset.audience;
-    const reportingTags = datalayerScriptElement.dataset.reportingtags;
-    const lifeEvents = datalayerScriptElement.dataset.lifeevents;
-    const serviceProviders = datalayerScriptElement.dataset.serviceproviders;
-    const format = datalayerScriptElement.dataset.format;
-    const siteid = datalayerScriptElement.dataset.siteid;
-    const lastUpdated = datalayerScriptElement.dataset.lastupdated;
     const dateCreated = datalayerScriptElement.dataset.datecreated;
+    const format = datalayerScriptElement.dataset.format;
+    const lastUpdated = datalayerScriptElement.dataset.lastupdated;
+    const lifeEvents = datalayerScriptElement.dataset.lifeevents;
+    const reportingTags = datalayerScriptElement.dataset.reportingtags;
+    const serviceProviders = datalayerScriptElement.dataset.serviceproviders;
+    const siteid = datalayerScriptElement.dataset.siteid;
+    const topics = datalayerScriptElement.dataset.topics;
+    const userType = datalayerScriptElement.dataset.usertype;
+    const uuid = datalayerScriptElement.dataset.uuid;
 
     window.dataLayer = window.dataLayer || [];
 
@@ -54,12 +56,20 @@
         obj.siteid = siteid;
     }
 
+    if (present(topics)) {
+        obj.topics = topics.split('|');
+    }
+
     if (present(lastUpdated)) {
         obj.lastUpdated = lastUpdated;
     }
 
     if (present(dateCreated)) {
         obj.dateCreated = dateCreated;
+    }
+
+    if (present(uuid)) {
+        obj.uuid = uuid;
     }
 
     window.dataLayer.push(obj);

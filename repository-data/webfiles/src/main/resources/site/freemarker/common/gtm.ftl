@@ -2,6 +2,8 @@
 <#include "./include/imports.ftl">
 
 <#if document??>
+    <#if !uuid??><#assign uuid = document.getSingleProperty('jcr:uuid')/></#if>
+
     <@hst.headContribution category="googleTagManagerDataLayer">
 
     <!-- Google Tag Manager (GTM) -->
@@ -17,6 +19,7 @@
         <#if lastUpdated??>data-lastupdated='<@fmt.formatDate value=lastUpdated.time type="Date" pattern="dd/MM/yyyy" />'</#if>
         <#if dateCreated??>data-datecreated='<@fmt.formatDate value=dateCreated.time type="Date" pattern="dd/MM/yyyy" />'</#if>
         <#if document.topics?has_content>data-topics="<#list document.topics as topic>${topic}<#sep>|</#sep></#list>"</#if>
+        data-uuid="${uuid}"
         >
     </script>
     </@hst.headContribution>
