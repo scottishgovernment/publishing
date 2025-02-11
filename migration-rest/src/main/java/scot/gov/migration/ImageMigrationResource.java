@@ -1,6 +1,5 @@
 package scot.gov.migration;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.frontend.plugins.gallery.processor.ScalingGalleryProcessor;
 import org.hippoecm.repository.api.HippoNodeType;
@@ -62,7 +61,7 @@ public class ImageMigrationResource {
         SCALING_STRATEGY_MAP.put("auto", ImageUtils.ScalingStrategy.AUTO);
         SCALING_STRATEGY_MAP.put("speed", ImageUtils.ScalingStrategy.SPEED);
         SCALING_STRATEGY_MAP.put("speed.and.quality", ImageUtils.ScalingStrategy.SPEED_AND_QUALITY);
-        SCALING_STRATEGY_MAP.put("quality", ImageUtils.ScalingStrategy.QUALITY);
+        SCALING_STRATEGY_MAP.put(DEFAULT_OPTIMIZE, ImageUtils.ScalingStrategy.QUALITY);
         SCALING_STRATEGY_MAP.put("best.quality", ImageUtils.ScalingStrategy.BEST_QUALITY);
     }
 
@@ -232,21 +231,25 @@ public class ImageMigrationResource {
         NodeIterator variantNodes = configNode.getNodes();
         while (variantNodes.hasNext()) {
             Node variantNode = variantNodes.nextNode();
-            String variantName = variantNode.getName();
-
-            if (VARIANTS_TO_IGNORE.contains(variantName)) {
-                continue;
-            }
-
-            int width = variantNode.hasProperty(CONFIG_PARAM_WIDTH) ? (int) variantNode.getProperty(CONFIG_PARAM_WIDTH).getLong() : DEFAULT_WIDTH;
-            int height = variantNode.hasProperty(CONFIG_PARAM_HEIGHT) ? (int) variantNode.getProperty(CONFIG_PARAM_HEIGHT).getLong() : DEFAULT_HEIGHT;
-            if (width == 0 && height == 0) {
-                continue;
-            }
-
-            ScalingParameters parameters = getScalingParameters(variantNode, width, height);
-            imageVariantParameters.put(variantName, parameters);
+            mapVariant(variantNode);
         }
+    }
+
+    void mapVariant(Node variantNode) throws RepositoryException {
+        String variantName = variantNode.getName();
+
+        if (VARIANTS_TO_IGNORE.contains(variantName)) {
+            return;
+        }
+
+        int width = variantNode.hasProperty(CONFIG_PARAM_WIDTH) ? (int) variantNode.getProperty(CONFIG_PARAM_WIDTH).getLong() : DEFAULT_WIDTH;
+        int height = variantNode.hasProperty(CONFIG_PARAM_HEIGHT) ? (int) variantNode.getProperty(CONFIG_PARAM_HEIGHT).getLong() : DEFAULT_HEIGHT;
+        if (width == 0 && height == 0) {
+            return;
+        }
+
+        ScalingParameters parameters = getScalingParameters(variantNode, width, height);
+        imageVariantParameters.put(variantName, parameters);
     }
 
     ScalingParameters getScalingParameters(Node variantNode, int width, int height) throws RepositoryException {
