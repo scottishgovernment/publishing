@@ -206,7 +206,8 @@ const formSections = [
                 slug: 'declaration',
                 title: 'Declaration',
                 hideSubsectionNav: true,
-                triggerEvent: 'insertPropertyAddress'
+                triggerEvent: 'insertPropertyAddress',
+                nextButtonText: 'Agree and continue'
             }
         ]
     },

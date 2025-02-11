@@ -2,13 +2,13 @@
     {% if prevStep %}
         <a title="{{prevStep.title}}" id="button-back" href="#!/{{prevStep.section}}/{{prevStep.slug}}/" class="ds_button  ds_button--cancel  ds_button--has-icon  ds_button--has-icon--left  js-validate-step">
             <svg class="ds_icon" aria-hidden="true" role="img"><use href="{{ iconsFile }}#chevron_left"></use></svg>
-            Back
+            {% if currentStep.prevButtonText %}{{ currentStep.prevButtonText }}{% else %}Back{% endif %}
         </a>
     {% endif %}
 
     {% if nextStep %}
         <a title="{{nextStep.title}}" id="button-next" href="#!/{{nextStep.section}}/{{nextStep.slug}}/" class="ds_button  ds_button--has-icon  js-validate-step" {% if startPage %}data-button="button-start"{% endif %}>
-            {% if startPage %}Start{% else %}Next{% endif %}
+            {% if currentStep.nextButtonText %}{{ currentStep.nextButtonText }}{% elif startPage %}Start{% else %}Next{% endif %}
 
             <svg class="ds_icon" aria-hidden="true" role="img"><use href="{{ iconsFile }}#chevron_right"></use></svg>
         </a>
