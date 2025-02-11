@@ -26,10 +26,17 @@
       <artifactId>hippo-repository-jaxrs</artifactId>
       <scope>provided</scope>
     </dependency>
+
     <dependency>
       <groupId>org.onehippo.forge.content-exim</groupId>
       <artifactId>content-exim-core</artifactId>
       <version>3.0.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-cms-gallery-frontend</artifactId>
+      <version>15.6.0</version>
     </dependency>
 
     <!-- Test dependencies -->

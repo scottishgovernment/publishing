@@ -24,7 +24,7 @@ public class MigrationModule extends AbstractReconfigurableDaemonModule {
     // to exist for the authorization check. For Repository daemon modules, best practise is to use the modules
     // configuration root for this.
     //
-    // this is across the whole site and so I have decied to make it the documents directory
+    // this is across the whole site and so I have decided to make it the documents directory
     private static final String AUTH_PATH = "/content/documents";
 
     private static final String PATH = "/internal/migration";
@@ -38,9 +38,11 @@ public class MigrationModule extends AbstractReconfigurableDaemonModule {
     protected void doInitialize(Session var1) throws RepositoryException {
         MigrationUserCredentialsSource credentialsSource = new MigrationUserCredentialsSource();
         MigrationResource migrationResource = new MigrationResource(session, credentialsSource);
+        ImageMigrationResource imageMigrationResource = new ImageMigrationResource(session, credentialsSource);
         RepositoryJaxrsEndpoint endpoint = new RepositoryJaxrsEndpoint(PATH)
                 .singleton(migrationResource)
-                // the user authenticating must have the hippo:rest permisison on the root fo the documents folder.
+                .singleton(imageMigrationResource)
+                // the user authenticating must have the hippo:rest permission on the root of the documents folder.
                 .authorized(AUTH_PATH, HIPPO_REST_PERMISSION)
                 .singleton(new JacksonJsonProvider(new ObjectMapper()));
         RepositoryJaxrsService.addEndpoint(endpoint);
