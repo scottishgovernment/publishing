@@ -21,7 +21,9 @@ public class MirrorEventListener {
 
     private static final Logger LOG = LoggerFactory.getLogger(MirrorEventListener.class);
 
-    static final String PUBLICATION_INTERACTION = "default:handle:publish";
+    static final String PUBLISH_INTERACTION = "default:handle:publish";
+
+    static final String DEPUBLISH_INTERACTION = "default:handle:depublish";
 
     Session session;
 
@@ -56,7 +58,7 @@ public class MirrorEventListener {
     }
 
     boolean isSuccessfulPublish(HippoWorkflowEvent event) {
-        return event.success() && PUBLICATION_INTERACTION.equals(event.interaction());
+        return event.success() && PUBLISH_INTERACTION.equals(event.interaction());
     }
 
     private void updateMirrorName(Node publishedNode) throws RepositoryException {
