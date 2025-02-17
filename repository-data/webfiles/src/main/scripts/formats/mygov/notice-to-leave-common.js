@@ -200,8 +200,11 @@ const noticeToLeaveForm = {
         ];
 
         groundsToRemove.forEach(id => {
-            const ground = document.getElementById(id).parentNode;
-            ground.parentNode.removeChild(ground);
+            const groundCheckbox = document.getElementById(id);
+            if (groundCheckbox) {
+                const ground = document.getElementById(id).parentNode
+                ground.parentNode.removeChild(ground);
+            }
         });
     },
 
