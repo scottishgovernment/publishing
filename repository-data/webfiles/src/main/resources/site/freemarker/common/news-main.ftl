@@ -44,7 +44,7 @@
                 </div>
         <#if document.image??>
             <#if document.image.image?has_content>
-                <figure class="mg_image">
+                <figure class="dp_image">
                 <#if document.image.image.xlargeeightcolumnsdoubled??>
                     <img alt="${document.image.alt}" src="<@hst.link hippobean=document.image.image.xlargeeightcolumns />"
                         loading="lazy"
@@ -65,7 +65,7 @@
                     <img loading="lazy" alt="${document.image.alt}" src="<@hst.link hippobean=document.image.image/>">
                 </#if>
                 <#if document.image.caption?has_content || document.image.credit?has_content>
-                    <figcaption class="mg_image__caption">
+                    <figcaption class="dp_image__caption">
                     <#if document.image.caption?has_content>${(document.image.caption)?ensure_ends_with(".")} </#if>
                     <#if document.image.credit?has_content>Credit: ${document.image.credit}</#if>
                     </figcaption>

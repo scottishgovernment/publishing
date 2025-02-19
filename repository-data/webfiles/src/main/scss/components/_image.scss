@@ -1,9 +1,11 @@
 // Image with caption (currently just on news articles)
 
-.mg_image {
+.dp_image {
 
     img {
         display: block;
+        height: auto;
+        max-width: 100%;
     }
 
     &__caption {

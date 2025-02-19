@@ -180,7 +180,7 @@
 
             <#if contentBlock.image??>
             <#if contentBlock.image.image?has_content>
-                <figure class="mg_image">
+                <figure class="dp_image">
                 <#if contentBlock.image.image.xlargeeightcolumnsdoubled??>
                     <img alt="${contentBlock.image.alt}" src="<@hst.link hippobean=contentBlock.image.image.xlargeeightcolumns />"
                         loading="lazy"
@@ -201,7 +201,7 @@
                     <img loading="lazy" alt="${contentBlock.image.alt}" src="<@hst.link hippobean=contentBlock.image.image/>">
                 </#if>
                 <#if contentBlock.image.caption?has_content || contentBlock.image.credit?has_content>
-                    <figcaption class="mg_image__caption">
+                    <figcaption class="dp_image__caption">
                     <#if contentBlock.image.caption?has_content>${(contentBlock.image.caption)?ensure_ends_with(".")} </#if>
                     <#if contentBlock.image.credit?has_content>Credit: ${contentBlock.image.credit}</#if>
                     </figcaption>
