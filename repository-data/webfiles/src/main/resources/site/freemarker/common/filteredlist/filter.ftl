@@ -38,7 +38,7 @@
 
                 <div class="ds_accordion  ds_accordion--small  ds_!_margin-top--0" data-module="ds-accordion">
 
-                <#if topicsMap??>
+                <#if topicsMap?has_content>
                     <div class="ds_accordion-item">
                         <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-2" aria-labelledby="panel-2-heading" />
                         <div class="ds_accordion-item__header">
