@@ -110,7 +110,7 @@
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: f36d255c-4e66-43f5-9b2c-1079ba165579
-        hippo:versionHistory: 9b5da266-c0c4-4d76-9a09-7c71a93ada1b
+        hippo:versionHistory: 284ac8f5-3ff1-418f-aade-fdc9a716bf02
         /consultation[1]:
           jcr:primaryType: publishing:Publication
           jcr:mixinTypes: ['mix:referenceable']
@@ -120,7 +120,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-02-13T11:44:52.508Z
-          hippostdpubwf:lastModificationDate: 2025-02-13T11:44:52.508Z
+          hippostdpubwf:lastModificationDate: 2025-02-20T15:08:14.367Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 5fbbc7a1-c342-4f11-9c64-e0e608ab8ece
           hippotranslation:locale: document-type-locale
@@ -128,18 +128,36 @@
           publishing:contentitemlanguage: en
           publishing:metaDescription: consultation
           publishing:publicationDate: 2025-02-13T11:45:00Z
-          publishing:publicationType: consultation-paper
+          publishing:publicationType: ''
           publishing:seoTitle: consultation
           publishing:showFeedback: false
           publishing:summary: consultation
           publishing:title: consultation
           publishing:topics: ['']
-          /publishing:contentBlocks:
+          /publishing:contentBlocks[1]:
             jcr:primaryType: publishing:cb_richtext
             publishing:noindex: false
             /publishing:content:
               jcr:primaryType: hippostd:html
               hippostd:content: <p>consultation</p>
+          /publishing:contentBlocks[2]:
+            jcr:primaryType: publishing:document
+            publishing:highlight: false
+            publishing:noindex: false
+            publishing:title: test doc
+            publishing:useGenericIcon: false
+            /publishing:document:
+              jcr:primaryType: hippo:resource
+              hippo:filename: SCT902111111111.pdf
+              hippo:text:
+                type: binary
+                resource: /content/documents/digitalconnectivity/publications/2020/01/consultation/consultation[1]/contentBlocks[2]/document/SCT902111111111.pdf
+              jcr:data:
+                type: binary
+                resource: /content/documents/digitalconnectivity/publications/2020/01/consultation/consultation[1]/contentBlocks[2]/document/SCT902111111111-1.pdf
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2025-02-20T15:03:27.536Z
+              jcr:mimeType: application/pdf
         /consultation[2]:
           jcr:primaryType: publishing:Publication
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -149,7 +167,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-02-13T11:44:52.508Z
-          hippostdpubwf:lastModificationDate: 2025-02-13T11:45:28.028Z
+          hippostdpubwf:lastModificationDate: 2025-02-20T15:08:19.691Z
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 5fbbc7a1-c342-4f11-9c64-e0e608ab8ece
           hippotranslation:locale: document-type-locale
@@ -157,18 +175,36 @@
           publishing:contentitemlanguage: en
           publishing:metaDescription: consultation
           publishing:publicationDate: 2025-02-13T11:45:00Z
-          publishing:publicationType: consultation-paper
+          publishing:publicationType: ''
           publishing:seoTitle: consultation
           publishing:showFeedback: false
           publishing:summary: consultation
           publishing:title: consultation
           publishing:topics: ['']
-          /publishing:contentBlocks:
+          /publishing:contentBlocks[1]:
             jcr:primaryType: publishing:cb_richtext
             publishing:noindex: false
             /publishing:content:
               jcr:primaryType: hippostd:html
               hippostd:content: <p>consultation</p>
+          /publishing:contentBlocks[2]:
+            jcr:primaryType: publishing:document
+            publishing:highlight: false
+            publishing:noindex: false
+            publishing:title: test doc
+            publishing:useGenericIcon: false
+            /publishing:document:
+              jcr:primaryType: hippo:resource
+              hippo:filename: SCT902111111111.pdf
+              hippo:text:
+                type: binary
+                resource: /content/documents/digitalconnectivity/publications/2020/01/consultation/consultation[2]/contentBlocks[2]/document/SCT902111111111.pdf
+              jcr:data:
+                type: binary
+                resource: /content/documents/digitalconnectivity/publications/2020/01/consultation/consultation[2]/contentBlocks[2]/document/SCT902111111111-1.pdf
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2025-02-20T15:03:27.536Z
+              jcr:mimeType: application/pdf
         /consultation[3]:
           jcr:primaryType: publishing:Publication
           jcr:mixinTypes: ['mix:referenceable']
@@ -178,24 +214,42 @@
           hippostd:state: published
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-02-13T11:44:52.508Z
-          hippostdpubwf:lastModificationDate: 2025-02-13T11:45:28.028Z
+          hippostdpubwf:lastModificationDate: 2025-02-20T15:08:19.691Z
           hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-02-13T11:45:29.970Z
+          hippostdpubwf:publicationDate: 2025-02-20T15:08:21.751Z
           hippotranslation:id: 5fbbc7a1-c342-4f11-9c64-e0e608ab8ece
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
           publishing:contentitemlanguage: en
           publishing:metaDescription: consultation
           publishing:publicationDate: 2025-02-13T11:45:00Z
-          publishing:publicationType: consultation-paper
+          publishing:publicationType: ''
           publishing:seoTitle: consultation
           publishing:showFeedback: false
           publishing:summary: consultation
           publishing:title: consultation
           publishing:topics: ['']
-          /publishing:contentBlocks:
+          /publishing:contentBlocks[1]:
             jcr:primaryType: publishing:cb_richtext
             publishing:noindex: false
             /publishing:content:
               jcr:primaryType: hippostd:html
               hippostd:content: <p>consultation</p>
+          /publishing:contentBlocks[2]:
+            jcr:primaryType: publishing:document
+            publishing:highlight: false
+            publishing:noindex: false
+            publishing:title: test doc
+            publishing:useGenericIcon: false
+            /publishing:document:
+              jcr:primaryType: hippo:resource
+              hippo:filename: SCT902111111111.pdf
+              hippo:text:
+                type: binary
+                resource: /content/documents/digitalconnectivity/publications/2020/01/consultation/consultation[3]/contentBlocks[2]/document/SCT902111111111.pdf
+              jcr:data:
+                type: binary
+                resource: /content/documents/digitalconnectivity/publications/2020/01/consultation/consultation[3]/contentBlocks[2]/document/SCT902111111111-1.pdf
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2025-02-20T15:03:27.536Z
+              jcr:mimeType: application/pdf
