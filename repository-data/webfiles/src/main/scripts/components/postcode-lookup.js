@@ -173,11 +173,13 @@ class PostcodeLookup {
         const addressObject = {};
 
         if (this.mode === 'lookup') {
-            addressObject.building = this.selectedAddress.building;
-            addressObject.street = this.selectedAddress.street;
-            addressObject.town = this.selectedAddress.town;
-            addressObject.region = this.selectedAddress.region;
-            addressObject.postcode = this.selectedAddress.postcode;
+            if (this.selectedAddress) {
+                addressObject.building = this.selectedAddress.building;
+                addressObject.street = this.selectedAddress.street;
+                addressObject.town = this.selectedAddress.town;
+                addressObject.region = this.selectedAddress.region;
+                addressObject.postcode = this.selectedAddress.postcode;
+            }
         } else {
             addressObject.building = this.buildingInput.value;
             addressObject.street = this.streetInput.value;

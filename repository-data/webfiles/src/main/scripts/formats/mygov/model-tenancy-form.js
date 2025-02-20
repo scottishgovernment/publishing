@@ -349,6 +349,8 @@ const modelTenancyForm = {
                 ]
             },
             {
+                hideTracker: true,
+                showInTracker: false,
                 slug: 'review',
                 title: 'Review',
                 pages: [
@@ -363,6 +365,8 @@ const modelTenancyForm = {
                 ]
             },
             {
+                hideTracker: true,
+                showInTracker: false,
                 slug: 'download',
                 title: 'Download',
                 pages: [
@@ -402,7 +406,7 @@ const modelTenancyForm = {
             .then(data => {
                 this.form.formDataObject = JSON.parse(data.responseText);
             })
-            .finally(data => {
+            .then(data => {
                 // reformat terms
                 function capitaliseFirstLetter(val) {
                     return String(val).charAt(0).toUpperCase() + String(val).slice(1);
@@ -424,6 +428,8 @@ const modelTenancyForm = {
                 });
 
                 // end reformat terms
+
+                this.form.formDataObject.facilities = [];
 
                 this.form.initialDataObject = JSON.parse(JSON.stringify(this.form.formDataObject));
 
