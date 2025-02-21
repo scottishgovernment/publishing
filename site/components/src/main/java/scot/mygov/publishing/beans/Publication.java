@@ -1,12 +1,12 @@
 package scot.mygov.publishing.beans;
 
 import org.hippoecm.hst.container.RequestContextProvider;
-import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
-import org.onehippo.forge.selection.hst.contentbean.ValueList;
-import org.onehippo.forge.selection.hst.util.SelectionUtil;
 import java.util.Calendar;
+import java.util.Map;
+
+import static scot.mygov.publishing.components.FilteredResultsComponent.publicationTypesMap;
 
 @HippoEssentialsGenerated(internalName = "publishing:Publication")
 @Node(jcrType = "publishing:Publication")
@@ -32,8 +32,8 @@ public class Publication extends Base {
     }
 
     public String getLabel() {
-        HstRequestContext context = RequestContextProvider.get();
-        ValueList publicationValueList = SelectionUtil.getValueListByIdentifier("publicationTypes", context);
-        return SelectionUtil.valueListAsMap(publicationValueList).getOrDefault(getPublicationType(), "Publication");
+        Map<String, String> publicationTypes = publicationTypesMap(RequestContextProvider.get());
+        String publicationType = getPublicationType();
+        return publicationTypes.containsKey(getPublicationType()) ? publicationTypes.get(publicationType) : "Publication";
     }
 }

@@ -116,7 +116,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         if (topics == null) {
             return;
         }
-        Map<String, String> topicsMap = topicsMap(request);
+        Map<String, String> topicsMap = topicsMap(request.getRequestContext());
         getTopics(request).stream().forEach(topic -> searchBuilder.topics(topic, topicsMap));
     }
 
@@ -128,8 +128,8 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         return Arrays.asList(topics);
     }
 
-    static Map<String, String> topicsMap(HstRequest request) {
-        HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
+    public static Map<String, String> topicsMap(HstRequestContext context) {
+        HippoBean baseBean = context.getSiteContentBaseBean();
         HippoBean topicsList = getTopicsList(baseBean);
         if (topicsList == null) {
             return emptyMap();
@@ -151,7 +151,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         if (publicationTypes == null) {
             return;
         }
-        Map<String, String> publicationTypesMap = publicationTypesMap(request);
+        Map<String, String> publicationTypesMap = publicationTypesMap(request.getRequestContext());
         getPublicationTypes(request).stream().forEach(type -> searchBuilder.publicationTypes(type, publicationTypesMap));
     }
 
@@ -163,15 +163,15 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         return Arrays.asList(types);
     }
 
-    static Map<String, String> publicationTypesMap(HstRequest request) {
+    public static Map<String, String> publicationTypesMap(HstRequestContext context) {
         try {
-            Session session = request.getRequestContext().getSession();
+            Session session = context.getSession();
             if (!session.nodeExists(PUBLICATION_VALUE_LIST)) {
                 return Collections.emptyMap();
             }
 
             Node publicationValueList = session.getNode(PUBLICATION_VALUE_LIST);
-            Node typesForSiteNode = request.getRequestContext().getSiteContentBaseBean().getNode().getNode("administration/publicationTypes");
+            Node typesForSiteNode = context.getSiteContentBaseBean().getNode().getNode("administration/publicationTypes");
             NodeIterator it = publicationValueList.getNodes("selection:listitem");
 
             Map<String, String> map = new TreeMap<>();

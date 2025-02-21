@@ -35,7 +35,7 @@ public class NewsComponent extends EssentialsContentComponent  {
 
     public static void addTopics(HstRequest request) {
 
-        Map<String, String> topicsMap = topicsMap(request);
+        Map<String, String> topicsMap = topicsMap(request.getRequestContext());
         request.setAttribute("topicsMap", topicsMap);
 
         HippoBean bean = request.getRequestContext().getContentBean();

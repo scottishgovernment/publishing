@@ -20,7 +20,7 @@
 
             <div class="ds_layout__header">
                 <header class="ds_page-header">
-                    <span <@revertlang document /> class="ds_page-header__label  ds_content-label">Publication<#if document.publicationType??> - <span id="sg-meta__publication-type">${publicationTypesMap[document.publicationType]}</span></#if></span>
+                    <span <@revertlang document /> class="ds_page-header__label  ds_content-label">Publication - ${document.label}</span></span>
                     <h1 class="ds_page-header__title">
                     <#if document.title?has_content>${document.title}</#if>
                     </h1>
