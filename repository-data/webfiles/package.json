@@ -12,7 +12,6 @@
     "sass_campaign": "sass ./src/main/scss/campaign/main.scss ./src/main/resources/site/assets/campaign/css/main.css --style compressed",
     "sass_designsystem": "sass ./src/main/scss/designsystem/main.scss ./src/main/resources/site/assets/designsystem/css/main.css --style compressed",
     "sass_mygov": "sass ./src/main/scss/mygov/main.scss ./src/main/resources/site/assets/mygov/css/main.css --style compressed",
-    "sass_tn": "sass ./src/main/scss/tradingnation/main.scss ./src/main/resources/site/assets/tradingnation/css/main.css --style compressed",
     "svgsprite": "node svg-sprite",
     "test": "karma start ./test/karma.conf.js",
     "webpack": "NODE_OPTIONS=--openssl-legacy-provider webpack --config ./src/main/scripts/webpack.config.js"
