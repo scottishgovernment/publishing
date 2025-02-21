@@ -110,7 +110,7 @@
         "url": "${orgurl}",
         "logo": {
             "@type": "ImageObject",
-            "url": "<@hst.link path="/assets/images/logos/${logo}.png" fullyQualified=true />
+            "url": "<@hst.link path="/assets/images/logos/${logo}.png" fullyQualified=true />"
         }
     },
     "headline": "${document.title?json_string}",
@@ -122,7 +122,7 @@
         "url": "${orgurl}",
         "logo": {
             "@type": "ImageObject",
-            "url": "<@hst.link path="/assets/images/logos/${logo}.png" fullyQualified=true />
+            "url": "<@hst.link path="/assets/images/logos/${logo}.png" fullyQualified=true />"
         }
     }
 }
