@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: ca9864fa-7b1f-431c-bc79-10038b982301
+          jcr:uuid: 937445cb-e4c9-4e95-9305-73cc003a0c22
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -75,7 +75,7 @@ definitions:
           publishing:showFeedback: false
           publishing:contentitemlanguage: en
           publishing:topics: ['']
-          jcr:uuid: 8c86657f-6680-4694-9c91-4551df06fba2
+          jcr:uuid: ae697565-4da7-4241-8866-944256c08453
           hippostdpubwf:lastModificationDate: 2025-02-03T08:29:54.493Z
           hippostdpubwf:creationDate: 2025-02-03T08:29:54.493Z
           publishing:publicationType: ''
@@ -150,37 +150,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
-          /authorNotes:
-            jcr:primaryType: frontend:plugin
-            caption: Author notes
-            field: authorNotes
-            hint: Enter any notes relevant to this content item.  This will not appear
-              on the page itself.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /showFeedback:
-            jcr:primaryType: frontend:plugin
-            caption: Show feedback?
-            field: showFeedback
-            hint: Should this page include the ability to leave user feedback?
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /contentitemlanguage:
-            jcr:primaryType: frontend:plugin
-            caption: Content language
-            field: dynamicdropdown
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              showDefault: 'false'
-              source: /content/documents/publishing/valuelists/contentitemlanguages
-              valuelistProvider: ''
           /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
@@ -196,6 +165,27 @@ definitions:
               showTitles: false
               startCollapsed: false
               titleMapping: []
+          /contentitemlanguage:
+            jcr:primaryType: frontend:plugin
+            caption: Content language
+            field: dynamicdropdown
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              showDefault: 'false'
+              source: /content/documents/publishing/valuelists/contentitemlanguages
+              valuelistProvider: ''
+          /showFeedback:
+            jcr:primaryType: frontend:plugin
+            caption: Show feedback?
+            field: showFeedback
+            hint: Should this page include the ability to leave user feedback?
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /topics:
             jcr:primaryType: frontend:plugin
             caption: Topic
@@ -217,3 +207,13 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               orientation: vertical
               source: /content/documents/publishing/valuelists/publicationTypes
+          /authorNotes:
+            jcr:primaryType: frontend:plugin
+            caption: Author notes
+            field: authorNotes
+            hint: Enter any notes relevant to this content item.  This will not appear
+              on the page itself.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
