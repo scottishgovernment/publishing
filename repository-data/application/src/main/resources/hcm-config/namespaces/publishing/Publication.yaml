@@ -13,7 +13,7 @@ definitions:
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
           jcr:uuid: 937445cb-e4c9-4e95-9305-73cc003a0c22
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
+          hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated', 'hippotaxonomy:classifiable']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           /publicationDate:
             jcr:primaryType: hipposysedit:field
@@ -150,6 +150,26 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
+          /tags:
+            jcr:primaryType: frontend:plugin
+            engine: ${engine}
+            mode: ${mode}
+            plugin.class: org.onehippo.forge.ecmtagging.editor.TagsPlugin
+            search.paths: /content
+            wicket.id: ${cluster.id}.field
+            wicket.model: ${wicket.model}
+            widget.cols: '20'
+            widget.rows: '2'
+            /yui.config:
+              jcr:primaryType: frontend:pluginconfig
+              anim.vert: true
+              container.id: tagging-autocomplete
+              schema.fields: [label, url]
+              schema.result.list: response.results
+              use.shadow: true
+              /schema.meta.fields:
+                jcr:primaryType: frontend:pluginconfig
+                totalHits: response.totalHits
           /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content

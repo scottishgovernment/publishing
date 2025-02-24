@@ -171,9 +171,12 @@ public class FilteredResultsComponent extends EssentialsListComponent {
             }
 
             Node publicationValueList = session.getNode(PUBLICATION_VALUE_LIST);
-            Node typesForSiteNode = context.getSiteContentBaseBean().getNode().getNode("administration/publicationTypes");
-            NodeIterator it = publicationValueList.getNodes("selection:listitem");
+            Node typesForSiteNode = publicationTypesForSiteNode(context);
+            if (typesForSiteNode == null) {
+                return Collections.emptyMap();
+            }
 
+            NodeIterator it = publicationValueList.getNodes("selection:listitem");
             Map<String, String> map = new TreeMap<>();
             while (it.hasNext()) {
                 Node node = it.nextNode();
@@ -187,6 +190,12 @@ public class FilteredResultsComponent extends EssentialsListComponent {
             LOG.error("Failed to load publication types", e);
             return Collections.emptyMap();
         }
+    }
+
+    static Node publicationTypesForSiteNode(HstRequestContext context) throws RepositoryException {
+        Node typesForSiteNode = context.getSession().getNode("/content/publicationtypes");
+        String sitename = context.getSiteContentBaseBean().getName();
+        return typesForSiteNode.hasNode(sitename) ? typesForSiteNode.getNode(sitename) : null;
     }
 
     static String param(HstRequest request, String param) {

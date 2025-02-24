@@ -18,6 +18,7 @@ import javax.jcr.RepositoryException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 import static scot.mygov.publishing.components.SiteHeaderComponent.setCanonical;
@@ -55,15 +56,17 @@ public class SEOComponent extends EssentialsDocumentComponent {
         request.setAttribute("contentBean", contentBean);
         request.setAttribute("baseBean", request.getRequestContext().getSiteContentBaseBean());
 
-        // if this is a news item then override date
-        News news = request.getRequestContext().getContentBean(News.class);
-        if (news != null) {
-            request.setAttribute("date", news.getPublicationDate());
+        Calendar publicationDate = contentBean.getSingleProperty("publishing:publicationDate");
+        if (publicationDate != null) {
+            request.setAttribute("date", publicationDate);
         }
         request.setAttribute("subjects", getSubjects(contentBean));
         setCanonical(request);
     }
 
+    void setDate() {
+
+    }
     void setPageTitle(HstRequest request, String siteTitle, HippoBean contentBean) {
 
         request.setAttribute(SITE_TITLE, siteTitle);

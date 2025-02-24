@@ -10,6 +10,9 @@ import scot.mygov.publishing.HippoUtils;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import javax.jcr.version.Version;
+import javax.jcr.version.VersionHistory;
+import javax.jcr.version.VersionIterator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +27,6 @@ import static scot.mygov.publishing.eventlisteners.MirrorEventListener.PUBLISH_I
 public class PublicationTypeEventListener {
 
     private static final Logger LOG = LoggerFactory.getLogger(PublicationTypeEventListener.class);
-
-    private static final String PUBLICATION_TYPES = "administration/publicationTypes";
 
     Session session;
 
@@ -67,10 +68,22 @@ public class PublicationTypeEventListener {
     }
 
     void handlePublish(HippoWorkflowEvent event) throws RepositoryException {
-        HippoNode handle = (HippoNode) session.getNodeByIdentifier(event.subjectId());
-        Node variant = hippoUtils.getPublishedOrDraftVariant(handle);
-        if (variant != null && variant.isNodeType("publishing:Publication")) {
-            updatePublicationTypesForPublish(variant);
+        Node handle = session.getNodeByIdentifier(event.subjectId());
+        Node publishedVariant = hippoUtils.getPublishedOrDraftVariant(handle);
+
+        Node versionable = hippoUtils.findFirst(handle.getNodes(handle.getName()), v -> v.isNodeType("mix:versionable") );
+        if (versionable != null) {
+            VersionHistory versionHistory = session.getWorkspace().getVersionManager().getVersionHistory(versionable.getPath());
+            VersionIterator versionIterator = versionHistory.getAllVersions();
+            versionIterator.nextVersion();
+            if (versionIterator.hasNext()) {
+                Version lastVersion = versionIterator.nextVersion();
+                updatePublicationTypesForDeublish(lastVersion.getFrozenNode(), site(handle));
+            }
+        }
+
+        if (publishedVariant != null && publishedVariant.isNodeType("publishing:Publication")) {
+            updatePublicationTypesForPublish(publishedVariant);
         }
     }
 
@@ -78,56 +91,61 @@ public class PublicationTypeEventListener {
         HippoNode handle = (HippoNode) session.getNodeByIdentifier(event.subjectId());
         Node variant = hippoUtils.getPublishedOrDraftVariant(handle);
         if (variant != null && variant.isNodeType("publishing:Publication")) {
-            updatePublicationTypesForDeublish(variant);
+            updatePublicationTypesForDeublish(variant, site(variant));
         }
     }
 
     private void updatePublicationTypesForPublish(Node variant) throws RepositoryException {
-        updateTypeUsed(variant, true);
+        updateTypeUsed(variant, site(variant), true);
     }
 
-    private void updatePublicationTypesForDeublish(Node variant) throws RepositoryException {
+    private void updatePublicationTypesForDeublish(Node variant, Node site) throws RepositoryException {
         String type = publicationType(variant);
-        Node site = site(variant);
         String xpath = publicationsOfTypeQuery(site.getIdentifier(), type);
         List<Node> nodes = new ArrayList<>();
         hippoUtils.executeXpathQuery(session, xpath, nodes::add);
         if (nodes.isEmpty()) {
-            updateTypeUsed(variant, false);
+            updateTypeUsed(variant, site, false);
         }
     }
 
     String publicationsOfTypeQuery(String siteId, String type) {
         // convert to the ancestors style
         return String.format("//element(*, publishing:Publication)" +
-                "[hippo:paths = '%s']" +
-                "[hippostd:stateSummary = 'live']" +
-                "[hippostd:state = 'published']" +
-                "[publishing:publicationType = '%s']",
+                        "[hippo:paths = '%s']" +
+                        "[hippostd:stateSummary = 'live']" +
+                        "[hippostd:state = 'published']" +
+                        "[publishing:publicationType = '%s']",
                 siteId,
                 type);
     }
 
-    void updateTypeUsed(Node node, boolean used) throws RepositoryException {
-        Node typeNode = publicationTypeNode(node);
+    void updateTypeUsed(Node node, Node site, boolean isUsed) throws RepositoryException {
         String type = publicationType(node);
-        if (used) {
-            typeNode.setProperty(type, Boolean.toString(used));
-        } else {
-            typeNode.getProperty(type).remove();
+        Node publicationTypesNode = publicationTypesNode(site);
+        if (isUsed) {
+            publicationTypesNode.setProperty(type, Boolean.toString(isUsed));
+            session.save();
+            return;
         }
-        session.save();
+
+        if (publicationTypesNode.hasProperty(type)) {
+            publicationTypesNode.getProperty(type).remove();
+            session.save();
+        }
     }
 
     String publicationType(Node node) throws RepositoryException {
         return node.getProperty("publishing:publicationType").getString();
     }
 
-    Node publicationTypeNode(Node node) throws RepositoryException {
-        Node site = site(node);
-        return site.hasNode(PUBLICATION_TYPES)
-                ? site.getNode(PUBLICATION_TYPES)
-                : site.addNode(PUBLICATION_TYPES, "nt:unstructured");
+    Node publicationTypesNode(Node site) throws RepositoryException {
+        Node adminFolder = session.getNode("/content/publicationtypes");
+        return getOrCreate(adminFolder, site.getName());
+    }
+
+    Node getOrCreate(Node node, String name) throws RepositoryException {
+        return node.hasNode(name) ? node.getNode(name) : node.addNode(name,"nt:unstructured");
     }
 
     Node site(Node node) throws RepositoryException {

@@ -35,8 +35,6 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
      */
     @Override
     public String resolveToPathInfo(Node resourceContainerNode, Node resourceNode, Mount mount) {
-
-
         try {
             String pathInfo = resourceContainerNode.getPath();
             if (pathInfo == null) {
@@ -44,6 +42,10 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
             }
 
             if ("publishing:thumbnails".equals(resourceNode.getName())) {
+                return resourceNode.getPath();
+            }
+
+            if (resourceContainerNode.isNodeType("publishing:document")) {
                 return resourceNode.getPath();
             }
 
@@ -61,13 +63,15 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
     public Node resolveToResourceNode(Session session, String pathInfo) {
 
         try {
+            if (session.nodeExists(pathInfo)) {
+                return super.resolveToResourceNode(session, pathInfo);
+            }
             if (StringUtils.endsWith(pathInfo, "/publishing:thumbnails")) {
                 return session.getNode(pathInfo);
             }
             int lastSlash = pathInfo.lastIndexOf('/');
             String name = pathInfo.substring(lastSlash + 1);
             String path = "/content/documents" + pathInfo.substring(0, lastSlash);
-
             if (!session.nodeExists(path)) {
                 return super.resolveToResourceNode(session, pathInfo);
             }

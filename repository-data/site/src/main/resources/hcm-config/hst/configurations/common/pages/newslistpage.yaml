@@ -6,6 +6,9 @@ definitions:
       /main:
         jcr:primaryType: hst:component
         hst:referencecomponent: hst:abstractpages/filteredlistpage/main
+        /breadcrumbs:
+          jcr:primaryType: hst:component
+          hst:referencecomponent: hst:components/breadcrumbs
         /results:
           jcr:primaryType: hst:containercomponent
           hippo:identifier: 821d3e3b-b9a7-48d1-87fe-33b480fa3117

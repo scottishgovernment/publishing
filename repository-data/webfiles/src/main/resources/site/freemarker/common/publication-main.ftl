@@ -57,6 +57,7 @@
                 
             </div>
 
+            <@hst.include ref="sidebar"/>
             <#include 'feedback-wrapper.ftl'>
 
         </main>
