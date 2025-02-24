@@ -18,6 +18,9 @@ sites:
  - id: disclosure
    mount: disclosure
    reverse_slash_dns: scot/gov/disclosure/www
+ - id: fostercare
+   mount: fostercare
+   reverse_slash_dns: scot/gov/campaign/fostercare
  - id: rentersrights
    mount: rentersrights
    reverse_slash_dns: scot/gov/campaign/rentersrights

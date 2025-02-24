@@ -1,0 +1,184 @@
+/content/documents/fostercare/site-furniture:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  hippo:name: Site furniture
+  hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror]
+  /footer:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    hippo:name: Footer items
+    hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
+    /privacy:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      hippo:name: Privacy
+      /privacy:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2025-02-24T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2025-02-24T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 65171f50-aa61-4f2f-a5db-0ab07967b0db
+        hippotranslation:locale: en
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:lastUpdatedDate: 2025-02-24T09:00:00Z
+        publishing:metaDescription: Privacy
+        publishing:permalink: /privacy/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Privacy
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: privacy
+        publishing:summary: Privacy
+        publishing:title: Privacy
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /accessibility:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      hippo:name: Accessibility
+      /accessibility:
+        jcr:primaryType: publishing:article
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        hippo:availability: [preview]
+        hippo:name: Accessibility
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2025-02-24T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2025-02-24T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: d779c106-827f-4ce3-8ee0-ebeff95354ef
+        hippotranslation:locale: en
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Accessibility
+        publishing:permalink: /accessibility/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Accessibility
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: accessibility
+        publishing:summary: Accessibility
+        publishing:title: Accessibility
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+    /cookies:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      hippo:name: Cookies
+      /cookies:
+        jcr:primaryType: publishing:cookiepage
+        jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        hippo:availability: [preview]
+        hippo:name: Cookies
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: system
+        hippostdpubwf:creationDate: 2025-02-24T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2025-02-24T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 71cb38f6-b5c7-43d7-93d1-63305f87155b
+        hippotranslation:locale: en
+        publishing:audience: ''
+        publishing:authorNotes: ''
+        publishing:metaDescription: Cookies
+        publishing:permalink: /cookies/
+        publishing:reportingtags: []
+        publishing:sensitive: false
+        publishing:seoTitle: Cookies
+        publishing:serviceproviders: []
+        publishing:showFeedback: true
+        publishing:showInParent: true
+        publishing:slug: cookies
+        publishing:summary: Cookies
+        publishing:title: Cookies
+        publishing:userneed: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:additionalContent:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:logo:
+          jcr:primaryType: hippogallerypicker:imagelink
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          hippo:facets: []
+          hippo:modes: []
+          hippo:values: []
+        /publishing:contentOwner:
+          jcr:primaryType: hippo:mirror
+          hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+  /banners:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:versionable']
+    hippo:name: Banners
+    hippostd:foldertype: [new-mourning-banner, new-notification-banner, new-phase-banner]
+  /status:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    hippo:name: Status pages
+    hippostd:foldertype: [new-document, new-folder]
+    /404:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      hippo:name: '404'
+      /404:
+        jcr:primaryType: publishing:status
+        jcr:mixinTypes: ['mix:referenceable']
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-24T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2025-02-24T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 76af930f-9f6b-4d1a-8b2b-b0b1e35a6c9f
+        hippotranslation:locale: en
+        publishing:title: '404'
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p>Sorry, but the page you were trying to view doesn't exist. This could be the result of either:</p>
+
+              <ul>
+               <li>a mistyped address</li>
+               <li>an out of date link</li>
+              </ul>

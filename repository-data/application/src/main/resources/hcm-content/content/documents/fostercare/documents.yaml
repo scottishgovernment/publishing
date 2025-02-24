@@ -1,0 +1,9 @@
+/content/documents/fostercare:
+  jcr:primaryType: hippostd:folder
+  .meta:order-before: mygov
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  hippo:name: Foster care
+  hippostd:foldertype:
+    - new-imageandtext-folder
+    - new-news-folder
+    - new-video-folder

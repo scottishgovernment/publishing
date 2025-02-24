@@ -114,3 +114,12 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/digitalconnectivity/site-furniture/banners
+      /fostercare-document:
+        jcr:primaryType: hipposys:domainrule
+        /include-fostercare-banners-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/fostercare/site-furniture/banners
