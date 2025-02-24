@@ -8,7 +8,7 @@ definitions:
         hipposys:role: editor
       /administration:
         jcr:primaryType: hipposys:domainrule
-        /include-trading-nation-administration-folder:
+        /include-administration-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
           hipposys:facet: jcr:path
@@ -17,22 +17,13 @@ definitions:
           hipposys:value: /content/documents/administration
       /urlrewriter:
         jcr:primaryType: hipposys:domainrule
-        /include-trading-nation-administration-folder:
+        /include-administration-folder:
           jcr:primaryType: hipposys:facetrule
           hipposys:equals: true
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/urlrewriter
-      /trading-nation:
-        jcr:primaryType: hipposys:domainrule
-        /include-trading-nation-administration-folder:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: true
-          hipposys:facet: jcr:path
-          hipposys:filter: false
-          hipposys:type: Reference
-          hipposys:value: /content/documents/trading-nation/administration
       /ddat:
         jcr:primaryType: hipposys:domainrule
         /include-ddat-administration-folder:

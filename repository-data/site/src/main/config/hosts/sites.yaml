@@ -33,9 +33,6 @@ sites:
  - id: shorttermlets
    mount: shorttermlets
    reverse_slash_dns: scot/gov/campaign/shorttermlets
- - id: tradingnation
-   mount: trading-nation
-   reverse_slash_dns: scot/mygov/tradingnation
 
 environments:
   - name: lcl

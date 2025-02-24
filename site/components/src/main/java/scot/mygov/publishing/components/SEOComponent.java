@@ -40,9 +40,9 @@ public class SEOComponent extends EssentialsDocumentComponent {
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
 
-        // try to find an seo document first, and then fall back to the content document.
+        // try to find a seo document first, and then fall back to the content document.
         // this is so that the component can be used in channel manager style pages as in ddat,
-        // or baked into the page like mygov / trading nations
+        // or baked into the page like mygov
         HippoBean contentBean = (HippoBean) request.getAttribute(REQUEST_ATTR_DOCUMENT);
         if (contentBean == null) {
             contentBean = request.getRequestContext().getContentBean();
