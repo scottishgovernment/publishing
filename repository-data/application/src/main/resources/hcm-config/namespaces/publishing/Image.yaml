@@ -78,7 +78,9 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Image
             field: image
-            hint: ''
+            hint: "Select or upload an image. This will be automatically cropped to 4:3 and 
+              1:1 ratios to be used on various pages. The image will display best if it's at 
+              least 1472 pixels wide and if the focal point is in the centre."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -86,8 +88,10 @@ definitions:
               nodetypes: ['publishing:ColumnImage']
           /alt:
             jcr:primaryType: frontend:plugin
-            caption: Alt
+            caption: Alt text
             field: alt
+            hint: "Add a concise description of what the image shows. For guidance on how to 
+              write alt text see: https://design-system.service.gov.uk/styles/images/#alt-text" 
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -98,7 +102,8 @@ definitions:
             field: caption
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: ''
+            hint: "This will display underneath the image. There is no character limit but 
+              you should be as concise as possible."
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /credit:
@@ -107,6 +112,7 @@ definitions:
             field: credit
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: ''
+            hint: "Add details of the photographer or image source. This will display below 
+              the image and after any caption as 'Credit: [your text]'."
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
