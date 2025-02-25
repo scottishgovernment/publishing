@@ -16,6 +16,14 @@
                 <li class="ds_link-item">
                     <div class="ds_link-item__metadata">
                         <dl class="ds_metadata ds_metadata--inline">
+                            <#if publication.label?has_content>
+                            <div class="ds_metadata__item">
+                                <dt class="ds_metadata__key">Publication type</dt>
+                                <dd class="ds_metadata__value">
+                                ${publication.label}
+                                </dd>
+                            </div>
+                            </#if>
                             <div class="ds_metadata__item">
                                 <dt class="ds_metadata__key visually-hidden">Published</dt>
                                 <dd class="ds_metadata__value"><@fmt.formatDate value=publication.publicationDate.time type="both" pattern="d MMM yyyy"/></dd>
