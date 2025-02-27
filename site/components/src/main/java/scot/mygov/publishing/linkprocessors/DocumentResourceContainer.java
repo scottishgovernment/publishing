@@ -45,7 +45,7 @@ public class DocumentResourceContainer extends AbstractResourceContainer {
                 return resourceNode.getPath();
             }
 
-            if (resourceContainerNode.isNodeType("publishing:document")) {
+            if (resourceContainerNode.isNodeType(PUBLISHING_DOCUMENT)) {
                 return resourceNode.getPath();
             }
 

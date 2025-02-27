@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scot.mygov.publishing.beans.ColumnImage;
 import scot.mygov.publishing.beans.ImageCard;
-import scot.mygov.publishing.beans.News;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
 import javax.jcr.RepositoryException;
@@ -62,10 +61,6 @@ public class SEOComponent extends EssentialsDocumentComponent {
         }
         request.setAttribute("subjects", getSubjects(contentBean));
         setCanonical(request);
-    }
-
-    void setDate() {
-
     }
     void setPageTitle(HstRequest request, String siteTitle, HippoBean contentBean) {
 
