@@ -227,6 +227,15 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
               orientation: vertical
               source: /content/documents/publishing/valuelists/publicationTypes
+          /relateditems:
+            jcr:primaryType: frontend:plugin
+            caption: Related items
+            field: relateditems
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /authorNotes:
             jcr:primaryType: frontend:plugin
             caption: Author notes

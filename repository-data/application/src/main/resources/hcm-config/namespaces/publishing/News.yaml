@@ -149,6 +149,15 @@ definitions:
               showDefault: 'false'
               source: /content/documents/publishing/valuelists/contentitemlanguages
               valuelistProvider: ''
+          /relateditems:
+            jcr:primaryType: frontend:plugin
+            caption: Related items
+            field: relateditems
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /Image:
             jcr:primaryType: frontend:plugin
             caption: Image
