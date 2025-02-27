@@ -159,7 +159,7 @@
             <#if (RequestParameters.q)?has_content>
                 <#assign clearAll = "?q=" + RequestParameters.q/>
             <#else>
-                <#assign clearAll = "."/>
+                <#assign clearAll = "?"/>
             </#if>
             <a href="${clearAll}" role="button" class="ds_facets__clear-button  ds_button  ds_button--secondary  js-clear-filters">
                 Clear all filters
