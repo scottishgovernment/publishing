@@ -266,15 +266,17 @@ const rentAdjudicationForm = {
         this.initialDataObject = JSON.parse(JSON.stringify(formObject));
 
         const beforeUnloadHandler = (event) => {
-            const initialDataObject = this.initialDataObject || {};
-            if (!this.pauseUnloadEvent && !_.isEqual(initialDataObject, this.form.formObject)) {
-                // Recommended
-                event.preventDefault();
+            if (rentAdjudicationForm.disableUnload !== false) {
+                const initialDataObject = this.initialDataObject || {};
+                if (!this.pauseUnloadEvent && !_.isEqual(initialDataObject, this.form.formObject)) {
+                    // Recommended
+                    event.preventDefault();
 
-                // Included for legacy support, e.g. Chrome/Edge < 119
-                event.returnValue = true;
+                    // Included for legacy support, e.g. Chrome/Edge < 119
+                    event.returnValue = true;
+                }
+                this.pauseUnloadEvent = false;
             }
-            this.pauseUnloadEvent = false;
         };
         window.addEventListener('beforeunload', beforeUnloadHandler);
         this.pauseUnloadEvent = false;
@@ -467,6 +469,7 @@ const rentAdjudicationForm = {
 };
 
 $('.multi-page-form').on('click', '.js-download-file', function (event) {
+    rentAdjudicationForm.disableUnload = WebTransportDatagramDuplexStream;
     event.preventDefault();
 
     const documentDownloadForm = $('#ra-document-download');
@@ -496,6 +499,7 @@ $('.multi-page-form').on('click', '.js-download-file', function (event) {
     if (rentAdjudicationForm.recaptchaEnabled) {
         expireRecaptcha();
     }
+    rentAdjudicationForm.disableUnload = false;
 });
 
 window.format = rentAdjudicationForm;
