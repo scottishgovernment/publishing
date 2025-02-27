@@ -40,9 +40,9 @@
 
                 <#if publicationTypesMap?has_content>
                     <div class="ds_accordion-item">
-                        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-2" aria-labelledby="panel-2-heading" />
+                        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-1" aria-labelledby="panel-1-heading" />
                         <div class="ds_accordion-item__header">
-                            <h3 id="panel-2-heading" class="ds_accordion-item__title">
+                            <h3 id="panel-1-heading" class="ds_accordion-item__title">
                                 Content type
                                 <div class="ds_search-filters__filter-count">
                                     <#assign count = 0/>
@@ -60,7 +60,7 @@
                                 </div>
                             </h3>
                             <span class="ds_accordion-item__indicator"></span>
-                            <label class="ds_accordion-item__label" for="panel-2"><span class="visually-hidden">Show this section</span></label>
+                            <label class="ds_accordion-item__label" for="panel-1"><span class="visually-hidden">Show this section</span></label>
                         </div>
                         <div class="ds_accordion-item__body">
                             <fieldset>
@@ -82,7 +82,7 @@
                                                     <#if isSelected == true>
                                                         checked=true
                                                     </#if>
-                                                    id="${item}" name="publicationTypes" value="${item}" class="ds_checkbox__input" type="checkbox">
+                                                    id="${item}" name="type" value="${item}" class="ds_checkbox__input" type="checkbox">
                                                 <label for="${item}" class="ds_checkbox__label">${(publicationTypesMap[item])?replace("/","/<wbr>")?no_esc}</label>
                                             </div>
                                         </#list>
