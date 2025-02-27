@@ -3,6 +3,7 @@
 <#include "../macros/content-blocks.ftl">
 
 <#if document??>
+    <@hst.include ref="breadcrumbs"/>
     <div class="ds_wrapper">
         <main id="main-content" class="ds_layout  ds_layout--search-results--filters">
             <div class="ds_layout__header">

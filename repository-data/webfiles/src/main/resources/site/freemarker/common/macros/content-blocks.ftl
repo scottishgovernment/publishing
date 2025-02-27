@@ -1,3 +1,4 @@
+
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#function slugify string>
@@ -260,6 +261,131 @@
             </#if>
             <#-- end rich text block -->
         </#if>
+
+        <#if hst.isNodeType(contentBlock.node, 'publishing:document')>
+            <#-- rich text block -->
+            <#if contentBlock.noindex>
+            <!--noindex-->
+            </#if>
+
+            <#assign doc = contentBlock/>
+            <#assign docCount = contentBlock?counter />
+            <#assign filenameExtension = doc.document.filename?keep_after_last(".")?upper_case/>
+
+            <@hst.link var="documentdownload" hippobean=doc.document>
+                <@hst.param name="forceDownload" value="true"/>
+            </@hst.link>
+
+            <@hst.link var="documentinline" hippobean=doc.document>
+            </@hst.link>
+
+            <#switch filenameExtension?lower_case>
+                <#case "csv">
+                    <#assign fileDescription = "CSV file" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/csv.svg' />
+                    <#break>
+                <#case "xls">
+                <#case "xlsx">
+                <#case "xlsm">
+                    <#assign fileDescription = "Excel document" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/excel.svg' />
+                    <#break>
+                <#case "kml">
+                <#case "kmz">
+                    <#assign fileDescription = "${filenameExtension} data" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/geodata.svg' />
+                    <#break>
+                <#case "gif">
+                <#case "jpg">
+                <#case "jpeg">
+                <#case "png">
+                <#case "svg">
+                    <#assign fileDescription = "Image" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/image.svg' />
+                    <#break>
+                <#case "pdf">
+                    <#assign fileDescription = "PDF" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/pdf.svg' />
+                    <#break>
+                <#case "ppt">
+                <#case "pptx">
+                <#case "pps">
+                <#case "ppsx">
+                    <#assign fileDescription = "Powerpoint document" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/ppt.svg' />
+                    <#break>
+                <#case "rtf">
+                    <#assign fileDescription = "Rich text file" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/rtf.svg' />
+                    <#break>
+                <#case "txt">
+                    <#assign fileDescription = "Text file" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/txt.svg' />
+                    <#break>
+                <#case "doc">
+                <#case "docx">
+                    <#assign fileDescription = "Word document" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/word.svg' />
+                    <#break>
+                <#case "xml">
+                <#case "xsd">
+                    <#assign fileDescription = "${filenameExtension} file" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/xml.svg' />
+                    <#break>
+                <#default>
+                    <#assign fileDescription = "${filenameExtension} file" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/generic.svg' />
+            </#switch>
+
+            <div class="ds_file-download <#if doc.highlight> ds_file-download--highlighted</#if>">
+                <div class="ds_file-download__thumbnail">
+                    <a data-button="document-cover" class="ds_file-download__thumbnail-link" aria-hidden="true" tabindex="-1" href="${documentinline}">
+                        <span class="visually-hidden">Document cover image</span>
+                        <#if filenameExtension == "PDF" && !doc.useGenericIcon && doc.thumbnails?has_content>
+                            <img class="ds_file-download__thumbnail-image"
+                                src="<@hst.link hippobean=doc.thumbnails[0]/>"
+                                loading="lazy"
+                                srcset="
+                                    <#list doc.thumbnails as thumbnail>
+                                        <@hst.link hippobean=thumbnail/> ${thumbnail.filename?keep_before_last(".")?keep_after_last("_")}w<#sep>, </#sep>
+                                    </#list>"
+                                sizes="(min-width: 768px) 104px, 72px"
+                                alt="" />
+                        <#else>
+                            <img class="ds_file-download__thumbnail-image"
+                                src="<@hst.link path=fileThumbnailPath />"
+                                loading="lazy"
+                                alt="" />
+                        </#if>
+                    </a>
+                </div>
+
+                <div class="ds_file-download__content">
+                    <a href="${documentinline}" class="ds_file-download__title" id="file-title-${docCount}" aria-describedby="file-download-{$docCount}">${doc.title}</a>
+                    <div <@revertlang document /> id="file-download-${docCount}" class="ds_file-download__details">
+                        <dl class="ds_metadata  ds_metadata--inline">
+                            <div class="ds_metadata__item">
+                                <dt class="ds_metadata__key">File type</dt>
+                                <dd class="ds_metadata__value"><#if doc.pageCount?? && doc.pageCount != 0 >${doc.pageCount} page </#if>${fileDescription}<span class="visually-hidden">,</span></dd>
+                            </div>
+
+                            <div class="ds_metadata__item">
+                                <dt class="ds_metadata__key">File size</dt>
+                                <dd class="ds_metadata__value"><@formatFileSize document=doc/></dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <#if contentBlock.noindex>
+            <!--endnoindex-->
+            </#if>
+            <#-- end rich text block -->
+        </#if>
+
 
     </#list>
 </#macro>

@@ -36,6 +36,15 @@ public class HippoUtils {
         return null;
     }
 
+    public Node getPublishedOrDraftVariant(Node handle) throws RepositoryException {
+        Node published = getPublishedVariant(handle);
+        if (published != null) {
+            return published;
+        }
+
+        return getDraftVariant(handle);
+    }
+
     public void ensureHasMixin(Node node, String mixin) throws RepositoryException {
         if (!node.isNodeType(mixin)) {
             node.addMixin(mixin);

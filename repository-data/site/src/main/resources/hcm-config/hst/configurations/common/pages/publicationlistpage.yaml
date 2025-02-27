@@ -1,6 +1,6 @@
 definitions:
   config:
-    /hst:hst/hst:configurations/common/hst:pages/newslistpage:
+    /hst:hst/hst:configurations/common/hst:pages/publicationlistpage:
       jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/filteredlistpage
       /main:
@@ -16,7 +16,8 @@ definitions:
           hst:label: Filtered Results List
           hst:parameternames: [pageSize, documentTypes, includeSubtypes, showPagination,
             path, defaultSort]
-          hst:parametervalues: ['10', 'publishing:News', 'false', 'true', '', date]
+          hst:parametervalues: ['10', 'publishing:Publication', 'false', 'true', '',
+            date]
           hst:template: filteredlist.results
           hst:xtype: hst.item
         /side-filter:

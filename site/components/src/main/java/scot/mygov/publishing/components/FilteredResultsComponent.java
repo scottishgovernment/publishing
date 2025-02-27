@@ -29,6 +29,10 @@ import scot.gov.publishing.hippo.funnelback.model.Question;
 import scot.gov.publishing.hippo.funnelback.model.Response;
 import scot.gov.publishing.hippo.funnelback.model.ResultsSummary;
 
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
@@ -50,6 +54,8 @@ public class FilteredResultsComponent extends EssentialsListComponent {
 
     private static final String PUBLICATION_DATE = "publishing:publicationDate";
 
+    private static final String PUBLICATION_VALUE_LIST = "/content/documents/publishing/valuelists/publicationTypes/publicationTypes";
+
     private Collection<String> fieldNames = new ArrayList<>();
 
     @Override
@@ -57,8 +63,10 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         super.init(servletContext, componentConfig);
         Collections.addAll(fieldNames, "publishing:title",
                 "publishing:summary",
+                "hippostd:tags",
                 "publishing:contentBlocks/publishing:content/hippostd:content",
-                "hippostd:tags");
+                "publishing:contentBlocks/publishing:document/hippo:filename",
+                "publishing:contentBlocks/publishing:title");
     }
 
     @Override
@@ -82,6 +90,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
                 .toDate(end)
                 .request(request);
         addTopics(request, searchBuilder);
+        addPublicationTypes(request, searchBuilder);
         searchBuilder.sort(sort(request));
         return searchBuilder.build();
     }
@@ -107,7 +116,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         if (topics == null) {
             return;
         }
-        Map<String, String> topicsMap = topicsMap(request);
+        Map<String, String> topicsMap = topicsMap(request.getRequestContext());
         getTopics(request).stream().forEach(topic -> searchBuilder.topics(topic, topicsMap));
     }
 
@@ -119,8 +128,8 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         return Arrays.asList(topics);
     }
 
-    static Map<String, String> topicsMap(HstRequest request) {
-        HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
+    public static Map<String, String> topicsMap(HstRequestContext context) {
+        HippoBean baseBean = context.getSiteContentBaseBean();
         HippoBean topicsList = getTopicsList(baseBean);
         if (topicsList == null) {
             return emptyMap();
@@ -135,6 +144,58 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         }
 
         return administration.getBean("topics");
+    }
+
+    void addPublicationTypes(HstRequest request, SearchBuilder searchBuilder) {
+        String [] publicationTypes = request.getParameterMap().get("type");
+        if (publicationTypes == null) {
+            return;
+        }
+        Map<String, String> publicationTypesMap = publicationTypesMap(request.getRequestContext());
+        getPublicationTypes(request).stream().forEach(type -> searchBuilder.publicationTypes(type, publicationTypesMap));
+    }
+
+    static List<String> getPublicationTypes(HstRequest request) {
+        String [] types = request.getParameterMap().get("type");
+        if (types == null) {
+            return Collections.emptyList();
+        }
+        return Arrays.asList(types);
+    }
+
+    public static Map<String, String> publicationTypesMap(HstRequestContext context) {
+        try {
+            Session session = context.getSession();
+            if (!session.nodeExists(PUBLICATION_VALUE_LIST)) {
+                return Collections.emptyMap();
+            }
+
+            Node publicationValueList = session.getNode(PUBLICATION_VALUE_LIST);
+            Node typesForSiteNode = publicationTypesForSiteNode(context);
+            if (typesForSiteNode == null) {
+                return Collections.emptyMap();
+            }
+
+            NodeIterator it = publicationValueList.getNodes("selection:listitem");
+            Map<String, String> map = new TreeMap<>();
+            while (it.hasNext()) {
+                Node node = it.nextNode();
+                String key = node.getProperty("selection:key").getString();
+                if (typesForSiteNode.hasProperty(key)) {
+                    map.put(key, node.getProperty("selection:label").getString());
+                }
+            }
+            return map;
+        } catch (RepositoryException e) {
+            LOG.error("Failed to load publication types", e);
+            return Collections.emptyMap();
+        }
+    }
+
+    static Node publicationTypesForSiteNode(HstRequestContext context) throws RepositoryException {
+        Node typesForSiteNode = context.getSession().getNode("/content/publicationtypes");
+        String sitename = context.getSiteContentBaseBean().getName();
+        return typesForSiteNode.hasNode(sitename) ? typesForSiteNode.getNode(sitename) : null;
     }
 
     static String param(HstRequest request, String param) {
@@ -225,9 +286,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
                 .limit(pageSize)
                 .offset(offset);
         addOrderBy(queryBuilder, search.getSort());
-        HstQuery query =  queryBuilder.build();
-        LOG.info("query: {}", query);
-        return query;
+        return queryBuilder.build();
     }
 
     void addOrderBy(HstQueryBuilder queryBuilder, Sort sort) {
@@ -255,6 +314,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         List<Constraint> constraints = new ArrayList<>();
         addTermConstraints(constraints, search);
         addTopicsConstraint(constraints, search);
+        addPublicationTypesConstraint(constraints, search);
         addDateConstraint(constraints, search);
         constraints = constraints.stream().filter(Objects::nonNull).collect(toList());
         return ConstraintBuilder.and(constraints.toArray(new Constraint[] {}));
@@ -286,8 +346,22 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         constraints.add(ConstraintBuilder.or(constraintsArray));
     }
 
+    private void addPublicationTypesConstraint(List<Constraint> constraints, Search search) {
+        if (search.getPublicationTypes().isEmpty()) {
+            return;
+        }
+
+        Constraint [] constraintsArray = search.getPublicationTypes().keySet()
+                .stream().map(this::publicationTypeConstraint).map(this::orConstraint).toArray(Constraint[]::new);
+        constraints.add(ConstraintBuilder.or(constraintsArray));
+    }
+
     Constraint orConstraint(Constraint constraint) {
         return or(constraint);
+    }
+
+    Constraint publicationTypeConstraint(String topic) {
+        return constraint("publishing:publicationType").equalTo(topic);
     }
 
     Constraint topicConstraint(String topic) {

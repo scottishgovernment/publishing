@@ -193,6 +193,12 @@ definitions:
           /filteredlist.results:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/filteredlist/results.ftl
+          /publication-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/publication-main.ftl
+          /latestpublications:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/content-blocks/latestpublications.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
@@ -276,6 +282,12 @@ definitions:
               hst:iconpath: icons/latestnews.svg
               hst:label: Latest news
               hst:template: latestnews
+            /latestPublications:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.LatestPublicationsComponent
+              hst:iconpath: icons/latestnews.svg
+              hst:label: Latest publications
+              hst:template: latestpublications
       /publishing:
         jcr:primaryType: hst:configuration
         hst:inheritsfrom: [../common]

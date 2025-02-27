@@ -16,7 +16,7 @@ import java.util.Collections;
 import static java.util.Collections.singletonList;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-import static scot.mygov.publishing.eventlisteners.MirrorEventListener.PUBLICATION_INTERACTION;
+import static scot.mygov.publishing.eventlisteners.MirrorEventListener.PUBLISH_INTERACTION;
 
 /**
  * Created by z418868 on 10/03/2020.
@@ -185,7 +185,7 @@ public class MirrorEventListenerTest {
     }
 
     HippoWorkflowEvent publishEvent() {
-        return event(true, PUBLICATION_INTERACTION);
+        return event(true, PUBLISH_INTERACTION);
     }
 
     HippoWorkflowEvent nonPublishEvent() {
@@ -195,7 +195,7 @@ public class MirrorEventListenerTest {
 
     HippoWorkflowEvent failedPublishEvent() {
         HippoWorkflowEvent event = mock(HippoWorkflowEvent.class);
-        return event(false, PUBLICATION_INTERACTION);
+        return event(false, PUBLISH_INTERACTION);
     }
 
     HippoWorkflowEvent event(boolean success, String interaction) {

@@ -1357,3 +1357,92 @@
         jcr:primaryType: selection:listitem
         selection:key: uk
         selection:label: Ukrainian
+  /publicationTypes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+    jcr:uuid: de941bf5-9a2f-4cc6-a5ca-415a8f85d9e6
+    hippo:name: publicationTypes
+    /publicationTypes:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: e4f6f915-50ba-4acf-b3f8-062ccc103955
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: advice-and-guidance
+        selection:label: Advice and guidance
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: agreement
+        selection:label: Agreement
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: consultation-analysis
+        selection:label: Consultation analysis
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: consultation-paper
+        selection:label: Consultation paper
+      /selection:listitem[5]:
+        jcr:primaryType: selection:listitem
+        selection:key: corporate-report
+        selection:label: Corporate report
+      /selection:listitem[6]:
+        jcr:primaryType: selection:listitem
+        selection:key: correspondence
+        selection:label: Correspondence
+      /selection:listitem[7]:
+        jcr:primaryType: selection:listitem
+        selection:key: foi-eir-release
+        selection:label: FOI/EIR release
+      /selection:listitem[8]:
+        jcr:primaryType: selection:listitem
+        selection:key: factsheet
+        selection:label: Factsheet
+      /selection:listitem[9]:
+        jcr:primaryType: selection:listitem
+        selection:key: form
+        selection:label: Form
+      /selection:listitem[10]:
+        jcr:primaryType: selection:listitem
+        selection:key: impact-assessment
+        selection:label: Impact assessment
+      /selection:listitem[11]:
+        jcr:primaryType: selection:listitem
+        selection:key: independent-report
+        selection:label: Independent report
+      /selection:listitem[12]:
+        jcr:primaryType: selection:listitem
+        selection:key: map
+        selection:label: Map
+      /selection:listitem[13]:
+        jcr:primaryType: selection:listitem
+        selection:key: minutes
+        selection:label: Minutes
+      /selection:listitem[14]:
+        jcr:primaryType: selection:listitem
+        selection:key: progress-report
+        selection:label: Progress report
+      /selection:listitem[15]:
+        jcr:primaryType: selection:listitem
+        selection:key: regulation-directive-order
+        selection:label: Regulation/directive/order
+      /selection:listitem[16]:
+        jcr:primaryType: selection:listitem
+        selection:key: research-and-analysis
+        selection:label: Research and analysis
+      /selection:listitem[17]:
+        jcr:primaryType: selection:listitem
+        selection:key: speech-statement
+        selection:label: Speech/statement
+      /selection:listitem[18]:
+        jcr:primaryType: selection:listitem
+        selection:key: statistics
+        selection:label: Statistics
+      /selection:listitem[19]:
+        jcr:primaryType: selection:listitem
+        selection:key: strategy-plan
+        selection:label: Strategy/plan
+      /selection:listitem[20]:
+        jcr:primaryType: selection:listitem
+        selection:key: transparency-data
+        selection:label: Transparency data
