@@ -18,7 +18,7 @@
                         <dl class="ds_metadata ds_metadata--inline">
                             <#if publication.label?has_content>
                             <div class="ds_metadata__item">
-                                <dt class="ds_metadata__key">Publication type</dt>
+                                <dt class="ds_metadata__key">Type</dt>
                                 <dd class="ds_metadata__value">
                                 ${publication.label}
                                 </dd>
