@@ -367,6 +367,7 @@ definitions:
       /news:
         jcr:primaryType: hst:sitemapitem
         hst:relativecontentpath: news
+        hst:componentconfigurationid: hst:pages/pagenotfound
         /_any_:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/news
@@ -380,6 +381,7 @@ definitions:
       /publications:
         jcr:primaryType: hst:sitemapitem
         hst:relativecontentpath: publications
+        hst:componentconfigurationid: hst:pages/pagenotfound
         /_any_:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/publication
