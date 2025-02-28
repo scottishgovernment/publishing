@@ -1,9 +1,187 @@
 /content/documents/fostercare:
   jcr:primaryType: hippostd:folder
-  .meta:order-before: mygov
   jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: cd6e31d3-13a5-4104-8f23-f45e382a4476
   hippo:name: Foster care
-  hippostd:foldertype:
-    - new-imageandtext-folder
-    - new-news-folder
-    - new-video-folder
+  hippostd:foldertype: [new-imageandtext-folder, new-news-folder, new-video-folder,
+    new-publication-folder]
+  /news:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named']
+    hippo:name: News
+    hippostd:foldertype: [new-news-year-folder, new-landingpage-document]
+    /index:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 97b1d58d-b4aa-42f4-9d64-6ca1d6bba315
+      hippo:name: News
+      hippo:versionHistory: f6441b75-3832-4243-85c9-cbe521f73b9f
+      /index[1]:
+        jcr:primaryType: publishing:LandingPage
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: d29217b6-a7b4-45ec-968c-2a185da99915
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-27T11:05:05.294Z
+        hippostdpubwf:lastModificationDate: 2025-02-27T11:05:05.294Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: c7ac6472-974d-42ff-8ed4-0cd9d6df8d30
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: sdfsdf
+        /publishing:noResultsMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p><strong>There are no matching results.</strong></p>
+
+              <p>Improve your search results by:</p>
+
+              <ul>
+               <li>double-checking your spelling</li>
+               <li>using fewer keywords</li>
+               <li>searching for something less specific</li>
+              </ul>
+      /index[2]:
+        jcr:primaryType: publishing:LandingPage
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 8de41076-936b-4fea-add7-b213e5c8e175
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-27T11:05:05.294Z
+        hippostdpubwf:lastModificationDate: 2025-02-27T11:05:08.897Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: c7ac6472-974d-42ff-8ed4-0cd9d6df8d30
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: sdfsdf
+        /publishing:noResultsMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p><strong>There are no matching results.</strong></p>
+
+              <p>Improve your search results by:</p>
+
+              <ul>
+               <li>double-checking your spelling</li>
+               <li>using fewer keywords</li>
+               <li>searching for something less specific</li>
+              </ul>
+      /index[3]:
+        jcr:primaryType: publishing:LandingPage
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 952d48d9-b7ba-4f56-bd07-0a9f8bfe9898
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-27T11:05:05.294Z
+        hippostdpubwf:lastModificationDate: 2025-02-27T11:05:08.897Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2025-02-27T11:05:10.711Z
+        hippotranslation:id: c7ac6472-974d-42ff-8ed4-0cd9d6df8d30
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: sdfsdf
+        /publishing:noResultsMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p><strong>There are no matching results.</strong></p>
+
+              <p>Improve your search results by:</p>
+
+              <ul>
+               <li>double-checking your spelling</li>
+               <li>using fewer keywords</li>
+               <li>searching for something less specific</li>
+              </ul>
+    /2020:
+      jcr:primaryType: hippostd:folder
+      hippostd:foldertype: [new-news-month-folder]
+      /01:
+        jcr:primaryType: hippostd:folder
+        hippostd:foldertype: [new-news-document]
+        /test:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 6b05cb1a-e0d8-47f1-b459-7be7eee8735a
+          hippo:versionHistory: afa14aac-ffac-4701-9c15-f2e115b1239f
+          /test[1]:
+            jcr:primaryType: publishing:News
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 3304e8de-e08e-4165-8d9a-137d7c001f89
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-02-27T11:05:23.337Z
+            hippostdpubwf:lastModificationDate: 2025-02-27T11:05:23.337Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 3a0e4c27-c5b7-4f5c-8df0-7dbf8c6190db
+            hippotranslation:locale: document-type-locale
+            publishing:authorNotes: ''
+            publishing:contentitemlanguage: en
+            publishing:metaDescription: asdf
+            publishing:publicationDate: 2025-02-27T11:05:00Z
+            publishing:seoTitle: asdf
+            publishing:showFeedback: true
+            publishing:summary: asdf
+            publishing:title: asdf
+            publishing:topics: ['']
+          /test[2]:
+            jcr:primaryType: publishing:News
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: d793386c-b381-4de4-937a-0c865aac8ea2
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-02-27T11:05:23.337Z
+            hippostdpubwf:lastModificationDate: 2025-02-27T11:05:31.848Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 3a0e4c27-c5b7-4f5c-8df0-7dbf8c6190db
+            hippotranslation:locale: document-type-locale
+            publishing:authorNotes: ''
+            publishing:contentitemlanguage: en
+            publishing:metaDescription: asdf
+            publishing:publicationDate: 2025-02-27T11:05:00Z
+            publishing:seoTitle: asdf
+            publishing:showFeedback: true
+            publishing:summary: asdf
+            publishing:title: asdf
+            publishing:topics: ['']
+          /test[3]:
+            jcr:primaryType: publishing:News
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: ad4ddd17-9d34-4c47-bfc3-653591b86b0f
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-02-27T11:05:23.337Z
+            hippostdpubwf:lastModificationDate: 2025-02-27T11:05:31.848Z
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-02-27T11:05:33.785Z
+            hippotranslation:id: 3a0e4c27-c5b7-4f5c-8df0-7dbf8c6190db
+            hippotranslation:locale: document-type-locale
+            publishing:authorNotes: ''
+            publishing:contentitemlanguage: en
+            publishing:metaDescription: asdf
+            publishing:publicationDate: 2025-02-27T11:05:00Z
+            publishing:seoTitle: asdf
+            publishing:showFeedback: true
+            publishing:summary: asdf
+            publishing:title: asdf
+            publishing:topics: ['']
