@@ -54,7 +54,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
 
     private static final String PUBLICATION_DATE = "publishing:publicationDate";
 
-    private static final String PUBLICATION_VALUE_LIST = "/content/documents/publishing/valuelists/publicationTypes/publicationTypes";
+    private static final String PUBLICATION_VALUE_LIST = "/content/documents/publishing/valuelists/publicationtypes/publicationTtpes";
 
     private Collection<String> fieldNames = new ArrayList<>();
 

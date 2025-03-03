@@ -1357,12 +1357,12 @@
         jcr:primaryType: selection:listitem
         selection:key: uk
         selection:label: Ukrainian
-  /publicationTypes:
+  /publicationtypes:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
     jcr:uuid: de941bf5-9a2f-4cc6-a5ca-415a8f85d9e6
     hippo:name: publicationTypes
-    /publicationTypes:
+    /publicationtypes:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: e4f6f915-50ba-4acf-b3f8-062ccc103955
