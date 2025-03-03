@@ -1,18 +1,26 @@
 package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
+import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.parameters.ParametersInfo;
+import org.hippoecm.hst.core.request.ComponentConfiguration;
 import scot.gov.publishing.hippo.funnelback.component.SearchBuilder;
 
+import javax.servlet.ServletContext;
 import java.util.*;
 
 import static scot.mygov.publishing.components.FilteredResultsComponent.*;
 
+@ParametersInfo(type = FilteredResultsSideComponentInfo.class)
 public class FilteredResultsSideComponent extends BaseHstComponent {
+
+    boolean showPublicationTypes = false;
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
+        FilteredResultsSideComponentInfo info = getComponentParametersInfo(request);
         SearchBuilder searchBuilder = new SearchBuilder()
                 .query(param(request, "q"))
                 .fromDate(date(request, "begin"))
@@ -24,5 +32,6 @@ public class FilteredResultsSideComponent extends BaseHstComponent {
         request.setAttribute("publicationTypesMap", publicationTypesMap);
         request.setAttribute("topicsMap", topicsMap);
         request.setAttribute("search", searchBuilder.build());
+        request.setAttribute("includePublicationTypesFilter", info.getIncludePublicationTypesFilter());
     }
 }

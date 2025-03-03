@@ -38,7 +38,7 @@
 
                 <div class="ds_accordion  ds_accordion--small  ds_!_margin-top--0" data-module="ds-accordion">
 
-                <#if publicationTypesMap?has_content>
+                <#if publicationTypesMap?has_content && includePublicationTypesFilter>
                     <div class="ds_accordion-item">
                         <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-1" aria-labelledby="panel-1-heading" />
                         <div class="ds_accordion-item__header">
