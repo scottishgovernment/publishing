@@ -1,14 +1,11 @@
 package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
-import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
-import org.hippoecm.hst.core.request.ComponentConfiguration;
 import scot.gov.publishing.hippo.funnelback.component.SearchBuilder;
 
-import javax.servlet.ServletContext;
 import java.util.*;
 
 import static scot.mygov.publishing.components.FilteredResultsComponent.*;
