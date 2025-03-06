@@ -142,18 +142,18 @@ const businessRatesCalculator = {
         this.ratesCalculatorData.sbbs_25_rv_threshold = 18000;
         this.ratesCalculatorData.sbbs_25_percentage_relief = 0.25;
         this.ratesCalculatorData.sbbs_combined_threshold = 35000;
-        this.ratesCalculatorData.financial_year = '2023-2024';
+        this.ratesCalculatorData.financial_year = '2024-2025';
         this.ratesCalculatorData.poundage = 0.498;
         this.ratesCalculatorData.intermediate_business_supplement_threshold = 51000;
-        this.ratesCalculatorData.intermediate_business_supplement = 0.013;
+        this.ratesCalculatorData.intermediate_business_supplement = 0.047;
         this.ratesCalculatorData.large_business_supplement_threshold = 100000;
-        this.ratesCalculatorData.large_business_supplement = 0.026;
+        this.ratesCalculatorData.large_business_supplement = 0.061;
 
-        const newFiscalYeardate = new Date(2024, 3, 1);
+        const newFiscalYeardate = new Date(2025, 3, 1);
         if (today > newFiscalYeardate) {
-            this.ratesCalculatorData.financial_year = '2024-2025';
-            this.ratesCalculatorData.intermediate_business_supplement = 0.047;
-            this.ratesCalculatorData.large_business_supplement = 0.061;
+            this.ratesCalculatorData.financial_year = '2025-2026';
+            this.ratesCalculatorData.intermediate_business_supplement = 0.056;
+            this.ratesCalculatorData.large_business_supplement = 0.070;
         }
 
         // adjust this to use different value types, e.dg. current rateable value or proposed rateable value
