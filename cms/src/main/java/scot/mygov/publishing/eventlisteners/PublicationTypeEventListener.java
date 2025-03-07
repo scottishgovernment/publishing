@@ -28,6 +28,8 @@ public class PublicationTypeEventListener {
 
     private static final Logger LOG = LoggerFactory.getLogger(PublicationTypeEventListener.class);
 
+    private static final String PUBLICATION = "publishing:Publication";
+
     Session session;
 
     HippoUtils hippoUtils = new HippoUtils();
@@ -70,7 +72,7 @@ public class PublicationTypeEventListener {
     void handlePublish(HippoWorkflowEvent event) throws RepositoryException {
         Node handle = session.getNodeByIdentifier(event.subjectId());
         Node publishedVariant = hippoUtils.getPublishedOrDraftVariant(handle);
-        if (!publishedVariant.isNodeType("publishing:Publication")) {
+        if (!publishedVariant.isNodeType(PUBLICATION)) {
             return;
         }
         Node versionable = hippoUtils.findFirst(handle.getNodes(handle.getName()), v -> v.isNodeType("mix:versionable") );
@@ -84,7 +86,7 @@ public class PublicationTypeEventListener {
             }
         }
 
-        if (publishedVariant != null && publishedVariant.isNodeType("publishing:Publication")) {
+        if (publishedVariant != null && publishedVariant.isNodeType(PUBLICATION)) {
             updatePublicationTypesForPublish(publishedVariant);
         }
     }
@@ -92,7 +94,7 @@ public class PublicationTypeEventListener {
     void handleDepublish(HippoWorkflowEvent event) throws RepositoryException {
         HippoNode handle = (HippoNode) session.getNodeByIdentifier(event.subjectId());
         Node variant = hippoUtils.getPublishedOrDraftVariant(handle);
-        if (variant != null && variant.isNodeType("publishing:Publication")) {
+        if (variant != null && variant.isNodeType(PUBLICATION)) {
             updatePublicationTypesForDeublish(variant, site(variant));
         }
     }

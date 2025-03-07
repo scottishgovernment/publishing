@@ -1,6 +1,5 @@
 package scot.mygov.publishing.components;
 
-import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -13,8 +12,6 @@ import static scot.mygov.publishing.components.FilteredResultsComponent.*;
 
 @ParametersInfo(type = FilteredResultsSideComponentInfo.class)
 public class FilteredResultsSideComponent extends EssentialsContentComponent {
-
-    boolean showPublicationTypes = false;
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
