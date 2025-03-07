@@ -93,6 +93,7 @@
                     </div>
                 </#if>
 
+                <#if document.showTopics>
                 <#if topicsMap?has_content>
                     <div class="ds_accordion-item">
                         <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-2" aria-labelledby="panel-2-heading" />
@@ -146,6 +147,7 @@
                             </fieldset>
                         </div>
                     </div>
+                </#if>
                 </#if>
 
                 <div class="ds_accordion-item">

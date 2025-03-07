@@ -70,7 +70,9 @@ public class PublicationTypeEventListener {
     void handlePublish(HippoWorkflowEvent event) throws RepositoryException {
         Node handle = session.getNodeByIdentifier(event.subjectId());
         Node publishedVariant = hippoUtils.getPublishedOrDraftVariant(handle);
-
+        if (!publishedVariant.isNodeType("publishing:Publication")) {
+            return;
+        }
         Node versionable = hippoUtils.findFirst(handle.getNodes(handle.getName()), v -> v.isNodeType("mix:versionable") );
         if (versionable != null) {
             VersionHistory versionHistory = session.getWorkspace().getVersionManager().getVersionHistory(versionable.getPath());

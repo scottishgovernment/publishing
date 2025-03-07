@@ -4,6 +4,7 @@ import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
+import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import scot.gov.publishing.hippo.funnelback.component.SearchBuilder;
 
 import java.util.*;
@@ -11,12 +12,14 @@ import java.util.*;
 import static scot.mygov.publishing.components.FilteredResultsComponent.*;
 
 @ParametersInfo(type = FilteredResultsSideComponentInfo.class)
-public class FilteredResultsSideComponent extends BaseHstComponent {
+public class FilteredResultsSideComponent extends EssentialsContentComponent {
 
     boolean showPublicationTypes = false;
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
+        super.doBeforeRender(request, response);
+
         FilteredResultsSideComponentInfo info = getComponentParametersInfo(request);
         SearchBuilder searchBuilder = new SearchBuilder()
                 .query(param(request, "q"))

@@ -16,7 +16,7 @@ definitions:
             'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           hipposysedit:validators: [variables-validator]
-          jcr:uuid: 36c0be86-0692-423c-9731-b7902a0cb6bc
+          jcr:uuid: 00c5b6a1-5df2-42df-aec9-54141e54620b
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -48,6 +48,15 @@ definitions:
             hipposysedit:path: publishing:noResultsMessageContentBlocks
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator]
+          /showTopics:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:showTopics
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -63,7 +72,8 @@ definitions:
           hippostdpubwf:lastModificationDate: 2020-09-02T08:59:50.853+01:00
           hippostdpubwf:creationDate: 2020-09-02T08:59:50.853+01:00
           publishing:showFeedback: true
-          jcr:uuid: 9458bfd0-7e3f-4b37-851f-76dc2c997201
+          jcr:uuid: 2cef2fbc-6a2a-402f-b4cc-321b8c124fc2
+          publishing:showTopics: true
           /publishing:noResultsMessageContentBlocks:
             jcr:primaryType: publishing:cb_richtext
             publishing:noindex: false
@@ -127,6 +137,15 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Show Feedback?
             field: isFeedbackEnabled
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showTopics:
+            jcr:primaryType: frontend:plugin
+            caption: Show topics filter?
+            field: showTopics
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
