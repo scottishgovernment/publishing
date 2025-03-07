@@ -83,7 +83,12 @@
                 <#if document.contentblocks??>
 
                     <#list document.contentblocks as contentblock>
+
                         <#if hst.isNodeType(contentblock.node, 'publishing:dsexampleblock')>
+                            <#assign headingLevel = "h3" />
+                            <#if contentblock.headingLevel??>
+                                <#assign headingLevel = contentblock.headingLevel />
+                            </#if>
                             <!-- example block -->
                             <@hst.link var="example" hippobean=contentblock.example/>
                             <figure class="example  overflow--large--2 overflow--xlarge--2">
@@ -109,9 +114,9 @@
                                             <div class="ds_accordion-item  <#if contentblock.htmlexpanded>ds_accordion-item--open</#if>">
                                                 <input type="checkbox" <#if contentblock.htmlexpanded>checked</#if> class="visually-hidden  ds_accordion-item__control" id="panel-main-${accordionCount}" aria-labelledby="panel-main-${accordionCount}-heading">
                                                 <div class="ds_accordion-item__header">
-                                                    <h3 id="panel-main-${accordionCount}-heading" class="ds_accordion-item__title">
-                                                        Sample ${contentblock.type}
-                                                    </h3>
+                                                    <${headingLevel} id="panel-main-${accordionCount}-heading" class="ds_accordion-item__title">
+                                                        Sample ${contentblock.type} <span class="visually-hidden">for ${contentblock.example.title}</span>
+                                                    </${headingLevel}>
                                                     <span class="ds_accordion-item__indicator"></span>
                                                     <label class="ds_accordion-item__label" for="panel-main-${accordionCount}"><span class="visually-hidden">Show this section</span></label>
                                                 </div>

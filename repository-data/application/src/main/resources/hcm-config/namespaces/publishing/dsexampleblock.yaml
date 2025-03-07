@@ -73,10 +73,20 @@ definitions:
             hipposysedit:path: publishing:minheight
             hipposysedit:primary: false
             hipposysedit:type: Long
+          /headingLevel:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:headingLevel
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:dsexampleblock
+          publishing:headingLevel: h2
           publishing:showdemo: true
           publishing:showcode: true
           publishing:htmlexpanded: false
@@ -97,6 +107,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /headingLevel:
+            jcr:primaryType: frontend:plugin
+            caption: Heading level
+            field: headingLevel
+            hint: The heading level to use for the accordion item's heading.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: h2,h3,h4
           /example:
             jcr:primaryType: frontend:plugin
             caption: Example
