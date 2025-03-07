@@ -115,7 +115,7 @@
         <h3>Stay safe online &hellip;</h3>
         <ul class="ds_no-bullets">
             <li>
-                <a href="/staying-safe-online/deleting-your-browser-history" data-navigation="staysafe-yes">Deleting your history and staying safe online</a>
+                <a href="/online-safety/deleting-your-browser-history" data-navigation="staysafe-yes">Deleting your browser history</a>
             </li>
         </ul>
     </aside>
