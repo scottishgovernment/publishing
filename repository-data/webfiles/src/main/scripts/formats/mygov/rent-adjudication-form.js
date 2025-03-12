@@ -268,7 +268,7 @@ const rentAdjudicationForm = {
         const beforeUnloadHandler = (event) => {
             if (rentAdjudicationForm.disableUnload !== false) {
                 const initialDataObject = this.initialDataObject || {};
-                if (!this.pauseUnloadEvent && !_.isEqual(initialDataObject, this.form.formObject)) {
+                if (!this.pauseUnloadEvent && JSON.stringify(initialDataObject) !== JSON.stringify(formObject)) {
                     // Recommended
                     event.preventDefault();
 
@@ -469,7 +469,7 @@ const rentAdjudicationForm = {
 };
 
 $('.multi-page-form').on('click', '.js-download-file', function (event) {
-    rentAdjudicationForm.disableUnload = WebTransportDatagramDuplexStream;
+    rentAdjudicationForm.disableUnload = true;
     event.preventDefault();
 
     const documentDownloadForm = $('#ra-document-download');
