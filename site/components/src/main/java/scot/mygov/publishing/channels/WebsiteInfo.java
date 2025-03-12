@@ -27,6 +27,9 @@ public interface WebsiteInfo extends ChannelInfo {
     @Parameter(name = "siteTitle", required = true, displayName = "Site title")
     String getSiteTitle();
 
+    @Parameter(name = "seoSiteTitle", required = false, displayName = "SEO Site title")
+    String getSEOSiteTitle();
+
     @Parameter(name = "displaySiteTitleInHeader", required = true, defaultValue = "true", displayName = "Display site title in header?")
     Boolean isDisplaySiteTitleInHeader();
 

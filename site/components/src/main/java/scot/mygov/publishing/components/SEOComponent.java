@@ -1,5 +1,6 @@
 package scot.mygov.publishing.components;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -32,6 +33,8 @@ public class SEOComponent extends EssentialsDocumentComponent {
 
     private static final String SITE_TITLE = "sitetitle";
 
+    private static final String SEO_SITE_TITLE = "sitetitle";
+
     private static final String TITLE_TAG = "titletag";
 
     private static final String PAGE_TITLE = "pagetitle";
@@ -49,7 +52,7 @@ public class SEOComponent extends EssentialsDocumentComponent {
         }
 
         WebsiteInfo websiteInfo = MountUtils.websiteInfo(request);
-        setPageTitle(request, websiteInfo.getSiteTitle(), contentBean);
+        setPageTitle(request, websiteInfo, contentBean);
         setPageImage(request, websiteInfo, contentBean);
         request.setAttribute("isSearchEnabled", websiteInfo.isSearchEnabled());
         request.setAttribute("contentBean", contentBean);
@@ -62,22 +65,24 @@ public class SEOComponent extends EssentialsDocumentComponent {
         request.setAttribute("subjects", getSubjects(contentBean));
         setCanonical(request);
     }
-    void setPageTitle(HstRequest request, String siteTitle, HippoBean contentBean) {
 
-        request.setAttribute(SITE_TITLE, siteTitle);
+    void setPageTitle(HstRequest request, WebsiteInfo websiteInfo, HippoBean contentBean) {
 
+        request.setAttribute(SITE_TITLE, websiteInfo.getSiteTitle());
+
+        String seoTitle = StringUtils.isBlank(websiteInfo.getSEOSiteTitle()) ? websiteInfo.getSiteTitle() : websiteInfo.getSEOSiteTitle();
         if (contentBean == null || contentBean.isHippoFolderBean()) {
-            request.setAttribute(TITLE_TAG, siteTitle);
-            request.setAttribute(PAGE_TITLE , siteTitle);
+            request.setAttribute(TITLE_TAG, seoTitle);
+            request.setAttribute(PAGE_TITLE , websiteInfo.getSiteTitle());
             return;
         }
 
         String pageTitle = contentBean.getSingleProperty("publishing:title");
         if (pageTitle == null) {
-            request.setAttribute(TITLE_TAG, siteTitle);
-            request.setAttribute(PAGE_TITLE , siteTitle);
+            request.setAttribute(TITLE_TAG, seoTitle);
+            request.setAttribute(PAGE_TITLE , websiteInfo.getSiteTitle());
         } else {
-            request.setAttribute(TITLE_TAG, String.format("%s - %s", pageTitle, siteTitle));
+            request.setAttribute(TITLE_TAG, String.format("%s - %s", pageTitle, seoTitle));
             request.setAttribute(PAGE_TITLE, pageTitle);
         }
     }

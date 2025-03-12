@@ -1,0 +1,20 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:translations/hippo:hst/channelparameters:
+      jcr:primaryType: hipposys:resourcebundles
+      /scot:
+        jcr:primaryType: hipposys:resourcebundles
+        /mygov:
+          jcr:primaryType: hipposys:resourcebundles
+          /publishing:
+            jcr:primaryType: hipposys:resourcebundles
+            /channels:
+              jcr:primaryType: hipposys:resourcebundles
+              /WebsiteInfo:
+                jcr:primaryType: hipposys:resourcebundles
+                /en:
+                  jcr:primaryType: hipposys:resourcebundle
+                  siteTitle: Site title
+                  siteTitle.hint: Site title used in site header
+                  seoSiteTitle: SEO site title
+                  seoSiteTitle.hint: Site title used in the title tag for the site
