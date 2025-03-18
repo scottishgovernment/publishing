@@ -1,5 +1,6 @@
 package scot.mygov.publishing.htmlrewriter;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
@@ -20,6 +21,7 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.apache.commons.lang3.StringUtils.startsWithAny;
@@ -48,7 +50,7 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
     public String rewrite(String html, Node node, HstRequestContext requestContext,  Mount targetMount) {
 
         HippoBean bean = requestContext.getContentBean();
-        if (hasFragments(html) || isStepByStep(bean)) {
+        if (hasFragments(html) || isStepByStep(bean) || isStep(node)) {
             Document doc = Jsoup.parse(html);
             rewriteFragments(doc, node, requestContext, targetMount);
             rewriteStepByStep(doc, node);
@@ -87,8 +89,18 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
         return node.hasProperty(SLUG_PROPERTY) ? node : getStepByStep(node.getParent());
     }
 
-    boolean isStep(Node node) throws RepositoryException {
-        return startsWith(node.getParent().getName(), "publishing:step");
+    boolean isStep(Node node) {
+        try {
+            String [] nodenames = {
+                    node.getParent().getName(),
+                    node.getParent().getParent().getName()
+            };
+            return Arrays.stream(nodenames)
+                    .anyMatch(nodename -> StringUtils.startsWith(nodename, "publishing:step"));
+        } catch (RepositoryException e){
+            LOG.error("failed to determine if node is a step by step guide", e);
+            return false;
+        }
     }
 
     boolean isStepByStep(HippoBean bean) {

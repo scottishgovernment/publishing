@@ -87,10 +87,24 @@ public class StepByStepComponent extends EssentialsContentComponent {
         List<StepByStepWrapper> wrappers = new ArrayList<>();
         while (it.hasNext()) {
             StepByStepGuide stepByStepGuide = (StepByStepGuide) it.nextHippoBean();
-            StepByStepWrapper wrapper = wrapper(bean, stepByStepGuide, navParam);
-            wrappers.add(wrapper);
+            if (includeStepByStepGuide(stepByStepGuide, navParam)) {
+                StepByStepWrapper wrapper = wrapper(bean, stepByStepGuide, navParam);
+                wrappers.add(wrapper);
+            }
         }
         return wrappers;
+    }
+
+    boolean includeStepByStepGuide(StepByStepGuide guide, String navParam) {
+        if ("never".equals(guide.getNavigationType())) {
+            return false;
+        }
+
+        if ("always".equals(guide.getNavigationType())) {
+            return true;
+        }
+
+        return guide.getSlug().equals(navParam);
     }
 
     StepByStepWrapper wrapper(HippoDocumentBean bean, StepByStepGuide stepByStepGuide, String navParam) {

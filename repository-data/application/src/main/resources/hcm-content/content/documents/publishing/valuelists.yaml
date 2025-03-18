@@ -1446,3 +1446,27 @@
         jcr:primaryType: selection:listitem
         selection:key: transparency-data
         selection:label: Transparency data
+  /stepbystepnavigationtypes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: a62becd8-c324-4c7f-b965-ce2b63634c0a
+    hippo:name: stepByStepNavigationTypes
+    /stepbystepnavigationtypes:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 6514dbf4-6cbb-4b15-a7a9-ae438a266cc7
+      hippo:availability: [live, preview]
+      hippotranslation:id: bd5be43c-f2b2-4217-9199-777732941a83
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: always
+        selection:label: Always show navigation
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: never
+        selection:label: Never show navigation
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: withParam
+        selection:label: Only show navigation when linked from step by step guide
