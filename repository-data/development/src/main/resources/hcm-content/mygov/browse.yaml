@@ -6207,8 +6207,7 @@
       hippo:name: Being a landlord in Scotland
       hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
         new-publishing-mirror, new-publishing-formbase, new-publishing-fairrent, new-publishing-documentcoverpage,
-        new-publishing-documents-folder, new-publishing-smartanswer, new-fragment-folder,
-        new-publishing-tenancyagreementform]
+        new-publishing-documents-folder, new-publishing-smartanswer, new-fragment-folder]
       /index:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -17564,117 +17563,6 @@
                   hippo:facets: []
                   hippo:modes: []
                   hippo:values: []
-      /mta22222:
-        jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: 2445ce27-fb9b-40a7-9068-c10ad1d140f2
-        hippo:versionHistory: 82d56169-cdb8-4f2e-8cce-41d229917794
-        /mta22222[1]:
-          jcr:primaryType: publishing:tenancyagreementform
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 445733e9-dddc-4eea-9f6e-3c18c689f9ab
-          hippo:availability: []
-          hippostd:retainable: false
-          hippostd:state: draft
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-03-14T13:48:59.026Z
-          hippostdpubwf:lastModificationDate: 2025-03-14T13:48:59.026Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 487ed2ae-901d-4ee5-a275-a1049725f87f
-          hippotranslation:locale: document-type-locale
-          publishing:audience: ''
-          publishing:authorNotes: ''
-          publishing:formdisabled: false
-          publishing:formtype: ''
-          publishing:metaDescription: gyckckckkcckgcghk
-          publishing:reportingtags: []
-          publishing:sensitive: false
-          publishing:seoTitle: mta22222
-          publishing:serviceproviders: []
-          publishing:showInParent: true
-          publishing:slug: mta22222
-          publishing:summary: '12321232'
-          publishing:title: mta22222
-          /publishing:contentOwner:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: <p>123312213</p>
-        /mta22222[2]:
-          jcr:primaryType: publishing:tenancyagreementform
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-          jcr:uuid: 35e315b0-0d6a-4943-8480-9a4d01eb422c
-          hippo:availability: [preview]
-          hippostd:retainable: false
-          hippostd:state: unpublished
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-03-14T13:48:59.026Z
-          hippostdpubwf:lastModificationDate: 2025-03-14T13:54:59.980Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 487ed2ae-901d-4ee5-a275-a1049725f87f
-          hippotranslation:locale: document-type-locale
-          publishing:audience: ''
-          publishing:authorNotes: ''
-          publishing:formdisabled: false
-          publishing:formtype: ''
-          publishing:metaDescription: gyckckckkcckgcghk
-          publishing:reportingtags: []
-          publishing:sensitive: false
-          publishing:seoTitle: mta22222
-          publishing:serviceproviders: []
-          publishing:showInParent: true
-          publishing:slug: mta22222
-          publishing:summary: '12321232'
-          publishing:title: mta22222
-          /publishing:contentOwner:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: <p>123312213</p>
-        /mta22222[3]:
-          jcr:primaryType: publishing:tenancyagreementform
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 2036f5ed-d0cd-49ac-b081-77c333146a1a
-          hippo:availability: [live]
-          hippostd:retainable: false
-          hippostd:state: published
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2025-03-14T13:48:59.026Z
-          hippostdpubwf:lastModificationDate: 2025-03-14T13:54:59.980Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2025-03-14T13:55:02.423Z
-          hippotranslation:id: 487ed2ae-901d-4ee5-a275-a1049725f87f
-          hippotranslation:locale: document-type-locale
-          publishing:audience: ''
-          publishing:authorNotes: ''
-          publishing:formdisabled: false
-          publishing:formtype: ''
-          publishing:metaDescription: gyckckckkcckgcghk
-          publishing:reportingtags: []
-          publishing:sensitive: false
-          publishing:seoTitle: mta22222
-          publishing:serviceproviders: []
-          publishing:showInParent: true
-          publishing:slug: mta22222
-          publishing:summary: '12321232'
-          publishing:title: mta22222
-          /publishing:contentOwner:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: <p>123312213</p>
     /letting:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['hippo:named', 'mix:versionable']
