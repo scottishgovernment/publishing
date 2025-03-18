@@ -23,4 +23,9 @@ public class StepByStepGuide extends Base {
     public List<Step> getSteps() {
         return getChildBeansByName("publishing:steps", Step.class);
     }
+
+    @HippoEssentialsGenerated(internalName = "publishing:navigationtype")
+    public String getNavigationType() {
+        return getSingleProperty("publishing:navigationtype");
+    }
 }

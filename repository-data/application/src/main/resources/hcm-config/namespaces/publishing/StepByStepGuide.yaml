@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: c3858d9d-221e-4d2d-947f-ad92f489ef17
+          jcr:uuid: 0565e32e-96d6-46e2-a503-e0592babf9b5
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -57,6 +57,14 @@ definitions:
             hipposysedit:path: publishing:headingLevel
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
+          /navigationtype:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:navigationtype
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -82,10 +90,11 @@ definitions:
           publishing:reportingtags: []
           publishing:serviceproviders: []
           publishing:metaDescription: ''
-          jcr:uuid: c662f5d6-84f9-4310-b059-a9f55fc84e25
+          jcr:uuid: 4a6c446d-894c-4a3c-ba4f-4158a3aacbed
           hippostdpubwf:creationDate: 2022-10-04T10:42:17.231+01:00
           hippostdpubwf:lastModificationDate: 2022-10-04T10:42:17.231+01:00
           publishing:headingLevel: h2
+          publishing:navigationtype: ''
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -197,6 +206,16 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
+          /navigationtype:
+            jcr:primaryType: frontend:plugin
+            caption: Navigation type
+            field: navigationtype
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              source: /content/documents/publishing/valuelists/stepbystepnavigationtypes
           /steps:
             jcr:primaryType: frontend:plugin
             caption: Steps
