@@ -5,7 +5,7 @@
     <ul class="ds_error-summary__list">
         {% for item in errors %}
             <li>
-                <a href="#{{ item.fragmentId }}">{{item.fieldName}}: {{ item.message }}</a>
+                <a class="ds_error-summary__link" href="#{{ item.fragmentId }}">{{item.fieldName}}: {{ item.message }}</a>
             </li>
         {% endfor %}
     </ul>

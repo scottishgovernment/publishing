@@ -11,7 +11,7 @@ class SmartAnswer {
         this.rootUrl = container.dataset.rooturl ;
         this.form = this.container.querySelector('form');
         this.answersTemplate = require('../templates/smartanswer-answers');
-        this.errorSummary = document.querySelector('.ds_error-summary');
+        this.errorSummary = document.querySelector('.js-error-summary-container');
         this.useHashBangs = true;
         this.window = _window;
     }
@@ -36,7 +36,7 @@ class SmartAnswer {
                 let selectedOption;
                 let newResponse;
 
-                if (this.validateStep(stepContainer)) {
+                if (commonForms.validateStep(stepContainer)) {
                     switch (stepContainer.dataset.type) {
                         case 'radiobuttons':
                             selectedOption = stepContainer.querySelector("input[type='radio']:checked");
@@ -364,29 +364,6 @@ class SmartAnswer {
         window.DS.tracking.init(answerContainer);
 
         this.doPageTransition(oldStep, step, focus);
-    }
-
-    validateStep() {
-        /*
-        * look for data-validation attributes in current step & PERFORM VALIDATION
-        * do not allow progress if invalid
-        */
-
-       const stepContainer = document.querySelector('.mg_smart-answer__step--current');
-       const itemsThatNeedToBeValidated = [].slice.call(stepContainer.querySelectorAll('[data-validation]')).filter(item => item.offsetParent);
-
-       itemsThatNeedToBeValidated.forEach(item => {
-           const validations = item.getAttribute('data-validation').split(' ');
-           const validationChecks = [];
-           for (let i = 0, il = validations.length; i < il; i++) {
-               validationChecks.push(commonForms[validations[i]]);
-            }
-           commonForms.validateInput(item, validationChecks);
-        });
-
-        const invalidFields = [].slice.call(stepContainer.querySelectorAll('[aria-invalid="true"]'));
-
-        return invalidFields.length === 0;
     }
 
     doPageTransition(oldStep, newStep, focus = true) {
