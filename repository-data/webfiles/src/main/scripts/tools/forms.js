@@ -724,7 +724,10 @@ const commonForms = {
         if (field.getAttribute('aria-labeledby')) {
             return document.getElementById(field.getAttribute('aria-labeledby')).innerHTML;
         } else if (field.nodeName === 'FIELDSET') {
-            return field.querySelector('legend').innerText;
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = field.querySelector('legend').innerHTML;
+            [].slice.call(tempDiv.querySelectorAll('.visually-hidden, [aria-hidden="true"]')).forEach(element => element.parentNode.removeChild(element));
+            return tempDiv.innerText.replace(/\n/g,'').trim();
         } else {
             return document.querySelector(`label[for="${field.id}"]`).innerHTML;
         }

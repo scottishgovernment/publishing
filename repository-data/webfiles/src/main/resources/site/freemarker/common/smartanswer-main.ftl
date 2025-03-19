@@ -62,6 +62,9 @@
             <div class="ds_layout__content">
                 <div class="mg_smart-answer" data-module="smartanswer" data-rooturl="<@hst.link hippobean=document />">
 
+                    <div class="js-error-summary-container">
+                    </div>
+
                     <form class="mg_smart-answer__form">
                         <#list questions as question>
                             <#if question.style??>
@@ -157,7 +160,7 @@
                                                 </div>
                                                 <#break>
                                             <#case 'checkboxes'>
-                                                <div class="ds_checkboxes  mg_no-margin--last-child" data-module="ds-checkboxes" data-validation="atLeastOneCheckbox">
+                                                <div class="ds_checkboxes  mg_no-margin--last-child" data-module="ds-checkboxes">
                                                     <#list question.options?sort_by('exclusive') as option>
                                                         <#if option.exclusive == true && question.options?size gt 1>
                                                             <p class="ds_checkbox-separator">or</p>
