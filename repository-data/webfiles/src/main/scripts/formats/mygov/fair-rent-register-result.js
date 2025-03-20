@@ -1,12 +1,8 @@
 'use strict';
 
-import feedback from '../../components/feedback';
-
 const fairRentRegisterResult = {};
 
-fairRentRegisterResult.init = function() {
-    feedback.init();
-};
+fairRentRegisterResult.init = function() {};
 
 window.format = fairRentRegisterResult;
 window.format.init();

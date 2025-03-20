@@ -65,7 +65,6 @@ const formMapping = {
 };
 
 import $ from 'jquery';
-import feedback from '../../components/feedback';
 import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
 import commonForms from '../../tools/forms';
@@ -185,7 +184,6 @@ const noticeToLeaveForm = {
         if (this.recaptchaEnabled) {
             commonForms.setupRecaptcha();
         }
-        feedback.init();
 
         if (NOW > costOfLivingLegislationEndDate) {
             this.revertMarkupCostOfLiving();

@@ -7,7 +7,6 @@
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
-import feedback from '../../components/feedback';
 import MultiPageForm from '../../components/multi-page-form';
 
 const formTemplate = require('../../templates/mygov/ukraine-volunteer-home-form');
@@ -88,7 +87,6 @@ const ukraineVolunteerHomeForm = {
         this.endpointUrl = '/service/form/ukraine';
         this.form.validateStep = this.validateStep;
         this.form.init();
-        feedback.init();
         commonForms.appendCaptchaScript();
         if (this.recaptchaEnabled) {
             commonForms.setupRecaptcha();

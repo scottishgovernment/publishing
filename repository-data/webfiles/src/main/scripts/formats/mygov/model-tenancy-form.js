@@ -6,7 +6,6 @@
 const formObject = {'propertyType':null, 'propertyInRpz': false, 'buildingOther':null,'furnishingType':'','propertyAddress':null,'hmoProperty':'','hmo24ContactNumber':null,'hmoRegistrationExpiryDate':null,'hmoRenewalApplicationSubmitted':false,'tenancyStartDate':null,'rentAmount':null,'rentPaymentFrequency':null,'rentPaymentScheduleObject':{},'rentPaymentSchedule': null,'rentPayableInAdvance':null,'rentPaymentMethod':null,'firstPaymentAmount':null,'firstPaymentDate':null,'firstPaymentPeriodEnd':null,'servicesIncludedInRent':[],includedAreasOrFacilities:[],sharedFacilities:[],excludedAreasFacilities:[],'communicationsAgreement':'','depositAmount':null,'tenancyDepositSchemeAdministrator':null,'services':null,'facilities':[],'landlords':{'landlord-1':{}},'lettingAgent':{'name':null,'address':{'building':null,'street':null,'town':null,'postcode':null},'telephone':null,'registrationNumber':null},'agent':{'name':null,'address':{'building':null,'street':null,'town':null,'postcode':null},'telephone':null},'factor':{'name':null,'address':{'building':null,'street':null,'town':null,'postcode':null},'telephone':null,'registrationNumber':null},'tenants':{'tenant-1':{}},'optionalTerms':{'contentsAndConditions':null,'localAuthorityTaxesAndCharges':null,'utilities':null,'commonParts':null,'alterations':null,'privateGarden':null,'roof':null,'binsAndRecycling':null,'storage':null,'dangerousSubstances':null,'pets':null,'smoking':null},'additionalTerms':{'additional-term-1':{}}};
 
 import $ from 'jquery';
-import feedback from '../../components/feedback';
 import EditableTable from '../../components/editable-table';
 import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
@@ -138,7 +137,6 @@ const modelTenancyForm = {
 
         commonForms.appendCaptchaScript();
 
-        feedback.init();
         this.getDefaultText();
         commonHousing.setManualLinkSections();
         this.setupExtraTerms();

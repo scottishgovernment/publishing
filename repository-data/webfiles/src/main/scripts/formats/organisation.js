@@ -2,8 +2,6 @@
 
 'use strict';
 
-import feedback from '../components/feedback';
-
 const orghub = {};
 
 orghub.init = function () {
@@ -11,7 +9,6 @@ orghub.init = function () {
     if (orgLogoElement) {
         orgLogoElement.addEventListener('error', orghub.replaceMissingLogo);
     }
-    feedback.init();
 };
 
 orghub.replaceMissingLogo = function() {

@@ -36,7 +36,6 @@ const formMapping = {
 };
 
 import $ from 'jquery';
-import feedback from '../../components/feedback';
 import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
 import commonForms from '../../tools/forms';
@@ -121,7 +120,6 @@ const rentImprovementsForm = {
 
         commonForms.appendCaptchaScript();
 
-        feedback.init();
         rentImprovementsForm.form.validateStep = rentImprovementsForm.validateStep;
         rentImprovementsForm.form.init();
         commonHousing.setManualLinkSections();

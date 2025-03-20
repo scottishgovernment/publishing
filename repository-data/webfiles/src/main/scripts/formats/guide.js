@@ -2,13 +2,8 @@
 
 'use strict';
 
-import feedback from '../components/feedback';
-
 const guide = {
-    init: function () {
-        //Initialise the feedback handlers
-        feedback.init();
-    }
+    init: function () {}
 };
 
 window.format = guide;

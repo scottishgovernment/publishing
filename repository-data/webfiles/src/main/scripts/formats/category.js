@@ -3,12 +3,8 @@
 
 'use strict';
 
-import feedback from '../components/feedback';
-
 const categories = {
-    init: function () {
-        feedback.init();
-    }
+    init: function () {}
 };
 
 window.format = categories;

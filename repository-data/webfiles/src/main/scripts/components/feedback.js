@@ -5,174 +5,291 @@
 
 'use strict';
 
-const feedbackForm = {
-    init: function () {
-        this.formElement = document.getElementById('feedbackForm');
-        this.errorSummary = document.getElementById('feedbackErrorSummary');
+import commonFormsOld from '../tools/forms';
+import temporaryFocus from '@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
 
-        this.fields = {
-            yes: {
-                comments: document.querySelector('#comments-yes')
-            },
-            no: {
-                reason: document.querySelector('#reason-no'),
-                comments: document.querySelector('#comments-no')
-            },
-            yesbut: {
-                reason: document.querySelector('#reason-yesbut'),
-                comments: document.querySelector('#comments-yesbut')
+const errorSummaryTemplate = require('../templates/error-summary');
+const feedbackTemplate = require('../templates/feedback');
+
+// todo: replace with DS PromiseRequest if it gets updated to support POST
+const PromiseRequest = function (url, method, data, headers) {
+    const request = new XMLHttpRequest();
+
+    return new Promise((resolve, reject) => {
+        request.onreadystatechange = () => {
+            if (request.readyState !== 4) {
+                return;
+            }
+
+            if (request.status >= 200 && request.status < 300) {
+                resolve(request);
+            } else {
+                reject({
+                    status: request.status,
+                    statusText: request.statusText
+                });
             }
         };
 
-        if (this.formElement) {
-            this.attachEventHandlers();
-            this.addTracking();
+        request.open(method, url, true);
+
+        if (typeof headers === 'object') {
+            for (const header of Object.entries(headers)) {
+                request.setRequestHeader(header[0], header[1])
+            }
+        }
+
+        request.send(data);
+    });
+};
+
+// todo: this is a temporary override of commonForms using new error handling code that is part of the MTA redesign
+// todo: this can be removed when that revamped error code is released
+const commonForms = {
+    requiredDropdown: function (field) {
+        const value = field.value;
+        const fieldName = commonFormsOld.getLabelText(field);
+        const message = 'Select one of the options';
+
+        const valid = value !== null && value !== '';
+
+        commonForms.toggleFormErrors(field, valid, fieldName, message);
+        commonForms.toggleCurrentErrors(field, valid, 'required', message);
+
+        return valid;
+    },
+
+    requiredField: function (field, customMessage) {
+        const trimmedValue = field.value.trim();
+        const fieldName = commonFormsOld.getLabelText(field);
+
+        const valid = trimmedValue !== '';
+
+        let message = 'This field is required';
+        if (field.dataset.message || customMessage) {
+            message = '';
+            if (fieldName) {
+                message += `<strong>${fieldName}</strong> <br>`;
+            }
+            message += `${field.dataset.message || customMessage}`;
+        }
+
+        commonForms.toggleFormErrors(field, valid, fieldName, message);
+        commonForms.toggleCurrentErrors(field, valid, 'invalid-required', message);
+
+        return valid;
+    },
+
+    requiredRadio: function (container) {
+        const radioButtons = [].slice.call(container.querySelectorAll('input[type="radio"]'));
+
+        const title = commonFormsOld.getTitleFromLegend(container.querySelector('legend'));
+        const message = 'Select one of the options';
+
+        let valid = false;
+
+        radioButtons.forEach(radioButton => {
+            if (radioButton.checked) {
+                valid = true;
+            }
+        });
+
+        commonForms.toggleFormErrors(container, valid, title, message);
+        commonForms.toggleCurrentErrors(container, valid, 'required', message);
+
+        return valid;
+    },
+
+    toggleCurrentErrors: commonFormsOld.toggleCurrentErrors,
+    validateInput: commonFormsOld.validateInput,
+
+    renderErrorSummary: function (errors) {
+        const errorSumaryContainerElement = document.querySelector('.js-error-summary-container');
+        errorSumaryContainerElement.innerHTML = errorSummaryTemplate.render({ errors: errors });
+
+        if (errors.length > 0) {
+            temporaryFocus(errorSumaryContainerElement.querySelector('.ds_error-summary'));
         }
     },
 
-    addTracking: function () {
-        // additional tracking for radio buttons
-        const radios = [].slice.call(this.formElement.querySelectorAll('.ds_radio__input'));
-        radios.forEach(radio => {
-            radio.addEventListener('change', () => {
-                // update datalayer
-                const type = document.querySelector('[name=feedbacktype]:checked').value;
-                this.updateDataLayer(type, 'feedbackRadio');
-            });
+    toggleFormErrors: function (field, valid, fieldName = '', message = '') {
+        this.errors = this.errors || [];
+        this.errors = this.errors.filter(item => !(item.fragmentId === field.id && item.message === message));
+        fieldName = fieldName || this.getLabelText(field);
+        if (!valid) {
+            this.errors.push({ fragmentId: field.id, fieldName: fieldName, message: message });
+        }
+    },
+
+    validateStep: function (container) {
+        this.errors = [];
+
+        const itemsThatNeedToBeValidated = [].slice.call(container.querySelectorAll('[data-validation]')).filter(item => item.offsetParent);
+        itemsThatNeedToBeValidated.forEach(item => {
+            const validations = item.getAttribute('data-validation').split(' ');
+            const validationChecks = [];
+            for (let i = 0, il = validations.length; i < il; i++) {
+                if (commonForms[validations[i]]) {
+                    validationChecks.push(commonForms[validations[i]]);
+                }
+            }
+
+            commonForms.validateInput(item, validationChecks);
         });
 
-        const selects = [].slice.call(this.formElement.querySelectorAll('.ds_select'));
-        selects.forEach(select => {
-            select.addEventListener('change', () => {
-                const type = document.querySelector('[name=feedbacktype]:checked').value;
-                this.updateDataLayer(type, 'feedbackSelect');
-            });
+        const invalidFields = [].slice.call(container.querySelectorAll('[aria-invalid="true"],[data-invalid="true"]')).filter(item => item.offsetParent && item.dataset.validation);
+
+        // elear errors on no longer validated fields
+        const noLongerValidatedFields = [].slice.call(container.querySelectorAll('[aria-invalid="true"],[data-invalid="true"]')).filter(item => typeof item.dataset.validation === 'undefined');
+        noLongerValidatedFields.forEach(item => {
+            item.errors = {};
+            commonForms.validateInput(item, []);
+            commonForms.toggleCurrentErrors(item, true, '', '')
+        });
+
+        this.renderErrorSummary(this.errors);
+
+        return invalidFields.length === 0;
+    }
+}
+
+const feedbackForm = {
+    init: function () {
+        this.feedbackContainer = document.getElementById('feedback');
+
+        if (!this.feedbackContainer) {
+            // no feedback form on this page, do nothing
+            return;
+        }
+
+        this.form = this.feedbackContainer.querySelector('form');
+
+        this.addTracking();
+        this.attachEventHandlers();
+        this.setInitialData();
+        this.form.innerHTML = feedbackTemplate.render({ step: 'type' });
+        this.feedbackContainer.classList.add('js-initialised');
+    },
+
+    addTracking: function () {
+        this.feedbackContainer.addEventListener('change', event => {
+            if (event.target.classList.contains('ds_radio__input')) {
+                const type = this.form.querySelector('[name="feedback-type"]:checked').value;
+                this.updateDataLayer(type, 'feedbackRadio');
+            }
+
+            if (event.target.classList.contains('ds_select')) {
+                this.updateDataLayer(this.data.type, 'feedbackSelect');
+            }
         });
     },
 
     attachEventHandlers: function () {
-        this.formElement.addEventListener('submit', (event) => {
-            event.preventDefault();
+        this.feedbackContainer.addEventListener('click', event => {
+            if (event.target.classList.contains('js-continue')) {
+                if (commonForms.validateStep(this.form)) {
+                    this.data.type = this.form.querySelector('[name="feedback-type"]:checked').value;
 
-            if (document.querySelector('[name=feedbacktype]:checked')) {
-                this.submitFeedback();
+                    this.form.innerHTML = feedbackTemplate.render({
+                        step: 'details',
+                        data: this.data
+                    });
+
+                    temporaryFocus(this.form);
+                }
+            }
+
+            if (event.target.classList.contains('js-cancel')) {
+                this.resetForm();
+                temporaryFocus(this.form);
+            }
+
+            if (event.target.classList.contains('js-submit')) {
+                event.preventDefault();
+                if (commonForms.validateStep(this.form)) {
+                    this.data.reason = this.getFeedbackReason();
+                    this.data.freetext = this.getFeedbackFreeText();
+                    this.submitFeedback();
+                }
             }
         });
     },
 
-    submitFeedback: function () {
-        if (!document.querySelector('[name=feedbacktype]:checked')) {
-            return;
+    getFeedbackReason: function () {
+        let reason = '';
+
+        if (this.data.type !== 'yes') {
+            reason = this.form.querySelector('#reason').value;
         }
 
-        // remove any error messages
-        this.removeErrorMessages();
+        return reason;
+    },
 
-        const type = document.querySelector('[name=feedbacktype]:checked').value;
+    getFeedbackFreeText: function () {
+        const freeText = this.form.querySelector('#feedback-comments').value;
+        return freeText.substring(0, 250);
+    },
 
-        const feedback = {
-            slug: document.location.pathname,
-            type: type,
-            reason: this.getFeedbackReason(type),
-            freetext: this.getFeedbackFreeText(type),
+    setInitialData: function () {
+        this.data = {
             category: document.querySelector('#page-category').value,
+            contentItem: document.getElementById('documentUuid').value,
             errors: [],
             hippoContentItem: window.location.pathname,
-            contentItem: document.getElementById('documentUuid').value
-        };
+            slug: document.location.pathname
+        }
 
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('q')) {
-            feedback.searchTerm = urlParams.get('q');
+            this.data.searchTerm = urlParams.get('q');
         }
         if (urlParams.has('cat')) {
-            feedback.searchCat = urlParams.get('cat');
+            this.data.searchCat = urlParams.get('cat');
         }
         if (urlParams.has('page')) {
-            feedback.searchPage = urlParams.get('page');
+            this.data.searchPage = urlParams.get('page');
         }
+    },
 
-        const errorSummaryEl = document.getElementById('feedbackErrorSummary');
-        const errorSummaryContentEl = errorSummaryEl.querySelector('.ds_error-summary__content');
-        errorSummaryContentEl.innerHTML = '';
+    resetForm: function () {
+        delete this.data.reason;
+        delete this.data.type;
+        this.form.innerHTML = feedbackTemplate.render({ step: 'type' });
+        commonForms.renderErrorSummary([]);
+    },
 
-        if (!this.validateFeedback(feedback)) {
-            //error
+    showSuccessMessage: function () {
+        const errorSummaryElement = this.feedbackContainer.querySelector('.js-error-summary-container');
+        const thanksElement = this.feedbackContainer.querySelector('.js-confirmation-message');
 
-            const errorSummaryContentList = document.createElement('ul');
-            errorSummaryContentList.classList.add('ds_error-summary__list');
-            errorSummaryContentEl.appendChild(errorSummaryContentList);
+        // remove form and error summary
+        this.form.parentNode.removeChild(this.form);
+        errorSummaryElement.parentNode.removeChild(errorSummaryElement);
 
-            feedback.errors.forEach(function (error) {
-                const fieldElement = error.field.nodeName === 'SELECT' ? error.field.parentNode : error.field;
-                fieldElement.classList.add('ds_input--error');
+        // show success message
+        thanksElement.classList.remove('fully-hidden');
+    },
 
-                const questionElement = error.field.closest('.ds_question');
-                questionElement.classList.add('ds_question--error');
+    submitFeedback: function () {
+        // update datalayer
+        this.updateDataLayer(this.data.type, 'feedbackSubmit');
 
-                let messageElement = questionElement.querySelector('.ds_question__error-message');
-                if (!messageElement) {
-                    messageElement = document.createElement('p');
-                    messageElement.classList.add('ds_question__error-message');
+        // submit feedback
+        PromiseRequest('/service/feedback', 'POST', JSON.stringify(this.data), { 'Content-Type': 'application/json; charset=utf-8' })
+            .then(() => {
+                this.showSuccessMessage();
+            })
+            .catch(err => {
+                let message = 'Sorry, we have a problem at our side. Please try again later.';
+
+                if (err.status === 429) {
+                    message = 'Sorry, too many requests have been submitted. Please try again later.';
                 }
 
-                messageElement.innerHTML = error.message;
-
-                fieldElement.insertAdjacentElement('beforebegin', messageElement);
-
-                // summary item
-                const summaryItem = document.createElement('li');
-                const summaryLink = document.createElement('a');
-                summaryItem.appendChild(summaryLink);
-                errorSummaryContentList.appendChild(summaryItem);
-
-                summaryLink.innerText = `${error.message}`;
-                summaryLink.href = `#${error.field.id}`;
+                commonForms.renderErrorSummary([{
+                    message: message
+                }]);
             });
-
-            // error summary
-            errorSummaryEl.classList.remove('fully-hidden');
-
-            // scroll to error summary error
-            errorSummaryEl.focus();
-            errorSummaryEl.scrollIntoView();
-        } else {
-            errorSummaryEl.classList.add('fully-hidden');
-
-            // update datalayer
-            this.updateDataLayer(feedback.type, 'feedbackSubmit');
-
-            // submit feedback
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/service/feedback', true);
-
-            //Send the proper header information along with the request
-            xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-
-            const that = this;
-
-            xhr.onreadystatechange = function () {
-                // Call a function when the state changes.
-                if (this.readyState === XMLHttpRequest.DONE && this.status === 201) {
-                    // show success message
-                    document.getElementById('feedbackThanks').classList.remove('fully-hidden');
-
-                    // hide form
-                    that.formElement.classList.add('fully-hidden');
-
-                } else if (this.status === 429) {
-                  that.errorSummary.querySelector('.ds_error-summary__content').innerHTML = '<p>Sorry, too many requests have been submitted. Please try again later.</p>';
-                  that.errorSummary.classList.remove('fully-hidden');
-                  that.errorSummary.scrollIntoView();
-                } else if (this.status >= 400) {
-                  that.errorSummary.querySelector('.ds_error-summary__content').innerHTML = '<p>Sorry, we have a problem at our side. Please try again later.</p>';
-                  that.errorSummary.classList.remove('fully-hidden');
-                  that.errorSummary.scrollIntoView();
-              }
-            };
-
-            xhr.send(JSON.stringify(feedback));
-        }
     },
 
     updateDataLayer: function (type, event) {
@@ -180,85 +297,9 @@ const feedbackForm = {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             'type': type,
-            'reason': this.getFeedbackReason(type),
+            'reason': this.data.reason,
             'event': event
         });
-    },
-
-    getFeedbackReason: function (type) {
-        let reason = '';
-
-        if (type === 'no') {
-            reason = this.fields.no.reason.value;
-        } else if (type === 'yesbut') {
-            reason = this.fields.yesbut.reason.value;
-        }
-
-        return reason;
-    },
-
-    getFeedbackFreeText: function (type) {
-        let freeText = '';
-
-        if (type === 'no') {
-            freeText = this.fields.no.comments.value;
-        } else if (type === 'yesbut') {
-            freeText = this.fields.yesbut.comments.value;
-        } else {
-            freeText = this.fields.yes.comments.value || '';
-        }
-
-        return freeText.substring(0, 250);
-    },
-
-    removeErrorMessages: function () {
-        this.errorSummary.classList.add('fully-hidden');
-
-        [].slice.call(this.formElement.querySelectorAll('.ds_input--error')).forEach(function (inputElement) {
-            inputElement.classList.remove('ds_input--error');
-        });
-
-        [].slice.call(this.formElement.querySelectorAll('.ds_question--error')).forEach(function (inputElement) {
-            inputElement.classList.remove('ds_question--error');
-        });
-
-        [].slice.call(this.formElement.querySelectorAll('.ds_question__error-message')).forEach(function (message) {
-            message.parentNode.removeChild(message);
-        });
-    },
-
-    validateFeedback: function (feedback) {
-        switch (feedback.type) {
-        case 'no':
-            if (feedback.freetext === '') {
-                feedback.errors.push({
-                    field: this.fields.no.comments,
-                    message: 'Please enter a comment'
-                });
-            }
-
-            if (feedback.reason === '') {
-                feedback.errors.push({
-                    field: this.fields.no.reason,
-                    message: 'Please select a reason'
-                });
-            }
-            break;
-
-        case 'yesbut':
-            if (!feedback.freetext) {
-                feedback.errors.push({
-                    field: this.fields.yesbut.comments,
-                    message: 'Please enter a comment'
-                });
-            }
-            break;
-
-        default:
-            break;
-        }
-
-        return feedback.errors.length === 0;
     }
 };
 
