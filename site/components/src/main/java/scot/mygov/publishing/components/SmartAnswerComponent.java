@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * All the files for a smart answer are contained within a folder.
  *
- * The doument will contaoin standard fields such as tiutle, summary etc.  The questions ans answers are then all
+ * The document will contain standard fields such as title, summary etc.  The questions ans answers are then all
  * listed in order.
  */
 public class SmartAnswerComponent extends EssentialsContentComponent {
