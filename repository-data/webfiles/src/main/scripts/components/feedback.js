@@ -106,6 +106,7 @@ const commonForms = {
     renderErrorSummary: function (errors) {
         const errorSumaryContainerElement = document.querySelector('.js-error-summary-container');
         errorSumaryContainerElement.innerHTML = errorSummaryTemplate.render({ errors: errors });
+        window.DS.tracking.init(errorSumaryContainerElement);
 
         if (errors.length > 0) {
             temporaryFocus(errorSumaryContainerElement.querySelector('.ds_error-summary'));
@@ -167,7 +168,7 @@ const feedbackForm = {
         this.addTracking();
         this.attachEventHandlers();
         this.setInitialData();
-        this.form.innerHTML = feedbackTemplate.render({ step: 'type' });
+        this.populateContainerFromTemplate(this.form, feedbackTemplate, { step: 'type' });
         this.feedbackContainer.classList.add('js-initialised');
     },
 
@@ -190,7 +191,7 @@ const feedbackForm = {
                 if (commonForms.validateStep(this.form)) {
                     this.data.type = this.form.querySelector('[name="feedback-type"]:checked').value;
 
-                    this.form.innerHTML = feedbackTemplate.render({
+                    this.populateContainerFromTemplate(this.form, feedbackTemplate, {
                         step: 'details',
                         data: this.data
                     });
@@ -230,6 +231,19 @@ const feedbackForm = {
         return freeText.substring(0, 250);
     },
 
+    populateContainerFromTemplate(container, template, templateData) {
+        container.innerHTML = template.render(templateData);
+        window.DS.tracking.init(container);
+    },
+
+    resetForm: function () {
+        delete this.data.reason;
+        delete this.data.type;
+        this.populateContainerFromTemplate(this.form, feedbackTemplate, { step: 'type' });
+
+        commonForms.renderErrorSummary([]);
+    },
+
     setInitialData: function () {
         this.data = {
             category: document.querySelector('#page-category').value,
@@ -249,13 +263,6 @@ const feedbackForm = {
         if (urlParams.has('page')) {
             this.data.searchPage = urlParams.get('page');
         }
-    },
-
-    resetForm: function () {
-        delete this.data.reason;
-        delete this.data.type;
-        this.form.innerHTML = feedbackTemplate.render({ step: 'type' });
-        commonForms.renderErrorSummary([]);
     },
 
     showSuccessMessage: function () {
