@@ -1,6 +1,5 @@
 'use strict';
 
-import feedback from '../../components/feedback';
 import gup from '../../tools/gup';
 import Paginator from '../../tools/paginator';
 import currency from '../../templates/currency.js';
@@ -46,9 +45,6 @@ const fairRentRegister = {
 
         this.getParamsAndDisplaySection();
         this.attachEventHandlers();
-
-        feedback.init();
-
     },
 
     /**

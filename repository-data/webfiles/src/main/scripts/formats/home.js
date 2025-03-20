@@ -2,13 +2,9 @@
 
 'use strict';
 
-import feedback from '../components/feedback';
-
 const home = {};
 
-home.init = function () {
-    feedback.init();
-};
+home.init = function () {};
 
 window.format = home;
 window.format.init();

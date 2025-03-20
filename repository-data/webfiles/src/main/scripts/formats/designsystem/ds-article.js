@@ -2,13 +2,10 @@
 
 'use strict';
 
-import feedback from '../../components/feedback';
 import '../../../../../node_modules/prismjs/prism';
 
 const article = {
     init: function() {
-        feedback.init();
-
         this.resizeIframes();
     },
 

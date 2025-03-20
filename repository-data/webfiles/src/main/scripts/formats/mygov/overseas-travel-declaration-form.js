@@ -120,7 +120,6 @@ const formSections = [
 ];
 
 import $ from 'jquery';
-import feedback from '../../components/feedback';
 import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
 import commonForms from '../../tools/forms';
@@ -175,7 +174,6 @@ const overseasTravelForm = {
 
         commonForms.appendCaptchaScript();
 
-        feedback.init();
         overseasTravelForm.form.validateStep = overseasTravelForm.validateStep;
         overseasTravelForm.form.init();
         commonHousing.setManualLinkSections();

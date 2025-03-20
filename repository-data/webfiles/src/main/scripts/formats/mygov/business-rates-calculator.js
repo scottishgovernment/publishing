@@ -3,7 +3,6 @@
 'use strict';
 
 import MultiPageForm from '../../components/multi-page-form';
-import feedback from '../../components/feedback';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 import temporaryFocus from '@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
 import PromiseRequest from '@scottish-government/design-system/src/base/tools/promise-request/promise-request';
@@ -125,7 +124,6 @@ const businessRatesCalculator = {
         this.selectedProperties = [];
 
         this.form.init();
-        feedback.init();
 
         this.addressSearchForm = document.querySelector('#address-form');
         this.postcodeSearchForm = document.querySelector('#postcode-form');

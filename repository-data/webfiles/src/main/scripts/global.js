@@ -7,6 +7,7 @@
 
 import BloomreachWebfile from './tools/bloomreach-webfile';
 import ContentSelect from './components/content-select';
+import feedback from './components/feedback';
 import NotificationBanner from './components/notification';
 import ToggleLink from './components/toggle-link';
 import UpdateHistory from './components/update-history';
@@ -26,6 +27,8 @@ const global = {
         this.initPublishingComponents();
         this.addTracking();
         this.checkVideoConsent();
+
+        feedback.init();
 
         const hasCodeExamples = document.querySelectorAll('pre > code[class*="language-"]').length > 0;
         if (hasCodeExamples) {

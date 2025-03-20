@@ -128,7 +128,6 @@ const formMapping = {
 
 import _ from '../../vendor/lodash/dist/tinydash.es6.js';
 import $ from 'jquery';
-import feedback from '../../components/feedback';
 import EditableTable from '../../components/editable-table';
 import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
@@ -216,7 +215,6 @@ const rentAdjudicationForm = {
 
         commonForms.appendCaptchaScript();
 
-        feedback.init();
         rentAdjudicationForm.form.validateStep = rentAdjudicationForm.validateStep;
         rentAdjudicationForm.form.init();
         commonHousing.setManualLinkSections();

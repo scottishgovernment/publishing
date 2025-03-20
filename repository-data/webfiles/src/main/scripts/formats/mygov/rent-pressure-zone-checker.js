@@ -4,7 +4,6 @@
 
 import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
-import feedback from '../../components/feedback';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 import commonForms from '../../tools/forms';
 
@@ -55,8 +54,6 @@ const rpzChecker = {
     }),
 
     init: function () {
-        feedback.init();
-
         // append form template
         const formTemplateContainer = document.querySelector('#form-container');
         if (!formTemplateContainer) {
