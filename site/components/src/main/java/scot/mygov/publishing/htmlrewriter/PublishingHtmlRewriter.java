@@ -22,7 +22,7 @@ import javax.jcr.Session;
 
 import java.util.List;
 
-import static org.apache.commons.lang3.StringUtils.startsWith;
+import static org.apache.commons.lang3.StringUtils.startsWithAny;
 import static org.hippoecm.repository.HippoStdNodeType.HIPPOSTD_STATE;
 import static scot.gov.variables.VariablesHelper.getVariablesResourceBundle;
 
@@ -142,7 +142,7 @@ public class PublishingHtmlRewriter extends SimpleContentRewriter {
     }
 
     boolean isLocal(Element link) {
-        return !startsWith(link.attr(HREF), "http");
+        return !startsWithAny(link.attr(HREF), "http", "mailto");
     }
 
     void rewrite(Element link, String slug) {
