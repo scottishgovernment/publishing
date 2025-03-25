@@ -5,7 +5,7 @@ $icon-spacing: 1.5em;
 
 .ds_cb__link-major {
     @include ds_small-size();
-    @include ds_high-contrast-link-style;
+    @include ds_high-contrast-link;
     border-bottom: 2px solid currentColor;
     display: inline-block;
     font-weight: $bold;
@@ -13,6 +13,16 @@ $icon-spacing: 1.5em;
     padding: 0.5rem 1.5rem calc(0.5rem - 2px) 0;
     position: relative;
     text-decoration: none;
+
+    &:hover {
+        border-bottom-width: 3px;
+        padding-bottom: calc(0.5rem - 3px);
+
+        @include ds_media-query(medium) {
+            border-bottom-width: 4px;
+            padding-bottom: calc(0.5rem - 4px);
+        }
+    }
 
     &:focus {
         border-bottom-color: transparent;
