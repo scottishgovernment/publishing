@@ -8,7 +8,7 @@
     "url": "http://www.gov.scot/"
   },
   "scripts": {
-    "sass": "npm run sass_campaign; npm run sass_mygov; npm run sass_tn; npm run sass_designsystem",
+    "sass": "npm run sass_campaign; npm run sass_mygov; npm run sass_designsystem",
     "sass_campaign": "sass ./src/main/scss/campaign/main.scss ./src/main/resources/site/assets/campaign/css/main.css --style compressed",
     "sass_designsystem": "sass ./src/main/scss/designsystem/main.scss ./src/main/resources/site/assets/designsystem/css/main.css --style compressed",
     "sass_mygov": "sass ./src/main/scss/mygov/main.scss ./src/main/resources/site/assets/mygov/css/main.css --style compressed",
@@ -21,7 +21,7 @@
     "@babel/preset-env": "^7.16.11",
     "@dryfeld/nunjucks-loader": "^4.0.4",
     "@scottish-government-design-system/content-blocks": "^0.1.2",
-    "@scottish-government/design-system": "^2.3.2",
+    "@scottish-government/design-system": "^3.0.0",
     "babel-loader": "^8.2.3",
     "karma": "^6.4.1",
     "karma-babel-preprocessor": "^8.0.2",

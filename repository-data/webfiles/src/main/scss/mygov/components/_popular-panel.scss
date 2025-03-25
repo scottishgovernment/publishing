@@ -9,31 +9,36 @@
     color: white;
     display: flex;
     flex-direction: column;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
 }
 
 .popular__link {
+    @include ds_link;
     color: white;
     text-decoration: none;
-    transition-duration: unset !important;
+
+    &:hover:not(:focus) {
+        color: white;
+        text-decoration-line: underline;
+    }
 }
 
 .popular__title {
     font-size: 1rem;
-    line-height: px-to-rem(32px);
+    line-height: 2rem;
 }
 
 .popular__items {
     font-size: $small-size;
-    line-height: 24px;
+    line-height: 1.5rem;
     list-style-type: none;
 }
 
 .popular__item {
     font-weight: $bold;
     margin-bottom: 0;
-    margin-left: 16px;
-    padding: 8px 0;
+    margin-left: 1rem;
+    padding: 0.5rem 0;
     position: relative;
 }
 
@@ -49,7 +54,7 @@
 .popular__items,
 .popular__title {
     margin: 0;
-    padding: 8px 16px;
+    padding: 0.5rem 1rem;
     width: 100%;
 }
 
@@ -69,12 +74,12 @@
     .popular__items {
         width: 67%;
         column-count: 2;
-        column-gap: 32px;
+        column-gap: 2rem;
     }
 
     .popular__item {
         display: inline-block;
-        margin-left: 24px;
+        margin-left: 1.5rem;
         width: calc(100% - 20px);
     }
 }
