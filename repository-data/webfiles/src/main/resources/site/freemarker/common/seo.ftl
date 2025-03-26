@@ -65,55 +65,28 @@
     <@hst.headContribution category="canonical">
         <link rel="canonical"  href="${canonical}" />
     </@hst.headContribution>
-    <#-- Facebook meta tags: only show if a card image is available -->
+    <#-- Opengraph meta tags: only show if a card image is available -->
     <#if cardImage??>
-        <@hst.headContribution category="facebookMeta">
+        <@hst.headContribution category="openGraph">
             <meta property="og:url" content="${canonical}" />
         </@hst.headContribution>
-        <@hst.headContribution category="facebookMeta">
+        <@hst.headContribution category="openGraph">
             <meta property="og:type" content="website" />
         </@hst.headContribution>
-        <@hst.headContribution category="facebookMeta">
+        <@hst.headContribution category="openGraph">
             <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
             <meta property="og:title" content="${pagetitle}" />
             </@hst.messagesReplace>
         </@hst.headContribution>
         <#if contentBean?? && contentBean.metaDescription??>
-            <@hst.headContribution category="facebookMeta">
+            <@hst.headContribution category="openGraph">
             <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
             <meta property="og:description" content="${contentBean.metaDescription}" />
             </@hst.messagesReplace>
             </@hst.headContribution>
         </#if>
-        <@hst.headContribution category="facebookMeta">
+        <@hst.headContribution category="openGraph">
         <meta property="og:image" content="<@hst.link hippobean=cardImage.original fullyQualified=true />"/>
-        </@hst.headContribution>
-    </#if>
-    <#-- Twitter Meta Tags: only show if a card image is available -->
-    <#if cardImage??>
-        <@hst.headContribution category="twitterMeta">
-            <meta name="twitter:card" content="summary_large_image"/>
-        </@hst.headContribution>
-        <@hst.headContribution category="twitterMeta">
-            <meta property="twitter:domain" content=""/>
-        </@hst.headContribution>
-        <@hst.headContribution category="twitterMeta">
-            <meta property="twitter:url" content="${canonical}"/>
-        </@hst.headContribution>
-        <@hst.headContribution category="twitterMeta">
-            <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
-            <meta name="twitter:title" content="${pagetitle}"/>
-            </@hst.messagesReplace>
-        </@hst.headContribution>
-        <#if contentBean?? && contentBean.metaDescription??>
-            <@hst.headContribution category="twitterMeta">
-            <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
-            <meta name="twitter:description" content="${contentBean.metaDescription}"/>
-            </@hst.messagesReplace>
-            </@hst.headContribution>
-        </#if>
-        <@hst.headContribution category="twitterMeta">
-        <meta name="twitter:image" content="<@hst.link hippobean=cardImage.original fullyQualified=true />" />
         </@hst.headContribution>
     </#if>
 

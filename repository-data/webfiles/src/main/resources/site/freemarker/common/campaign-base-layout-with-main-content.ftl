@@ -13,8 +13,7 @@
         <@hst.headContributions categoryIncludes="meta"/>
         <@hst.headContributions categoryIncludes="schema"/>
         <@hst.headContributions categoryIncludes="title"/>
-        <@hst.headContributions categoryIncludes="facebookMeta"/>
-        <@hst.headContributions categoryIncludes="twitterMeta"/>
+        <@hst.headContributions categoryIncludes="openGraph"/>
 
         <meta charset="UTF-8">
 
