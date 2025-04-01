@@ -23,7 +23,7 @@
 {% endmacro %}
 
 {% macro postcodeLookup(name, address, required=false, readOnly=false, noRPZAllowed=false, onlyRPZAllowed=false, note=false) %}
-<div id="{{name}}-postcode-lookup" class="js-postcode-lookup" data-module="mg-postcode-lookup">
+<div id="{{name}}-postcode-lookup" {% if readOnly %}data-readonly="true"{% endif %} class="js-postcode-lookup" data-module="mg-postcode-lookup">
     <div class="ds_address__lookup  {% if address %}fully-hidden{% endif %}">
         <fieldset>
             <div class="ds_question">
@@ -55,7 +55,7 @@
             <dt class="ds_prefilled-value-list__key">Postcode</dt>
             <dd class="ds_prefilled-value-list__value">
                 <div class="js-postcode-value"></div>
-                <button class="ds_link  ds_prefilled-value-list__value-actions  js-show-postcode-lookup">Change <span class="visually-hidden">your answer for: <q>Postcode</q></span></button>
+                <button class="ds_link  ds_prefilled-value-list__value-actions  js-show-postcode-lookup">Change <span class="visually-hidden"> Postcode</span></button>
             </dd>
         </dl>
         <div class="ds_question">

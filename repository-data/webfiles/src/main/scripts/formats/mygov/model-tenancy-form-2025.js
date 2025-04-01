@@ -1,7 +1,7 @@
 import AddAnother from '../../components/add-another';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 import commonForms from '../../tools/forms';
-import formMapping from '../../components/mygov/housing-forms/model-tenancy-mapping';
+import formMapping from '../../components/mygov/housing-forms/model-tenancy-mapping-2025';
 import MultiPageForm from "../../components/multi-page-form-2025";
 import PostcodeLookup from '../../components/postcode-lookup';
 import PromiseRequest from '@scottish-government/design-system/src/base/tools/promise-request/promise-request';
@@ -133,7 +133,7 @@ const modelTenancyForm = {
                 pages: [
                     {
                         slug: 'property-address',
-                        title: 'What\'s the property address',
+                        title: 'What\'s the property address?',
                     },
                     {
                         headerType: 'legend',
@@ -406,7 +406,7 @@ const modelTenancyForm = {
             .then(data => {
                 this.form.formDataObject = JSON.parse(data.responseText);
             })
-            .then(data => {
+            .then(() => {
                 // reformat terms
                 function capitaliseFirstLetter(val) {
                     return String(val).charAt(0).toUpperCase() + String(val).slice(1);
@@ -430,6 +430,7 @@ const modelTenancyForm = {
                 // end reformat terms
 
                 this.form.formDataObject.facilities = [];
+                this.form.formDataObject.servicesLookedAfterByLettingAgent = [];
 
                 this.form.initialDataObject = JSON.parse(JSON.stringify(this.form.formDataObject));
 
@@ -451,6 +452,9 @@ const modelTenancyForm = {
                 }
 
                 this.form.init();
+            })
+            .catch(err => {
+                // todo: some sort of message for when the service fails
             });
     },
 
@@ -701,18 +705,23 @@ const modelTenancyForm = {
     renderEditableTerm() {
         const editableTermContainer = document.querySelector('.js-form-page:not(.fully-hidden) .js-editable');
         let currentTerm;
+        let termArrayName;
 
         if (editableTermContainer.dataset.type === 'mandatory') {
+            termArrayName = 'mustIncludeTermsAsArray';
             currentTerm = this.form.formDataObject.mustIncludeTermsAsArray.filter(item => item.slug === editableTermContainer.dataset.slug)[0]
         } else {
+            termArrayName = 'optionalTermsAsArray';
             currentTerm = this.form.formDataObject.optionalTermsAsArray.filter(item => item.slug === editableTermContainer.dataset.slug)[0]
         }
 
         const templateData = {
             checkboxId: editableTermContainer.dataset.query,
-            label: 'Term description',
-            slug: currentTerm.slug,
             excluded: !!currentTerm.excluded,
+            label: 'Term description',
+            termName: currentTerm.name,
+            slug: currentTerm.slug,
+            termArray: termArrayName,
             value: currentTerm.content
         };
 
@@ -750,6 +759,11 @@ const modelTenancyForm = {
                     this.form.formDataObject.optionalTermsAsArray.filter(item => item.slug === termSlug)[0].excluded = !event.target.checked;
                 }
             }
+        });
+
+        const textarea = editableTermContainer.querySelector(`#editable-term-${currentTerm.slug}-value`);
+        textarea.addEventListener('change', () => {
+            this.form.formDataObject[textarea.dataset.type].filter(item => item.name === textarea.dataset.name)[0].content = textarea.value;
         });
     },
 

@@ -48,45 +48,14 @@ definitions:
             hipposysedit:path: publishing:formdisabled
             hipposysedit:primary: false
             hipposysedit:type: Boolean
-        /hipposysedit:nodetype[2]:
-          jcr:primaryType: hipposysedit:nodetype
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 69511ec9-f8cd-4667-9e2a-0b5f0aeb257c
-          hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
-            'hippostd:relaxed']
-          hipposysedit:validators: [variables-validator]
-          /contentBlocks:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:contentBlocks
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator, required]
-          /slug:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: true
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:slug
-            hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [required, slug-validator]
-          /additionalContentBlocks:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:additionalContentBlocks
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
-          /formdisabled:
+          /startpage:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:formdisabled
+            hipposysedit:path: publishing:startpage
             hipposysedit:primary: false
-            hipposysedit:type: Boolean
+            hipposysedit:type: hippo:mirror
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -116,32 +85,7 @@ definitions:
           /publishing:contentOwner:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-        /hipposysedit:prototype[2]:
-          jcr:primaryType: nt:unstructured
-          jcr:mixinTypes: ['hippostd:publishableSummary', 'hippostd:relaxed', 'hippostdpubwf:document',
-            'hippotranslation:translated', 'mix:referenceable']
-          jcr:uuid: 12c6821f-55cb-4272-a7ac-4f21728b7d95
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:creationDate: 2019-09-03T14:51:32.620+01:00
-          hippostdpubwf:lastModificationDate: 2019-09-03T14:51:32.620+01:00
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          publishing:audience: ''
-          publishing:authorNotes: ''
-          publishing:formdisabled: false
-          publishing:metaDescription: ''
-          publishing:reportingtags: []
-          publishing:sensitive: false
-          publishing:seoTitle: ''
-          publishing:serviceproviders: []
-          publishing:showInParent: true
-          publishing:slug: ''
-          publishing:summary: ''
-          publishing:title: ''
-          /publishing:contentOwner:
+          /publishing:startpage:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
@@ -189,6 +133,15 @@ definitions:
               \ where this page is listed on the live website, such as a category\
               \ page and in search results. \r\n\r\nIt must be between 3 and 255 characters."
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /startpage:
+            jcr:primaryType: frontend:plugin
+            caption: Start page
+            field: startpage
+            hint: This is the target of the "back" link at the top of the form
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

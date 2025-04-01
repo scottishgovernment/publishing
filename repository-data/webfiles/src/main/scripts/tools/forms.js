@@ -477,7 +477,7 @@ const commonForms = {
             let message = "Enter a postcode and click 'Find address'";
 
             // todo: this should be a check for readonly mode
-            if (true) {
+            if (!element.dataset.readonly) {
                 message += ', or enter an address manually';
             }
 

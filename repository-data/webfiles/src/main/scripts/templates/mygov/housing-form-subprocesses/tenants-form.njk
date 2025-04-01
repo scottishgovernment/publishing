@@ -12,7 +12,7 @@
     {% else %}
     <div class="ds_question">
         <label class="ds_label" for="tenant-email">Email</label>
-        <input value="{{data.email}}" data-validation="requiredField validEmail" aria-required="true" type="text" id="tenant-email" class="ds_input">
+        <input value="{{data.email}}" data-validation="requiredField validEmail" aria-required="true" type="email" id="tenant-email" class="ds_input">
     </div>
     {% endif %}
 
@@ -20,7 +20,7 @@
     {% else %}
     <div class="ds_question">
         <label class="ds_label" for="tenant-phone">Phone number</label>
-        <input value="{{data.telephone}}" data-validation="requiredField validPhone" aria-required="true" type="text" id="tenant-phone" class="ds_input  ds_input--fixed-20">
+        <input value="{{data.telephone}}" data-validation="requiredField validPhone" aria-required="true" type="tel" id="tenant-phone" class="ds_input  ds_input--fixed-20">
     </div>
     {% endif %}
 
@@ -29,8 +29,8 @@
         {{ postcodeLookup('tenant', address=data.address, required=true) }}
     {% endif %}
 
-    <div class="ds_question">
-        <h3 class="beta">Guarantor details (if they have one)</h3>
+    <div>
+        <h2>Guarantor details (if they have one)</h2>
 
         <div class="ds_question">
             <label class="ds_label" for="guarantor-name">Guarantor full name</label>

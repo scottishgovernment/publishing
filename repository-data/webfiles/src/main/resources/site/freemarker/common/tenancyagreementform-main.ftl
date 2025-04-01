@@ -9,6 +9,10 @@
         <@hst.manageContent hippobean=document />
 
         <div class="ds_wrapper">
+            <#if document.startpage??>
+                <a class="ds_back-link" href="<@hst.link hippobean=document.startpage/>">Back <span class="visually-hidden">to '${document.startpage.title}'</span></a>
+            </#if>
+
             <noscript>
                 <div class="ds_warning-text">
                     <strong class="ds_warning-text__icon" aria-hidden="true"></strong>

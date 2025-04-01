@@ -27,7 +27,7 @@ class AddAnother {
 
     init() {
         this.addEventListeners();
-        this.renderSummary();
+        this.renderSummary(false, false);
     }
 
     addEventListeners() {
@@ -131,7 +131,7 @@ class AddAnother {
         temporaryFocus(this.container);
     }
 
-    renderSummary(confirmationMessageObj) {
+    renderSummary(confirmationMessageObj, focusOnStatusMessage = true) {
         this.elementsToHide.forEach(item => item.classList.remove('fully-hidden'));
         delete this.editingIndex;
 
@@ -142,7 +142,9 @@ class AddAnother {
             iconsFile: bloomreachWebfile('/assets/images/icons/icons.stack.svg')
         });
 
-        temporaryFocus(this.container.querySelector('.js-status'));
+        if (focusOnStatusMessage) {
+            temporaryFocus(this.container.querySelector('.js-status'));
+        }
 
         if (confirmationMessageObj) {
             this.container.querySelector('.js-message-container').innerHTML = confirmationMessageTemplate.render({

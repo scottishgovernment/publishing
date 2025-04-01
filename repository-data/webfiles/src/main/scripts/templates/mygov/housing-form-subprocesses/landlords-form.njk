@@ -27,7 +27,7 @@
     {% else %}
         <div class="ds_question">
             <label class="ds_label" for="landlord-email">Email</label>
-            <input value="{{data.email}}" data-validation="validEmail requiredField" aria-required="true" type="text" id="landlord-email" class="ds_input">
+            <input value="{{data.email}}" data-validation="validEmail requiredField" aria-required="true" type="email" id="landlord-email" class="ds_input">
         </div>
     {% endif %}
 
@@ -35,7 +35,7 @@
     {% else %}
         <div class="ds_question">
             <label class="ds_label" for="landlord-phone">Phone number</label>
-            <input value="{{data.telephone}}" data-validation="validPhone requiredField" aria-required="true" type="text" id="landlord-phone" class="ds_input  ds_input--fixed-20">
+            <input value="{{data.telephone}}" data-validation="validPhone requiredField" aria-required="true" type="tel" id="landlord-phone" class="ds_input  ds_input--fixed-20">
         </div>
     {% endif %}
 

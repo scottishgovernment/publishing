@@ -44,7 +44,7 @@ const formMapping = {
     'lettingAgent.contact': '#letting-agent-contact',
 
     // recommended terms
-    'optionalTerms.contentsAndConditions': '#terms-contents',
+    'optionalTerms.contentsAndConditions': '#editable-term-contents-and-conditions-value',
     'optionalTerms.alterations': '#terms-alterations',
     'optionalTerms.localAuthorityTaxesAndCharges': '#terms-council-tax',
     'optionalTerms.utilities': '#terms-utilities',
