@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: d1a2026d-cab1-4c1c-96a4-6b5b08717739
+          jcr:uuid: 08354697-627f-4e0d-a0ac-a69a0208b23c
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -64,6 +64,14 @@ definitions:
             hipposysedit:path: publishing:noindex
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /arialabel:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:arialabel
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -73,6 +81,7 @@ definitions:
           publishing:externallink: ''
           publishing:hasarrow: false
           publishing:noindex: false
+          publishing:arialabel: ''
           /publishing:internallink:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -91,6 +100,16 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Content
             field: content
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /arialabel:
+            jcr:primaryType: frontend:plugin
+            caption: Accessible content
+            field: arialabel
+            hint: Screen readers will use this for the button's content if it has
+              been set, instead of the 'content' field.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
