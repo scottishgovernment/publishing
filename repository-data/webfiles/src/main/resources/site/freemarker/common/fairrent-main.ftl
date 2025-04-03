@@ -73,7 +73,7 @@
 
                     <div class="ds_site-search">
                         <form role="search" class="ds_site-search__form" method="GET" action="">
-                            <label class="ds_label  visually-hidden" for="site-search">Search</label>
+                            <label class="ds_label  visually-hidden" for="fair-rent-search-box">Search</label>
 
                             <div class="ds_input__wrapper  ds_input__wrapper--has-icon">
                                 <input name="query" id="fair-rent-search-box" class="ds_input" type="text" placeholder="Search the Fair Rent Register">
