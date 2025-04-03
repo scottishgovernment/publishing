@@ -44,8 +44,9 @@ const commonHousing = {
 
     validateSummary: function () {
         // do validations
+        const formContainer = document.querySelector('.multi-page-form');
 
-        const allValidationFields = [].slice.call(document.querySelectorAll('[data-validation]:not(.no-validate)'));
+        const allValidationFields = [].slice.call(formContainer.querySelectorAll('[data-validation]:not(.no-validate)'));
         const fieldsToValidate = allValidationFields.filter(field => {
             if (!field.offsetParent) {
                 return false;
