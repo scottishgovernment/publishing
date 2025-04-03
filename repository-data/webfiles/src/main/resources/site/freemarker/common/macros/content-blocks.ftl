@@ -56,13 +56,10 @@
             <!--noindex-->
             </#if>
 
-            <a href="<#if contentBlock.internallink??><@hst.link hippobean=contentBlock.internallink /><#else>${contentBlock.externallink}</#if>" class="
-                ds_button
-                <#if contentBlock.type == 'Secondary'>ds_button--secondary
-                <#elseif contentBlock.type == 'Cancel'>ds_button--cancel</#if>
-                <#if contentBlock.hasarrow>ds_button--has-icon</#if>">
+            <a href="<#if contentBlock.internallink??><@hst.link hippobean=contentBlock.internallink /><#else>${contentBlock.externallink}</#if>"
+                class="ds_button  <#if contentBlock.type == 'Secondary'>ds_button--secondary<#elseif contentBlock.type == 'Cancel'>ds_button--cancel</#if>  <#if contentBlock.hasarrow>ds_button--has-icon</#if>"
+                <#if contentBlock.arialabel?has_content>aria-label="${contentBlock.arialabel}"</#if>>
                 ${contentBlock.content}
-
                 <#if contentBlock.hasarrow>
                     <svg class="ds_icon" aria-hidden="true" role="img"><use href="${iconspath}#chevron_right"></use></svg>
                 </#if>
