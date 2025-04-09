@@ -87,6 +87,12 @@ definitions:
             hst:iconpath: icons/latestnews.svg
             hst:label: Latest news
             hst:template: latestnews
+          /latestPublications:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.LatestPublicationsComponent
+            hst:iconpath: icons/latestnews.svg
+            hst:label: Latest publications
+            hst:template: latestpublications
       /hst:components:
         jcr:primaryType: hst:components
       /hst:pages:
