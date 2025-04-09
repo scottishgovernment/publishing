@@ -11,7 +11,7 @@ import org.hippoecm.hst.core.parameters.*;
 
 public interface LatestNewsInfo {
 
-    @Parameter(name = "count", displayName = "Number of articles to display")
+    @Parameter(name = "count", displayName = "Number of articles to display", defaultValue = "3")
     @DropDownList(valueListProvider = LatestCountValueListProvider.class)
     String getCount();
 
