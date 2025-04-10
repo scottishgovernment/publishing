@@ -8,12 +8,12 @@ window.DS.components = window.DS.components || {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    const datePicker = new window.DS.components.DatePicker(
-        document.querySelector('[data-module="ds-datepicker"]'),
-        {
-            imagePath: bloomreachWebfile('/assets/images/icons/')
-        }
-    );
-    datePicker.init();
+    const datePickers = [].slice.call(document.querySelectorAll('[data-module="ds-datepicker"]'));
+    datePickers.forEach(datePickerItem => {
+      const datepicker = new window.DS.components.DatePicker(datePickerItem, {
+        imagePath: bloomreachWebfile('/assets/images/icons/')
+      });
+      datepicker.init();
+    });
     tracking.init();
 });
