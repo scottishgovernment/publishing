@@ -94,7 +94,7 @@
 
             <@hst.include ref="sidebar"/>
 
-            <#include 'feedback-wrapper.ftl'>
+            <@hst.include ref="feedback"/>
 
         </main>
     </div>

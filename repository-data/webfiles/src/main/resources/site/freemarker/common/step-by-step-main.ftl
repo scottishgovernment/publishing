@@ -113,7 +113,7 @@
             <div class="ds_layout__sidebar">
             </div>
 
-            <#include 'feedback-wrapper.ftl'>
+            <@hst.include ref="feedback"/>
 
         </main>
     </div>

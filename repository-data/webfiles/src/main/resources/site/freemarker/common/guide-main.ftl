@@ -123,7 +123,7 @@
             <!--endnoindex-->
 
 
-            <#include 'feedback-wrapper.ftl'>
+            <@hst.include ref="feedback"/>
         </main>
     </div>
 </div>

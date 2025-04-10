@@ -30,7 +30,7 @@
                 <@hst.include ref="results"/>
             </div>
 
-            <#include 'feedback-wrapper.ftl'>
+            <@hst.include ref="feedback"/>
         </main>
     </div>
 </div>

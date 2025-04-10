@@ -78,7 +78,7 @@
                     <@renderContentBlocks document.epilogueContentBlocks />
                 </#if>
 
-                <#include 'feedback-wrapper.ftl'>
+                <@hst.include ref="feedback"/>
             </div>
         </div>
 

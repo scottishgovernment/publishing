@@ -1,19 +1,19 @@
 package scot.mygov.publishing.components;
 
-import org.hippoecm.hst.component.support.bean.BaseHstComponent;
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
-public class FeedbackComponent extends BaseHstComponent {
+public class FeedbackComponent extends EssentialsContentComponent {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
         request.setAttribute("layoutName", getLayoutName(request));
-
-        WebsiteInfo info = MountUtils.websiteInfo(request);
-        request.setAttribute("isFeedbackEnabled", info.isFeedbackEnabled());
+        request.setAttribute("isFeedbackEnabled", isFeedbackEnabled(request));
+        request.setAttribute("feedbackDocument", feedbackDocument(request));
     }
 
     String getLayoutName(HstRequest request) {
@@ -22,5 +22,19 @@ public class FeedbackComponent extends BaseHstComponent {
                 .getResolvedSiteMapItem()
                 .getHstComponentConfiguration()
                 .getName();
+    }
+
+    boolean isFeedbackEnabled(HstRequest request) {
+        WebsiteInfo info = MountUtils.websiteInfo(request);
+        if (!info.isFeedbackEnabled()) {
+            return false;
+        }
+        HippoBean bean = request.getRequestContext().getContentBean();
+        return bean != null && bean.getSingleProperty("publishing:showFeedback", false);
+    }
+
+    HippoBean feedbackDocument(HstRequest request) {
+        HippoBean site = request.getRequestContext().getSiteContentBaseBean();
+        return site.getBean("site-furniture/feedback");
     }
 }

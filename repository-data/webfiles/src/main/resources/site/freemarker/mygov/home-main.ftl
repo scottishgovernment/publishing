@@ -92,7 +92,7 @@
                 </#if>
 
                 <div class="ds_layout  ds_layout--category-list">
-                    <#include '../common/feedback-wrapper.ftl'>
+                    <@hst.include ref="feedback"/>
                 </div>
             </div>
         </div>
