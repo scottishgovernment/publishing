@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['hipposysedit:remodel', 'mix:referenceable']
-          jcr:uuid: be715928-f4de-432a-9923-a18852faa4e0
+          jcr:uuid: 06c5b8f8-d4bc-433f-9a0a-4bd31120f356
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippotranslation:translated',
             'hippostd:relaxed']
@@ -78,7 +78,7 @@ definitions:
         /hipposysedit:prototype:
           jcr:primaryType: publishing:formbase
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: bfc6c134-2759-4e05-b9ab-7bc5b5c817e3
+          jcr:uuid: a603a504-cf40-417f-b1ee-7e34896f1d37
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -273,6 +273,15 @@ definitions:
             plugin.class: org.onehippo.forge.ecmtagging.editor.TagSuggestPlugin
             wicket.id: ${cluster.id}.field
             wicket.model: ${wicket.model}
+          /reviewDate:
+            jcr:primaryType: frontend:plugin
+            caption: Review date
+            field: reviewDate
+            hint: The date on which this content item should next be reviewed
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /lastUpdatedDate:
             jcr:primaryType: frontend:plugin
             caption: Last updated date
