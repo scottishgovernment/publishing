@@ -26,6 +26,22 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Text
             hipposysedit:validators: [ds-example-html-validator]
+          /headerlogo:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:headerlogo
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+          /headertitle:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:headertitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
           /illustration:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -41,6 +57,14 @@ definitions:
             hipposysedit:multiple: false
             hipposysedit:ordered: false
             hipposysedit:path: publishing:includedsscript
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /includeheaderfooter:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:includeheaderfooter
             hipposysedit:primary: false
             hipposysedit:type: Boolean
           /language:
@@ -100,9 +124,12 @@ definitions:
           publishing:serviceproviders: []
           publishing:showFeedback: true
           publishing:showInParent: true
+          publishing:headerlogo: SG
+          publishing:headertitle: ''
           publishing:summary: ''
           publishing:title: ''
           publishing:userneed: ''
+          publishing:includeheaderfooter: false
           publishing:includedsscript: true
           publishing:code: ''
           publishing:language: HTML
@@ -204,6 +231,35 @@ definitions:
             caption: Custom JavaScript filename
             field: script
             hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /includeheaderfooter:
+            jcr:primaryType: frontend:plugin
+            caption: Show as full page
+            field: includeheaderfooter
+            hint: This places the code example inside the ds_page_middle area of the page
+              template with a site header and site footer included.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /headerlogo:
+            jcr:primaryType: frontend:plugin
+            caption: Site header logo
+            field: headerlogo
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: 'Select which logo to use in the site header for full page examples.'
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: SG,Mygov
+          /headertitle:
+            jcr:primaryType: frontend:plugin
+            caption: Site header title
+            field: headertitle
+            hint: 'Enter an optional site header title for full page examples.'
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

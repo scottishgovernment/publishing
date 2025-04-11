@@ -25,7 +25,7 @@ $example__highlight-colour: $ds_colour__link--current__background !default;
 }
 
 .example-frame__content {
-    @include ds_responsive-padding(6, top, $tuning: -1px);
+    @include ds_responsive-padding(2, top);
     @include ds_responsive-padding(2, bottom, $tuning: -1px);
     @include ds_responsive-padding(2, left, $tuning: -1px);
     @include ds_responsive-padding(2, right, $tuning: -1px);
@@ -63,18 +63,16 @@ $example__highlight-colour: $ds_colour__link--current__background !default;
     display: block;
 }
 
-.example__link {
-    @include blocklink;
-    @include ds_small-size--fixed;
+.example__header {
+    border-bottom: 1px solid $example__border-colour;   
     @include ds_responsive-padding(1, top);
-    @include ds_responsive-padding(1, bottom);
+    @include ds_responsive-padding(1, bottom, $tuning: -1px);
     @include ds_responsive-padding(2, left);
-    @include ds_responsive-padding(2, right);
+    @include ds_responsive-padding(2, right); 
+}
 
-    background-color: $ds_colour__grey--lighter;
-
-    display: inline-block;
-    position: absolute;
+.example__link {
+    @include ds_small-size--fixed;
 }
 
 .example__accordion {

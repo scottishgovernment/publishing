@@ -97,9 +97,10 @@
                                     <#if contentblock.example.illustration??>
                                         <img class="example__illustration" alt="<#if contentblock.example.alt?has_content>${contentblock.example.alt}</#if>" src="<@hst.link hippobean=contentblock.example.illustration.original/>">
                                     <#elseif contentblock.showdemo>
-                                        <div class="example__demo">
+                                        <div class="example__header">
                                             <a class="example__link" href="${example}" target="_blank">Open this example in a new window</a>
-
+                                        </div>
+                                        <div class="example__demo">
                                             <iframe title="${contentblock.example.title}" <#if contentblock.minheight??>style="min-height: ${contentblock.minheight}px;"</#if> src="${example}" class="example__iframe">
                                             </iframe>
                                         </div>
