@@ -42,6 +42,7 @@
         </div>
 
         <div class="ds_page__middle">
+            <div class="ds_wrapper">
 
     <#else>
     <div class="example-frame__intro">
@@ -53,9 +54,10 @@
     </#if>
 
         ${document.code?no_esc}
-    
+
     <#if document.includeheaderfooter?? && document.includeheaderfooter>
-    
+
+            </div>
         </div>
 
         <div class="ds_back-to-top" data-module="ds-back-to-top">
