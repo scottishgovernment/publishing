@@ -239,8 +239,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Show as full page
             field: includeheaderfooter
-            hint: This places the code example inside the ds_page_middle area of the page
-              template with a site header and site footer included.
+            hint: This places the code example inside the full width ds_page_middle area of the page
+              template, with a site header and site footer included.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

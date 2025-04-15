@@ -23,8 +23,12 @@
                     <div class="ds_site-header__content">
                         <div class="ds_site-branding">
                             <a class="ds_site-branding__logo ds_site-branding__link" href="#">
-                                <#if document.headerlogo?has_content && document.headerlogo == "Mygov">
+                                <#if document.headerlogo?has_content>
+                                    <#if document.headerlogo == "Mygov">
                                 <img class="ds_site-branding__logo-image" src="/assets/images/logos/mygov.svg" alt="Mygov.scot" width="300" height="58" />
+                                    <#else>
+                                <img class="ds_site-branding__logo-image" src="/assets/images/logos/scottish-government.svg" alt="The Scottish Government" width="300" height="45" />
+                                    </#if>
                                 <#else>
                                 <img class="ds_site-branding__logo-image" src="/assets/images/logos/scottish-government.svg" alt="The Scottish Government" width="300" height="45" />
                                 </#if>
@@ -42,8 +46,6 @@
         </div>
 
         <div class="ds_page__middle">
-            <div class="ds_wrapper">
-
     <#else>
     <div class="example-frame__intro">
         <h1 class="visually-hidden">
@@ -57,7 +59,6 @@
 
     <#if document.includeheaderfooter?? && document.includeheaderfooter>
 
-            </div>
         </div>
 
         <div class="ds_back-to-top" data-module="ds-back-to-top">
