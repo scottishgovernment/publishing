@@ -8,7 +8,7 @@
                         <option value="" disabled selected>Select a business</option>
                         {% for result in searchResults %}
                         <option value="{{loop.index0}}">
-                        {% if result.occupier %}{{result.occupierName}}, {% endif %}{{result.address}}
+                        {% if result.occupier and result.occupier.length > 0 %}{{result.occupierName}}, {% endif %}{{result.address}}
                         </option>
                         {% endfor %}
                     </select>
