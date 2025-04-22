@@ -132,11 +132,8 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              compoundNamesMaxLength: 90
-              showCompoundNames: false
-              showTitles: false
-              startCollapsed: false
-              titleMapping: []
+              showCompoundNames: true
+              showTitles: true
           /contentitemlanguage:
             jcr:primaryType: frontend:plugin
             caption: Content language
