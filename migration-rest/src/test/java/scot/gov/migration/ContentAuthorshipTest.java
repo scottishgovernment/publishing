@@ -2,7 +2,7 @@ package scot.gov.migration;
 
 import org.junit.Test;
 
-import javax.ws.rs.core.MultivaluedHashMap;
+import jakarta.ws.rs.core.MultivaluedHashMap;
 
 import static java.util.Collections.singletonList;
 

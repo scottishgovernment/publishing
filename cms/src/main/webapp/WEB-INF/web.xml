@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         version="3.0"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+           https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0"
          id="cms">
 
   <!-- General configuration -->
@@ -46,11 +47,12 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
+<!--  DEPRECATED-->
   <!--No concurrent logins-->
-  <filter>
-    <filter-name>ConcurrentLogin</filter-name>
-    <filter-class>org.hippoecm.frontend.plugins.login.ConcurrentLoginFilter</filter-class>
-  </filter>
+<!--  <filter>-->
+<!--    <filter-name>ConcurrentLogin</filter-name>-->
+<!--    <filter-class>org.hippoecm.frontend.plugins.login.ConcurrentLoginFilter</filter-class>-->
+<!--  </filter>-->
 
   <!--Default application-->
   <filter>
@@ -125,10 +127,11 @@
     </init-param>
   </filter>
 
-  <filter-mapping>
-    <filter-name>ConcurrentLogin</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+<!--  DEPRECATED-->
+<!--  <filter-mapping>-->
+<!--    <filter-name>ConcurrentLogin</filter-name>-->
+<!--    <url-pattern>/*</url-pattern>-->
+<!--  </filter-mapping>-->
 
   <filter-mapping>
     <filter-name>CMS</filter-name>
@@ -145,9 +148,10 @@
     <url-pattern>/resetpassword/*</url-pattern>
   </filter-mapping>
 
-  <listener>
-    <listener-class>org.hippoecm.frontend.plugins.login.ConcurrentLoginListener</listener-class>
-  </listener>
+<!--  DEPRECATED-->
+<!--  <listener>-->
+<!--    <listener-class>org.hippoecm.frontend.plugins.login.ConcurrentLoginListener</listener-class>-->
+<!--  </listener>-->
 
   <servlet>
     <servlet-name>AngularResourceServlet</servlet-name>

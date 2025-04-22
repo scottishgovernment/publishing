@@ -19,31 +19,45 @@ Remove when https://issues.onehippo.com/browse/CMS-13954 is part of product*/
 
 package org.hippoecm.frontend.plugins.login;
 
-import java.awt.*;
-import java.security.AccessControlException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.MissingResourceException;
-
-import javax.jcr.SimpleCredentials;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.LocaleUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
+import org.apache.wicket.Application;
+import org.apache.wicket.AttributeModifier;
+import org.apache.wicket.Component;
+import org.apache.wicket.ThreadContext;
+import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.form.OnChangeAjaxBehavior;
+import org.apache.wicket.authorization.Action;
+import org.apache.wicket.authorization.UnauthorizedActionException;
+import org.apache.wicket.markup.head.IHeaderResponse;
+import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
+import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.form.*;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.model.IModel;
+import org.apache.wicket.model.PropertyModel;
+import org.apache.wicket.request.http.WebResponse;
 import org.hippoecm.frontend.Main;
 import org.hippoecm.frontend.PluginApplication;
 import org.hippoecm.frontend.attributes.ClassAttribute;
 import org.hippoecm.frontend.model.UserCredentials;
 import org.hippoecm.frontend.session.LoginException;
+import org.hippoecm.frontend.session.LoginException.Cause;
 import org.hippoecm.frontend.session.PluginUserSession;
 import org.hippoecm.frontend.util.WebApplicationHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.hippoecm.frontend.session.LoginException.Cause;
+import javax.jcr.SimpleCredentials;
+import java.security.AccessControlException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.MissingResourceException;
 
 public class LoginPanel extends Panel {
 
