@@ -47,6 +47,7 @@ const MultiPageForm = function (settings) {
 
 function init() {
     const form = this;
+    this.defaultDocumentTitle = document.title;
 
     form.initRouting();
     form.configureFieldMapping();
@@ -211,10 +212,14 @@ function getStepTitle(step, error = false) {
         return document.title;
     }
 
+    if (step === this.flattenedSections()[0]) {
+        return this.defaultDocumentTitle;
+    }
+
     const stepElement = document.querySelector(`section[data-step="${step.slug}"]`);
 
-    const stepTitleElement = stepElement.querySelector('.js-page-title');
-    const parentTitleElement = stepElement.querySelector('.js-parent-title');
+    const stepTitleElement = stepElement.querySelector('.js-page-title, h2');
+    const parentTitleElement = stepElement.querySelector('.js-parent-title') || document.querySelector('h1');
 
     if (!stepTitleElement || !parentTitleElement) {
         return document.title;
@@ -406,6 +411,7 @@ function goToStep(step) {
 
     this.updateFormNav();
     this.updatePageLabelWithCurrentStep();
+
     document.title = this.getStepTitle(step);
 
     if (step.triggerEvent) {
@@ -884,6 +890,10 @@ function setupStepValidation () {
             } else {
                 errorSummary.classList.add('fully-hidden');
                 errorSummary.setAttribute('aria-hidden', 'true');
+            }
+
+            if (!stepIsValid) {
+                document.title = form.getStepTitle(form.getCurrentStep(), true);
             }
             return stepIsValid;
         });

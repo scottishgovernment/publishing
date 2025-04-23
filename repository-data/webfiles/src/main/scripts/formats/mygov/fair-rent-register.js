@@ -25,6 +25,8 @@ const fairRentRegister = {
     init: function () {
         this.ancestors = [];
 
+        this.defaultDocumentTitle = document.title;
+
         this.paginator = new Paginator(document.getElementById('pagination'), 2, this);
 
         const breadcrumbs = [].slice.call(document.querySelectorAll('.ds_breadcrumbs__item'));
@@ -131,6 +133,18 @@ const fairRentRegister = {
 
         // show target section
         targetSection.classList.remove('fully-hidden');
+
+        switch (sectionName) {
+            case 'list':
+                document.title = 'Search results - Register of fair rents';
+                break;
+            case 'property':
+                document.title = `${document.querySelector('#fair-rent-property h1').innerText} - Register of fair rents`;
+                break;
+            default:
+                document.title = this.defaultDocumentTitle;
+                break;
+        }
 
         window.DS.tracking.init(targetSection);
     },
