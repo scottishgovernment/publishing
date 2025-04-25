@@ -23,7 +23,6 @@ public class LatestPublicationsComponent extends CommonComponent {
         HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
         LatestPublicationsInfo paramInfo = getComponentParametersInfo(request);
         populate(baseBean, request, count(paramInfo));
-        request.setAttribute("neutrallinks", paramInfo.getNeutralLinks());
         request.setAttribute("removebottompadding", paramInfo.getRemoveBottomPadding());
     }
 

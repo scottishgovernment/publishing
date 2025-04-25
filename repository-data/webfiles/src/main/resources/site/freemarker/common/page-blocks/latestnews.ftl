@@ -2,12 +2,10 @@
 <#include "../include/imports.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
-<div class="ds_cb  ds_cb--link-list
-<#if neutrallinks>  ds_cb--neutral-links</#if>
-<#if removebottompadding>  ds_!_padding-bottom--0</#if>
-">
+<div class="ds_pb  ds_pb--link-list
+<#if removebottompadding>  ds_!_padding-bottom--0</#if>">
     <div class="ds_wrapper">
-        <div class="ds_cb__inner">
+        <div class="ds_pb__inner">
             <h2>News</h2>
             <ul class="ds_link-list  ds_link-list--no-border
             <#if count == 2>  ds_link-list-2-items</#if>
@@ -17,7 +15,7 @@
                 <#if allowImages && showImages>
                 <a href="<@hst.link hippobean=newsItem/>" aria-hidden="true" tabindex="-1">
                     <div class="ds_aspect-box  ds_link-item__image">
-                    <#if newsItem.image.image.xlargeeightcolumnsdoubled??>
+                    <#if newsItem.image.image.xlargeeightcolumnsdoubled?has_content>
                         <img class="ds_aspect-box__inner" alt="${newsItem.image.alt}" src="<@hst.link hippobean=newsItem.image.image.xlargeeightcolumns />"
                             loading="lazy"
                             width="${newsItem.image.image.xlargeeightcolumns.width?c}"

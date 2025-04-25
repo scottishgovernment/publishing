@@ -1,6 +1,7 @@
 /*------------------------------------*\
     #EDITABLE TABLE
 \*------------------------------------*/
+$editable-table__edit-row__background-color: $pb_theme__background-secondary !default;
 
 .editable-table {
     font-size: 16px;
@@ -32,7 +33,7 @@
 .editable-table__edit-row {
     // active row
     td {
-        background-color: $ds_colour__blue--light !important;
+        background-color: $editable-table__edit-row__background-color !important;
     }
 
     .editable-table__view {

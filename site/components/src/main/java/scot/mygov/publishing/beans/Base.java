@@ -1,5 +1,6 @@
 package scot.mygov.publishing.beans;
 
+import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import java.util.Calendar;
@@ -45,8 +46,8 @@ public class Base extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:cardImage")
-    public ColumnImage getCardImage() {
-        return getLinkedBean("publishing:cardImage", ColumnImage.class);
+    public HippoGalleryImageSet getCardImage() {
+        return getLinkedBean("publishing:cardImage", HippoGalleryImageSet.class);
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:urlAliases")

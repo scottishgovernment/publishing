@@ -4,10 +4,10 @@
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#if updates?size gt 0>
-    <div class="ds_cb  ds_cb--text">
+    <div class="ds_pb  ds_pb--text">
         <div class="ds_wrapper">
-            <div class="ds_cb__inner">
-                <div class="ds_cb__text">
+            <div class="ds_pb__inner">
+                <div class="ds_pb__text">
                     <h2>Latest updates</h2>
 
                     <ul class="dss_whats-new  ds_no-bullets">
