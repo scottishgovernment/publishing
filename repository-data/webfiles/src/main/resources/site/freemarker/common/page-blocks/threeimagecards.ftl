@@ -25,13 +25,26 @@
 </#if>
 
 <#if cards?size != 0>
-<div class="ds_cb  ds_cb--cards  <#if !greycards>ds_cb--bg-grey</#if>  <#if fullwidth>ds_cb--fullwidth</#if>  <#if neutrallinks>ds_cb--neutral-links</#if>">
+<div class="ds_pb  ds_pb--cards
+<#if backgroundcolor?has_content> 
+<#switch backgroundcolor?lower_case> 
+  <#case 'secondary'>
+  ds_pb--background-secondary
+  <#break>
+  <#case 'tertiary'>
+  ds_pb--background-tertiary
+  <#break>
+  <#case 'theme'>
+  ds_pb__theme--background-secondary
+  <#break>
+</#switch>
+</#if>">
     <div class="ds_wrapper">
-        <div class="ds_cb__inner <#if removebottompadding> ds_!_padding-bottom--0</#if>">
+        <div class="ds_pb__inner <#if removebottompadding> ds_!_padding-bottom--0</#if>">
 
         <#list cards as card>
             <#if card != ''>
-                <div class="ds_card  ds_card--hover  <#if greycards>ds_card--grey</#if>">
+                <div class="ds_card  ds_card--hover  <#if backgroundcolor?has_content && backgroundcolor == 'None'>ds_card--grey</#if>">
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <div class="ds_aspect-box">
