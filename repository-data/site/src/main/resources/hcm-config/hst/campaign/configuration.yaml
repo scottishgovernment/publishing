@@ -61,7 +61,7 @@ definitions:
             jcr:primaryType: hst:containeritemcomponent
             hst:componentclassname: scot.mygov.publishing.components.PageheadingComponent
             hst:iconpath: icons/pageheader.svg
-            hst:label: Page Header
+            hst:label: Feature Header
             hst:template: pageheader
           /textandcard:
             jcr:primaryType: hst:containeritemcomponent
@@ -113,4 +113,4 @@ definitions:
         jcr:primaryType: hst:templates
         /browse:
           jcr:primaryType: hst:template
-          hst:renderpath: webfile:/freemarker/common/content-blocks/browse.ftl
+          hst:renderpath: webfile:/freemarker/common/page-blocks/browse.ftl

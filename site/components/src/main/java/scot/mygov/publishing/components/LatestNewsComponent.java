@@ -29,7 +29,6 @@ public class LatestNewsComponent extends CommonComponent {
         populateNews(baseBean, request, count(paramInfo));
 
         request.setAttribute("allowImages", paramInfo.getAllowImages());
-        request.setAttribute("neutrallinks", paramInfo.getNeutralLinks());
         request.setAttribute("removebottompadding", paramInfo.getRemoveBottomPadding());
     }
 

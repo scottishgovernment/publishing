@@ -1,5 +1,6 @@
 package scot.mygov.publishing.components;
 
+import org.hippoecm.hst.core.parameters.DropDownList;
 import org.hippoecm.hst.core.parameters.FieldGroup;
 import org.hippoecm.hst.core.parameters.FieldGroupList;
 import org.hippoecm.hst.core.parameters.JcrPath;
@@ -10,7 +11,7 @@ import static scot.mygov.publishing.components.ThreeImageCardsComponent.INITIAL_
 import static scot.mygov.publishing.components.ThreeImageCardsComponent.TYPE;
 
 @FieldGroupList({
-    @FieldGroup(titleKey = "Appearance", value = { "greycards", "fullwidth", "showimages", "small", "neutrallinks", "removebottompadding" }),
+    @FieldGroup(titleKey = "Appearance", value = {  "backgroundcolor", "showimages", "small", "removebottompadding" }),
     @FieldGroup(titleKey = "Content", value = { "document1", "document2", "document3" })
 })
 
@@ -40,8 +41,9 @@ public interface ThreeImageCardsComponentInfo {
             pickerConfiguration = CMS_PICKERS_DOCUMENTS_ONLY)
     String getImage3();
 
-    @Parameter(name = "fullwidth", displayName = "Full-width background", defaultValue = "true")
-    Boolean getFullWidth();
+    @Parameter(name = "backgroundcolor", displayName = "Background colour")
+    @DropDownList({"Secondary", "Tertiary", "Theme"})
+    String getBackgroundColor();
 
     @Parameter(name = "showimages", displayName = "Show images", defaultValue = "true")
     Boolean getShowImages();
@@ -49,12 +51,7 @@ public interface ThreeImageCardsComponentInfo {
     @Parameter(name = "small", displayName = "Use small variant on mobile", defaultValue = "true")
     Boolean getSmallVariant();
 
-    @Parameter(name = "neutrallinks", displayName = "Neutral link colour", defaultValue = "false")
-    Boolean getNeutralLinks();
-
     @Parameter(name = "removebottompadding", displayName = "Remove bottom padding", defaultValue = "false")
     Boolean getRemoveBottomPadding();
 
-    @Parameter(name = "greycards", displayName = "Grey cards on white background", defaultValue = "false")
-    Boolean getGreyCards();
 }

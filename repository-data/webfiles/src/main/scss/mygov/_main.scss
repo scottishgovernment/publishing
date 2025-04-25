@@ -67,14 +67,6 @@ $site-prefix: "mg_";
 
 @import "mg_address-reveal";
 
-/**
- * OVERRIDES
- */
-//@import "../overrides/override.feature-header";
-@import "../overrides/override.link-list";
-
-
-
 
 .js-enabled .fully-hidden-if-js {
     display: none;
@@ -90,10 +82,9 @@ $site-prefix: "mg_";
 }
 
 /**
- * CONTENT BLOCKS FROM DESIGN SYSTEM CONTENT BLOCKS
+ * PAGE BLOCKS FROM DESIGN SYSTEM PAGE BLOCKS
  */
- @import "../../../../node_modules/@scottish-government-design-system/content-blocks/src/content-blocks/all-content-blocks";
- @import "../overrides/override.content-blocks";
+ @import "../../../../node_modules/@scottish-government-design-system/page-blocks/src/page-blocks/all-page-blocks";
 
 
 
@@ -105,7 +96,11 @@ $site-prefix: "mg_";
 @import "../campaign/component.listing";
 @import "../highlight";
 
-
+/**
+ * OVERRIDES
+ */
+@import "../overrides/override.feature-header";
+@import "../overrides/override.link-list";
 
 
 /*

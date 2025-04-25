@@ -8,30 +8,43 @@
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#assign cards = []>
-<#if document1??>
+<#if document1?has_content>
     <#assign cards = cards + [document1]>
 <#elseif editMode>
     <#assign cards = cards + ['']>
 </#if>
-<#if document2??>
+<#if document2?has_content>
     <#assign cards = cards + [document2]>
 <#elseif editMode>
     <#assign cards = cards + ['']>
 </#if>
-<#if document3??>
+<#if document3?has_content>
     <#assign cards = cards + [document3]>
 <#elseif editMode>
     <#assign cards = cards + ['']>
 </#if>
 
 <#if cards?size != 0>
-<div class="ds_cb  ds_cb--cards  <#if !greycards>ds_cb--bg-grey</#if>  <#if fullwidth>ds_cb--fullwidth</#if>  <#if neutrallinks>ds_cb--neutral-links</#if>">
+<div class="ds_pb  ds_pb--cards
+<#if backgroundcolor?has_content> 
+<#switch backgroundcolor?lower_case> 
+  <#case 'secondary'>
+  ds_pb--background-secondary
+  <#break>
+  <#case 'tertiary'>
+  ds_pb--background-tertiary
+  <#break>
+  <#case 'theme'>
+  ds_pb__theme--background-secondary
+  <#break>
+</#switch>
+</#if>">
     <div class="ds_wrapper">
-        <div class="ds_cb__inner <#if removebottompadding> ds_!_padding-bottom--0</#if>">
+        <div class="ds_pb__inner <#if removebottompadding> ds_!_padding-bottom--0</#if>">
 
         <#list cards as card>
             <#if card != ''>
-                <div class="ds_card  ds_card--hover  <#if greycards>ds_card--grey</#if>">
+                <div class="ds_card  ds_card--hover  <#if !backgroundcolor?has_content>ds_card--grey</#if>">
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <div class="ds_aspect-box">
@@ -60,9 +73,9 @@
                         </div>
                     </#if>
                     <div class="ds_card__content">
-                        <#if card.title??>
+                        <#if card.title?has_content>
                         <h2 class="ds_card__title">
-                            <#if card.link??>
+                            <#if card.link?has_content>
                                 <a class="ds_card__link--cover" href="<@hst.link hippobean=card.link/>">${card.title}</a>
                             <#elseif card.externalLink?has_content>
                                 <a class="ds_card__link--cover" href="${card.externalLink}">${card.title}</a>
@@ -71,7 +84,7 @@
                             </#if>
                         </h2>
                         </#if>
-                        <#if card.text??>
+                        <#if card.text?has_content>
                         <p>${card.text}</p>
                         </#if>
                     </div>

@@ -4,7 +4,6 @@
 
 .org-az {
     align-items: center;
-    color: $ds_colour__blue--dark;
     display: grid;
     font-size: 1rem;
     grid-gap: 0.75rem;
@@ -21,10 +20,6 @@
 
     &__description {
         @include ds_last-child-no-margin;
-
-        a {
-            color: $ds_colour__blue--dark;
-        }
     }
 
     &__link {

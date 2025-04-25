@@ -4,9 +4,12 @@
 \*------------------------------------*/
 
 .ds_feature-header {
-    @include ds_responsive-margin(6, bottom);
 
-    @include ds_media-query(medium) {
-        margin-top: px-to-rem(48px);
+// Remove align-self when cover image set
+&--top {
+    .ds_feature-header__secondary--cover {
+        align-self: unset;
     }
+}
+
 }

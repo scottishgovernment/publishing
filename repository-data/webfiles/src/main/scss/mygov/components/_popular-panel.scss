@@ -1,12 +1,14 @@
 /*------------------------------------*\
     #POPULAR ITEMS
 \*------------------------------------*/
+$popular-background-colour: $ds_colour__brand !default;
+$popular__items-background-colour: adjustForContrast(darken($popular-background-colour, 12.5%), #ffffff, 4.5) !default;;
 
 .popular {
     align-items: center;
-    background: $ds_colour__blue--dark;
+    background: $popular__items-background-colour;
     box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 4px;
-    color: white;
+    color: #fff;
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
@@ -14,11 +16,11 @@
 
 .popular__link {
     @include ds_link;
-    color: white;
+    color: #fff;
     text-decoration: none;
 
     &:hover:not(:focus) {
-        color: white;
+        color: #fff;
         text-decoration-line: underline;
     }
 }
@@ -59,7 +61,7 @@
 }
 
 .popular__items {
-    background: $ds_colour__blue;
+    background: $popular-background-colour;
 }
 
 @include ds_media-query(large) {

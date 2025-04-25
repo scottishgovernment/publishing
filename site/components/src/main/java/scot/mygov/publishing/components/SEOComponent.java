@@ -2,6 +2,7 @@ package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -86,7 +87,7 @@ public class SEOComponent extends EssentialsDocumentComponent {
         HippoBean imageCard = null;
 
         if (contentBean != null) {
-            imageCard = contentBean.getLinkedBean("publishing:cardImage", ImageCard.class);
+            imageCard = contentBean.getLinkedBean("publishing:cardImage", HippoGalleryImageSet.class);
         }
 
         if (imageCard == null) {
