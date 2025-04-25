@@ -96,31 +96,31 @@ definitions:
             hst:renderpath: webfile:/freemarker/common/smartanswer-main.ftl
           /imageandtext:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/content-blocks/imageandtext.ftl
+            hst:renderpath: webfile:/freemarker/common/page-blocks/imageandtext.ftl
           /divider:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/content-blocks/divider.ftl
+            hst:renderpath: webfile:/freemarker/common/page-blocks/divider.ftl
           /header:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/content-blocks/header.ftl
+            hst:renderpath: webfile:/freemarker/common/page-blocks/header.ftl
           /threeimagecards:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/content-blocks/threeimagecards.ftl
+            hst:renderpath: webfile:/freemarker/common/page-blocks/threeimagecards.ftl
           /text:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/content-blocks/text.ftl
+            hst:renderpath: webfile:/freemarker/common/page-blocks/text.ftl
           /doubletext:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/content-blocks/doubletext.ftl
+            hst:renderpath: webfile:/freemarker/common/page-blocks/doubletext.ftl
           /seo:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/seo.ftl
           /video:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/content-blocks/video.ftl
+            hst:renderpath: webfile:/freemarker/common/page-blocks/video.ftl
           /pageheader:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/content-blocks/pageheader.ftl
+            hst:renderpath: webfile:/freemarker/common/page-blocks/featureheader.ftl
           /fragments:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/fragments.ftl
@@ -150,7 +150,7 @@ definitions:
             hst:renderpath: webfile:/freemarker/common/search-funnelback-results.ftl
           /textandcard:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/content-blocks/textandcard.ftl
+            hst:renderpath: webfile:/freemarker/common/page-blocks/textandcard.ftl
           /step-by-step-main:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/step-by-step-main.ftl
@@ -165,7 +165,7 @@ definitions:
             hst:renderpath: webfile:/freemarker/common/search-bar.ftl
           /featuregrid:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/content-blocks/featuregrid.ftl
+            hst:renderpath: webfile:/freemarker/common/page-blocks/featuregrid.ftl
           /ds-article:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/ds-article.ftl
@@ -177,7 +177,7 @@ definitions:
             hst:renderpath: webfile:/freemarker/common/news-main.ftl
           /latestnews:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/content-blocks/latestnews.ftl
+            hst:renderpath: webfile:/freemarker/common/page-blocks/latestnews.ftl
           /filteredlist.page:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/filteredlist/page.ftl
@@ -198,7 +198,7 @@ definitions:
             hst:renderpath: webfile:/freemarker/common/publication-main.ftl
           /latestpublications:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/content-blocks/latestpublications.ftl
+            hst:renderpath: webfile:/freemarker/common/page-blocks/latestpublications.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
@@ -262,7 +262,7 @@ definitions:
               jcr:primaryType: hst:containeritemcomponent
               hst:componentclassname: scot.mygov.publishing.components.PageheadingComponent
               hst:iconpath: icons/pageheader.svg
-              hst:label: Page Header
+              hst:label: Feature Header
               hst:template: pageheader
             /textandcard:
               jcr:primaryType: hst:containeritemcomponent

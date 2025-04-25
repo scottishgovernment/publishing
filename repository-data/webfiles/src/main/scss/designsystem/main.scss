@@ -47,10 +47,9 @@ $use-legacy-site-navigation: false;
 
 
 /**
- * CONTENT BLOCKS FROM DESIGN SYSTEM CONTENT BLOCKS
+ * PAGE BLOCKS FROM DESIGN SYSTEM PAGE BLOCKS
  */
-@import "../../../../node_modules/@scottish-government-design-system/content-blocks/src/content-blocks/all-content-blocks";
-@import "../overrides/override.content-blocks";
+@import "../../../../node_modules/@scottish-government-design-system/page-blocks/src/page-blocks/all-page-blocks";
 
 
 
@@ -75,6 +74,7 @@ $use-legacy-site-navigation: false;
 @import "overrides/override.file-download";
 @import "overrides/override.page-header";
 
+@import "../overrides/override.feature-header";
 @import "../overrides/override.link-list";
 
 

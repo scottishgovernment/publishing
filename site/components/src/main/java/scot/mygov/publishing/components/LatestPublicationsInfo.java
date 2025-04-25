@@ -7,16 +7,13 @@ import org.hippoecm.hst.core.parameters.Parameter;
 
 @FieldGroupList({
         @FieldGroup(titleKey = "Template", value = { "count" }),
-        @FieldGroup(titleKey = "Appearance", value = {"neutrallinks", "removebottompadding" })
+        @FieldGroup(titleKey = "Appearance", value = {"removebottompadding" })
 })
 public interface LatestPublicationsInfo {
 
     @Parameter(name = "count", displayName = "Number of publications to display", defaultValue = "3")
     @DropDownList(valueListProvider = LatestCountValueListProvider.class)
     String getCount();
-
-    @Parameter(name = "neutrallinks", displayName = "Neutral link colour", defaultValue = "false")
-    Boolean getNeutralLinks();
 
     @Parameter(name = "removebottompadding", displayName = "Remove bottom padding", defaultValue = "false")
     Boolean getRemoveBottomPadding();

@@ -6,7 +6,7 @@ import org.hippoecm.hst.core.parameters.*;
 
 @FieldGroupList({
     @FieldGroup(titleKey = "Template", value = { "count" }),
-    @FieldGroup(titleKey = "Appearance", value = {"allowImages", "neutrallinks", "removebottompadding" })
+    @FieldGroup(titleKey = "Appearance", value = {"allowImages", "removebottompadding" })
 })
 
 public interface LatestNewsInfo {
@@ -17,9 +17,6 @@ public interface LatestNewsInfo {
 
     @Parameter(name = "allowImages", displayName = "Allow images if all articles have an image", defaultValue = "true")
     Boolean getAllowImages();
-
-    @Parameter(name = "neutrallinks", displayName = "Neutral link colour", defaultValue = "false")
-    Boolean getNeutralLinks();
 
     @Parameter(name = "removebottompadding", displayName = "Remove bottom padding", defaultValue = "false")
     Boolean getRemoveBottomPadding();

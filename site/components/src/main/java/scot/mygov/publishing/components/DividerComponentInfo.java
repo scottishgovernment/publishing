@@ -1,13 +1,8 @@
 package scot.mygov.publishing.components;
 
-import org.hippoecm.hst.core.parameters.DropDownList;
 import org.hippoecm.hst.core.parameters.Parameter;
 
 public interface DividerComponentInfo {
-    @Parameter(name = "fullwidth", displayName = "Full-width background", defaultValue = "true")
+    @Parameter(name = "fullwidth", displayName = "Full-width divider", defaultValue = "true")
     Boolean getFullWidth();
-
-    @Parameter(name = "backgroundcolor", displayName = "Background colour")
-    @DropDownList(valueListProvider = ComponentBackgroundColourValueListProvider.class)
-    String getBackgroundColor();
 }

@@ -6,32 +6,40 @@
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#assign items = []>
-<#if document1??>
+<#if document1?has_content>
     <#assign items = items + [document1]>
 <#elseif editMode>
     <#assign items = items + ['']>
 </#if>
-<#if document2??>
+<#if document2?has_content>
     <#assign items = items + [document2]>
 <#elseif editMode>
     <#assign items = items + ['']>
 </#if>
-<#if document3??>
+<#if document3?has_content>
     <#assign items = items + [document3]>
 <#elseif editMode>
     <#assign items = items + ['']>
 </#if>
 
 <#if items?size != 0>
-<div class="ds_cb  ds_cb--feature-grid  ds_cb--feature-grid-3-items
-<#if fullwidth>  ds_cb--fullwidth</#if>
-<#if backgroundcolor?? && backgroundcolor?length gt 0>  ds_cb--bg-${backgroundcolor}</#if>
-<#if foregroundcolor?? && foregroundcolor?length gt 0>  ds_cb--fg-${foregroundcolor}</#if>
-<#if neutrallinks>  ds_cb--neutral-links</#if>
+<div class="ds_pb  ds_pb--feature-grid  ds_pb--feature-grid-3-items
 <#if removebottompadding>  ds_!_padding-bottom--0</#if>
-">
+<#if backgroundcolor?has_content> 
+<#switch backgroundcolor?lower_case> 
+  <#case 'secondary'>
+  ds_pb--background-secondary
+  <#break>
+  <#case 'tertiary'>
+  ds_pb--background-tertiary
+  <#break>
+  <#case 'theme'>
+  ds_pb__theme--background-secondary
+  <#break>
+</#switch>
+</#if>">
     <div class="ds_wrapper">
-        <div class="ds_cb__inner">
+        <div class="ds_pb__inner">
 
         <#list items as item>
         
@@ -39,21 +47,21 @@
 
             <!-- set link where internal link has priority over external link -->
             <#assign link>
-            <#if item.link??>
+            <#if item.link?has_content>
                 <@hst.link hippobean=item.link/>
             <#elseif item.externalLink?has_content>
                 ${item.externalLink}
             </#if>
             </#assign>
-                <div class="ds_cb--feature-grid__item">
+                <div class="ds_pb--feature-grid__item">
                     <#if showimages>
-                        <div class="ds_cb--feature-grid__item-media  <#if smallvariant>ds_cb--feature-grid__item-media--small-mobile</#if>">
+                        <div class="ds_pb--feature-grid__item-media  <#if smallvariant>ds_pb--feature-grid__item-media--small-mobile</#if>">
                             <div class="ds_aspect-box">
-                            <#if item.image??>
+                            <#if item.image?has_content>
                             <#if link?has_content>
                                 <a href="${link}" tabindex="-1">
                             </#if>    
-                                <#if item.image.xlargefourcolumns??>
+                                <#if item.image.xlargefourcolumns?has_content>
                                     <img class="ds_aspect-box__inner" alt="${item.alt}" src="<@hst.link hippobean=item.image.xlargefourcolumns />"
                                             width="${item.image.xlargefourcolumns.width?c}"
                                             height="${item.image.xlargefourcolumns.height?c}"
@@ -80,7 +88,7 @@
                         </div>
                     </#if>
                     <#if item.title?has_content>
-                        <${weight} class="ds_cb--feature-grid__item-title">
+                        <${weight} class="ds_pb--feature-grid__item-title">
                             <#if link?has_content>
                                 <a href="${link}">${item.title}</a>
                             <#else>
@@ -88,8 +96,8 @@
                             </#if>
                         </${weight}>
                     </#if>
-                    <#if item.contentBlocks??>
-                        <div class="ds_cb--feature-grid__item-summary">
+                    <#if item.contentBlocks?has_content>
+                        <div class="ds_pb--feature-grid__item-summary">
                             <@renderContentBlocks item.contentBlocks />
                         </div>
                     </#if>
@@ -97,16 +105,16 @@
                     <@hst.manageContent hippobean=item documentTemplateQuery="new-featuregriditem-document" parameterName="item" rootPath="featuregriditems"/>
                 </div>
             <#elseif editMode>
-                <div class="ds_cb--feature-grid__item  cms-blank">
+                <div class="ds_pb--feature-grid__item  cms-blank">
                     <#if showimages>
-                    <div class="ds_cb--feature-grid__item-media  <#if smallvariant>ds_cb--feature-grid__item-media--small-mobile</#if>">
+                    <div class="ds_pb--feature-grid__item-media  <#if smallvariant>ds_pb--feature-grid__item-media--small-mobile</#if>">
                         <@placeholderimage/>
                     </div>
                     </#if>
-                    <${weight} class="ds_cb--feature-grid__item-title">
+                    <${weight} class="ds_pb--feature-grid__item-title">
                         <@placeholdertext lines=2/>
                     </${weight}>
-                    <div class="ds_cb--feature-grid__item-summary">
+                    <div class="ds_pb--feature-grid__item-summary">
                         <@placeholdertext lines=8/>
                     </div>
 
