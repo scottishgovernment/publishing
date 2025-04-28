@@ -232,16 +232,6 @@
                             <!-- end attachment block -->
                         </#if>
 
-                        <#if hst.isNodeType(contentblock.node, 'publishing:dsliveexampleblock')>
-                            <!-- live example block -->
-                            <!--noindex-->
-                            <h2>Live example</h2>
-
-                            <@hst.html hippohtml=contentblock.content/>
-                            <!--endnoindex-->
-                            <!-- end live example block -->
-                        </#if>
-
                         <#if hst.isNodeType(contentblock.node, 'publishing:dspaletteblock')>
                             <!-- palette block -->
                             <${contentblock.headinglevel}>${contentblock.title}</${contentblock.headinglevel}>
