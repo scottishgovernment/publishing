@@ -42,7 +42,7 @@ public interface ThreeImageCardsComponentInfo {
     String getImage3();
 
     @Parameter(name = "backgroundcolor", displayName = "Background colour")
-    @DropDownList({"Secondary", "Tertiary", "Theme", "None"})
+    @DropDownList({"Secondary", "Tertiary", "Theme"})
     String getBackgroundColor();
 
     @Parameter(name = "showimages", displayName = "Show images", defaultValue = "true")

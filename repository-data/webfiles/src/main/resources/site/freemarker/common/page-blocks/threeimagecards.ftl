@@ -8,17 +8,17 @@
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <#assign cards = []>
-<#if document1??>
+<#if document1?has_content>
     <#assign cards = cards + [document1]>
 <#elseif editMode>
     <#assign cards = cards + ['']>
 </#if>
-<#if document2??>
+<#if document2?has_content>
     <#assign cards = cards + [document2]>
 <#elseif editMode>
     <#assign cards = cards + ['']>
 </#if>
-<#if document3??>
+<#if document3?has_content>
     <#assign cards = cards + [document3]>
 <#elseif editMode>
     <#assign cards = cards + ['']>
@@ -44,7 +44,7 @@
 
         <#list cards as card>
             <#if card != ''>
-                <div class="ds_card  ds_card--hover  <#if backgroundcolor?has_content && backgroundcolor == 'None'>ds_card--grey</#if>">
+                <div class="ds_card  ds_card--hover  <#if !backgroundcolor?has_content>ds_card--grey</#if>">
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <div class="ds_aspect-box">
@@ -73,9 +73,9 @@
                         </div>
                     </#if>
                     <div class="ds_card__content">
-                        <#if card.title??>
+                        <#if card.title?has_content>
                         <h2 class="ds_card__title">
-                            <#if card.link??>
+                            <#if card.link?has_content>
                                 <a class="ds_card__link--cover" href="<@hst.link hippobean=card.link/>">${card.title}</a>
                             <#elseif card.externalLink?has_content>
                                 <a class="ds_card__link--cover" href="${card.externalLink}">${card.title}</a>
@@ -84,7 +84,7 @@
                             </#if>
                         </h2>
                         </#if>
-                        <#if card.text??>
+                        <#if card.text?has_content>
                         <p>${card.text}</p>
                         </#if>
                     </div>
