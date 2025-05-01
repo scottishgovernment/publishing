@@ -11,6 +11,7 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.mygov.publishing.beans.Guide;
 import scot.mygov.publishing.beans.GuidePage;
 import scot.mygov.publishing.beans.Step;
 import scot.mygov.publishing.beans.StepByStepGuide;
@@ -50,7 +51,7 @@ public class StepByStepComponent extends EssentialsContentComponent {
             request.setAttribute("primaryStepByStep", primaryStepByStep.get());
         }
 
-        // this is used to populate related items, we waadnt guide pages to display the related items
+        // this is used to populate related items, we want guide pages to display the related items
         // for the parent guide
         if (contentBean instanceof GuidePage) {
             GuidePage guidePage = (GuidePage) contentBean;
@@ -66,6 +67,15 @@ public class StepByStepComponent extends EssentialsContentComponent {
         List<StepByStepWrapper> wrappers = wrappersForBean(request, contentBean, navParam);
         if (contentBean instanceof GuidePage) {
             addGuideStepBySteps(contentBean, request, wrappers, navParam);
+        }
+
+        // make the first page of the guide synonymous with the guide itself
+        if (contentBean instanceof Guide) {
+            HippoFolderBean folder = (HippoFolderBean) contentBean.getParentBean();
+            List<GuidePage> pages = folder.getChildBeans(GuidePage.class);
+            if (!pages.isEmpty()) {
+                addGuideStepBySteps(pages.get(0), request, wrappers, navParam);
+            }
         }
         sort(wrappers, comparing(sbs -> sbs.getStepByStepGuide().getTitle()));
         return wrappers;
@@ -141,7 +151,11 @@ public class StepByStepComponent extends EssentialsContentComponent {
     void addGuideStepBySteps(HippoDocumentBean contentBean, HstRequest request, List<StepByStepWrapper> wrappers, String nav) {
         HippoFolderBean folder = (HippoFolderBean) contentBean.getParentBean();
         HippoDocumentBean guide = folder.getBean("index");
+        List<GuidePage> pages = folder.getChildBeans(GuidePage.class);
         List<StepByStepWrapper> wrappersForGuide = wrappersForBean(request, guide, nav);
+        if (!pages.isEmpty()) {
+            wrappersForGuide.addAll(wrappersForBean(request, pages.get(0), nav));
+        }
         Set<String> stepByStepGuidIds = wrappers.stream().map(StepByStepWrapper::id).collect(toSet());
         for (StepByStepWrapper wrapper : wrappersForGuide) {
             if (!stepByStepGuidIds.contains(wrapper.id())) {
