@@ -30,11 +30,6 @@ public class Home extends Base {
         return getLinkedBean("publishing:heroImage", ColumnImage.class);
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:cardImage")
-    public ImageCard getCardImage() {
-        return getLinkedBean("publishing:cardImage", ImageCard.class);
-    }
-
     @HippoEssentialsGenerated(internalName = "publishing:showSummaries")
     public Boolean getShowSummaries() {
         return getSingleProperty("publishing:showSummaries");

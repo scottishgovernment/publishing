@@ -45,8 +45,8 @@ public class Base extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:cardImage")
-    public ImageCard getCardImage() {
-        return getLinkedBean("publishing:cardImage", ImageCard.class);
+    public ColumnImage getCardImage() {
+        return getLinkedBean("publishing:cardImage", ColumnImage.class);
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:urlAliases")
@@ -129,5 +129,4 @@ public class Base extends BaseDocument {
     public String[] getTags() {
         return getMultipleProperty("hippostd:tags");
     }
-
 }
