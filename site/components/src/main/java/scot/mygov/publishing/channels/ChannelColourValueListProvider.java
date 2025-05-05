@@ -14,16 +14,13 @@ public class ChannelColourValueListProvider implements ValueListProvider {
     public static final Map<String, String> COLOURS = new LinkedHashMap<>();
 
     static {
-        COLOURS.put("teal","Teal");
-        COLOURS.put("darkteal","Dark teal");
+        COLOURS.put("sg-brand","SG brand");
+        COLOURS.put("dark-blue","Dark blue");
         COLOURS.put("green","Green");
-        COLOURS.put("darkgreen","Dark green");
-        COLOURS.put("orange","Orange");
-        COLOURS.put("red","Red");
-        COLOURS.put("pink","Pink");
         COLOURS.put("purple","Purple");
-        COLOURS.put("brown","Brown");
-        COLOURS.put("black","Black");
+        COLOURS.put("teal","Teal");
+        COLOURS.put("neutral","Neutral");
+        COLOURS.put("designsystem","Design System");
     }
 
     private List getValueListForLocale(Locale locale) {

@@ -14,8 +14,8 @@ public interface WebsiteInfo extends ChannelInfo {
     @Parameter(name = "logoAltText", required = true, displayName = "Logo alt text", defaultValue = "The Scottish Government")
     String getLogoAltText();
 
-    @Parameter(name = "style", required = true, displayName = "Style")
-    @DropDownList({"mygov", "campaign", "designsystem"})
+    @Parameter(name = "style", required = true, displayName = "Theme")
+    @DropDownList(valueListProvider = ChannelColourValueListProvider.class)
     String getStyle();
 
     @Parameter(name = "feedbackEnabled", required = true, displayName = "Feedback enabled?")
@@ -29,14 +29,6 @@ public interface WebsiteInfo extends ChannelInfo {
 
     @Parameter(name = "displaySiteTitleInHeader", required = true, defaultValue = "true", displayName = "Display site title in header?")
     Boolean isDisplaySiteTitleInHeader();
-
-    @Parameter(name = "color1", displayName = "Additional colour 1")
-    @DropDownList(valueListProvider = ChannelColourValueListProvider.class)
-    String getColor1();
-
-    @Parameter(name = "color2", displayName = "Additional colour 2")
-    @DropDownList(valueListProvider = ChannelColourValueListProvider.class)
-    String getColor2();
 
     @Parameter(name = "defaultCardImage", required = true)
     @JcrPath(

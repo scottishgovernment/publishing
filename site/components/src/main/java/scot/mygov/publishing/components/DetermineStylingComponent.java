@@ -22,9 +22,9 @@ public class DetermineStylingComponent extends CommonComponent {
 
         if (style.isEmpty()) {
             // Fallback to compiled "default" CSS
-            css = "/assets/css/main.css";
+            css = "/assets/themes/sg-brand/css/main.css";
         } else {
-            css = "/assets/" + style + "/css/main.css";
+            css = "/assets/themes/" + style + "/css/main.css";
         }
 
         request.setAttribute("css", css);
