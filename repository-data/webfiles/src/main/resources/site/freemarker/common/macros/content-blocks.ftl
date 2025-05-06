@@ -203,8 +203,8 @@
                     <#if contentBlock.image.caption?has_content>${(contentBlock.image.caption)?ensure_ends_with(".")} </#if>
                     <#if contentBlock.image.credit?has_content>Credit: ${contentBlock.image.credit}</#if>
                     </figcaption>
-                </figure>
                 </#if>
+                </figure>
             </#if>
             </#if>
 

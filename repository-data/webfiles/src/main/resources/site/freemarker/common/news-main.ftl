@@ -69,8 +69,8 @@
                     <#if document.image.caption?has_content>${(document.image.caption)?ensure_ends_with(".")} </#if>
                     <#if document.image.credit?has_content>Credit: ${document.image.credit}</#if>
                     </figcaption>
-                </figure>
                 </#if>
+                </figure>
             </#if>
         </#if>
             </div>
