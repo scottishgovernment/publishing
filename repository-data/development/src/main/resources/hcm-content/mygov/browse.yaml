@@ -1734,7 +1734,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: d902be50-88d2-4ec0-bede-e2dfc459bd59
       hippo:name: Bats
-      hippo:versionHistory: 602feff7-086a-480f-9cc0-70df4a6bca7e
+      hippo:versionHistory: abd24c5e-0ab3-439e-aaf4-7cdeeb361642
       /bats[1]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -1744,12 +1744,13 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-10-01T10:05:59.398+01:00
-        hippostdpubwf:lastModificationDate: 2022-05-10T08:49:37.446+01:00
+        hippostdpubwf:lastModificationDate: 2025-05-06T15:44:59.858+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d3b8e917-4ebc-49f3-92d9-68e7b7de9513
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
+        publishing:contentitemlanguage: en
         publishing:metaDescription: Bats are mammals of the order Chiroptera.[a] With
           their forelimbs adapted as wings, they are the only mammals capable of true
           and sustained flight.
@@ -1776,24 +1777,6 @@
           hippo:modes: []
           hippo:values: []
         /publishing:contentBlocks[1]:
-          jcr:primaryType: publishing:cb_fragment
-          publishing:noindex: false
-          /publishing:fragment:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 6ce7380e-1d87-4929-aa1a-3497d38c08b6
-        /publishing:contentBlocks[2]:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>&nbsp;</p>
-        /publishing:contentBlocks[3]:
-          jcr:primaryType: publishing:cb_fragment
-          publishing:noindex: false
-          /publishing:fragment:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 4d8cac44-b4e3-45d2-b088-2cad166852e5
-        /publishing:contentBlocks[4]:
           jcr:primaryType: publishing:cb_richtext
           publishing:noindex: false
           /publishing:content:
@@ -1871,18 +1854,211 @@
               href="https://en.wikipedia.org/wiki/Batman" title="Batman">Batman</a>,
               darkness, malevolence, witchcraft,&nbsp;<a href="https://en.wikipedia.org/wiki/Vampire"
               title="Vampire">vampires</a>, and death.</p>'
-        /publishing:contentBlocks[5]:
-          jcr:primaryType: publishing:cb_fragment
-          publishing:noindex: false
-          /publishing:fragment:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 4d8cac44-b4e3-45d2-b088-2cad166852e5
-        /publishing:contentBlocks[6]:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>&nbsp;</p>
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:contentBlocks[2]:
+          jcr:primaryType: publishing:cb_councilservicefinder
+          publishing:ctaprefix: Visit
+          publishing:placeholder: Choose your council
+          publishing:sorted: false
+          publishing:title: Test council finder
+          /publishing:links[1]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Aberdeen City Council
+            publishing:url: https://www.aberdeencity.gov.uk/
+          /publishing:links[2]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Aberdeenshire Council
+            publishing:url: https://www.aberdeenshire.gov.uk/
+          /publishing:links[3]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Angus Council
+            publishing:url: https://www.angus.gov.uk/
+          /publishing:links[4]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Argyll and Bute Council
+            publishing:url: https://www.argyll-bute.gov.uk/
+          /publishing:links[5]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Clackmannanshire Council
+            publishing:url: https://www.clacks.gov.uk/
+          /publishing:links[6]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Comhairle nan Eilean Siar
+            publishing:url: https://cne-siar.gov.uk/
+          /publishing:links[7]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Dumfries and Galloway Council
+            publishing:url: https://www.dumgal.gov.uk/
+          /publishing:links[8]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Dundee City Council
+            publishing:url: https://dundeecity.gov.uk/
+          /publishing:links[9]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: East Ayrshire Council
+            publishing:url: https://www.east-ayrshire.gov.uk
+          /publishing:links[10]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: East Dunbartonshire Council
+            publishing:url: https://www.eastdunbarton.gov.uk/
+          /publishing:links[11]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: East Lothian Council
+            publishing:url: https://www.eastlothian.gov.uk/
+          /publishing:links[12]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: East Renfrewshire Council
+            publishing:url: https://www.eastrenfrewshire.gov.uk/
+          /publishing:links[13]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Edinburgh Council
+            publishing:url: https://www.edinburgh.gov.uk/
+          /publishing:links[14]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Falkirk Council
+            publishing:url: https://www.falkirk.gov.uk/
+          /publishing:links[15]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Fife Council
+            publishing:url: https://www.fife.gov.uk/
+          /publishing:links[16]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Glasgow City Council
+            publishing:url: https://www.glasgow.gov.uk/
+          /publishing:links[17]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Highland Council
+            publishing:url: https://www.highland.gov.uk/
+          /publishing:links[18]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Inverclyde Council
+            publishing:url: https://www.inverclyde.gov.uk/
+          /publishing:links[19]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Midlothian Council
+            publishing:url: https://www.midlothian.gov.uk/
+          /publishing:links[20]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Moray Council
+            publishing:url: http://www.moray.gov.uk/
+          /publishing:links[21]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: North Ayrshire Council
+            publishing:url: https://www.north-ayrshire.gov.uk
+          /publishing:links[22]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: North Lanarkshire Council
+            publishing:url: https://www.northlanarkshire.gov.uk/
+          /publishing:links[23]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Orkney Islands Council
+            publishing:url: https://www.orkney.gov.uk/
+          /publishing:links[24]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Perth and Kinross Council
+            publishing:url: https://www.pkc.gov.uk/
+          /publishing:links[25]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Renfrewshire Council
+            publishing:url: https://www.renfrewshire.gov.uk/
+          /publishing:links[26]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Scottish Borders Council
+            publishing:url: https://www.scotborders.gov.uk/
+          /publishing:links[27]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Shetland Islands Council
+            publishing:url: https://www.shetland.gov.uk/
+          /publishing:links[28]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: South Ayrshire Council
+            publishing:url: https://www.south-ayrshire.gov.uk/
+          /publishing:links[29]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: South Lanarkshire Council
+            publishing:url: https://www.southlanarkshire.gov.uk/
+          /publishing:links[30]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Stirling Council
+            publishing:url: https://www.stirling.gov.uk/
+          /publishing:links[31]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: West Dunbartonshire Council
+            publishing:url: https://www.west-dunbarton.gov.uk/
+          /publishing:links[32]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: <p>description one</p>
+            publishing:label: West Lothian Council
+            publishing:url: https://www.westlothian.gov.uk/
+        /publishing:contentBlocks[3]:
+          jcr:primaryType: publishing:cb_externalservicefinder
+          publishing:ctaprefix: Visit external link
+          publishing:placeholder: select an external link
+          publishing:sorted: true
+          publishing:title: External finder
+          /publishing:links[1]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Google
+            publishing:url: https://www.google.com/
+          /publishing:links[2]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Bing
+            publishing:url: https://www.bing.com/
+        /publishing:contentBlocks[4]:
+          jcr:primaryType: publishing:cb_internalservicefinder
+          publishing:ctaprefix: Visit prefix
+          publishing:placeholder: placeholder
+          publishing:sorted: true
+          publishing:title: Internal service finder
+          /publishing:links[1]:
+            jcr:primaryType: publishing:internallinkwithlabel
+            publishing:description: ''
+            publishing:label: Beaky
+            /publishing:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 45a9fe9e-d00a-44c7-bc1e-9c6bffb2125a
+          /publishing:links[2]:
+            jcr:primaryType: publishing:internallinkwithlabel
+            publishing:description: ''
+            publishing:label: Ardvark
+            /publishing:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 0108dec6-596e-4cf8-816c-8b0db5f7e5fe
       /bats[2]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
@@ -1892,12 +2068,13 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-10-01T10:05:59.398+01:00
-        hippostdpubwf:lastModificationDate: 2022-05-10T08:52:54.013+01:00
+        hippostdpubwf:lastModificationDate: 2025-05-06T15:43:17.887+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d3b8e917-4ebc-49f3-92d9-68e7b7de9513
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
+        publishing:contentitemlanguage: en
         publishing:metaDescription: Bats are mammals of the order Chiroptera.[a] With
           their forelimbs adapted as wings, they are the only mammals capable of true
           and sustained flight.
@@ -1924,24 +2101,6 @@
           hippo:modes: []
           hippo:values: []
         /publishing:contentBlocks[1]:
-          jcr:primaryType: publishing:cb_fragment
-          publishing:noindex: false
-          /publishing:fragment:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 6ce7380e-1d87-4929-aa1a-3497d38c08b6
-        /publishing:contentBlocks[2]:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>&nbsp;</p>
-        /publishing:contentBlocks[3]:
-          jcr:primaryType: publishing:cb_fragment
-          publishing:noindex: false
-          /publishing:fragment:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 4d8cac44-b4e3-45d2-b088-2cad166852e5
-        /publishing:contentBlocks[4]:
           jcr:primaryType: publishing:cb_richtext
           publishing:noindex: false
           /publishing:content:
@@ -2019,18 +2178,211 @@
               href="https://en.wikipedia.org/wiki/Batman" title="Batman">Batman</a>,
               darkness, malevolence, witchcraft,&nbsp;<a href="https://en.wikipedia.org/wiki/Vampire"
               title="Vampire">vampires</a>, and death.</p>'
-        /publishing:contentBlocks[5]:
-          jcr:primaryType: publishing:cb_fragment
-          publishing:noindex: false
-          /publishing:fragment:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 4d8cac44-b4e3-45d2-b088-2cad166852e5
-        /publishing:contentBlocks[6]:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>&nbsp;</p>
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:contentBlocks[2]:
+          jcr:primaryType: publishing:cb_councilservicefinder
+          publishing:ctaprefix: Visit
+          publishing:placeholder: Choose your council
+          publishing:sorted: false
+          publishing:title: Test council finder
+          /publishing:links[1]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Aberdeen City Council
+            publishing:url: https://www.aberdeencity.gov.uk/
+          /publishing:links[2]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Aberdeenshire Council
+            publishing:url: https://www.aberdeenshire.gov.uk/
+          /publishing:links[3]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Angus Council
+            publishing:url: https://www.angus.gov.uk/
+          /publishing:links[4]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Argyll and Bute Council
+            publishing:url: https://www.argyll-bute.gov.uk/
+          /publishing:links[5]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Clackmannanshire Council
+            publishing:url: https://www.clacks.gov.uk/
+          /publishing:links[6]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Comhairle nan Eilean Siar
+            publishing:url: https://cne-siar.gov.uk/
+          /publishing:links[7]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Dumfries and Galloway Council
+            publishing:url: https://www.dumgal.gov.uk/
+          /publishing:links[8]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Dundee City Council
+            publishing:url: https://dundeecity.gov.uk/
+          /publishing:links[9]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: East Ayrshire Council
+            publishing:url: https://www.east-ayrshire.gov.uk
+          /publishing:links[10]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: East Dunbartonshire Council
+            publishing:url: https://www.eastdunbarton.gov.uk/
+          /publishing:links[11]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: East Lothian Council
+            publishing:url: https://www.eastlothian.gov.uk/
+          /publishing:links[12]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: East Renfrewshire Council
+            publishing:url: https://www.eastrenfrewshire.gov.uk/
+          /publishing:links[13]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Edinburgh Council
+            publishing:url: https://www.edinburgh.gov.uk/
+          /publishing:links[14]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Falkirk Council
+            publishing:url: https://www.falkirk.gov.uk/
+          /publishing:links[15]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Fife Council
+            publishing:url: https://www.fife.gov.uk/
+          /publishing:links[16]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Glasgow City Council
+            publishing:url: https://www.glasgow.gov.uk/
+          /publishing:links[17]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Highland Council
+            publishing:url: https://www.highland.gov.uk/
+          /publishing:links[18]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Inverclyde Council
+            publishing:url: https://www.inverclyde.gov.uk/
+          /publishing:links[19]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Midlothian Council
+            publishing:url: https://www.midlothian.gov.uk/
+          /publishing:links[20]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Moray Council
+            publishing:url: http://www.moray.gov.uk/
+          /publishing:links[21]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: North Ayrshire Council
+            publishing:url: https://www.north-ayrshire.gov.uk
+          /publishing:links[22]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: North Lanarkshire Council
+            publishing:url: https://www.northlanarkshire.gov.uk/
+          /publishing:links[23]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Orkney Islands Council
+            publishing:url: https://www.orkney.gov.uk/
+          /publishing:links[24]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Perth and Kinross Council
+            publishing:url: https://www.pkc.gov.uk/
+          /publishing:links[25]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Renfrewshire Council
+            publishing:url: https://www.renfrewshire.gov.uk/
+          /publishing:links[26]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Scottish Borders Council
+            publishing:url: https://www.scotborders.gov.uk/
+          /publishing:links[27]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Shetland Islands Council
+            publishing:url: https://www.shetland.gov.uk/
+          /publishing:links[28]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: South Ayrshire Council
+            publishing:url: https://www.south-ayrshire.gov.uk/
+          /publishing:links[29]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: South Lanarkshire Council
+            publishing:url: https://www.southlanarkshire.gov.uk/
+          /publishing:links[30]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Stirling Council
+            publishing:url: https://www.stirling.gov.uk/
+          /publishing:links[31]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: West Dunbartonshire Council
+            publishing:url: https://www.west-dunbarton.gov.uk/
+          /publishing:links[32]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: <p>description one</p>
+            publishing:label: West Lothian Council
+            publishing:url: https://www.westlothian.gov.uk/
+        /publishing:contentBlocks[3]:
+          jcr:primaryType: publishing:cb_externalservicefinder
+          publishing:ctaprefix: Visit external link
+          publishing:placeholder: select an external link
+          publishing:sorted: true
+          publishing:title: External finder
+          /publishing:links[1]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Google
+            publishing:url: https://www.google.com/
+          /publishing:links[2]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Bing
+            publishing:url: https://www.bing.com/
+        /publishing:contentBlocks[4]:
+          jcr:primaryType: publishing:cb_internalservicefinder
+          publishing:ctaprefix: Visit prefix
+          publishing:placeholder: placeholder
+          publishing:sorted: true
+          publishing:title: Internal service finder
+          /publishing:links[1]:
+            jcr:primaryType: publishing:internallinkwithlabel
+            publishing:description: ''
+            publishing:label: Beaky
+            /publishing:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 45a9fe9e-d00a-44c7-bc1e-9c6bffb2125a
+          /publishing:links[2]:
+            jcr:primaryType: publishing:internallinkwithlabel
+            publishing:description: ''
+            publishing:label: Ardvark
+            /publishing:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 0108dec6-596e-4cf8-816c-8b0db5f7e5fe
       /bats[3]:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
@@ -2040,13 +2392,14 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2020-10-01T10:05:59.398+01:00
-        hippostdpubwf:lastModificationDate: 2022-05-10T08:52:54.013+01:00
+        hippostdpubwf:lastModificationDate: 2025-05-06T14:22:07.960+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2022-05-10T08:52:56.524+01:00
+        hippostdpubwf:publicationDate: 2025-05-06T14:22:09.712+01:00
         hippotranslation:id: d3b8e917-4ebc-49f3-92d9-68e7b7de9513
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
+        publishing:contentitemlanguage: en
         publishing:metaDescription: Bats are mammals of the order Chiroptera.[a] With
           their forelimbs adapted as wings, they are the only mammals capable of true
           and sustained flight.
@@ -2073,24 +2426,6 @@
           hippo:modes: []
           hippo:values: []
         /publishing:contentBlocks[1]:
-          jcr:primaryType: publishing:cb_fragment
-          publishing:noindex: false
-          /publishing:fragment:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 6ce7380e-1d87-4929-aa1a-3497d38c08b6
-        /publishing:contentBlocks[2]:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>&nbsp;</p>
-        /publishing:contentBlocks[3]:
-          jcr:primaryType: publishing:cb_fragment
-          publishing:noindex: false
-          /publishing:fragment:
-            jcr:primaryType: hippo:mirror
-            hippo:docbase: 4d8cac44-b4e3-45d2-b088-2cad166852e5
-        /publishing:contentBlocks[4]:
           jcr:primaryType: publishing:cb_richtext
           publishing:noindex: false
           /publishing:content:
@@ -2168,18 +2503,210 @@
               href="https://en.wikipedia.org/wiki/Batman" title="Batman">Batman</a>,
               darkness, malevolence, witchcraft,&nbsp;<a href="https://en.wikipedia.org/wiki/Vampire"
               title="Vampire">vampires</a>, and death.</p>'
-        /publishing:contentBlocks[5]:
+        /publishing:contentBlocks[2]:
           jcr:primaryType: publishing:cb_fragment
           publishing:noindex: false
           /publishing:fragment:
             jcr:primaryType: hippo:mirror
             hippo:docbase: 4d8cac44-b4e3-45d2-b088-2cad166852e5
-        /publishing:contentBlocks[6]:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>&nbsp;</p>
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:contentBlocks[3]:
+          jcr:primaryType: publishing:cb_councilservicefinder
+          publishing:ctaprefix: Visit
+          publishing:placeholder: Choose your council
+          publishing:sorted: false
+          publishing:title: Test council finder
+          /publishing:links[1]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Aberdeen City Council
+            publishing:url: https://www.aberdeencity.gov.uk/
+          /publishing:links[2]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Aberdeenshire Council
+            publishing:url: https://www.aberdeenshire.gov.uk/
+          /publishing:links[3]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Angus Council
+            publishing:url: https://www.angus.gov.uk/
+          /publishing:links[4]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Argyll and Bute Council
+            publishing:url: https://www.argyll-bute.gov.uk/
+          /publishing:links[5]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Clackmannanshire Council
+            publishing:url: https://www.clacks.gov.uk/
+          /publishing:links[6]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Comhairle nan Eilean Siar
+            publishing:url: https://cne-siar.gov.uk/
+          /publishing:links[7]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Dumfries and Galloway Council
+            publishing:url: https://www.dumgal.gov.uk/
+          /publishing:links[8]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Dundee City Council
+            publishing:url: https://dundeecity.gov.uk/
+          /publishing:links[9]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: East Ayrshire Council
+            publishing:url: https://www.east-ayrshire.gov.uk
+          /publishing:links[10]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: East Dunbartonshire Council
+            publishing:url: https://www.eastdunbarton.gov.uk/
+          /publishing:links[11]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: East Lothian Council
+            publishing:url: https://www.eastlothian.gov.uk/
+          /publishing:links[12]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: East Renfrewshire Council
+            publishing:url: https://www.eastrenfrewshire.gov.uk/
+          /publishing:links[13]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Edinburgh Council
+            publishing:url: https://www.edinburgh.gov.uk/
+          /publishing:links[14]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Falkirk Council
+            publishing:url: https://www.falkirk.gov.uk/
+          /publishing:links[15]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Fife Council
+            publishing:url: https://www.fife.gov.uk/
+          /publishing:links[16]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Glasgow City Council
+            publishing:url: https://www.glasgow.gov.uk/
+          /publishing:links[17]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Highland Council
+            publishing:url: https://www.highland.gov.uk/
+          /publishing:links[18]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Inverclyde Council
+            publishing:url: https://www.inverclyde.gov.uk/
+          /publishing:links[19]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Midlothian Council
+            publishing:url: https://www.midlothian.gov.uk/
+          /publishing:links[20]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Moray Council
+            publishing:url: http://www.moray.gov.uk/
+          /publishing:links[21]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: North Ayrshire Council
+            publishing:url: https://www.north-ayrshire.gov.uk
+          /publishing:links[22]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: North Lanarkshire Council
+            publishing:url: https://www.northlanarkshire.gov.uk/
+          /publishing:links[23]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Orkney Islands Council
+            publishing:url: https://www.orkney.gov.uk/
+          /publishing:links[24]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Perth and Kinross Council
+            publishing:url: https://www.pkc.gov.uk/
+          /publishing:links[25]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Renfrewshire Council
+            publishing:url: https://www.renfrewshire.gov.uk/
+          /publishing:links[26]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Scottish Borders Council
+            publishing:url: https://www.scotborders.gov.uk/
+          /publishing:links[27]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Shetland Islands Council
+            publishing:url: https://www.shetland.gov.uk/
+          /publishing:links[28]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: South Ayrshire Council
+            publishing:url: https://www.south-ayrshire.gov.uk/
+          /publishing:links[29]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: South Lanarkshire Council
+            publishing:url: https://www.southlanarkshire.gov.uk/
+          /publishing:links[30]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Stirling Council
+            publishing:url: https://www.stirling.gov.uk/
+          /publishing:links[31]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: West Dunbartonshire Council
+            publishing:url: https://www.west-dunbarton.gov.uk/
+          /publishing:links[32]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: <p>description one</p>
+            publishing:label: West Lothian Council
+            publishing:url: https://www.westlothian.gov.uk/
+        /publishing:contentBlocks[4]:
+          jcr:primaryType: publishing:cb_externalservicefinder
+          publishing:ctaprefix: Visit external link
+          publishing:placeholder: select an external link
+          publishing:sorted: true
+          publishing:title: External finder
+          /publishing:links[1]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Google
+            publishing:url: https://www.google.com/
+          /publishing:links[2]:
+            jcr:primaryType: publishing:linkwithlabel
+            publishing:description: ''
+            publishing:label: Bing
+            publishing:url: https://www.bing.com/
+        /publishing:contentBlocks[5]:
+          jcr:primaryType: publishing:cb_internalservicefinder
+          publishing:ctaprefix: Visit prefix
+          publishing:placeholder: placeholder
+          publishing:sorted: true
+          publishing:title: Internal service finder
+          /publishing:links:
+            jcr:primaryType: publishing:internallinkwithlabel
+            publishing:description: ''
+            publishing:label: Beaky
+            /publishing:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: 45a9fe9e-d00a-44c7-bc1e-9c6bffb2125a
     /fairrent:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
