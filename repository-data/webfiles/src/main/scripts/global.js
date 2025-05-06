@@ -9,6 +9,7 @@ import BloomreachWebfile from './tools/bloomreach-webfile';
 import ContentSelect from './components/content-select';
 import feedback from './components/feedback';
 import NotificationBanner from './components/notification';
+import ServiceFinder from './components/service-finder';
 import ToggleLink from './components/toggle-link';
 import UpdateHistory from './components/update-history';
 import storage from '../../../node_modules/@scottish-government/design-system/src/base/tools/storage/storage';
@@ -255,6 +256,9 @@ const global = {
     initPublishingComponents: function () {
         const contentSelectEls = [].slice.call(document.querySelectorAll('.js-contentselect'));
         contentSelectEls.forEach(contentSelect => new ContentSelect(contentSelect).init());
+
+        const serviceFinderEls = [].slice.call(document.querySelectorAll('.js-service-finder'));
+        serviceFinderEls.forEach(serviceFinder => new ServiceFinder(serviceFinder).init());
     },
 
     setInitialCookiePermissions: function () {

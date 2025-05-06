@@ -247,6 +247,95 @@
             <#-- end LA finder block -->
         </#if>
 
+        <#if hst.isNodeType(contentBlock.node, 'publishing:cb_councilservicefinder') ||
+            hst.isNodeType(contentBlock.node, 'publishing:cb_externalservicefinder') ||
+            hst.isNodeType(contentBlock.node, 'publishing:cb_internalservicefinder')>
+            <#-- service finder block -->
+            <#if contentBlock.noindex>
+            <!--noindex-->
+            </#if>
+
+            <div class="form-box">
+                <form data-type="button" class="js-service-finder" data-errormessage="Choose an option">
+                    <div class="ds_question" data-error-message="Choose an option">
+                        <input type="submit" hidden />
+
+                        <label for="council-select-${idModifier}" class="ds_label">
+                            ${contentBlock.title}
+                        </label>
+
+                        <div class="ds_input--fluid-two-thirds  ds_select-wrapper">
+                            <select id="council-select-${idModifier}" class="ds_select">
+                                <option value="" disabled="disabled" selected="selected">${contentBlock.placeholder}</option>
+                                <#list contentBlock.links as link>
+                                    <#assign url><#compress>
+                                        <#if hst.isNodeType(contentBlock.node, 'publishing:cb_internalservicefinder')>
+                                            <@hst.link fullyQualified=true hippobean=link.link/>
+                                        <#else>
+                                            ${link.url}
+                                        </#if></#compress>
+                                    </#assign>
+                                    <option data-url="${url}" data-id="${slugify(link.label)}">${link.label}</option>
+                                </#list>
+                            </select>
+                            <span aria-hidden="true" class="ds_select-arrow"></span>
+                        </div>
+                    </div>
+
+                    <a href="#" role="button" class="ds_button  ds_no-margin--bottom  js-submit-finder">Go to service</a>
+                </form>
+
+                <noscript>
+                    <p class="ds_label">${contentBlock.title}</p>
+                    <ul class="ds_no-bullets  ds_no-margin--bottom">
+                        <#list contentBlock.links as link>
+                            <li>
+                                <#assign url><#compress>
+                                    <#if hst.isNodeType(contentBlock.node, 'publishing:cb_internalservicefinder')>
+                                        <@hst.link hippobean=link.link/>
+                                    <#else>
+                                        ${link.url}
+                                    </#if></#compress>
+                                </#assign>
+                                <a href="${url}">${link.label}</a>
+                            </li>
+                        </#list>
+                    </ul>
+                </noscript>
+            </div>
+
+            <div data-type="button" class="form-box  js-contentselect">
+                <div class="ds_question">
+                    <label for="council-select-${idModifier}" class="ds_label">
+                        ${contentBlock.title}
+                    </label>
+
+                    <div class="ds_input--fluid-two-thirds  ds_select-wrapper">
+                        <select id="council-select-${idModifier}" class="ds_select">
+                            <option disabled="disabled" selected="selected">${contentBlock.placeholder}</option>
+                            <#list contentBlock.links as link>
+                                <option data-id="${slugify(link.label)}">${link.label}</option>
+                            </#list>
+                        </select>
+                        <span aria-hidden="true" class="ds_select-arrow"></span>
+                    </div>
+                </div>
+
+                <#list contentBlock.links as link>
+                    <#if hst.isNodeType(contentBlock.node, 'publishing:cb_internalservicefinder')>
+                        <a class="ds_button  ds_button--max  ds_no-margin--bottom" href="<@hst.link hippobean=link.link/>" id="dd-${slugify(link.label)}">${contentBlock.ctaprefix} ${link.label}</a>
+                    <#else>
+                        <a class="ds_button  ds_button--max  ds_no-margin--bottom" href="${link.url}" id="dd-${slugify(link.label)}">${contentBlock.ctaprefix} ${link.label}</a>
+                    </#if>
+                </#list>
+            </div>
+
+            <#if contentBlock.noindex>
+            <!--endnoindex-->
+            </#if>
+            <#-- end service finder block -->
+        </#if>
+
         <#if hst.isNodeType(contentBlock.node, 'publishing:cb_richtext')>
             <#-- rich text block -->
             <#if contentBlock.noindex>
