@@ -100,12 +100,18 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
     }
 
     static BreadcrumbItem breadcrumbItem(HippoBean bean, HstRequestContext context) {
-        return breadcrumbItem(bean, context, bean.getSingleProperty("publishing:title"));
+        HippoBean breadcrumbBean = breadcrumbBean(bean);
+        return breadcrumbItem(breadcrumbBean, context, breadcrumbBean.getSingleProperty("publishing:title"));
     }
 
     static BreadcrumbItem breadcrumbItem(HippoBean bean, HstRequestContext context, String title) {
         HstLinkCreator linkCreator = context.getHstLinkCreator();
         HstLink link = linkCreator.create(bean, context);
         return new BreadcrumbItem(link, title);
+    }
+
+    static HippoBean breadcrumbBean(HippoBean bean) {
+        HippoBean proxy = bean.getLinkedBean("publishing:breadcrumbProxy", HippoBean.class);
+        return proxy == null ? bean : proxy;
     }
 }

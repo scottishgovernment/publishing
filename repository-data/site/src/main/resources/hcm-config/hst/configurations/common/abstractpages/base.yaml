@@ -14,7 +14,7 @@ definitions:
         hst:componentclassname: scot.mygov.publishing.components.SiteHeaderComponent
         /menu:
           jcr:primaryType: hst:component
-          hst:componentclassname: org.onehippo.cms7.essentials.components.EssentialsMenuComponent
+          hst:componentclassname: scot.mygov.publishing.components.MenuComponent
           hst:parameternames: [selectedMenu, level, menu]
           hst:parametervalues: ['on', '1', main]
           hst:template: site-navigation

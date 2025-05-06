@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f685f9bd-e647-4248-96b4-0f36b2650af0
+          jcr:uuid: 226c52ff-892e-44f5-b8af-3b49d67d8abe
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -89,6 +89,15 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [organisationtag-validator]
+          /breadcrumbProxy:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:breadcrumbProxy
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -102,7 +111,7 @@ definitions:
           publishing:summary: ''
           publishing:title: ''
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 5bd27235-1f85-4011-99b9-1606d3bcf87b
+          jcr:uuid: b046e73a-a042-4ced-ac4f-a6a6996f73e5
           hippostdpubwf:lastModificationDate: 2019-09-03T14:51:59.186+01:00
           hippostdpubwf:creationDate: 2019-09-03T14:51:59.186+01:00
           publishing:seoTitle: ''
@@ -130,6 +139,9 @@ definitions:
             hippo:facets: []
             hippo:modes: []
             hippo:values: []
+          /publishing:breadcrumbProxy:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -381,6 +393,16 @@ definitions:
             field: epilogue
             hint: This field is no longer used but is retained in order to support
               reverting to old versions if this document
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /breadcrumbProxy:
+            jcr:primaryType: frontend:plugin
+            caption: Breadcrumb proxy
+            field: breadcrumbProxy
+            hint: This can be used to replace top level category pages in breadcrumbs
+              with a Page block page.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
