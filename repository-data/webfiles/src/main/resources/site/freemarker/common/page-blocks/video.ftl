@@ -8,7 +8,7 @@
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 <div class="ds_pb  ds_pb--video-text
-<#if verticalcenter>  ds_pb--video-text--center</#if>
+<#if verticalcenter?has_content><#if verticalcenter>  ds_pb--video-text--center</#if></#if>
 <#if removebottompadding>  ds_!_padding-bottom--0</#if>
 <#if backgroundcolor?has_content> 
 <#switch backgroundcolor?lower_case> 

@@ -20,7 +20,7 @@
   <#break>
 </#switch>
 </#if>
-<#if verticalcenter>  ds_pb--image-text--center</#if>
+<#if verticalcenter?has_content><#if verticalcenter>  ds_pb--image-text--center</#if></#if>
 <#if removebottompadding>  ds_!_padding-bottom--0</#if>">
     <div class="ds_wrapper">
         <div class="ds_pb__inner">
