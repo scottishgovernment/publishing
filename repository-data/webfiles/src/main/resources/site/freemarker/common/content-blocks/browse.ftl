@@ -4,7 +4,7 @@
         <div class="ds_layout  ds_layout--category-list">
             <div class="ds_layout__grid">
                 <div class="ds_category-list-container">
-                    <#include '../card-navigation--image.ftl'/>
+                    <#include '../card-navigation.ftl'/>
                 </div>
             </div>
         </div>
