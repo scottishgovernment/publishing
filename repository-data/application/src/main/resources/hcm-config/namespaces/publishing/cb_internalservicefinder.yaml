@@ -53,7 +53,7 @@ definitions:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
+            hipposysedit:ordered: true
             hipposysedit:path: publishing:links
             hipposysedit:primary: false
             hipposysedit:type: publishing:internallinkwithlabel
@@ -118,7 +118,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /links:
             jcr:primaryType: frontend:plugin
-            caption: Links
+            caption: Link
             field: links
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field

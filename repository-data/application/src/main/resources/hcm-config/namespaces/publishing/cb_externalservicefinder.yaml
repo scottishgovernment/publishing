@@ -19,7 +19,7 @@ definitions:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
-            hipposysedit:ordered: false
+            hipposysedit:ordered: true
             hipposysedit:path: publishing:links
             hipposysedit:primary: false
             hipposysedit:type: publishing:linkwithlabel
@@ -115,7 +115,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /links:
             jcr:primaryType: frontend:plugin
-            caption: Links
+            caption: Link
             field: links
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin

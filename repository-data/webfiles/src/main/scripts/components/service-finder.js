@@ -1,57 +1,41 @@
 'use strict';
 
-import commonForms from "../tools/forms";
 
 class ServiceFinder {
     constructor(serviceFinder) {
         this.serviceFinder = serviceFinder;
-        this.selectEl = this.serviceFinder.querySelector('select');
-        this.buttonEl = this.serviceFinder.querySelector('.js-submit-finder');
-        this.keycodes = {
-            'space': 32
-        };
+        this.selectEl = serviceFinder.querySelector('select');
+        this.linkContainerEl = serviceFinder.querySelector('.mg_service-finder__link');
+        this.buttonEl = this.linkContainerEl.querySelector('.js-button');
+        this.descriptionEl = this.linkContainerEl.querySelector('.js-description');
+        this.prefix = serviceFinder.dataset.prefix || 'Visit';
     }
 
     init() {
         this.selectEl.addEventListener('change', () => {
-            this.buttonEl.href = this.selectEl.selectedOptions[0].dataset.url || '';
+            this.linkContainerEl.classList.add('fully-hidden');
+            this.showButton();
         });
 
-        this.serviceFinder.addEventListener('submit', event => {
-            event.preventDefault();
-
-            if (this.validateSelect()) {
-                window.location.href = this.selectEl.selectedOptions[0].dataset.url;
+        // on loading or returning to the page, any dropdowns with a LA selected will show a link button
+        window.setTimeout(() => {
+            if (this.selectEl.value !== '') {
+                this.showButton();
             }
-        });
-
-        this.buttonEl.addEventListener('click', event => {
-            console.log('click')
-            if (!this.validateSelect()) {
-                event.preventDefault();
-            }
-        });
-
-        this.buttonEl.addEventListener('keypress', event => {
-            if (event.keyCode === this.keycodes.space) {
-                event.preventDefault();
-                this.buttonEl.click();
-            }
-        });
+        }, 10);
     }
 
-    validateSelect() {
-        const valid = !(this.selectEl.value === '' || this.selectEl.selectedOptions[0].disabled);
+    showButton() {
+        const selectedItemIdBase = '#dd-' + this.serviceFinder.querySelector('option:checked').dataset.id;
+        const selectedLinkEl = this.serviceFinder.querySelector(selectedItemIdBase + '-link');
+        const selectedDescriptionEl = this.serviceFinder.querySelector(selectedItemIdBase + '-description');
 
-        commonForms.toggleCurrentErrors(this.selectEl, valid, 'no-service', this.serviceFinder.dataset.errormessage);
+        this.buttonEl.innerHTML = this.prefix + ' ' + selectedLinkEl.innerHTML;
+        this.buttonEl.href = selectedLinkEl.href;
+        this.buttonEl.classList.add('ds_button');
+        this.descriptionEl.innerHTML = selectedDescriptionEl.innerHTML;
 
-        if (!valid) {
-            this.selectEl.classList.add('ds_input--error');
-        } else {
-            this.selectEl.classList.remove('ds_input--error');
-        }
-
-        return valid;
+        this.linkContainerEl.classList.remove('fully-hidden');
     }
 }
 

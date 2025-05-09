@@ -6,7 +6,6 @@
 'use strict';
 
 import BloomreachWebfile from './tools/bloomreach-webfile';
-import ContentSelect from './components/content-select';
 import feedback from './components/feedback';
 import NotificationBanner from './components/notification';
 import ServiceFinder from './components/service-finder';
@@ -254,9 +253,6 @@ const global = {
     },
 
     initPublishingComponents: function () {
-        const contentSelectEls = [].slice.call(document.querySelectorAll('.js-contentselect'));
-        contentSelectEls.forEach(contentSelect => new ContentSelect(contentSelect).init());
-
         const serviceFinderEls = [].slice.call(document.querySelectorAll('.js-service-finder'));
         serviceFinderEls.forEach(serviceFinder => new ServiceFinder(serviceFinder).init());
     },

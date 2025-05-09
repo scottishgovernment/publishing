@@ -1,6 +1,19 @@
 /*------------------------------------*\
     SERVICE FINDER
 \*------------------------------------*/
-html:not(.js-enabled) .js-service-finder {
-    display: none
+.mg_service-finder__form {
+    display: none;
+}
+
+html.js-enabled .mg_service-finder__form {
+    display: block;
+}
+
+html.js-enabled .mg_service-finder__list {
+    display: none;
+}
+
+// temporary padding bump. remove after the select arrow's background has been made transparent in the Design System
+.mg_service-finder select {
+    padding-right: 3.5rem;
 }
