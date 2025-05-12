@@ -25,5 +25,15 @@ definitions:
           - xm.report.user
           - xm.dashboard.user
           - xm.channel.viewer
+{{#feedback}}
+      /{{id}}-feedback:
+        jcr:primaryType: hipposys:group
+        hipposys:members: []
+        hipposys:securityprovider: internal
+        hipposys:system: false
+        hipposys:userroles:
+          - xm.cms.user
+          - scotgov.feedback.viewer
+{{/feedback}}
 
 {{/sites}}
