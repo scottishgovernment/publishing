@@ -1,0 +1,16 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/mygov-feedback:
+      jcr:primaryType: hipposys:group
+      hipposys:members:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [admin, author]
+      hipposys:securityprovider: internal
+      hipposys:system: false
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [xm.cms.user, scotgov.feedback.viewer]
