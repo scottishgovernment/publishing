@@ -1,5 +1,6 @@
 package scot.mygov.publishing.components;
 
+import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -51,11 +52,12 @@ public class MenuComponent extends EssentialsMenuComponent {
         HstSiteMenuItemImpl itemImpl = (HstSiteMenuItemImpl) menuItem;
 
         // hande case where a guide is the menu item
-        if (link != null && link.getPath().startsWith(itemImpl.getHstLink().getPath())) {
+        String itemPath = itemImpl.getHstLink().getPath();
+        if (link != null && link.getPath().startsWith(itemPath) && StringUtils.isNotBlank(itemPath)) {
             itemImpl.setExpanded();
         }
 
-        String proxyPath = proxymap.get(itemImpl.getHstLink().getPath());
+        String proxyPath = proxymap.get(itemPath);
         HippoBean contentBean = request.getRequestContext().getContentBean();
         if (contentBean == null || proxyPath == null) {
             return;
