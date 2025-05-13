@@ -18,7 +18,7 @@
         <main <@lang document/> id="main-content" class="ds_layout  ds_layout--pl-component">
 
             <@hst.include ref="sidebar"/>
-            
+
             <div class="ds_layout__header">
                 <header class="ds_page-header">
                     <#if type?has_content>
@@ -122,7 +122,7 @@
                                                     <label class="ds_accordion-item__label" for="panel-main-${accordionCount}"><span class="visually-hidden">Show this section</span></label>
                                                 </div>
                                                 <div class="ds_accordion-item__body  example__accordion-body--code">
-                                                    <pre class="ds_no-margin  pre--no-border"><code class="language-${contentblock.example.language?lower_case}">${contentblock.example.code}</code></pre>
+                                                    <pre class="ds_no-margin  pre--no-border" tabindex="-1"><code class="language-${contentblock.example.language?lower_case}">${contentblock.example.code}</code></pre>
                                                 </div>
                                             </div>
 
