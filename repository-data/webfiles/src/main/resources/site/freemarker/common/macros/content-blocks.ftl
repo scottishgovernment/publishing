@@ -264,7 +264,7 @@
 
                         <div class="ds_select-wrapper">
                             <select id="council-select-${idModifier}" class="ds_select">
-                                <option disabled="disabled" selected="selected">${contentBlock.placeholder}</option>
+                                <option value="" disabled="disabled" selected="selected">${contentBlock.placeholder}</option>
                                 <#list contentBlock.links as link>
                                     <option data-id="${slugify(link.label)}">${link.label}</option>
                                 </#list>

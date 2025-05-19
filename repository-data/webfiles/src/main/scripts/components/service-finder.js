@@ -8,7 +8,7 @@ class ServiceFinder {
         this.linkContainerEl = serviceFinder.querySelector('.mg_service-finder__link');
         this.buttonEl = this.linkContainerEl.querySelector('.js-button');
         this.descriptionEl = this.linkContainerEl.querySelector('.js-description');
-        this.prefix = serviceFinder.dataset.prefix || 'Visit';
+        this.prefix = serviceFinder.dataset.prefix || '';
     }
 
     init() {
