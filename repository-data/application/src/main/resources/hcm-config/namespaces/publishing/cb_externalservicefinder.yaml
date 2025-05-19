@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 14d0dbf8-e98e-4598-b392-20a260dfe895
+          jcr:uuid: f128806c-eb00-45f8-ba2c-3860b4a46a64
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -63,7 +63,7 @@ definitions:
           jcr:primaryType: publishing:cb_externalservicefinder
           publishing:ctaprefix: Visit
           publishing:title: ''
-          publishing:sorted: false
+          publishing:sorted: true
           publishing:placeholder: ''
           /publishing:links:
             jcr:primaryType: publishing:linkwithlabel
@@ -87,6 +87,7 @@ definitions:
             field: title
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: Shows above dropdown list.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /placeholder:
@@ -95,6 +96,7 @@ definitions:
             field: placeholder
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: Shows as placeholder on dropdown list.’
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /sorted:
@@ -103,6 +105,7 @@ definitions:
             field: sorted
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: List services in alphabetical order
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /ctaprefix:
@@ -111,6 +114,8 @@ definitions:
             field: ctaprefix
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: Shows at start of each call to action button from the dropdown list,
+              followed by what’s in the Label field of the link.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
           /links:

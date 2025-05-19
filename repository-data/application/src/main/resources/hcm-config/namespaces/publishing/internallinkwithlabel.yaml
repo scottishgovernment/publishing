@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 9fbe55d5-7c16-455f-a685-4b81a554e1c6
+          jcr:uuid: d47ce0c8-5f81-4ea5-86bd-35cbb56f2cea
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -83,7 +83,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Description
             field: description
-            hint: ''
+            hint: Shows above the call to action button.’
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
