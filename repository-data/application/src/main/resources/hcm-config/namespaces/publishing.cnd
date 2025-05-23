@@ -46,6 +46,12 @@
 [publishing:PublishingDocument] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:Section] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
+[publishing:SectionRoot] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
 [publishing:Step] > hippo:compound, hippostd:relaxed
   orderable
 

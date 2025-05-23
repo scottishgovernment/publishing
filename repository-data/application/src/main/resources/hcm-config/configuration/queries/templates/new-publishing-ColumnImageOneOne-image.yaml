@@ -10,9 +10,11 @@ definitions:
         /image:
           jcr:primaryType: hippo:handle
           jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 77a9a2e6-763b-471d-9143-360c1e0d2454
           /image:
             jcr:primaryType: hippogallery:imageset
             jcr:mixinTypes: ['mix:versionable']
+            jcr:uuid: b6099b2c-23ed-4129-8e57-848165d3b032
             /hippogallery:thumbnail:
               jcr:primaryType: hippogallery:image
               jcr:data:

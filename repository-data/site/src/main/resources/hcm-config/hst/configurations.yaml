@@ -198,7 +198,13 @@ definitions:
             hst:renderpath: webfile:/freemarker/common/publication-main.ftl
           /latestpublications:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/page-blocks/latestpublications.ftl
+            hst:renderpath: webfile:/freemarker/common/content-blocks/latestpublications.ftl
+          /sidebar:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/designsystem/ds-sidebar.ftl
+          /section:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/section.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
