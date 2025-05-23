@@ -124,10 +124,10 @@ definitions:
             hst:componentconfigurationid: hst:pages/article
             hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
               'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage',
-              'publishing:StepByStepGuide']
+              'publishing:StepByStepGuide', 'publishing:Section']
             hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
               'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage',
-              'hst:pages/stepbystepguide']
+              'hst:pages/stepbystepguide', 'hst:pages/section']
             hst:relativecontentpath: ${parent}/${2}
             hst:sitemapitemhandlerids: [trailing-slash]
             /_default_:
@@ -135,10 +135,10 @@ definitions:
               hst:componentconfigurationid: hst:pages/article
               hst:componentconfigurationmappingnames: ['publishing:article', 'publishing:guidepage',
                 'publishing:formbase', 'publishing:fairrent', 'publishing:documentcoverpage',
-                'publishing:StepByStepGuide']
+                'publishing:StepByStepGuide', 'publishing:Section']
               hst:componentconfigurationmappingvalues: ['hst:pages/article', 'hst:pages/guidepage',
                 'hst:pages/formbase', 'hst:pages/fairrent', 'hst:pages/documentcoverpage',
-                'hst:pages/stepbystepguide']
+                'hst:pages/stepbystepguide', 'hst:pages/section']
               hst:relativecontentpath: ${parent}/${3}
               hst:sitemapitemhandlerids: [trailing-slash]
               /_default_:
@@ -285,17 +285,17 @@ definitions:
             /_index_:
               jcr:primaryType: hst:sitemapitem
               hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
-                'publishing:smartanswer']
+                'publishing:smartanswer', 'publishing:SectionRoot']
               hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
-                'hst:pages/smartanswer']
+                'hst:pages/smartanswer', 'hst:pages/section']
               hst:relativecontentpath: ${parent}/index
               hst:sitemapitemhandlerids: [trailing-slash]
           /_index_:
             jcr:primaryType: hst:sitemapitem
             hst:componentconfigurationmappingnames: ['publishing:category', 'publishing:guide',
-              'publishing:smartanswer']
+              'publishing:smartanswer', 'publishing:SectionRoot']
             hst:componentconfigurationmappingvalues: ['hst:pages/category', 'hst:pages/guide',
-              'hst:pages/smartanswer']
+              'hst:pages/smartanswer', 'hst:pages/section']
             hst:relativecontentpath: ${parent}/index
             hst:sitemapitemhandlerids: [trailing-slash]
         /_index_:

@@ -1,19 +1,19 @@
 package scot.mygov.publishing.components;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.CommonComponent;
-import scot.mygov.publishing.beans.Dsarticle;
 
 import java.util.List;
 import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
-public class DesignSystemNavigationComponent extends CommonComponent {
+public class SectionSidebarComponent extends CommonComponent {
 
     private static final String INDEX = "index";
 
@@ -39,18 +39,32 @@ public class DesignSystemNavigationComponent extends CommonComponent {
     Optional<HippoFolderBean> topLevelFolder(HstRequestContext context) {
         HippoFolderBean root = context.getSiteContentBaseBean().getBean("browse");
         HippoBean contentBean = context.getContentBean();
-        return root.getBean("/content/documents/cloud/browse/section");
-//        return root.getChildBeans(HippoFolderBean.class)
-//                .stream()
-//                .filter(folder -> folder.isAncestor(contentBean))
-//                .findFirst();
 
-        ///  the ancestor closest to the root that jas the action new-Section-document
-//        HippoFolderBean root = context.getSiteContentBaseBean().getBean("browse");
-//        HippoBean contentBean = context.getContentBean();
-//        return Optional.of(root);
+/**
+ * cases: this is the root bean, start with the folder
+ *  - this is a section in the root folder,
+ */
+
+
+
+        if (isSectionRoot(contentBean.getParentBean().getParentBean().getParentBean())) {
+            return Optional.of((HippoFolderBean) contentBean.getParentBean().getParentBean().getParentBean());
+        }
+        if (isSectionRoot(contentBean.getParentBean().getParentBean())) {
+            return Optional.of((HippoFolderBean) contentBean.getParentBean().getParentBean());
+        }
+        if (isSectionRoot(contentBean.getParentBean())) {
+            return Optional.of((HippoFolderBean) contentBean.getParentBean());
+        }
+
+
+        return Optional.empty();
     }
 
+    boolean isSectionRoot(HippoBean bean) {
+        String [] foldertype = bean.getMultipleProperty("hippostd:foldertype");
+        return ArrayUtils.contains(foldertype, "new-SectionRoot-document");
+    }
 
     void populateNavigationItem(HstRequestContext context, HippoFolderBean folder, NavigationItem item) {
         List<HippoBean> children = folder.getChildBeans(HippoBean.class).stream().filter(this::notIndex).collect(toList());
@@ -65,9 +79,9 @@ public class DesignSystemNavigationComponent extends CommonComponent {
         }
 
         //if (child instanceof Dsarticle || child.is) {
-            NavigationItem articleItem = navigationItem(context, child);
-            item.getChildren().add(articleItem);
-            return;
+        NavigationItem articleItem = navigationItem(context, child);
+        item.getChildren().add(articleItem);
+        return;
         //}
 
 

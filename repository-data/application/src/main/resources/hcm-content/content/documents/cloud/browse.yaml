@@ -1,7 +1,186 @@
 /content/documents/cloud/browse:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:versionable']
-  jcr:uuid: 3eddf88e-fd36-47c4-a4fa-674c5164863e
   hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-guide,
     new-publishing-mirror, new-publishing-smartanswer, new-document, new-publishing-smartanswer,
-    new-fragment-folder, new-publishing-stepbystepguide]
+    new-fragment-folder, new-publishing-stepbystepguide, new-Section-folder]
+  /section:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'hippotranslation:translated']
+    hippo:name: Section
+    hippostd:foldertype: [new-Section-document, new-Section-subfolder]
+    hippotranslation:id: 7f1af63c-e80f-48b8-8c92-ff163cd25997
+    hippotranslation:locale: inherited locale
+    /subsection1:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippotranslation:translated']
+      hippostd:foldertype: [new-Section-document, new-Section-subfolder]
+      hippotranslation:id: 235e1336-45e7-436e-85b4-83eb89cb97b6
+      hippotranslation:locale: inherited locale
+      /index:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: 06396b0a-992e-47ef-94b5-15db714d686c
+        hippo:name: one
+        /index[1]:
+          jcr:primaryType: publishing:Section
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f2676290-66e1-435b-bef8-2317c07019dc
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-05-26T11:05:59.795+01:00
+          hippostdpubwf:lastModificationDate: 2025-05-26T11:05:59.795+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 302044c1-0ed0-43f0-ae32-1bb505fcfd8b
+          hippotranslation:locale: inherited locale
+          publishing:metaDescription: one
+          publishing:seoTitle: one
+          publishing:summary: one
+          publishing:title: one
+        /index[2]:
+          jcr:primaryType: publishing:Section
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 4b757274-25ab-4a21-9252-690cdd487cd6
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-05-26T11:05:59.795+01:00
+          hippostdpubwf:lastModificationDate: 2025-05-26T11:06:12.696+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 302044c1-0ed0-43f0-ae32-1bb505fcfd8b
+          hippotranslation:locale: inherited locale
+          publishing:metaDescription: one
+          publishing:seoTitle: one
+          publishing:summary: one
+          publishing:title: one
+      /two:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: e52c2e9a-44e7-40b4-9222-f31ad36d46af
+        /two[1]:
+          jcr:primaryType: publishing:Section
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: bab75fc8-3b0a-472b-b5a0-f13207ef5902
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-05-26T11:06:21.481+01:00
+          hippostdpubwf:lastModificationDate: 2025-05-26T11:06:21.481+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: eaa3be8b-7a32-48c6-bfbc-f9f248840cfd
+          hippotranslation:locale: inherited locale
+          publishing:metaDescription: two
+          publishing:seoTitle: two
+          publishing:summary: two
+          publishing:title: two
+        /two[2]:
+          jcr:primaryType: publishing:Section
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 0e3f2205-6984-42e8-a95d-23a51534bcee
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-05-26T11:06:21.481+01:00
+          hippostdpubwf:lastModificationDate: 2025-05-26T11:06:26.500+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: eaa3be8b-7a32-48c6-bfbc-f9f248840cfd
+          hippotranslation:locale: inherited locale
+          publishing:metaDescription: two
+          publishing:seoTitle: two
+          publishing:summary: two
+          publishing:title: two
+    /subsection2:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippotranslation:translated']
+      hippostd:foldertype: [new-Section-document, new-Section-subfolder]
+      hippotranslation:id: d09a7be9-7c27-427a-aba6-3d6b9d49a95d
+      hippotranslation:locale: inherited locale
+      /index:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: efefc9ec-dc0d-4884-86f0-0bc574fa62d1
+        hippo:name: twoone
+        /index[1]:
+          jcr:primaryType: publishing:Section
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 0b3ea62d-7e04-42e1-8088-45deaedba5ea
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-05-26T11:06:51.696+01:00
+          hippostdpubwf:lastModificationDate: 2025-05-26T11:06:51.696+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 184d56f3-76b8-47ce-853a-7d2379f893ad
+          hippotranslation:locale: inherited locale
+          publishing:metaDescription: twoone
+          publishing:seoTitle: twoone
+          publishing:summary: twoone
+          publishing:title: twoone
+        /index[2]:
+          jcr:primaryType: publishing:Section
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: d6b4baf5-76ed-47c3-b2fe-099345ae5384
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-05-26T11:06:51.696+01:00
+          hippostdpubwf:lastModificationDate: 2025-05-26T11:06:55.853+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 184d56f3-76b8-47ce-853a-7d2379f893ad
+          hippotranslation:locale: inherited locale
+          publishing:metaDescription: twoone
+          publishing:seoTitle: twoone
+          publishing:summary: twoone
+          publishing:title: twoone
+      /subsub1:
+        jcr:primaryType: hippostd:folder
+        jcr:mixinTypes: ['hippotranslation:translated']
+        hippostd:foldertype: [new-Section-document, new-Section-subfolder]
+        hippotranslation:id: 9f22c15f-830d-4fb7-87da-7cac30751f5c
+        hippotranslation:locale: inherited locale
+        /index:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 8b24adec-b9ec-4ff1-908f-ed68409f6439
+          hippo:name: subs1
+          /index[1]:
+            jcr:primaryType: publishing:Section
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: 4af31dae-26e4-48bd-ab61-7f5ee7fcdaca
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-05-26T11:35:20.263+01:00
+            hippostdpubwf:lastModificationDate: 2025-05-26T11:35:20.264+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 01c6c597-ab6f-4309-8b88-c9e4b92e9758
+            hippotranslation:locale: inherited locale
+            publishing:metaDescription: subs1
+            publishing:seoTitle: subs1
+            publishing:summary: subs1
+            publishing:title: subs1
+          /index[2]:
+            jcr:primaryType: publishing:Section
+            jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+            jcr:uuid: ae2e316d-9765-4c31-acff-c972b7c1ba79
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-05-26T11:35:20.263+01:00
+            hippostdpubwf:lastModificationDate: 2025-05-26T11:35:31.642+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 01c6c597-ab6f-4309-8b88-c9e4b92e9758
+            hippotranslation:locale: inherited locale
+            publishing:metaDescription: subs1
+            publishing:seoTitle: subs1
+            publishing:summary: subs1
+            publishing:title: subs1
