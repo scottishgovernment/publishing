@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 0f7301dc-9903-4036-8ae5-3cba28fa9e18
+          jcr:uuid: 50801fb5-e3d4-4d00-a41f-2dea1b2ee745
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -189,11 +189,6 @@ definitions:
             jcr:primaryType: publishing:linkwithlabel
             publishing:label: West Dunbartonshire Council
             publishing:url: https://www.west-dunbarton.gov.uk/
-          /publishing:links[32]:
-            jcr:primaryType: publishing:linkwithlabel
-            publishing:description: ''
-            publishing:label: Aberdeen City Council
-            publishing:url: https://www.aberdeencity.gov.uk/
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:

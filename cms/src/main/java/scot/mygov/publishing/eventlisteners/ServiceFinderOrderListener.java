@@ -55,8 +55,8 @@ public class ServiceFinderOrderListener {
     void doHandleEvent(HippoWorkflowEvent event) throws RepositoryException {
         Node handle = session.getNodeByIdentifier(event.subjectId());
         hippoUtils.apply(handle.getNodes(handle.getName()), this::notPublished, variant ->
-            hippoUtils.apply(variant.getNodes("publishing:contentBlocks"),
-                    this::isSortableServiceFinder, this::sortLinks));
+                hippoUtils.apply(variant.getNodes("publishing:contentBlocks"),
+                        this::isSortableServiceFinder, this::sortLinks));
         session.save();
     }
 
@@ -70,7 +70,7 @@ public class ServiceFinderOrderListener {
 
     boolean isServiceFinder(Node node) throws RepositoryException {
         return node.isNodeType("publishing:cb_externalservicefinder")
-                || node.isNodeType("publishing:cb_externalservicefinder")
+                || node.isNodeType("publishing:cb_internalservicefinder")
                 || node.isNodeType("publishing:cb_councilservicefinder");
     }
 
@@ -98,7 +98,7 @@ public class ServiceFinderOrderListener {
         }
         if (link.docbase != null) {
             Node mirror = newNode.addNode(LINK, "hippo:mirror");
-            mirror.setProperty("hippodocbase", link.docbase);
+            mirror.setProperty("hippo:docbase", link.docbase);
         }
     }
 

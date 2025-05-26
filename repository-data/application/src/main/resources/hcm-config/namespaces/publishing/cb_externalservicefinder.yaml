@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: f128806c-eb00-45f8-ba2c-3860b4a46a64
+          jcr:uuid: 81443b43-feef-4aca-adbf-d670694d795b
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -101,7 +101,7 @@ definitions:
               jcr:primaryType: frontend:pluginconfig
           /sorted:
             jcr:primaryType: frontend:plugin
-            caption: Maintain services in sorted order
+            caption: List services in alphabetical order
             field: sorted
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
