@@ -11,7 +11,6 @@ import org.onehippo.cms7.essentials.components.EssentialsDocumentComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scot.mygov.publishing.beans.ColumnImage;
-import scot.mygov.publishing.beans.ImageCard;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
 import javax.jcr.RepositoryException;
