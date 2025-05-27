@@ -67,7 +67,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Heading level
             field: headingLevel
-            hint: The heading level to use for the accordion items' headings.
+            hint: Select the heading level for the accordion items.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -86,7 +86,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Add noindex tags
             field: noindex
-            hint: ''
+            hint: Check the box if this content should not be indexed for search. This will apply to the site's internal search only.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

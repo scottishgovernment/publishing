@@ -67,6 +67,6 @@ definitions:
             field: noindex
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: ''
+            hint: Check the box if this content should not be indexed for search. This will apply to the site's internal search only.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

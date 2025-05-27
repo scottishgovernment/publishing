@@ -100,6 +100,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Content
             field: content
+            hint: Enter the text that will appear on the button to describe the action it performs.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -118,7 +119,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Type
             field: type
-            hint: ''
+            hint: Select primary (for main call to action) or secondary (any other action).
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -144,7 +145,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Has arrow
             field: hasarrow
-            hint: ''
+            hint: Check the box if the button should have an arrow > after the text.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -153,7 +154,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Add noindex tags
             field: noindex
-            hint: ''
+            hint: Check the box if this content should not be indexed for search. This will apply to the site's internal search only.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

@@ -57,6 +57,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Title
             field: title
+            hint: Enter the heading for the accordion item.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -67,6 +68,7 @@ definitions:
             compoundList: publishing:cb_button,publishing:cb_fragment,publishing:cb_laFinder,publishing:cb_richtext
             contentPickerType: links
             field: contentBlocks
+            hint: Select the type of content to add to the accordion item.
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

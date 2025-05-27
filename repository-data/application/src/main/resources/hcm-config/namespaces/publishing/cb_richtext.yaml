@@ -56,7 +56,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Content
             field: content
-            hint: ''
+            hint: Enter and format text content.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -68,7 +68,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Add noindex tags
             field: noindex
-            hint: ''
+            hint: Check the box if this content should not be indexed for search. This will apply to the site's internal search only.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

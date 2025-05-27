@@ -125,6 +125,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Title
             field: title
+            hint: Enter the title of the file.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -150,6 +151,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: File type
             field: type
+            hint: Enter the file type.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -158,6 +160,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: File size
             field: size
+            hint: Enter the size of the file.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -168,7 +171,7 @@ definitions:
             field: icon
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            hint: ''
+            hint: Select which file icon to use.
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               selectable.options: csv,excel,file,geodata,image,pdf,ppt,rtf,text,word,xml,generic
@@ -176,6 +179,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Custom icon
             field: image
+            hint: Upload a custom thumbnail image to use instead of the generic file format icons.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -184,6 +188,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Highlight file
             field: highlight
+            hint: Check this box to apply visual highlighting, if this document is of higher importance and placed above other file downloads on the page.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -192,7 +197,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Add noindex tags
             field: noindex
-            hint: ''
+            hint: Check the box if this content should not be indexed for search. This will apply to the site's internal search only.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
