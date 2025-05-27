@@ -2,7 +2,7 @@
   jcr:primaryType: hippo:handle
   jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
   jcr:uuid: 006de33e-39bb-48be-81ad-2cfda0c12f21
-  hippo:versionHistory: 21e90d73-c92f-4739-83b7-326ed850825a
+  hippo:versionHistory: 99583b2c-236b-4b11-bc46-d031b659ce0a
   /index[1]:
     jcr:primaryType: publishing:home
     jcr:mixinTypes: ['mix:referenceable']
@@ -10,9 +10,10 @@
     hippo:availability: []
     hippostd:retainable: false
     hippostd:state: draft
+    hippostd:transferable: false
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-09-30T08:32:42.313+01:00
-    hippostdpubwf:lastModificationDate: 2022-10-05T17:19:35.994+01:00
+    hippostdpubwf:lastModificationDate: 2025-05-26T12:06:09.998+01:00
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 1ac63381-45ac-4631-9716-9c765cabb404
     hippotranslation:locale: document-type-locale
@@ -33,6 +34,142 @@
       hippo:facets: []
       hippo:modes: []
       hippo:values: []
+    /publishing:prologue:
+      jcr:primaryType: hippostd:html
+      hippostd:content: ''
+    /publishing:epilogue:
+      jcr:primaryType: hippostd:html
+      hippostd:content: ''
+    /publishing:prologueContentBlocks:
+      jcr:primaryType: publishing:cb_councilservicefinder
+      publishing:ctaprefix: Visit
+      publishing:placeholder: Choose your council
+      publishing:sorted: true
+      publishing:title: ''
+      /publishing:links[1]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Aberdeen City Council
+        publishing:url: https://www.aberdeencity.gov.uk/
+      /publishing:links[2]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Aberdeenshire Council
+        publishing:url: https://www.aberdeenshire.gov.uk/
+      /publishing:links[3]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Angus Council
+        publishing:url: https://www.angus.gov.uk/
+      /publishing:links[4]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Argyll and Bute Council
+        publishing:url: https://www.argyll-bute.gov.uk/
+      /publishing:links[5]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Clackmannanshire Council
+        publishing:url: https://www.clacks.gov.uk/
+      /publishing:links[6]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Comhairle nan Eilean Siar
+        publishing:url: https://cne-siar.gov.uk/
+      /publishing:links[7]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Dumfries and Galloway Council
+        publishing:url: https://www.dumgal.gov.uk/
+      /publishing:links[8]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Dundee City Council
+        publishing:url: https://dundeecity.gov.uk/
+      /publishing:links[9]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: East Ayrshire Council
+        publishing:url: https://www.east-ayrshire.gov.uk
+      /publishing:links[10]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: East Dunbartonshire Council
+        publishing:url: https://www.eastdunbarton.gov.uk/
+      /publishing:links[11]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: East Lothian Council
+        publishing:url: https://www.eastlothian.gov.uk/
+      /publishing:links[12]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: East Renfrewshire Council
+        publishing:url: https://www.eastrenfrewshire.gov.uk/
+      /publishing:links[13]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Edinburgh Council
+        publishing:url: https://www.edinburgh.gov.uk/
+      /publishing:links[14]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Falkirk Council
+        publishing:url: https://www.falkirk.gov.uk/
+      /publishing:links[15]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Fife Council
+        publishing:url: https://www.fife.gov.uk/
+      /publishing:links[16]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Glasgow City Council
+        publishing:url: https://www.glasgow.gov.uk/
+      /publishing:links[17]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Highland Council
+        publishing:url: https://www.highland.gov.uk/
+      /publishing:links[18]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Inverclyde Council
+        publishing:url: https://www.inverclyde.gov.uk/
+      /publishing:links[19]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Midlothian Council
+        publishing:url: https://www.midlothian.gov.uk/
+      /publishing:links[20]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Moray Council
+        publishing:url: http://www.moray.gov.uk/
+      /publishing:links[21]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: North Ayrshire Council
+        publishing:url: https://www.north-ayrshire.gov.uk
+      /publishing:links[22]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: North Lanarkshire Council
+        publishing:url: https://www.northlanarkshire.gov.uk/
+      /publishing:links[23]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Orkney Islands Council
+        publishing:url: https://www.orkney.gov.uk/
+      /publishing:links[24]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Perth and Kinross Council
+        publishing:url: https://www.pkc.gov.uk/
+      /publishing:links[25]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Renfrewshire Council
+        publishing:url: https://www.renfrewshire.gov.uk/
+      /publishing:links[26]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Scottish Borders Council
+        publishing:url: https://www.scotborders.gov.uk/
+      /publishing:links[27]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Shetland Islands Council
+        publishing:url: https://www.shetland.gov.uk/
+      /publishing:links[28]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: South Ayrshire Council
+        publishing:url: https://www.south-ayrshire.gov.uk/
+      /publishing:links[29]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: South Lanarkshire Council
+        publishing:url: https://www.southlanarkshire.gov.uk/
+      /publishing:links[30]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: Stirling Council
+        publishing:url: https://www.stirling.gov.uk/
+      /publishing:links[31]:
+        jcr:primaryType: publishing:linkwithlabel
+        publishing:label: West Dunbartonshire Council
+        publishing:url: https://www.west-dunbarton.gov.uk/
   /index[2]:
     jcr:primaryType: publishing:home
     jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -42,7 +179,7 @@
     hippostd:state: unpublished
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-09-30T08:32:42.313+01:00
-    hippostdpubwf:lastModificationDate: 2022-10-05T17:19:39.946+01:00
+    hippostdpubwf:lastModificationDate: 2025-05-26T11:56:11.614+01:00
     hippostdpubwf:lastModifiedBy: admin
     hippotranslation:id: 1ac63381-45ac-4631-9716-9c765cabb404
     hippotranslation:locale: document-type-locale
@@ -63,6 +200,12 @@
       hippo:facets: []
       hippo:modes: []
       hippo:values: []
+    /publishing:prologue:
+      jcr:primaryType: hippostd:html
+      hippostd:content: ''
+    /publishing:epilogue:
+      jcr:primaryType: hippostd:html
+      hippostd:content: ''
   /index[3]:
     jcr:primaryType: publishing:home
     jcr:mixinTypes: ['mix:referenceable']
@@ -72,9 +215,9 @@
     hippostd:state: published
     hippostdpubwf:createdBy: admin
     hippostdpubwf:creationDate: 2020-09-30T08:32:42.313+01:00
-    hippostdpubwf:lastModificationDate: 2022-10-05T17:19:39.946+01:00
+    hippostdpubwf:lastModificationDate: 2025-05-26T11:56:11.614+01:00
     hippostdpubwf:lastModifiedBy: admin
-    hippostdpubwf:publicationDate: 2022-10-05T17:19:41.699+01:00
+    hippostdpubwf:publicationDate: 2025-05-26T11:56:13.327+01:00
     hippotranslation:id: 1ac63381-45ac-4631-9716-9c765cabb404
     hippotranslation:locale: document-type-locale
     publishing:authorNotes: ''
@@ -94,3 +237,9 @@
       hippo:facets: []
       hippo:modes: []
       hippo:values: []
+    /publishing:prologue:
+      jcr:primaryType: hippostd:html
+      hippostd:content: ''
+    /publishing:epilogue:
+      jcr:primaryType: hippostd:html
+      hippostd:content: ''

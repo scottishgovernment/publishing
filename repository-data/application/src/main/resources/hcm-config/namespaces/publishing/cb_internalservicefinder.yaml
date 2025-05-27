@@ -1,45 +1,20 @@
 definitions:
   config:
-    /hippo:namespaces/publishing/smartanswerquestion:
+    /hippo:namespaces/publishing/cb_internalservicefinder:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: e00467d3-d897-425c-b985-6a84065168b8
+      jcr:uuid: f99e6d9e-0e86-450d-a15b-89c4ee77b88a
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 2d7e96f8-0309-4c0a-af0b-645c20676235
+        jcr:uuid: dd56d510-3499-43b7-b349-ee057a9a6f62
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 9662483d-d0f4-467f-91a3-a1282ead8059
+          jcr:uuid: 0712a29e-3324-476e-9d9c-7cbac0f60006
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
-            'hippotranslation:translated']
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          hipposysedit:validators: [variables-validator]
-          /content:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:content
-            hipposysedit:primary: false
-            hipposysedit:type: hippostd:html
-          /contentBlocks:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:multiple: true
-            hipposysedit:ordered: true
-            hipposysedit:path: publishing:contentBlocks
-            hipposysedit:type: hippo:compound
-            hipposysedit:validators: [contentblocks-validator]
-          /exitFunction:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:exitFunction
-            hipposysedit:primary: false
-            hipposysedit:type: Text
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -49,36 +24,54 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: String
             hipposysedit:validators: [required]
-          /organisationtags:
+          /placeholder:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:placeholder
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /sorted:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:sorted
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /ctaprefix:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:ctaprefix
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /links:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: true
             hipposysedit:ordered: true
-            hipposysedit:path: publishing:organisationtags
+            hipposysedit:path: publishing:links
             hipposysedit:primary: false
-            hipposysedit:type: String
-            hipposysedit:validators: [organisationtag-validator]
+            hipposysedit:type: publishing:internallinkwithlabel
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: publishing:smartanswerquestion
-          hippostd:holder: holder
-          hippostd:state: draft
-          hippostdpubwf:createdBy: ''
-          hippostdpubwf:lastModifiedBy: ''
-          hippotranslation:id: document-type-locale-id
-          hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
-          publishing:exitFunction: exit function ... decide based on previous answers
-            what page to go to ...
+          jcr:primaryType: publishing:cb_internalservicefinder
           publishing:title: ''
-          publishing:organisationtags: []
-          jcr:uuid: 9ab0b52d-003e-4862-ba76-96c8b47d3cfb
-          hippostdpubwf:lastModificationDate: 2021-05-17T11:10:03.989+01:00
-          hippostdpubwf:creationDate: 2021-05-17T11:10:03.989+01:00
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: ''
+          publishing:placeholder: ''
+          publishing:sorted: true
+          publishing:ctaprefix: Visit
+          /publishing:links:
+            jcr:primaryType: publishing:internallinkwithlabel
+            publishing:description: ''
+            publishing:label: ''
+            /publishing:link:
+              jcr:primaryType: hippo:mirror
+              hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -92,50 +85,47 @@ definitions:
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
           /title:
             jcr:primaryType: frontend:plugin
-            caption: String
+            caption: Title
             field: title
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: Shows above dropdown list.
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /placeholder:
+            jcr:primaryType: frontend:plugin
+            caption: Placeholder
+            field: placeholder
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: Shows as placeholder on dropdown list.
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /sorted:
+            jcr:primaryType: frontend:plugin
+            caption: List services in alphabetical order
+            field: sorted
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
             hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /ctaprefix:
+            jcr:primaryType: frontend:plugin
+            caption: Call to action prefix
+            field: ctaprefix
+            hint: Shows at start of each call to action button from the dropdown list,
+              followed by what’s in the Label field of the link.’
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /contentBlocks:
+          /links:
             jcr:primaryType: frontend:plugin
-            caption: Content
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:cb_fragment,publishing:cb_richtext,publishing:cb_councilservicefinder,publishing:cb_externalservicefinder,publishing:cb_internalservicefinder
-            contentPickerType: links
-            field: contentBlocks
-            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
-            wicket.id: ${cluster.id}.field
-            hint: Content
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-              showCompoundNames: true
-          /exitFunction:
-            jcr:primaryType: frontend:plugin
-            caption: Exit function
-            field: exitFunction
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /organisationtags:
-            jcr:primaryType: frontend:plugin
-            caption: Organisation tags
-            field: organisationtags
-            hint: List of organisations able to edit and publish the content in this
-              document
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /content:
-            jcr:primaryType: frontend:plugin
-            caption: Old Content
-            field: content
-            hint: This field is no longer used but is retained in order to support
-              reverting to old versions if this document
+            caption: Link
+            field: links
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
+            hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

@@ -247,6 +247,64 @@
             <#-- end LA finder block -->
         </#if>
 
+        <#if hst.isNodeType(contentBlock.node, 'publishing:cb_councilservicefinder') ||
+            hst.isNodeType(contentBlock.node, 'publishing:cb_externalservicefinder') ||
+            hst.isNodeType(contentBlock.node, 'publishing:cb_internalservicefinder')>
+            <#-- service finder block -->
+            <#if contentBlock.noindex>
+            <!--noindex-->
+            </#if>
+
+            <div class="form-box  mg_service-finder  js-service-finder" data-prefix="${contentBlock.ctaprefix}">
+                <div class="mg_service-finder__form">
+                    <div class="ds_question">
+                        <label for="council-select-${idModifier}" class="ds_label">
+                            ${contentBlock.title}
+                        </label>
+
+                        <div class="ds_select-wrapper">
+                            <select id="council-select-${idModifier}" class="ds_select">
+                                <option value="" disabled="disabled" selected="selected">${contentBlock.placeholder}</option>
+                                <#list contentBlock.links as link>
+                                    <option data-id="${slugify(link.label)}">${link.label}</option>
+                                </#list>
+                            </select>
+                            <span aria-hidden="true" class="ds_select-arrow"></span>
+                        </div>
+                    </div>
+
+                    <div class="mg_service-finder__link  fully-hidden">
+                        <div aria-live="polite" class="js-description"></div>
+                        <a class="js-button  ds_no-margin--bottom"></a>
+                    </div>
+                </div>
+
+                <div class="mg_service-finder__list">
+                    <p class="ds_label">${contentBlock.title}</p>
+                    <ul class="ds_no-bullets  ds_no-margin--bottom">
+                        <#list contentBlock.links as link>
+                            <li>
+                                <#assign url><#compress>
+                                    <#if hst.isNodeType(contentBlock.node, 'publishing:cb_internalservicefinder')>
+                                        <@hst.link hippobean=link.link/>
+                                    <#else>
+                                        ${link.url}
+                                    </#if>
+                                </#compress></#assign>
+                                <a id="dd-${slugify(link.label)}-link" href="${url}">${link.label}</a>
+                                <div id="dd-${slugify(link.label)}-description">${link.description}</div>
+                            </li>
+                        </#list>
+                    </ul>
+                </div>
+            </div>
+
+            <#if contentBlock.noindex>
+            <!--endnoindex-->
+            </#if>
+            <#-- end service finder block -->
+        </#if>
+
         <#if hst.isNodeType(contentBlock.node, 'publishing:cb_richtext')>
             <#-- rich text block -->
             <#if contentBlock.noindex>

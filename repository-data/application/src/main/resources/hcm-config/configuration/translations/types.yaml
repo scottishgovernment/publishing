@@ -205,10 +205,20 @@ definitions:
       /en:
         jcr:name: Button
         jcr:primaryType: hipposys:resourcebundle
+    /hippo:configuration/hippo:translations/hippo:types/publishing:cb_councilservicefinder:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:name: Council service finder
+        jcr:primaryType: hipposys:resourcebundle
     /hippo:configuration/hippo:translations/hippo:types/publishing:document:
       jcr:primaryType: hipposys:resourcebundles
       /en:
         jcr:name: Document
+        jcr:primaryType: hipposys:resourcebundle
+    /hippo:configuration/hippo:translations/hippo:types/publishing:cb_externalservicefinder:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:name: External service finder
         jcr:primaryType: hipposys:resourcebundle
     /hippo:configuration/hippo:translations/hippo:types/publishing:cb_fragment:
       jcr:primaryType: hipposys:resourcebundles
@@ -220,6 +230,11 @@ definitions:
       /en:
         jcr:name: Image
         jcr:primaryType: hipposys:resourcebundle
+    /hippo:configuration/hippo:translations/hippo:types/publishing:cb_internalservicefinder:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:name: Internal service finder
+        jcr:primaryType: hipposys:resourcebundle
     /hippo:configuration/hippo:translations/hippo:types/publishing:cb_laFinder:
       jcr:primaryType: hipposys:resourcebundles
       /en:
@@ -229,6 +244,11 @@ definitions:
       jcr:primaryType: hipposys:resourcebundles
       /en:
         jcr:name: Rich text
+        jcr:primaryType: hipposys:resourcebundle
+    /hippo:configuration/hippo:translations/hippo:types/publishing:internallinkwithlabel:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:name: Internal link with label
         jcr:primaryType: hipposys:resourcebundle
     /hippo:configuration/hippo:translations/hippo:types/publishing:linkwithlabel:
       jcr:primaryType: hipposys:resourcebundles
