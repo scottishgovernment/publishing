@@ -62,29 +62,30 @@
     </#if>
 
     <@hst.link var="sitelink" hippobean=baseBean canonical=true fullyQualified=true/>
-    <@hst.headContribution category="canonical">
-        <link rel="canonical"  href="${canonical}" />
-    </@hst.headContribution>
-    <#-- Opengraph meta tags: only show if a card image is available -->
-    <#if cardImage??>
+    <#if canonical?has_content>
+        <@hst.headContribution category="canonical">
+            <link rel="canonical"  href="${canonical}" />
+        </@hst.headContribution>
         <@hst.headContribution category="openGraph">
             <meta property="og:url" content="${canonical}" />
         </@hst.headContribution>
+    </#if>
+    <@hst.headContribution category="openGraph">
+        <meta property="og:type" content="website" />
+    </@hst.headContribution>
+    <@hst.headContribution category="openGraph">
+        <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+        <meta property="og:title" content="${pagetitle}" />
+        </@hst.messagesReplace>
+    </@hst.headContribution>
+    <#if contentBean?? && contentBean.metaDescription??>
         <@hst.headContribution category="openGraph">
-            <meta property="og:type" content="website" />
+        <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
+        <meta property="og:description" content="${contentBean.metaDescription}" />
+        </@hst.messagesReplace>
         </@hst.headContribution>
-        <@hst.headContribution category="openGraph">
-            <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
-            <meta property="og:title" content="${pagetitle}" />
-            </@hst.messagesReplace>
-        </@hst.headContribution>
-        <#if contentBean?? && contentBean.metaDescription??>
-            <@hst.headContribution category="openGraph">
-            <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
-            <meta property="og:description" content="${contentBean.metaDescription}" />
-            </@hst.messagesReplace>
-            </@hst.headContribution>
-        </#if>
+    </#if>
+    <#if cardImage??>
         <@hst.headContribution category="openGraph">
         <meta property="og:image" content="<@hst.link hippobean=cardImage.original fullyQualified=true />"/>
         </@hst.headContribution>

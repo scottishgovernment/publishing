@@ -3,6 +3,8 @@
   hst:componentclassname: scot.mygov.publishing.components.PageheadingComponent
   hst:iconpath: icons/pageheader.svg
   hst:label: Feature Header
-  hst:parameternames: [document, foregroundcolor, fullwidth, backgroundcolor]
-  hst:parametervalues: [pageheadings/home-page, '', 'on', '']
+  hst:parameternames: [imagealignmobile, widetext, document, imagecover, imagenomargin,
+    foregroundcolor, verticalalign, fullwidth, backgroundcolor]
+  hst:parametervalues: [left, 'off', pageheadings/home-page, 'off', 'off', '', top,
+    'on', Theme reversed]
   hst:template: pageheader

@@ -30,7 +30,7 @@ public interface WebsiteInfo extends ChannelInfo {
     @Parameter(name = "displaySiteTitleInHeader", required = true, defaultValue = "true", displayName = "Display site title in header?")
     Boolean isDisplaySiteTitleInHeader();
 
-    @Parameter(name = "defaultCardImage", required = true)
+    @Parameter(name = "defaultCardImage", required = false)
     @JcrPath(
             pickerConfiguration = "cms-pickers/images",
             isRelative = true,

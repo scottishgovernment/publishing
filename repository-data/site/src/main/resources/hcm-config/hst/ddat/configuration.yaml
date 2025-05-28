@@ -43,6 +43,7 @@ definitions:
       /hst:workspace:
         jcr:primaryType: hst:workspace
         jcr:mixinTypes: ['dxphst:mergeable']
+        dxphst:treehash: 0D09D218F1E2CD1C025F86CA592C4F92
         /hst:channel:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:channel
@@ -52,7 +53,7 @@ definitions:
           hst:lastmodifiedby: admin
           hst:defaultdevice: default
           hst:devices: []
-          hst:lastmodified: 2021-07-29T13:31:55.630+01:00
+          hst:lastmodified: 2025-05-28T12:05:04.281+01:00
         /hst:containers:
           jcr:primaryType: hst:containercomponentfolder
           /homepage:
