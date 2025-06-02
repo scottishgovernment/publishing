@@ -36,6 +36,8 @@ class ServiceFinder {
         this.descriptionEl.innerHTML = selectedDescriptionEl.innerHTML;
 
         this.linkContainerEl.classList.remove('fully-hidden');
+
+        window.DS.tracking.init(this.linkContainerEl);
     }
 }
 
