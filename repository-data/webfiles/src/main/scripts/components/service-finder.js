@@ -37,6 +37,7 @@ class ServiceFinder {
 
         this.linkContainerEl.classList.remove('fully-hidden');
 
+        delete this.linkContainerEl.dataset.button;
         window.DS.tracking.init(this.linkContainerEl);
     }
 }
