@@ -17,13 +17,6 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/shorttermlets/administration
-        /exclude-shorttermlets-banners-folder:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: false
-          hipposys:facet: jcr:path
-          hipposys:filter: false
-          hipposys:type: Reference
-          hipposys:value: /content/documents/shorttermlets/site-furniture/banners
       /assets:
         jcr:primaryType: hipposys:domainrule
         /assets:

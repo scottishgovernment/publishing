@@ -24,13 +24,6 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:type: Reference
           hipposys:value: /content/documents/mygov
-        /exclude-mygov-banners-folder:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: false
-          hipposys:facet: jcr:path
-          hipposys:filter: false
-          hipposys:type: Reference
-          hipposys:value: /content/documents/mygov/site-furniture/banners
       /author:
         jcr:primaryType: hipposys:authrole
         hipposys:groups:

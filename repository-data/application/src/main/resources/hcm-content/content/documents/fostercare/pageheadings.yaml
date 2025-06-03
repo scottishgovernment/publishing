@@ -6,10 +6,12 @@
   /home-page:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: da281089-7998-4cd1-b9ca-5cd17b8beda4
     hippo:name: Home page
     /home-page:
       jcr:primaryType: publishing:pageheading
       jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 3b9d5932-6209-4001-b857-f9de90c3b4ae
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished

@@ -16,7 +16,7 @@ definitions:
       hst:alias: mygov
       hst:mountpoint: /hst:publishing/hst:sites/mygov
       hst:locale: en_GB
-      publishing:gtm: /content/documents/mygov/administration/analytics/dev
+      publishing:gtm: /content/documents/mygov/administration/performance/analytics/dev
       publishing:recaptcha: /content/documents/mygov/administration/recaptcha/dev
     /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/mygov-preview:
       .meta:residual-child-node-category: content
@@ -37,7 +37,7 @@ definitions:
           hst:alias: mygov
           hst:mountpoint: /hst:publishing/hst:sites/mygov
           hst:schemeagnostic: true
-          publishing:gtm: /content/documents/mygov/administration/analytics/{{gtm}}
+          publishing:gtm: /content/documents/mygov/administration/performance/analytics/{{gtm}}
           publishing:recaptcha: /content/documents/mygov/administration/recaptcha/{{recaptcha}}
           hst:locale: en_GB
     /hst:hst/hst:hosts/{{name}}/scot/mygov/preview:
@@ -52,7 +52,7 @@ definitions:
           hst:type: preview
           preview-cookie-httponly: 'false'
           preview-cookie-secure: 'false'
-          publishing:gtm: /content/documents/mygov/administration/analytics/{{gtm}}
+          publishing:gtm: /content/documents/mygov/administration/performance/analytics/{{gtm}}
           publishing:recaptcha: /content/documents/mygov/administration/recaptcha/{{recaptcha}}
           hst:locale: en_GB
     /hst:hst/hst:hosts/{{name}}/site/itecs/{{name}}/mygov:
@@ -64,7 +64,7 @@ definitions:
         hst:schemeagnostic: true
         hst:nochannelinfo: true
         publishing:alias: mygov
-        publishing:gtm: /content/documents/mygov/administration/analytics/{{gtm}}
+        publishing:gtm: /content/documents/mygov/administration/performance/analytics/{{gtm}}
         publishing:recaptcha: /content/documents/mygov/administration/recaptcha/{{recaptcha}}
         hst:locale: en_GB
 {{/environments}}
@@ -75,7 +75,7 @@ definitions:
         hst:alias: mygov
         hst:mountpoint: /hst:publishing/hst:sites/mygov
         hst:schemeagnostic: true
-        publishing:gtm: /content/documents/mygov/administration/analytics/live
+        publishing:gtm: /content/documents/mygov/administration/performance/analytics/live
         publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
         hst:locale: en_GB
     /hst:hst/hst:hosts/production/scot/mygov/preview:
@@ -88,6 +88,6 @@ definitions:
         hst:type: preview
         preview-cookie-httponly: 'false'
         preview-cookie-secure: 'false'
-        publishing:gtm: /content/documents/mygov/administration/analytics/live
+        publishing:gtm: /content/documents/mygov/administration/performance/analytics/live
         publishing:recaptcha: /content/documents/mygov/administration/recaptcha/live
         hst:locale: en_GB

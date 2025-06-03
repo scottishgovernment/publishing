@@ -1,9 +1,13 @@
 definitions:
   config:
-     /hippo:configuration/hippo:domains/content/content-domain/exclude-resetpassword-folder:
-       jcr:primaryType: hipposys:facetrule
-       hipposys:equals: false
-       hipposys:facet: jcr:path
-       hipposys:filter: false
-       hipposys:type: Reference
-       hipposys:value: /content/documents/resetpassword
+    /hippo:configuration/hippo:domains/content/content-domain/exclude-resetpassword-folder:
+      jcr:primaryType: hipposys:facetrule
+      hipposys:equals: false
+      hipposys:facet: jcr:path
+      hipposys:filter: false
+      hipposys:type: Reference
+      hipposys:value: /content/documents/resetpassword
+    /hippo:configuration/hippo:domains/content/unlockauthrole:
+      jcr:primaryType: hipposys:authrole
+      hipposys:groups: [cmsadmin, document-unlocker]
+      hipposys:role: document-unlocker

@@ -17,13 +17,6 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/scotpayments/administration
-        /exclude-scotpayments-banners-folder:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: false
-          hipposys:facet: jcr:path
-          hipposys:filter: false
-          hipposys:type: Reference
-          hipposys:value: /content/documents/scotpayments/site-furniture/banners
       /assets:
         jcr:primaryType: hipposys:domainrule
         /assets:
