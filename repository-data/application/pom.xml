@@ -15,6 +15,32 @@
   <build>
     <defaultGoal>install</defaultGoal>
     <plugins>
+
+      <plugin>
+        <groupId>net.wouterdanes</groupId>
+        <artifactId>mustache-maven-plugin</artifactId>
+        <version>1.2</version>
+        <executions>
+          <execution>
+            <id>run-mustache-template</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>mustache</goal>
+            </goals>
+            <configuration>
+              <encoding>UTF-8</encoding>
+              <context>file:${project.basedir}/../site/src/main/config/hosts/sites.yaml</context>
+              <templates>
+                <template>
+                  <templateFile>${basedir}/src/main/config/site-groups.yaml.mustache</templateFile>
+                  <outputPath>${basedir}/src/main/resources/hcm-config/configuration/groups/site-groups.yaml</outputPath>
+                </template>
+              </templates>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -29,6 +55,7 @@
           </archive>
         </configuration>
       </plugin>
+
     </plugins>
   </build>
 
