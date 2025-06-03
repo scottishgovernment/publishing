@@ -1,0 +1,12 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:domains/feedback:
+      /publishing-hosts:
+        jcr:primaryType: hipposys:domainrule
+        /mygovhosts-configuration:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /hst:publishing/hst:hosts
