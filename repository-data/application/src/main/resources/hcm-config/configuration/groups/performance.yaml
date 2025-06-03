@@ -1,15 +1,14 @@
 definitions:
   config:
-    /hippo:configuration/hippo:groups/cmsadmin:
+    /hippo:configuration/hippo:groups/performance:
       jcr:primaryType: hipposys:group
       hipposys:securityprovider: internal
       hipposys:userroles:
         .meta:category: system
         .meta:add-new-system-values: true
         type: string
-        value: [xm.dashboard.user, xm.cms.user, xm.urlrewriter.admin, xm.report.user,
-          xm.channel.admin, xm.content.admin, xm.content.editor, xm.security.user-admin,
-          xm.repository.reader]
+        value: [xm.cms.user, xm.content.user, xm.channel.user, xm.report.user, xm.dashboard.user,
+          xm.channel.webmaster]
       hipposys:members:
         .meta:category: system
         .meta:add-new-system-values: true

@@ -1,12 +1,12 @@
 definitions:
   config:
-    /hippo:configuration/hippo:groups/user-admin:
+    /hippo:configuration/hippo:groups/servicemanual-authors:
       jcr:primaryType: hipposys:group
       hipposys:securityprovider: internal
-      hipposys:userroles: [xm.dashboard.user, xm.cms.user,
-         xm.security.user-admin]
+      hipposys:userroles: [xm.cms.user, xm.content.user, xm.channel.user, xm.report.user,
+        xm.dashboard.user, xm.channel.viewer]
       hipposys:members:
         .meta:category: system
         .meta:add-new-system-values: true
         type: string
-        value: [useradmin]
+        value: []

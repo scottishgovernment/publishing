@@ -14,7 +14,7 @@ public class SiteVerificationComponent extends BaseHstComponent {
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response){
-        HippoFolder folder = folder(request, "administration/");
+        HippoFolder folder = folder(request, "administration/performance/siteverification");
 
         List<Siteverification> siteverifications = folder.getDocuments(Siteverification.class);
         request.setAttribute("siteverifications", siteverifications);
@@ -23,6 +23,7 @@ public class SiteVerificationComponent extends BaseHstComponent {
     private HippoFolder folder(HstRequest request, String path) {
         HstRequestContext c = request.getRequestContext();
         HippoBean root = c.getSiteContentBaseBean();
+
         return root.getBean(path, HippoFolder.class);
     }
 

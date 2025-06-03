@@ -1,10 +1,10 @@
 definitions:
   config:
-    /hippo:configuration/hippo:domains/notificationbanners:
+    /hippo:configuration/hippo:domains/performance-content:
       jcr:primaryType: hipposys:domain
       /editor:
         jcr:primaryType: hipposys:authrole
-        hipposys:groups: [cmsadmin]
+        hipposys:groups: [cmsadmin, performance]
         hipposys:role: editor
       /ddat-document:
         jcr:primaryType: hipposys:domainrule
@@ -14,7 +14,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/ddat/site-furniture/banners
+          hipposys:value: /content/documents/ddat/administration/performance
       /rentersrights-document:
         jcr:primaryType: hipposys:domainrule
         /include-rentersrights-banners-folder:
@@ -23,7 +23,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/rentersrights/site-furniture/banners
+          hipposys:value: /content/documents/rentersrights/administration/performance
       /shorttermlets-document:
         jcr:primaryType: hipposys:domainrule
         /include-shorttermlets-banners-folder:
@@ -32,7 +32,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/shorttermlets/site-furniture/banners
+          hipposys:value: /content/documents/shorttermlets/administration/performance
       /privatetenancy-document:
         jcr:primaryType: hipposys:domainrule
         /include-costofliving-banners-folder:
@@ -41,7 +41,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/costofliving/site-furniture/banners
+          hipposys:value: /content/documents/costofliving/administration/performance
       /mygov-document:
         jcr:primaryType: hipposys:domainrule
         /include-mygov-banners-folder:
@@ -50,7 +50,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/mygov/site-furniture/banners
+          hipposys:value: /content/documents/mygov/administration/performance
       /designsystem-document:
         jcr:primaryType: hipposys:domainrule
         /include-designsystem-banners-folder:
@@ -59,7 +59,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/designsystem/site-furniture/banners
+          hipposys:value: /content/documents/designsystem/administration/performance
       /scotaccount-document:
         jcr:primaryType: hipposys:domainrule
         /include-scotaccount-banners-folder:
@@ -68,7 +68,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/scotaccount/site-furniture/banners
+          hipposys:value: /content/documents/scotaccount/administration/performance
       /scotpayments-document:
         jcr:primaryType: hipposys:domainrule
         /include-scotpayments-banners-folder:
@@ -77,7 +77,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/scotpayments/site-furniture/banners
+          hipposys:value: /content/documents/scotpayments/administration/performance
       /cloud-document:
         jcr:primaryType: hipposys:domainrule
         /include-cloud-banners-folder:
@@ -86,7 +86,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/cloud/site-furniture/banners
+          hipposys:value: /content/documents/cloud/administration/performance
       /servicemanual-document:
         jcr:primaryType: hipposys:domainrule
         /include-servicemanual-banners-folder:
@@ -95,7 +95,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/servicemanual/site-furniture/banners
+          hipposys:value: /content/documents/servicemanual/administration/performance
       /disclosure-document:
         jcr:primaryType: hipposys:domainrule
         /include-disclosure-banners-folder:
@@ -104,7 +104,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/disclosure/site-furniture/banners
+          hipposys:value: /content/documents/disclosure/administration/performance
       /digitalconnectivity-document:
         jcr:primaryType: hipposys:domainrule
         /include-digitalconnectivity-banners-folder:
@@ -113,7 +113,7 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/digitalconnectivity/site-furniture/banners
+          hipposys:value: /content/documents/digitalconnectivity/administration/performance
       /fostercare-document:
         jcr:primaryType: hipposys:domainrule
         /include-fostercare-banners-folder:
@@ -122,4 +122,4 @@ definitions:
           hipposys:facet: jcr:path
           hipposys:filter: false
           hipposys:type: Reference
-          hipposys:value: /content/documents/fostercare/site-furniture/banners
+          hipposys:value: /content/documents/fostercare/administration/performance

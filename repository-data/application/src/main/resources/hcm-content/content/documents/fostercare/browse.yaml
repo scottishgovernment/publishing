@@ -1,13 +1,8 @@
 /content/documents/fostercare/browse:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 91813a08-f280-4b6b-9962-c979f87b3519
   hippo:name: Browse
-  hippostd:foldertype:
-    - new-document
-    - new-fragment-folder
-    - new-publishing-article
-    - new-publishing-category
-    - new-publishing-guide
-    - new-publishing-mirror
-    - new-publishing-smartanswer
-    - new-publishing-stepbystepguide
+  hippostd:foldertype: [new-document, new-fragment-folder, new-publishing-article,
+    new-publishing-category, new-publishing-guide, new-publishing-mirror, new-publishing-smartanswer,
+    new-publishing-stepbystepguide]
