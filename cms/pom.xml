@@ -75,7 +75,7 @@
     <dependency>
       <groupId>org.jsoup</groupId>
       <artifactId>jsoup</artifactId>
-      <version>1.16.1</version>
+      <version>1.17.2</version>
     </dependency>
 
     <!-- Test dependencies -->
@@ -165,7 +165,7 @@
 
       <plugin>
         <groupId>org.codehaus.cargo</groupId>
-        <artifactId>cargo-maven2-plugin</artifactId>
+        <artifactId>cargo-maven3-plugin</artifactId>
         <configuration>
           <configuration>
             <type>runtime</type>

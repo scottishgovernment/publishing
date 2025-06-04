@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-enterprise-release</artifactId>
-    <version>15.7.1</version>
+    <version>16.3.1</version>
   </parent>
 
   <name>Digital Publishing</name>
@@ -65,9 +65,7 @@
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
-    <essentials.version>15.7.1</essentials.version>
-    <jsp-api.version>2.2</jsp-api.version>
-    <taglibs.version>1.2.5</taglibs.version>
+    <essentials.version>16.3.1</essentials.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
 
@@ -75,8 +73,9 @@
     <buildNumber>${maven.build.timestamp}</buildNumber>
 
     <index.configuration>cms/src/main/resources/org/hippoecm/repository/query/lucene/indexing_configuration.xml</index.configuration>
-    <forge.breadcrumb.version>4.0.0</forge.breadcrumb.version>
-    <forge.resetpassword.version>6.0.0</forge.resetpassword.version>
+    <forge.breadcrumb.version>6.0.0</forge.breadcrumb.version>
+    <forge.resetpassword.version>7.0.0</forge.resetpassword.version>
+    <forge.folderctxmenus.version>7.0.0</forge.folderctxmenus.version>
 
     <!-- Front end build -->
     <version.node>v22.11.0</version.node>
@@ -86,9 +85,7 @@
 
     <hystrix-javanica.version>1.5.12</hystrix-javanica.version>
 
-    <forge.folderctxmenus.version>5.0.0</forge.folderctxmenus.version>
-
-    <log4j2.version>2.17.0</log4j2.version>
+    <log4j2.version>2.23.1</log4j2.version>
   </properties>
 
   <dependencyManagement>
@@ -102,23 +99,23 @@
       </dependency>
 
       <dependency>
-        <groupId>javax.servlet.jsp</groupId>
-        <artifactId>jsp-api</artifactId>
+        <groupId>jakarta.servlet.jsp</groupId>
+        <artifactId>jakarta.servlet.jsp-api</artifactId>
         <version>${jsp-api.version}</version>
         <scope>provided</scope>
       </dependency>
 
       <!-- other predefined runtime scope versioned dependencies -->
       <dependency>
-        <groupId>org.apache.taglibs</groupId>
-        <artifactId>taglibs-standard-spec</artifactId>
+        <groupId>com.bloomreach.xm</groupId>
+        <artifactId>taglibs-standard-spec-jakarta</artifactId>
         <version>${taglibs.version}</version>
         <scope>runtime</scope>
       </dependency>
 
       <dependency>
-        <groupId>org.apache.taglibs</groupId>
-        <artifactId>taglibs-standard-impl</artifactId>
+        <groupId>com.bloomreach.xm</groupId>
+        <artifactId>taglibs-standard-impl-jakarta</artifactId>
         <version>${taglibs.version}</version>
         <scope>runtime</scope>
       </dependency>
@@ -348,8 +345,8 @@
           <scope>compile</scope>
         </dependency>
         <dependency>
-          <groupId>javax.annotation</groupId>
-          <artifactId>javax.annotation-api</artifactId>
+          <groupId>jakarta.annotation</groupId>
+          <artifactId>jakarta.annotation-api</artifactId>
           <scope>compile</scope>
         </dependency>
         <dependency>
@@ -367,7 +364,7 @@
         <plugins>
           <plugin>
             <groupId>org.codehaus.cargo</groupId>
-            <artifactId>cargo-maven2-plugin</artifactId>
+            <artifactId>cargo-maven3-plugin</artifactId>
             <configuration>
               <configuration>
                 <configfiles>
@@ -471,11 +468,6 @@
         <dependency>
           <groupId>jakarta.xml.ws</groupId>
           <artifactId>jakarta.xml.ws-api</artifactId>
-          <scope>provided</scope>
-        </dependency>
-        <dependency>
-          <groupId>javax.annotation</groupId>
-          <artifactId>javax.annotation-api</artifactId>
           <scope>provided</scope>
         </dependency>
         <dependency>

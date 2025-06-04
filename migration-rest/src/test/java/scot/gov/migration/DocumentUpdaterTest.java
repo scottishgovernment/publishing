@@ -1,21 +1,17 @@
 package scot.gov.migration;
 
+import jakarta.ws.rs.core.MultivaluedHashMap;
 import org.apache.commons.lang.NotImplementedException;
-import org.apache.commons.lang3.StringUtils;
-import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.onehippo.forge.content.exim.core.DocumentManager;
 import org.onehippo.forge.content.pojo.model.ContentNode;
 
 import javax.jcr.*;
-import javax.ws.rs.core.MultivaluedHashMap;
-
 import java.util.*;
 
 import static java.util.Collections.singletonList;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
