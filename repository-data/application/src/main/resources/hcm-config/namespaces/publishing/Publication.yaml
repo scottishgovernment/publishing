@@ -11,9 +11,10 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 937445cb-e4c9-4e95-9305-73cc003a0c22
+          jcr:uuid: 7358b7af-a99c-4095-8bc3-f6abf01aaa8a
           hipposysedit:node: true
-          hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated', 'hippotaxonomy:classifiable']
+          hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated',
+            'hippotaxonomy:classifiable']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           /publicationDate:
             jcr:primaryType: hipposysedit:field
@@ -65,7 +66,7 @@ definitions:
           hippostdpubwf:lastModifiedBy: ''
           hippotranslation:id: document-type-locale-id
           hippotranslation:locale: document-type-locale
-          jcr:mixinTypes: ['mix:referenceable']
+          jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
           publishing:summary: ''
           publishing:seoTitle: ''
           publishing:title: ''
@@ -75,7 +76,7 @@ definitions:
           publishing:showFeedback: false
           publishing:contentitemlanguage: en
           publishing:topics: ['']
-          jcr:uuid: ae697565-4da7-4241-8866-944256c08453
+          jcr:uuid: 63ad6cb4-d916-467a-be4d-b11fff4313d9
           hippostdpubwf:lastModificationDate: 2025-02-03T08:29:54.493Z
           hippostdpubwf:creationDate: 2025-02-03T08:29:54.493Z
           publishing:publicationType: ''
@@ -242,6 +243,16 @@ definitions:
             field: authorNotes
             hint: Enter any notes relevant to this content item.  This will not appear
               on the page itself.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /urlAliases:
+            jcr:primaryType: frontend:plugin
+            caption: URL Aliases
+            field: urlAliases
+            hint: You can add additional urls that this page should be available at.  All
+              of them will redirect to the official URL of this page.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
