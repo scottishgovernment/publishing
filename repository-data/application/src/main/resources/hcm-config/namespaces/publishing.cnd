@@ -142,6 +142,9 @@
 [publishing:dspaletteitem] > hippo:compound, hippostd:relaxed
   orderable
 
+[publishing:eventbrightconfig] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:facebookverification] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
@@ -272,3 +275,4 @@
 
 [publishing:video] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
+

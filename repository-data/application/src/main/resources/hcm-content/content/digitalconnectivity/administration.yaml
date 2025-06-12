@@ -91,3 +91,54 @@
         jcr:primaryType: selection:listitem
         selection:key: broadband
         selection:label: Broadband
+  /eventbright:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 2eb967fb-c14b-450b-94dd-9b0d3074c3df
+    hippo:versionHistory: d0ce5d36-4863-46dc-8a3b-2defffde60e8
+    /eventbright[1]:
+      jcr:primaryType: publishing:eventbrightconfig
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: c5ac0f98-8dce-4e2f-944d-c4629e9c0d32
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-06-12T11:22:04.719+01:00
+      hippostdpubwf:lastModificationDate: 2025-06-12T15:31:54.291+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: a0f64a6b-f235-4a24-9e59-53903fd8bec6
+      hippotranslation:locale: document-type-locale
+      publishing:organisation: '2801072361071'
+      publishing:privatetoken: PB54KV4QXKWEMSNQ4AMF
+    /eventbright[2]:
+      jcr:primaryType: publishing:eventbrightconfig
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 41b9bf2d-1fdc-424f-b1b6-8358991e89bb
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-06-12T11:22:04.719+01:00
+      hippostdpubwf:lastModificationDate: 2025-06-12T15:31:58.211+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: a0f64a6b-f235-4a24-9e59-53903fd8bec6
+      hippotranslation:locale: document-type-locale
+      publishing:organisation: '2801072361071'
+      publishing:privatetoken: PB54KV4QXKWEMSNQ4AMF
+    /eventbright[3]:
+      jcr:primaryType: publishing:eventbrightconfig
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: cf9e2197-f721-404c-a0f8-708c4c607692
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-06-12T11:22:04.719+01:00
+      hippostdpubwf:lastModificationDate: 2025-06-12T15:31:58.211+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-06-12T15:31:59.864+01:00
+      hippotranslation:id: a0f64a6b-f235-4a24-9e59-53903fd8bec6
+      hippotranslation:locale: document-type-locale
+      publishing:organisation: '2801072361071'
+      publishing:privatetoken: PB54KV4QXKWEMSNQ4AMF

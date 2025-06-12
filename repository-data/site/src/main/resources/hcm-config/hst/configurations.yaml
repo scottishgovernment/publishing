@@ -199,6 +199,9 @@ definitions:
           /latestpublications:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/page-blocks/latestpublications.ftl
+          /events:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/page-blocks/events.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
@@ -288,6 +291,12 @@ definitions:
               hst:iconpath: icons/latestnews.svg
               hst:label: Latest publications
               hst:template: latestpublications
+            /events:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.EventsComponent
+              hst:iconpath: icons/events.svg
+              hst:label: Events
+              hst:template: events
       /publishing:
         jcr:primaryType: hst:configuration
         hst:inheritsfrom: [../common]

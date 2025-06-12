@@ -1,12 +1,25 @@
 package scot.mygov.publishing.components;
 
+import com.fasterxml.jackson.databind.type.LogicalType;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.linking.HstLinkCreator;
+import org.hippoecm.hst.site.HstServices;
+import org.onehippo.cms7.crisp.api.broker.ResourceServiceBroker;
+import org.onehippo.cms7.crisp.api.resource.Resource;
+import org.onehippo.cms7.crisp.api.resource.ResourceBeanMapper;
+import org.onehippo.cms7.crisp.hst.module.CrispHstServices;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import scot.gov.publishing.hippo.funnelback.model.FunnelbackSearchResponse;
+import scot.mygov.publishing.components.eventbright.Event;
+import scot.mygov.publishing.components.eventbright.EventbrightResults;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import static java.lang.Boolean.*;
 
@@ -17,11 +30,14 @@ import static java.lang.Boolean.*;
  */
 public class ArticleComponent extends CategoryComponent {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ArticleComponent.class);
+
     static Redirector redirector = new Redirector();
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+
         if (!hasContentBean(request)) {
             return;
         }
@@ -35,6 +51,7 @@ public class ArticleComponent extends CategoryComponent {
 
         setArticleAttributes(request, response);
     }
+
 
     static void setArticleAttributes(HstRequest request, HstResponse response) {
         if (!hasContentBean(request)) {
