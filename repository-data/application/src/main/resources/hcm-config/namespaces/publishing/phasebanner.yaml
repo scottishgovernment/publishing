@@ -73,7 +73,7 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.appended.json: '{removePlugins:''ds_la-finder,ds_accordion,ds_inset-text,ds_button,ds_warning-text,ds_fragment,youtube,hippopicker'',removeButtons:''Underline,Strike,Subscript,Superscript,NumberedList,BulletedList,Outdent,Indent,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Anchor,Table''}'
+              ckeditor.config.appended.json: '{removePlugins:''ds_accordion,ds_inset-text,ds_button,ds_warning-text,ds_fragment,youtube,hippopicker'',removeButtons:''Underline,Strike,Subscript,Superscript,NumberedList,BulletedList,Outdent,Indent,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,Anchor,Table''}'
               ckeditor.config.overlayed.json: '{enterMode: 2, autoParagraph: false}'
           /tag:
             jcr:primaryType: frontend:plugin
