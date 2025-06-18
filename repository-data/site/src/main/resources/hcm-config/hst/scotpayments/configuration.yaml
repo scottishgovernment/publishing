@@ -3,8 +3,6 @@ definitions:
     /hst:hst/hst:configurations/scotpayments:
       jcr:primaryType: hst:configuration
       hst:inheritsfrom: [../campaign]
-      /hst:pages:
-        jcr:primaryType: hst:pages
       /hst:workspace:
         jcr:primaryType: hst:workspace
         jcr:mixinTypes: ['dxphst:mergeable']
@@ -30,9 +28,6 @@ definitions:
               hst:label: Home page main
               hst:xtype: hst.vbox
               hst:lastmodified: 2023-07-25T09:00:00+01:00
-        /hst:pages:
-          .meta:residual-child-node-category: content
-          jcr:primaryType: hst:pages
         /hst:sitemap:
           .meta:residual-child-node-category: content
           jcr:primaryType: hst:sitemap

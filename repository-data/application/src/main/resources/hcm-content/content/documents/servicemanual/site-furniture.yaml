@@ -1909,19 +1909,16 @@
   /status:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-    jcr:uuid: 706c367a-227f-466a-84d1-ed7e80cc5f6e
     hippo:name: Status
     hippostd:foldertype: [new-document, new-folder]
     /404:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: c74de32c-8400-41f0-9b3d-76f375214899
       hippo:name: '404'
       hippo:versionHistory: e21719e6-1ec0-4693-8696-165959df8693
       /404[1]:
         jcr:primaryType: publishing:status
         jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-        jcr:uuid: 4f83eb84-f609-4a6c-89c7-b16e0f6fc870
         hippo:availability: [preview]
         hippo:name: '404'
         hippostd:retainable: false
@@ -1947,7 +1944,6 @@
       /404[2]:
         jcr:primaryType: publishing:status
         jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-        jcr:uuid: 7e62610d-3724-4497-be38-3883d329ab3b
         hippo:availability: [live]
         hippo:name: '404'
         hippostd:retainable: false
