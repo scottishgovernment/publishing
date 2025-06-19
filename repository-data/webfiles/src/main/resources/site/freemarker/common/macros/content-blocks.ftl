@@ -27,13 +27,13 @@
                 </#if>
                 <#list contentBlock.items as item>
                     <div class="ds_accordion-item">
-                        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-${item?index}" aria-labelledby="panel-${item?index}-heading">
+                        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-${item?index}-${idModifier}" aria-labelledby="panel-${item?index}-heading-${idModifier}">
                         <div class="ds_accordion-item__header">
-                            <${headingLevel} id="panel-${item?index}-heading" class="ds_accordion-item__title">
+                            <${headingLevel} id="panel-${item?index}-heading-${idModifier}" class="ds_accordion-item__title">
                                 ${item.title}
                             </${headingLevel}>
                             <span class="ds_accordion-item__indicator"></span>
-                            <label class="ds_accordion-item__label" for="panel-${item?index}"><span class="visually-hidden">Show this section</span></label>
+                            <label class="ds_accordion-item__label" for="panel-${item?index}-${idModifier}"><span class="visually-hidden">Show this section</span></label>
                         </div>
                         <div class="ds_accordion-item__body">
                             <#if item.contentBlocks??>
@@ -229,14 +229,14 @@
                     <select id="council-select-${idModifier}" class="ds_select">
                         <option disabled="disabled" selected="selected">${contentBlock.placeholder}</option>
                         <#list contentBlock.links as link>
-                            <option data-id="${slugify(link.label)}">${link.label}</option>
+                            <option data-id="${slugify(link.label)}-${idModifier}">${link.label}</option>
                         </#list>
                     </select>
                     <span aria-hidden="true" class="ds_select-arrow"></span>
                 </div>
 
                 <#list contentBlock.links as link>
-                    <a href="${link.url}" id="dd-${slugify(link.label)}"
+                    <a href="${link.url}" id="dd-${slugify(link.label)}-${idModifier}-link"
                     class="ds_button ds_button--max fully-hidden">${link.label}</a>
                 </#list>
             </div>
@@ -266,7 +266,7 @@
                             <select id="council-select-${idModifier}" class="ds_select">
                                 <option value="" disabled="disabled" selected="selected">${contentBlock.placeholder}</option>
                                 <#list contentBlock.links as link>
-                                    <option data-id="${slugify(link.label)}">${link.label}</option>
+                                    <option data-id="${slugify(link.label)}-${idModifier}">${link.label}</option>
                                 </#list>
                             </select>
                             <span aria-hidden="true" class="ds_select-arrow"></span>
@@ -291,8 +291,8 @@
                                         ${link.url}
                                     </#if>
                                 </#compress></#assign>
-                                <a id="dd-${slugify(link.label)}-link" href="${url}">${link.label}</a>
-                                <div id="dd-${slugify(link.label)}-description">${link.description}</div>
+                                <a id="dd-${slugify(link.label)}-${idModifier}-link" href="${url}">${link.label}</a>
+                                <div id="dd-${slugify(link.label)}-${idModifier}-description">${link.description}</div>
                             </li>
                         </#list>
                     </ul>
