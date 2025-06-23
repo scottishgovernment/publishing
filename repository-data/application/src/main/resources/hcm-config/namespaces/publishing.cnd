@@ -264,6 +264,9 @@
 [publishing:status] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
+[publishing:technicalarticle] > hippostd:relaxed, hippotranslation:translated, publishing:article
+  orderable
+
 [publishing:text] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
@@ -272,3 +275,4 @@
 
 [publishing:video] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
+

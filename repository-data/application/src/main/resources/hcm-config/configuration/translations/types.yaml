@@ -24,6 +24,13 @@ definitions:
         jcr:primaryType: hipposys:resourcebundle
         publishing:tags: Mots-clés
         publishing:tagssupport: Suggestions de mots-clés
+    /hippo:configuration/hippo:translations/hippo:types/publishing:technicalarticle:
+      jcr:primaryType: hipposys:resourcebundles
+      /en:
+        jcr:primaryType: hipposys:resourcebundle
+        publishing:tags: Keywords
+        publishing:tagssupport: Keyword suggestions
+        jcr:name: Technical article
     /hippo:configuration/hippo:translations/hippo:types/publishing:guide:
       jcr:primaryType: hipposys:resourcebundles
       /en:
