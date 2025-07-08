@@ -123,3 +123,12 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/fostercare/site-furniture/banners
+      /socialsecurity-document:
+        jcr:primaryType: hipposys:domainrule
+        /include-socialsecurity-banners-folder:
+          jcr:primaryType: hipposys:facetrule
+          hipposys:equals: true
+          hipposys:facet: jcr:path
+          hipposys:filter: false
+          hipposys:type: Reference
+          hipposys:value: /content/documents/socialsecurity/site-furniture/banners
