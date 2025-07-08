@@ -25,3 +25,16 @@ definitions:
 {{/sites}}
 
 {{/environments}}
+{{#sites}}
+    /hst:hst/hst:hosts/production/site/itecs/{{id}}:
+      jcr:primaryType: hst:virtualhost
+      /hst:root:
+        jcr:primaryType: hst:mount
+        hst:alias: {{id}}-site
+        hst:mountpoint: /hst:publishing/hst:sites/{{mount}}
+        hst:schemeagnostic: true
+        hst:nochannelinfo: true
+        publishing:alias: {{id}}
+        publishing:gtm: /content/documents/{{mount}}/administration/analytics/live
+        hst:locale: en_GB
+{{/sites}}
