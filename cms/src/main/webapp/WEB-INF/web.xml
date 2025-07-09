@@ -47,13 +47,6 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 
-<!--  DEPRECATED-->
-  <!--No concurrent logins-->
-<!--  <filter>-->
-<!--    <filter-name>ConcurrentLogin</filter-name>-->
-<!--    <filter-class>org.hippoecm.frontend.plugins.login.ConcurrentLoginFilter</filter-class>-->
-<!--  </filter>-->
-
   <!--Default application-->
   <filter>
     <filter-name>CMS</filter-name>
@@ -127,12 +120,6 @@
     </init-param>
   </filter>
 
-<!--  DEPRECATED-->
-<!--  <filter-mapping>-->
-<!--    <filter-name>ConcurrentLogin</filter-name>-->
-<!--    <url-pattern>/*</url-pattern>-->
-<!--  </filter-mapping>-->
-
   <filter-mapping>
     <filter-name>CMS</filter-name>
     <url-pattern>/*</url-pattern>
@@ -147,11 +134,6 @@
     <filter-name>ResetPassword</filter-name>
     <url-pattern>/resetpassword/*</url-pattern>
   </filter-mapping>
-
-<!--  DEPRECATED-->
-<!--  <listener>-->
-<!--    <listener-class>org.hippoecm.frontend.plugins.login.ConcurrentLoginListener</listener-class>-->
-<!--  </listener>-->
 
   <servlet>
     <servlet-name>AngularResourceServlet</servlet-name>
