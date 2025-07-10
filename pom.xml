@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-enterprise-release</artifactId>
-    <version>16.4.0</version>
+    <version>16.4.1</version>
   </parent>
 
   <name>Digital Publishing</name>
@@ -61,11 +61,7 @@
   </distributionManagement>
 
   <properties>
-
-    <!--***START temporary override of versions*** -->
-    <!-- ***END temporary override of versions*** -->
-
-    <essentials.version>16.4.0</essentials.version>
+    <essentials.version>16.4.1</essentials.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
 
@@ -460,26 +456,6 @@
     <profile>
       <id>dist</id>
       <dependencies>
-<!--        <dependency>-->
-<!--          <groupId>jakarta.xml.bind</groupId>-->
-<!--          <artifactId>jakarta.xml.bind-api</artifactId>-->
-<!--          <scope>provided</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--          <groupId>jakarta.xml.ws</groupId>-->
-<!--          <artifactId>jakarta.xml.ws-api</artifactId>-->
-<!--          <scope>provided</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--          <groupId>jakarta.activation</groupId>-->
-<!--          <artifactId>jakarta.activation-api</artifactId>-->
-<!--          <scope>provided</scope>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--          <groupId>org.glassfish.jaxb</groupId>-->
-<!--          <artifactId>jaxb-runtime</artifactId>-->
-<!--          <scope>provided</scope>-->
-<!--        </dependency>-->
         <dependency>
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-slf4j2-impl</artifactId>
