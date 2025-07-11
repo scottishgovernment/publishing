@@ -8,7 +8,7 @@ import org.hippoecm.hst.platform.model.HstModel;
 import org.onehippo.cms7.services.cmscontext.CmsSessionContext;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 
 import static org.hippoecm.hst.core.container.ContainerConstants.CMS_REQUEST_RENDERING_MOUNT_ID;
 
