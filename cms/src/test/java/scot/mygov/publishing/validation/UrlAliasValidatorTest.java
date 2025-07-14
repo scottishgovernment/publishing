@@ -5,14 +5,12 @@ import org.onehippo.cms.services.validation.api.ValidationContext;
 import org.onehippo.cms.services.validation.api.Violation;
 
 import javax.jcr.RepositoryException;
-import java.util.Collections;
 import java.util.Optional;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -190,7 +188,7 @@ public class UrlAliasValidatorTest {
         return urlValidationUtils;
     }
 
-    ValidationContext validationContext() throws RepositoryException {
+    ValidationContext validationContext() {
         return new ValidationContextImpl();
     }
 }

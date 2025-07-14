@@ -4,7 +4,6 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.junit.Assert;
 import org.junit.Test;
 import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
 

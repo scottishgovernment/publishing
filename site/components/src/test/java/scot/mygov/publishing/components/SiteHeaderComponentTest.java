@@ -1,9 +1,7 @@
 package scot.mygov.publishing.components;
 
 import org.hippoecm.hst.configuration.hosting.Mount;
-import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.manager.ObjectBeanManager;
-import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedMount;
@@ -13,9 +11,7 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 import javax.jcr.Session;
 
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class SiteHeaderComponentTest {

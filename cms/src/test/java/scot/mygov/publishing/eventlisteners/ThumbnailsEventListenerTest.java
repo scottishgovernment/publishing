@@ -1,15 +1,12 @@
 package scot.mygov.publishing.eventlisteners;
 
-import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mockito;
 import org.onehippo.repository.events.HippoWorkflowEvent;
 import scot.gov.imageprocessing.exif.Exif;
 import scot.gov.imageprocessing.thumbnails.FileType;
 import scot.mygov.publishing.test.TestUtil;
 
 import javax.jcr.*;
-
 import java.util.Collections;
 import java.util.concurrent.ExecutorService;
 

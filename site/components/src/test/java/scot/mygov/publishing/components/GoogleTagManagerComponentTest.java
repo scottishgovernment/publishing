@@ -13,7 +13,6 @@ import org.hippoecm.repository.HippoStdNodeType;
 import org.junit.Test;
 import scot.mygov.publishing.TestUtil;
 import scot.mygov.publishing.beans.Article;
-import scot.mygov.publishing.beans.Base;
 import scot.mygov.publishing.beans.Guide;
 import scot.mygov.publishing.beans.GuidePage;
 
@@ -173,7 +172,7 @@ public class GoogleTagManagerComponentTest {
     }
 
 
-    HstRequestContext context(HippoBean bean) throws RepositoryException {
+    HstRequestContext context(HippoBean bean) {
         HstRequestContext context = mock(HstRequestContext.class);
         when(context.getContentBean()).thenReturn(bean);
 

@@ -1,13 +1,11 @@
 package scot.mygov.publishing.components;
 
 
-import org.hippoecm.hst.content.beans.standard.ContentBean;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 import scot.mygov.publishing.beans.MourningBanner;

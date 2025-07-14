@@ -3,18 +3,13 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.core.component.HstRequest;
-import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedMount;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.hippoecm.repository.HippoStdNodeType;
 import org.junit.Test;
 import scot.mygov.publishing.TestUtil;
-import scot.mygov.publishing.beans.Article;
-import scot.mygov.publishing.beans.Guide;
-import scot.mygov.publishing.beans.GuidePage;
 
 import javax.jcr.Node;
 import javax.jcr.Property;
@@ -23,7 +18,6 @@ import javax.jcr.Session;
 import java.util.*;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -97,13 +91,7 @@ public class FormBaseComponentTest {
         return request(configName, pathInfo, session, context);
     }
 
-    HstRequest request(String configName, String pathInfo, boolean enabled, String sitekey, HstRequestContext context) throws RepositoryException {
-        Session session = sessionWithValues(enabled, sitekey);
-        return request(configName, pathInfo, session, context);
-    }
-
-
-    HstRequestContext context(HippoBean bean) throws RepositoryException {
+    HstRequestContext context(HippoBean bean) {
         HstRequestContext context = mock(HstRequestContext.class);
         when(context.getContentBean()).thenReturn(bean);
         return context;
@@ -138,7 +126,7 @@ public class FormBaseComponentTest {
         return request;
     }
 
-    HstRequest requestWithGtmPath(String gtmPath) throws RepositoryException {
+    HstRequest requestWithGtmPath(String gtmPath) {
         HstRequest request = mock(HstRequest.class);
 
         HstRequestContext context = mock(HstRequestContext.class);

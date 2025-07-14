@@ -110,9 +110,8 @@ public class MirrorEventListenerTest {
         verify(session, times(1)).save();
     }
 
-    Session anySession() throws RepositoryException {
-        Session session = mock(Session.class);
-        return session;
+    Session anySession() {
+        return mock(Session.class);
     }
 
     Session exceptionThrowingSession() throws RepositoryException {

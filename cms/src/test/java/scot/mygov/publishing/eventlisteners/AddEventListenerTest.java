@@ -210,7 +210,7 @@ public class AddEventListenerTest {
     }
 
     @Test
-    public void setsNavigationStyleToListIfDeeperThan1() throws RepositoryException, ObjectBeanManagerException {
+    public void setsNavigationStyleToListIfDeeperThan1() throws RepositoryException {
         // ARRANGE
         Session session = mock(Session.class);
         HippoUtils hippoUtils = mock(HippoUtils.class);

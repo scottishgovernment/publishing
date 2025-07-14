@@ -3,13 +3,9 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.configuration.hosting.Mount;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.hippoecm.hst.core.linking.HstLink;
-import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.request.ResolvedMount;
-import org.junit.Assert;
 import org.junit.Test;
-import org.mockito.Mockito;
 import scot.mygov.publishing.TestUtil;
 
 import javax.jcr.Node;
