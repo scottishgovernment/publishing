@@ -63,7 +63,7 @@ public class MigrationResourceTest {
         sut.documentUpdater = mock(DocumentUpdater.class);
         when(sut.documentUpdater.update(any(Session.class), anyString(), anyString(), eq(true), any(ContentNode.class), any(ContentAuthorship.class))).thenReturn("path");
         ContentNode node = mock(ContentNode.class);
-        WebApplicationException ex = null;
+
         MigrationResource.Result actual = sut.newPublishingDocument(node, "site", "path", true, "auth", anyUriInfo());
         Assert.assertEquals(actual.getPath(), "path");
     }
@@ -76,7 +76,6 @@ public class MigrationResourceTest {
     }
 
     Session exceptionThrowingfDaemonSession() throws RepositoryException {
-        Session impersonatedSession = mock(Session.class);
         Session daemonSession = mock(Session.class);
         Mockito.when(daemonSession.impersonate(any())).thenThrow(new RepositoryException("arg"));
         return daemonSession;

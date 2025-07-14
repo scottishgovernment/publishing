@@ -129,6 +129,6 @@ public class DocumentUpdaterTest {
                 throw new NotImplementedException();
             }
         };
-    };
+    }
 
 }

@@ -54,7 +54,7 @@ public class URLAliasComponentTest {
     public void noRedirectSendForRepoException() throws RepositoryException {
         URLAliasComponent sut = new URLAliasComponent();
         sut.redirector = mock(URLAliasComponent.Redirector.class);
-        Node node = mock(Node.class);
+
         HstRequest request = hstRequestWithexceptionThrowingSession();
         HstResponse respone = mock(HstResponse.class);
         sut.doBeforeRender(request, respone);

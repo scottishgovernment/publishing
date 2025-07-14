@@ -178,7 +178,6 @@ public class UrlAliasValidatorTest {
     UrlValidationUtils validationUtils() throws RepositoryException {
         UrlValidationUtils urlValidationUtils = mock(UrlValidationUtils.class);
         when(urlValidationUtils.pathElementsContainInvalidCharacter(any())).thenReturn(false);
-        ///when(urlValidationUtils.pathElementsAreLowerCase(any())).thenReturn(true);
         when(urlValidationUtils.aliasClashesWithAnotherAlias(any(), any())).thenReturn(null);
         when(urlValidationUtils.aliasClashesWithCategory(any(), any())).thenReturn(null);
         when(urlValidationUtils.aliasClashesWithSlug(any(), any())).thenReturn(null);

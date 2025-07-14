@@ -189,12 +189,10 @@ public class MirrorEventListenerTest {
     }
 
     HippoWorkflowEvent nonPublishEvent() {
-        HippoWorkflowEvent event = mock(HippoWorkflowEvent.class);
         return event(true, "default:handle:somthingelse");
     }
 
     HippoWorkflowEvent failedPublishEvent() {
-        HippoWorkflowEvent event = mock(HippoWorkflowEvent.class);
         return event(false, PUBLISH_INTERACTION);
     }
 

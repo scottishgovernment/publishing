@@ -209,7 +209,7 @@ public class HippoUtilsTest {
                 throw new NotImplementedException();
             }
         };
-    };
+    }
 
     Node unpublishedNode() throws RepositoryException {
         return nodeOfState(HippoStdNodeType.UNPUBLISHED);

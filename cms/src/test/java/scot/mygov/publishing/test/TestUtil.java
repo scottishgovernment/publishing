@@ -42,5 +42,6 @@ public class TestUtil {
                 throw new NotImplementedException();
             }
         };
-    };
+    }
+
 }

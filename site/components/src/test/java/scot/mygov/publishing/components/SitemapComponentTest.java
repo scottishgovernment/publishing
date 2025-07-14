@@ -90,8 +90,6 @@ public class SitemapComponentTest {
         when(expectedLinkTwo.toUrlForm(context, true)).thenReturn("https://www.mygov.scot/pagenotfound");
         when(linkCreator.create(one, mount)).thenReturn(expectedLinkOne);
         when(linkCreator.create(two, mount)).thenReturn(expectedLinkTwo);
-
-        // linkCreator.create(child, mount).toUrlForm(context, true);
         when(result.getNodes()).thenReturn(iterator(nodes));
 
         // ACT
