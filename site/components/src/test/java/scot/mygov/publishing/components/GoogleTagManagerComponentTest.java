@@ -66,7 +66,7 @@ public class GoogleTagManagerComponentTest {
     }
 
     @Test
-    public void noGtmPathOnMountResultsInEmptyValues() throws RepositoryException {
+    public void noGtmPathOnMountResultsInEmptyValues() {
 
         // ARRANGE
         GoogleTagManagerComponent sut = new GoogleTagManagerComponent();
