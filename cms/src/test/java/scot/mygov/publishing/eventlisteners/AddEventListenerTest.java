@@ -1,7 +1,6 @@
 package scot.mygov.publishing.eventlisteners;
 
 import org.apache.jackrabbit.value.StringValue;
-import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.junit.Test;
 import org.onehippo.cms7.event.HippoEvent;
 import org.onehippo.forge.selection.hst.contentbean.ValueList;

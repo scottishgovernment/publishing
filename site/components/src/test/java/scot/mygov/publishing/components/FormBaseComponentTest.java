@@ -57,7 +57,7 @@ public class FormBaseComponentTest {
     }
 
     @Test
-    public void noGtmPathOnMountResultsInDefaultValues() throws RepositoryException {
+    public void noGtmPathOnMountResultsInDefaultValues() {
 
         // ARRANGE
         HstRequest request = requestWithGtmPath(null);

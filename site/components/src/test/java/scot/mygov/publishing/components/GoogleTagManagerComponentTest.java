@@ -212,7 +212,7 @@ public class GoogleTagManagerComponentTest {
         return request;
     }
 
-    HstRequest requestWithGtmPath(String gtmPath) throws RepositoryException {
+    HstRequest requestWithGtmPath(String gtmPath) {
         HstRequest request = mock(HstRequest.class);
 
 
