@@ -10,8 +10,6 @@ import org.hippoecm.hst.core.sitemenu.HstSiteMenuItemImpl;
 import org.onehippo.cms7.essentials.components.EssentialsMenuComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsMenuComponentInfo;
 import org.onehippo.forge.breadcrumb.om.BreadcrumbItem;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -19,8 +17,6 @@ import static scot.mygov.publishing.components.BreadcrumbComponent.constructBrea
 
 @ParametersInfo(type = EssentialsMenuComponentInfo.class)
 public class MenuComponent extends EssentialsMenuComponent {
-
-    private static final Logger LOG = LoggerFactory.getLogger(MenuComponent.class);
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
