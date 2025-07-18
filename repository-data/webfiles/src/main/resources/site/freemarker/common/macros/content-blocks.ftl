@@ -433,14 +433,11 @@
                 </div>
             </div>
 
-
-
             <#if contentBlock.noindex>
             <!--endnoindex-->
             </#if>
             <#-- end rich text block -->
         </#if>
-
 
     </#list>
 </#macro>

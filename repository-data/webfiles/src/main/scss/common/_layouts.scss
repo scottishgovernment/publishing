@@ -1,0 +1,93 @@
+/*------------------------------------*\
+    SITE PAGE LAYOUTS
+\*------------------------------------*/
+
+.mg_layout {
+    &--technical-article {
+        > .ds_layout {
+            @include media-query(medium) {
+                &__header {
+                    float: left;
+                    @include colwidth(8);
+                }
+
+                &__content {
+                    float: left;
+                    @include colwidth(7);
+                }
+
+                &__sidebar {
+                    clear: left;
+                    float: left;
+                    @include colwidth(3);
+                }
+            }
+        }
+    }
+}
+
+@supports(display: grid) {
+    .mg_layout--technical-article {
+        grid-template-areas:
+            'h h'
+            's s'
+            'c c'
+            'f f';
+
+            &:not(:has(.ds_layout__sidebar)) {
+                grid-template-areas:
+                    'h h'
+                    'c c'
+                    'f f';
+        }
+    }
+
+    @include media-query(small) {
+        .mg_layout--technical-article {
+            grid-template-areas:
+                'h h h h h h'
+                's s s s s s'
+                'c c c c c c'
+                'f f f f f f';
+
+            &:not(:has(.ds_layout__sidebar)) {
+                grid-template-areas:
+                    'h h h h h h'
+                    'c c c c c c'
+                    'f f f f f f';
+            }
+        }
+    }
+
+    @include media-query(medium) {
+        .mg_layout--technical-article {
+            grid-template-areas:
+                's s s h h h h h h h h h'
+                's s s c c c c c c c c c'
+                '. . . f f f f f f f f f';
+
+            &:not(:has(.ds_layout__sidebar)) {
+                grid-template-areas:
+                    'h h h h h h h h h h h h'
+                    'c c c c c c c c c c c c'
+                    'f f f f f f f f f f f f';
+            }
+        }
+    }
+
+    @include media-query(large) {
+        .mg_layout--technical-article {
+            grid-template-areas:
+                's s s h h h h h h h . .'
+                's s s c c c c c c c . .'
+                '. . . f f f f f f f . .';
+
+            &:not(:has(.ds_layout__sidebar)) {
+                grid-template-areas:
+                    'h h h h h h h . . . . .'
+                    'c c c c c c c . . . . .'
+                    'f f f f f f f . . . . .';
+            }
+        }
+    }
+}

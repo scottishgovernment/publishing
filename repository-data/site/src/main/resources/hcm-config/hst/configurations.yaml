@@ -199,6 +199,12 @@ definitions:
           /latestpublications:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/page-blocks/latestpublications.ftl
+          /technicalarticle-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/technicalarticle-main.ftl
+          /side-navigation:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/side-navigation.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
