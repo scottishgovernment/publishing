@@ -14,7 +14,7 @@
     <#assign accordionCount = 0 />
 
     <div class="ds_wrapper">
-        <main <@lang document/> id="main-content" class="ds_layout  ds_layout--pl-component">
+        <main <@lang document/> id="main-content" class="ds_layout  mg_layout--section-page">
 
             <@hst.include ref="sidebar"/>
 
