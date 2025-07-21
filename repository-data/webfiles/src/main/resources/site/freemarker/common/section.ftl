@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
+<#include "macros/content-blocks.ftl">
 <#include "macros/lang-attributes.ftl">
 
 <#if document??>
@@ -56,6 +57,10 @@
                     <div class="ds_leader">
                         ${document.summary}
                     </div>
+                </#if>
+
+                <#if document.contentBlocks??>
+                    <@renderContentBlocks document.contentBlocks />
                 </#if>
 
             </div>

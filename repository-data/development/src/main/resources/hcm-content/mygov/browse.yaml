@@ -5670,7 +5670,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 4b1c442c-d913-489f-a2b9-f983d1ed6559
       hippo:name: Prototyping
-      hippo:versionHistory: 44c90e59-60fd-400b-b4d5-76da9881daad
+      hippo:versionHistory: 47f4aede-7233-43d8-a4d5-e997c788be0a
       /prototyping[1]:
         jcr:primaryType: publishing:Section
         jcr:mixinTypes: ['mix:referenceable']
@@ -5680,7 +5680,7 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-05-26T15:50:21.343+01:00
-        hippostdpubwf:lastModificationDate: 2025-05-26T15:50:21.343+01:00
+        hippostdpubwf:lastModificationDate: 2025-07-21T13:44:15.582+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 42b4fc85-f630-4cce-85c5-df10e340bbc1
         hippotranslation:locale: document-type-locale
@@ -5688,6 +5688,50 @@
         publishing:seoTitle: Prototyping
         publishing:summary: Prototyping
         publishing:title: Prototyping
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <h2>About prototyping with the Design System &nbsp;</h2>
+
+              <p>You should prototype your service to test with users.&nbsp;</p>
+
+              <p>The Design System has prototyping kits for Figma and Axure RP. &nbsp;</p>
+
+              <p>If you need Figma or Axure RP licenses, check <a href="https://servicemanual.gov.scot/getting-started-with-procurement">how to buy digital products on the Scottish Government Service Manual</a>.&nbsp;</p>
+
+              <p>You can also prototype in HTML using the Design System's plugin for the GOV.UK prototype kit.&nbsp;</p>
+
+              <h2>Prototyping kit updates &nbsp;</h2>
+
+              <p>We release regular updates to the prototyping kits. This includes accessibility improvements. &nbsp;</p>
+
+              <p>Your local copy does not automatically update. You must download the latest version of the kit to get the latest versions of components, patterns and styles. &nbsp;</p>
+
+              <p>Check for updates in:&nbsp;</p>
+
+              <ul>
+               <li>the design System newsletter – email <a href="mailto:designsystem@gov.scot?subject=Newsletter%20sign%20up">designsystem@gov.scot</a> to sign up&nbsp;</li>
+               <li><a href="https://designsystem.gov.scot/">latest updates on the homepage</a>&nbsp;</li>
+               <li>the&nbsp;<a href="https://www.figma.com/community/file/1179354393781430703/scottish-government-design-system-kit">Figma community file</a>&nbsp;</li>
+               <li>the&nbsp;<a href="https://github.com/scottish-government-design-system/prototype-templates">Design System GitHub</a></li>
+              </ul>
+
+              <h2>How to prototype in Figma &nbsp;</h2>
+
+              <p>Follow these steps to prototype Design System components and patterns in Figma:&nbsp;</p>
+
+              <ol>
+               <li>Find the <a href="https://www.figma.com/community/file/1179354393781430703/scottish-government-design-system-kit">Scottish Government Design System Kit in the Figma community</a></li>
+               <li>Select ‘open in Figma’ to add the kit to your Figma account&nbsp;</li>
+               <li>Publish the library from the assets panel to access the styles and components in your project’s files&nbsp;</li>
+              </ol>
+
+              <h3>Figma prototyping kit file</h3>
+
+              <p>Download this file if you cannot get the Scottish Government Design System kit from the Figma community. &nbsp;</p>
       /prototyping[2]:
         jcr:primaryType: publishing:Section
         jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -5697,7 +5741,7 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-05-26T15:50:21.343+01:00
-        hippostdpubwf:lastModificationDate: 2025-05-26T15:50:26.225+01:00
+        hippostdpubwf:lastModificationDate: 2025-07-21T13:41:46.252+01:00
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 42b4fc85-f630-4cce-85c5-df10e340bbc1
         hippotranslation:locale: document-type-locale
@@ -5705,6 +5749,50 @@
         publishing:seoTitle: Prototyping
         publishing:summary: Prototyping
         publishing:title: Prototyping
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <h2>About prototyping with the Design System &nbsp;</h2>
+
+              <p>You should prototype your service to test with users.&nbsp;</p>
+
+              <p>The Design System has prototyping kits for Figma and Axure RP. &nbsp;</p>
+
+              <p>If you need Figma or Axure RP licenses, check <a href="https://servicemanual.gov.scot/getting-started-with-procurement">how to buy digital products on the Scottish Government Service Manual</a>.&nbsp;</p>
+
+              <p>You can also prototype in HTML using the Design System's plugin for the GOV.UK prototype kit.&nbsp;</p>
+
+              <h2>Prototyping kit updates &nbsp;</h2>
+
+              <p>We release regular updates to the prototyping kits. This includes accessibility improvements. &nbsp;</p>
+
+              <p>Your local copy does not automatically update. You must download the latest version of the kit to get the latest versions of components, patterns and styles. &nbsp;</p>
+
+              <p>Check for updates in:&nbsp;</p>
+
+              <ul>
+               <li>the design System newsletter – email <a href="mailto:designsystem@gov.scot?subject=Newsletter%20sign%20up">designsystem@gov.scot</a> to sign up&nbsp;</li>
+               <li><a href="https://designsystem.gov.scot/">latest updates on the homepage</a>&nbsp;</li>
+               <li>the&nbsp;<a href="https://www.figma.com/community/file/1179354393781430703/scottish-government-design-system-kit">Figma community file</a>&nbsp;</li>
+               <li>the&nbsp;<a href="https://github.com/scottish-government-design-system/prototype-templates">Design System GitHub</a></li>
+              </ul>
+
+              <h2>How to prototype in Figma &nbsp;</h2>
+
+              <p>Follow these steps to prototype Design System components and patterns in Figma:&nbsp;</p>
+
+              <ol>
+               <li>Find the <a href="https://www.figma.com/community/file/1179354393781430703/scottish-government-design-system-kit">Scottish Government Design System Kit in the Figma community</a></li>
+               <li>Select ‘open in Figma’ to add the kit to your Figma account&nbsp;</li>
+               <li>Publish the library from the assets panel to access the styles and components in your project’s files&nbsp;</li>
+              </ol>
+
+              <h3>Figma prototyping kit file</h3>
+
+              <p>Download this file if you cannot get the Scottish Government Design System kit from the Figma community. &nbsp;</p>
       /prototyping[3]:
         jcr:primaryType: publishing:Section
         jcr:mixinTypes: ['mix:referenceable']
@@ -5714,15 +5802,60 @@
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-05-26T15:50:21.343+01:00
-        hippostdpubwf:lastModificationDate: 2025-05-26T15:50:26.225+01:00
+        hippostdpubwf:lastModificationDate: 2025-07-21T13:41:46.252+01:00
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-05-26T15:50:28.851+01:00
+        hippostdpubwf:publicationDate: 2025-07-21T13:44:23.985+01:00
+        hippostdpubwf:publishedBy: admin
         hippotranslation:id: 42b4fc85-f630-4cce-85c5-df10e340bbc1
         hippotranslation:locale: document-type-locale
         publishing:metaDescription: Prototyping
         publishing:seoTitle: Prototyping
         publishing:summary: Prototyping
         publishing:title: Prototyping
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <h2>About prototyping with the Design System &nbsp;</h2>
+
+              <p>You should prototype your service to test with users.&nbsp;</p>
+
+              <p>The Design System has prototyping kits for Figma and Axure RP. &nbsp;</p>
+
+              <p>If you need Figma or Axure RP licenses, check <a href="https://servicemanual.gov.scot/getting-started-with-procurement">how to buy digital products on the Scottish Government Service Manual</a>.&nbsp;</p>
+
+              <p>You can also prototype in HTML using the Design System's plugin for the GOV.UK prototype kit.&nbsp;</p>
+
+              <h2>Prototyping kit updates &nbsp;</h2>
+
+              <p>We release regular updates to the prototyping kits. This includes accessibility improvements. &nbsp;</p>
+
+              <p>Your local copy does not automatically update. You must download the latest version of the kit to get the latest versions of components, patterns and styles. &nbsp;</p>
+
+              <p>Check for updates in:&nbsp;</p>
+
+              <ul>
+               <li>the design System newsletter – email <a href="mailto:designsystem@gov.scot?subject=Newsletter%20sign%20up">designsystem@gov.scot</a> to sign up&nbsp;</li>
+               <li><a href="https://designsystem.gov.scot/">latest updates on the homepage</a>&nbsp;</li>
+               <li>the&nbsp;<a href="https://www.figma.com/community/file/1179354393781430703/scottish-government-design-system-kit">Figma community file</a>&nbsp;</li>
+               <li>the&nbsp;<a href="https://github.com/scottish-government-design-system/prototype-templates">Design System GitHub</a></li>
+              </ul>
+
+              <h2>How to prototype in Figma &nbsp;</h2>
+
+              <p>Follow these steps to prototype Design System components and patterns in Figma:&nbsp;</p>
+
+              <ol>
+               <li>Find the <a href="https://www.figma.com/community/file/1179354393781430703/scottish-government-design-system-kit">Scottish Government Design System Kit in the Figma community</a></li>
+               <li>Select ‘open in Figma’ to add the kit to your Figma account&nbsp;</li>
+               <li>Publish the library from the assets panel to access the styles and components in your project’s files&nbsp;</li>
+              </ol>
+
+              <h3>Figma prototyping kit file</h3>
+
+              <p>Download this file if you cannot get the Scottish Government Design System kit from the Figma community. &nbsp;</p>
     /installation:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -5799,7 +5932,7 @@
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-05-26T16:00:36.745+01:00
-          hippostdpubwf:lastModificationDate: 2025-05-26T16:00:36.745+01:00
+          hippostdpubwf:lastModificationDate: 2025-07-21T13:40:10.001+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 7bad8fcb-780e-4849-904a-d2c0a0786adf
           hippotranslation:locale: document-type-locale
@@ -5807,6 +5940,16 @@
           publishing:seoTitle: subsection one
           publishing:summary: subsection one
           publishing:title: subsection one
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <pre>
+                <code class="language-javascript">&lt;#include "macros/content-blocks.ftl"&gt;</code></pre>
+
+                <p>&nbsp;</p>
         /subsection-one[2]:
           jcr:primaryType: publishing:Section
           jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -5816,7 +5959,7 @@
           hippostd:state: unpublished
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-05-26T16:00:36.745+01:00
-          hippostdpubwf:lastModificationDate: 2025-05-26T16:00:46.203+01:00
+          hippostdpubwf:lastModificationDate: 2025-07-21T14:20:53.601+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: 7bad8fcb-780e-4849-904a-d2c0a0786adf
           hippotranslation:locale: document-type-locale
@@ -5824,6 +5967,16 @@
           publishing:seoTitle: subsection one
           publishing:summary: subsection one
           publishing:title: subsection one
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <pre>
+                <code class="language-javascript">&lt;#include "macros/content-blocks.ftl"&gt;</code></pre>
+
+                <p>&nbsp;</p>
         /subsection-one[3]:
           jcr:primaryType: publishing:Section
           jcr:mixinTypes: ['mix:referenceable']
