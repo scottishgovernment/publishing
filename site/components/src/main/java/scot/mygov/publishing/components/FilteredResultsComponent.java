@@ -163,14 +163,25 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         return Arrays.asList(types);
     }
 
+    static Node publicationTypesValueList(HstRequestContext context) throws RepositoryException {
+        Node site = context.getSiteContentBaseBean().getNode();
+        Session session = context.getSession();
+        Node adminFolder = site.getNode("administration");
+        if (adminFolder.hasNode("publicationtypes")) {
+            return adminFolder.getNode("publicationtypes").getNode("publicationtypes");
+        } else {
+            return session.nodeExists(PUBLICATION_VALUE_LIST) ?  session.getNode(PUBLICATION_VALUE_LIST) : null;
+        }
+
+    }
+
     public static Map<String, String> publicationTypesMap(HstRequestContext context) {
         try {
-            Session session = context.getSession();
-            if (!session.nodeExists(PUBLICATION_VALUE_LIST)) {
+            Node publicationValueList = publicationTypesValueList(context);
+            if (publicationValueList == null) {
                 return Collections.emptyMap();
             }
 
-            Node publicationValueList = session.getNode(PUBLICATION_VALUE_LIST);
             Node typesForSiteNode = publicationTypesForSiteNode(context);
             if (typesForSiteNode == null) {
                 return Collections.emptyMap();

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 7358b7af-a99c-4095-8bc3-f6abf01aaa8a
+          jcr:uuid: 88612f93-07ca-431a-aeee-cf49e2ee66d5
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated',
             'hippotaxonomy:classifiable']
@@ -55,7 +55,7 @@ definitions:
             hipposysedit:ordered: false
             hipposysedit:path: publishing:publicationType
             hipposysedit:primary: false
-            hipposysedit:type: DynamicDropdown
+            hipposysedit:type: OpenUiString
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -76,7 +76,7 @@ definitions:
           publishing:showFeedback: false
           publishing:contentitemlanguage: en
           publishing:topics: ['']
-          jcr:uuid: 63ad6cb4-d916-467a-be4d-b11fff4313d9
+          jcr:uuid: 6078db5e-477b-4d75-9164-fa41ac6dc69a
           hippostdpubwf:lastModificationDate: 2025-02-03T08:29:54.493Z
           hippostdpubwf:creationDate: 2025-02-03T08:29:54.493Z
           publishing:publicationType: ''
@@ -226,8 +226,7 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              orientation: vertical
-              source: /content/documents/publishing/valuelists/publicationtypes
+              ui.extension: publicationtypeselector
           /relateditems:
             jcr:primaryType: frontend:plugin
             caption: Related items

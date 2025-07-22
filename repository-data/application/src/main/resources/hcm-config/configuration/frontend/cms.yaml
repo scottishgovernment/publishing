@@ -2181,6 +2181,13 @@ definitions:
       frontend:extensionPoint: document.field
       frontend:initialHeightInPixels: 50
       frontend:url: /sitetopicselector/index.html
+    /hippo:configuration/hippo:frontend/cms/ui-extensions/publicationtypeselector:
+      jcr:primaryType: frontend:uiExtension
+      frontend:config: ''
+      frontend:displayName: Site specific publicaiton type selector
+      frontend:extensionPoint: document.field
+      frontend:initialHeightInPixels: 50
+      frontend:url: /publicationtypeselector/index.html
     /hippo:configuration/hippo:frontend/cms/cms-services/galleryProcessorService:
       width: 512
       upscaling: true

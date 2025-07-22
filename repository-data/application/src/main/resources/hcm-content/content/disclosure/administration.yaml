@@ -355,3 +355,30 @@
       hippo:availability: [live, preview]
       hippotranslation:id: 08b8edcb-577b-4f12-be0a-97ffca6b4b85
       hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: topics1
+        selection:label: One
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: topics2
+        selection:label: Two
+  /publicationtypes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: 5dd8d94d-fde3-4b5a-ad05-038b6b74a25c
+    /publicationtypes:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: a5b24c77-878c-4a76-9b47-e3810a7716f6
+      hippo:availability: [live, preview]
+      hippotranslation:id: 3b0f29d0-9b2b-42c1-aec9-c929c6cec4e4
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: typeone
+        selection:label: typeone
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: typetwo
+        selection:label: typetwo

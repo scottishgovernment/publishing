@@ -12,7 +12,10 @@ import javax.jcr.Session;
 
 public class Module extends AbstractReconfigurableDaemonModule {
 
-    private static final String PATH = "/topics";
+    private static final String TOPICS_PATH = "/topics";
+
+    private static final String PUBLICATION_TYPES_PATH = "/publicationtypes";
+
 
     @Override
     protected void doConfigure(Node module) throws RepositoryException {
@@ -21,18 +24,25 @@ public class Module extends AbstractReconfigurableDaemonModule {
 
     @Override
     protected void doInitialize(Session var1) throws RepositoryException {
-        Resource resource = new Resource(session);
+        SiteSpecificResource topicsresource = new SiteSpecificResource(session, "topics");
+        SiteSpecificResource publicationtypesresource = new SiteSpecificResource(session, "publicationtypes");
+        RepositoryJaxrsService.addEndpoint(endpoint(topicsresource, TOPICS_PATH));
+        RepositoryJaxrsService.addEndpoint(endpoint(publicationtypesresource,PUBLICATION_TYPES_PATH));
+    }
 
-        RepositoryJaxrsEndpoint endpoint = new CXFRepositoryJaxrsEndpoint(PATH)
-                .invoker(new JAXRSInvoker())
+    RepositoryJaxrsEndpoint endpoint(Object resource, String path) {
+        JAXRSInvoker invoker = new JAXRSInvoker();
+        JacksonJsonProvider jacksonJsonProvider = new JacksonJsonProvider(new ObjectMapper());
+        return new CXFRepositoryJaxrsEndpoint(path)
+                .invoker(invoker)
                 .singleton(resource)
-                .singleton(new JacksonJsonProvider(new ObjectMapper()));
-        RepositoryJaxrsService.addEndpoint(endpoint);
+                .singleton(jacksonJsonProvider);
     }
 
     @Override
     protected void doShutdown() {
-        RepositoryJaxrsService.removeEndpoint(PATH);
+        RepositoryJaxrsService.removeEndpoint(TOPICS_PATH);
+        RepositoryJaxrsService.removeEndpoint(PUBLICATION_TYPES_PATH);
     }
 
 }

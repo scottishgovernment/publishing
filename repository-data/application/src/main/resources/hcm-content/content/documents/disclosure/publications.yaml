@@ -1,0 +1,38 @@
+/content/documents/disclosure/publications:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named']
+  hippo:name: Publications
+  hippostd:foldertype: [new-publication-year-folder, new-landingpage-document]
+  /2020:
+    jcr:primaryType: hippostd:folder
+    hippostd:foldertype: [new-publication-month-folder]
+    /01:
+      jcr:primaryType: hippostd:folder
+      hippostd:foldertype: [new-publication-document]
+      /pub:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 646ff0e7-d92f-4de2-b0bc-1544e95b122e
+        /pub:
+          jcr:primaryType: publishing:Publication
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f0a19954-9a61-45f7-9e65-865f3142c575
+          hippo:availability: []
+          hippostd:holder: admin
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-05T14:28:18.199+01:00
+          hippostdpubwf:lastModificationDate: 2025-06-05T14:28:18.200+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: d7b1033b-832e-4f8e-b8d1-fbffb8ea25be
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:contentitemlanguage: en
+          publishing:metaDescription: ''
+          publishing:publicationDate: 0001-01-01T12:00:00Z
+          publishing:publicationType: ''
+          publishing:seoTitle: ''
+          publishing:showFeedback: false
+          publishing:summary: ''
+          publishing:title: ''
+          publishing:topics: ['']
