@@ -20,6 +20,7 @@ definitions:
       preview-cookie-httponly: 'false'
       preview-cookie-secure: 'false'
       hst:locale: en_GB
+{{#reverse_slash_dns}}
 {{#environments}}
     /hst:hst/hst:hosts/{{name}}/{{reverse_slash_dns}}:
       jcr:primaryType: hst:virtualhost
@@ -42,5 +43,6 @@ definitions:
         hst:schemeagnostic: true
         publishing:gtm: /content/documents/{{mount}}/administration/analytics/live
         hst:locale: en_GB
+{{/reverse_slash_dns}}
 
 {{/sites}}
