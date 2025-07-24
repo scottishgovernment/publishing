@@ -16,11 +16,11 @@ definitions:
         /hst:root:
           jcr:primaryType: hst:mount
           hst:alias: {{id}}-site
-          hst:mountpoint: /hst:publishing/hst:sites/{{mount}}
+          hst:mountpoint: /hst:publishing/hst:sites/{{id}}
           hst:schemeagnostic: true
           hst:nochannelinfo: true
           publishing:alias: {{id}}
-          publishing:gtm: /content/documents/{{mount}}/administration/performance/analytics/{{gtm}}
+          publishing:gtm: /content/documents/{{id}}/administration/performance/analytics/{{gtm}}
           hst:locale: en_GB
 {{/sites}}
 
@@ -31,10 +31,10 @@ definitions:
       /hst:root:
         jcr:primaryType: hst:mount
         hst:alias: {{id}}-site
-        hst:mountpoint: /hst:publishing/hst:sites/{{mount}}
+        hst:mountpoint: /hst:publishing/hst:sites/{{id}}
         hst:schemeagnostic: true
         hst:nochannelinfo: true
         publishing:alias: {{id}}
-        publishing:gtm: /content/documents/{{mount}}/administration/analytics/live
+        publishing:gtm: /content/documents/{{id}}/administration/analytics/live
         hst:locale: en_GB
 {{/sites}}

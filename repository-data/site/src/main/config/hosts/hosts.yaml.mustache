@@ -9,13 +9,13 @@ definitions:
       .meta:residual-child-node-category: content
       jcr:primaryType: hst:mount
       hst:alias: {{id}}
-      hst:mountpoint: /hst:publishing/hst:sites/{{mount}}
+      hst:mountpoint: /hst:publishing/hst:sites/{{id}}
       hst:locale: en_GB
     /hst:hst/hst:hosts/dev-localhost/localhost/hst:root/{{id}}-preview:
       .meta:residual-child-node-category: content
       jcr:primaryType: hst:mount
       hst:alias: {{id}}-staging
-      hst:mountpoint: /hst:publishing/hst:sites/{{mount}}
+      hst:mountpoint: /hst:publishing/hst:sites/{{id}}
       hst:type: preview
       preview-cookie-httponly: 'false'
       preview-cookie-secure: 'false'
@@ -29,9 +29,9 @@ definitions:
         /hst:root:
           jcr:primaryType: hst:mount
           hst:alias: {{id}}
-          hst:mountpoint: /hst:publishing/hst:sites/{{mount}}
+          hst:mountpoint: /hst:publishing/hst:sites/{{id}}
           hst:schemeagnostic: true
-          publishing:gtm: /content/documents/{{mount}}/administration/performance/analytics/{{gtm}}
+          publishing:gtm: /content/documents/{{id}}/administration/performance/analytics/{{gtm}}
           hst:locale: en_GB
 {{/environments}}
     /hst:hst/hst:hosts/production/{{reverse_slash_dns}}:
@@ -39,9 +39,9 @@ definitions:
       /hst:root:
         jcr:primaryType: hst:mount
         hst:alias: {{id}}
-        hst:mountpoint: /hst:publishing/hst:sites/{{mount}}
+        hst:mountpoint: /hst:publishing/hst:sites/{{id}}
         hst:schemeagnostic: true
-        publishing:gtm: /content/documents/{{mount}}/administration/analytics/live
+        publishing:gtm: /content/documents/{{id}}/administration/analytics/live
         hst:locale: en_GB
 {{/reverse_slash_dns}}
 

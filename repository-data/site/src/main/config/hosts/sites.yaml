@@ -1,40 +1,28 @@
 ---
 sites:
  - id: cloud
-   mount: cloud
    reverse_slash_dns: scot/gov/campaign/cloud
  - id: costofliving
-   mount: costofliving
    reverse_slash_dns: scot/gov/campaign/costofliving
  - id: ddat
-   mount: ddat
    reverse_slash_dns: scot/gov/jobs/digital
  - id: designsystem
-   mount: designsystem
    reverse_slash_dns: scot/gov/designsystem
  - id: digitalconnectivity
-   mount: digitalconnectivity
    reverse_slash_dns: scot/gov/campaign/digitalconnectivity
  - id: disclosure
-   mount: disclosure
    reverse_slash_dns: scot/gov/disclosure/www
  - id: fostercare
-   mount: fostercare
    reverse_slash_dns: scot/gov/campaign/fostercare
  - id: rentersrights
-   mount: rentersrights
    reverse_slash_dns: scot/gov/campaign/rentersrights
  - id: scotaccount
-   mount: scotaccount
    reverse_slash_dns: scot/gov/campaign/scotaccount
  - id: scotpayments
-   mount: scotpayments
    reverse_slash_dns: scot/gov/campaign/scotpayments
  - id: servicemanual
-   mount: servicemanual
    reverse_slash_dns: scot/gov/servicemanual
  - id: shorttermlets
-   mount: shorttermlets
    reverse_slash_dns: scot/gov/campaign/shorttermlets
 
 environments:
