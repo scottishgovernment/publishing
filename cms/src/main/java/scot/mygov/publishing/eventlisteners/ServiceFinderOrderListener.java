@@ -38,6 +38,7 @@ public class ServiceFinderOrderListener {
 
     @Subscribe
     public void handleEvent(HippoWorkflowEvent event) {
+
         try {
             if (!"commitEditableInstance".equals(event.action())) {
                 return;
@@ -47,21 +48,21 @@ public class ServiceFinderOrderListener {
         } catch (RepositoryException e) {
             ensureRefreshFalse(session);
             LOG.error(
-                    "error trying to update mirror name for event msg={}, action={}, event={}, result={}",
+                    "error trying to sort service finder for event msg={}, action={}, event={}, result={}",
                     e.getMessage(), event.action(), event.category(), event.result(), e);
         }
     }
 
     void doHandleEvent(HippoWorkflowEvent event) throws RepositoryException {
         Node handle = session.getNodeByIdentifier(event.subjectId());
-        hippoUtils.apply(handle.getNodes(handle.getName()), this::notPublished, variant ->
+        hippoUtils.apply(handle.getNodes(handle.getName()), this::isUnpublished, variant ->
                 hippoUtils.apply(variant.getNodes("publishing:contentBlocks"),
                         this::isSortableServiceFinder, this::sortLinks));
         session.save();
     }
 
-    boolean notPublished(Node node) throws RepositoryException {
-        return !"published".equals(JcrUtils.getStringProperty(node, HippoStdNodeType.HIPPOSTD_STATE, ""));
+    boolean isUnpublished(Node node) throws RepositoryException {
+        return "unpublished".equals(JcrUtils.getStringProperty(node, HippoStdNodeType.HIPPOSTD_STATE, ""));
     }
 
     boolean isSortableServiceFinder(Node node) throws RepositoryException {
