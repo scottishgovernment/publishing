@@ -1,0 +1,9 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/mygov-feedback:
+      jcr:primaryType: hipposys:group
+      hipposys:securityprovider: internal
+      hipposys:system: false
+      hipposys:userroles:
+        - xm.cms.user
+        - scotgov.feedback.viewer
