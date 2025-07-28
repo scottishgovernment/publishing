@@ -49,6 +49,7 @@ public class BloomreachSearchService implements SearchService {
             "publishing:smartanswerquestion",
             "publishing:smartanswermultiplechoicequestion",
             "publishing:smartanswerresult",
+            "publishing:smartanswerconfirmationpage",
             "publishing:fragment",
             "publishing:mirror",
             "publishing:analytics",
