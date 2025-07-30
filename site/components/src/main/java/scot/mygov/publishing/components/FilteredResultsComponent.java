@@ -56,6 +56,8 @@ public class FilteredResultsComponent extends EssentialsListComponent {
 
     private static final String PUBLICATION_VALUE_LIST = "/content/documents/publishing/valuelists/publicationtypes/publicationtypes";
 
+    private static final String PUBLICATION_TYPES = "publicationtypes";
+
     private Collection<String> fieldNames = new ArrayList<>();
 
     @Override
@@ -167,8 +169,8 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         Node site = context.getSiteContentBaseBean().getNode();
         Session session = context.getSession();
         Node adminFolder = site.getNode("administration");
-        if (adminFolder.hasNode("publicationtypes")) {
-            return adminFolder.getNode("publicationtypes").getNode("publicationtypes");
+        if (adminFolder.hasNode(PUBLICATION_TYPES)) {
+            return adminFolder.getNode(PUBLICATION_TYPES).getNode(PUBLICATION_TYPES);
         } else {
             return session.nodeExists(PUBLICATION_VALUE_LIST) ?  session.getNode(PUBLICATION_VALUE_LIST) : null;
         }
