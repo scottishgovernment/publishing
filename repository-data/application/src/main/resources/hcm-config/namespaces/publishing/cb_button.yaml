@@ -123,7 +123,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: Primary,Secondary,Cancel
+              selectable.options: Primary,Secondary
           /externallink:
             jcr:primaryType: frontend:plugin
             caption: External link

@@ -12,7 +12,7 @@
         "@babel/preset-env": "^7.16.11",
         "@dryfeld/nunjucks-loader": "^4.0.4",
         "@scottish-government-design-system/page-blocks": "^1.0.1",
-        "@scottish-government/design-system": "^3.0.1",
+        "@scottish-government/design-system": "^3.1.0",
         "babel-loader": "^8.2.3",
         "karma": "^6.4.1",
         "karma-babel-preprocessor": "^8.0.2",
@@ -26,7 +26,7 @@
         "loader-utils": "^3.2.1",
         "nunjucks": "^3.2.3",
         "prismjs": "^1.29.0",
-        "sass": "^1.49.9",
+        "sass": "^1.71.1",
         "sealant": "^0.1.1",
         "svg-sprite": "^2.0.3",
         "webpack": "^5.90.3",
@@ -2002,9 +2002,9 @@
       "license": "MIT"
     },
     "node_modules/@scottish-government/design-system": {
-      "version": "3.0.1",
-      "resolved": "http://nexus.digital.gov.uk/repository/npm-all/@scottish-government/design-system/-/design-system-3.0.1.tgz",
-      "integrity": "sha512-uOnHd70mrNajFucp24FOII/V0+BFIYi2Fk4mN5GhpVEPUCHrEHjf/8MthcB/q6fpYCKcLHMA+7syvS+fOEmtZQ==",
+      "version": "3.1.0",
+      "resolved": "http://nexus.digital.gov.uk/repository/npm-all/@scottish-government/design-system/-/design-system-3.1.0.tgz",
+      "integrity": "sha512-4GRJ73sWq2XlVLV60RFHcycf82WcI+KDSAndkZ6g9e/Ot/Tv+PcarEnLdzurRAN5a6z0B3LQ1E2QVozMhgRr9A==",
       "dev": true,
       "license": "MIT"
     },
@@ -5105,10 +5105,11 @@
       "dev": true
     },
     "node_modules/sass": {
-      "version": "1.49.11",
-      "resolved": "https://registry.npmjs.org/sass/-/sass-1.49.11.tgz",
-      "integrity": "sha512-wvS/geXgHUGs6A/4ud5BFIWKO1nKd7wYIGimDk4q4GFkJicILActpv9ueMT4eRGSsp1BdKHuw1WwAHXbhsJELQ==",
+      "version": "1.71.1",
+      "resolved": "http://nexus.digital.gov.uk/repository/npm-all/sass/-/sass-1.71.1.tgz",
+      "integrity": "sha512-wovtnV2PxzteLlfNzbgm1tFXPLoZILYAMJtvoXXkD7/+1uP41eKkIt1ypWq5/q2uT94qHjXehEYfmjKOvjL9sg==",
       "dev": true,
+      "license": "MIT",
       "dependencies": {
         "chokidar": ">=3.0.0 <4.0.0",
         "immutable": "^4.0.0",
@@ -5118,7 +5119,7 @@
         "sass": "sass.js"
       },
       "engines": {
-        "node": ">=12.0.0"
+        "node": ">=14.0.0"
       }
     },
     "node_modules/schema-utils": {

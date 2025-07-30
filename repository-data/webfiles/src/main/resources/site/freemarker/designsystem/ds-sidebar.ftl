@@ -7,7 +7,7 @@
 <!--noindex-->
     <div class="ds_layout__sidebar">
         <nav aria-label="Sections" class="ds_side-navigation" data-module="ds-side-navigation">
-        <input type="checkbox" class="fully-hidden  js-toggle-side-navigation" id="show-side-navigation" aria-controls="side-navigation">
+        <input type="checkbox" class="visually-hidden  js-toggle-side-navigation" id="show-side-navigation" aria-controls="side-navigation">
         <label class="ds_side-navigation__expand ds_link fully-hidden" for="show-side-navigation">
             <span class="visually-hidden">Show all</span> Pages in this section <span class="ds_side-navigation__expand-indicator">
             </span>
