@@ -46,7 +46,6 @@ $site-prefix: "ddat_";
 /**
  * COMPONENTS FROM PUBLISHING
  */
-@import "../components/filters";
 @import "../components/form-box";
 @import "../components/image";
 @import "../components/link-major";
@@ -63,10 +62,6 @@ $site-prefix: "ddat_";
 @import "component.datalist";
 @import "component.listing";
 
-/**
- * OVERRIDES
- */
- @import "../overrides/override.link-list";
 
 /**
  * CMS STYLES

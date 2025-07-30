@@ -27,7 +27,7 @@ const confirmDefaultModal = `<div class="modal">
     <div class="modal__overlay"></div>
     <div class="modal__dialog">
 
-        <a href="#" id="js-modal-close" class="modal__close" ds_button  ds_button--icon-only  ds_button--small  ds_button--cancel">
+        <a href="#" id="js-modal-close" class="modal__close" ds_button  ds_button--icon-only  ds_button--small  ds_button--secondary">
             <span class="visually-hidden">Close</span>
             <svg class="ds_icon" aria-hidden="true" role="img"><use href="/assets/images/icons/icons.stack.svg#close"></use></svg>
         </a>
@@ -35,7 +35,7 @@ const confirmDefaultModal = `<div class="modal">
         <h2 class="modal__title">Reset to recommended text?</h2>
         <p class="modal__body">Note: You will lose all of your custom text and will revert to the recommended term provided.</p>
         <button class="ds_no-margin  ds_button  ds_button--small" id="js-modal-continue">Continue</button>
-        <button class="ds_no-margin  ds_button--cancel  ds_button  ds_button--small" id="js-modal-cancel">Cancel</button>
+        <button class="ds_no-margin  ds_button--secondary  ds_button  ds_button--small" id="js-modal-cancel">Cancel</button>
     </div>
 </div>`;
 

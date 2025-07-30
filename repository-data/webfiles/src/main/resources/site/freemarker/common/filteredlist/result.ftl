@@ -8,8 +8,8 @@
         <#if item.image.image?has_content>
     <div class="ds_search-result__has-media">
         <div class="ds_search-result__media-wrapper">
-            <div class="ds_search-result__media  ds_aspect-box  ds_aspect-box--square">
-                <a class="ds_search-result__media-link" aria-hidden="true" href="${link}" tabindex="-1">
+            <a class="ds_search-result__media-link" aria-hidden="true" href="${link}" tabindex="-1">
+                <div class="ds_search-result__media  ds_aspect-box  ds_aspect-box--square">
                 <#if item.image.image.mediumtwocolumnssquare??>
                     <img alt="${item.image.alt}" class="ds_aspect-box__inner" 
                         src="<@hst.link hippobean=item.image.image.mediumtwocolumnssquare />"
@@ -26,8 +26,8 @@
                 <#else>
                     <img loading="lazy" alt="${item.image.alt}" class="ds_aspect-box__inner" src="<@hst.link hippobean=item.image.image/>">
                 </#if>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
         <div>
         </#if>

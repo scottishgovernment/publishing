@@ -13,7 +13,7 @@
             <#list news as newsItem>
                 <li class="ds_link-item">
                 <#if allowImages && showImages>
-                <a href="<@hst.link hippobean=newsItem/>" aria-hidden="true" tabindex="-1">
+                <a class="ds_link-item__image-link" href="<@hst.link hippobean=newsItem/>" aria-hidden="true" tabindex="-1">
                     <div class="ds_aspect-box  ds_link-item__image">
                     <#if newsItem.image.image.xlargeeightcolumnsdoubled?has_content>
                         <img class="ds_aspect-box__inner" alt="${newsItem.image.alt}" src="<@hst.link hippobean=newsItem.image.image.xlargeeightcolumns />"

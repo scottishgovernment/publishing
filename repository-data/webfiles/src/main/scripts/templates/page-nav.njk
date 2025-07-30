@@ -1,6 +1,6 @@
 <div class="ds_button-group">
     {% if prevStep %}
-        <a title="{{prevStep.title}}" id="button-back" href="#!/{{prevStep.section}}/{{prevStep.slug}}/" class="ds_button  ds_button--cancel  ds_button--has-icon  ds_button--has-icon--left  js-validate-step">
+        <a title="{{prevStep.title}}" id="button-back" href="#!/{{prevStep.section}}/{{prevStep.slug}}/" class="ds_button  ds_button--secondary  ds_button--has-icon  ds_button--has-icon--left  js-validate-step">
             <svg class="ds_icon" aria-hidden="true" role="img"><use href="{{ iconsFile }}#chevron_left"></use></svg>
             {% if currentStep.prevButtonText %}{{ currentStep.prevButtonText }}{% else %}Back{% endif %}
         </a>
