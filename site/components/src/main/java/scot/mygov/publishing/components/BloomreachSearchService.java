@@ -46,10 +46,18 @@ public class BloomreachSearchService implements SearchService {
     static String[] NON_PAGE_TYPES = {
             "publishing:analytics",
             "publishing:facebookverification",
-            "publishing:smartanswerquestion",
-            "publishing:smartanswermultiplechoicequestion",
-            "publishing:smartanswerresult",
+
             "publishing:smartanswerconfirmationpage",
+            "publishing:smartanswermultiplechoiceoption",
+            "publishing:smartanswermultiplechoicequestion",
+            "publishing:smartanswermultipleselectoption",
+            "publishing:smartanswermultipleselectquestion",
+            "publishing:smartanswerquestion",
+            "publishing:smartanswerresult",
+            "publishing:smartanswerresultdynamicselector",
+            "publishing:smartanswersingleselectoption",
+            "publishing:smartanswersingleselectquestion",
+
             "publishing:fragment",
             "publishing:mirror",
             "publishing:analytics",
