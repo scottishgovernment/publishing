@@ -17,6 +17,7 @@ import javax.jcr.version.VersionIterator;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.apache.commons.lang3.StringUtils.isEmpty;
 import static scot.mygov.publishing.eventlisteners.EventListerUtil.ensureRefreshFalse;
 import static scot.mygov.publishing.eventlisteners.MirrorEventListener.DEPUBLISH_INTERACTION;
 import static scot.mygov.publishing.eventlisteners.MirrorEventListener.PUBLISH_INTERACTION;
@@ -126,6 +127,10 @@ public class PublicationTypeEventListener {
 
     void updateTypeUsed(Node node, Node site, boolean isUsed) throws RepositoryException {
         String type = publicationType(node);
+        if (isEmpty(type)) {
+            return;
+        }
+
         Node publicationTypesNode = publicationTypesNode(site);
         if (isUsed) {
             publicationTypesNode.setProperty(type, Boolean.toString(isUsed));
