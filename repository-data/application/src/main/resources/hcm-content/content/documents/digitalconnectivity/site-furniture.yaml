@@ -2,30 +2,34 @@
   .meta:order-before: images
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:versionable']
+  jcr:uuid: fe9d1f25-1111-44d9-aaf2-d5feb37b86be
   hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror]
   /footer:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 9ac6d383-1f7a-4a9a-8827-db6adf93abf6
     hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
     /privacy:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 33c18879-e3ff-438d-8913-058d9670cee7
       hippo:name: Privacy
       /privacy:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 24627fc4-1bc5-4b61-bf07-6aad034ebc34
         hippo:availability: [preview]
         hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-12T09:00:00.000+00:00
-        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00.000+00:00
+        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: d064f1e2-d40c-4118-b502-6a691bb2b3d3
         hippotranslation:locale: document-type-locale
         publishing:audience: ''
         publishing:authorNotes: ''
-        publishing:lastUpdatedDate: 2024-01-12T09:00:00.000+00:00
+        publishing:lastUpdatedDate: 2024-01-12T09:00:00Z
         publishing:metaDescription: Privacy
         publishing:permalink: /privacy/
         publishing:reportingtags: []
@@ -53,17 +57,19 @@
     /accessibility:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 604f663f-a17c-4da9-8c75-c50d0a18135f
       hippo:name: Accessibility
       /accessibility:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
-        hippo:name: Accessibility
+        jcr:uuid: 3bb8e419-a381-40ab-b7a0-9970b6e5c679
         hippo:availability: [preview]
+        hippo:name: Accessibility
         hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-12T09:00:00.000+00:00
-        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00.000+00:00
+        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: ec4e0c5c-80a0-44c6-b3d7-fb8785e2b78a
         hippotranslation:locale: document-type-locale
@@ -96,17 +102,19 @@
     /cookies:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: a5b3ee4e-991b-411f-a0bb-1e4270ccc858
       hippo:name: Cookies
       /cookies:
         jcr:primaryType: publishing:cookiepage
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 9ddad527-e74d-43ef-92ee-9cc2b73119ee
         hippo:availability: [preview]
         hippo:name: Cookies
         hippostd:retainable: false
         hippostd:state: unpublished
         hippostdpubwf:createdBy: system
-        hippostdpubwf:creationDate: 2024-01-12T09:00:00.000+00:00
-        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00.000+00:00
+        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
         hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 72f42f19-e461-4fc9-ba90-edabda531893
         hippotranslation:locale: document-type-locale
@@ -142,21 +150,25 @@
   /banners:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:versionable']
+    jcr:uuid: 640a7de4-394b-4868-a6fe-12f72928c50b
     hippo:name: banners
     hippostd:foldertype: [new-mourning-banner, new-notification-banner, new-phase-banner]
   /status:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    jcr:uuid: 0917db88-a85d-4337-9d9e-ca3dc4405813
     hippo:name: Status
     hippostd:foldertype: [new-document, new-folder]
     /404:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: c2eccb42-3ff4-4ab5-9656-91db409ae121
       hippo:name: '404'
       hippo:versionHistory: e21719e6-1ec0-4693-8696-165959df8693
       /404[1]:
         jcr:primaryType: publishing:status
         jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+        jcr:uuid: 56d34326-8752-494b-9a2f-23707c243fd7
         hippo:availability: [preview]
         hippo:name: '404'
         hippostd:retainable: false
@@ -182,6 +194,7 @@
       /404[2]:
         jcr:primaryType: publishing:status
         jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+        jcr:uuid: cef45d06-8f3c-4c99-a637-26e78e77bcad
         hippo:availability: [live]
         hippo:name: '404'
         hippostd:retainable: false
@@ -205,3 +218,127 @@
               hippostd:content: "<p>Sorry, but the page you were trying to view doesn't\
                 \ exist. This could be the result of either:</p><ul> \n <li>a mistyped\
                 \ address</li> \n <li>an out of date link</li> \n</ul>"
+  /search:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    jcr:uuid: 5b738ae8-9ddb-4eca-9596-ff6ff65da6de
+    hippo:name: Search
+    hippostd:foldertype: []
+    /search-results:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 0e2d0635-feb3-4185-93a5-25a114118a3a
+      hippo:name: Search results
+      hippo:versionHistory: 960e0986-7265-441d-8adf-c7dd5bb580d9
+      /search-results[1]:
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 0d915a41-486a-4aa9-9b3d-aad521870580
+        hippo:availability: []
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: migration
+        hippostdpubwf:creationDate: 2021-04-20T02:10:42+01:00
+        hippostdpubwf:lastModificationDate: 2024-01-24T15:28:42.913Z
+        hippostdpubwf:lastModifiedBy: david.kindness@gov.scot
+        hippotranslation:id: 82c8cef5-ac84-4c26-9abf-2e0ebc6624ac
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: Search results
+        /publishing:noResultsMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<p><strong>There are no matching results.</strong></p><p>Improve\
+                \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
+                \ \n <li>using fewer keywords</li> \n <li>searching for something\
+                \ less specific</li> \n</ul>"
+        /publishing:blankSearchQueryMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p><strong>0 results</strong>, please fill in the
+                search field.</p>
+      /search-results[2]:
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 9972cfad-f844-40a9-9604-823bd5817ee6
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: migration
+        hippostdpubwf:creationDate: 2021-04-20T02:10:42+01:00
+        hippostdpubwf:lastModificationDate: 2024-01-24T15:28:51.041Z
+        hippostdpubwf:lastModifiedBy: david.kindness@gov.scot
+        hippotranslation:id: 82c8cef5-ac84-4c26-9abf-2e0ebc6624ac
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: Search results
+        /publishing:blankSearchQueryMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p><strong>0 results</strong>, please fill in the
+                search field.</p>
+        /publishing:noResultsMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<p><strong>There are no matching results.</strong></p><p>Improve\
+                \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
+                \ \n <li>using fewer keywords</li> \n <li>searching for something\
+                \ less specific</li> \n</ul>"
+      /search-results[3]:
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 3da480a5-9a4f-4acd-b76a-5d0042e65e9a
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: migration
+        hippostdpubwf:creationDate: 2021-04-20T02:10:42+01:00
+        hippostdpubwf:lastModificationDate: 2024-01-24T15:28:51.041Z
+        hippostdpubwf:lastModifiedBy: david.kindness@gov.scot
+        hippostdpubwf:publicationDate: 2024-01-24T15:28:54.771Z
+        hippotranslation:id: 82c8cef5-ac84-4c26-9abf-2e0ebc6624ac
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: Search results
+        /publishing:blankSearchQueryMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p><strong>0 results</strong>, please fill in the
+                search field.</p>
+        /publishing:noResultsMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<p><strong>There are no matching results.</strong></p><p>Improve\
+                \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
+                \ \n <li>using fewer keywords</li> \n <li>searching for something\
+                \ less specific</li> \n</ul>"

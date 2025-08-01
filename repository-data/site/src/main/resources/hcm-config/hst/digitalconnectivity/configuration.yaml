@@ -21,6 +21,36 @@ definitions:
           hst:pagetitle: Home page
           hst:refId: root
           hst:relativecontentpath: ''
+        /_search:
+          jcr:primaryType: hst:sitemapitem
+          hst:hiddeninchannelmanager: true
+          hst:sitemapitemhandlerids: [trailing-slash]
+          /funnelback:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/filteredsearchfunnelback
+            hst:relativecontentpath: site-furniture/search/search-results
+            hst:sitemapitemhandlerids: [trailing-slash]
+          /bloomreach:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/filteredsearchbloomreach
+            hst:relativecontentpath: site-furniture/search/search-results
+            hst:sitemapitemhandlerids: [trailing-slash]
+          /resilient:
+            jcr:primaryType: hst:sitemapitem
+            hst:componentconfigurationid: hst:pages/filteredsearchresilient
+            hst:relativecontentpath: site-furniture/search/search-results
+            hst:sitemapitemhandlerids: [trailing-slash]
+        /search:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/filteredsearchresilient
+          hst:hiddeninchannelmanager: true
+          hst:relativecontentpath: site-furniture/search/search-results
+          hst:sitemapitemhandlerids: [trailing-slash]
+          /suggestions:
+            jcr:primaryType: hst:sitemapitem
+            hst:excludedforlinkrewriting: true
+            hst:hiddeninchannelmanager: true
+            hst:namedpipeline: JaxrsRestPlainPipeline
       /hst:sitemenus:
         jcr:primaryType: hst:sitemenus
       /hst:templates:

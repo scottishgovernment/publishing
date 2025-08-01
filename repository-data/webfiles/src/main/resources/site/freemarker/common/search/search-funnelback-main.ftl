@@ -26,11 +26,17 @@
                 <#include 'include/search.ftl'/>
             </div>
 
+            <#if document.showFilters??>
+                <div class="ds_layout__sidebar">
+                    <@hst.include ref="side-filter"/>
+                </div>
+            </#if>
+
             <div id="search-results" class="ds_layout__list  ds_search-results">
                 <@hst.include ref="results"/>
             </div>
-
             <@hst.include ref="feedback"/>
+
         </main>
     </div>
 </div>
