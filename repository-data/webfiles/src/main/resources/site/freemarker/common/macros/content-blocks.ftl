@@ -106,6 +106,21 @@
                             <#case "image">
                                 <#assign fileThumbnailPath = '/assets/images/documents/svg/image.svg' />
                                 <#break>
+                            <#case "odf">
+                                <#assign fileThumbnailPath = '/assets/images/documents/svg/odf.svg' />
+                                <#break>
+                            <#case "odg">
+                                <#assign fileThumbnailPath = '/assets/images/documents/svg/odg.svg' />
+                                <#break>
+                            <#case "odp">
+                                <#assign fileThumbnailPath = '/assets/images/documents/svg/odp.svg' />
+                                <#break>
+                            <#case "ods">
+                                <#assign fileThumbnailPath = '/assets/images/documents/svg/ods.svg' />
+                                <#break>
+                            <#case "odt">
+                                <#assign fileThumbnailPath = '/assets/images/documents/svg/odt.svg' />
+                                <#break>
                             <#case "pdf">
                                 <#assign fileThumbnailPath = '/assets/images/documents/svg/pdf.svg' />
                                 <#break>
@@ -386,6 +401,26 @@
                 <#case "xsd">
                     <#assign fileDescription = "${filenameExtension} file" />
                     <#assign fileThumbnailPath = '/assets/images/documents/svg/xml.svg' />
+                    <#break>
+                <#case "odf">
+                    <#assign fileDescription = "OpenDocument formulas" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/odf.svg' />
+                    <#break>
+                <#case "odg">
+                    <#assign fileDescription = "OpenDocument graphics" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/odg.svg' />
+                    <#break>
+                <#case "odp">
+                    <#assign fileDescription = "OpenDocument presentation" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/odp.svg' />
+                    <#break>
+                <#case "ods">
+                    <#assign fileDescription = "OpenDocument spreadsheet" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/ods.svg' />
+                    <#break>
+                <#case "odt">
+                    <#assign fileDescription = "OpenDocument text" />
+                    <#assign fileThumbnailPath = '/assets/images/documents/svg/odt.svg' />
                     <#break>
                 <#default>
                     <#assign fileDescription = "${filenameExtension} file" />

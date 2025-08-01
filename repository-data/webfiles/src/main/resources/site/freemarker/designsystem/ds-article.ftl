@@ -151,7 +151,7 @@
                             <!-- end figure block -->
                         </#if>
 
-                        <#if hst.isNodeType(contentblock.node, 'publishing:dsattachmentblock')>
+                        <#if hst.isNodeType(contentblock.node, 'publishing:dsattachmentblock') || hst.isNodeType(contentblock.node, 'publishing:cb_fileDownload')>
                             <!-- attachment block -->
 
                             <#if contentblock.external?has_content>
@@ -182,6 +182,21 @@
                                                 <#break>
                                             <#case "image">
                                                 <#assign fileThumbnailPath = '/assets/images/documents/svg/image.svg' />
+                                                <#break>
+                                            <#case "odf">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/odf.svg' />
+                                                <#break>
+                                            <#case "odg">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/odg.svg' />
+                                                <#break>
+                                            <#case "odp">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/odp.svg' />
+                                                <#break>
+                                            <#case "ods">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/ods.svg' />
+                                                <#break>
+                                            <#case "odt">
+                                                <#assign fileThumbnailPath = '/assets/images/documents/svg/odt.svg' />
                                                 <#break>
                                             <#case "pdf">
                                                 <#assign fileThumbnailPath = '/assets/images/documents/svg/pdf.svg' />
