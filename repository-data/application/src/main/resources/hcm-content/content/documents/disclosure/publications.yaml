@@ -11,28 +11,178 @@
       hippostd:foldertype: [new-publication-document]
       /pub:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 646ff0e7-d92f-4de2-b0bc-1544e95b122e
-        /pub:
+        hippo:versionHistory: bd42af96-aae5-4701-9c49-7d7769ab6eb6
+        /pub[1]:
           jcr:primaryType: publishing:Publication
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: f0a19954-9a61-45f7-9e65-865f3142c575
           hippo:availability: []
-          hippostd:holder: admin
+          hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-06-05T14:28:18.199+01:00
-          hippostdpubwf:lastModificationDate: 2025-06-05T14:28:18.200+01:00
+          hippostdpubwf:lastModificationDate: 2025-08-04T08:52:37.164+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: d7b1033b-832e-4f8e-b8d1-fbffb8ea25be
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
           publishing:contentitemlanguage: en
-          publishing:metaDescription: ''
-          publishing:publicationDate: 0001-01-01T12:00:00Z
-          publishing:publicationType: ''
-          publishing:seoTitle: ''
+          publishing:metaDescription: qwe
+          publishing:publicationDate: 2025-08-04T08:44:00+01:00
+          publishing:publicationType: typeone
+          publishing:seoTitle: qwe
           publishing:showFeedback: false
-          publishing:summary: ''
-          publishing:title: ''
-          publishing:topics: ['']
+          publishing:summary: qwe
+          publishing:title: one
+          publishing:topics: [topics1]
+        /pub[2]:
+          jcr:primaryType: publishing:Publication
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 5d5caa49-2f3c-4c34-b2ab-aaeee8e79937
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-05T14:28:18.199+01:00
+          hippostdpubwf:lastModificationDate: 2025-08-04T08:52:42.237+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: d7b1033b-832e-4f8e-b8d1-fbffb8ea25be
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:contentitemlanguage: en
+          publishing:metaDescription: qwe
+          publishing:publicationDate: 2025-08-04T08:44:00+01:00
+          publishing:publicationType: typeone
+          publishing:seoTitle: qwe
+          publishing:showFeedback: false
+          publishing:summary: qwe
+          publishing:title: one
+          publishing:topics: [topics1]
+        /pub[3]:
+          jcr:primaryType: publishing:Publication
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 66c4730d-996d-4e08-8223-bb22b3df660f
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-05T14:28:18.199+01:00
+          hippostdpubwf:lastModificationDate: 2025-08-04T08:52:42.237+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-08-04T08:52:45.500+01:00
+          hippostdpubwf:publishedBy: admin
+          hippotranslation:id: d7b1033b-832e-4f8e-b8d1-fbffb8ea25be
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:contentitemlanguage: en
+          publishing:metaDescription: qwe
+          publishing:publicationDate: 2025-08-04T08:44:00+01:00
+          publishing:publicationType: typeone
+          publishing:seoTitle: qwe
+          publishing:showFeedback: false
+          publishing:summary: qwe
+          publishing:title: one
+          publishing:topics: [topics1]
+  /index:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 4415a623-cd01-4047-9ff6-6f2c5ecd90cd
+    hippo:name: Publications
+    hippo:versionHistory: 6a9e97ce-ceaa-420b-95e8-7a0354828852
+    /index[1]:
+      jcr:primaryType: publishing:LandingPage
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 3ee5bfb9-25d2-42fd-8e5d-98490989f2f4
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-08-04T08:36:23.065+01:00
+      hippostdpubwf:lastModificationDate: 2025-08-04T08:36:23.065+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b1023d9a-3b5b-4a7b-b5eb-4d0c5aa5ebc0
+      hippotranslation:locale: document-type-locale
+      publishing:showFeedback: true
+      publishing:showTopics: true
+      publishing:title: Publications
+      /publishing:noResultsMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+
+            <p>Improve your search results by:</p>
+
+            <ul>
+             <li>double-checking your spelling</li>
+             <li>using fewer keywords</li>
+             <li>searching for something less specific</li>
+            </ul>
+    /index[2]:
+      jcr:primaryType: publishing:LandingPage
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: d7035f24-8476-4f8a-8d7f-f6bf35de635f
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-08-04T08:36:23.065+01:00
+      hippostdpubwf:lastModificationDate: 2025-08-04T08:36:27.882+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b1023d9a-3b5b-4a7b-b5eb-4d0c5aa5ebc0
+      hippotranslation:locale: document-type-locale
+      publishing:showFeedback: true
+      publishing:showTopics: true
+      publishing:title: Publications
+      /publishing:noResultsMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+
+            <p>Improve your search results by:</p>
+
+            <ul>
+             <li>double-checking your spelling</li>
+             <li>using fewer keywords</li>
+             <li>searching for something less specific</li>
+            </ul>
+    /index[3]:
+      jcr:primaryType: publishing:LandingPage
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 180afba3-7824-4fb2-9313-b7c9ff7f7c13
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-08-04T08:36:23.065+01:00
+      hippostdpubwf:lastModificationDate: 2025-08-04T08:36:27.882+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-08-04T08:36:30.948+01:00
+      hippostdpubwf:publishedBy: admin
+      hippotranslation:id: b1023d9a-3b5b-4a7b-b5eb-4d0c5aa5ebc0
+      hippotranslation:locale: document-type-locale
+      publishing:showFeedback: true
+      publishing:showTopics: true
+      publishing:title: Publications
+      /publishing:noResultsMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+
+            <p>Improve your search results by:</p>
+
+            <ul>
+             <li>double-checking your spelling</li>
+             <li>using fewer keywords</li>
+             <li>searching for something less specific</li>
+            </ul>

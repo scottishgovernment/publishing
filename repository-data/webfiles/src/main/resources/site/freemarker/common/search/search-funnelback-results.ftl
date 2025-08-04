@@ -1,6 +1,6 @@
 <#ftl output_format="HTML">
-<#include "include/imports.ftl">
-<#include "macros/content-blocks.ftl">
+<#include "../include/imports.ftl">
+<#include "../macros/content-blocks.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <#setting url_escaping_charset='utf-8'>
 <#macro highlightSearchTerm text>
