@@ -43,6 +43,9 @@
 [publishing:Publication] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
+[publishing:PublicationPage] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:PublishingDocument] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
@@ -272,3 +275,4 @@
 
 [publishing:video] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
+
