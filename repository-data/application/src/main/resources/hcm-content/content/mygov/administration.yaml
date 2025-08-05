@@ -2,7 +2,658 @@
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
   jcr:uuid: c5fe3727-5e10-4962-a719-d700ecaa1a7d
-  hippostd:foldertype: [new-searchsettings-document, new-recaptcha-folder]
+  hippostd:foldertype: [new-searchsettings-document, new-recaptcha-folder, new-siteverification-document]
+  /robots:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 691c143a-8dfb-42cb-b759-0e58445feb7a
+    hippo:versionHistory: da8e1eac-b0b3-4e41-83e1-beca7f83edb9
+    /robots[1]:
+      jcr:primaryType: robotstxt:robotstxt
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: f32f6afd-1b3e-49eb-a495-14c24f26502e
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
+      hippostdpubwf:lastModificationDate: 2019-10-11T09:40:22.420+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2019-10-11T09:46:41.149+01:00
+      robotstxt:sitemap: ['https://www.mygov.scot/sitemap.xml']
+      /robotstxt:section:
+        jcr:primaryType: robotstxt:section
+        robotstxt:disallow: []
+        robotstxt:useragent: '*'
+    /robots[2]:
+      jcr:primaryType: robotstxt:robotstxt
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 93b5238f-86d4-4d3d-aaca-5060b3ef7355
+      hippo:availability: [preview]
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
+      hippostdpubwf:lastModificationDate: 2019-10-11T09:40:22.420+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      robotstxt:sitemap: ['https://www.mygov.scot/sitemap.xml']
+      /robotstxt:section:
+        jcr:primaryType: robotstxt:section
+        robotstxt:disallow: []
+        robotstxt:useragent: '*'
+    /robots[3]:
+      jcr:primaryType: robotstxt:robotstxt
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 52d4790e-d383-431a-9fba-5a0fb8cad350
+      hippo:availability: []
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
+      hippostdpubwf:lastModificationDate: 2019-10-11T09:46:59.046+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      robotstxt:sitemap: ['https://www.mygov.scot/sitemap.xml']
+      /robotstxt:section:
+        jcr:primaryType: robotstxt:section
+        robotstxt:disallow: []
+        robotstxt:useragent: '*'
+  /contacts:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['mix:versionable']
+    jcr:uuid: 3e997f50-7f3d-4912-b4a2-5a10f76b1779
+    hippostd:foldertype: [new-publishing-contact-folder, new-publishing-contentcontact]
+    /aib.gov.uk:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 5ae59e25-afe1-4b31-9633-ddfd42e0da99
+      hippostd:foldertype: [new-publishing-contact-folder, new-publishing-contentcontact]
+      /allan-holmes:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: eed2a2eb-0148-48a1-9a16-c2af373b4d47
+        hippo:name: Allan Holmes
+        hippo:versionHistory: 91165a9f-3b6c-45a8-b062-72eaa1c72004
+        /allan-holmes[1]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 8aba2d2b-de21-4b55-bcdc-ef610b3038e1
+          hippo:availability: []
+          hippo:name: Allan Holmes
+          hippostd:state: draft
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:17.856+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:17.856+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: 01049b4c-b05c-4a91-9d5a-0f9975a6d6c6
+          hippotranslation:locale: document-type-locale
+          publishing:email: allan.holmes@aib.gov.uk
+          publishing:name: Allan Holmes
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /allan-holmes[2]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 137363a7-ff09-4dfa-b9f7-b853abb1d9a2
+          hippo:availability: [preview]
+          hippo:name: Allan Holmes
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:17.856+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:18.029+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: 01049b4c-b05c-4a91-9d5a-0f9975a6d6c6
+          hippotranslation:locale: document-type-locale
+          publishing:email: allan.holmes@aib.gov.uk
+          publishing:name: Allan Holmes
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /allan-holmes[3]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 7b89250c-7577-4f38-a560-63395a5614b3
+          hippo:availability: [live]
+          hippo:name: Allan Holmes
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:17.856+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:18.029+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2020-08-17T07:16:18.153+01:00
+          hippotranslation:id: 01049b4c-b05c-4a91-9d5a-0f9975a6d6c6
+          hippotranslation:locale: document-type-locale
+          publishing:email: allan.holmes@aib.gov.uk
+          publishing:name: Allan Holmes
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+      /carol-kirk:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 6942f7d3-be0c-4bc7-9f8f-f6a639b604f8
+        hippo:name: Carol Kirk
+        hippo:versionHistory: 4b099390-f6d5-4e7e-b368-59bb5a6a21ba
+        /carol-kirk[1]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 136aed28-bdba-47c5-b2c4-5046a63a3dd5
+          hippo:availability: []
+          hippo:name: Carol Kirk
+          hippostd:state: draft
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:18.392+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:18.392+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: 7ab4d994-0228-49e9-a4cd-739d717fb047
+          hippotranslation:locale: document-type-locale
+          publishing:email: carol.kirk@aib.gov.uk
+          publishing:name: Carol Kirk
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /carol-kirk[2]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 7261cb78-5481-4354-a4e5-6ddec39f76a0
+          hippo:availability: [preview]
+          hippo:name: Carol Kirk
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:18.392+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:18.584+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: 7ab4d994-0228-49e9-a4cd-739d717fb047
+          hippotranslation:locale: document-type-locale
+          publishing:email: carol.kirk@aib.gov.uk
+          publishing:name: Carol Kirk
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /carol-kirk[3]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: a69426b5-4c5c-41ae-a5f5-7c20f1c9b547
+          hippo:availability: [live]
+          hippo:name: Carol Kirk
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:18.392+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:18.584+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2020-08-17T07:16:18.710+01:00
+          hippotranslation:id: 7ab4d994-0228-49e9-a4cd-739d717fb047
+          hippotranslation:locale: document-type-locale
+          publishing:email: carol.kirk@aib.gov.uk
+          publishing:name: Carol Kirk
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+      /david-farr:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 4867b38c-5573-4769-a2bb-8896011ba2c3
+        hippo:name: David Farr
+        hippo:versionHistory: 73e8ba0c-3a0c-4a15-bad1-5f95c0aa5e9a
+        /david-farr[1]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: b362815b-052b-42b7-a0b2-24981a40487d
+          hippo:availability: []
+          hippo:name: David Farr
+          hippostd:state: draft
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:18.943+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:18.943+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: d4d9df03-1fac-4ec5-83dc-9fc0bb685644
+          hippotranslation:locale: document-type-locale
+          publishing:email: david.farr@aib.gov.uk
+          publishing:name: David Farr
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /david-farr[2]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 03e86d07-a180-41c8-865b-3508a7e1d97f
+          hippo:availability: [preview]
+          hippo:name: David Farr
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:18.943+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:19.178+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: d4d9df03-1fac-4ec5-83dc-9fc0bb685644
+          hippotranslation:locale: document-type-locale
+          publishing:email: david.farr@aib.gov.uk
+          publishing:name: David Farr
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /david-farr[3]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: a6f1f1ea-e778-499d-a832-bbcabe21314a
+          hippo:availability: [live]
+          hippo:name: David Farr
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:18.943+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:19.178+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2020-08-17T07:16:19.289+01:00
+          hippotranslation:id: d4d9df03-1fac-4ec5-83dc-9fc0bb685644
+          hippotranslation:locale: document-type-locale
+          publishing:email: david.farr@aib.gov.uk
+          publishing:name: David Farr
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+      /gavin-cameron:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 583692e0-aa7c-4248-ab40-5d90aad39a64
+        hippo:name: Gavin Cameron
+        hippo:versionHistory: 2f90d9b9-6305-41a5-8316-b5f0feeaac06
+        /gavin-cameron[1]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 65c3c22e-26c3-4898-bb37-52545c8815a9
+          hippo:availability: []
+          hippo:name: Gavin Cameron
+          hippostd:state: draft
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:19.503+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:19.503+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: f14bdeea-1e6f-4b81-8493-346247b91091
+          hippotranslation:locale: document-type-locale
+          publishing:email: gavin.cameron@aib.gov.uk
+          publishing:name: Gavin Cameron
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /gavin-cameron[2]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: a7ad5e9c-3344-4084-bf29-fe11259e5f56
+          hippo:availability: [preview]
+          hippo:name: Gavin Cameron
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:19.503+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:19.702+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: f14bdeea-1e6f-4b81-8493-346247b91091
+          hippotranslation:locale: document-type-locale
+          publishing:email: gavin.cameron@aib.gov.uk
+          publishing:name: Gavin Cameron
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /gavin-cameron[3]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 336bddf7-aa1a-4637-9f67-74264f245b2b
+          hippo:availability: [live]
+          hippo:name: Gavin Cameron
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:19.503+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:19.702+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2020-08-17T07:16:19.840+01:00
+          hippotranslation:id: f14bdeea-1e6f-4b81-8493-346247b91091
+          hippotranslation:locale: document-type-locale
+          publishing:email: gavin.cameron@aib.gov.uk
+          publishing:name: Gavin Cameron
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+      /lisa-ledinghampark:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: a4e0fb76-fcc5-4372-84e7-005169e7baf1
+        hippo:name: Lisa Ledinghampark
+        hippo:versionHistory: 8af52dda-9d86-441d-a5f5-a5a12e901f54
+        /lisa-ledinghampark[1]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 840d099a-043d-4db2-8fa2-769695d6dc16
+          hippo:availability: []
+          hippo:name: Lisa Ledinghampark
+          hippostd:state: draft
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:20.054+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:20.054+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: fad2ca5e-c1cb-4947-a008-9c858ec3669e
+          hippotranslation:locale: document-type-locale
+          publishing:email: lisa.ledinghampark@aib.gov.uk
+          publishing:name: Lisa Ledinghampark
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /lisa-ledinghampark[2]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: cca719ba-752c-4cdf-95c7-2de98609d0cf
+          hippo:availability: [preview]
+          hippo:name: Lisa Ledinghampark
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:20.054+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:20.249+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: fad2ca5e-c1cb-4947-a008-9c858ec3669e
+          hippotranslation:locale: document-type-locale
+          publishing:email: lisa.ledinghampark@aib.gov.uk
+          publishing:name: Lisa Ledinghampark
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /lisa-ledinghampark[3]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 8dda1c8c-7091-49ff-8552-1a354a83ae7b
+          hippo:availability: [live]
+          hippo:name: Lisa Ledinghampark
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:20.054+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:20.249+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2020-08-17T07:16:20.372+01:00
+          hippotranslation:id: fad2ca5e-c1cb-4947-a008-9c858ec3669e
+          hippotranslation:locale: document-type-locale
+          publishing:email: lisa.ledinghampark@aib.gov.uk
+          publishing:name: Lisa Ledinghampark
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+      /suzan-gunn:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: c1253b15-877a-49eb-9196-27ff62d16f0b
+        hippo:name: Suzan Gunn
+        hippo:versionHistory: c0d0ab51-3f2d-42aa-92a2-b70624a192a0
+        /suzan-gunn[1]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 3a20fae7-35f4-49be-9b9e-02430c71a6fd
+          hippo:availability: []
+          hippo:name: Suzan Gunn
+          hippostd:state: draft
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:20.607+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:20.608+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: 7070a007-baf2-4532-afba-43bc8f2a70eb
+          hippotranslation:locale: document-type-locale
+          publishing:email: suzan.gunn@aib.gov.uk
+          publishing:name: Suzan Gunn
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /suzan-gunn[2]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 59da9a4c-83ad-4aa7-8b47-0a7c561ec0c1
+          hippo:availability: [preview]
+          hippo:name: Suzan Gunn
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:20.607+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:20.803+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: 7070a007-baf2-4532-afba-43bc8f2a70eb
+          hippotranslation:locale: document-type-locale
+          publishing:email: suzan.gunn@aib.gov.uk
+          publishing:name: Suzan Gunn
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /suzan-gunn[3]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 1550d078-cc17-4a82-aae5-064c67c0bd88
+          hippo:availability: [live]
+          hippo:name: Suzan Gunn
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:20.607+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:20.803+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2020-08-17T07:16:20.933+01:00
+          hippotranslation:id: 7070a007-baf2-4532-afba-43bc8f2a70eb
+          hippotranslation:locale: document-type-locale
+          publishing:email: suzan.gunn@aib.gov.uk
+          publishing:name: Suzan Gunn
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+    /aib.gsi.gov.uk:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 61d9d7e6-1b2e-4808-8354-d8ad0467c587
+      hippostd:foldertype: [new-publishing-contact-folder, new-publishing-contentcontact]
+      /erin-mccreadie:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: d060e16d-917d-4a9f-9b1a-9d3bfc0feba0
+        hippo:name: Erin Mccreadie
+        hippo:versionHistory: 57b7f54a-3cd6-4b28-b71b-01495d40a4f7
+        /erin-mccreadie[1]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 14731644-bbba-41a4-b00b-17f926436b7c
+          hippo:availability: []
+          hippo:name: Erin Mccreadie
+          hippostd:state: draft
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:21.495+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:21.495+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: 6a17c32f-8270-4e29-9282-1696c3df6e05
+          hippotranslation:locale: document-type-locale
+          publishing:email: erin.mccreadie@aib.gsi.gov.uk
+          publishing:name: Erin Mccreadie
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /erin-mccreadie[2]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 5665bd80-eb6c-45a7-87bf-17e15a547753
+          hippo:availability: [preview]
+          hippo:name: Erin Mccreadie
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:21.495+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:21.674+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippotranslation:id: 6a17c32f-8270-4e29-9282-1696c3df6e05
+          hippotranslation:locale: document-type-locale
+          publishing:email: erin.mccreadie@aib.gsi.gov.uk
+          publishing:name: Erin Mccreadie
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /erin-mccreadie[3]:
+          jcr:primaryType: publishing:contentcontact
+          jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+          jcr:uuid: 0ef82901-ddcd-46fb-ac42-52b14f3ed4b6
+          hippo:availability: [live]
+          hippo:name: Erin Mccreadie
+          hippostd:state: published
+          hippostdpubwf:createdBy: system
+          hippostdpubwf:creationDate: 2020-08-17T07:16:21.495+01:00
+          hippostdpubwf:lastModificationDate: 2020-08-17T07:16:21.674+01:00
+          hippostdpubwf:lastModifiedBy: system
+          hippostdpubwf:publicationDate: 2020-08-17T07:16:21.797+01:00
+          hippotranslation:id: 6a17c32f-8270-4e29-9282-1696c3df6e05
+          hippotranslation:locale: document-type-locale
+          publishing:email: erin.mccreadie@aib.gsi.gov.uk
+          publishing:name: Erin Mccreadie
+          publishing:notes: ''
+          publishing:phone: ''
+          /publishing:notes:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+  /analytics:
+    jcr:primaryType: hippostd:folder
+    /dev:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: e10cdada-2644-4a81-9fb5-8b341aa41837
+      hippo:versionHistory: cf3567e2-4823-4011-b341-cb3cdce711a2
+      /dev[1]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: a1ee95dc-c769-4c9d-8c4d-283ddb319e8d
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2020-04-02T16:05:42.318+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+        hippotranslation:locale: document-type-locale
+        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+        publishing:containerid: ''
+        publishing:env: '2'
+        publishing:notes: ''
+        publishing:plausibleAnalyticsDomains: [dev.www.mygov.scot]
+      /dev[2]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: cbb93220-cdb4-45c6-938d-0756b7551f72
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+        hippotranslation:locale: document-type-locale
+        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+        publishing:containerid: ''
+        publishing:env: '2'
+        publishing:notes: ''
+        publishing:plausibleAnalyticsDomains: [dev.www.mygov.scot]
+      /dev[3]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 9250faa5-cccd-49e8-a52a-5f2dbe66d3e8
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
+        hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-04-02T16:05:40.816+01:00
+        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+        hippotranslation:locale: document-type-locale
+        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+        publishing:containerid: ''
+        publishing:env: '2'
+        publishing:notes: ''
+        publishing:plausibleAnalyticsDomains: [dev.www.mygov.scot]
+    /live:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 5c55f79c-a910-4c35-85e7-ec7499c2b0fe
+      hippo:versionHistory: a48db8c8-ebf6-458a-b7f2-399dabe17913
+      /live[1]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: ec3a33cc-44e6-4c2a-8451-f7ea84e6a325
+        hippo:availability: []
+        hippostd:state: draft
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
+        hippostdpubwf:lastModificationDate: 2020-03-18T10:26:40.070Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+        hippotranslation:locale: document-type-locale
+        publishing:auth: ''
+        publishing:containerid: ''
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
+        publishing:plausibleAnalyticsDomains: [www.mygov.scot]
+      /live[2]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: d41d1a92-0ae4-4c17-9ba8-16173f4f4dd9
+        hippo:availability: [preview]
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
+        hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+        hippotranslation:locale: document-type-locale
+        publishing:auth: ''
+        publishing:containerid: ''
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
+        publishing:plausibleAnalyticsDomains: [www.mygov.scot]
+      /live[3]:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: f621fb3c-9884-4438-b7ba-458cf61acb33
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
+        hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2020-03-18T10:27:34.378Z
+        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+        hippotranslation:locale: document-type-locale
+        publishing:auth: ''
+        publishing:containerid: ''
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
+        publishing:plausibleAnalyticsDomains: [www.mygov.scot]
   /search-settings:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -169,191 +820,3 @@
         hippotranslation:locale: inherited locale
         publishing:enabled: true
         publishing:sitekey: 6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV
-  /performance:
-    jcr:primaryType: hippostd:folder
-    jcr:mixinTypes: ['mix:versionable']
-    jcr:uuid: 6a2ec61d-7cb3-4f98-b789-64dfb657a3f1
-    hippostd:foldertype: [new-siteverification-document]
-    /siteverification:
-      jcr:primaryType: hippostd:folder
-      jcr:mixinTypes: ['mix:versionable']
-      jcr:uuid: f2a28fed-4d55-4613-a42c-4790f2a3e37a
-      hippostd:foldertype: [new-siteverification-document]
-    /analytics:
-      jcr:primaryType: hippostd:folder
-      /dev:
-        jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: e10cdada-2644-4a81-9fb5-8b341aa41837
-        hippo:versionHistory: cf3567e2-4823-4011-b341-cb3cdce711a2
-        /dev[1]:
-          jcr:primaryType: publishing:analytics
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: a1ee95dc-c769-4c9d-8c4d-283ddb319e8d
-          hippo:availability: []
-          hippostd:state: draft
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
-          hippostdpubwf:lastModificationDate: 2020-04-02T16:05:42.318+01:00
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
-          hippotranslation:locale: document-type-locale
-          publishing:auth: DxwtOU_tpyLiqCMda2mJCg
-          publishing:containerid: ''
-          publishing:env: '2'
-          publishing:notes: ''
-          publishing:plausibleAnalyticsDomains: [dev.www.mygov.scot]
-        /dev[2]:
-          jcr:primaryType: publishing:analytics
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-          jcr:uuid: cbb93220-cdb4-45c6-938d-0756b7551f72
-          hippo:availability: [preview]
-          hippostd:state: unpublished
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
-          hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
-          hippotranslation:locale: document-type-locale
-          publishing:auth: DxwtOU_tpyLiqCMda2mJCg
-          publishing:containerid: ''
-          publishing:env: '2'
-          publishing:notes: ''
-          publishing:plausibleAnalyticsDomains: [dev.www.mygov.scot]
-        /dev[3]:
-          jcr:primaryType: publishing:analytics
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 9250faa5-cccd-49e8-a52a-5f2dbe66d3e8
-          hippo:availability: [live]
-          hippostd:state: published
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
-          hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-04-02T16:05:40.816+01:00
-          hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
-          hippotranslation:locale: document-type-locale
-          publishing:auth: DxwtOU_tpyLiqCMda2mJCg
-          publishing:containerid: ''
-          publishing:env: '2'
-          publishing:notes: ''
-          publishing:plausibleAnalyticsDomains: [dev.www.mygov.scot]
-      /live:
-        jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: 5c55f79c-a910-4c35-85e7-ec7499c2b0fe
-        hippo:versionHistory: a48db8c8-ebf6-458a-b7f2-399dabe17913
-        /live[1]:
-          jcr:primaryType: publishing:analytics
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: ec3a33cc-44e6-4c2a-8451-f7ea84e6a325
-          hippo:availability: []
-          hippostd:state: draft
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
-          hippostdpubwf:lastModificationDate: 2020-03-18T10:26:40.070Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
-          hippotranslation:locale: document-type-locale
-          publishing:auth: ''
-          publishing:containerid: ''
-          publishing:env: ''
-          publishing:notes: For live we do not include the env or auth in the url.
-          publishing:plausibleAnalyticsDomains: [www.mygov.scot]
-        /live[2]:
-          jcr:primaryType: publishing:analytics
-          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-          jcr:uuid: d41d1a92-0ae4-4c17-9ba8-16173f4f4dd9
-          hippo:availability: [preview]
-          hippostd:state: unpublished
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
-          hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
-          hippotranslation:locale: document-type-locale
-          publishing:auth: ''
-          publishing:containerid: ''
-          publishing:env: ''
-          publishing:notes: For live we do not include the env or auth in the url.
-          publishing:plausibleAnalyticsDomains: [www.mygov.scot]
-        /live[3]:
-          jcr:primaryType: publishing:analytics
-          jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: f621fb3c-9884-4438-b7ba-458cf61acb33
-          hippo:availability: [live]
-          hippostd:state: published
-          hippostdpubwf:createdBy: admin
-          hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
-          hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
-          hippostdpubwf:lastModifiedBy: admin
-          hippostdpubwf:publicationDate: 2020-03-18T10:27:34.378Z
-          hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
-          hippotranslation:locale: document-type-locale
-          publishing:auth: ''
-          publishing:containerid: ''
-          publishing:env: ''
-          publishing:notes: For live we do not include the env or auth in the url.
-          publishing:plausibleAnalyticsDomains: [www.mygov.scot]
-    /robots:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 691c143a-8dfb-42cb-b759-0e58445feb7a
-      hippo:versionHistory: da8e1eac-b0b3-4e41-83e1-beca7f83edb9
-      /robots[1]:
-        jcr:primaryType: robotstxt:robotstxt
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: f32f6afd-1b3e-49eb-a495-14c24f26502e
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
-        hippostdpubwf:lastModificationDate: 2019-10-11T09:40:22.420+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2019-10-11T09:46:41.149+01:00
-        robotstxt:sitemap: ['https://www.mygov.scot/sitemap.xml']
-        /robotstxt:section:
-          jcr:primaryType: robotstxt:section
-          robotstxt:disallow: []
-          robotstxt:useragent: '*'
-      /robots[2]:
-        jcr:primaryType: robotstxt:robotstxt
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: 93b5238f-86d4-4d3d-aaca-5060b3ef7355
-        hippo:availability: [preview]
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
-        hippostdpubwf:lastModificationDate: 2019-10-11T09:40:22.420+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        robotstxt:sitemap: ['https://www.mygov.scot/sitemap.xml']
-        /robotstxt:section:
-          jcr:primaryType: robotstxt:section
-          robotstxt:disallow: []
-          robotstxt:useragent: '*'
-      /robots[3]:
-        jcr:primaryType: robotstxt:robotstxt
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 52d4790e-d383-431a-9fba-5a0fb8cad350
-        hippo:availability: []
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
-        hippostdpubwf:lastModificationDate: 2019-10-11T09:46:59.046+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        robotstxt:sitemap: ['https://www.mygov.scot/sitemap.xml']
-        /robotstxt:section:
-          jcr:primaryType: robotstxt:section
-          robotstxt:disallow: []
-          robotstxt:useragent: '*'
-  /topics:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 368d21d8-c59c-41cb-b47f-571d638b4c7d
-    /topics:
-      jcr:primaryType: selection:valuelist
-      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: de0c9690-79ae-4f7a-98a6-95c9755be236
-      hippo:availability: [live, preview]
-      hippotranslation:id: 08b8edcb-577b-4f12-be0a-97ffca6b4b85
-      hippotranslation:locale: inherited - from query

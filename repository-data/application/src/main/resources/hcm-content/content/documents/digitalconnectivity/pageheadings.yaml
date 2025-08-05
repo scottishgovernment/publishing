@@ -6,13 +6,11 @@
   /home-page:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 6487d863-45d0-4bed-91dd-d2e798d56a6a
     hippo:name: Home page
     hippo:versionHistory: dbe06e6c-342d-4993-b04a-4a3aa23a51d1
     /home-page:
       jcr:primaryType: publishing:pageheading
       jcr:mixinTypes: ['mix:versionable']
-      jcr:uuid: 2d80d1cb-2854-4c15-902c-42b2dbcea657
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished
