@@ -6,6 +6,11 @@
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
     hippo:name: Performance
+    hippostd:foldertype: []
+    /siteverification:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: [ 'mix:versionable' ]
+      hippostd:foldertype: [ new-siteverification-document ]
     /robots:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
