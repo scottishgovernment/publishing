@@ -2,7 +2,7 @@
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
   jcr:uuid: 70270db4-29e7-4004-a1bc-8e39abe47bfc
-  hippostd:foldertype: [new-searchsettings-document, new-recaptcha-folder]
+  hippostd:foldertype: [new-valuelist, new-searchsettings-document]
   /search-settings:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -173,7 +173,7 @@
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
     jcr:uuid: a366b95d-c9b8-483c-8887-681c20b76209
-    hippostd:foldertype: [new-siteverification-document]
+    hippostd:foldertype: []
     /siteverification:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['mix:versionable']
@@ -181,6 +181,7 @@
       hippostd:foldertype: [new-siteverification-document]
     /analytics:
       jcr:primaryType: hippostd:folder
+      hippostd:foldertype: ['']
       /dev:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']

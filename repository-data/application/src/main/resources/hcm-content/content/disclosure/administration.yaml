@@ -2,7 +2,7 @@
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
   jcr:uuid: 540cb059-f5d8-493e-9ba5-7cbc400444bc
-  hippostd:foldertype: [new-searchsettings-document, new-recaptcha-folder]
+  hippostd:foldertype: [new-valuelist, new-searchsettings-document]
   /search-settings:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -173,7 +173,7 @@
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
     jcr:uuid: a20951cf-9c14-48ff-9684-61254c0efd16
-    hippostd:foldertype: [new-siteverification-document]
+    hippostd:foldertype: []
     /siteverification:
       jcr:primaryType: hippostd:folder
       jcr:mixinTypes: ['mix:versionable']
@@ -181,6 +181,7 @@
       hippostd:foldertype: [new-siteverification-document]
     /analytics:
       jcr:primaryType: hippostd:folder
+      hippostd:foldertype: ['']
       /dev:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -349,9 +350,11 @@
   /topics:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: fbb30757-c092-4949-9d4d-e34d7048e372
     /topics:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 0a8e94dc-7710-44a0-acd8-b1e1bcc11064
       hippo:availability: [live, preview]
       hippotranslation:id: 08b8edcb-577b-4f12-be0a-97ffca6b4b85
       hippotranslation:locale: inherited - from query
