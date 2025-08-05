@@ -109,23 +109,23 @@
                             <#assign fileThumbnailPath = '/assets/images/documents/svg/xml.svg' />
                             <#break>
                         <#case "odf">
-                            <#assign fileDescription = "OpenDocument formulas" />
+                            <#assign fileDescription = "OpenDocument Formula" />
                             <#assign fileThumbnailPath = '/assets/images/documents/svg/odf.svg' />
                             <#break>
                         <#case "odg">
-                            <#assign fileDescription = "OpenDocument graphics" />
+                            <#assign fileDescription = "OpenDocument Graphics" />
                             <#assign fileThumbnailPath = '/assets/images/documents/svg/odg.svg' />
                             <#break>
                         <#case "odp">
-                            <#assign fileDescription = "OpenDocument presentation" />
+                            <#assign fileDescription = "OpenDocument Presentation" />
                             <#assign fileThumbnailPath = '/assets/images/documents/svg/odp.svg' />
                             <#break>
                         <#case "ods">
-                            <#assign fileDescription = "OpenDocument spreadsheet" />
+                            <#assign fileDescription = "OpenDocument Spreadsheet" />
                             <#assign fileThumbnailPath = '/assets/images/documents/svg/ods.svg' />
                             <#break>
                         <#case "odt">
-                            <#assign fileDescription = "OpenDocument word proccessing" />
+                            <#assign fileDescription = "OpenDocument Text" />
                             <#assign fileThumbnailPath = '/assets/images/documents/svg/odt.svg' />
                             <#break>
                         <#default>
