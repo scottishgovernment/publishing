@@ -5,64 +5,69 @@
   hippostd:foldertype:
     - new-siteverification-document
     - new-valuelist
-  /robots:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-    /robots:
-      jcr:primaryType: robotstxt:robotstxt
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      hippo:availability: [live]
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2025-02-24T09:00:00Z
-      hippostdpubwf:lastModificationDate: 2025-02-24T09:00:00Z
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2025-02-24T09:00:00Z
-      robotstxt:sitemap: ['https://fostercare.campaign.gov.scot/sitemap.xml']
-      /robotstxt:section:
-        jcr:primaryType: robotstxt:section
-        robotstxt:disallow: []
-        robotstxt:useragent: '*'
-  /analytics:
+  /performance:
     jcr:primaryType: hippostd:folder
-    jcr:mixinTypes: ['hippo:named']
-    hippo:name: Analytics
-    hippostd:foldertype: []
-    /dev:
+    jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    hippo:name: Performance
+    hippostd:foldertype: [new-siteverification-document]
+    /robots:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      /robots:
+        jcr:primaryType: robotstxt:robotstxt
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-02-24T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2025-02-24T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2025-02-24T09:00:00Z
+        robotstxt:sitemap: ['https://fostercare.campaign.gov.scot/sitemap.xml']
+        /robotstxt:section:
+          jcr:primaryType: robotstxt:section
+          robotstxt:disallow: []
+          robotstxt:useragent: '*'
+    /analytics:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named']
+      hippo:name: Analytics
+      hippostd:foldertype: []
       /dev:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2025-02-24T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2025-02-24T09:00:00Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-02-24T09:00:00Z
-        hippotranslation:id: 7e150b6b-94a5-4113-a3a8-24c764e7de4d
-        hippotranslation:locale: en_GB
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: '2'
-        publishing:notes: ''
-    /live:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        /dev:
+          jcr:primaryType: publishing:analytics
+          jcr:mixinTypes: ['mix:referenceable']
+          hippo:availability: [live]
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-02-24T09:00:00Z
+          hippostdpubwf:lastModificationDate: 2025-02-24T09:00:00Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-02-24T09:00:00Z
+          hippotranslation:id: 7e150b6b-94a5-4113-a3a8-24c764e7de4d
+          hippotranslation:locale: en_GB
+          publishing:auth: ''
+          publishing:containerid: ''
+          publishing:env: '2'
+          publishing:notes: ''
       /live:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2025-02-24T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2025-02-24T09:00:00Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-02-24T09:00:00Z
-        hippotranslation:id: a4068861-dd22-4e80-b537-ff5d48c434e7
-        hippotranslation:locale: en_GB
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: ''
-        publishing:notes: For live we do not include the env or auth in the url.
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        /live:
+          jcr:primaryType: publishing:analytics
+          jcr:mixinTypes: ['mix:referenceable']
+          hippo:availability: [live]
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-02-24T09:00:00Z
+          hippostdpubwf:lastModificationDate: 2025-02-24T09:00:00Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-02-24T09:00:00Z
+          hippotranslation:id: a4068861-dd22-4e80-b537-ff5d48c434e7
+          hippotranslation:locale: en_GB
+          publishing:auth: ''
+          publishing:containerid: ''
+          publishing:env: ''
+          publishing:notes: For live we do not include the env or auth in the url.

@@ -1,73 +1,76 @@
 /content/documents/disclosure/administration:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
-  jcr:uuid: c790df0a-2fb7-4b26-81c3-bce5dcf5d3d4
   hippostd:foldertype: [new-siteverification-document, new-valuelist]
-  /robots:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 65d058f9-09ab-4753-acf5-d45b577f267f
-    /robots:
-      jcr:primaryType: robotstxt:robotstxt
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: 1f954da0-8f85-41fe-8c8e-67649fce3bd6
-      hippo:availability: [live]
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2023-05-24T09:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2023-05-24T09:00:00+01:00
-      robotstxt:sitemap: ['https://disclosure.campaign.gov.scot/sitemap.xml']
-      /robotstxt:section:
-        jcr:primaryType: robotstxt:section
-        robotstxt:disallow: []
-        robotstxt:useragent: '*'
-  /analytics:
+  /performance:
     jcr:primaryType: hippostd:folder
-    hippostd:foldertype: []
-    /dev:
+    jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    hippo:name: Performance
+    hippostd:foldertype: [new-siteverification-document]
+    /robots:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 70bd8ea8-a446-4cb3-8d49-a621b9ade724
+      jcr:uuid: 65d058f9-09ab-4753-acf5-d45b577f267f
+      /robots:
+        jcr:primaryType: robotstxt:robotstxt
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 1f954da0-8f85-41fe-8c8e-67649fce3bd6
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-24T09:00:00+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2023-05-24T09:00:00+01:00
+        robotstxt:sitemap: ['https://disclosure.campaign.gov.scot/sitemap.xml']
+        /robotstxt:section:
+          jcr:primaryType: robotstxt:section
+          robotstxt:disallow: []
+          robotstxt:useragent: '*'
+    /analytics:
+      jcr:primaryType: hippostd:folder
+      hippostd:foldertype: []
       /dev:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 484fe5e2-d2e4-478b-bf8b-8a0544159e2c
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2024-01-12T09:00:00Z
-        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
-        hippotranslation:locale: document-type-locale
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: '2'
-        publishing:notes: ''
-    /live:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 43b4fcb0-0d2d-453a-be32-872a9d980116
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 70bd8ea8-a446-4cb3-8d49-a621b9ade724
+        /dev:
+          jcr:primaryType: publishing:analytics
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 484fe5e2-d2e4-478b-bf8b-8a0544159e2c
+          hippo:availability: [live]
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+          hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-12T09:00:00Z
+          hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+          hippotranslation:locale: document-type-locale
+          publishing:auth: ''
+          publishing:containerid: ''
+          publishing:env: '2'
+          publishing:notes: ''
       /live:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 067f3b19-b580-42e3-96d4-61492d822930
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2024-01-12T09:00:00Z
-        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
-        hippotranslation:locale: document-type-locale
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: ''
-        publishing:notes: For live we do not include the env or auth in the url.
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        /live:
+          jcr:primaryType: publishing:analytics
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 067f3b19-b580-42e3-96d4-61492d822930
+          hippo:availability: [live]
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+          hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-12T09:00:00Z
+          hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+          hippotranslation:locale: document-type-locale
+          publishing:auth: ''
+          publishing:containerid: ''
+          publishing:env: ''
+          publishing:notes: For live we do not include the env or auth in the url.
   /topics:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
