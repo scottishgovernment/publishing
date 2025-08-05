@@ -2,58 +2,81 @@
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
   jcr:uuid: c5fe3727-5e10-4962-a719-d700ecaa1a7d
-  hippostd:foldertype: [new-searchsettings-document, new-recaptcha-folder, new-siteverification-document]
-  /robots:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: 691c143a-8dfb-42cb-b759-0e58445feb7a
-    hippo:versionHistory: da8e1eac-b0b3-4e41-83e1-beca7f83edb9
-    /robots[1]:
-      jcr:primaryType: robotstxt:robotstxt
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: f32f6afd-1b3e-49eb-a495-14c24f26502e
-      hippo:availability: [live]
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
-      hippostdpubwf:lastModificationDate: 2019-10-11T09:40:22.420+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2019-10-11T09:46:41.149+01:00
-      robotstxt:sitemap: ['https://www.mygov.scot/sitemap.xml']
-      /robotstxt:section:
-        jcr:primaryType: robotstxt:section
-        robotstxt:disallow: []
-        robotstxt:useragent: '*'
-    /robots[2]:
-      jcr:primaryType: robotstxt:robotstxt
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: 93b5238f-86d4-4d3d-aaca-5060b3ef7355
-      hippo:availability: [preview]
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
-      hippostdpubwf:lastModificationDate: 2019-10-11T09:40:22.420+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      robotstxt:sitemap: ['https://www.mygov.scot/sitemap.xml']
-      /robotstxt:section:
-        jcr:primaryType: robotstxt:section
-        robotstxt:disallow: []
-        robotstxt:useragent: '*'
-    /robots[3]:
-      jcr:primaryType: robotstxt:robotstxt
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 52d4790e-d383-431a-9fba-5a0fb8cad350
-      hippo:availability: []
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
-      hippostdpubwf:lastModificationDate: 2019-10-11T09:46:59.046+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      robotstxt:sitemap: ['https://www.mygov.scot/sitemap.xml']
-      /robotstxt:section:
-        jcr:primaryType: robotstxt:section
-        robotstxt:disallow: []
-        robotstxt:useragent: '*'
+  hippostd:foldertype: [new-searchsettings-document, new-recaptcha-folder]
+  /performance:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    hippo:name: Performance
+    hippostd:foldertype: [new-siteverification-document]
+    /robots:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 691c143a-8dfb-42cb-b759-0e58445feb7a
+      hippo:versionHistory: da8e1eac-b0b3-4e41-83e1-beca7f83edb9
+      /robots:
+        jcr:primaryType: robotstxt:robotstxt
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: f32f6afd-1b3e-49eb-a495-14c24f26502e
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2014-06-02T14:04:49.737+02:00
+        hippostdpubwf:lastModificationDate: 2019-10-11T09:40:22.420+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2019-10-11T09:46:41.149+01:00
+        robotstxt:sitemap: ['https://www.mygov.scot/sitemap.xml']
+        /robotstxt:section:
+          jcr:primaryType: robotstxt:section
+          robotstxt:disallow: []
+          robotstxt:useragent: '*'
+    /analytics:
+      jcr:primaryType: hippostd:folder
+      /dev:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: e10cdada-2644-4a81-9fb5-8b341aa41837
+        hippo:versionHistory: cf3567e2-4823-4011-b341-cb3cdce711a2
+        /dev:
+          jcr:primaryType: publishing:analytics
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 9250faa5-cccd-49e8-a52a-5f2dbe66d3e8
+          hippo:availability: [live]
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
+          hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2020-04-02T16:05:40.816+01:00
+          hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+          hippotranslation:locale: document-type-locale
+          publishing:auth: DxwtOU_tpyLiqCMda2mJCg
+          publishing:containerid: ''
+          publishing:env: '2'
+          publishing:notes: ''
+          publishing:plausibleAnalyticsDomains: [dev.www.mygov.scot]
+      /live:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 5c55f79c-a910-4c35-85e7-ec7499c2b0fe
+        hippo:versionHistory: a48db8c8-ebf6-458a-b7f2-399dabe17913
+        /live:
+          jcr:primaryType: publishing:analytics
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f621fb3c-9884-4438-b7ba-458cf61acb33
+          hippo:availability: [live]
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
+          hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2020-03-18T10:27:34.378Z
+          hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+          hippotranslation:locale: document-type-locale
+          publishing:auth: ''
+          publishing:containerid: ''
+          publishing:env: ''
+          publishing:notes: For live we do not include the env or auth in the url.
+          publishing:plausibleAnalyticsDomains: [www.mygov.scot]
   /contacts:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']
@@ -538,122 +561,6 @@
           /publishing:notes:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
-  /analytics:
-    jcr:primaryType: hippostd:folder
-    /dev:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: e10cdada-2644-4a81-9fb5-8b341aa41837
-      hippo:versionHistory: cf3567e2-4823-4011-b341-cb3cdce711a2
-      /dev[1]:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: a1ee95dc-c769-4c9d-8c4d-283ddb319e8d
-        hippo:availability: []
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
-        hippostdpubwf:lastModificationDate: 2020-04-02T16:05:42.318+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
-        hippotranslation:locale: document-type-locale
-        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
-        publishing:containerid: ''
-        publishing:env: '2'
-        publishing:notes: ''
-        publishing:plausibleAnalyticsDomains: [dev.www.mygov.scot]
-      /dev[2]:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: cbb93220-cdb4-45c6-938d-0756b7551f72
-        hippo:availability: [preview]
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
-        hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
-        hippotranslation:locale: document-type-locale
-        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
-        publishing:containerid: ''
-        publishing:env: '2'
-        publishing:notes: ''
-        publishing:plausibleAnalyticsDomains: [dev.www.mygov.scot]
-      /dev[3]:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 9250faa5-cccd-49e8-a52a-5f2dbe66d3e8
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-17T11:54:28.104Z
-        hippostdpubwf:lastModificationDate: 2020-03-17T11:58:30.047Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2020-04-02T16:05:40.816+01:00
-        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
-        hippotranslation:locale: document-type-locale
-        publishing:auth: DxwtOU_tpyLiqCMda2mJCg
-        publishing:containerid: ''
-        publishing:env: '2'
-        publishing:notes: ''
-        publishing:plausibleAnalyticsDomains: [dev.www.mygov.scot]
-    /live:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 5c55f79c-a910-4c35-85e7-ec7499c2b0fe
-      hippo:versionHistory: a48db8c8-ebf6-458a-b7f2-399dabe17913
-      /live[1]:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: ec3a33cc-44e6-4c2a-8451-f7ea84e6a325
-        hippo:availability: []
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
-        hippostdpubwf:lastModificationDate: 2020-03-18T10:26:40.070Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
-        hippotranslation:locale: document-type-locale
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: ''
-        publishing:notes: For live we do not include the env or auth in the url.
-        publishing:plausibleAnalyticsDomains: [www.mygov.scot]
-      /live[2]:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: d41d1a92-0ae4-4c17-9ba8-16173f4f4dd9
-        hippo:availability: [preview]
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
-        hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
-        hippotranslation:locale: document-type-locale
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: ''
-        publishing:notes: For live we do not include the env or auth in the url.
-        publishing:plausibleAnalyticsDomains: [www.mygov.scot]
-      /live[3]:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: f621fb3c-9884-4438-b7ba-458cf61acb33
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2020-03-17T11:55:00.221Z
-        hippostdpubwf:lastModificationDate: 2020-03-18T10:27:30.926Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2020-03-18T10:27:34.378Z
-        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
-        hippotranslation:locale: document-type-locale
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: ''
-        publishing:notes: For live we do not include the env or auth in the url.
-        publishing:plausibleAnalyticsDomains: [www.mygov.scot]
   /search-settings:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']

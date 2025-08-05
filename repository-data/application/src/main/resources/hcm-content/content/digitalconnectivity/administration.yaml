@@ -1,85 +1,81 @@
 /content/documents/digitalconnectivity/administration:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-  jcr:uuid: d9b643c1-fbae-48a7-897a-b1dde715853e
   hippo:name: Administration
-  hippostd:foldertype: [new-siteverification-document, new-valuelist]
-  /robots:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: b7ad21b6-e7b7-4498-b36a-543a09d957d3
-    /robots:
-      jcr:primaryType: robotstxt:robotstxt
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: 90359971-a92e-4fd7-8076-70806c431e81
-      hippo:availability: [live]
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2023-05-24T09:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2023-05-24T09:00:00+01:00
-      robotstxt:sitemap: ['https://digitalconnectivity.campaign.gov.scot/sitemap.xml']
-      /robotstxt:section:
-        jcr:primaryType: robotstxt:section
-        robotstxt:disallow: []
-        robotstxt:useragent: '*'
-  /analytics:
+  hippostd:foldertype: []
+  /performance:
     jcr:primaryType: hippostd:folder
-    jcr:mixinTypes: ['hippo:named']
-    hippo:name: Analytics
-    hippostd:foldertype: []
-    /dev:
+    jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    hippo:name: Performance
+    hippostd:foldertype: [new-siteverification-document]
+    /robots:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: a64c4f9b-bc25-435a-ae7d-a7d4b523db71
+      /robots:
+        jcr:primaryType: robotstxt:robotstxt
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-24T09:00:00+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2023-05-24T09:00:00+01:00
+        robotstxt:sitemap: ['https://digitalconnectivity.campaign.gov.scot/sitemap.xml']
+        /robotstxt:section:
+          jcr:primaryType: robotstxt:section
+          robotstxt:disallow: []
+          robotstxt:useragent: '*'
+    /analytics:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named']
+      hippo:name: Analytics
+      hippostd:foldertype: []
       /dev:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: ad7b4f94-0451-4641-96b2-99a4652a5ee1
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2024-01-12T09:00:00Z
-        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
-        hippotranslation:locale: document-type-locale
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: '2'
-        publishing:notes: ''
-    /live:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: f723e030-3c32-4937-b848-9a0038cc9f76
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        /dev:
+          jcr:primaryType: publishing:analytics
+          jcr:mixinTypes: ['mix:referenceable']
+          hippo:availability: [live]
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+          hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-12T09:00:00Z
+          hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+          hippotranslation:locale: document-type-locale
+          publishing:auth: ''
+          publishing:containerid: ''
+          publishing:env: '2'
+          publishing:notes: ''
       /live:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 1b4bcca6-e3db-413f-903f-870a2e01d9a2
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
-        hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2024-01-12T09:00:00Z
-        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
-        hippotranslation:locale: document-type-locale
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: ''
-        publishing:notes: For live we do not include the env or auth in the url.
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        /live:
+          jcr:primaryType: publishing:analytics
+          jcr:mixinTypes: ['mix:referenceable']
+          hippo:availability: [live]
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2024-01-12T09:00:00Z
+          hippostdpubwf:lastModificationDate: 2024-01-12T09:00:00Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2024-01-12T09:00:00Z
+          hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+          hippotranslation:locale: document-type-locale
+          publishing:auth: ''
+          publishing:containerid: ''
+          publishing:env: ''
+          publishing:notes: For live we do not include the env or auth in the url.
   /topics:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: a7d9d538-e4b0-40a1-a1f5-d21838ebc041
     hippo:name: Topics
     /topics:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 6470841b-0480-4401-bac6-7855af408bc6
       hippo:availability: [live, preview]
       hippotranslation:id: 3d17ab94-16b0-47b3-b1c7-19acd3c277d3
       hippotranslation:locale: inherited - from query

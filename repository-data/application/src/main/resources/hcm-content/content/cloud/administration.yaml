@@ -1,68 +1,73 @@
 /content/documents/cloud/administration:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
-  hippostd:foldertype: [new-siteverification-document, new-valuelist]
-  /robots:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-    /robots:
-      jcr:primaryType: robotstxt:robotstxt
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      hippo:availability: [live]
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2023-05-24T09:00:00+01:00
-      hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2023-05-24T09:00:00+01:00
-      robotstxt:sitemap: ['https://cloud.campaign.gov.scot/sitemap.xml']
-      /robotstxt:section:
-        jcr:primaryType: robotstxt:section
-        robotstxt:disallow: []
-        robotstxt:useragent: '*'
-  /analytics:
+  hippostd:foldertype: []
+  /performance:
     jcr:primaryType: hippostd:folder
-    hippostd:foldertype: []
-    /dev:
+    jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    hippo:name: Performance
+    hippostd:foldertype: [new-siteverification-document]
+    /robots:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      /robots:
+        jcr:primaryType: robotstxt:robotstxt
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2023-05-24T09:00:00+01:00
+        hippostdpubwf:lastModificationDate: 2023-05-24T09:00:00+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2023-05-24T09:00:00+01:00
+        robotstxt:sitemap: ['https://cloud.campaign.gov.scot/sitemap.xml']
+        /robotstxt:section:
+          jcr:primaryType: robotstxt:section
+          robotstxt:disallow: []
+          robotstxt:useragent: '*'
+    /analytics:
+      jcr:primaryType: hippostd:folder
+      hippostd:foldertype: []
       /dev:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2023-07-25T09:00:00+01:00
-        hippostdpubwf:lastModificationDate: 2023-07-25T09:00:00+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2023-07-25T09:00:00+01:00
-        hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
-        hippotranslation:locale: document-type-locale
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: '2'
-        publishing:notes: ''
-        publishing:plausibleAnalyticsDomains: [dev.cloud.campaign.gov.scot]
-    /live:
-      jcr:primaryType: hippo:handle
-      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        /dev:
+          jcr:primaryType: publishing:analytics
+          jcr:mixinTypes: ['mix:referenceable']
+          hippo:availability: [live]
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-07-25T09:00:00+01:00
+          hippostdpubwf:lastModificationDate: 2023-07-25T09:00:00+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-07-25T09:00:00+01:00
+          hippotranslation:id: ceaa3611-96b9-4fc8-b212-29dbeeaf21c8
+          hippotranslation:locale: document-type-locale
+          publishing:auth: ''
+          publishing:containerid: ''
+          publishing:env: '2'
+          publishing:notes: ''
+          publishing:plausibleAnalyticsDomains: [dev.cloud.campaign.gov.scot]
       /live:
-        jcr:primaryType: publishing:analytics
-        jcr:mixinTypes: ['mix:referenceable']
-        hippo:availability: [live]
-        hippostd:state: published
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2023-07-25T09:00:00+01:00
-        hippostdpubwf:lastModificationDate: 2023-07-25T09:00:00+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2023-07-25T09:00:00+01:00
-        hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
-        hippotranslation:locale: document-type-locale
-        publishing:auth: ''
-        publishing:containerid: ''
-        publishing:env: ''
-        publishing:notes: For live we do not include the env or auth in the url.
-        publishing:plausibleAnalyticsDomains: [cloud.campaign.gov.scot]
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        /live:
+          jcr:primaryType: publishing:analytics
+          jcr:mixinTypes: ['mix:referenceable']
+          hippo:availability: [live]
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2023-07-25T09:00:00+01:00
+          hippostdpubwf:lastModificationDate: 2023-07-25T09:00:00+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2023-07-25T09:00:00+01:00
+          hippotranslation:id: 80d150ce-68f4-4fdb-aa96-9674dd8042cf
+          hippotranslation:locale: document-type-locale
+          publishing:auth: ''
+          publishing:containerid: ''
+          publishing:env: ''
+          publishing:notes: For live we do not include the env or auth in the url.
+          publishing:plausibleAnalyticsDomains: [cloud.campaign.gov.scot]
   /topics:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
