@@ -1,6 +1,6 @@
 /content/documents/fostercare/featuregriditems:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-  jcr:uuid: abae9a4b-67a3-4e1c-b647-0cd414fc3a07
   hippo:name: Feature grid items
-  hippostd:foldertype: [new-featuregriditem-document]
+  hippostd:foldertype:
+    - new-featuregriditem-document

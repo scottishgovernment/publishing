@@ -1,24 +1,20 @@
 /content/documents/fostercare/site-furniture:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-  jcr:uuid: 443e9af0-38a7-4888-81d4-0bbd7f10bd9c
   hippo:name: Site furniture
   hippostd:foldertype: [new-publishing-article, new-publishing-category, new-publishing-mirror]
   /footer:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-    jcr:uuid: b4ce5c9a-ef72-4da5-8ff2-da2534afe206
     hippo:name: Footer items
     hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
     /privacy:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-      jcr:uuid: 70e2f128-5e01-4673-8d02-39858574d99a
       hippo:name: Privacy
       /privacy:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
-        jcr:uuid: 1e1806a1-480a-423e-b7f0-ff81321b18d1
         hippo:availability: [preview]
         hippostd:retainable: false
         hippostd:state: unpublished
@@ -58,12 +54,10 @@
     /accessibility:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-      jcr:uuid: 884d8657-53f7-4f31-96f5-37b5436ad985
       hippo:name: Accessibility
       /accessibility:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
-        jcr:uuid: 0d01c145-10ce-47b5-b571-6686086f5100
         hippo:availability: [preview]
         hippo:name: Accessibility
         hippostd:retainable: false
@@ -103,12 +97,10 @@
     /cookies:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-      jcr:uuid: 52c0f753-1d66-47bd-9391-9b0a69de8ed5
       hippo:name: Cookies
       /cookies:
         jcr:primaryType: publishing:cookiepage
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
-        jcr:uuid: d8bc3066-d8c1-437d-bce2-8395ed2b200d
         hippo:availability: [preview]
         hippo:name: Cookies
         hippostd:retainable: false
@@ -151,24 +143,20 @@
   /banners:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:versionable']
-    jcr:uuid: a14d9cd1-de8c-45ab-a6e7-0c9fd4fbba04
     hippo:name: Banners
     hippostd:foldertype: [new-mourning-banner, new-notification-banner, new-phase-banner]
   /status:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-    jcr:uuid: 873162b8-9b48-41ff-a17c-ee63d1d96618
     hippo:name: Status pages
     hippostd:foldertype: [new-document, new-folder]
     /404:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 8938a1b2-4447-4f7f-ba54-7c7c1ea88a88
       hippo:name: '404'
       /404:
         jcr:primaryType: publishing:status
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: af6ec7f0-e618-413b-b978-cf959ec987af
         hippo:availability: [preview]
         hippostd:retainable: false
         hippostd:state: unpublished
