@@ -9,11 +9,7 @@ import org.apache.wicket.ajax.AjaxEventBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.attributes.AjaxRequestAttributes;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
-import org.wicketstuff.datetime.PatternDateConverter;
-import org.wicketstuff.datetime.markup.html.form.DateTextField;
-import org.wicketstuff.datetime.extensions.yui.calendar.DatePicker;
 import org.apache.wicket.markup.html.WebMarkupContainer;
-import org.apache.wicket.markup.html.form.CheckBox;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.image.Image;
 import org.apache.wicket.model.CompoundPropertyModel;
@@ -31,6 +27,9 @@ import org.hippoecm.frontend.service.render.RenderPlugin;
 import org.onehippo.cms7.services.search.query.QueryUtils;
 import org.onehippo.cms7.services.search.query.constraint.Constraint;
 import org.onehippo.cms7.services.search.query.constraint.LowerBoundedDateConstraint;
+import org.wicketstuff.datetime.PatternDateConverter;
+import org.wicketstuff.datetime.extensions.yui.calendar.DatePicker;
+import org.wicketstuff.datetime.markup.html.form.DateTextField;
 
 import java.util.Date;
 import java.util.LinkedList;
@@ -46,7 +45,6 @@ public class CustomFiltersPlugin extends RenderPlugin implements IConstraintProv
     private Date reviewDateTo;
     private Date lastOfficialUpdateDateFrom;
     private Date lastOfficialUpdateDateTo;
-    private boolean pendingPublication = false;
 
     public CustomFiltersPlugin(final IPluginContext context, final IPluginConfig config) {
         super(context, config);
@@ -112,15 +110,6 @@ public class CustomFiltersPlugin extends RenderPlugin implements IConstraintProv
         form.add(lastOfficialUpdateDateBefore);
         form.add(createSimpleResetLink(lastOfficialUpdateDateBefore));
 
-        form.add(new CheckBox("pendingPublication",new PropertyModel<Boolean>(this, "pendingPublication")){
-
-            @Override
-            protected void onModelChanged() {
-                super.onModelChanged();
-                updateSearchResults();
-            }
-        });
-
         add(form);
     }
 
@@ -146,10 +135,6 @@ public class CustomFiltersPlugin extends RenderPlugin implements IConstraintProv
         List<Constraint> constraints = new LinkedList<Constraint>();
         addDateConstraints(constraints, "publishing:reviewDate", reviewDateFrom, reviewDateTo);
         addDateConstraints(constraints, "publishing:lastUpdatedDate", lastOfficialUpdateDateFrom, lastOfficialUpdateDateTo);
-        if(pendingPublication) {
-            constraints.add(QueryUtils.text("../*/@jcr:primaryType").isEqualTo("hippostdpubwf:request"));
-            constraints.add(QueryUtils.not(QueryUtils.text("../*/*/@hippostdpubwf:type").isEqualTo("rejected")));
-        }
         return constraints;
     }
 
@@ -174,7 +159,6 @@ public class CustomFiltersPlugin extends RenderPlugin implements IConstraintProv
         reviewDateTo = null;
         lastOfficialUpdateDateFrom = null;
         lastOfficialUpdateDateTo = null;
-        pendingPublication = false;
         redraw();
     }
 
