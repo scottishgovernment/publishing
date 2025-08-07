@@ -1,0 +1,78 @@
+/content/documents/socialsecurity/administration:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  hippo:name: Administration
+  hippostd:foldertype:
+    - new-siteverification-document
+    - new-valuelist
+  /performance:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    hippo:name: Performance
+    hippostd:foldertype: []
+    /analytics:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: ['hippo:named']
+      hippo:name: Analytics
+      hippostd:foldertype: []
+      /dev:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        /dev:
+          jcr:primaryType: publishing:analytics
+          jcr:mixinTypes: ['mix:referenceable']
+          hippo:availability: [live]
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-08-08T09:00:00Z
+          hippostdpubwf:lastModificationDate: 2025-08-08T09:00:00Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-08-08T09:00:00Z
+          hippotranslation:id: eeabc115-49cb-4f6d-97f1-4aeb65cc708a
+          hippotranslation:locale: en_GB
+          publishing:auth: ''
+          publishing:containerid: ''
+          publishing:env: '2'
+          publishing:notes: ''
+      /live:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        /live:
+          jcr:primaryType: publishing:analytics
+          jcr:mixinTypes: ['mix:referenceable']
+          hippo:availability: [live]
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-08-08T09:00:00Z
+          hippostdpubwf:lastModificationDate: 2025-08-08T09:00:00Z
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-08-08T09:00:00Z
+          hippotranslation:id: 44cf57dc-506c-4b1d-9e24-6fba98ec1ca3
+          hippotranslation:locale: en_GB
+          publishing:auth: ''
+          publishing:containerid: ''
+          publishing:env: ''
+          publishing:notes: For live we do not include the env or auth in the url.
+    /robots:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['mix:referenceable']
+      /robots:
+        jcr:primaryType: robotstxt:robotstxt
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-08-08T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2025-08-08T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2025-08-08T09:00:00Z
+        robotstxt:sitemap: ['https://www.socialsecurity.gov.scot/sitemap.xml']
+        /robotstxt:section:
+          jcr:primaryType: robotstxt:section
+          robotstxt:disallow: []
+          robotstxt:useragent: '*'
+    /siteverification:
+      jcr:primaryType: hippostd:folder
+      jcr:mixinTypes: [ 'hippo:named', 'mix:versionable' ]
+      hippo:name: Site verification
+      hippostd:foldertype: [ new-siteverification-document ]

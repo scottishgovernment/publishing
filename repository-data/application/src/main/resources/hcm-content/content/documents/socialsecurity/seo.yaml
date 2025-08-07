@@ -1,0 +1,38 @@
+/content/documents/socialsecurity/seo:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named']
+  hippo:name: SEO
+  hippostd:foldertype: [new-seo-document, new-seo-folder]
+  /home:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    /home:
+      jcr:primaryType: publishing:seo
+      jcr:mixinTypes: ['mix:versionable']
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-08-08T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2025-08-08T09:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: dbfcfd89-ac51-42b3-944d-ab74a1f9e525
+      hippotranslation:locale: en_GB
+      publishing:alt: ''
+      publishing:metaDescription: Social Security Scotland
+      publishing:reportingtags: []
+      publishing:seoTitle: Social Security Scotland
+      publishing:summary: Social Security Scotland
+      publishing:title: Social Security Scotland
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:cardImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
