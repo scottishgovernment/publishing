@@ -18,11 +18,11 @@ public interface WebsiteInfo extends ChannelInfo {
     @DropDownList(valueListProvider = ChannelColourValueListProvider.class)
     String getStyle();
 
-    @Parameter(name = "feedbackEnabled", required = true, displayName = "Feedback enabled?")
-    Boolean isFeedbackEnabled();
-
-    @Parameter(name = "searchEnabled", required = true, defaultValue = "false", displayName = "Search enabled?")
-    Boolean isSearchEnabled();
+//    @Parameter(name = "feedbackEnabled", required = true, displayName = "Feedback enabled?")
+//    Boolean isFeedbackEnabled();
+//
+//    @Parameter(name = "searchEnabled", required = true, defaultValue = "false", displayName = "Search enabled?")
+//    Boolean isSearchEnabled();
 
     @Parameter(name = "siteTitle", required = true, displayName = "Site title")
     String getSiteTitle();

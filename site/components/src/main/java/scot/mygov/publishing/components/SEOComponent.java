@@ -10,6 +10,7 @@ import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsDocumentComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent;
 import scot.mygov.publishing.beans.ColumnImage;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
@@ -20,6 +21,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
+import static scot.mygov.publishing.components.SearchBarComponent.searchEnabled;
 import static scot.mygov.publishing.components.SiteHeaderComponent.setCanonical;
 
 /**
@@ -51,7 +53,7 @@ public class SEOComponent extends EssentialsDocumentComponent {
         WebsiteInfo websiteInfo = MountUtils.websiteInfo(request);
         setPageTitle(request, websiteInfo.getSiteTitle(), contentBean);
         setPageImage(request, websiteInfo, contentBean);
-        request.setAttribute("isSearchEnabled", websiteInfo.isSearchEnabled());
+        request.setAttribute("isSearchEnabled", searchEnabled(ResilientSearchComponent.searchSettings(), request));
         request.setAttribute("contentBean", contentBean);
         request.setAttribute("baseBean", request.getRequestContext().getSiteContentBaseBean());
 

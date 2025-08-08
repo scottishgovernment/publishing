@@ -25,10 +25,12 @@ public class FeedbackComponent extends EssentialsContentComponent {
     }
 
     boolean isFeedbackEnabled(HstRequest request) {
-        WebsiteInfo info = MountUtils.websiteInfo(request);
-        if (!info.isFeedbackEnabled()) {
+
+        if (SiteSettings.feedbackEnabled(request)) {
             return false;
         }
+
+        // now check if this page has feeback enabled
         HippoBean bean = request.getRequestContext().getContentBean();
         return bean != null && bean.getSingleProperty("publishing:showFeedback", false);
     }

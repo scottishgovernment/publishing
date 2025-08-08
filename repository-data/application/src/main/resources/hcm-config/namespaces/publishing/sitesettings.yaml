@@ -1,0 +1,83 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/sitesettings:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: b5bca702-584f-4afd-8f17-8914d7051095
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 8092e31c-3c61-4e8d-8962-c2b75f253155
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: 4c332c3c-699d-40fb-b043-6d7cae1766d2
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /feedbackEnabled:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:feedbackEnabled
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            hipposysedit:validators: [required]
+          /searchtype:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:searchtype
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            hipposysedit:validators: [required]
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:sitesettings
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes: ['mix:referenceable']
+          publishing:feedbackEnabled: false
+          jcr:uuid: 270582e7-629b-4437-b542-42cc2270c270
+          hippostdpubwf:lastModificationDate: 2025-08-08T08:39:03.957+01:00
+          hippostdpubwf:creationDate: 2025-08-08T08:39:03.957+01:00
+          publishing:searchtype: none
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /feedbackEnabled:
+            jcr:primaryType: frontend:plugin
+            caption: Feedback enabled
+            field: feedbackEnabled
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /searchtype:
+            jcr:primaryType: frontend:plugin
+            caption: Search type
+            field: searchtype
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              source: /content/documents/publishing/valuelists/searchfeaturetypes

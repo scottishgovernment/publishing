@@ -6,7 +6,6 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent;
 import scot.gov.publishing.hippo.funnelback.component.SearchSettings;
-import scot.mygov.publishing.channels.WebsiteInfo;
 
 import static org.apache.commons.lang3.StringUtils.equalsAny;
 
@@ -54,11 +53,11 @@ public class SearchBarComponent extends BaseHstComponent {
     }
 
     static boolean searchEnabled(SearchSettings searchSettings, HstRequest request) {
+        // the searchbar is shown if the site has search and the search is enabled in the site settings
         if (!searchSettings.isEnabled()) {
             return false;
         }
 
-        WebsiteInfo info = MountUtils.websiteInfo(request);
-        return info.isSearchEnabled();
+        return SiteSettings.hasSearch(request);
     }
 }

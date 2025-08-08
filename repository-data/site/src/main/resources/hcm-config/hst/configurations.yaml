@@ -144,10 +144,10 @@ definitions:
             hst:renderpath: webfile:/freemarker/common/site-verification.ftl
           /search-funnelback-main:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/search-funnelback-main.ftl
+            hst:renderpath: webfile:/freemarker/common/search/search-funnelback-main.ftl
           /search-funnelback-results:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/search-funnelback-results.ftl
+            hst:renderpath: webfile:/freemarker/common/search/search-funnelback-results.ftl
           /textandcard:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/page-blocks/textandcard.ftl
@@ -199,6 +199,9 @@ definitions:
           /latestpublications:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/page-blocks/latestpublications.ftl
+          /search-filters:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/search/search-filters.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

@@ -1470,3 +1470,27 @@
         jcr:primaryType: selection:listitem
         selection:key: withParam
         selection:label: Only show navigation when linked from step by step guide
+  /searchfeaturetypes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: b9dfa53f-6b91-429a-822c-78efd658f9a2
+    hippo:name: searchFeatureTypes
+    /searchfeaturetypes:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      jcr:uuid: 1e8887dc-8351-46e1-b796-3bdeae92bda0
+      hippo:availability: [live, preview]
+      hippotranslation:id: f1c4dbaa-556e-4d35-8e62-13eb277eb1ce
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: none
+        selection:label: No search
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: default
+        selection:label: Default site search
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: filtered
+        selection:label: Filtered site seatch (topics, types and date filters)

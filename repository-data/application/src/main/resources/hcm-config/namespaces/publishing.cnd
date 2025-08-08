@@ -226,6 +226,9 @@
 [publishing:seo] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
+[publishing:sitesettings] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
 [publishing:siteverification] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
 
@@ -272,3 +275,4 @@
 
 [publishing:video] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
   orderable
+

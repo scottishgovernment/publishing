@@ -47,7 +47,7 @@ public class SearchBarComponentTest {
         when(context.getResolvedMount()).thenReturn(resolvedMount);
         when(resolvedMount.getMount()).thenReturn(mount);
         when(mount.getChannelInfo()).thenReturn(websiteInfo);
-        when(websiteInfo.isSearchEnabled()).thenReturn(Boolean.TRUE);
+        //when(websiteInfo.isSearchEnabled()).thenReturn(Boolean.TRUE);
 
         when(request.getRequestContext()).thenReturn(context);
         when(context.getResolvedSiteMapItem()).thenReturn(resolvedSiteMapItem);
@@ -80,7 +80,7 @@ public class SearchBarComponentTest {
         when(context.getResolvedMount()).thenReturn(resolvedMount);
         when(resolvedMount.getMount()).thenReturn(mount);
         when(mount.getChannelInfo()).thenReturn(websiteInfo);
-        when(websiteInfo.isSearchEnabled()).thenReturn(Boolean.valueOf(searchEnabled));
+        //when(websiteInfo.isSearchEnabled()).thenReturn(Boolean.valueOf(searchEnabled));
         return request;
     }
 
