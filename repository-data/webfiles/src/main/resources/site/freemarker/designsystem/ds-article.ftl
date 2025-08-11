@@ -160,8 +160,12 @@
                                 <@hst.link var="link2" hippobean=contentblock.internal />
                                 <#assign link = link2/>
                             </#if>
+                            
+                            <#if contentblock.noindex>
+                            <!--noindex-->
+                            </#if>
 
-                            <div class="ds_file-download">
+                            <div class="ds_file-download <#if contentblock.highlight> ds_file-download--highlighted</#if>">
                                 <div class="ds_file-download__thumbnail">
                                     <a data-button="document-cover" class="ds_file-download__thumbnail-link" aria-hidden="true" tabindex="-1" href="${link}">
                                         <span class="visually-hidden">Document cover image</span>
@@ -244,6 +248,11 @@
                                     </div>
                                 </div>
                             </div>
+
+                            
+                            <#if contentblock.noindex>
+                            <!--endnoindex-->
+                            </#if>
                             <!-- end attachment block -->
                         </#if>
 
