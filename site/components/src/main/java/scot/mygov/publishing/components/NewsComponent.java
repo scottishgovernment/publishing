@@ -29,7 +29,8 @@ public class NewsComponent extends EssentialsContentComponent  {
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
 
-        addTopics(request);
+        addTopics(request, request.getRequestContext().getContentBean());
+
         // populate the organisation information from WebsiteInfo
         request.setAttribute("image", getImage(request));
         WebsiteInfo websiteInfo = MountUtils.websiteInfo(request);
@@ -38,12 +39,11 @@ public class NewsComponent extends EssentialsContentComponent  {
         request.setAttribute("orgurl", orgUrl(request, websiteInfo));
     }
 
-    public static void addTopics(HstRequest request) {
+    public static void addTopics(HstRequest request, HippoBean bean) {
 
         Map<String, String> topicsMap = topicsMap(request.getRequestContext());
         request.setAttribute("topicsMap", topicsMap);
 
-        HippoBean bean = request.getRequestContext().getContentBean();
         if (bean == null) {
             return;
         }

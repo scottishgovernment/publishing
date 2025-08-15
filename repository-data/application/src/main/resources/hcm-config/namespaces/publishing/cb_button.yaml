@@ -3,6 +3,7 @@ definitions:
     /hippo:namespaces/publishing/cb_button:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 61415054-8c4d-4802-a466-afb040af044e
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
@@ -99,7 +100,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Content
             field: content
-            hint: Enter the text that will appear on the button to describe the action it performs.
+            hint: Enter the text that will appear on the button to describe the action
+              it performs.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -118,7 +120,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Type
             field: type
-            hint: Select primary (for main call to action) or secondary (any other action).
+            hint: Select primary (for main call to action) or secondary (any other
+              action).
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -153,7 +156,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Add noindex tags
             field: noindex
-            hint: Check the box if this content should not be indexed for search. This will apply to the site's internal search only.
+            hint: Check the box if this content should not be indexed for search.
+              This will apply to the site's internal search only.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

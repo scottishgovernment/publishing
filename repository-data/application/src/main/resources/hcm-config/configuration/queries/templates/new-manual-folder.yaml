@@ -18,7 +18,7 @@ definitions:
             jcr:mixinTypes: ['mix:referenceable']
             jcr:uuid: 83004f62-a57e-4b23-99f3-bbfa1ecb02e0
             /index[1]:
-              jcr:primaryType: publishing:Publication
+              jcr:primaryType: publishing:Manual
               jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
                 'mix:versionable']
               jcr:uuid: dc6b0d6e-f75a-4096-889d-a9fe8b726417
@@ -41,3 +41,22 @@ definitions:
               publishing:summary: ''
               publishing:title: ''
               publishing:topics: ['']
+          /documents:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 2894cbc4-bfbf-4549-a0c1-85881b60cb40
+            hippo:versionHistory: e8ff892f-356c-4bb5-b442-83b64dc4ae72
+            /documents:
+              jcr:primaryType: publishing:ManualDocuments
+              jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
+                'mix:versionable']
+              jcr:uuid: c2d0ddf2-6f58-47e8-b3d4-b9b6f39afa77
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-08-15T10:36:35.851+01:00
+              hippostdpubwf:lastModificationDate: 2025-08-15T10:36:37.339+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: 9090475b-2dc5-4b1b-9177-30f77545a167
+              hippotranslation:locale: document-type-locale

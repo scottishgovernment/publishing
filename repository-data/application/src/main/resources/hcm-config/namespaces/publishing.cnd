@@ -37,10 +37,16 @@
 [publishing:LandingPage] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
-[publishing:News] > hippostd:relaxed, hippotranslation:translated, publishing:base
+[publishing:Publication] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
-[publishing:Publication] > hippostd:relaxed, hippotranslation:translated, publishing:base
+[publishing:Manual] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
+[publishing:ManualDocuments] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:News] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
 [publishing:PublicationPage] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument

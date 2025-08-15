@@ -3,9 +3,11 @@ definitions:
     /hippo:namespaces/publishing/cb_fileDownload:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: c215594c-1719-4599-8985-9b966206ca4f
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 059fc2a9-8d6a-4651-ba9d-3b8e6a1f4154
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
@@ -13,6 +15,7 @@ definitions:
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           hipposysedit:validators: [variables-validator]
+          jcr:uuid: a394e44a-bb4a-4d7b-886c-e52c518e1197
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
