@@ -168,7 +168,6 @@
                             <div class="ds_file-download <#if contentblock.highlight> ds_file-download--highlighted</#if>">
                                 <div class="ds_file-download__thumbnail">
                                     <a data-button="document-cover" class="ds_file-download__thumbnail-link" aria-hidden="true" tabindex="-1" href="${link}">
-                                        <span class="visually-hidden">Document cover image</span>
                                         <#if contentblock.image??>
                                             <@hst.link var="icon" hippobean=contentblock.image.original />
                                             <img class="ds_file-download__thumbnail-image" src="${icon}" alt="">

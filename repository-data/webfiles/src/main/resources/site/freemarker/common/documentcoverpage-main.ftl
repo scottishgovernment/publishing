@@ -140,7 +140,6 @@
                     <div class="ds_file-download  <#if doc.highlight>ds_file-download--highlighted</#if>">
                         <div class="ds_file-download__thumbnail">
                             <a data-button="document-cover" class="ds_file-download__thumbnail-link" aria-hidden="true" tabindex="-1" href="${documentinline}">
-                                <span class="visually-hidden">Document cover image</span>
                                 <#if filenameExtension == "PDF" && !doc.useGenericIcon && doc.thumbnails?has_content>
                                     <img class="ds_file-download__thumbnail-image"
                                         src="<@hst.link hippobean=doc.thumbnails[0]/>"
