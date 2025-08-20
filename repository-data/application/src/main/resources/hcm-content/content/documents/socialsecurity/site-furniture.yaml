@@ -1,20 +1,24 @@
 /content/documents/socialsecurity/site-furniture:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: 0f8bf72d-adb0-4622-9fa4-50d7373059bc
   hippo:name: Site furniture
   hippostd:foldertype: []
   /footer:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    jcr:uuid: e12ea206-3640-461c-9ae0-fc6bd5e3a102
     hippo:name: Footer items
     hippostd:foldertype: [new-publishing-article, new-publishing-mirror]
     /privacy:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: c91e9a5c-c926-4174-8849-7d019457573b
       hippo:name: Privacy
       /privacy:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 60f4d0da-e18a-4a23-b583-8a24d857e3b7
         hippo:availability: [preview]
         hippostd:retainable: false
         hippostd:state: unpublished
@@ -54,10 +58,12 @@
     /accessibility:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: f103af25-49f7-448a-b2c8-b3401a8fd954
       hippo:name: Accessibility
       /accessibility:
         jcr:primaryType: publishing:article
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: 01482195-7027-4a55-8d4f-660c40b44257
         hippo:availability: [preview]
         hippo:name: Accessibility
         hippostd:retainable: false
@@ -97,10 +103,12 @@
     /cookies:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: 7cb7fc2e-3a77-4204-9814-1061cfd7793d
       hippo:name: Cookies
       /cookies:
         jcr:primaryType: publishing:cookiepage
         jcr:mixinTypes: ['hippo:named', 'hippostd:taggable', 'mix:referenceable']
+        jcr:uuid: e524cdac-394d-4bb0-acab-eafac570c3a3
         hippo:availability: [preview]
         hippo:name: Cookies
         hippostd:retainable: false
@@ -143,28 +151,77 @@
   /banners:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:lockable', 'mix:versionable']
+    jcr:uuid: 30c8e441-2f0a-4511-a225-020c876e5f51
     hippo:name: Banners
     hippostd:foldertype: [new-mourning-banner, new-notification-banner, new-phase-banner]
   /search:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    jcr:uuid: 3e30d973-76fb-4530-8a9d-401b6f4040b5
     hippo:name: Search
     hippostd:foldertype: [new-search-document]
     /search-results:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+      jcr:uuid: 39291790-f214-4050-8e4a-d3ea3b02c663
       hippo:name: Search
-      /search-results:
+      hippo:versionHistory: 49c3e82d-4379-4830-85b9-7fd15f7e585c
+      /search-results[1]:
         jcr:primaryType: publishing:search
         jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 8cc92a96-a5af-45e7-9c1d-5f58f883b86b
         hippo:availability: [live]
         hippostd:retainable: false
         hippostd:state: published
         hippostdpubwf:createdBy: admin
         hippostdpubwf:creationDate: 2025-08-08T09:00:00Z
+        hippostdpubwf:depublicationDate: 2025-08-21T11:01:49.297+01:00
+        hippostdpubwf:depublishedBy: admin
         hippostdpubwf:lastModificationDate: 2025-08-08T09:00:00Z
         hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2025-08-08T09:00:00Z
+        hippostdpubwf:publicationDate: 2025-08-21T11:02:00.888+01:00
+        hippostdpubwf:publishedBy: admin
+        hippotranslation:id: 425c6d5a-b6c8-42f0-bae9-daebdde3e7bc
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: Search
+        /publishing:noResultsMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: |-
+              <p><strong>There are no matching results.</strong></p>
+              <p>Improve your search results by:</p>
+              <ul>
+                <li>double-checking your spelling</li>
+                <li>using fewer keywords</li>
+                <li>searching for something less specific</li>
+              </ul>
+        /publishing:blankSearchQueryMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p><strong></strong><strong>0 results</strong>, please
+              fill in the search field.</p>
+        /publishing:contentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+      /search-results[2]:
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 75313641-7ed2-4cb3-a92e-1d8a5d12ca42
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2025-08-08T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2025-08-08T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 425c6d5a-b6c8-42f0-bae9-daebdde3e7bc
         hippotranslation:locale: document-type-locale
         publishing:showFeedback: true
@@ -198,15 +255,18 @@
   /status:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    jcr:uuid: cd6c6678-c97a-4814-b697-799fa1a43366
     hippo:name: Status pages
     hippostd:foldertype: [new-document]
     /404:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: abcc707a-e304-454b-b58d-eec4815ea1c5
       hippo:name: '404'
       /404:
         jcr:primaryType: publishing:status
         jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 1caf822f-d75c-4fe5-9ef1-bf3a3c29df3f
         hippo:availability: [preview]
         hippostd:retainable: false
         hippostd:state: unpublished

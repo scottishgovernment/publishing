@@ -1,4 +1,5 @@
 /content/documents/socialsecurity/pageheadings:
+  .meta:order-before: news
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named']
   hippo:name: Page headings
@@ -6,10 +7,12 @@
   /home-page:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: cd4c1b21-9c18-42e7-a133-2d5a4028b33d
     hippo:name: Home page
     /home-page:
       jcr:primaryType: publishing:pageheading
       jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 4096aeb2-ec58-489c-ae0c-d833ebf86932
       hippo:availability: [preview]
       hippostd:retainable: false
       hippostd:state: unpublished

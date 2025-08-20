@@ -1,5 +1,4 @@
 /content/documents/socialsecurity/news:
-  .meta:order-before: pageheadings
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named']
   hippo:name: News
@@ -7,8 +6,10 @@
   /index:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: c8d80029-1232-48ae-99de-92c2b37d151e
     hippo:name: News
-    /index:
+    hippo:versionHistory: 146c2024-9b93-4836-a434-f48883a3b355
+    /index[1]:
       jcr:primaryType: publishing:LandingPage
       jcr:mixinTypes: ['mix:referenceable']
       jcr:uuid: 0ff1659c-23c6-4854-97d5-b07e2e7f0216
@@ -17,9 +18,9 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2025-08-08T09:00:00Z
-      hippostdpubwf:lastModificationDate: 2025-08-08T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2025-08-21T15:15:36.079+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2025-08-08T09:00:00Z
+      hippostdpubwf:publicationDate: 2025-08-21T15:15:38.921+01:00
       hippostdpubwf:publishedBy: admin
       hippotranslation:id: 26bb879e-6ab3-4db8-9f5f-499b09c414b9
       hippotranslation:locale: document-type-locale
@@ -41,3 +42,244 @@
              <li>using fewer keywords</li>
              <li>searching for something less specific</li>
             </ul>
+    /index[2]:
+      jcr:primaryType: publishing:LandingPage
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 3599a847-016f-4df9-bdcd-f92c8a6c02c6
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-08-08T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2025-08-21T15:15:36.079+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 26bb879e-6ab3-4db8-9f5f-499b09c414b9
+      hippotranslation:locale: document-type-locale
+      publishing:showFeedback: true
+      publishing:showTopics: true
+      publishing:title: News
+      /publishing:noResultsMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+
+            <p>Improve your search results by:</p>
+
+            <ul>
+             <li>double-checking your spelling</li>
+             <li>using fewer keywords</li>
+             <li>searching for something less specific</li>
+            </ul>
+    /index[3]:
+      jcr:primaryType: publishing:LandingPage
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 4f9ba825-96ef-4720-b73a-011a0e69c095
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-08-08T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2025-08-21T15:15:32.455+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 26bb879e-6ab3-4db8-9f5f-499b09c414b9
+      hippotranslation:locale: document-type-locale
+      publishing:showFeedback: true
+      publishing:showTopics: true
+      publishing:title: News
+      /publishing:noResultsMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+
+            <p>Improve your search results by:</p>
+
+            <ul>
+             <li>double-checking your spelling</li>
+             <li>using fewer keywords</li>
+             <li>searching for something less specific</li>
+            </ul>
+  /2025:
+    jcr:primaryType: hippostd:folder
+    hippostd:foldertype: [new-news-month-folder]
+    /08:
+      jcr:primaryType: hippostd:folder
+      hippostd:foldertype: [new-news-document]
+      /beware-scam-texts-and-emails:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 9a9d3935-1fbb-4de9-8f3a-5a18e55ce3e5
+        hippo:name: Beware scam texts and emails
+        hippo:versionHistory: 80e0e9e7-1fe4-4618-873e-e2719440e70d
+        /beware-scam-texts-and-emails[1]:
+          jcr:primaryType: publishing:News
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 45f29966-d163-4510-8c98-0f6cb8804211
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-08-21T15:14:06.723+01:00
+          hippostdpubwf:lastModificationDate: 2025-08-21T15:14:06.723+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 2d7cf3c1-1771-439f-977f-f6709ac81f73
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:contentitemlanguage: en
+          publishing:metaDescription: Beware scam texts and emails
+          publishing:publicationDate: 2025-08-21T15:14:00+01:00
+          publishing:seoTitle: Beware scam texts and emails
+          publishing:showFeedback: true
+          publishing:summary: Beware scam texts and emails
+          publishing:title: Beware scam texts and emails
+          publishing:topics: [adult-disability-payment, best-start-foods]
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p><strong>Be</strong><strong>ware scam texts and emails</strong></p>
+
+                <p>Recent news reports have highlighted concerns about scam texts being sent to people in Scotland. Some recent messages have told people they are about to miss out on help with their heating bills.</p>
+
+                <p>We want to reassure people that Child Winter Heating Payment, Winter Heating Payment and our new Pension Age Winter Heating Payment are automatic for almost everyone who is eligible.</p>
+
+                <p>Any emails, texts, letters or calls from us will always be about a recent application for a benefit or payment or about an automatic payment you have become eligible for.</p>
+
+                <p>We will never ask for personal or financial details by text or email or ask you to reply by text or email.</p>
+
+                <p>If you think you have been the victim of fraud, contact your bank immediately.</p>
+
+                <p>Report fraud to Police Scotland by calling 101.</p>
+
+                <p><a href="https://www.mygov.scot/contact-from-social-security-scotland">Find out more about staying safe from scams.</a></p>
+
+                <p><strong>Tips to identify scam messages:</strong></p>
+
+                <ul>
+                 <li>be suspicious of messages asking you to send money or share personal information such as passwords or bank details</li>
+                 <li>scammers try to create panic by setting a time limit or saying something frightening. Stop and think before giving out information</li>
+                 <li>don’t follow links in suspicious emails or download files</li>
+                 <li>check phone numbers and email addresses on the official websites</li>
+                 <li>use 'contact us' sections to access information and services</li>
+                </ul>
+
+                <p>We offer free assistance to support people making applications for benefits. Find out more at&nbsp;<a href="http://mygov.scot/benefits-support">mygov.scot/benefits-support</a></p>
+        /beware-scam-texts-and-emails[2]:
+          jcr:primaryType: publishing:News
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: 7f5f3798-db1e-4f36-91a8-2a51d3c116f6
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-08-21T15:14:06.723+01:00
+          hippostdpubwf:lastModificationDate: 2025-08-21T15:14:39.655+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 2d7cf3c1-1771-439f-977f-f6709ac81f73
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:contentitemlanguage: en
+          publishing:metaDescription: Beware scam texts and emails
+          publishing:publicationDate: 2025-08-21T15:14:00+01:00
+          publishing:seoTitle: Beware scam texts and emails
+          publishing:showFeedback: true
+          publishing:summary: Beware scam texts and emails
+          publishing:title: Beware scam texts and emails
+          publishing:topics: [adult-disability-payment, best-start-foods]
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p><strong>Be</strong><strong>ware scam texts and emails</strong></p>
+
+                <p>Recent news reports have highlighted concerns about scam texts being sent to people in Scotland. Some recent messages have told people they are about to miss out on help with their heating bills.</p>
+
+                <p>We want to reassure people that Child Winter Heating Payment, Winter Heating Payment and our new Pension Age Winter Heating Payment are automatic for almost everyone who is eligible.</p>
+
+                <p>Any emails, texts, letters or calls from us will always be about a recent application for a benefit or payment or about an automatic payment you have become eligible for.</p>
+
+                <p>We will never ask for personal or financial details by text or email or ask you to reply by text or email.</p>
+
+                <p>If you think you have been the victim of fraud, contact your bank immediately.</p>
+
+                <p>Report fraud to Police Scotland by calling 101.</p>
+
+                <p><a href="https://www.mygov.scot/contact-from-social-security-scotland">Find out more about staying safe from scams.</a></p>
+
+                <p><strong>Tips to identify scam messages:</strong></p>
+
+                <ul>
+                 <li>be suspicious of messages asking you to send money or share personal information such as passwords or bank details</li>
+                 <li>scammers try to create panic by setting a time limit or saying something frightening. Stop and think before giving out information</li>
+                 <li>don’t follow links in suspicious emails or download files</li>
+                 <li>check phone numbers and email addresses on the official websites</li>
+                 <li>use 'contact us' sections to access information and services</li>
+                </ul>
+
+                <p>We offer free assistance to support people making applications for benefits. Find out more at&nbsp;<a href="http://mygov.scot/benefits-support">mygov.scot/benefits-support</a></p>
+        /beware-scam-texts-and-emails[3]:
+          jcr:primaryType: publishing:News
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 7dd5d16e-2802-4638-89b1-4575064602bd
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-08-21T15:14:06.723+01:00
+          hippostdpubwf:lastModificationDate: 2025-08-21T15:14:39.655+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-08-21T15:14:43.066+01:00
+          hippostdpubwf:publishedBy: admin
+          hippotranslation:id: 2d7cf3c1-1771-439f-977f-f6709ac81f73
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:contentitemlanguage: en
+          publishing:metaDescription: Beware scam texts and emails
+          publishing:publicationDate: 2025-08-21T15:14:00+01:00
+          publishing:seoTitle: Beware scam texts and emails
+          publishing:showFeedback: true
+          publishing:summary: Beware scam texts and emails
+          publishing:title: Beware scam texts and emails
+          publishing:topics: [adult-disability-payment, best-start-foods]
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: |-
+                <p><strong>Be</strong><strong>ware scam texts and emails</strong></p>
+
+                <p>Recent news reports have highlighted concerns about scam texts being sent to people in Scotland. Some recent messages have told people they are about to miss out on help with their heating bills.</p>
+
+                <p>We want to reassure people that Child Winter Heating Payment, Winter Heating Payment and our new Pension Age Winter Heating Payment are automatic for almost everyone who is eligible.</p>
+
+                <p>Any emails, texts, letters or calls from us will always be about a recent application for a benefit or payment or about an automatic payment you have become eligible for.</p>
+
+                <p>We will never ask for personal or financial details by text or email or ask you to reply by text or email.</p>
+
+                <p>If you think you have been the victim of fraud, contact your bank immediately.</p>
+
+                <p>Report fraud to Police Scotland by calling 101.</p>
+
+                <p><a href="https://www.mygov.scot/contact-from-social-security-scotland">Find out more about staying safe from scams.</a></p>
+
+                <p><strong>Tips to identify scam messages:</strong></p>
+
+                <ul>
+                 <li>be suspicious of messages asking you to send money or share personal information such as passwords or bank details</li>
+                 <li>scammers try to create panic by setting a time limit or saying something frightening. Stop and think before giving out information</li>
+                 <li>don’t follow links in suspicious emails or download files</li>
+                 <li>check phone numbers and email addresses on the official websites</li>
+                 <li>use 'contact us' sections to access information and services</li>
+                </ul>
+
+                <p>We offer free assistance to support people making applications for benefits. Find out more at&nbsp;<a href="http://mygov.scot/benefits-support">mygov.scot/benefits-support</a></p>

@@ -1,13 +1,13 @@
 /content/documents/socialsecurity/administration:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 279ccd02-de7b-4840-927b-d148026e7d82
   hippo:name: Administration
-  hippostd:foldertype:
-    - new-siteverification-document
-    - new-valuelist
+  hippostd:foldertype: [new-siteverification-document, new-valuelist, new-searchsettings-document]
   /performance:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    jcr:uuid: 620673e2-1f1e-483d-bd2a-d0916d0f3459
     hippo:name: Performance
     hippostd:foldertype: []
     /analytics:
@@ -18,9 +18,11 @@
       /dev:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 91d69c24-7959-4dfd-b9b5-8c04bf1f8757
         /dev:
           jcr:primaryType: publishing:analytics
           jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 96414bd3-0605-40c6-a347-04e70c205e4b
           hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
@@ -37,9 +39,11 @@
       /live:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 39f85ffb-735c-41ca-b362-4ed6966b9d95
         /live:
           jcr:primaryType: publishing:analytics
           jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: f10ff5dc-3c79-4946-9924-259dec3911eb
           hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
@@ -56,9 +60,11 @@
     /robots:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: c3b82d32-25c4-4d26-9a1b-09022f0dacec
       /robots:
         jcr:primaryType: robotstxt:robotstxt
         jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+        jcr:uuid: 23efe8f0-21d5-4682-92ec-3b90058f869c
         hippo:availability: [live]
         hippostd:state: published
         hippostdpubwf:createdBy: admin
@@ -73,16 +79,19 @@
           robotstxt:useragent: '*'
     /siteverification:
       jcr:primaryType: hippostd:folder
-      jcr:mixinTypes: [ 'hippo:named', 'mix:versionable' ]
+      jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+      jcr:uuid: 88a00f85-d097-4333-b4ef-c97c47a3ca30
       hippo:name: Site verification
-      hippostd:foldertype: [ new-siteverification-document ]
+      hippostd:foldertype: [new-siteverification-document]
   /publicationtypes:
     jcr:primaryType: hippo:handle
-    jcr:mixinTypes: [ 'hippo:named', 'mix:referenceable' ]
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: ac6f758a-6b3e-413f-9915-a9485b967e37
     hippo:name: publicationTypes
     /publicationtypes:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 2239130f-d3ea-48f4-a413-00d962a068d9
       /selection:listitem[1]:
         jcr:primaryType: selection:listitem
         selection:key: factsheet
@@ -130,10 +139,12 @@
   /topics:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: 1eeea3ab-4fe5-429e-8cc3-ebc68ee870a2
     hippo:name: topics
     /topics:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 6f9d2dcb-04b8-4d79-b45b-5e8d64618234
       /selection:listitem[1]:
         jcr:primaryType: selection:listitem
         selection:key: adult-disability-payment
@@ -157,7 +168,8 @@
       /selection:listitem[6]:
         jcr:primaryType: selection:listitem
         selection:key: carers-allowance-supplement
-        selection:label: Carer's Allowance Supplement (To be replaced by Scottish Carer Supplement in 2025/2026)
+        selection:label: Carer's Allowance Supplement (To be replaced by Scottish
+          Carer Supplement in 2025/2026)
       /selection:listitem[7]:
         jcr:primaryType: selection:listitem
         selection:key: child-disability-payment
@@ -238,3 +250,50 @@
         jcr:primaryType: selection:listitem
         selection:key: special-rules-for-terminal-illness
         selection:label: Special rules for terminal illness
+  /search-settings:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 94345a86-f168-46e6-9db8-9555e9d2d08e
+    hippo:name: Search settings
+    hippo:versionHistory: 5ab53001-db22-4497-8e44-ef044b124591
+    /search-settings[1]:
+      jcr:primaryType: search:searchsettings
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: 8e835de5-63de-404e-9ef2-b9324e8652e5
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
+      hippostdpubwf:lastModificationDate: 2025-08-21T10:59:14.715+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      search:searchtype: bloomreach
+      search:showFilters: true
+    /search-settings[2]:
+      jcr:primaryType: search:searchsettings
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 57920806-61bd-4a2d-bf21-3e5a3bf533df
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
+      hippostdpubwf:lastModificationDate: 2025-08-21T13:10:23.597+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      search:searchtype: bloomreach
+      search:showFilters: true
+    /search-settings[3]:
+      jcr:primaryType: search:searchsettings
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: cd7aad1c-dd63-4f5b-91bf-7add233553c8
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
+      hippostdpubwf:lastModificationDate: 2025-08-21T10:59:14.715+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-08-21T10:59:17.778+01:00
+      hippostdpubwf:publishedBy: admin
+      search:searchtype: bloomreach
+      search:showFilters: true

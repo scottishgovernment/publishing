@@ -1164,3 +1164,142 @@
     jcr:uuid: c1e7c728-9244-4324-a001-05a78e26ca99
     hippo:name: banners
     hippostd:foldertype: [new-mourning-banner, new-notification-banner, new-phase-banner]
+  /search:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    jcr:uuid: 21b65c38-0be6-4e0e-ba47-1d627fa22bd1
+    hippo:name: Search
+    hippostd:foldertype: []
+    /search-results:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+      jcr:uuid: b97d4814-725d-43d2-b716-643f4196dfcb
+      hippo:name: Search results
+      /search-results[1]:
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 187f0826-a5b2-4136-b6ca-1be0e1be9178
+        hippo:availability: []
+        hippostd:holder: admin
+        hippostd:retainable: false
+        hippostd:state: draft
+        hippostdpubwf:createdBy: migration
+        hippostdpubwf:creationDate: 2021-04-20T02:10:42+01:00
+        hippostdpubwf:lastModificationDate: 2025-08-19T16:14:36.383+01:00
+        hippostdpubwf:lastModifiedBy: admin
+        hippotranslation:id: 875e9963-f035-4aab-b41f-9d8d58b85aaa
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: Search results
+        /publishing:blankSearchQueryMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p><strong>0 results</strong>, please fill in the
+                search field.</p>
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /publishing:noResultsMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<p><strong>There are no matching results.</strong></p><p>Improve\
+                \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
+                \ \n <li>using fewer keywords</li> \n <li>searching for something\
+                \ less specific</li> \n</ul>"
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: ''
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+      /search-results[2]:
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:versionable']
+        jcr:uuid: a8115654-71f2-4b17-b5c8-68fd25a94594
+        hippo:availability: [preview]
+        hippostd:retainable: false
+        hippostd:state: unpublished
+        hippostdpubwf:createdBy: migration
+        hippostdpubwf:creationDate: 2021-04-20T02:10:42+01:00
+        hippostdpubwf:lastModificationDate: 2024-01-24T15:28:51.041Z
+        hippostdpubwf:lastModifiedBy: david.kindness@gov.scot
+        hippotranslation:id: 875e9963-f035-4aab-b41f-9d8d58b85aaa
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: Search results
+        /publishing:blankSearchQueryMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p><strong>0 results</strong>, please fill in the
+                search field.</p>
+        /publishing:noResultsMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<p><strong>There are no matching results.</strong></p><p>Improve\
+                \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
+                \ \n <li>using fewer keywords</li> \n <li>searching for something\
+                \ less specific</li> \n</ul>"
+      /search-results[3]:
+        jcr:primaryType: publishing:search
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: 72fbe97c-cf53-4846-a976-b65b3695387f
+        hippo:availability: [live]
+        hippostd:retainable: false
+        hippostd:state: published
+        hippostdpubwf:createdBy: migration
+        hippostdpubwf:creationDate: 2021-04-20T02:10:42+01:00
+        hippostdpubwf:lastModificationDate: 2024-01-24T15:28:51.041Z
+        hippostdpubwf:lastModifiedBy: david.kindness@gov.scot
+        hippostdpubwf:publicationDate: 2024-01-24T15:28:54.771Z
+        hippotranslation:id: 875e9963-f035-4aab-b41f-9d8d58b85aaa
+        hippotranslation:locale: document-type-locale
+        publishing:showFeedback: true
+        publishing:title: Search results
+        /publishing:blankSearchQueryMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p><strong>0 results</strong>, please fill in the
+                search field.</p>
+        /publishing:noResultsMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: "<p><strong>There are no matching results.</strong></p><p>Improve\
+                \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
+                \ \n <li>using fewer keywords</li> \n <li>searching for something\
+                \ less specific</li> \n</ul>"

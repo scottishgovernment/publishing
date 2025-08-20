@@ -1,6 +1,7 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:components/seo:
+      .meta:order-before: search-side-filter
       jcr:primaryType: hst:component
       hst:componentclassname: scot.mygov.publishing.components.SEOComponent
       hst:template: seo

@@ -1,5 +1,6 @@
 package scot.mygov.publishing.components;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.hippoecm.hst.content.beans.query.HstQuery;
 import org.hippoecm.hst.content.beans.query.HstQueryResult;
 import org.hippoecm.hst.content.beans.query.builder.Constraint;
@@ -25,12 +26,14 @@ import scot.gov.publishing.hippo.funnelback.model.Response;
 import scot.gov.publishing.hippo.funnelback.model.ResultsSummary;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.defaultIfBlank;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
 import static org.onehippo.repository.util.JcrConstants.JCR_PRIMARY_TYPE;
+import static scot.mygov.publishing.components.ConstraintUtils.fieldConstraints;
 
 @Service
 @Component("scot.mygov.publishing.components.BloomreachSearchService")
@@ -82,7 +85,7 @@ public class BloomreachSearchService implements SearchService {
                 "publishing:title",
                 "publishing:summary",
                 "publishing:content/hippostd:content",
-                "publishing:contentblocks/hippostd:content",
+                "publishing:contentBlocks/publishing:content/@hippostd:content",
                 "hippostd:tags"
         );
     }
@@ -93,7 +96,8 @@ public class BloomreachSearchService implements SearchService {
         String query = defaultIfBlank(search.getQuery(), "");
         int offset = (search.getPage() - 1) * PAGE_SIZE;
 
-        HstQuery hstQuery = query(query, offset, search.getRequest());
+        HstQuery hstQuery = query(search, offset, search.getRequest());
+        LOG.info("query: {}", hstQuery);
         try {
             HstQueryResult result = hstQuery.execute();
             return response(result, search, query, offset, search.getRequestUrl());
@@ -129,12 +133,11 @@ public class BloomreachSearchService implements SearchService {
         return searchResponse;
     }
 
-    public HstQuery query(String queryStr, int offset, HstRequest request) {
-        String parsedQueryStr = SearchInputParsingUtils.parse(queryStr, false);
+    public HstQuery query(Search search, int offset, HstRequest request) {
         HstRequestContext context = request.getRequestContext();
         return HstQueryBuilder
                 .create(context.getSiteContentBaseBean())
-                .where(whereConstraint(parsedQueryStr))
+                .where(whereConstraint(search))
                 .limit(PAGE_SIZE)
                 .offset(offset)
                 .build(context.getQueryManager());
@@ -157,12 +160,17 @@ public class BloomreachSearchService implements SearchService {
         return resultsSummary;
     }
 
-    Constraint whereConstraint(String term) {
-        return and(new Constraint [] {
-                showInParentConstraint(),
+    Constraint whereConstraint(Search search) {
+        String query = defaultIfBlank(search.getQuery(), "");
+        String parsedQueryStr = SearchInputParsingUtils.parse(query, false);
+        List<Constraint> constraints = new ArrayList<>();
+        Collections.addAll(constraints, showInParentConstraint(),
                 excludeTypesConstraint(),
-                termConstraint(term)
-        });
+                ConstraintUtils.topicsConstraint(search),
+                ConstraintUtils.publicationTypesConstraint(search),
+                termConstraint(parsedQueryStr));
+        constraints.addAll(ConstraintUtils.dateConstraint(search));
+        return and(constraints.stream().filter(Objects::nonNull).collect(toList()).toArray(new Constraint[0]));
     }
 
     Constraint showInParentConstraint() {
@@ -198,17 +206,6 @@ public class BloomreachSearchService implements SearchService {
 
     private Constraint termConstraint(String term) {
         return or(fieldConstraints(term));
-    }
-
-    private Constraint [] fieldConstraints(String term) {
-        return FIELD_NAMES.stream()
-                .map(field -> fieldConstraint(field, term))
-                .collect(toList())
-                .toArray(new Constraint[FIELD_NAMES.size()]);
-    }
-
-    Constraint fieldConstraint(String field, String term) {
-        return constraint(field).contains(term);
     }
 
 }

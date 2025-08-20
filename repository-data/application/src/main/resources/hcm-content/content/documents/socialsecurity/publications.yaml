@@ -1,5 +1,4 @@
 /content/documents/socialsecurity/publications:
-  .meta:order-before: seo
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named']
   hippo:name: Publications
@@ -7,10 +6,12 @@
   /index:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: b5f6d0fc-31e5-4fc4-bdea-67e9d7c761ef
     hippo:name: Publications
     /index:
       jcr:primaryType: publishing:LandingPage
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 7e28130e-008b-47ca-b468-98529dd7ade6
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
@@ -40,3 +41,86 @@
              <li>using fewer keywords</li>
              <li>searching for something less specific</li>
             </ul>
+  /2025:
+    jcr:primaryType: hippostd:folder
+    hippostd:foldertype: [new-publication-month-folder]
+    /08:
+      jcr:primaryType: hippostd:folder
+      hippostd:foldertype: [new-publication-document]
+      /helping-hand-for-carers---stakeholder-resources:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+        jcr:uuid: 3c7423d0-e992-42ef-a270-f920e9927e3a
+        hippo:name: Helping hand for carers - stakeholder resources
+        hippo:versionHistory: 2400cf3f-34a8-4a49-9582-d94a938ec056
+        /helping-hand-for-carers---stakeholder-resources[1]:
+          jcr:primaryType: publishing:Publication
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: f5c26297-7c72-40d7-935e-38df77a30a42
+          hippo:availability: []
+          hippostd:retainable: false
+          hippostd:state: draft
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-08-21T15:28:36.020+01:00
+          hippostdpubwf:lastModificationDate: 2025-08-21T15:29:25.560+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 21bd61db-bfff-40f8-a97d-59dc2f5caf33
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:contentitemlanguage: en
+          publishing:metaDescription: Helping hand for carers - stakeholder resources
+          publishing:publicationDate: 2025-08-14T00:00:00+01:00
+          publishing:publicationType: factsheet
+          publishing:seoTitle: Helping hand for carers - stakeholder resources
+          publishing:showFeedback: false
+          publishing:summary: Helping hand for carers - stakeholder resources
+          publishing:title: Helping hand for carers - stakeholder resources
+          publishing:topics: [carer-support-payment, adult-disability-payment]
+        /helping-hand-for-carers---stakeholder-resources[2]:
+          jcr:primaryType: publishing:Publication
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+          jcr:uuid: 6bcfd62d-8885-4299-a45c-32ebc3728b43
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-08-21T15:28:36.020+01:00
+          hippostdpubwf:lastModificationDate: 2025-08-21T15:29:31.439+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: 21bd61db-bfff-40f8-a97d-59dc2f5caf33
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:contentitemlanguage: en
+          publishing:metaDescription: Helping hand for carers - stakeholder resources
+          publishing:publicationDate: 2025-08-14T00:00:00+01:00
+          publishing:publicationType: factsheet
+          publishing:seoTitle: Helping hand for carers - stakeholder resources
+          publishing:showFeedback: false
+          publishing:summary: Helping hand for carers - stakeholder resources
+          publishing:title: Helping hand for carers - stakeholder resources
+          publishing:topics: [carer-support-payment, adult-disability-payment]
+        /helping-hand-for-carers---stakeholder-resources[3]:
+          jcr:primaryType: publishing:Publication
+          jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+          jcr:uuid: 0947d682-634a-4b89-bb15-484acce0bd60
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-08-21T15:28:36.020+01:00
+          hippostdpubwf:lastModificationDate: 2025-08-21T15:29:31.439+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-08-21T15:29:34.782+01:00
+          hippostdpubwf:publishedBy: admin
+          hippotranslation:id: 21bd61db-bfff-40f8-a97d-59dc2f5caf33
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:contentitemlanguage: en
+          publishing:metaDescription: Helping hand for carers - stakeholder resources
+          publishing:publicationDate: 2025-08-14T00:00:00+01:00
+          publishing:publicationType: factsheet
+          publishing:seoTitle: Helping hand for carers - stakeholder resources
+          publishing:showFeedback: false
+          publishing:summary: Helping hand for carers - stakeholder resources
+          publishing:title: Helping hand for carers - stakeholder resources
+          publishing:topics: [carer-support-payment, adult-disability-payment]
