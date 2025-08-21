@@ -1,0 +1,43 @@
+/content/documents/socialsecurity/news:
+  .meta:order-before: pageheadings
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named']
+  hippo:name: News
+  hippostd:foldertype: [new-news-year-folder, new-landingpage-document]
+  /index:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    hippo:name: News
+    /index:
+      jcr:primaryType: publishing:LandingPage
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 0ff1659c-23c6-4854-97d5-b07e2e7f0216
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-08-08T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2025-08-08T09:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-08-08T09:00:00Z
+      hippostdpubwf:publishedBy: admin
+      hippotranslation:id: 26bb879e-6ab3-4db8-9f5f-499b09c414b9
+      hippotranslation:locale: document-type-locale
+      publishing:showFeedback: true
+      publishing:showTopics: true
+      publishing:title: News
+      /publishing:noResultsMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+
+            <p>Improve your search results by:</p>
+
+            <ul>
+             <li>double-checking your spelling</li>
+             <li>using fewer keywords</li>
+             <li>searching for something less specific</li>
+            </ul>
