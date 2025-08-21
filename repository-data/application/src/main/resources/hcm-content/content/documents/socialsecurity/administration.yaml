@@ -78,7 +78,7 @@
       hippostd:foldertype: [ new-siteverification-document ]
   /publicationtypes:
     jcr:primaryType: hippo:handle
-    jcr:mixinTypes: [ :wq'hippo:named', 'mix:referenceable' ]
+    jcr:mixinTypes: [ 'hippo:named', 'mix:referenceable' ]
     hippo:name: publicationTypes
     /publicationtypes:
       jcr:primaryType: selection:valuelist
