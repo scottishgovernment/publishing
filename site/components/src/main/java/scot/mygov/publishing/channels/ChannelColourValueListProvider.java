@@ -21,6 +21,7 @@ public class ChannelColourValueListProvider implements ValueListProvider {
         COLOURS.put("teal","Teal");
         COLOURS.put("neutral","Neutral");
         COLOURS.put("designsystem","Design System");
+        COLOURS.put("social-security","Social Security Scotland");
     }
 
     private List getValueListForLocale(Locale locale) {

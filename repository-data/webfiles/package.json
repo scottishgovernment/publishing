@@ -8,7 +8,7 @@
     "url": "http://www.gov.scot/"
   },
   "scripts": {
-    "sass": "npm run sass_theme_sg-brand; npm run sass_theme_dark-blue; npm run sass_theme_green; npm run sass_theme_purple; npm run sass_theme_teal; npm run sass_theme_neutral; npm run sass_designsystem",
+    "sass": "npm run sass_theme_sg-brand; npm run sass_theme_dark-blue; npm run sass_theme_green; npm run sass_theme_purple; npm run sass_theme_teal; npm run sass_theme_neutral; npm run sass_designsystem; npm run sass_theme_socsec",
     "sass_designsystem": "sass ./src/main/scss/designsystem/main.scss ./src/main/resources/site/assets/themes/designsystem/css/main.css --style compressed",
     "sass_theme_sg-brand": "sass ./src/main/scss/themes/sg-brand/main.scss ./src/main/resources/site/assets/themes/sg-brand/css/main.css --style compressed",
     "sass_theme_dark-blue": "sass ./src/main/scss/themes/dark-blue/main.scss ./src/main/resources/site/assets/themes/dark-blue/css/main.css --style compressed",
@@ -16,6 +16,7 @@
     "sass_theme_purple": "sass ./src/main/scss/themes/purple/main.scss ./src/main/resources/site/assets/themes/purple/css/main.css --style compressed",
     "sass_theme_teal": "sass ./src/main/scss/themes/teal/main.scss ./src/main/resources/site/assets/themes/teal/css/main.css --style compressed",
     "sass_theme_neutral": "sass ./src/main/scss/themes/neutral/main.scss ./src/main/resources/site/assets/themes/neutral/css/main.css --style compressed",
+    "sass_theme_socsec": "sass ./src/main/scss/themes/social-security/main.scss ./src/main/resources/site/assets/themes/social-security/css/main.css --style compressed",
     "svgsprite": "node svg-sprite",
     "test": "karma start ./test/karma.conf.js",
     "webpack": "NODE_OPTIONS=--openssl-legacy-provider webpack --config ./src/main/scripts/webpack.config.js"
