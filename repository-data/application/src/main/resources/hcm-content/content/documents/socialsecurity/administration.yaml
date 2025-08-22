@@ -79,7 +79,7 @@
   /publicationtypes:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: [ 'hippo:named', 'mix:referenceable' ]
-    hippo:name: publicationTypes
+    hippo:name: Publication types
     /publicationtypes:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['mix:referenceable']
@@ -130,7 +130,7 @@
   /topics:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    hippo:name: topics
+    hippo:name: Topics
     /topics:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['mix:referenceable']
