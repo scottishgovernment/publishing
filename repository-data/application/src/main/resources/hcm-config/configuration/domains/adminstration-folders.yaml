@@ -33,15 +33,6 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/rentersrights/administration
-      /shorttermlets:
-        jcr:primaryType: hipposys:domainrule
-        /include-shorttermlets-administration-folder:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: true
-          hipposys:facet: jcr:path
-          hipposys:filter: false
-          hipposys:type: Reference
-          hipposys:value: /content/documents/shorttermlets/administration
       /privatetenancy:
         jcr:primaryType: hipposys:domainrule
         /include-costofliving-administration-folder:

@@ -24,15 +24,6 @@ definitions:
           hipposys:filter: false
           hipposys:type: Reference
           hipposys:value: /content/documents/rentersrights/administration/performance
-      /shorttermlets-document:
-        jcr:primaryType: hipposys:domainrule
-        /include-shorttermlets-performance-folder:
-          jcr:primaryType: hipposys:facetrule
-          hipposys:equals: true
-          hipposys:facet: jcr:path
-          hipposys:filter: false
-          hipposys:type: Reference
-          hipposys:value: /content/documents/shorttermlets/administration/performance
       /privatetenancy-document:
         jcr:primaryType: hipposys:domainrule
         /include-costofliving-performance-folder:
