@@ -93,37 +93,41 @@
         selection:label: Flyers and posters
       /selection:listitem[3]:
         jcr:primaryType: selection:listitem
+        selection:key: freedom-of-information
+        selection:label: Freedom of information
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
         selection:key: impact-assessment
         selection:label: Impact assessment
-      /selection:listitem[4]:
+      /selection:listitem[5]:
         jcr:primaryType: selection:listitem
         selection:key: minutes-and-agendas
         selection:label: Meeting minutes and agendas
-      /selection:listitem[5]:
+      /selection:listitem[6]:
         jcr:primaryType: selection:listitem
         selection:key: newsletters-and-articles
         selection:label: Newsletters and articles
-      /selection:listitem[6]:
+      /selection:listitem[7]:
         jcr:primaryType: selection:listitem
         selection:key: reports
         selection:label: Reports
-      /selection:listitem[7]:
+      /selection:listitem[8]:
         jcr:primaryType: selection:listitem
         selection:key: research
         selection:label: Research
-      /selection:listitem[8]:
+      /selection:listitem[9]:
         jcr:primaryType: selection:listitem
         selection:key: social-media
         selection:label: Social media
-      /selection:listitem[9]:
+      /selection:listitem[10]:
         jcr:primaryType: selection:listitem
         selection:key: statistics
         selection:label: Statistics
-      /selection:listitem[10]:
+      /selection:listitem[11]:
         jcr:primaryType: selection:listitem
         selection:key: strategy-plan
         selection:label: Strateiges and plans
-      /selection:listitem[11]:
+      /selection:listitem[12]:
         jcr:primaryType: selection:listitem
         selection:key: transactions
         selection:label: Transactions
@@ -157,7 +161,7 @@
       /selection:listitem[6]:
         jcr:primaryType: selection:listitem
         selection:key: carers-allowance-supplement
-        selection:label: Carer's Allowance Supplement (To be replaced by Scottish Carer Supplement in 2025/2026)
+        selection:label: Carer's Allowance Supplement
       /selection:listitem[7]:
         jcr:primaryType: selection:listitem
         selection:key: child-disability-payment
@@ -168,73 +172,70 @@
         selection:label: Child Winter Heating Payment
       /selection:listitem[9]:
         jcr:primaryType: selection:listitem
-        selection:key: funeral-support-payment
-        selection:label: Funeral Support Payment
-      /selection:listitem[10]:
-        jcr:primaryType: selection:listitem
-        selection:key: job-start-payment
-        selection:label: Job Start Payment
-      /selection:listitem[11]:
-        jcr:primaryType: selection:listitem
-        selection:key: pension-age-disability-payment
-        selection:label: Pension Age Disability Payment
-      /selection:listitem[12]:
-        jcr:primaryType: selection:listitem
-        selection:key: pension-age-winter-heating-payment
-        selection:label: Pension Age Winter Heating Payment
-      /selection:listitem[13]:
-        jcr:primaryType: selection:listitem
-        selection:key: scottish-adult-disability-living-allowance
-        selection:label: Scottish Adult Disability Living Allowance
-      /selection:listitem[14]:
-        jcr:primaryType: selection:listitem
-        selection:key: scottish-child-payment
-        selection:label: Scottish Child Payment
-      /selection:listitem[15]:
-        jcr:primaryType: selection:listitem
-        selection:key: two-child-limit-payment
-        selection:label: Two Child Limit Payment
-      /selection:listitem[16]:
-        jcr:primaryType: selection:listitem
-        selection:key: winter-heating-payment
-        selection:label: Winter Heating Payment
-      /selection:listitem[17]:
-        jcr:primaryType: selection:listitem
-        selection:key: young-carer-grant
-        selection:label: Young Carer Grant
-      /selection:listitem[18]:
-        jcr:primaryType: selection:listitem
         selection:key: equality-diversity-and-inclusion
         selection:label: Equality, diversity and inclusion
-      /selection:listitem[19]:
+      /selection:listitem[10]:
         jcr:primaryType: selection:listitem
-        selection:key: freedom-of-information
-        selection:label: Freedom of information
-      /selection:listitem[20]:
+        selection:key: funeral-support-payment
+        selection:label: Funeral Support Payment
+      /selection:listitem[11]:
         jcr:primaryType: selection:listitem
         selection:key: governance-and-groups
         selection:label: Governance and groups
-      /selection:listitem[21]:
+      /selection:listitem[12]:
+        jcr:primaryType: selection:listitem
+        selection:key: job-start-payment
+        selection:label: Job Start Payment
+      /selection:listitem[13]:
         jcr:primaryType: selection:listitem
         selection:key: local-delivery
         selection:label: Local delivery
-      /selection:listitem[22]:
+      /selection:listitem[14]:
         jcr:primaryType: selection:listitem
         selection:key: management-information
         selection:label: Management information
-      /selection:listitem[23]:
+      /selection:listitem[15]:
+        jcr:primaryType: selection:listitem
+        selection:key: pension-age-disability-payment
+        selection:label: Pension Age Disability Payment
+      /selection:listitem[16]:
+        jcr:primaryType: selection:listitem
+        selection:key: pension-age-winter-heating-payment
+        selection:label: Pension Age Winter Heating Payment
+      /selection:listitem[17]:
         jcr:primaryType: selection:listitem
         selection:key: policies
         selection:label: Policies
-      /selection:listitem[24]:
+      /selection:listitem[18]:
         jcr:primaryType: selection:listitem
         selection:key: procurement-and-commercial
         selection:label: Procurement and commercial
-      /selection:listitem[25]:
+      /selection:listitem[19]:
         jcr:primaryType: selection:listitem
         selection:key: recruitment-and-careers
         selection:label: Recruitment and careers
-      /selection:listitem[26]:
+      /selection:listitem[20]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-adult-disability-living-allowance
+        selection:label: Scottish Adult Disability Living Allowance
+      /selection:listitem[21]:
+        jcr:primaryType: selection:listitem
+        selection:key: scottish-child-payment
+        selection:label: Scottish Child Payment
+      /selection:listitem[22]:
         jcr:primaryType: selection:listitem
         selection:key: special-rules-for-terminal-illness
         selection:label: Special rules for terminal illness
+      /selection:listitem[23]:
+        jcr:primaryType: selection:listitem
+        selection:key: two-child-limit-payment
+        selection:label: Two Child Limit Payment
+      /selection:listitem[24]:
+        jcr:primaryType: selection:listitem
+        selection:key: winter-heating-payment
+        selection:label: Winter Heating Payment
+      /selection:listitem[25]:
+        jcr:primaryType: selection:listitem
+        selection:key: young-carer-grant
+        selection:label: Young Carer Grant
+
