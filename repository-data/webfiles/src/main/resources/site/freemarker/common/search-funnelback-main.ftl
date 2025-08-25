@@ -39,5 +39,10 @@
     </div>
 </div>
 
-<#assign scriptName="search">
+<#if showFilters>
+    <#assign scriptName="filtered-list">
+<#else>
+    <#assign scriptName="search">
+</#if>
+
 <#include 'scripts.ftl'/>

@@ -78,19 +78,21 @@
                 <#if response.resultPacket.resultsSummary.totalMatching <= response.resultPacket.resultsSummary.numRanks ||
                 response.resultPacket.resultsSummary.currStart <= response.resultPacket.resultsSummary.numRanks >
 
-                ${response.resultPacket.resultsSummary.totalMatching} results for <span class="ds_search-results__title-query">${question.originalQuery}</span>
+                ${response.resultPacket.resultsSummary.totalMatching} <#if response.resultPacket.resultsSummary.totalMatching gt 1>results<#else>result</#if><#if question.originalQuery?has_content> for <span class="ds_search-results__title-query">${question.originalQuery}</span></#if>
                     <#if (response.resultPacket.qsups)!?size &gt; 0>
                         <#list response.resultPacket.qsups as qsup>or <span class="ds_search-results__title-query">${qsup.query}</span></#list>
                     </#if>
                 <#else>
                     Showing ${response.resultPacket.resultsSummary.currStart} to ${response.resultPacket.resultsSummary.currEnd}
-                    of ${response.resultPacket.resultsSummary.totalMatching} results for <span class="ds_search-results__title-query">${question.originalQuery}</span>
+                    of ${response.resultPacket.resultsSummary.totalMatching} <#if response.resultPacket.resultsSummary.totalMatching gt 1>results<#else>result</#if><#if question.originalQuery?has_content> for <span class="ds_search-results__title-query">${question.originalQuery}</span></#if>
                     <#if (response.resultPacket.qsups)!?size &gt; 0>
                         <#list response.resultPacket.qsups as qsup>or <span class="ds_search-results__title-query">${qsup.query}</span></#list>
                     </#if>
                 </#if>
             </h2>
         </#if>
+
+        <#include "../common/include/filter-buttons.ftl"/>
 
         <#if pagination??>
             <ol start="${response.resultPacket.resultsSummary.currStart?c}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching?c}">

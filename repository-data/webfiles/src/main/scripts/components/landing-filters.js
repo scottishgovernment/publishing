@@ -118,7 +118,7 @@ class LandingFilters {
                 event.preventDefault();
                 this.clearFilters();
             }
-            
+
             // pagination link submits search on click
             if (event.target.classList.contains('ds_pagination__link')) {
                 event.preventDefault();
@@ -180,8 +180,8 @@ class LandingFilters {
         this.doSearch(targetHref);
     }
 
-    convertUrl (url, newSearch) {
-        return url.pathname + searchUtils.getNewQueryString(this.gatherParams(url, newSearch));    
+    convertUrl(url, newSearch) {
+        return url.pathname + searchUtils.getNewQueryString(this.gatherParams(url, newSearch));
     }
 
     doSearch(url, newSearch = false) {
@@ -189,7 +189,6 @@ class LandingFilters {
         const pageUrl = window.location.pathname + searchUtils.getNewQueryString(this.gatherParams(url, newSearch));
 
         if (!url) {
-           
             url = this.convertUrl(window.location, newSearch);
 
             // do not proceed if there are errors
@@ -204,7 +203,6 @@ class LandingFilters {
                 // invalid url
                 return false;
             }
-        
         }
 
         // disable search containers
@@ -214,15 +212,11 @@ class LandingFilters {
         this.loadResults(url)
             .then(data => {
                 if (this.isPopstate) {
-
                     delete this.isPopstate;
-
-
                 } else {
                     try {
                         // update querystring
                         window.history.pushState('', '', pageUrl);
-
                     } catch (error) {
                         // history API not supported
                     }
@@ -285,13 +279,12 @@ class LandingFilters {
                 searchParams.page = encodeURIComponent(pageParam);
             }
         }
-        
+
         // size
         const sizeParam = searchUtils.getParameterByName('size') || 10;
         if(sizeParam){
             searchParams.size = encodeURIComponent(sizeParam);
         }
-         
 
         // content types
         searchParams.type = [];
@@ -310,13 +303,17 @@ class LandingFilters {
         }
 
         // term
-        if(newSearch) {
+        if (newSearch) {
             // If a new search then use the search term
             const searchField = document.getElementById('filters-search-term');
+            const qParam = searchUtils.getParameterByName('q');
             if (searchField) {
                 searchParams.q = encodeURIComponent(searchField.value);
+            } else if (qParam) {
+                searchParams.q = encodeURIComponent(qParam);
             }
         } else {
+            console.log('existing search')
             // Use the existing parameter if available - pagination action shouldn't submit new search input
             const qParam = searchUtils.getParameterByName('q');
             if(qParam){
@@ -324,7 +321,7 @@ class LandingFilters {
             }
         }
 
-        // cat 
+        // cat
         const catParam = searchUtils.getParameterByName('cat');
         if(catParam){
             searchParams.cat = encodeURIComponent(catParam);

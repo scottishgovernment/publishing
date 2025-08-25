@@ -24,7 +24,7 @@
             <div class="ds_details__text">
 
                 <form id="filters" method="GET" action="#">
-                    <h3 class="ds_search-filters__title  ds_h4  ds_!_padding-top--0">Filter by</h3>
+                    <h3 class="ds_search-filters__title  ds_h4">Filter by</h3>
 
                     <div class="ds_accordion  ds_accordion--small  ds_!_margin-top--0" data-module="ds-accordion">
 
