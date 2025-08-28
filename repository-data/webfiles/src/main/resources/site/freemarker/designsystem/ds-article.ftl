@@ -1,5 +1,6 @@
 <#ftl output_format="HTML">
 <#include "../common/include/imports.ftl">
+<#include "../common/macros/content-blocks.ftl">
 <#include "../common/macros/lang-attributes.ftl">
 
 
@@ -286,6 +287,18 @@
                                 </tbody>
                             </table>
                             <!-- end palette block -->
+                        </#if>
+
+                        <#if hst.isNodeType(contentblock.node, 'publishing:cb_fragment')>
+                            <#-- fragment block -->
+                            <#if contentblock.noindex>
+                            <!--noindex-->
+                            </#if>
+                            <@renderContentBlocks contentblock.fragment.contentBlocks />
+                            <#if contentblock.noindex>
+                            <!--endnoindex-->
+                            </#if>
+                            <#-- end fragment block -->
                         </#if>
 
                     </#list>
