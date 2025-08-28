@@ -31,6 +31,9 @@ definitions:
           hst:alias: {{id}}
           hst:mountpoint: /hst:publishing/hst:sites/{{id}}
           hst:schemeagnostic: true
+{{^internal}}
+          hst:types: [primary]
+{{/internal}}
           publishing:gtm: /content/documents/{{id}}/administration/performance/analytics/{{gtm}}
           hst:locale: en_GB
 {{/environments}}
