@@ -1,5 +1,6 @@
 package scot.mygov.publishing.components;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -16,7 +17,17 @@ public class HomeCategoriesComponent extends CommonComponent {
 
         HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
         HippoFolderBean folder = baseBean.getBean("browse");
+
+        HomeCategoriesComponentInfo paramInfo = getComponentParametersInfo(request);
+        if (StringUtils.isNotBlank(paramInfo.getCategory())) {
+            HippoBean category = baseBean.getBean(paramInfo.getCategory());
+            request.setAttribute("document", category);
+            folder = (HippoFolderBean) category.getParentBean();
+        }
         request.setAttribute("children", CategoryComponent.getChildren(folder));
+        request.setAttribute("navigationType", paramInfo.getNavigationType());
+        request.setAttribute("backgroundcolor", paramInfo.getBackgroundColor());
+        request.setAttribute("removebottompadding", paramInfo.getRemoveBottomPadding());
     }
 
 }
