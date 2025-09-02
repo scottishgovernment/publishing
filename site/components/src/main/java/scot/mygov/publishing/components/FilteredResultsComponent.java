@@ -25,7 +25,6 @@ import scot.gov.publishing.hippo.funnelback.model.Question;
 import scot.gov.publishing.hippo.funnelback.model.Response;
 import scot.gov.publishing.hippo.funnelback.model.ResultsSummary;
 
-import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -43,11 +42,6 @@ public class FilteredResultsComponent extends EssentialsListComponent {
     private static final int PAGE_SIZE = 10;
 
     private static final String PUBLICATION_DATE = "publishing:publicationDate";
-
-    @Override
-    public void init(ServletContext servletContext, ComponentConfiguration componentConfig) {
-        super.init(servletContext, componentConfig);
-    }
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
