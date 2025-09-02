@@ -7,19 +7,15 @@ import org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder;
 import org.hippoecm.hst.content.beans.query.builder.HstQueryBuilder;
 import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
-import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.core.request.ComponentConfiguration;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.util.SearchInputParsingUtils;
-import org.hippoecm.repository.util.DateTools;
 import org.onehippo.cms7.essentials.components.EssentialsListComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
-import org.onehippo.forge.selection.hst.contentbean.ValueList;
-import org.onehippo.forge.selection.hst.util.SelectionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scot.gov.publishing.hippo.funnelback.component.*;
@@ -29,21 +25,15 @@ import scot.gov.publishing.hippo.funnelback.model.Question;
 import scot.gov.publishing.hippo.funnelback.model.Response;
 import scot.gov.publishing.hippo.funnelback.model.ResultsSummary;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-import static java.util.Collections.emptyMap;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.isBlank;
-import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.*;
+import static scot.mygov.publishing.components.ConstraintUtils.fieldConstraints;
 
 @ParametersInfo(type = FilteredResultsComponentInfo.class)
 public class FilteredResultsComponent extends EssentialsListComponent {
@@ -54,21 +44,9 @@ public class FilteredResultsComponent extends EssentialsListComponent {
 
     private static final String PUBLICATION_DATE = "publishing:publicationDate";
 
-    private static final String PUBLICATION_VALUE_LIST = "/content/documents/publishing/valuelists/publicationtypes/publicationtypes";
-
-    private static final String PUBLICATION_TYPES = "publicationtypes";
-
-    private Collection<String> fieldNames = new ArrayList<>();
-
     @Override
     public void init(ServletContext servletContext, ComponentConfiguration componentConfig) {
         super.init(servletContext, componentConfig);
-        Collections.addAll(fieldNames, "publishing:title",
-                "publishing:summary",
-                "hippostd:tags",
-                "publishing:contentBlocks/publishing:content/hippostd:content",
-                "publishing:contentBlocks/publishing:document/hippo:filename",
-                "publishing:contentBlocks/publishing:title");
     }
 
     @Override
@@ -118,7 +96,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         if (topics == null) {
             return;
         }
-        Map<String, String> topicsMap = topicsMap(request.getRequestContext());
+        Map<String, String> topicsMap = new TopicsProvider().get(request.getRequestContext());
         getTopics(request).stream().forEach(topic -> searchBuilder.topics(topic, topicsMap));
     }
 
@@ -130,30 +108,12 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         return Arrays.asList(topics);
     }
 
-    public static Map<String, String> topicsMap(HstRequestContext context) {
-        HippoBean baseBean = context.getSiteContentBaseBean();
-        HippoBean topicsList = getTopicsList(baseBean);
-        if (topicsList == null) {
-            return emptyMap();
-        }
-        return SelectionUtil.valueListAsMap((ValueList) topicsList);
-    }
-
-    static HippoBean getTopicsList(HippoBean baseBean) {
-        HippoFolder administration = baseBean.getBean("administration");
-        if (administration == null) {
-            return null;
-        }
-
-        return administration.getBean("topics");
-    }
-
     void addPublicationTypes(HstRequest request, SearchBuilder searchBuilder) {
         String [] publicationTypes = request.getParameterMap().get("type");
         if (publicationTypes == null) {
             return;
         }
-        Map<String, String> publicationTypesMap = publicationTypesMap(request.getRequestContext());
+        Map<String, String> publicationTypesMap = new PublicationTypesProvider(true).get(request.getRequestContext());
         getPublicationTypes(request).stream().forEach(type -> searchBuilder.publicationTypes(type, publicationTypesMap));
     }
 
@@ -163,52 +123,6 @@ public class FilteredResultsComponent extends EssentialsListComponent {
             return Collections.emptyList();
         }
         return Arrays.asList(types);
-    }
-
-    static Node publicationTypesValueList(HstRequestContext context) throws RepositoryException {
-        Node site = context.getSiteContentBaseBean().getNode();
-        Session session = context.getSession();
-        Node adminFolder = site.getNode("administration");
-        if (adminFolder.hasNode(PUBLICATION_TYPES)) {
-            return adminFolder.getNode(PUBLICATION_TYPES).getNode(PUBLICATION_TYPES);
-        } else {
-            return session.nodeExists(PUBLICATION_VALUE_LIST) ?  session.getNode(PUBLICATION_VALUE_LIST) : null;
-        }
-
-    }
-
-    public static Map<String, String> publicationTypesMap(HstRequestContext context) {
-        try {
-            Node publicationValueList = publicationTypesValueList(context);
-            if (publicationValueList == null) {
-                return Collections.emptyMap();
-            }
-
-            Node typesForSiteNode = publicationTypesForSiteNode(context);
-            if (typesForSiteNode == null) {
-                return Collections.emptyMap();
-            }
-
-            NodeIterator it = publicationValueList.getNodes("selection:listitem");
-            Map<String, String> map = new TreeMap<>();
-            while (it.hasNext()) {
-                Node node = it.nextNode();
-                String key = node.getProperty("selection:key").getString();
-                if (typesForSiteNode.hasProperty(key)) {
-                    map.put(key, node.getProperty("selection:label").getString());
-                }
-            }
-            return map;
-        } catch (RepositoryException e) {
-            LOG.error("Failed to load publication types", e);
-            return Collections.emptyMap();
-        }
-    }
-
-    static Node publicationTypesForSiteNode(HstRequestContext context) throws RepositoryException {
-        Node typesForSiteNode = context.getSession().getNode("/content/publicationtypes");
-        String sitename = context.getSiteContentBaseBean().getName();
-        return typesForSiteNode.hasNode(sitename) ? typesForSiteNode.getNode(sitename) : null;
     }
 
     static String param(HstRequest request, String param) {
@@ -326,9 +240,9 @@ public class FilteredResultsComponent extends EssentialsListComponent {
     private Constraint constraints(Search search) {
         List<Constraint> constraints = new ArrayList<>();
         addTermConstraints(constraints, search);
-        addTopicsConstraint(constraints, search);
-        addPublicationTypesConstraint(constraints, search);
-        addDateConstraint(constraints, search);
+        constraints.add(ConstraintUtils.topicsConstraint(search));
+        constraints.add(ConstraintUtils.publicationTypesConstraint(search));
+        constraints.addAll(ConstraintUtils.dateConstraint(search));
         constraints = constraints.stream().filter(Objects::nonNull).collect(toList());
         return ConstraintBuilder.and(constraints.toArray(new Constraint[] {}));
     }
@@ -341,77 +255,4 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         constraints.add(ConstraintBuilder.or(fieldConstraints(parsedTerm)));
     }
 
-    Constraint [] fieldConstraints(String term) {
-        List<Constraint> constraints = fieldNames
-                .stream()
-                .map(field -> ConstraintBuilder.constraint(field).contains(term))
-                .collect(toList());
-        return constraints.toArray(new Constraint[constraints.size()]);
-    }
-
-    private void addTopicsConstraint(List<Constraint> constraints, Search search) {
-        if (search.getTopics().isEmpty()) {
-            return;
-        }
-
-        Constraint [] constraintsArray = search.getTopics().keySet()
-                .stream().map(this::topicConstraint).map(this::orConstraint).toArray(Constraint[]::new);
-        constraints.add(ConstraintBuilder.or(constraintsArray));
-    }
-
-    private void addPublicationTypesConstraint(List<Constraint> constraints, Search search) {
-        if (search.getPublicationTypes().isEmpty()) {
-            return;
-        }
-
-        Constraint [] constraintsArray = search.getPublicationTypes().keySet()
-                .stream().map(this::publicationTypeConstraint).map(this::orConstraint).toArray(Constraint[]::new);
-        constraints.add(ConstraintBuilder.or(constraintsArray));
-    }
-
-    Constraint orConstraint(Constraint constraint) {
-        return or(constraint);
-    }
-
-    Constraint publicationTypeConstraint(String topic) {
-        return constraint("publishing:publicationType").equalTo(topic);
-    }
-
-    Constraint topicConstraint(String topic) {
-        return constraint("publishing:topics").equalTo(topic);
-    }
-
-    public static void addDateConstraint(List<Constraint> constraints, Search search) {
-
-        if (search.getToDate() != null && search.getFromDate() != null) {
-            Calendar beginCal = getCalendar(search.getFromDate());
-            Calendar endCal = getCalendar(search.getToDate());
-            constraints.add(constraint(PUBLICATION_DATE).between(beginCal, endCal, DateTools.Resolution.DAY));
-        }
-
-        addBeginFilter(constraints, search);
-        addEndFilter(constraints, search);
-    }
-
-    static void addBeginFilter(List<Constraint> constraints, Search search) {
-        if (search.getFromDate() == null ) {
-            return;
-        }
-
-        Calendar calendar = getCalendar(search.getFromDate());
-        constraints.add(constraint(PUBLICATION_DATE).greaterOrEqualThan(calendar, DateTools.Resolution.DAY));
-    }
-
-    static void addEndFilter(List<Constraint> constraints, Search search) {
-        if (search.getToDate() == null ) {
-            return;
-        }
-
-        Calendar calendar = getCalendar(search.getToDate());
-        constraints.add(constraint(PUBLICATION_DATE).lessOrEqualThan(calendar, DateTools.Resolution.DAY));
-    }
-
-    static  Calendar getCalendar(LocalDate localDate) {
-        return GregorianCalendar.from(localDate.atStartOfDay(ZoneId.systemDefault()));
-    }
 }

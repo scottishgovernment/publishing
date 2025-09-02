@@ -6,12 +6,14 @@
   /performance:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+    jcr:uuid: 00074c86-8dd5-4fc7-93ca-8c7dbbbc7bff
     hippo:name: Performance
     hippostd:foldertype: []
     /siteverification:
       jcr:primaryType: hippostd:folder
-      jcr:mixinTypes: [ 'mix:versionable' ]
-      hippostd:foldertype: [ new-siteverification-document ]
+      jcr:mixinTypes: ['mix:versionable']
+      jcr:uuid: fdd13ff4-9e27-48fa-a811-25249ef62503
+      hippostd:foldertype: [new-siteverification-document]
     /robots:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
@@ -87,7 +89,7 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: d8340cba-9e03-4630-bd73-0f9e0ed9035f
     hippo:name: Search settings
-    hippo:versionHistory: 39006669-018c-438f-bb5c-88eff192755f
+    hippo:versionHistory: d2f53e79-3425-4c0a-ab42-fd1a8ed712e5
     /search-settings[1]:
       jcr:primaryType: search:searchsettings
       jcr:mixinTypes: ['mix:referenceable']
@@ -97,14 +99,9 @@
       hippostd:state: draft
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
-      hippostdpubwf:lastModificationDate: 2023-07-12T13:37:46.588+01:00
+      hippostdpubwf:lastModificationDate: 2025-08-19T16:15:00.512+01:00
       hippostdpubwf:lastModifiedBy: admin
-      search:bloomreachErrorRate: 0.0
-      search:enabled: true
-      search:funnelbackErrorRate: 0.0
-      search:searchtype: resilient
-      search:suggestTimeoutMillis: 250
-      search:timeoutMillis: 1000
+      search:showFilters: true
     /search-settings[2]:
       jcr:primaryType: search:searchsettings
       jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
@@ -114,14 +111,9 @@
       hippostd:state: unpublished
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
-      hippostdpubwf:lastModificationDate: 2023-07-12T13:37:52.600+01:00
+      hippostdpubwf:lastModificationDate: 2025-08-19T16:15:03.096+01:00
       hippostdpubwf:lastModifiedBy: admin
-      search:bloomreachErrorRate: 0.0
-      search:enabled: true
-      search:funnelbackErrorRate: 0.0
-      search:searchtype: resilient
-      search:suggestTimeoutMillis: 250
-      search:timeoutMillis: 1000
+      search:showFilters: true
     /search-settings[3]:
       jcr:primaryType: search:searchsettings
       jcr:mixinTypes: ['mix:referenceable']
@@ -131,19 +123,15 @@
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
-      hippostdpubwf:lastModificationDate: 2023-07-12T13:37:52.600+01:00
+      hippostdpubwf:lastModificationDate: 2025-08-19T16:15:03.096+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2023-07-12T13:37:56.222+01:00
-      search:bloomreachErrorRate: 0.0
-      search:enabled: true
-      search:funnelbackErrorRate: 0.0
-      search:searchtype: resilient
-      search:suggestTimeoutMillis: 250
-      search:timeoutMillis: 1000
+      hippostdpubwf:publicationDate: 2025-08-19T16:15:05.992+01:00
+      hippostdpubwf:publishedBy: admin
+      search:showFilters: true
   /recaptcha:
     jcr:primaryType: hippostd:folder
-    jcr:mixinTypes: [ 'hippotranslation:translated' ]
-    hippostd:foldertype: [ new-recaptcha-folder, new-recaptcha-document ]
+    jcr:mixinTypes: ['hippotranslation:translated']
+    hippostd:foldertype: [new-recaptcha-folder, new-recaptcha-document]
     hippotranslation:id: 8adcc5ec-5f71-4b16-b7cb-c4d2bfea940e
     hippotranslation:locale: inherited locale
     /dev:
@@ -218,3 +206,40 @@
         hippotranslation:locale: inherited locale
         publishing:enabled: true
         publishing:sitekey: 6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV
+  /search-settings:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    hippo:name: Search settings
+    hippo:versionHistory: aacfbe28-6b82-4bb1-adc0-3ebcc875941f
+    /search-settings[1]:
+      jcr:primaryType: search:searchsettings
+      jcr:mixinTypes: ['mix:versionable']
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
+      hippostdpubwf:lastModificationDate: 2025-08-28T08:59:55.415+01:00
+      hippostdpubwf:lastModifiedBy: admin
+    /search-settings[2]:
+      jcr:primaryType: search:searchsettings
+      jcr:mixinTypes: ['mix:referenceable']
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
+      hippostdpubwf:lastModificationDate: 2025-08-28T08:59:34.660+01:00
+      hippostdpubwf:lastModifiedBy: admin
+    /search-settings[3]:
+      jcr:primaryType: search:searchsettings
+      jcr:mixinTypes: ['mix:referenceable']
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
+      hippostdpubwf:lastModificationDate: 2025-08-28T08:59:55.415+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-08-28T08:59:58.689+01:00
+      hippostdpubwf:publishedBy: admin

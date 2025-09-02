@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 55bfb522-65c5-42a8-975e-a2b5887d523e
+          jcr:uuid: cf1a682f-a636-40e5-9dd0-13de4ee8f07a
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -79,6 +79,15 @@ definitions:
             hipposysedit:path: publishing:blankSearchQueryMessageContentBlocks
             hipposysedit:type: hippo:compound
             hipposysedit:validators: [contentblocks-validator]
+          /optionalFlag:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:optionalFlag
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            hipposysedit:validators: [optional]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -91,10 +100,11 @@ definitions:
           hippotranslation:locale: document-type-locale
           jcr:mixinTypes: ['mix:referenceable']
           publishing:title: ''
-          jcr:uuid: f92a8eb6-8e99-4012-977c-3dbb93daccc9
+          jcr:uuid: a603e49c-313e-4cb0-be9b-d807493f10fd
           hippostdpubwf:lastModificationDate: 2020-09-02T08:59:50.853+01:00
           hippostdpubwf:creationDate: 2020-09-02T08:59:50.853+01:00
           publishing:showFeedback: true
+          publishing:optionalFlag: false
           /publishing:content:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
@@ -196,6 +206,15 @@ definitions:
             hint: This field is no longer used but is retained in order to support
               reverting to old versions if this document
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /optionalFlag:
+            jcr:primaryType: frontend:plugin
+            caption: optional flag
+            field: optionalFlag
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

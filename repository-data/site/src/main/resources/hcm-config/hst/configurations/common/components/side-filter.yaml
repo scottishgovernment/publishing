@@ -1,6 +1,7 @@
 definitions:
   config:
     /hst:hst/hst:configurations/common/hst:components/side-filter:
+      .meta:order-before: search-side-filter
       jcr:primaryType: hst:component
       hst:componentclassname: scot.mygov.publishing.components.FilteredResultsSideComponent
       hst:template: filteredlist.side-filter

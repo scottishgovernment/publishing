@@ -78,19 +78,21 @@
                 <#if response.resultPacket.resultsSummary.totalMatching <= response.resultPacket.resultsSummary.numRanks ||
                 response.resultPacket.resultsSummary.currStart <= response.resultPacket.resultsSummary.numRanks >
 
-                ${response.resultPacket.resultsSummary.totalMatching} results for <span class="ds_search-results__title-query">${question.originalQuery}</span>
+                ${response.resultPacket.resultsSummary.totalMatching} <#if response.resultPacket.resultsSummary.totalMatching gt 1>results<#else>result</#if><#if question.originalQuery?has_content> for <span class="ds_search-results__title-query">${question.originalQuery}</span></#if>
                     <#if (response.resultPacket.qsups)!?size &gt; 0>
                         <#list response.resultPacket.qsups as qsup>or <span class="ds_search-results__title-query">${qsup.query}</span></#list>
                     </#if>
                 <#else>
                     Showing ${response.resultPacket.resultsSummary.currStart} to ${response.resultPacket.resultsSummary.currEnd}
-                    of ${response.resultPacket.resultsSummary.totalMatching} results for <span class="ds_search-results__title-query">${question.originalQuery}</span>
+                    of ${response.resultPacket.resultsSummary.totalMatching} <#if response.resultPacket.resultsSummary.totalMatching gt 1>results<#else>result</#if><#if question.originalQuery?has_content> for <span class="ds_search-results__title-query">${question.originalQuery}</span></#if>
                     <#if (response.resultPacket.qsups)!?size &gt; 0>
                         <#list response.resultPacket.qsups as qsup>or <span class="ds_search-results__title-query">${qsup.query}</span></#list>
                     </#if>
                 </#if>
             </h2>
         </#if>
+
+        <#include "../common/include/filter-buttons.ftl"/>
 
         <#if pagination??>
             <ol start="${response.resultPacket.resultsSummary.currStart?c}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching?c}">
@@ -112,69 +114,12 @@
             </#if>
 
             <#if bloomreachresults??>
-                <#list bloomreachresults as result>
-                <li class="ds_search-result">
-                    <h3 class="ds_search-result__title">
-                        <@hst.link var="link" hippobean=result/>
-                        <a class="ds_search-result__link"href="${link}">${result.title}</a>
-                    </h3>
-                    <p class="ds_search-result__summary">
-                        <#if result.summary?has_content>
-                            <@highlightSearchTerm result.summary />
-                        <#else>
-                            <@highlightSearchTerm result.metaDescription />
-                        </#if>
-                    </p>
-                </li>
+                <#list bloomreachresults as item>
+                    <#include "search-bloomreach-result.ftl">
                 </#list>
             <#else>
                 <#list response.resultPacket.results as result>
-                <li class="ds_search-result">
-                    <h3 class="ds_search-result__title">
-                        <a class="ds_search-result__link" href="${result.liveUrl}">
-                        <#if (result.listMetadata["dcTitle"]?first)?has_content>
-                            ${result.listMetadata["dcTitle"]?first!}
-                        <#else>
-                            ${result.listMetadata["t"]?first!}
-                        </#if>
-                        </a>
-                    </h3>
-
-                    <p class="ds_search-result__summary">
-                        <@highlightSearchTerm result.listMetadata["c"]?first />
-                    </p>
-
-                    <#if (result.listMetadata["f"]?first)!?has_content
-                    || (result.listMetadata["d"]?first)!?has_content>
-                    <dl class="ds_search-result__metadata  ds_metadata  ds_metadata--inline">
-                        <#if (result.listMetadata["f"]?first)!?has_content>
-                            <span class="ds_metadata__item">
-                                <dt class="ds_metadata__key">Format</dt>
-                                <dd class="ds_metadata__value">
-                                ${result.listMetadata["f"]?first!}
-                                </dd>
-                            </span>
-                        </#if>
-                        <#if (result.listMetadata["d"]?first)!?has_content>
-                            <span class="ds_metadata__item">
-                                <dt class="ds_metadata__key">Date</dt>
-                                <dd class="ds_metadata__value">
-                                ${result.listMetadata.displayDate}
-                                </dd>
-                            </span>
-                        </#if>
-                    </dl>
-                    </#if>
-
-                    <#if (result.listMetadata["titleSeriesLink"]?first)!?has_content>
-                        <dl class="ds_search-result__context">
-                            <dt class="ds_search-result__context-key">Part of:</dt>
-                            <dd class="ds_search-result__context-value">
-                                <a href="${(result.listMetadata["titleSeriesLink"]?first)!}">${(result.listMetadata["titleSeries"]?first)!}</a>
-                            </dd>
-                        </dl>
-                    </#if>
-                </li>
+                    <#include "search-funnelback-result.ftl">
                 </#list>
             </#if>
             </ol>

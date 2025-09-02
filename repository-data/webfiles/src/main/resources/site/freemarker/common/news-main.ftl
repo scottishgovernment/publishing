@@ -19,6 +19,7 @@
 
             <div class="ds_layout__header">
                 <header class="ds_page-header">
+                    <span <@revertlang document /> class="ds_page-header__label  ds_content-label"><span id="sg-meta__publication-type">News</span></span>
                     <h1 class="ds_page-header__title"><#if document.title?has_content>${document.title}</#if></h1>
                     <dl <@revertlang document /> class="ds_page-header__metadata  ds_metadata">
                         <#if document.publicationDate?has_content>

@@ -3,6 +3,8 @@ definitions:
     /hst:hst/hst:configurations/common/hst:pages/searchresilient:
       jcr:primaryType: hst:component
       hst:referencecomponent: hst:abstractpages/base
+      hst:parameternames: [hideSearchToolbar, supportedparams]
+      hst:parametervalues: ['true', 'q,qsup,page,topics,publicationTypes,begin,end,sort']
       /main:
         jcr:primaryType: hst:component
         hst:componentclassname: scot.gov.publishing.hippo.funnelback.component.SearchComponent
@@ -13,8 +15,14 @@ definitions:
           jcr:primaryType: hst:component
           hst:componentclassname: scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent
           hst:template: search-funnelback-results
-          hst:parameternames: [searchtype]
-          hst:parametervalues: [resilient]
+          hst:parameternames: [searchtype, topicsProvider, publicationTypesProvider]
+          hst:parametervalues: [resilient, scot.mygov.publishing.components.TopicsProvider,
+            scot.mygov.publishing.components.PublicationTypesProvider]
         /feedback:
           jcr:primaryType: hst:component
           hst:referencecomponent: hst:components/feedback
+        /side-filter:
+          jcr:primaryType: hst:component
+          hst:parameternames: [includePublicationTypesFilter, includeNews]
+          hst:parametervalues: ['true', 'true']
+          hst:referencecomponent: hst:components/search-side-filter

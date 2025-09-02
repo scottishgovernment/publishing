@@ -21,4 +21,8 @@ public class News extends Base {
     public Image getImage() {
         return getBean("publishing:Image", Image.class);
     }
+
+    public String getLabel() {
+        return "news";
+    }
 }

@@ -70,3 +70,40 @@
           publishing:containerid: ''
           publishing:env: ''
           publishing:notes: For live we do not include the env or auth in the url.
+  /search-settings:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    hippo:name: Search settings
+    hippo:versionHistory: aacfbe28-6b82-4bb1-adc0-3ebcc875941f
+    /search-settings[1]:
+      jcr:primaryType: search:searchsettings
+      jcr:mixinTypes: ['mix:versionable']
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
+      hippostdpubwf:lastModificationDate: 2025-08-28T08:59:55.415+01:00
+      hippostdpubwf:lastModifiedBy: admin
+    /search-settings[2]:
+      jcr:primaryType: search:searchsettings
+      jcr:mixinTypes: ['mix:referenceable']
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
+      hippostdpubwf:lastModificationDate: 2025-08-28T08:59:34.660+01:00
+      hippostdpubwf:lastModifiedBy: admin
+    /search-settings[3]:
+      jcr:primaryType: search:searchsettings
+      jcr:mixinTypes: ['mix:referenceable']
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
+      hippostdpubwf:lastModificationDate: 2025-08-28T08:59:55.415+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-08-28T08:59:58.689+01:00
+      hippostdpubwf:publishedBy: admin

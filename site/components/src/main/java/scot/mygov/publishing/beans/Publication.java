@@ -3,10 +3,10 @@ package scot.mygov.publishing.beans;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
+import scot.mygov.publishing.components.PublicationTypesProvider;
+
 import java.util.Calendar;
 import java.util.Map;
-
-import static scot.mygov.publishing.components.FilteredResultsComponent.publicationTypesMap;
 
 @HippoEssentialsGenerated(internalName = "publishing:Publication")
 @Node(jcrType = "publishing:Publication")
@@ -32,7 +32,7 @@ public class Publication extends Base {
     }
 
     public String getLabel() {
-        Map<String, String> publicationTypes = publicationTypesMap(RequestContextProvider.get());
+        Map<String, String> publicationTypes = new PublicationTypesProvider(false).get(RequestContextProvider.get());
         String publicationType = getPublicationType();
         return publicationTypes.containsKey(getPublicationType()) ? publicationTypes.get(publicationType) : "Publication";
     }

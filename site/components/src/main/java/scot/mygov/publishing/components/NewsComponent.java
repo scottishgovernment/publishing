@@ -16,7 +16,6 @@ import java.util.Map;
 import java.util.Arrays;
 
 import static java.util.stream.Collectors.toList;
-import static scot.mygov.publishing.components.FilteredResultsComponent.topicsMap;
 
 public class NewsComponent extends EssentialsContentComponent  {
 
@@ -35,7 +34,7 @@ public class NewsComponent extends EssentialsContentComponent  {
 
     public static void addTopics(HstRequest request) {
 
-        Map<String, String> topicsMap = topicsMap(request.getRequestContext());
+        Map<String, String> topicsMap = new TopicsProvider().get(request.getRequestContext());
         request.setAttribute("topicsMap", topicsMap);
 
         HippoBean bean = request.getRequestContext().getContentBean();
