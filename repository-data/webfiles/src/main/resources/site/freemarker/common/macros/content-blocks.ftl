@@ -306,7 +306,9 @@
                                     </#if>
                                 </#compress></#assign>
                                 <a id="dd-${slugify(link.label)}-${idModifier}-link" href="${url}">${link.label}</a>
-                                <div id="dd-${slugify(link.label)}-${idModifier}-description">${link.description}</div>
+                                <div id="dd-${slugify(link.label)}-${idModifier}-description">
+                                    <#if link.description??>${link.description}</#if>
+                                </div>
                             </li>
                         </#list>
                     </ul>
