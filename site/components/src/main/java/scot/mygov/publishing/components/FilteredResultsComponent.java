@@ -49,6 +49,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         Search search = search(request);
         request.setAttribute("search", search);
         request.setAttribute("filterButtons", FilterButtonGroups.filterButtonGroups(search));
+        request.setAttribute("showFilters", true);
     }
 
     Search search(HstRequest request) {
