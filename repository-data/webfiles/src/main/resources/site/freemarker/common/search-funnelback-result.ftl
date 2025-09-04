@@ -62,24 +62,27 @@
             </#if>
         </dl>
     <#else>
-        <dl class="ds_search-result__metadata  ds_metadata  ds_metadata--inline">
-            <#if result.listMetadata["f"]!?has_content>
-            <div class="ds_metadata__item">
-                <dt class="ds_metadata__key">Format</dt>
-                <dd class="ds_metadata__value">
-                ${result.listMetadata["f"]?first!}
-                </dd>
-            </div>
-            </#if>
-            <#if (result.listMetadata["d"]?first)!?has_content>
-            <div class="ds_metadata__item">
-                <dt class="ds_metadata__key">Date</dt>
-                <dd class="ds_metadata__value">
-                ${result.listMetadata.displayDate}
-                </dd>
-            </div>
-            </#if>
-        </dl>
+
+        <#if result.listMetadata["f"]?first!?has_content || (result.listMetadata["d"]?first)!?has_content>
+            <dl class="ds_search-result__metadata  ds_metadata  ds_metadata--inline">
+                <#if result.listMetadata["f"]!?has_content>
+                    <div class="ds_metadata__item">
+                        <dt class="ds_metadata__key">Format</dt>
+                        <dd class="ds_metadata__value">
+                        ${result.listMetadata["f"]?first!}
+                        </dd>
+                    </div>
+                    </#if>
+                    <#if (result.listMetadata["d"]?first)!?has_content>
+                    <div class="ds_metadata__item">
+                        <dt class="ds_metadata__key">Date</dt>
+                        <dd class="ds_metadata__value">
+                        ${result.listMetadata.displayDate}
+                        </dd>
+                    </div>
+                </#if>
+            </dl>
+        </#if>
     </#if>
 
     <#if (result.listMetadata["titleSeriesLink"]?first)!?has_content>
