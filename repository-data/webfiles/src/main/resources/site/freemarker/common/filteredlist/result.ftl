@@ -40,7 +40,7 @@
 
     <#if item.publicationDate?? || item.label?has_content>
     <dl class="ds_search-result__metadata  ds_metadata  ds_metadata--inline">
-        <#if item.label?has_content>
+        <#if item.label?has_content && displayTypeLabel>
             <div class="ds_metadata__item">
                 <dt class="ds_metadata__key">Type</dt>
                 <dd class="ds_metadata__value">${item.label?cap_first}</dd>

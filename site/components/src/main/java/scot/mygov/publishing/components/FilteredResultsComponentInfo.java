@@ -7,4 +7,8 @@ public interface FilteredResultsComponentInfo extends EssentialsListComponentInf
 
     @Parameter(name = "defaultSort")
     String getDefaultSort();
+
+    @Parameter(name = "displayTypeLabel")
+    Boolean getDisplayTypeLabel();
+
 }

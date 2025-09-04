@@ -50,6 +50,8 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         request.setAttribute("search", search);
         request.setAttribute("filterButtons", FilterButtonGroups.filterButtonGroups(search));
         request.setAttribute("showFilters", true);
+        FilteredResultsComponentInfo info = getComponentParametersInfo(request);
+        request.setAttribute("displayTypeLabel", info.getDisplayTypeLabel());
     }
 
     Search search(HstRequest request) {
