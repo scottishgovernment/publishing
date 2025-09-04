@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: e33062e4-3714-4194-9744-cef578ddffe9
+          jcr:uuid: 2f2c12d0-c7e4-4db4-8897-b76eb04eaf3a
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
             'hippotranslation:translated']
@@ -48,7 +48,6 @@ definitions:
             hipposysedit:path: publishing:containerid
             hipposysedit:primary: false
             hipposysedit:type: String
-            hipposysedit:validators: [required]
           /plausibleAnalyticsDomains:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -71,7 +70,7 @@ definitions:
           publishing:notes: ''
           publishing:auth: ''
           publishing:env: ''
-          jcr:uuid: 55bdd2c2-400e-4661-b97c-8e818ec800a6
+          jcr:uuid: 785ec1bc-024a-44ca-8e96-a6746b5f9c34
           hippostdpubwf:lastModificationDate: 2020-03-17T11:06:03.420Z
           hippostdpubwf:creationDate: 2020-03-17T11:06:03.420Z
           publishing:containerid: ''
