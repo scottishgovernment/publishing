@@ -90,34 +90,9 @@
     jcr:uuid: d8340cba-9e03-4630-bd73-0f9e0ed9035f
     hippo:name: Search settings
     hippo:versionHistory: d2f53e79-3425-4c0a-ab42-fd1a8ed712e5
-    /search-settings[1]:
+    /search-settings:
       jcr:primaryType: search:searchsettings
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 7f62e5b4-1ce5-4b0c-9141-1b97b63762e2
-      hippo:availability: []
-      hippostd:retainable: false
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
-      hippostdpubwf:lastModificationDate: 2025-08-19T16:15:00.512+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      search:showFilters: true
-    /search-settings[2]:
-      jcr:primaryType: search:searchsettings
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: b52fdc57-a299-4517-84f5-876f606767e6
-      hippo:availability: [preview]
-      hippostd:retainable: false
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
-      hippostdpubwf:lastModificationDate: 2025-08-19T16:15:03.096+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      search:showFilters: true
-    /search-settings[3]:
-      jcr:primaryType: search:searchsettings
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: ec21fb1f-24ad-4fcd-8ac9-8209a9abda6b
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
@@ -127,7 +102,7 @@
       hippostdpubwf:lastModifiedBy: admin
       hippostdpubwf:publicationDate: 2025-08-19T16:15:05.992+01:00
       hippostdpubwf:publishedBy: admin
-      search:showFilters: true
+      search:showFilters: false
   /recaptcha:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:referenceable']
@@ -158,37 +133,7 @@
       jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 88e9ef29-8c22-4f08-990a-5db1d8f180ad
       hippo:versionHistory: 7b8f1ffb-0a9c-4c76-866f-d569a71b4374
-      /live[1]:
-        jcr:primaryType: publishing:recaptcha
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: 180ac47f-a9f6-47e3-ab54-2f5b7cafc275
-        hippo:availability: []
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2022-08-31T16:18:27.868+01:00
-        hippostdpubwf:lastModificationDate: 2022-08-31T16:18:27.868+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: ac0548f2-fd0c-4c0a-bd5d-bfb8001aafb5
-        hippotranslation:locale: inherited locale
-        publishing:enabled: true
-        publishing:sitekey: 6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV
-      /live[2]:
-        jcr:primaryType: publishing:recaptcha
-        jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: 70908c5c-d601-42fa-b606-adf1a3d11164
-        hippo:availability: [preview]
-        hippostd:retainable: false
-        hippostd:state: unpublished
-        hippostdpubwf:createdBy: admin
-        hippostdpubwf:creationDate: 2022-08-31T16:18:27.868+01:00
-        hippostdpubwf:lastModificationDate: 2022-08-31T16:19:21.357+01:00
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: ac0548f2-fd0c-4c0a-bd5d-bfb8001aafb5
-        hippotranslation:locale: inherited locale
-        publishing:enabled: true
-        publishing:sitekey: 6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV
-      /live[3]:
+      /live:
         jcr:primaryType: publishing:recaptcha
         jcr:mixinTypes: ['mix:referenceable']
         jcr:uuid: 753f32d6-2c65-48da-81de-dfca4f92afa7
@@ -204,40 +149,3 @@
         hippotranslation:locale: inherited locale
         publishing:enabled: true
         publishing:sitekey: 6LcUYh0TAAAAAA6iiQvC89XlohAUW1m29GwDxGkV
-  /search-settings:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    hippo:name: Search settings
-    hippo:versionHistory: aacfbe28-6b82-4bb1-adc0-3ebcc875941f
-    /search-settings[1]:
-      jcr:primaryType: search:searchsettings
-      jcr:mixinTypes: ['mix:versionable']
-      hippo:availability: [preview]
-      hippostd:retainable: false
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
-      hippostdpubwf:lastModificationDate: 2025-08-28T08:59:55.415+01:00
-      hippostdpubwf:lastModifiedBy: admin
-    /search-settings[2]:
-      jcr:primaryType: search:searchsettings
-      jcr:mixinTypes: ['mix:referenceable']
-      hippo:availability: []
-      hippostd:retainable: false
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
-      hippostdpubwf:lastModificationDate: 2025-08-28T08:59:34.660+01:00
-      hippostdpubwf:lastModifiedBy: admin
-    /search-settings[3]:
-      jcr:primaryType: search:searchsettings
-      jcr:mixinTypes: ['mix:referenceable']
-      hippo:availability: [live]
-      hippostd:retainable: false
-      hippostd:state: published
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
-      hippostdpubwf:lastModificationDate: 2025-08-28T08:59:55.415+01:00
-      hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2025-08-28T08:59:58.689+01:00
-      hippostdpubwf:publishedBy: admin
