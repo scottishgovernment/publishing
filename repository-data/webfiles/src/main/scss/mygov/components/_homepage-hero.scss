@@ -23,6 +23,7 @@
             font-size: $small-size;
             line-height: 24px;
         }
+
     }
 
     .ds_site-search__form {
@@ -31,6 +32,10 @@
 
     .ds_site-search .ds_input__wrapper {
         margin-bottom: 0;
+
+        .ds_button {
+            margin-top: 0;
+        }
     }
 }
 
