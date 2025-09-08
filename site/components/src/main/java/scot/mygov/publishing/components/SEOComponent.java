@@ -55,7 +55,7 @@ public class SEOComponent extends EssentialsDocumentComponent {
         request.setAttribute("contentBean", contentBean);
         request.setAttribute("baseBean", request.getRequestContext().getSiteContentBaseBean());
 
-        Calendar publicationDate = contentBean.getSingleProperty("publishing:publicationDate");
+        Calendar publicationDate = contentBean != null ? contentBean.getSingleProperty("publishing:publicationDate") : null;
         if (publicationDate != null) {
             request.setAttribute("date", publicationDate);
         }
@@ -127,6 +127,9 @@ public class SEOComponent extends EssentialsDocumentComponent {
     }
 
     void addValuesIfNotNull(HippoBean document, String prop, List<String> values) {
+        if (document == null) {
+            return;
+        }
         String [] propValues = document.getMultipleProperty(prop);
         if (propValues != null) {
             values.addAll(Arrays.asList(propValues));

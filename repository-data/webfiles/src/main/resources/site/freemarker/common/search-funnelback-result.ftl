@@ -37,9 +37,10 @@
         <div>
     </#if>
 
-
     <p class="ds_search-result__summary">
-        <@highlightSearchTerm result.listMetadata["c"]?first />
+        <#if result.listMetadata["c"]?? && result.listMetadata["c"]?has_content>
+            <@highlightSearchTerm result.listMetadata["c"]?first />
+        </#if>
     </p>
 
     <#if result.listMetadata["f"]?first = 'Publication'>
