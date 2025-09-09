@@ -1,4 +1,4 @@
-<li class="ds_search-result <#if result.listMetadata["image"]!?has_content></#if>">
+<li class="ds_search-result <#if result.listMetadata["image"]!?has_content && result.listMetadata["image"]!?has_content></#if>">
     <h3 class="ds_search-result__title">
         <a class="ds_search-result__link" href="${result.liveUrl}">
         <#if (result.listMetadata["dcTitle"]?first)?has_content>
@@ -9,12 +9,11 @@
         </a>
     </h3>
 
-    <#if result.listMetadata["image"]!?has_content>
+    <#if result.listMetadata["f"]?first = 'News' && result.listMetadata["image"]!?has_content>
         <div class="ds_search-result__has-media">
             <div class="ds_search-result__media-wrapper">
                 <div class="ds_search-result__media  ds_aspect-box  ds_aspect-box--square">
                     <a class="ds_search-result__media-link" href="${result.liveUrl}" tabindex="-1">
-
                         <#assign path = (result.listMetadata['image']?first)! />
                         <#assign norm = path?trim?replace("/+$", "", "r") />
                         <#assign lastElement = norm?split("/")?last />
