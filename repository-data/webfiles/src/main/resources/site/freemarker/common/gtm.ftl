@@ -1,7 +1,7 @@
 <#ftl output_format="HTML">
 <#include "./include/imports.ftl">
 
-<#if document??>
+<#if document?? && gtmContainerId?has_content>
     <#if !uuid??><#assign uuid = document.getSingleProperty('jcr:uuid')/></#if>
 
     <@hst.headContribution category="googleTagManagerDataLayer">
@@ -26,14 +26,18 @@
 </#if>
 
 <@hst.headContribution category="googleTagManager">
-    <script src='<@hst.webfile path="assets/scripts/gtm.js"/>'
-        id="gtm-script"
-        data-containerid="${gtmContainerId?js_string}"
-        <#if gtmEnv?has_content>data-env="${gtmEnv?js_string}"</#if>
-        <#if gtmAuth?has_content>data-auth="${gtmAuth?js_string}"</#if>></script>
+    <#if document?? && gtmContainerId?has_content>
+        <script src='<@hst.webfile path="assets/scripts/gtm.js"/>'
+            id="gtm-script"
+            data-containerid="${gtmContainerId?js_string}"
+            <#if gtmEnv?has_content>data-env="${gtmEnv?js_string}"</#if>
+            <#if gtmAuth?has_content>data-auth="${gtmAuth?js_string}"</#if>></script>
+    </#if>
 </@hst.headContribution>
 
+<#if document?? && gtmContainerId?has_content>
 <!-- Google Tag Manager (noscript) -->
 <noscript id="gtm-noscript"><iframe src="https://www.googletagmanager.com/ns.html?id=${gtmContainerId?js_string}<#if gtmAuth?has_content>&amp;gtm_auth=${gtmAuth?js_string}</#if><#if gtmEnv?has_content>&amp;gtm_preview=${gtmEnv?js_string}&amp;gtm_cookies_win=x</#if>"
                                     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+</#if>
