@@ -57,11 +57,20 @@ definitions:
             hipposysedit:path: publishing:ctaprefix
             hipposysedit:primary: false
             hipposysedit:type: String
+          /noindex:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:noindex
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
           jcr:primaryType: publishing:cb_councilservicefinder
           publishing:ctaprefix: Visit
+          publishing:noindex: false
           publishing:placeholder: Choose your council
           publishing:sorted: true
           publishing:title: ''
@@ -246,6 +255,15 @@ definitions:
             field: links
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /noindex:
+            jcr:primaryType: frontend:plugin
+            caption: Add noindex tags
+            field: noindex
+            hint: Check the box if this content should not be indexed for search. This will apply to the site's internal search only.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
