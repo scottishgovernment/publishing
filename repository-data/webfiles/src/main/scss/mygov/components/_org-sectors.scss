@@ -1,11 +1,10 @@
 .sectors {
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
 }
 
 .sector {
     &__title {
         @include ds_h3-size;
-        margin-bottom: 0;
     }
 
     &__count {
@@ -13,7 +12,7 @@
     }
 
     &__summary {
-        margin-left: 24px;
+        margin-left: 1.5rem;
     }
 }
 
@@ -24,74 +23,80 @@
 
     .sector {
         @include ds_blocklink('.sector__link');
+        @include ds_box-shadow;
 
-        background-color: $ds_colour__grey--light;
-        color: $ds_colour__link;
-        margin-bottom: 0;
-        padding: 32px 16px 80px;
-        text-decoration: none;
-        margin-bottom: 32px;
-
-        display: grid;
+        background-color: $ds_colour__background--secondary;
         grid-template-areas: 'count' 'title' 'summary';
-
+        display: grid;
+        margin-bottom: 2rem;
+        padding: 2rem 1rem 5rem;
+        position: relative;
+        text-decoration: none;
         transition: color 0.2s, background-color 0.2s;
 
-        &:hover {
-            color: $ds_colour__link--hover;
-        }
-
-        &--has-focus {
-            color: $ds_colour__text;
-        }
-
-        &:focus-within,
-        &:focus-within a {
-            color: $ds_colour__link--focus;
-        }
-
         &:last-child {
-            margin-bottom: 32px;
+            margin-bottom: 2rem;
         }
     }
 
     .sector__title {
         grid-area: title;
-
-        font-weight: 300;
-        font-size: 1.333333rem;
-        padding-bottom: 16px;
-        line-height: 32px;
+        padding-bottom: 1rem;
         text-align: center;
     }
 
-    .sector__summary {
-        grid-area: summary;
+    .sector__link:after {
+        content: "";
+        height: 100%;
+        left: 0px;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        z-index: 1;
+    }
 
-        font-weight: 300;
-        line-height: 1.5em;
+    .sector__summary {
+        color: $ds_colour__text;
+        grid-area: summary;
         margin-left: 0;
         pointer-events: none;
         position: relative;
     }
 
     .sector__summary::before {
-        background: rgba(0,0,0,0.2);
+        background: $ds_colour__border;
         content: '';
-        height: 8px;
-        left: 10%;
+        height: 1px;
+        left: 0;
         position: absolute;
-        right: 10%;
-        top: -24px;
+        right: 0;
+        top: -1.25rem;
     }
 
     .sector__summary::after {
+        color: $ds_colour__link;
         left: 50%;
         position: absolute;
         bottom: -56px;
-        margin-left: -1.5em;
+        margin-left: -1em;
 
-        @include ds_chevron(down, 2.15em);
+        @include ds_chevron(down, 2em);
+    }
+
+    .sector:hover {
+        .sector__summary::after {
+            color: $ds_colour__link--hover;
+        }
+    }
+
+    .sector:focus-within {
+        .sector__summary::before {
+            display: none;
+        }
+
+        .sector__summary::after {
+            color: $ds_colour__link--focus;
+        }
     }
 
     .sector__count {
@@ -99,7 +104,7 @@
 
         display: block;
         font-size: 6rem;
-        font-weight: 700;
+        font-weight: $bold;
         line-height: 1;
         text-align: center;
     }
@@ -107,7 +112,7 @@
     @include ds_media-query(medium) {
         .sectors {
             display: grid;
-            grid-gap: 0 32px;
+            grid-gap: 0 2rem;
             grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
         }
 
@@ -116,6 +121,7 @@
 
             &__title {
                 height: 72px;
+                margin-bottom: 0;
                 padding-bottom: 0;
             }
         }
