@@ -7,8 +7,6 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import scot.mygov.publishing.beans.Image;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
