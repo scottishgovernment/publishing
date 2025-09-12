@@ -53,7 +53,7 @@ public class GoogleTagManagerComponent extends BaseHstComponent {
         setGtmId(request);
         setUserType(request);
         setMountDependentAttributes(request);
-        addTopics(request);
+        addTopics(request, request.getRequestContext().getContentBean());
 
         // set the document to use to populate meta data in the gtm data layer.
         //

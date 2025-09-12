@@ -1,0 +1,15 @@
+definitions:
+  config:
+    /hst:hst/hst:configurations/common/hst:pages/manual-coverpage:
+      jcr:primaryType: hst:component
+      hst:referencecomponent: hst:abstractpages/base
+      /main:
+        jcr:primaryType: hst:component
+        hst:componentclassname: scot.mygov.publishing.components.PublicationComponent
+        hst:template: manual-coverpage
+        /breadcrumbs:
+          jcr:primaryType: hst:component
+          hst:referencecomponent: hst:components/breadcrumbs
+        /feedback:
+          jcr:primaryType: hst:component
+          hst:referencecomponent: hst:components/feedback

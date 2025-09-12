@@ -204,7 +204,9 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         HippoBean scopeFolder = scope.isHippoFolderBean() ? scope : scope.getParentBean();
         HstQueryBuilder builder = HstQueryBuilder.create(scopeFolder);
         Search search = search(request);
-        HstQueryBuilder queryBuilder = builder.ofTypes(paramInfo.getDocumentTypes())
+        String documentTypesString = paramInfo.getDocumentTypes();
+        String [] documentTypes = documentTypesString.split(";");
+        HstQueryBuilder queryBuilder = builder.ofTypes(documentTypes)
                 .where(constraints(search))
                 .limit(pageSize)
                 .offset(offset);

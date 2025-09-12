@@ -3,6 +3,7 @@ definitions:
     /hippo:namespaces/publishing/cb_image:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 2bee1a40-6390-4258-aaed-f6542d4530e1
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
@@ -78,7 +79,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Add noindex tags
             field: noindex
-            hint: Check the box if this content should not be indexed for search. This will apply to the site's internal search only.
+            hint: Check the box if this content should not be indexed for search.
+              This will apply to the site's internal search only.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

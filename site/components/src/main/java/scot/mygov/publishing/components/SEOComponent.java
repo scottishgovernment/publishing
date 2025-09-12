@@ -1,7 +1,9 @@
 package scot.mygov.publishing.components;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSet;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
@@ -15,11 +17,11 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 
 import javax.jcr.RepositoryException;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
+import static org.apache.commons.lang3.StringUtils.equalsAny;
+import static scot.mygov.publishing.components.CategoryComponent.INDEX;
+import static scot.mygov.publishing.components.PublicationComponent.publicationFolder;
 import static scot.mygov.publishing.components.SiteHeaderComponent.setCanonical;
 
 /**
@@ -59,7 +61,7 @@ public class SEOComponent extends EssentialsDocumentComponent {
         if (publicationDate != null) {
             request.setAttribute("date", publicationDate);
         }
-        request.setAttribute("subjects", getSubjects(contentBean));
+        request.setAttribute("subjects", getSubjects(request, contentBean));
         setCanonical(request);
     }
     void setPageTitle(HstRequest request, String siteTitle, HippoBean contentBean) {
@@ -119,10 +121,20 @@ public class SEOComponent extends EssentialsDocumentComponent {
     /**
      * The dc.subject is populated from topics and tags
      */
-    List<String> getSubjects(HippoBean document) {
+    List<String> getSubjects(HstRequest request, HippoBean document) {
         List<String> subjects = new ArrayList<>();
         addValuesIfNotNull(document, "publishing:topics", subjects);
         addValuesIfNotNull(document, "hippostd:tags", subjects);
+
+        // special case for manuals - we want the subpages to have the same topics nd tags as the manual itself
+        if (equalsAny(document.getContentType(), "publishing:ManualDocuments", "publishing:PublicationPage")) {
+            Optional<HippoFolderBean> publicationFolder = publicationFolder(request, document);
+            if (publicationFolder.isPresent()) {
+                HippoBean publication = publicationFolder.get().getBean(INDEX);
+                addValuesIfNotNull(publication, "publishing:topics", subjects);
+                addValuesIfNotNull(publication, "hippostd:tags", subjects);
+            }
+        }
         return subjects;
     }
 

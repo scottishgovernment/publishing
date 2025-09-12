@@ -1,5 +1,6 @@
 package scot.mygov.publishing.components;
 
+import com.fasterxml.jackson.databind.type.LogicalType;
 import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -7,6 +8,8 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.linking.HstLink;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import scot.mygov.publishing.beans.Image;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
@@ -19,11 +22,14 @@ import static java.util.stream.Collectors.toList;
 
 public class NewsComponent extends EssentialsContentComponent  {
 
+    private static final Logger LOG = LoggerFactory.getLogger(NewsComponent.class);
+
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
 
-        addTopics(request);
+        addTopics(request, request.getRequestContext().getContentBean());
+
         // populate the organisation information from WebsiteInfo
         request.setAttribute("image", getImage(request));
         WebsiteInfo websiteInfo = MountUtils.websiteInfo(request);
@@ -32,18 +38,18 @@ public class NewsComponent extends EssentialsContentComponent  {
         request.setAttribute("orgurl", orgUrl(request, websiteInfo));
     }
 
-    public static void addTopics(HstRequest request) {
+    public static void addTopics(HstRequest request, HippoBean bean) {
 
         Map<String, String> topicsMap = new TopicsProvider().get(request.getRequestContext());
         request.setAttribute("topicsMap", topicsMap);
 
-        HippoBean bean = request.getRequestContext().getContentBean();
         if (bean == null) {
             return;
         }
 
         // the custom field is not generated in the bean
         String[] topics = bean.getMultipleProperty("publishing:topics", new String[0]);
+
         List<String> topicList = topics == null ? Collections.emptyList() : Arrays.asList(topics);
         request.setAttribute("topics", topicList.stream().distinct().filter(StringUtils::isNotBlank).collect(toList()));
     }

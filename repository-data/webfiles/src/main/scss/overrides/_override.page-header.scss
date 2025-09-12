@@ -1,0 +1,22 @@
+/*------------------------------------*\
+    OVERRIDE DS PAGE HEADER
+    New spacing rules for H3-level titles
+\*------------------------------------*/
+
+.ds_page-header {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.ds_page-header__label + .ds_page-header__title.ds_h3 {
+    margin-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .ds_page-header__label + .ds_page-header__title.ds_h3 {
+        margin-top: -0.25rem;
+    }
+}

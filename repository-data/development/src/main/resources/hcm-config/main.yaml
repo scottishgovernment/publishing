@@ -1,7 +1,6 @@
 definitions:
   config:
     /hippo:configuration/hippo:modules/autoexport/hippo:moduleconfig:
-      autoexport:enabled: false
       autoexport:excluded:
         operation: add
         type: string
@@ -10,6 +9,7 @@ definitions:
         operation: add
         type: string
         value: [repository-data/development, 'repository-data/site-development:publishing']
+      autoexport:enabled: false
     /hippo:configuration/hippo:groups/webmaster:
       hipposys:members:
         operation: add
