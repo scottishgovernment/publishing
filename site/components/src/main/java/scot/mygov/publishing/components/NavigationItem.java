@@ -1,5 +1,6 @@
 package scot.mygov.publishing.components;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.core.linking.HstLink;
 
 import java.util.ArrayList;
@@ -45,5 +46,21 @@ public class NavigationItem {
 
     public void setChildren(List<NavigationItem> children) {
         this.children = children;
+    }
+
+    public String findParentTitleOfCurrent() {
+        return findParentTitleOfCurrent(this, "");
+    }
+
+    public String findParentTitleOfCurrent(NavigationItem node, String parentTitle) {
+        if (node.isCurrentItem()) {
+            return parentTitle;
+        }
+
+        return node.getChildren().stream()
+                .map(child -> findParentTitleOfCurrent(child, node.getTitle()))
+                .filter(StringUtils::isNotEmpty)
+                .findFirst()
+                .orElse("");
     }
 }

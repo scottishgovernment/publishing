@@ -396,3 +396,49 @@ definitions:
           hst:componentconfigurationid: hst:pages/publicationlistpage
           hst:relativecontentpath: ${parent}/index
           hst:sitemapitemhandlerids: [trailing-slash]
+        /_default_:
+          jcr:primaryType: hst:sitemapitem
+          hst:sitemapitemhandlerids: [trailing-slash]
+          /_default_:
+            jcr:primaryType: hst:sitemapitem
+            hst:sitemapitemhandlerids: [trailing-slash]
+            /_default_:
+              jcr:primaryType: hst:sitemapitem
+              hst:sitemapitemhandlerids: [trailing-slash]
+              hst:componentconfigurationid: hst:pages/publication
+              hst:relativecontentpath: publications/${1}/${2}/${3}
+              /_index_:
+                jcr:primaryType: hst:sitemapitem
+                hst:relativecontentpath: publications/${1}/${2}/${3}/index
+                hst:componentconfigurationid: hst:pages/manual-coverpage
+              /pages:
+                jcr:primaryType: hst:sitemapitem
+                hst:sitemapitemhandlerids: [trailing-slash]
+                /_default_:
+                  jcr:primaryType: hst:sitemapitem
+                  hst:relativecontentpath: publications/${1}/${2}/${3}/pages/${4}
+                  hst:componentconfigurationid: hst:pages/manual
+                  /_index_:
+                    jcr:primaryType: hst:sitemapitem
+                    hst:relativecontentpath: publications/${1}/${2}/${3}/pages/${4}/index
+                    hst:componentconfigurationid: hst:pages/manual
+                  /_default_:
+                    jcr:primaryType: hst:sitemapitem
+                    hst:relativecontentpath: publications/${1}/${2}/${3}/pages/${4}/${5}
+                    hst:componentconfigurationid: hst:pages/manual
+                    /_default_:
+                      jcr:primaryType: hst:sitemapitem
+                      hst:componentconfigurationid: hst:pages/manual
+                      hst:relativecontentpath: publications/${1}/${2}/${3}/pages/${4}/${5}/${6}
+                      /_index_:
+                        jcr:primaryType: hst:sitemapitem
+                        hst:componentconfigurationid: hst:pages/manual
+                        hst:relativecontentpath: publications/${1}/${2}/${3}/pages/${4}/${5}/${6}index
+                      /_default_:
+                        jcr:primaryType: hst:sitemapitem
+                        hst:componentconfigurationid: hst:pages/manual
+                        hst:relativecontentpath: publications/${1}/${2}/${3}/pages/${4}/${5}/${6}/${7}
+              /documents:
+                jcr:primaryType: hst:sitemapitem
+                hst:relativecontentpath: publications/${1}/${2}/${3}/documents
+                hst:componentconfigurationid: hst:pages/manual-documentspage

@@ -11,28 +11,2176 @@
       hippostd:foldertype: [new-publication-document]
       /pub:
         jcr:primaryType: hippo:handle
-        jcr:mixinTypes: ['mix:referenceable']
+        jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
         jcr:uuid: 646ff0e7-d92f-4de2-b0bc-1544e95b122e
-        /pub:
+        hippo:versionHistory: a9b463f4-dc6b-4e48-b583-a8f241cbe3d5
+        /pub[1]:
           jcr:primaryType: publishing:Publication
           jcr:mixinTypes: ['mix:referenceable']
           jcr:uuid: f0a19954-9a61-45f7-9e65-865f3142c575
           hippo:availability: []
-          hippostd:holder: admin
+          hippostd:retainable: false
           hippostd:state: draft
           hippostdpubwf:createdBy: admin
           hippostdpubwf:creationDate: 2025-06-05T14:28:18.199+01:00
-          hippostdpubwf:lastModificationDate: 2025-06-05T14:28:18.200+01:00
+          hippostdpubwf:lastModificationDate: 2025-08-14T14:37:13.860+01:00
           hippostdpubwf:lastModifiedBy: admin
           hippotranslation:id: d7b1033b-832e-4f8e-b8d1-fbffb8ea25be
           hippotranslation:locale: document-type-locale
           publishing:authorNotes: ''
           publishing:contentitemlanguage: en
-          publishing:metaDescription: ''
-          publishing:publicationDate: 0001-01-01T12:00:00Z
+          publishing:metaDescription: sdf
+          publishing:publicationDate: 2025-08-06T00:00:00+01:00
           publishing:publicationType: ''
-          publishing:seoTitle: ''
+          publishing:seoTitle: sdf
           publishing:showFeedback: false
-          publishing:summary: ''
-          publishing:title: ''
+          publishing:summary: sdfsdf
+          publishing:title: sdfsdf
           publishing:topics: ['']
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:document
+            publishing:highlight: false
+            publishing:noindex: false
+            publishing:title: mydoc
+            publishing:useGenericIcon: false
+            /publishing:document:
+              jcr:primaryType: hippo:resource
+              hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+              hippo:text:
+                type: binary
+                resource: /content/documents/disclosure/publications/2020/01/pub/pub[1]/contentBlocks/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+              jcr:data:
+                type: binary
+                resource: /content/documents/disclosure/publications/2020/01/pub/pub[1]/contentBlocks/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework-1.pdf
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2025-08-14T14:19:49.303+01:00
+              jcr:mimeType: application/pdf
+        /pub[2]:
+          jcr:primaryType: publishing:Publication
+          jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+          jcr:uuid: c790691e-c048-4646-a460-9a06ec8e37d5
+          hippo:availability: [preview]
+          hippostd:retainable: false
+          hippostd:state: unpublished
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-05T14:28:18.199+01:00
+          hippostdpubwf:lastModificationDate: 2025-08-14T14:20:18.216+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippotranslation:id: d7b1033b-832e-4f8e-b8d1-fbffb8ea25be
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:contentitemlanguage: en
+          publishing:metaDescription: sdf
+          publishing:publicationDate: 2025-08-06T00:00:00+01:00
+          publishing:publicationType: ''
+          publishing:seoTitle: sdf
+          publishing:showFeedback: false
+          publishing:summary: sdfsdf
+          publishing:title: sdfsdf
+          publishing:topics: ['']
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:document
+            publishing:highlight: false
+            publishing:noindex: false
+            publishing:title: mydoc
+            publishing:useGenericIcon: false
+            /publishing:document:
+              jcr:primaryType: hippo:resource
+              hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+              hippo:text:
+                type: binary
+                resource: /content/documents/disclosure/publications/2020/01/pub/pub[2]/contentBlocks/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+              jcr:data:
+                type: binary
+                resource: /content/documents/disclosure/publications/2020/01/pub/pub[2]/contentBlocks/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework-1.pdf
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2025-08-14T14:19:49.303+01:00
+              jcr:mimeType: application/pdf
+        /pub[3]:
+          jcr:primaryType: publishing:Publication
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: bbe5ed02-ad11-4c91-baf1-47f0cfa55535
+          hippo:availability: [live]
+          hippostd:retainable: false
+          hippostd:state: published
+          hippostdpubwf:createdBy: admin
+          hippostdpubwf:creationDate: 2025-06-05T14:28:18.199+01:00
+          hippostdpubwf:lastModificationDate: 2025-08-14T14:20:18.216+01:00
+          hippostdpubwf:lastModifiedBy: admin
+          hippostdpubwf:publicationDate: 2025-08-14T14:20:25.690+01:00
+          hippostdpubwf:publishedBy: admin
+          hippotranslation:id: d7b1033b-832e-4f8e-b8d1-fbffb8ea25be
+          hippotranslation:locale: document-type-locale
+          publishing:authorNotes: ''
+          publishing:contentitemlanguage: en
+          publishing:metaDescription: sdf
+          publishing:publicationDate: 2025-08-06T00:00:00+01:00
+          publishing:publicationType: ''
+          publishing:seoTitle: sdf
+          publishing:showFeedback: false
+          publishing:summary: sdfsdf
+          publishing:title: sdfsdf
+          publishing:topics: ['']
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:document
+            publishing:highlight: false
+            publishing:noindex: false
+            publishing:title: mydoc
+            publishing:useGenericIcon: false
+            /publishing:document:
+              jcr:primaryType: hippo:resource
+              hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+              hippo:text:
+                type: binary
+                resource: /content/documents/disclosure/publications/2020/01/pub/pub[3]/contentBlocks/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+              jcr:data:
+                type: binary
+                resource: /content/documents/disclosure/publications/2020/01/pub/pub[3]/contentBlocks/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework-1.pdf
+              jcr:encoding: UTF-8
+              jcr:lastModified: 2025-08-14T14:19:49.303+01:00
+              jcr:mimeType: application/pdf
+    /02:
+      jcr:primaryType: hippostd:folder
+      hippostd:foldertype: [new-publication-document, new-manual-folder]
+      /testman:
+        jcr:primaryType: hippostd:folder
+        hippostd:foldertype: []
+        /pages:
+          jcr:primaryType: hippostd:folder
+          hippostd:foldertype: [new-publicationpage, new-publicationpage-folder]
+          /introduction:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+            jcr:uuid: 84425d77-fdb9-42ca-bec9-c1793f95b588
+            hippo:name: Introduction
+            hippo:versionHistory: a7ae2d03-5283-4895-83af-1e74a023c42a
+            /introduction[1]:
+              jcr:primaryType: publishing:PublicationPage
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 6d89175c-53f2-4fc3-80e9-bc0c5feace6d
+              hippo:availability: []
+              hippostd:retainable: false
+              hippostd:state: draft
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-08-14T08:20:46.019+01:00
+              hippostdpubwf:lastModificationDate: 2025-09-10T16:32:29.323+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: dca81622-e291-44e7-abc7-860e3699df20
+              hippotranslation:locale: document-type-locale
+              publishing:metaDescription: The Decision-Making Guidance interprets
+                CDP law for Social Security Scotland staff, ensuring lawful, fair,
+                and consistent determinations, with examples, definitions, and support
+                for complex cases.
+              publishing:seoTitle: Introduction
+              publishing:summary: The Decision-Making Guidance interprets CDP law
+                for Social Security Scotland staff, ensuring lawful, fair, and consistent
+                determinations, with examples, definitions, and support for complex
+                cases.
+              publishing:title: Introduction
+              /publishing:contentBlocks:
+                jcr:primaryType: publishing:cb_richtext
+                publishing:noindex: false
+                /publishing:content:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>The Decision-Making Guidance provides an interpretation on how to:</p>
+
+                    <ul>
+                     <li>use the powers in the Social Security (Scotland) Act 2018</li>
+                     <li>apply the rules set out in the Disability Assistance for Children and Young People (Scotland) Regulations 2021</li>
+                     <li>apply the rules set out in the Disability Assistance for Children and Young People (Scotland) Amendment Regulations 2021.</li>
+                    </ul>
+
+                    <p>The interpretation of the legislation will support case managers employed by Social Security Scotland during the decision-making process regarding disability benefits so that:</p>
+
+                    <ul>
+                     <li>determinations are made lawfully</li>
+                     <li>the decision-making process is consistent with legislation</li>
+                     <li>individuals are treated fairly in accordance with the rules of the benefit.</li>
+                    </ul>
+
+                    <p>The main audience for the Decision-Making Guidance are case managers within Social Security Scotland who will be using the document to make decisions on new and existing Child Disability Payment (CDP) cases.</p>
+
+                    <p>The Decision-Making Guidance, along with training provided to case managers, provides an official interpretation of legislation for Social Security Scotland staff to make decisions about entitlement to CDP. Case managers should note that approved guidance must be followed when applying the law to the facts of the case. However, a case manager may request advice through a case discussion from the Decision Support Team on the application or clarification of the Decision-Making Guidance where there is any doubt or in complex cases.</p>
+
+                    <p>The Decision-Making Guidance uses examples to support the interpretations and explanations of the legislation. These examples are not decision-making criteria in themselves but are merely illustrating how the criteria set out in the chapters should be applied.</p>
+
+                    <p>Case managers should refer to the Operational Guidance for information on the operational steps needed to make and record a decision.</p>
+
+                    <p>For further information on how individuals might be affected by their health conditions or disability, case managers should refer to the medical guidance.</p>
+
+                    <h2>Definitions</h2>
+
+                    <p>In the Decision-Making Guidance:</p>
+
+                    <ul>
+                     <li>“the 2018 Act” refers to the Social Security (Scotland) Act 2018.</li>
+                     <li>“the 2020 Act” refers to the Social Security Administration and Tribunal Membership (Scotland) Act 2020.</li>
+                     <li>“the Child Disability Payment Regulations” refer to the Disability Assistance for Children and Young People (Scotland) Regulations 2021.</li>
+                     <li>“the Child Disability Payment Amendment Regulations” refer to the Disability Assistance for Children and Young People (Scotland) Amendment Regulations 2021.</li>
+                     <li>“Child Disability Payment” means disability assistance for children and young people given in accordance with section 31 and schedule 5 of the 2018 Act with specific rules set out in regulations 1 to 41 and Parts 2 and 3 of the schedule of the Child Disability Payment Regulations.</li>
+                     <li>“short-term assistance” means assistance given to children and young people given in accordance with section 36 and schedule 10 of the 2018 Act with specific rules set out in regulation 42 and Part 1 of the schedule of the Child Disability Payment Regulations 2021.</li>
+                    </ul>
+
+                    <h2>Key terminology</h2>
+
+                    <p>The 2018 Act and the CDP regulations state that determinations on applications are made by Scottish Ministers. Scottish Ministers do not personally make these determinations. Instead, officials employed by Social Security Scotland act on behalf of Scottish Ministers. This is known as the Carltona (Carltona Ltd v Commissions of Works [1943] 2 All ER 560 (CA)) principle.</p>
+
+                    <p>The Carltona principle states that:</p>
+
+                    <p>In the administration of government in this country the functions which are given to ministers (and constitutionally properly given to ministers because they are constitutionally responsible) are functions so multifarious that no minister could ever personally attend to them...The duties imposed upon ministers and the powers given to ministers are normally exercised under the authority of ministers by responsible officials of the department. Public business could not be carried on if that were not the case.</p>
+
+                    <p>This piece of guidance will therefore refer to Social Security Scotland or officials employed by Social Security Scotland, rather than to Scottish Ministers.</p>
+
+                    <p>For simplicity, the Decision-Making Guidance refers to any officials employed by Social Security Scotland as case managers. This includes case managers, client experience officers, and others.</p>
+
+                    <p>Many individuals applying for, or receiving, CDP will not be interacting with Social Security Scotland themselves. Instead, their parents or guardians will do so on their behalf. Some individuals might have appointees or third-party representatives. The Decision-Making Guidance uses the term “individuals” when referring to</p>
+
+                    <ul>
+                     <li>children and young people applying for, or in receipt of, CDP. This covers both individuals whose CDP application or award is managed by someone else on their behalf and individuals aged over 16 years old who are managing their own benefits.</li>
+                     <li>the parent, guardian, appointee or other representative who is managing the benefits for the child or young person.</li>
+                    </ul>
+
+                    <p>Case managers should be aware of this even though the guidance does not explicitly refer to appointees and other representatives in all chapters. For more details on appointees and third-party representatives, case managers should refer to the Operational Guidance and the Appointee Guidance</p>
+            /introduction[2]:
+              jcr:primaryType: publishing:PublicationPage
+              jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+              jcr:uuid: 133c883a-a03b-4c20-89fd-213895e8df89
+              hippo:availability: [preview]
+              hippostd:retainable: false
+              hippostd:state: unpublished
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-08-14T08:20:46.019+01:00
+              hippostdpubwf:lastModificationDate: 2025-09-10T16:32:53.839+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippotranslation:id: dca81622-e291-44e7-abc7-860e3699df20
+              hippotranslation:locale: document-type-locale
+              publishing:metaDescription: The Decision-Making Guidance interprets
+                CDP law for Social Security Scotland staff, ensuring lawful, fair,
+                and consistent determinations, with examples, definitions, and support
+                for complex cases.
+              publishing:seoTitle: Introduction
+              publishing:summary: The Decision-Making Guidance interprets CDP law
+                for Social Security Scotland staff, ensuring lawful, fair, and consistent
+                determinations, with examples, definitions, and support for complex
+                cases.
+              publishing:title: Introduction
+              /publishing:contentBlocks:
+                jcr:primaryType: publishing:cb_richtext
+                publishing:noindex: false
+                /publishing:content:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>The Decision-Making Guidance provides an interpretation on how to:</p>
+
+                    <ul>
+                     <li>use the powers in the Social Security (Scotland) Act 2018</li>
+                     <li>apply the rules set out in the Disability Assistance for Children and Young People (Scotland) Regulations 2021</li>
+                     <li>apply the rules set out in the Disability Assistance for Children and Young People (Scotland) Amendment Regulations 2021.</li>
+                    </ul>
+
+                    <p>The interpretation of the legislation will support case managers employed by Social Security Scotland during the decision-making process regarding disability benefits so that:</p>
+
+                    <ul>
+                     <li>determinations are made lawfully</li>
+                     <li>the decision-making process is consistent with legislation</li>
+                     <li>individuals are treated fairly in accordance with the rules of the benefit.</li>
+                    </ul>
+
+                    <p>The main audience for the Decision-Making Guidance are case managers within Social Security Scotland who will be using the document to make decisions on new and existing Child Disability Payment (CDP) cases.</p>
+
+                    <p>The Decision-Making Guidance, along with training provided to case managers, provides an official interpretation of legislation for Social Security Scotland staff to make decisions about entitlement to CDP. Case managers should note that approved guidance must be followed when applying the law to the facts of the case. However, a case manager may request advice through a case discussion from the Decision Support Team on the application or clarification of the Decision-Making Guidance where there is any doubt or in complex cases.</p>
+
+                    <p>The Decision-Making Guidance uses examples to support the interpretations and explanations of the legislation. These examples are not decision-making criteria in themselves but are merely illustrating how the criteria set out in the chapters should be applied.</p>
+
+                    <p>Case managers should refer to the Operational Guidance for information on the operational steps needed to make and record a decision.</p>
+
+                    <p>For further information on how individuals might be affected by their health conditions or disability, case managers should refer to the medical guidance.</p>
+
+                    <h2>Definitions</h2>
+
+                    <p>In the Decision-Making Guidance:</p>
+
+                    <ul>
+                     <li>“the 2018 Act” refers to the Social Security (Scotland) Act 2018.</li>
+                     <li>“the 2020 Act” refers to the Social Security Administration and Tribunal Membership (Scotland) Act 2020.</li>
+                     <li>“the Child Disability Payment Regulations” refer to the Disability Assistance for Children and Young People (Scotland) Regulations 2021.</li>
+                     <li>“the Child Disability Payment Amendment Regulations” refer to the Disability Assistance for Children and Young People (Scotland) Amendment Regulations 2021.</li>
+                     <li>“Child Disability Payment” means disability assistance for children and young people given in accordance with section 31 and schedule 5 of the 2018 Act with specific rules set out in regulations 1 to 41 and Parts 2 and 3 of the schedule of the Child Disability Payment Regulations.</li>
+                     <li>“short-term assistance” means assistance given to children and young people given in accordance with section 36 and schedule 10 of the 2018 Act with specific rules set out in regulation 42 and Part 1 of the schedule of the Child Disability Payment Regulations 2021.</li>
+                    </ul>
+
+                    <h2>Key terminology</h2>
+
+                    <p>The 2018 Act and the CDP regulations state that determinations on applications are made by Scottish Ministers. Scottish Ministers do not personally make these determinations. Instead, officials employed by Social Security Scotland act on behalf of Scottish Ministers. This is known as the Carltona (Carltona Ltd v Commissions of Works [1943] 2 All ER 560 (CA)) principle.</p>
+
+                    <p>The Carltona principle states that:</p>
+
+                    <p>In the administration of government in this country the functions which are given to ministers (and constitutionally properly given to ministers because they are constitutionally responsible) are functions so multifarious that no minister could ever personally attend to them...The duties imposed upon ministers and the powers given to ministers are normally exercised under the authority of ministers by responsible officials of the department. Public business could not be carried on if that were not the case.</p>
+
+                    <p>This piece of guidance will therefore refer to Social Security Scotland or officials employed by Social Security Scotland, rather than to Scottish Ministers.</p>
+
+                    <p>For simplicity, the Decision-Making Guidance refers to any officials employed by Social Security Scotland as case managers. This includes case managers, client experience officers, and others.</p>
+
+                    <p>Many individuals applying for, or receiving, CDP will not be interacting with Social Security Scotland themselves. Instead, their parents or guardians will do so on their behalf. Some individuals might have appointees or third-party representatives. The Decision-Making Guidance uses the term “individuals” when referring to</p>
+
+                    <ul>
+                     <li>children and young people applying for, or in receipt of, CDP. This covers both individuals whose CDP application or award is managed by someone else on their behalf and individuals aged over 16 years old who are managing their own benefits.</li>
+                     <li>the parent, guardian, appointee or other representative who is managing the benefits for the child or young person.</li>
+                    </ul>
+
+                    <p>Case managers should be aware of this even though the guidance does not explicitly refer to appointees and other representatives in all chapters. For more details on appointees and third-party representatives, case managers should refer to the Operational Guidance and the Appointee Guidance</p>
+            /introduction[3]:
+              jcr:primaryType: publishing:PublicationPage
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 6a026237-83eb-4847-b800-69ab0db81e8c
+              hippo:availability: [live]
+              hippostd:retainable: false
+              hippostd:state: published
+              hippostdpubwf:createdBy: admin
+              hippostdpubwf:creationDate: 2025-08-14T08:20:46.019+01:00
+              hippostdpubwf:depublicationDate: 2025-08-14T08:27:59.840+01:00
+              hippostdpubwf:depublishedBy: admin
+              hippostdpubwf:lastModificationDate: 2025-09-10T16:32:53.839+01:00
+              hippostdpubwf:lastModifiedBy: admin
+              hippostdpubwf:publicationDate: 2025-09-10T16:32:56.783+01:00
+              hippostdpubwf:publishedBy: admin
+              hippotranslation:id: dca81622-e291-44e7-abc7-860e3699df20
+              hippotranslation:locale: document-type-locale
+              publishing:metaDescription: The Decision-Making Guidance interprets
+                CDP law for Social Security Scotland staff, ensuring lawful, fair,
+                and consistent determinations, with examples, definitions, and support
+                for complex cases.
+              publishing:seoTitle: Introduction
+              publishing:summary: The Decision-Making Guidance interprets CDP law
+                for Social Security Scotland staff, ensuring lawful, fair, and consistent
+                determinations, with examples, definitions, and support for complex
+                cases.
+              publishing:title: Introduction
+              /publishing:contentBlocks:
+                jcr:primaryType: publishing:cb_richtext
+                publishing:noindex: false
+                /publishing:content:
+                  jcr:primaryType: hippostd:html
+                  hippostd:content: |-
+                    <p>The Decision-Making Guidance provides an interpretation on how to:</p>
+
+                    <ul>
+                     <li>use the powers in the Social Security (Scotland) Act 2018</li>
+                     <li>apply the rules set out in the Disability Assistance for Children and Young People (Scotland) Regulations 2021</li>
+                     <li>apply the rules set out in the Disability Assistance for Children and Young People (Scotland) Amendment Regulations 2021.</li>
+                    </ul>
+
+                    <p>The interpretation of the legislation will support case managers employed by Social Security Scotland during the decision-making process regarding disability benefits so that:</p>
+
+                    <ul>
+                     <li>determinations are made lawfully</li>
+                     <li>the decision-making process is consistent with legislation</li>
+                     <li>individuals are treated fairly in accordance with the rules of the benefit.</li>
+                    </ul>
+
+                    <p>The main audience for the Decision-Making Guidance are case managers within Social Security Scotland who will be using the document to make decisions on new and existing Child Disability Payment (CDP) cases.</p>
+
+                    <p>The Decision-Making Guidance, along with training provided to case managers, provides an official interpretation of legislation for Social Security Scotland staff to make decisions about entitlement to CDP. Case managers should note that approved guidance must be followed when applying the law to the facts of the case. However, a case manager may request advice through a case discussion from the Decision Support Team on the application or clarification of the Decision-Making Guidance where there is any doubt or in complex cases.</p>
+
+                    <p>The Decision-Making Guidance uses examples to support the interpretations and explanations of the legislation. These examples are not decision-making criteria in themselves but are merely illustrating how the criteria set out in the chapters should be applied.</p>
+
+                    <p>Case managers should refer to the Operational Guidance for information on the operational steps needed to make and record a decision.</p>
+
+                    <p>For further information on how individuals might be affected by their health conditions or disability, case managers should refer to the medical guidance.</p>
+
+                    <h2>Definitions</h2>
+
+                    <p>In the Decision-Making Guidance:</p>
+
+                    <ul>
+                     <li>“the 2018 Act” refers to the Social Security (Scotland) Act 2018.</li>
+                     <li>“the 2020 Act” refers to the Social Security Administration and Tribunal Membership (Scotland) Act 2020.</li>
+                     <li>“the Child Disability Payment Regulations” refer to the Disability Assistance for Children and Young People (Scotland) Regulations 2021.</li>
+                     <li>“the Child Disability Payment Amendment Regulations” refer to the Disability Assistance for Children and Young People (Scotland) Amendment Regulations 2021.</li>
+                     <li>“Child Disability Payment” means disability assistance for children and young people given in accordance with section 31 and schedule 5 of the 2018 Act with specific rules set out in regulations 1 to 41 and Parts 2 and 3 of the schedule of the Child Disability Payment Regulations.</li>
+                     <li>“short-term assistance” means assistance given to children and young people given in accordance with section 36 and schedule 10 of the 2018 Act with specific rules set out in regulation 42 and Part 1 of the schedule of the Child Disability Payment Regulations 2021.</li>
+                    </ul>
+
+                    <h2>Key terminology</h2>
+
+                    <p>The 2018 Act and the CDP regulations state that determinations on applications are made by Scottish Ministers. Scottish Ministers do not personally make these determinations. Instead, officials employed by Social Security Scotland act on behalf of Scottish Ministers. This is known as the Carltona (Carltona Ltd v Commissions of Works [1943] 2 All ER 560 (CA)) principle.</p>
+
+                    <p>The Carltona principle states that:</p>
+
+                    <p>In the administration of government in this country the functions which are given to ministers (and constitutionally properly given to ministers because they are constitutionally responsible) are functions so multifarious that no minister could ever personally attend to them...The duties imposed upon ministers and the powers given to ministers are normally exercised under the authority of ministers by responsible officials of the department. Public business could not be carried on if that were not the case.</p>
+
+                    <p>This piece of guidance will therefore refer to Social Security Scotland or officials employed by Social Security Scotland, rather than to Scottish Ministers.</p>
+
+                    <p>For simplicity, the Decision-Making Guidance refers to any officials employed by Social Security Scotland as case managers. This includes case managers, client experience officers, and others.</p>
+
+                    <p>Many individuals applying for, or receiving, CDP will not be interacting with Social Security Scotland themselves. Instead, their parents or guardians will do so on their behalf. Some individuals might have appointees or third-party representatives. The Decision-Making Guidance uses the term “individuals” when referring to</p>
+
+                    <ul>
+                     <li>children and young people applying for, or in receipt of, CDP. This covers both individuals whose CDP application or award is managed by someone else on their behalf and individuals aged over 16 years old who are managing their own benefits.</li>
+                     <li>the parent, guardian, appointee or other representative who is managing the benefits for the child or young person.</li>
+                    </ul>
+
+                    <p>Case managers should be aware of this even though the guidance does not explicitly refer to appointees and other representatives in all chapters. For more details on appointees and third-party representatives, case managers should refer to the Operational Guidance and the Appointee Guidance</p>
+          /principles-of-decision-making:
+            jcr:primaryType: hippostd:folder
+            jcr:mixinTypes: ['hippo:named']
+            hippo:name: Principles of decision making
+            hippostd:foldertype: [new-publicationpage, new-publicationpage-subfolder]
+            /index:
+              jcr:primaryType: hippo:handle
+              jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+              jcr:uuid: 3f81d2f3-9b78-4722-b5cf-3e4250249046
+              hippo:versionHistory: 2c4d7b3b-692f-4e44-821b-0652b7eeec87
+              /index[1]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: 4e150b4c-2b2e-4878-b084-a0ac9d967b52
+                hippo:availability: []
+                hippostd:retainable: false
+                hippostd:state: draft
+                hippostdpubwf:createdBy: ''
+                hippostdpubwf:creationDate: 2025-08-05T10:22:47.942+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:30:09.195+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: document-type-locale-id
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: Decision makers are employed by the Scottish
+                  Government (the Scottish Ministers) to determine entitlement to
+                  Child Disability Payment (CDP) on behalf of the Scottish Ministers.
+                publishing:seoTitle: Principles of decision making
+                publishing:summary: Decision makers are employed by the Scottish Government
+                  (the Scottish Ministers) to determine entitlement to Child Disability
+                  Payment (CDP) on behalf of the Scottish Ministers.
+                publishing:title: Principles of decision making
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>Decision makers are employed by the Scottish Government (the Scottish Ministers) to determine entitlement to Child Disability Payment (CDP) on behalf of the Scottish Ministers.</p>
+
+                      <p>The Scottish Government has produced this decision-making guidance because they are responsible for decisions. The decision-making guidance is referred to as the guidance in this chapter. The term case manager is used in a general way to refer to anyone who works for Social Security Scotland and makes decisions affecting individuals who have applied for or are entitled CDP.</p>
+              /index[2]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+                jcr:uuid: 510af7e4-2e9a-4e08-bae9-8004ede458fc
+                hippo:availability: [preview]
+                hippostd:retainable: false
+                hippostd:state: unpublished
+                hippostdpubwf:createdBy: ''
+                hippostdpubwf:creationDate: 2025-08-05T10:22:47.942+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:30:19.238+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: document-type-locale-id
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: Decision makers are employed by the Scottish
+                  Government (the Scottish Ministers) to determine entitlement to
+                  Child Disability Payment (CDP) on behalf of the Scottish Ministers.
+                publishing:seoTitle: Principles of decision making
+                publishing:summary: Decision makers are employed by the Scottish Government
+                  (the Scottish Ministers) to determine entitlement to Child Disability
+                  Payment (CDP) on behalf of the Scottish Ministers.
+                publishing:title: Principles of decision making
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>Decision makers are employed by the Scottish Government (the Scottish Ministers) to determine entitlement to Child Disability Payment (CDP) on behalf of the Scottish Ministers.</p>
+
+                      <p>The Scottish Government has produced this decision-making guidance because they are responsible for decisions. The decision-making guidance is referred to as the guidance in this chapter. The term case manager is used in a general way to refer to anyone who works for Social Security Scotland and makes decisions affecting individuals who have applied for or are entitled CDP.</p>
+              /index[3]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: 2a7972f4-0f77-426b-9c4c-6ed935e80e2d
+                hippo:availability: [live]
+                hippostd:retainable: false
+                hippostd:state: published
+                hippostdpubwf:createdBy: ''
+                hippostdpubwf:creationDate: 2025-08-05T10:22:47.942+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:30:19.238+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippostdpubwf:publicationDate: 2025-09-10T16:30:22.024+01:00
+                hippostdpubwf:publishedBy: admin
+                hippotranslation:id: document-type-locale-id
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: Decision makers are employed by the Scottish
+                  Government (the Scottish Ministers) to determine entitlement to
+                  Child Disability Payment (CDP) on behalf of the Scottish Ministers.
+                publishing:seoTitle: Principles of decision making
+                publishing:summary: Decision makers are employed by the Scottish Government
+                  (the Scottish Ministers) to determine entitlement to Child Disability
+                  Payment (CDP) on behalf of the Scottish Ministers.
+                publishing:title: Principles of decision making
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>Decision makers are employed by the Scottish Government (the Scottish Ministers) to determine entitlement to Child Disability Payment (CDP) on behalf of the Scottish Ministers.</p>
+
+                      <p>The Scottish Government has produced this decision-making guidance because they are responsible for decisions. The decision-making guidance is referred to as the guidance in this chapter. The term case manager is used in a general way to refer to anyone who works for Social Security Scotland and makes decisions affecting individuals who have applied for or are entitled CDP.</p>
+            /person-centered-decision-making:
+              jcr:primaryType: hippo:handle
+              jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+              jcr:uuid: d182be8b-b1f2-450d-b731-1755d5f042af
+              hippo:name: Person centered decision making
+              hippo:versionHistory: 7b8b3a5c-40d7-4214-b3ab-12d467e5b8e6
+              /person-centered-decision-making[1]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: a5f448a4-64e1-4ed4-9217-52813963f281
+                hippo:availability: []
+                hippostd:retainable: false
+                hippostd:state: draft
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-12T15:11:20.228+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:29:25.741+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: 60446a85-105e-4dad-b924-456c815a84ae
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: Scotland’s social security system is built
+                  on dignity, fairness, and respect, with person-centred decisions
+                  that trust individuals and consider their full circumstances.
+                publishing:seoTitle: Person-centred decision-making
+                publishing:summary: Scotland’s social security system is built on
+                  dignity, fairness, and respect, with person-centred decisions that
+                  trust individuals and consider their full circumstances.
+                publishing:title: Person-centred decision-making
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The Scottish Government is committed to both:</p>
+
+                      <ul>
+                       <li>creating a system of social security that meets the needs of the people of Scotland</li>
+                       <li>ensuring that the values of dignity, fairness and respect are embedded in the system.</li>
+                      </ul>
+
+                      <p>Case managers should take a person-centred approach to decision-making by:</p>
+
+                      <ul>
+                       <li>considering how the individual’s condition affects them</li>
+                       <li>taking into account all of their circumstances</li>
+                       <li>listening to the individual</li>
+                       <li>treating them as an individual</li>
+                       <li>recognising that the individual understands their own life best</li>
+                       <li>considering the individual’s support network, caring responsibilities and work responsibilities</li>
+                       <li>making sound judgments about the impact that an individual’s condition has on them</li>
+                       <li>approaching decisions from a position of trust</li>
+                       <li>only seeking one source of supporting information from a professional where possible.</li>
+                      </ul>
+              /person-centered-decision-making[2]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+                jcr:uuid: ced2b131-65b9-485b-8cb0-ed84f2903c4b
+                hippo:availability: [preview]
+                hippostd:retainable: false
+                hippostd:state: unpublished
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-12T15:11:20.228+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:30:02.868+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: 60446a85-105e-4dad-b924-456c815a84ae
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: Scotland’s social security system is built
+                  on dignity, fairness, and respect, with person-centred decisions
+                  that trust individuals and consider their full circumstances.
+                publishing:seoTitle: Person-centred decision-making
+                publishing:summary: Scotland’s social security system is built on
+                  dignity, fairness, and respect, with person-centred decisions that
+                  trust individuals and consider their full circumstances.
+                publishing:title: Person-centred decision-making
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The Scottish Government is committed to both:</p>
+
+                      <ul>
+                       <li>creating a system of social security that meets the needs of the people of Scotland</li>
+                       <li>ensuring that the values of dignity, fairness and respect are embedded in the system.</li>
+                      </ul>
+
+                      <p>Case managers should take a person-centred approach to decision-making by:</p>
+
+                      <ul>
+                       <li>considering how the individual’s condition affects them</li>
+                       <li>taking into account all of their circumstances</li>
+                       <li>listening to the individual</li>
+                       <li>treating them as an individual</li>
+                       <li>recognising that the individual understands their own life best</li>
+                       <li>considering the individual’s support network, caring responsibilities and work responsibilities</li>
+                       <li>making sound judgments about the impact that an individual’s condition has on them</li>
+                       <li>approaching decisions from a position of trust</li>
+                       <li>only seeking one source of supporting information from a professional where possible.</li>
+                      </ul>
+              /person-centered-decision-making[3]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: 059c4bd5-db1f-4e7f-a98a-a4827d36674b
+                hippo:availability: [live]
+                hippostd:retainable: false
+                hippostd:state: published
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-12T15:11:20.228+01:00
+                hippostdpubwf:depublicationDate: 2025-08-14T08:39:14.063+01:00
+                hippostdpubwf:depublishedBy: admin
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:30:02.868+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippostdpubwf:publicationDate: 2025-09-10T16:30:05.810+01:00
+                hippostdpubwf:publishedBy: admin
+                hippotranslation:id: 60446a85-105e-4dad-b924-456c815a84ae
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: Scotland’s social security system is built
+                  on dignity, fairness, and respect, with person-centred decisions
+                  that trust individuals and consider their full circumstances.
+                publishing:seoTitle: Person-centred decision-making
+                publishing:summary: Scotland’s social security system is built on
+                  dignity, fairness, and respect, with person-centred decisions that
+                  trust individuals and consider their full circumstances.
+                publishing:title: Person-centred decision-making
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The Scottish Government is committed to both:</p>
+
+                      <ul>
+                       <li>creating a system of social security that meets the needs of the people of Scotland</li>
+                       <li>ensuring that the values of dignity, fairness and respect are embedded in the system.</li>
+                      </ul>
+
+                      <p>Case managers should take a person-centred approach to decision-making by:</p>
+
+                      <ul>
+                       <li>considering how the individual’s condition affects them</li>
+                       <li>taking into account all of their circumstances</li>
+                       <li>listening to the individual</li>
+                       <li>treating them as an individual</li>
+                       <li>recognising that the individual understands their own life best</li>
+                       <li>considering the individual’s support network, caring responsibilities and work responsibilities</li>
+                       <li>making sound judgments about the impact that an individual’s condition has on them</li>
+                       <li>approaching decisions from a position of trust</li>
+                       <li>only seeking one source of supporting information from a professional where possible.</li>
+                      </ul>
+            /the-scottish-social-security-charter:
+              jcr:primaryType: hippo:handle
+              jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+              jcr:uuid: 8b6dfbcd-ed4f-4156-bff0-4b33602a7328
+              hippo:name: The Scottish Social Security Charter
+              hippo:versionHistory: 4e9e6418-5523-4132-a5ff-7d349b393221
+              /the-scottish-social-security-charter[1]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: 8def8ee3-0ac1-4e15-9e9e-c580971f978f
+                hippo:availability: []
+                hippostd:retainable: false
+                hippostd:state: draft
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-14T08:41:14.521+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:26:46.927+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: dcd64b65-36e5-40b9-90e1-f87448450676
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: The Scottish Social Security Charter promises
+                  fair, accurate, and clear benefit decisions, honesty, and guidance
+                  on appeals, ensuring consistency and transparency.
+                publishing:seoTitle: The Scottish Social Security Charter
+                publishing:summary: The Scottish Social Security Charter promises
+                  fair, accurate, and clear benefit decisions, honesty, and guidance
+                  on appeals, ensuring consistency and transparency.
+                publishing:title: The Scottish Social Security Charter
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The Scottish Social Security Charter sets out what the individual can expect from the Scottish Government and Social Security Scotland.</p>
+
+                      <p>The Charter commits the Scottish Government to:</p>
+
+                      <ul>
+                       <li>making decisions in a consistent and accurate way</li>
+                       <li>aiming to get determinations right first time</li>
+                       <li>being honest, providing clear reasons for determinations</li>
+                       <li>explaining what to do if the individual disagrees with that determination.</li>
+                      </ul>
+
+                      <p>Determinations which follow this guidance will be:</p>
+
+                      <ul>
+                       <li>consistent, accurate and clear</li>
+                       <li>in line with the Charter commitments.</li>
+                      </ul>
+
+                      <p>The Charter is available to&nbsp;<a rel="noopener noreferrer" href="https://www.gov.scot/publications/charter/" target="_blank">read in full online</a>.</p>
+              /the-scottish-social-security-charter[2]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+                jcr:uuid: 2be8aac1-bc63-4af2-8032-c5d10930de34
+                hippo:availability: [preview]
+                hippostd:retainable: false
+                hippostd:state: unpublished
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-14T08:41:14.521+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:29:20.930+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: dcd64b65-36e5-40b9-90e1-f87448450676
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: The Scottish Social Security Charter promises
+                  fair, accurate, and clear benefit decisions, honesty, and guidance
+                  on appeals, ensuring consistency and transparency.
+                publishing:seoTitle: The Scottish Social Security Charter
+                publishing:summary: The Scottish Social Security Charter promises
+                  fair, accurate, and clear benefit decisions, honesty, and guidance
+                  on appeals, ensuring consistency and transparency.
+                publishing:title: The Scottish Social Security Charter
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The Scottish Social Security Charter sets out what the individual can expect from the Scottish Government and Social Security Scotland.</p>
+
+                      <p>The Charter commits the Scottish Government to:</p>
+
+                      <ul>
+                       <li>making decisions in a consistent and accurate way</li>
+                       <li>aiming to get determinations right first time</li>
+                       <li>being honest, providing clear reasons for determinations</li>
+                       <li>explaining what to do if the individual disagrees with that determination.</li>
+                      </ul>
+
+                      <p>Determinations which follow this guidance will be:</p>
+
+                      <ul>
+                       <li>consistent, accurate and clear</li>
+                       <li>in line with the Charter commitments.</li>
+                      </ul>
+
+                      <p>The Charter is available to&nbsp;<a rel="noopener noreferrer" href="https://www.gov.scot/publications/charter/" target="_blank">read in full online</a>.</p>
+              /the-scottish-social-security-charter[3]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: 5f074fa7-ad67-4b2d-bff7-4d474c90bb05
+                hippo:availability: [live]
+                hippostd:retainable: false
+                hippostd:state: published
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-14T08:41:14.521+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:29:20.930+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippostdpubwf:publicationDate: 2025-09-10T16:29:24.279+01:00
+                hippostdpubwf:publishedBy: admin
+                hippotranslation:id: dcd64b65-36e5-40b9-90e1-f87448450676
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: The Scottish Social Security Charter promises
+                  fair, accurate, and clear benefit decisions, honesty, and guidance
+                  on appeals, ensuring consistency and transparency.
+                publishing:seoTitle: The Scottish Social Security Charter
+                publishing:summary: The Scottish Social Security Charter promises
+                  fair, accurate, and clear benefit decisions, honesty, and guidance
+                  on appeals, ensuring consistency and transparency.
+                publishing:title: The Scottish Social Security Charter
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The Scottish Social Security Charter sets out what the individual can expect from the Scottish Government and Social Security Scotland.</p>
+
+                      <p>The Charter commits the Scottish Government to:</p>
+
+                      <ul>
+                       <li>making decisions in a consistent and accurate way</li>
+                       <li>aiming to get determinations right first time</li>
+                       <li>being honest, providing clear reasons for determinations</li>
+                       <li>explaining what to do if the individual disagrees with that determination.</li>
+                      </ul>
+
+                      <p>Determinations which follow this guidance will be:</p>
+
+                      <ul>
+                       <li>consistent, accurate and clear</li>
+                       <li>in line with the Charter commitments.</li>
+                      </ul>
+
+                      <p>The Charter is available to&nbsp;<a rel="noopener noreferrer" href="https://www.gov.scot/publications/charter/" target="_blank">read in full online</a>.</p>
+            /the-decision-making-guidance-explained:
+              jcr:primaryType: hippo:handle
+              jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+              jcr:uuid: 9ac51810-543d-43ba-8c58-13c2df70b8ba
+              hippo:name: The decision-making guidance explained
+              hippo:versionHistory: fcdfee96-91d9-4337-bdd8-c71fcf864909
+              /the-decision-making-guidance-explained[1]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: 9befdb4a-ea43-4acc-818b-83cf9285750a
+                hippo:availability: []
+                hippostd:retainable: false
+                hippostd:state: draft
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-14T08:41:57.424+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:30:29.526+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: 29c19273-1eac-4fe2-b15c-7cec5a6f94be
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: This guidance helps case managers apply
+                  CDP entitlement law by using legislation, evidence, and decision-making
+                  principles to ensure fair, rule-based outcomes.
+                publishing:seoTitle: The decision-making guidance explained
+                publishing:summary: This guidance helps case managers apply CDP entitlement
+                  law by using legislation, evidence, and decision-making principles
+                  to ensure fair, rule-based outcomes.
+                publishing:title: The decision-making guidance explained
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The purpose of the guidance is to guide case managers on how to apply the law on entitlement to CDP to individual cases. The law on entitlement to CDP is sometimes referred to in the decision-making guidance as ‘the rules’.</p>
+
+                      <p>The rules come from the following pieces of legislation. These are:</p>
+
+                      <ul>
+                       <li>the Disability Assistance for Children and Young People (Scotland)</li>
+                       <li>Regulations 2021</li>
+                       <li>the Social Security (Scotland) Act 2018</li>
+                       <li>the Social Security Administration and Tribunal Membership (Scotland) Act 2020</li>
+                       <li>the Social Security Information-sharing (Scotland) Regulations 2021.</li>
+                      </ul>
+
+                      <p>The guidance explains the rules and how to apply the rules to the facts of a case.</p>
+
+                      <p>The case manager must make a decision by considering all the supporting information and applying the rules to the facts of a case.</p>
+
+                      <p>Decisions must be in line with the ‘principles of decision-making’ which are explained later in this chapter.</p>
+              /the-decision-making-guidance-explained[2]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+                jcr:uuid: cb482ce2-eb05-45cd-9b4e-f2635d8448b2
+                hippo:availability: [preview]
+                hippostd:retainable: false
+                hippostd:state: unpublished
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-14T08:41:57.424+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:30:52.595+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: 29c19273-1eac-4fe2-b15c-7cec5a6f94be
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: This guidance helps case managers apply
+                  CDP entitlement law by using legislation, evidence, and decision-making
+                  principles to ensure fair, rule-based outcomes.
+                publishing:seoTitle: The decision-making guidance explained
+                publishing:summary: This guidance helps case managers apply CDP entitlement
+                  law by using legislation, evidence, and decision-making principles
+                  to ensure fair, rule-based outcomes.
+                publishing:title: The decision-making guidance explained
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The purpose of the guidance is to guide case managers on how to apply the law on entitlement to CDP to individual cases. The law on entitlement to CDP is sometimes referred to in the decision-making guidance as ‘the rules’.</p>
+
+                      <p>The rules come from the following pieces of legislation. These are:</p>
+
+                      <ul>
+                       <li>the Disability Assistance for Children and Young People (Scotland)</li>
+                       <li>Regulations 2021</li>
+                       <li>the Social Security (Scotland) Act 2018</li>
+                       <li>the Social Security Administration and Tribunal Membership (Scotland) Act 2020</li>
+                       <li>the Social Security Information-sharing (Scotland) Regulations 2021.</li>
+                      </ul>
+
+                      <p>The guidance explains the rules and how to apply the rules to the facts of a case.</p>
+
+                      <p>The case manager must make a decision by considering all the supporting information and applying the rules to the facts of a case.</p>
+
+                      <p>Decisions must be in line with the ‘principles of decision-making’ which are explained later in this chapter.</p>
+              /the-decision-making-guidance-explained[3]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: e25bea8f-a935-4819-a04f-54378e8bda69
+                hippo:availability: [live]
+                hippostd:retainable: false
+                hippostd:state: published
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-14T08:41:57.424+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:30:52.595+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippostdpubwf:publicationDate: 2025-09-10T16:30:56.046+01:00
+                hippostdpubwf:publishedBy: admin
+                hippotranslation:id: 29c19273-1eac-4fe2-b15c-7cec5a6f94be
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: This guidance helps case managers apply
+                  CDP entitlement law by using legislation, evidence, and decision-making
+                  principles to ensure fair, rule-based outcomes.
+                publishing:seoTitle: The decision-making guidance explained
+                publishing:summary: This guidance helps case managers apply CDP entitlement
+                  law by using legislation, evidence, and decision-making principles
+                  to ensure fair, rule-based outcomes.
+                publishing:title: The decision-making guidance explained
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The purpose of the guidance is to guide case managers on how to apply the law on entitlement to CDP to individual cases. The law on entitlement to CDP is sometimes referred to in the decision-making guidance as ‘the rules’.</p>
+
+                      <p>The rules come from the following pieces of legislation. These are:</p>
+
+                      <ul>
+                       <li>the Disability Assistance for Children and Young People (Scotland)</li>
+                       <li>Regulations 2021</li>
+                       <li>the Social Security (Scotland) Act 2018</li>
+                       <li>the Social Security Administration and Tribunal Membership (Scotland) Act 2020</li>
+                       <li>the Social Security Information-sharing (Scotland) Regulations 2021.</li>
+                      </ul>
+
+                      <p>The guidance explains the rules and how to apply the rules to the facts of a case.</p>
+
+                      <p>The case manager must make a decision by considering all the supporting information and applying the rules to the facts of a case.</p>
+
+                      <p>Decisions must be in line with the ‘principles of decision-making’ which are explained later in this chapter.</p>
+          /backwards-and-forwards-tests:
+            jcr:primaryType: hippostd:folder
+            jcr:mixinTypes: ['hippo:named']
+            hippo:name: Backwards and forwards tests
+            hippostd:foldertype: [new-publicationpage, new-publicationpage-subfolder]
+            /index:
+              jcr:primaryType: hippo:handle
+              jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+              jcr:uuid: 0afb442d-0b0f-42aa-88b5-a8b7a20c2d63
+              hippo:versionHistory: df5ed658-eb96-41bf-9331-60f5b065f184
+              /index[1]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: 199e4ef0-9e60-4fbc-bf77-7513cd70ac18
+                hippo:availability: []
+                hippostd:retainable: false
+                hippostd:state: draft
+                hippostdpubwf:createdBy: ''
+                hippostdpubwf:creationDate: 2025-08-05T10:22:47.942+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:31:01.839+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: document-type-locale-id
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: This chapter explains CDP “backwards”
+                  and “forwards” tests, linking entitlement to past and likely future
+                  need, with exceptions for terminal illness cases.
+                publishing:seoTitle: Backwards and forwards tests
+                publishing:summary: This chapter explains CDP “backwards” and “forwards”
+                  tests, linking entitlement to past and likely future need, with
+                  exceptions for terminal illness cases.
+                publishing:title: Backwards and forwards tests
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>This chapter covers the following topics:</p>
+
+                      <ul>
+                       <li>the backwards and forwards tests</li>
+                       <li>the relationship with the date of application</li>
+                       <li>the relationship with the date of entitlement</li>
+                       <li>changes in the individual’s level of need and receiving benefit</li>
+                      </ul>
+
+                      <p>This chapter explains the backwards test and forwards tests for Child Disability Payment (CDP).</p>
+
+                      <p>The backwards test is the amount of time the individual must have met the criteria of entitlement for a particular component, or rate of a component of CDP (CDP regs, reg. 11(3)(a), 12(6)(a) and 13(10)(a)).</p>
+
+                      <p>The forwards test looks at the amount of time the individual is likely to meet the criteria of entitlement for a particular component, or rate of a component of CDP (CDP regs, reg. 11(3)(b), 12(6)(b) and 13(10)(b)).</p>
+
+                      <p>There is no backwards test or forwards test for individuals with a terminal illness. For more information please consult the Special Rules for Terminal Illness chapter.</p>
+              /index[2]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+                jcr:uuid: ddb6e21c-9dea-46cf-acb8-0b43bceac662
+                hippo:availability: [preview]
+                hippostd:retainable: false
+                hippostd:state: unpublished
+                hippostdpubwf:createdBy: ''
+                hippostdpubwf:creationDate: 2025-08-05T10:22:47.942+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:31:25.380+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: document-type-locale-id
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: This chapter explains CDP “backwards”
+                  and “forwards” tests, linking entitlement to past and likely future
+                  need, with exceptions for terminal illness cases.
+                publishing:seoTitle: Backwards and forwards tests
+                publishing:summary: This chapter explains CDP “backwards” and “forwards”
+                  tests, linking entitlement to past and likely future need, with
+                  exceptions for terminal illness cases.
+                publishing:title: Backwards and forwards tests
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>This chapter covers the following topics:</p>
+
+                      <ul>
+                       <li>the backwards and forwards tests</li>
+                       <li>the relationship with the date of application</li>
+                       <li>the relationship with the date of entitlement</li>
+                       <li>changes in the individual’s level of need and receiving benefit</li>
+                      </ul>
+
+                      <p>This chapter explains the backwards test and forwards tests for Child Disability Payment (CDP).</p>
+
+                      <p>The backwards test is the amount of time the individual must have met the criteria of entitlement for a particular component, or rate of a component of CDP (CDP regs, reg. 11(3)(a), 12(6)(a) and 13(10)(a)).</p>
+
+                      <p>The forwards test looks at the amount of time the individual is likely to meet the criteria of entitlement for a particular component, or rate of a component of CDP (CDP regs, reg. 11(3)(b), 12(6)(b) and 13(10)(b)).</p>
+
+                      <p>There is no backwards test or forwards test for individuals with a terminal illness. For more information please consult the Special Rules for Terminal Illness chapter.</p>
+              /index[3]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: 3e80e452-8025-4c08-a870-3cf68412fd84
+                hippo:availability: [live]
+                hippostd:retainable: false
+                hippostd:state: published
+                hippostdpubwf:createdBy: ''
+                hippostdpubwf:creationDate: 2025-08-05T10:22:47.942+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:31:25.380+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippostdpubwf:publicationDate: 2025-09-10T16:31:28.542+01:00
+                hippostdpubwf:publishedBy: admin
+                hippotranslation:id: document-type-locale-id
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: This chapter explains CDP “backwards”
+                  and “forwards” tests, linking entitlement to past and likely future
+                  need, with exceptions for terminal illness cases.
+                publishing:seoTitle: Backwards and forwards tests
+                publishing:summary: This chapter explains CDP “backwards” and “forwards”
+                  tests, linking entitlement to past and likely future need, with
+                  exceptions for terminal illness cases.
+                publishing:title: Backwards and forwards tests
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>This chapter covers the following topics:</p>
+
+                      <ul>
+                       <li>the backwards and forwards tests</li>
+                       <li>the relationship with the date of application</li>
+                       <li>the relationship with the date of entitlement</li>
+                       <li>changes in the individual’s level of need and receiving benefit</li>
+                      </ul>
+
+                      <p>This chapter explains the backwards test and forwards tests for Child Disability Payment (CDP).</p>
+
+                      <p>The backwards test is the amount of time the individual must have met the criteria of entitlement for a particular component, or rate of a component of CDP (CDP regs, reg. 11(3)(a), 12(6)(a) and 13(10)(a)).</p>
+
+                      <p>The forwards test looks at the amount of time the individual is likely to meet the criteria of entitlement for a particular component, or rate of a component of CDP (CDP regs, reg. 11(3)(b), 12(6)(b) and 13(10)(b)).</p>
+
+                      <p>There is no backwards test or forwards test for individuals with a terminal illness. For more information please consult the Special Rules for Terminal Illness chapter.</p>
+            /chapter2-page-2:
+              jcr:primaryType: hippo:handle
+              jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+              jcr:uuid: 2ab521ac-15e4-4be5-a94b-09580ec0b27b
+              hippo:name: chapter2, page 2
+              hippo:versionHistory: a710b72a-53d8-43e0-a39f-012379f0bda0
+              /chapter2-page-2[1]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: cbafbadd-e95d-4c98-96db-ec343d5ba5e6
+                hippo:availability: []
+                hippostd:retainable: false
+                hippostd:state: draft
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-13T11:32:07.591+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:31:30.587+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: 7e3bd39c-1d83-4886-b670-0e5028d057e2
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: The CDP backwards test requires 13 weeks
+                  of prior eligibility; the forwards test requires likely eligibility
+                  for 26 weeks after entitlement.
+                publishing:seoTitle: The backwards and forwards tests
+                publishing:summary: The CDP backwards test requires 13 weeks of prior
+                  eligibility; the forwards test requires likely eligibility for 26
+                  weeks after entitlement.
+                publishing:title: The backwards and forwards tests
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The individual must have met or be deemed likely to meet one of the criteria of entitlement for a particular component, or rate of a component, for 13 weeks immediately preceding the date of entitlement. This is the backwards test (CDP regs, reg. 11(3)(a), 12(6)(a) and 13(10)(a)).</p>
+
+                      <p>The individual must be likely to meet one of the criteria of entitlement for a particular component, or rate of a component, for 26 weeks from the date of entitlement. This is the forwards test (CDP regs, reg. 11(3)(b), 12(6)(b) and 13(10)(b)).</p>
+              /chapter2-page-2[2]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+                jcr:uuid: dda9136a-dc97-4c13-917e-0ccf97ba225e
+                hippo:availability: [preview]
+                hippostd:retainable: false
+                hippostd:state: unpublished
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-13T11:32:07.591+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:31:52.966+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: 7e3bd39c-1d83-4886-b670-0e5028d057e2
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: The CDP backwards test requires 13 weeks
+                  of prior eligibility; the forwards test requires likely eligibility
+                  for 26 weeks after entitlement.
+                publishing:seoTitle: The backwards and forwards tests
+                publishing:summary: The CDP backwards test requires 13 weeks of prior
+                  eligibility; the forwards test requires likely eligibility for 26
+                  weeks after entitlement.
+                publishing:title: The backwards and forwards tests
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The individual must have met or be deemed likely to meet one of the criteria of entitlement for a particular component, or rate of a component, for 13 weeks immediately preceding the date of entitlement. This is the backwards test (CDP regs, reg. 11(3)(a), 12(6)(a) and 13(10)(a)).</p>
+
+                      <p>The individual must be likely to meet one of the criteria of entitlement for a particular component, or rate of a component, for 26 weeks from the date of entitlement. This is the forwards test (CDP regs, reg. 11(3)(b), 12(6)(b) and 13(10)(b)).</p>
+              /chapter2-page-2[3]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: bf0702e1-d1ad-4daa-a03f-497a5d008048
+                hippo:availability: [live]
+                hippostd:retainable: false
+                hippostd:state: published
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-13T11:32:07.591+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:31:52.966+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippostdpubwf:publicationDate: 2025-09-10T16:31:56.628+01:00
+                hippostdpubwf:publishedBy: admin
+                hippotranslation:id: 7e3bd39c-1d83-4886-b670-0e5028d057e2
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: The CDP backwards test requires 13 weeks
+                  of prior eligibility; the forwards test requires likely eligibility
+                  for 26 weeks after entitlement.
+                publishing:seoTitle: The backwards and forwards tests
+                publishing:summary: The CDP backwards test requires 13 weeks of prior
+                  eligibility; the forwards test requires likely eligibility for 26
+                  weeks after entitlement.
+                publishing:title: The backwards and forwards tests
+                /publishing:contentBlocks:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The individual must have met or be deemed likely to meet one of the criteria of entitlement for a particular component, or rate of a component, for 13 weeks immediately preceding the date of entitlement. This is the backwards test (CDP regs, reg. 11(3)(a), 12(6)(a) and 13(10)(a)).</p>
+
+                      <p>The individual must be likely to meet one of the criteria of entitlement for a particular component, or rate of a component, for 26 weeks from the date of entitlement. This is the forwards test (CDP regs, reg. 11(3)(b), 12(6)(b) and 13(10)(b)).</p>
+            /relationship-with-the-date-of-application:
+              jcr:primaryType: hippo:handle
+              jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+              jcr:uuid: 7de28100-23ab-44c4-8370-c79d9dc68eb1
+              hippo:name: Relationship with the date of application
+              hippo:versionHistory: f7cb8eab-7be1-499e-bf48-db5bf4c1fd83
+              /relationship-with-the-date-of-application[1]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: 0aedb4c8-cb86-4b40-9102-70ad9281aa59
+                hippo:availability: []
+                hippostd:retainable: false
+                hippostd:state: draft
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-14T08:59:22.393+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:31:58.950+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: 172f5aab-f8d7-49ac-ad00-1ffea87354a7
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: 'A CDP application date is when received,
+                  but if the backwards test isn’t yet met, it’s treated as the date
+                  the criteria will be satisfied (e.g., Daniel’s case: 8 Nov 2022).'
+                publishing:seoTitle: Relationship with the date of application
+                publishing:summary: 'A CDP application date is when received, but
+                  if the backwards test isn’t yet met, it’s treated as the date the
+                  criteria will be satisfied (e.g., Daniel’s case: 8 Nov 2022).'
+                publishing:title: Relationship with the date of application
+                /publishing:contentBlocks[1]:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The date of application is usually the date on which the application is received by Social Security Scotland (CDP regs, reg. 24(1)(a)).</p>
+
+                      <p>Individuals do not need to wait until the backwards test is complete before making an application for CDP.</p>
+
+                      <p>If the individual applies before they meet the backwards test, but likely will do in the future, the date of application is the date on which the individual will meet the criteria of entitlement. These include the backwards and forward tests (CDP regs, reg. 24(1)(b)).</p>
+
+                      <h3></h3>
+
+                      <p>Daniel is 7 years old and has developed diabetes. His father applies for CDP on 2 October 2022. He notes on the application that due to his diabetes, Daniel’s stated level of support needs began on 10 August 2022. However, the backwards test will not be met until 8 November. The application is treated as being made on 8 November 2022.</p>
+                /publishing:contentBlocks[2]:
+                  jcr:primaryType: publishing:cb_accordion
+                  publishing:headingLevel: h2
+                  publishing:noindex: false
+                  /publishing:items:
+                    jcr:primaryType: publishing:cb_accordionpanel
+                    publishing:title: 'Example: an individual applies for CDP before
+                      the backwards test is met'
+                    /publishing:content:
+                      jcr:primaryType: hippostd:html
+                      hippostd:content: ''
+                    /publishing:contentBlocks:
+                      jcr:primaryType: publishing:cb_richtext
+                      publishing:noindex: false
+                      /publishing:content:
+                        jcr:primaryType: hippostd:html
+                        hippostd:content: <p>Daniel is 7 years old and has developed
+                          diabetes. His father applies for CDP on 2 October 2022.
+                          He notes on the application that due to his diabetes, Daniel’s
+                          stated level of support needs began on 10 August 2022. However,
+                          the backwards test will not be met until 8 November. The
+                          application is treated as being made on 8 November 2022.</p>
+              /relationship-with-the-date-of-application[2]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+                jcr:uuid: 7904f4ea-4687-466d-b685-203f577d232d
+                hippo:availability: [preview]
+                hippostd:retainable: false
+                hippostd:state: unpublished
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-14T08:59:22.393+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:32:19.230+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippotranslation:id: 172f5aab-f8d7-49ac-ad00-1ffea87354a7
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: 'A CDP application date is when received,
+                  but if the backwards test isn’t yet met, it’s treated as the date
+                  the criteria will be satisfied (e.g., Daniel’s case: 8 Nov 2022).'
+                publishing:seoTitle: Relationship with the date of application
+                publishing:summary: 'A CDP application date is when received, but
+                  if the backwards test isn’t yet met, it’s treated as the date the
+                  criteria will be satisfied (e.g., Daniel’s case: 8 Nov 2022).'
+                publishing:title: Relationship with the date of application
+                /publishing:contentBlocks[1]:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The date of application is usually the date on which the application is received by Social Security Scotland (CDP regs, reg. 24(1)(a)).</p>
+
+                      <p>Individuals do not need to wait until the backwards test is complete before making an application for CDP.</p>
+
+                      <p>If the individual applies before they meet the backwards test, but likely will do in the future, the date of application is the date on which the individual will meet the criteria of entitlement. These include the backwards and forward tests (CDP regs, reg. 24(1)(b)).</p>
+
+                      <h3></h3>
+
+                      <p>Daniel is 7 years old and has developed diabetes. His father applies for CDP on 2 October 2022. He notes on the application that due to his diabetes, Daniel’s stated level of support needs began on 10 August 2022. However, the backwards test will not be met until 8 November. The application is treated as being made on 8 November 2022.</p>
+                /publishing:contentBlocks[2]:
+                  jcr:primaryType: publishing:cb_accordion
+                  publishing:headingLevel: h2
+                  publishing:noindex: false
+                  /publishing:items:
+                    jcr:primaryType: publishing:cb_accordionpanel
+                    publishing:title: 'Example: an individual applies for CDP before
+                      the backwards test is met'
+                    /publishing:content:
+                      jcr:primaryType: hippostd:html
+                      hippostd:content: ''
+                    /publishing:contentBlocks:
+                      jcr:primaryType: publishing:cb_richtext
+                      publishing:noindex: false
+                      /publishing:content:
+                        jcr:primaryType: hippostd:html
+                        hippostd:content: <p>Daniel is 7 years old and has developed
+                          diabetes. His father applies for CDP on 2 October 2022.
+                          He notes on the application that due to his diabetes, Daniel’s
+                          stated level of support needs began on 10 August 2022. However,
+                          the backwards test will not be met until 8 November. The
+                          application is treated as being made on 8 November 2022.</p>
+              /relationship-with-the-date-of-application[3]:
+                jcr:primaryType: publishing:PublicationPage
+                jcr:mixinTypes: ['mix:referenceable']
+                jcr:uuid: 54045f7e-19b9-43b8-916d-8f66eb3e756d
+                hippo:availability: [live]
+                hippostd:retainable: false
+                hippostd:state: published
+                hippostdpubwf:createdBy: admin
+                hippostdpubwf:creationDate: 2025-08-14T08:59:22.393+01:00
+                hippostdpubwf:lastModificationDate: 2025-09-10T16:32:19.230+01:00
+                hippostdpubwf:lastModifiedBy: admin
+                hippostdpubwf:publicationDate: 2025-09-10T16:32:22.175+01:00
+                hippostdpubwf:publishedBy: admin
+                hippotranslation:id: 172f5aab-f8d7-49ac-ad00-1ffea87354a7
+                hippotranslation:locale: document-type-locale
+                publishing:metaDescription: 'A CDP application date is when received,
+                  but if the backwards test isn’t yet met, it’s treated as the date
+                  the criteria will be satisfied (e.g., Daniel’s case: 8 Nov 2022).'
+                publishing:seoTitle: Relationship with the date of application
+                publishing:summary: 'A CDP application date is when received, but
+                  if the backwards test isn’t yet met, it’s treated as the date the
+                  criteria will be satisfied (e.g., Daniel’s case: 8 Nov 2022).'
+                publishing:title: Relationship with the date of application
+                /publishing:contentBlocks[1]:
+                  jcr:primaryType: publishing:cb_richtext
+                  publishing:noindex: false
+                  /publishing:content:
+                    jcr:primaryType: hippostd:html
+                    hippostd:content: |-
+                      <p>The date of application is usually the date on which the application is received by Social Security Scotland (CDP regs, reg. 24(1)(a)).</p>
+
+                      <p>Individuals do not need to wait until the backwards test is complete before making an application for CDP.</p>
+
+                      <p>If the individual applies before they meet the backwards test, but likely will do in the future, the date of application is the date on which the individual will meet the criteria of entitlement. These include the backwards and forward tests (CDP regs, reg. 24(1)(b)).</p>
+
+                      <h3></h3>
+
+                      <p>Daniel is 7 years old and has developed diabetes. His father applies for CDP on 2 October 2022. He notes on the application that due to his diabetes, Daniel’s stated level of support needs began on 10 August 2022. However, the backwards test will not be met until 8 November. The application is treated as being made on 8 November 2022.</p>
+                /publishing:contentBlocks[2]:
+                  jcr:primaryType: publishing:cb_accordion
+                  publishing:headingLevel: h2
+                  publishing:noindex: false
+                  /publishing:items:
+                    jcr:primaryType: publishing:cb_accordionpanel
+                    publishing:title: 'Example: an individual applies for CDP before
+                      the backwards test is met'
+                    /publishing:content:
+                      jcr:primaryType: hippostd:html
+                      hippostd:content: ''
+                    /publishing:contentBlocks:
+                      jcr:primaryType: publishing:cb_richtext
+                      publishing:noindex: false
+                      /publishing:content:
+                        jcr:primaryType: hippostd:html
+                        hippostd:content: <p>Daniel is 7 years old and has developed
+                          diabetes. His father applies for CDP on 2 October 2022.
+                          He notes on the application that due to his diabetes, Daniel’s
+                          stated level of support needs began on 10 August 2022. However,
+                          the backwards test will not be met until 8 November. The
+                          application is treated as being made on 8 November 2022.</p>
+        /index:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 673cf055-1a86-42fb-94fb-30c58e6cf849
+          hippo:versionHistory: f95fe8fc-01ee-4e9c-9145-5eb4949e2fef
+          /index[1]:
+            jcr:primaryType: publishing:Manual
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+            jcr:uuid: 5596a4ad-de01-454f-aee2-44f4b2efd3e3
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-08-15T08:13:10.743+01:00
+            hippostdpubwf:lastModificationDate: 2025-08-15T08:35:17.564+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a9befd2d-2966-4492-b736-5ac6f40cb1ce
+            hippotranslation:locale: document-type-locale
+            publishing:authorNotes: ''
+            publishing:contentitemlanguage: en
+            publishing:metaDescription: The Decision‑Making Guidance interprets how
+              to apply the legal framework—the Social Security (Scotland) Act 2018
+              and the Disability Assistance for Children and Young People (Scotland)
+              Regulations 2021/Amendments—to determine eligibility.
+            publishing:publicationDate: 2025-08-15T08:14:00+01:00
+            publishing:publicationType: ''
+            publishing:seoTitle: Child Disability Payment decision making guide
+            publishing:showFeedback: false
+            publishing:summary: The Decision‑Making Guidance interprets how to apply
+              the legal framework—the Social Security (Scotland) Act 2018 and the
+              Disability Assistance for Children and Young People (Scotland) Regulations
+              2021/Amendments—to determine eligibility.
+            publishing:title: Child Disability Payment decision making guide
+            publishing:topics: ['']
+            /publishing:contentBlocks:
+              jcr:primaryType: publishing:document
+              publishing:hash: 4a3c47641471a779833c41393e6194a8
+              publishing:highlight: false
+              publishing:noindex: false
+              publishing:pageCount: 8
+              publishing:title: Decision making guide
+              publishing:useGenericIcon: false
+              /publishing:document:
+                jcr:primaryType: hippo:resource
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+                hippo:text:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[1]/contentBlocks/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[1]/contentBlocks/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework-1.pdf
+                jcr:encoding: UTF-8
+                jcr:lastModified: 2025-08-15T08:14:45.131+01:00
+                jcr:mimeType: application/pdf
+              /publishing:thumbnails[1]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_107.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[1]/contentBlocks/thumbnails[1]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_107.png
+                jcr:lastModified: 2025-08-15T08:14:46.721+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[2]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_165.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[1]/contentBlocks/thumbnails[2]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_165.png
+                jcr:lastModified: 2025-08-15T08:14:46.724+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[3]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_214.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[1]/contentBlocks/thumbnails[3]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_214.png
+                jcr:lastModified: 2025-08-15T08:14:46.728+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[4]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_330.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[1]/contentBlocks/thumbnails[4]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_330.png
+                jcr:lastModified: 2025-08-15T08:14:46.733+01:00
+                jcr:mimeType: image/png
+          /index[2]:
+            jcr:primaryType: publishing:Manual
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+            jcr:uuid: 5778d60a-4910-4b91-ac8c-0d0e3e87937c
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-08-15T08:13:10.743+01:00
+            hippostdpubwf:lastModificationDate: 2025-08-15T08:14:59.401+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: a9befd2d-2966-4492-b736-5ac6f40cb1ce
+            hippotranslation:locale: document-type-locale
+            publishing:authorNotes: ''
+            publishing:contentitemlanguage: en
+            publishing:metaDescription: The Decision‑Making Guidance interprets how
+              to apply the legal framework—the Social Security (Scotland) Act 2018
+              and the Disability Assistance for Children and Young People (Scotland)
+              Regulations 2021/Amendments—to determine eligibility.
+            publishing:publicationDate: 2025-08-15T08:14:00+01:00
+            publishing:publicationType: ''
+            publishing:seoTitle: Child Disability Payment decision making guide
+            publishing:showFeedback: false
+            publishing:summary: The Decision‑Making Guidance interprets how to apply
+              the legal framework—the Social Security (Scotland) Act 2018 and the
+              Disability Assistance for Children and Young People (Scotland) Regulations
+              2021/Amendments—to determine eligibility.
+            publishing:title: Child Disability Payment decision making guide
+            publishing:topics: ['']
+            /publishing:contentBlocks:
+              jcr:primaryType: publishing:document
+              publishing:hash: 4a3c47641471a779833c41393e6194a8
+              publishing:highlight: false
+              publishing:noindex: false
+              publishing:pageCount: 8
+              publishing:title: Decision making guide
+              publishing:useGenericIcon: false
+              /publishing:document:
+                jcr:primaryType: hippo:resource
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+                hippo:text:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[2]/contentBlocks/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[2]/contentBlocks/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework-1.pdf
+                jcr:encoding: UTF-8
+                jcr:lastModified: 2025-08-15T08:14:45.131+01:00
+                jcr:mimeType: application/pdf
+              /publishing:thumbnails[1]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_107.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[2]/contentBlocks/thumbnails[1]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_107.png
+                jcr:lastModified: 2025-08-15T08:14:46.721+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[2]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_165.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[2]/contentBlocks/thumbnails[2]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_165.png
+                jcr:lastModified: 2025-08-15T08:14:46.724+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[3]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_214.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[2]/contentBlocks/thumbnails[3]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_214.png
+                jcr:lastModified: 2025-08-15T08:14:46.728+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[4]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_330.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[2]/contentBlocks/thumbnails[4]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_330.png
+                jcr:lastModified: 2025-08-15T08:14:46.733+01:00
+                jcr:mimeType: image/png
+          /index[3]:
+            jcr:primaryType: publishing:Manual
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+            jcr:uuid: ae397adb-e08a-43ca-a338-f4ad4f804faf
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-08-15T08:13:10.743+01:00
+            hippostdpubwf:lastModificationDate: 2025-08-15T08:14:59.401+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-08-15T08:15:03.486+01:00
+            hippostdpubwf:publishedBy: admin
+            hippotranslation:id: a9befd2d-2966-4492-b736-5ac6f40cb1ce
+            hippotranslation:locale: document-type-locale
+            publishing:authorNotes: ''
+            publishing:contentitemlanguage: en
+            publishing:metaDescription: The Decision‑Making Guidance interprets how
+              to apply the legal framework—the Social Security (Scotland) Act 2018
+              and the Disability Assistance for Children and Young People (Scotland)
+              Regulations 2021/Amendments—to determine eligibility.
+            publishing:publicationDate: 2025-08-15T08:14:00+01:00
+            publishing:publicationType: ''
+            publishing:seoTitle: Child Disability Payment decision making guide
+            publishing:showFeedback: false
+            publishing:summary: The Decision‑Making Guidance interprets how to apply
+              the legal framework—the Social Security (Scotland) Act 2018 and the
+              Disability Assistance for Children and Young People (Scotland) Regulations
+              2021/Amendments—to determine eligibility.
+            publishing:title: Child Disability Payment decision making guide
+            publishing:topics: ['']
+            /publishing:contentBlocks:
+              jcr:primaryType: publishing:document
+              publishing:hash: 4a3c47641471a779833c41393e6194a8
+              publishing:highlight: false
+              publishing:noindex: false
+              publishing:pageCount: 8
+              publishing:title: Decision making guide
+              publishing:useGenericIcon: false
+              /publishing:document:
+                jcr:primaryType: hippo:resource
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+                hippo:text:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[3]/contentBlocks/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[3]/contentBlocks/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework-1.pdf
+                jcr:encoding: UTF-8
+                jcr:lastModified: 2025-08-15T08:14:45.131+01:00
+                jcr:mimeType: application/pdf
+              /publishing:thumbnails[1]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_107.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[3]/contentBlocks/thumbnails[1]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_107.png
+                jcr:lastModified: 2025-08-15T08:14:46.721+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[2]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_165.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[3]/contentBlocks/thumbnails[2]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_165.png
+                jcr:lastModified: 2025-08-15T08:14:46.724+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[3]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_214.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[3]/contentBlocks/thumbnails[3]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_214.png
+                jcr:lastModified: 2025-08-15T08:14:46.728+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[4]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_330.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/index/index[3]/contentBlocks/thumbnails[4]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_330.png
+                jcr:lastModified: 2025-08-15T08:14:46.733+01:00
+                jcr:mimeType: image/png
+        /documents:
+          jcr:primaryType: hippo:handle
+          jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+          jcr:uuid: 670ecc15-1743-40df-a1b0-0368900cdd25
+          hippo:versionHistory: 7140c8c8-b643-4f54-8964-ff4f37eb4740
+          /documents[1]:
+            jcr:primaryType: publishing:ManualDocuments
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+            jcr:uuid: de4b1f14-a105-4592-853b-d616694ecf52
+            hippo:availability: []
+            hippostd:retainable: false
+            hippostd:state: draft
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-08-15T10:36:35.851+01:00
+            hippostdpubwf:lastModificationDate: 2025-09-10T16:57:08.355+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 9090475b-2dc5-4b1b-9177-30f77545a167
+            hippotranslation:locale: document-type-locale
+            publishing:metaDescription: Supporting documents
+            publishing:seoTitle: Supporting documents
+            publishing:summary: Supporting documents
+            publishing:title: Supporting documents
+            /publishing:contentBlocks[1]:
+              jcr:primaryType: publishing:cb_richtext
+              publishing:noindex: false
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>This is some rich text, do these pages need a
+                  title?&nbsp;</p>
+            /publishing:contentBlocks[2]:
+              jcr:primaryType: publishing:document
+              publishing:hash: 4a3c47641471a779833c41393e6194a8
+              publishing:highlight: false
+              publishing:noindex: false
+              publishing:pageCount: 8
+              publishing:title: Framework
+              publishing:useGenericIcon: false
+              /publishing:document:
+                jcr:primaryType: hippo:resource
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+                hippo:text:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[1]/contentBlocks[2]/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[1]/contentBlocks[2]/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework-1.pdf
+                jcr:encoding: UTF-8
+                jcr:lastModified: 2025-08-15T10:38:12.411+01:00
+                jcr:mimeType: application/pdf
+              /publishing:thumbnails[1]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_107.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[1]/contentBlocks[2]/thumbnails[1]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_107.png
+                jcr:lastModified: 2025-08-15T10:38:13.294+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[2]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_165.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[1]/contentBlocks[2]/thumbnails[2]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_165.png
+                jcr:lastModified: 2025-08-15T10:38:13.296+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[3]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_214.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[1]/contentBlocks[2]/thumbnails[3]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_214.png
+                jcr:lastModified: 2025-08-15T10:38:13.298+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[4]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_330.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[1]/contentBlocks[2]/thumbnails[4]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_330.png
+                jcr:lastModified: 2025-08-15T10:38:13.300+01:00
+                jcr:mimeType: image/png
+            /publishing:contentBlocks[3]:
+              jcr:primaryType: publishing:cb_richtext
+              publishing:noindex: false
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>you can mix text and documents</p>
+            /publishing:contentBlocks[4]:
+              jcr:primaryType: publishing:document
+              publishing:hash: 37ac8b9cd61c99cd09f17c6243ac0a84
+              publishing:highlight: false
+              publishing:noindex: false
+              publishing:pageCount: 0
+              publishing:title: another document
+              publishing:useGenericIcon: false
+              /publishing:document:
+                jcr:primaryType: hippo:resource
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[1]/contentBlocks[4]/document/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx
+                jcr:encoding: UTF-8
+                jcr:lastModified: 2025-08-15T11:57:19.470+01:00
+                jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+              /publishing:thumbnails[1]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx_107.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[1]/contentBlocks[4]/thumbnails[1]/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx_107.png
+                jcr:lastModified: 2025-08-15T11:57:19.526+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[2]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx_165.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[1]/contentBlocks[4]/thumbnails[2]/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx_165.png
+                jcr:lastModified: 2025-08-15T11:57:19.532+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[3]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx_214.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[1]/contentBlocks[4]/thumbnails[3]/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx_214.png
+                jcr:lastModified: 2025-08-15T11:57:19.540+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[4]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx_330.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[1]/contentBlocks[4]/thumbnails[4]/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx_330.png
+                jcr:lastModified: 2025-08-15T11:57:19.544+01:00
+                jcr:mimeType: image/png
+          /documents[2]:
+            jcr:primaryType: publishing:ManualDocuments
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable', 'mix:versionable']
+            jcr:uuid: 299a3c81-6e32-4436-8e5c-4d19f1e77f06
+            hippo:availability: [preview]
+            hippostd:retainable: false
+            hippostd:state: unpublished
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-08-15T10:36:35.851+01:00
+            hippostdpubwf:lastModificationDate: 2025-09-10T16:57:28.498+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippotranslation:id: 9090475b-2dc5-4b1b-9177-30f77545a167
+            hippotranslation:locale: document-type-locale
+            publishing:metaDescription: Supporting documents
+            publishing:seoTitle: Supporting documents
+            publishing:summary: Supporting documents
+            publishing:title: Supporting documents
+            /publishing:contentBlocks[1]:
+              jcr:primaryType: publishing:cb_richtext
+              publishing:noindex: false
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>This is some rich text, do these pages need a
+                  title?&nbsp;</p>
+            /publishing:contentBlocks[2]:
+              jcr:primaryType: publishing:document
+              publishing:hash: 4a3c47641471a779833c41393e6194a8
+              publishing:highlight: false
+              publishing:noindex: false
+              publishing:pageCount: 8
+              publishing:title: Framework
+              publishing:useGenericIcon: false
+              /publishing:document:
+                jcr:primaryType: hippo:resource
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+                hippo:text:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[2]/contentBlocks[2]/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[2]/contentBlocks[2]/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework-1.pdf
+                jcr:encoding: UTF-8
+                jcr:lastModified: 2025-08-15T10:38:12.411+01:00
+                jcr:mimeType: application/pdf
+              /publishing:thumbnails[1]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_107.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[2]/contentBlocks[2]/thumbnails[1]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_107.png
+                jcr:lastModified: 2025-08-15T10:38:13.294+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[2]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_165.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[2]/contentBlocks[2]/thumbnails[2]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_165.png
+                jcr:lastModified: 2025-08-15T10:38:13.296+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[3]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_214.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[2]/contentBlocks[2]/thumbnails[3]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_214.png
+                jcr:lastModified: 2025-08-15T10:38:13.298+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[4]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_330.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[2]/contentBlocks[2]/thumbnails[4]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_330.png
+                jcr:lastModified: 2025-08-15T10:38:13.300+01:00
+                jcr:mimeType: image/png
+            /publishing:contentBlocks[3]:
+              jcr:primaryType: publishing:cb_richtext
+              publishing:noindex: false
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>you can mix text and documents</p>
+            /publishing:contentBlocks[4]:
+              jcr:primaryType: publishing:document
+              publishing:hash: 37ac8b9cd61c99cd09f17c6243ac0a84
+              publishing:highlight: false
+              publishing:noindex: false
+              publishing:pageCount: 0
+              publishing:title: another document
+              publishing:useGenericIcon: false
+              /publishing:document:
+                jcr:primaryType: hippo:resource
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[2]/contentBlocks[4]/document/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx
+                jcr:encoding: UTF-8
+                jcr:lastModified: 2025-08-15T11:57:19.470+01:00
+                jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+              /publishing:thumbnails[1]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx_107.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[2]/contentBlocks[4]/thumbnails[1]/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx_107.png
+                jcr:lastModified: 2025-08-15T11:57:19.526+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[2]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx_165.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[2]/contentBlocks[4]/thumbnails[2]/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx_165.png
+                jcr:lastModified: 2025-08-15T11:57:19.532+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[3]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx_214.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[2]/contentBlocks[4]/thumbnails[3]/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx_214.png
+                jcr:lastModified: 2025-08-15T11:57:19.540+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[4]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx_330.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[2]/contentBlocks[4]/thumbnails[4]/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx_330.png
+                jcr:lastModified: 2025-08-15T11:57:19.544+01:00
+                jcr:mimeType: image/png
+          /documents[3]:
+            jcr:primaryType: publishing:ManualDocuments
+            jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable']
+            jcr:uuid: b9563cff-4f1f-4b01-9018-12a478f32b9c
+            hippo:availability: [live]
+            hippostd:retainable: false
+            hippostd:state: published
+            hippostdpubwf:createdBy: admin
+            hippostdpubwf:creationDate: 2025-08-15T10:36:35.851+01:00
+            hippostdpubwf:lastModificationDate: 2025-09-10T16:57:28.498+01:00
+            hippostdpubwf:lastModifiedBy: admin
+            hippostdpubwf:publicationDate: 2025-09-10T16:57:31.806+01:00
+            hippostdpubwf:publishedBy: admin
+            hippotranslation:id: 9090475b-2dc5-4b1b-9177-30f77545a167
+            hippotranslation:locale: document-type-locale
+            publishing:metaDescription: Supporting documents
+            publishing:seoTitle: Supporting documents
+            publishing:summary: Supporting documents
+            publishing:title: Supporting documents
+            /publishing:contentBlocks[1]:
+              jcr:primaryType: publishing:cb_richtext
+              publishing:noindex: false
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>This is some rich text, do these pages need a
+                  title?&nbsp;</p>
+            /publishing:contentBlocks[2]:
+              jcr:primaryType: publishing:document
+              publishing:hash: 4a3c47641471a779833c41393e6194a8
+              publishing:highlight: false
+              publishing:noindex: false
+              publishing:pageCount: 8
+              publishing:title: Framework
+              publishing:useGenericIcon: false
+              /publishing:document:
+                jcr:primaryType: hippo:resource
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+                hippo:text:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[3]/contentBlocks[2]/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[3]/contentBlocks[2]/document/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework-1.pdf
+                jcr:encoding: UTF-8
+                jcr:lastModified: 2025-08-15T10:38:12.411+01:00
+                jcr:mimeType: application/pdf
+              /publishing:thumbnails[1]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_107.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[3]/contentBlocks[2]/thumbnails[1]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_107.png
+                jcr:lastModified: 2025-08-15T10:38:13.294+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[2]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_165.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[3]/contentBlocks[2]/thumbnails[2]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_165.png
+                jcr:lastModified: 2025-08-15T10:38:13.296+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[3]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_214.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[3]/contentBlocks[2]/thumbnails[3]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_214.png
+                jcr:lastModified: 2025-08-15T10:38:13.298+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[4]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_330.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[3]/contentBlocks[2]/thumbnails[4]/Social-Security-Scotland-Operational-Policy-Benefit-Delivery-Quality-Framework.pdf_330.png
+                jcr:lastModified: 2025-08-15T10:38:13.300+01:00
+                jcr:mimeType: image/png
+            /publishing:contentBlocks[3]:
+              jcr:primaryType: publishing:cb_richtext
+              publishing:noindex: false
+              /publishing:content:
+                jcr:primaryType: hippostd:html
+                hippostd:content: <p>you can mix text and documents</p>
+            /publishing:contentBlocks[4]:
+              jcr:primaryType: publishing:document
+              publishing:hash: 37ac8b9cd61c99cd09f17c6243ac0a84
+              publishing:highlight: false
+              publishing:noindex: false
+              publishing:pageCount: 0
+              publishing:title: another document
+              publishing:useGenericIcon: false
+              /publishing:document:
+                jcr:primaryType: hippo:resource
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[3]/contentBlocks[4]/document/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx
+                jcr:encoding: UTF-8
+                jcr:lastModified: 2025-08-15T11:57:19.470+01:00
+                jcr:mimeType: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+              /publishing:thumbnails[1]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx_107.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[3]/contentBlocks[4]/thumbnails[1]/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx_107.png
+                jcr:lastModified: 2025-08-15T11:57:19.526+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[2]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx_165.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[3]/contentBlocks[4]/thumbnails[2]/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx_165.png
+                jcr:lastModified: 2025-08-15T11:57:19.532+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[3]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx_214.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[3]/contentBlocks[4]/thumbnails[3]/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx_214.png
+                jcr:lastModified: 2025-08-15T11:57:19.540+01:00
+                jcr:mimeType: image/png
+              /publishing:thumbnails[4]:
+                jcr:primaryType: hippo:resource
+                jcr:mixinTypes: ['hippo:skipindex']
+                hippo:filename: National Advisory Committee for Neurological Conditions
+                  minutes - 23 November 2023.docx_330.png
+                jcr:data:
+                  type: binary
+                  resource: /content/documents/disclosure/publications/2020/02/testman/documents/documents[3]/contentBlocks[4]/thumbnails[4]/National-Advisory-Committee-for-Neurological-Conditions-minutes---23-November-2023.docx_330.png
+                jcr:lastModified: 2025-08-15T11:57:19.544+01:00
+                jcr:mimeType: image/png
+  /index:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: bbaa0da6-5e52-4d9a-9e50-d0f6ef6b129d
+    hippo:name: Publications
+    hippo:versionHistory: fabece98-c583-4fc8-b8e3-71aa34fc0016
+    /index[1]:
+      jcr:primaryType: publishing:LandingPage
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 8ba0770d-9ee7-4e15-9845-297af8c8cece
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-08-13T16:20:56.307+01:00
+      hippostdpubwf:lastModificationDate: 2025-08-13T16:20:56.307+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: fc3de869-be5c-423f-b2b9-0bf5fd5b422f
+      hippotranslation:locale: document-type-locale
+      publishing:showFeedback: true
+      publishing:showTopics: true
+      publishing:title: Publications
+      /publishing:noResultsMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+
+            <p>Improve your search results by:</p>
+
+            <ul>
+             <li>double-checking your spelling</li>
+             <li>using fewer keywords</li>
+             <li>searching for something less specific</li>
+            </ul>
+    /index[2]:
+      jcr:primaryType: publishing:LandingPage
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 42267ea0-3464-4d0f-aad3-ef7f024ad23e
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-08-13T16:20:56.307+01:00
+      hippostdpubwf:lastModificationDate: 2025-08-13T16:21:03.452+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: fc3de869-be5c-423f-b2b9-0bf5fd5b422f
+      hippotranslation:locale: document-type-locale
+      publishing:showFeedback: true
+      publishing:showTopics: true
+      publishing:title: Publications
+      /publishing:noResultsMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+
+            <p>Improve your search results by:</p>
+
+            <ul>
+             <li>double-checking your spelling</li>
+             <li>using fewer keywords</li>
+             <li>searching for something less specific</li>
+            </ul>
+    /index[3]:
+      jcr:primaryType: publishing:LandingPage
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 21f0f1cf-2389-46e9-806c-14021fefdc87
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2025-08-13T16:20:56.307+01:00
+      hippostdpubwf:lastModificationDate: 2025-08-13T16:21:03.452+01:00
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2025-08-13T16:21:06.465+01:00
+      hippostdpubwf:publishedBy: admin
+      hippotranslation:id: fc3de869-be5c-423f-b2b9-0bf5fd5b422f
+      hippotranslation:locale: document-type-locale
+      publishing:showFeedback: true
+      publishing:showTopics: true
+      publishing:title: Publications
+      /publishing:noResultsMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+
+            <p>Improve your search results by:</p>
+
+            <ul>
+             <li>double-checking your spelling</li>
+             <li>using fewer keywords</li>
+             <li>searching for something less specific</li>
+            </ul>

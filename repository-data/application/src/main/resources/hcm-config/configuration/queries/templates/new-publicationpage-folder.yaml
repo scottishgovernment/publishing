@@ -1,0 +1,29 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:queries/hippo:templates/new-publicationpage-folder:
+      jcr:primaryType: hippostd:templatequery
+      hippostd:modify: [./_name, $name, './hippotranslation:id', $uuid, './hippotranslation:locale',
+        $inherited]
+      jcr:language: xpath
+      jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-publicationpage-folder/hippostd:templates/node()
+      /hippostd:templates:
+        jcr:primaryType: hippostd:templates
+        /hippostd:folder:
+          jcr:primaryType: hippostd:folder
+          hippostd:foldertype: [new-publicationpage, new-publicationpage-subfolder]
+          /index:
+            jcr:primaryType: hippo:handle
+            jcr:mixinTypes: ['mix:referenceable']
+            jcr:uuid: c39d5c1c-7f86-415c-a7b5-5a41067a2941
+            /index:
+              jcr:primaryType: publishing:PublicationPage
+              jcr:mixinTypes: ['mix:referenceable']
+              jcr:uuid: 66a67a7c-dbd9-4edb-bc71-23bf62e0d021
+              hippostd:state: draft
+              hippostdpubwf:createdBy: ''
+              hippostdpubwf:creationDate: 2025-08-05T10:22:47.942+01:00
+              hippostdpubwf:lastModificationDate: 2025-08-05T10:22:47.942+01:00
+              hippostdpubwf:lastModifiedBy: ''
+              hippotranslation:id: document-type-locale-id
+              hippotranslation:locale: document-type-locale
+              publishing:title: ''

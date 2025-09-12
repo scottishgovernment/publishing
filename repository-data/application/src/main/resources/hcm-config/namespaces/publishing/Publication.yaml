@@ -3,11 +3,9 @@ definitions:
     /hippo:namespaces/publishing/Publication:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: c8785613-48f9-43c7-8cd5-b35e1c0558ac
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: f6684f7a-c141-4071-bb2d-bbea1ce87b0f
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']

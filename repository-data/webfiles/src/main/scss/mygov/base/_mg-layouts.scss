@@ -171,6 +171,10 @@ $site-prefix: 'mg_';
         &__form-content {
             grid-area: $grid-area-form-content;
         }
+
+        &__separator {
+            grid-area: x;
+        }
     }
 
     .#{$site-prefix}layout {
@@ -309,7 +313,104 @@ $site-prefix: 'mg_';
             }
         }
     }
+
+
+
+    .#{$site-prefix}layout {
+        &--manual {
+            grid-template-areas:
+                'h h'
+                'p p'
+                'x x'
+                's s'
+                'c c'
+                'f f';
+
+            @include ds_media-query(small) {
+                grid-template-areas:
+                    'h h h h h h'
+                    'p p p p p p'
+                    'x x x x x x'
+                    's s s s s s'
+                    'c c c c c c'
+                    'f f f f f f'
+            }
+
+            @include ds_media-query(medium) {
+                grid-template-areas:
+                    'h h h h h h h h p p p p'
+                    'x x x x x x x x x x x x'
+                    's s s s c c c c c c c c'
+                    's s s s f f f f f f f f'
+
+            }
+
+            @include ds_media-query(large) {
+                grid-template-areas:
+                    'h h h h h h h h p p p p'
+                    'x x x x x x x x x x x x'
+                    's s s c c c c c c c . .'
+                    's s s f f f f f f f . .'
+            }
+
+            @include ds_media-query(xlarge) {
+                grid-template-areas:
+                    'h h h h h h h h p p p p'
+                    'x x x x x x x x x x x x'
+                    's s s c c c c c c c . .'
+                    's s s f f f f f f f . .'
+            }
+        }
+    }
+
+    .#{$site-prefix}layout {
+        &--manual-landing {
+            grid-template-areas:
+                'h h'
+                'p p'
+                'x x'
+                'c c'
+                'f f';
+
+            @include ds_media-query(small) {
+                grid-template-areas:
+                    'h h h h h h'
+                    'p p p p p p'
+                    'x x x x x x'
+                    'c c c c c c'
+                    'f f f f f f'
+            }
+
+            @include ds_media-query(medium) {
+                grid-template-areas:
+                    'h h h h h h h h p p p p'
+                    'x x x x x x x x x x x x'
+                    'c c c c c c c c . . . .'
+                    'f f f f f f f f . . . .'
+
+            }
+
+            @include ds_media-query(large) {
+                grid-template-areas:
+                    'h h h h h h h h p p p p'
+                    'x x x x x x x x x x x x'
+                    'c c c c c c c c . . . .'
+                    'f f f f f f f c . . . .'
+            }
+
+            @include ds_media-query(xlarge) {
+                grid-template-areas:
+                    'h h h h h h h h p p p p'
+                    'x x x x x x x x x x x x'
+                    'c c c c c c c c . . . .'
+                    'f f f f f f f c . . . .'
+            }
+        }
+    }
 }
+
+
+
 
 .ds_cols {
     @include ds_layout();
