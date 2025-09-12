@@ -1,6 +1,5 @@
 package scot.mygov.publishing.components;
 
-import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.content.beans.ObjectBeanManagerException;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.content.beans.standard.HippoFolderBean;

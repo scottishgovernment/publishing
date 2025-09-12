@@ -1,6 +1,5 @@
 package scot.mygov.publishing.components;
 
-import com.fasterxml.jackson.databind.type.LogicalType;
 import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -21,8 +20,6 @@ import java.util.Arrays;
 import static java.util.stream.Collectors.toList;
 
 public class NewsComponent extends EssentialsContentComponent  {
-
-    private static final Logger LOG = LoggerFactory.getLogger(NewsComponent.class);
 
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) {
