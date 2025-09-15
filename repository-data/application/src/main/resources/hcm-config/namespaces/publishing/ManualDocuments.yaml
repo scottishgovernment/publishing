@@ -1,0 +1,153 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/ManualDocuments:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: f6684f7a-c141-4071-bb2d-bbea1ce87b0f
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed', 'hippotranslation:translated',
+            'hippotaxonomy:classifiable']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /contentBlocks:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:multiple: true
+            hipposysedit:ordered: true
+            hipposysedit:path: publishing:contentBlocks
+            hipposysedit:type: hippo:compound
+            hipposysedit:validators: [contentblocks-validator]
+          /title:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:title
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required]
+          /seoTitle:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:seoTitle
+            hipposysedit:primary: false
+            hipposysedit:type: String
+            hipposysedit:validators: [required, title-words-validator, title-minlength-validator]
+          /summary:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:summary
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators: [required, summary-words-validator, summary-minlength-validator]
+          /metaDescription:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:metaDescription
+            hipposysedit:primary: false
+            hipposysedit:type: Text
+            hipposysedit:validators: [required, summary-words-validator, summary-minlength-validator]
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:ManualDocuments
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          jcr:mixinTypes: ['mix:referenceable', 'hippotaxonomy:classifiable']
+          hippostdpubwf:lastModificationDate: 2025-02-03T08:29:54.493Z
+          hippostdpubwf:creationDate: 2025-02-03T08:29:54.493Z
+          publishing:title: Supporting documents
+          publishing:seoTitle: ''
+          publishing:summary: ''
+          publishing:metaDescription: ''
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /title:
+            jcr:primaryType: frontend:plugin
+            caption: Tiitle
+            field: title
+            hint: "Enter a title for this page.  \r\n\r\nThis will appear at the top\
+              \ of the page on the live site and will also be used in any links to\
+              \ this page. A title is required for all pages. \r\n\r\nIt must be between\
+              \ 3 and 255 characters."
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '255'
+              size: '50'
+          /summary:
+            jcr:primaryType: frontend:plugin
+            caption: Summary
+            field: summary
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: "Enter a summary of this page.  \r\n\r\nThis summary will be used\
+              \ in places where this page is listed on the live website, such as a\
+              \ category page and in search results. \r\n\r\nIt must be between 3\
+              \ and 255 characters."
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '255'
+          /seoTitle:
+            jcr:primaryType: frontend:plugin
+            caption: SEO title
+            field: seoTitle
+            hint: "This title will be used by search engines when indexing the content\
+              \ to add it to search results. \r\n\r\nIt must be between 3 and 60 characters.\
+              \ You can test yours at: https://moz.com/learn/seo/title-tag"
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '60'
+          /metaDescription:
+            jcr:primaryType: frontend:plugin
+            caption: Meta description
+            field: metaDescription
+            hint: "Describe what content this page covers. Search engines will use\
+              \ this content when displaying links to the site in the search listings.\
+              \ \r\n\r\nThe description must be between 3 and 255 characters."
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              maxlength: '255'
+          /contentBlocks:
+            jcr:primaryType: frontend:plugin
+            caption: Content
+            compoundList: publishing:document,publishing:cb_richtext
+            contentPickerType: links
+            field: contentBlocks
+            plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              compoundNamesMaxLength: 90
+              showCompoundNames: true
+              showTitles: true
+              startCollapsed: false
+              titleMapping: []

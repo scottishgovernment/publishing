@@ -202,6 +202,18 @@ definitions:
           /search-side-filter:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/search-filter.ftl
+          /manual-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/manual-main.ftl
+          /manual-coverpage:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/manual-coverpage.ftl
+          /manual-sidebar:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/manual-sidebar.ftl
+          /manual-documentspage:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/manual-documentspage.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

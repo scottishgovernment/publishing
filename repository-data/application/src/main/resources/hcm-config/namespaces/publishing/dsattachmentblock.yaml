@@ -3,9 +3,11 @@ definitions:
     /hippo:namespaces/publishing/dsattachmentblock:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: 75cf2fea-637c-49d3-8213-351995080cae
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: f479fbf4-da9c-44dc-a253-5e7dd1a8530b
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']

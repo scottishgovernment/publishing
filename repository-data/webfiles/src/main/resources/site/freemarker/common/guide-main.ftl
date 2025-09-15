@@ -40,7 +40,7 @@
             <!--noindex-->
             <div class="ds_layout__navigation">
                 <nav role="navigation" class="ds_contents-nav" aria-label="Sections">
-                    <h2 <@revertlang document /> class="gamma">Contents</h2>
+                    <h2 <@revertlang document /> class="ds_contents-nav__title">Contents</h2>
 
                     <ul class="ds_contents-nav__list">
                         <#list children as child>

@@ -1,15 +1,17 @@
 definitions:
   config:
-    /hippo:namespaces/publishing/Publication:
+    /hippo:namespaces/publishing/Manual:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: c8785613-48f9-43c7-8cd5-b35e1c0558ac
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: f6684f7a-c141-4071-bb2d-bbea1ce87b0f
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 88612f93-07ca-431a-aeee-cf49e2ee66d5
+          jcr:uuid: 83677be3-c045-4a25-a30b-7b0e28303df0
           hipposysedit:node: true
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated',
             'hippotaxonomy:classifiable']
@@ -57,7 +59,7 @@ definitions:
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: publishing:Publication
+          jcr:primaryType: publishing:Manual
           hippostd:holder: holder
           hippostd:state: draft
           hippostdpubwf:createdBy: ''
@@ -74,7 +76,7 @@ definitions:
           publishing:showFeedback: false
           publishing:contentitemlanguage: en
           publishing:topics: ['']
-          jcr:uuid: 6078db5e-477b-4d75-9164-fa41ac6dc69a
+          jcr:uuid: d4e0b433-b053-4abe-ac08-7cf61ccc2045
           hippostdpubwf:lastModificationDate: 2025-02-03T08:29:54.493Z
           hippostdpubwf:creationDate: 2025-02-03T08:29:54.493Z
           publishing:publicationType: ''
@@ -116,15 +118,6 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
-          /publicationDate:
-            jcr:primaryType: frontend:plugin
-            caption: Publication date
-            field: publicationDate
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
@@ -149,6 +142,15 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               maxlength: '255'
+          /publicationDate:
+            jcr:primaryType: frontend:plugin
+            caption: Publication date
+            field: publicationDate
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
           /tags:
             jcr:primaryType: frontend:plugin
             engine: ${engine}
@@ -172,7 +174,7 @@ definitions:
           /contentBlocks:
             jcr:primaryType: frontend:plugin
             caption: Content
-            compoundList: publishing:cb_accordion,publishing:cb_button,publishing:document,publishing:cb_fragment,publishing:cb_image,publishing:cb_richtext,publishing:cb_councilservicefinder,publishing:cb_externalservicefinder,publishing:cb_internalservicefinder
+            compoundList: publishing:document,publishing:cb_richtext
             contentPickerType: links
             field: contentBlocks
             plugin.class: org.onehippo.forge.contentblocks.ContentBlocksFieldPlugin

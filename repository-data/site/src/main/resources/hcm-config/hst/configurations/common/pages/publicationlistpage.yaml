@@ -16,7 +16,7 @@ definitions:
           hst:label: Filtered Results List
           hst:parameternames: [pageSize, documentTypes, includeSubtypes, showPagination,
             path, defaultSort, displayTypeLabel]
-          hst:parametervalues: ['10', 'publishing:Publication', 'false', 'true', '',
+          hst:parametervalues: ['10', 'publishing:Publication;publishing:Manual', 'false', 'true', '',
             date, 'true']
           hst:template: filteredlist.results
           hst:xtype: hst.item
