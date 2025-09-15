@@ -49,6 +49,7 @@
 
     &__title + &__list {
         @extend .ds_contents-nav__list--indent;
+        @include ds_responsive-margin(6, bottom);
     }
 
     .ds_current {
