@@ -56,7 +56,7 @@ public class LatestPublicationsComponent extends CommonComponent {
 
     HstQuery query(HippoBean base, int limit) {
         return HstQueryBuilder.create(base)
-                .ofPrimaryTypes("publishing:Publication")
+                .ofPrimaryTypes("publishing:Publication", "publishing:Manual")
                 .orderBy(HstQueryBuilder.Order.DESC, "publishing:publicationDate")
                 .limit(limit)
                 .build();
