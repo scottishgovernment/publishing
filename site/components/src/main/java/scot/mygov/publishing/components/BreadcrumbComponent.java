@@ -58,6 +58,10 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
             return emptyList();
         }
 
+        if (contentBean == null) {
+            return emptyList();
+        }
+
         HstRequestContext context = request.getRequestContext();
         HippoBean baseBean = context.getSiteContentBaseBean();
         HippoBean startBean = startBean(contentBean);
