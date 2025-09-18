@@ -1,6 +1,7 @@
 package scot.mygov.publishing.beans;
 
 import org.hippoecm.hst.content.beans.Node;
+import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import java.util.Calendar;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
@@ -57,8 +58,7 @@ public class GuidePage extends Base {
 
     @HippoEssentialsGenerated(internalName = "publishing:relateditems")
     public List<Relateditems> getRelateditems() {
-        return getChildBeansByName("publishing:relateditems",
-                Relateditems.class);
+        return getChildBeansByName("publishing:relateditems", Relateditems.class);
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:contentOwner")
@@ -80,4 +80,10 @@ public class GuidePage extends Base {
     public Boolean getShowFeedback() {
         return getSingleProperty("publishing:showFeedback");
     }
+
+    public HippoBean getPartOfBean() {
+        HippoFolderBean folderBean = (HippoFolderBean) this.getParentBean();
+        return folderBean.getBean("index");
+    }
+
 }

@@ -60,12 +60,20 @@
     </dl>
     </#if>
 
-
     <#if item.image??>
         <#if item.image.image?has_content>
         </div>
     </div>
         </#if>
+    </#if>
+
+    <#if item.partOfBean??>
+        <dl class="ds_search-result__context">
+            <dt class="ds_search-result__context-key">Part of:</dt>
+            <dd class="ds_search-result__context-value">
+                <a href="<@hst.link hippobean=item.partOfBean />">${item.partOfBean.title}</a>
+            </dd>
+        </dl>
     </#if>
 
 </li>
