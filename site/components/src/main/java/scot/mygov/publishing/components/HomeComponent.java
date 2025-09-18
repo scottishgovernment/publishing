@@ -10,6 +10,7 @@ public class HomeComponent extends CategoryComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+        SearchBarComponent.populateSearchEnabledFlag(request);
         populateAutoCompleteFlag(request);
     }
 }

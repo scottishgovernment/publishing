@@ -20,8 +20,10 @@
                         <#if autoCompleteEnabled>
                             <#assign ds_autocomplete = true />
                         </#if>
-                        <#assign searchcategory = "sitesearch" />
-                        <#include '../common/include/search.ftl'/>
+                        <#if searchEnabled>
+                            <#assign searchcategory = "sitesearch" />
+                            <#include '../common/include/search.ftl'/>
+                        </#if>
                     </div>
                 </header>
             </div>
