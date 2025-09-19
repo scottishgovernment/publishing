@@ -125,8 +125,9 @@ public class SEOComponent extends EssentialsDocumentComponent {
         addValuesIfNotNull(document, "publishing:topics", subjects);
         addValuesIfNotNull(document, "hippostd:tags", subjects);
 
-        // special case for manuals - we want the subpages to have the same topics nd tags as the manual itself
-        if (equalsAny(document.getContentType(), "publishing:ManualDocuments", "publishing:PublicationPage")) {
+        // special case for manuals - we want the subpages to have the same topics And tags as the manual itself
+        String documentType = document == null ? "" : document.getContentType();
+        if (equalsAny(documentType, "publishing:ManualDocuments", "publishing:PublicationPage")) {
             Optional<HippoFolderBean> publicationFolder = publicationFolder(request, document);
             if (publicationFolder.isPresent()) {
                 HippoBean publication = publicationFolder.get().getBean(INDEX);
