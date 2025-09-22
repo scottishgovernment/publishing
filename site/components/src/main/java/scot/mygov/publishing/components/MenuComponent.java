@@ -38,6 +38,11 @@ public class MenuComponent extends EssentialsMenuComponent {
     void setExpanded(HstSiteMenuItem menuItem, List<BreadcrumbItem> breadcrumbs) {
         HstSiteMenuItemImpl itemImpl = (HstSiteMenuItemImpl) menuItem;
         for (BreadcrumbItem breadcrumb : breadcrumbs) {
+            if (StringUtils.isEmpty(breadcrumb.getLink().getPath())) {
+                // ignore the home page in the breadcrumb
+                continue;
+            }
+
             if (sameLink(breadcrumb.getLink(), itemImpl.getHstLink())) {
                 itemImpl.setExpanded();
             }
