@@ -24,6 +24,8 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
 
     private static final String HOME = "Home";
 
+    private static final String INDEX = "index";
+
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
@@ -35,7 +37,7 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
 
         // special case for guide pages: we do not want the page to be a part of the breadcrumb
         if (contentBean instanceof GuidePage) {
-            contentBean = contentBean.getParentBean().getBean("index");
+            contentBean = contentBean.getParentBean().getBean(INDEX);
         }
 
         List<BreadcrumbItem> breadcrumbs = constructBreadcrumb(request, contentBean);
@@ -65,13 +67,17 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
         HstRequestContext context = request.getRequestContext();
         HippoBean baseBean = context.getSiteContentBaseBean();
         HippoBean startBean = startBean(contentBean);
+        if (startBean == null || baseBean == null) {
+            return emptyList();
+        }
         return breadcrumbs(startBean, baseBean, context);
     }
 
     static HippoBean startBean(HippoBean contentBean) {
-        if (contentBean.isHippoFolderBean()) {
-            contentBean = contentBean.getBean("index");
+        if (contentBean.isHippoFolderBean() && contentBean.getBean(INDEX) != null) {
+            contentBean = contentBean.getBean(INDEX);
         }
+
 
         // determine the bean to start with - different for category index files than for articles etc.
         return INDEX.equals(contentBean.getName())
@@ -81,6 +87,9 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
 
     static List<BreadcrumbItem> breadcrumbs(HippoBean bean, HippoBean baseBean, HstRequestContext context) {
         boolean isBaseBean = isBaseBean(bean, baseBean);
+        if (bean == null) {
+            return new ArrayList<>();
+        }
         List<BreadcrumbItem> breadcrumbs = isBaseBean
                 ? new ArrayList<>()
                 : breadcrumbs(bean.getParentBean(), baseBean, context);
@@ -100,6 +109,9 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
     }
 
     static boolean isBaseBean(HippoBean bean, HippoBean baseBean) {
+        if (bean == null || baseBean == null) {
+            return false;
+        }
         return bean.getIdentifier().equals(baseBean.getIdentifier());
     }
 
