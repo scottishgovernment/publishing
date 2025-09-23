@@ -178,7 +178,6 @@
                 <label class="ds_label" for="sort-by">Sort by</label>
                 <span class="ds_select-wrapper">
                     <select form="filters" name="sort" class="ds_select  js-sort-by" id="sort-by">
-                        <option <#if hstRequest.request.getParameter('sort')?? && hstRequest.request.getParameter('sort') == "relevance">selected</#if> value="relevance">Most relevant</option>
                         <option <#if hstRequest.request.getParameter('sort')?? && hstRequest.request.getParameter('sort') == "date">selected</#if> value="date">Updated (newest)</option>
                         <option <#if hstRequest.request.getParameter('sort')?? && hstRequest.request.getParameter('sort') == "adate">selected</#if> value="adate">Updated (oldest)</option>
                     </select>
