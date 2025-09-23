@@ -12,14 +12,13 @@
     <#if result.listMetadata["f"]?first = 'News' && result.listMetadata["image"]!?has_content>
         <div class="ds_search-result__has-media">
             <div class="ds_search-result__media-wrapper">
-                <div class="ds_search-result__media  ds_aspect-box  ds_aspect-box--square">
-                    <a class="ds_search-result__media-link" href="${result.liveUrl}" tabindex="-1">
+                <a class="ds_search-result__media-link" aria-hidden="true" href="${result.liveUrl}" tabindex="-1">
+                    <div class="ds_search-result__media  ds_aspect-box  ds_aspect-box--square">
                         <#assign path = (result.listMetadata['image']?first)! />
                         <#assign norm = path?trim?replace("/+$", "", "r") />
                         <#assign lastElement = norm?split("/")?last />
 
                         <img alt=""
-                                aria-hidden="true"
                                 class="ds_aspect-box__inner"
                                 width="96"
                                 height="96"
@@ -30,8 +29,8 @@
                                        ${norm}/${lastElement}/publishing%3Alargetwocolumnsdoubledsquare 256w"
                                 sizes="(min-width:480px) 128px, 96px"
                                 src="${norm}/${lastElement}/publishing%3Amediumtwocolumnssquare">
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
         <div>
     </#if>

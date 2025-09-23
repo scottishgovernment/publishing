@@ -11,7 +11,7 @@
                     <a class="ds_search-result__media-link" aria-hidden="true" href="${link}" tabindex="-1">
                         <div class="ds_search-result__media  ds_aspect-box  ds_aspect-box--square">
                         <#if item.image.image.mediumtwocolumnssquare??>
-                            <img alt="${item.image.alt}" class="ds_aspect-box__inner"
+                            <img alt="" class="ds_aspect-box__inner"
                                 src="<@hst.link hippobean=item.image.image.mediumtwocolumnssquare />"
                                 loading="lazy"
                                 width="${item.image.image.mediumtwocolumnssquare.width?c}"
@@ -24,7 +24,7 @@
                                 sizes="(min-width: 992px) 128px, 96px"
                                 >
                         <#else>
-                            <img loading="lazy" alt="${item.image.alt}" class="ds_aspect-box__inner" src="<@hst.link hippobean=item.image.image/>">
+                            <img loading="lazy" alt="" class="ds_aspect-box__inner" src="<@hst.link hippobean=item.image.image/>">
                         </#if>
                         </div>
                     </a>
