@@ -1861,6 +1861,7 @@
         /publishing:contentBlocks[2]:
           jcr:primaryType: publishing:cb_councilservicefinder
           publishing:ctaprefix: Visit
+          publishing:noindex: false
           publishing:placeholder: Choose your council
           publishing:sorted: true
           publishing:title: Test council finder
@@ -2193,6 +2194,7 @@
         /publishing:contentBlocks[4]:
           jcr:primaryType: publishing:cb_internalservicefinder
           publishing:ctaprefix: Visit prefix
+          publishing:noindex: false
           publishing:placeholder: placeholder
           publishing:sorted: true
           publishing:title: Internal service finder

@@ -1,0 +1,9 @@
+/hst:hst/hst:configurations/digitalconnectivity/hst:workspace/hst:containers/homepage/main/events:
+  .meta:order-before: browse
+  jcr:primaryType: hst:containeritemcomponent
+  hst:componentclassname: scot.mygov.publishing.components.EventsComponent
+  hst:iconpath: icons/events.svg
+  hst:label: Events
+  hst:parameternames: [organisationId, count]
+  hst:parametervalues: ['549234476927', '3']
+  hst:template: events

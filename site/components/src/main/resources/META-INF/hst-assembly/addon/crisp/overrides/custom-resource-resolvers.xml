@@ -36,4 +36,34 @@
 
     </bean>
 
+    <bean id="eventbright" parent="abstractCrispSimpleJacksonRestTemplateResourceResolver"
+          class="org.onehippo.cms7.crisp.core.resource.jackson.SimpleJacksonRestTemplateResourceResolver">
+        <property name="cacheEnabled" value="true" />
+        <property name="baseUri" value="https://www.eventbriteapi.com/" />
+        <property name="restTemplate">
+            <bean class="org.springframework.web.client.RestTemplate">
+
+                <constructor-arg index="0" ref="loggingHttpRequestFactory" />
+
+                <property name="interceptors">
+                    <list>
+                        <bean class="scot.mygov.publishing.components.BearerInterceptor">
+                            <property name="token" value="${eventbrite.token}" />
+                        </bean>
+                    </list>
+                </property>
+            </bean>
+        </property>
+
+        <property name="resourceDataCache">
+            <bean class="org.onehippo.cms7.crisp.core.resource.SpringResourceDataCache">
+                <constructor-arg>
+                    <bean class="org.springframework.cache.caffeine.CaffeineCache" factory-bean="caffeineCacheInstanceFactory" factory-method="createSpringCacheInstance">
+                        <constructor-arg value="eventbriteCache" />
+                        <constructor-arg value="initialCapacity=10,maximumSize=1000,expireAfterWrite=10s,expireAfterAccess=10s" />
+                    </bean>
+                </constructor-arg>
+            </bean>
+        </property>
+    </bean>
 </beans>

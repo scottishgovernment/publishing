@@ -22,6 +22,7 @@ public class ArticleComponent extends CategoryComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+
         if (!hasContentBean(request)) {
             return;
         }
