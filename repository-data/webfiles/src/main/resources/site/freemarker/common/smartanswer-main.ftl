@@ -34,6 +34,12 @@
         </#if>
 
         <main id="main-content" class="ds_layout  ds_layout--article">
+            <#if document.sensitive?? && document.sensitive>
+                <!--noindex-->
+                <#include "hide-this-page.ftl">
+                <!--endnoindex-->
+            </#if>
+
             <div class="ds_layout__header">
                 <div tabindex="-1" class="ds_error-summary  fully-hidden  client-error" aria-labelledby="error-summary-title" role="alert">
                     <h2 class="ds_error-summary__title" id="error-summary-title">There is a problem</h2>
