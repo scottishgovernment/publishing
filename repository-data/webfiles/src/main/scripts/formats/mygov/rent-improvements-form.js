@@ -38,6 +38,7 @@ const formMapping = {
 import $ from 'jquery';
 import MultiPageForm from '../../components/multi-page-form';
 import PostcodeLookup from '../../components/postcode-lookup';
+import ServiceFinder from '../../components/service-finder';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import formSections from '../../components/mygov/housing-forms/rent-improvements-sections';
@@ -130,6 +131,14 @@ const rentImprovementsForm = {
         if (this.recaptchaEnabled) {
             commonForms.setupRecaptcha();
         }
+
+        // init accordions
+        const accordionElements = [].slice.call(document.querySelectorAll('[data-module="ds-accordion"]'));
+        accordionElements.forEach(accordionElement => new DS.components.Accordion(accordionElement).init());
+
+        // init service finders
+        const serviceFinders = [].slice.call(document.querySelectorAll('.mg_service-finder'));
+        serviceFinders.forEach(serviceFinder => new ServiceFinder(serviceFinder).init());
     },
 
     setupBackToSummary: function () {

@@ -3,6 +3,7 @@
 'use strict';
 
 import MultiPageForm from '../../components/multi-page-form';
+import ServiceFinder from '../../components/service-finder';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 import temporaryFocus from '@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
 import PromiseRequest from '@scottish-government/design-system/src/base/tools/promise-request/promise-request';
@@ -160,6 +161,10 @@ const businessRatesCalculator = {
         // init accordions
         const accordionElements = [].slice.call(document.querySelectorAll('[data-module="ds-accordion"]'));
         accordionElements.forEach(accordionElement => new DS.components.Accordion(accordionElement).init());
+
+        // init service finders
+        const serviceFinders = [].slice.call(document.querySelectorAll('.mg_service-finder'));
+        serviceFinders.forEach(serviceFinder => new ServiceFinder(serviceFinder).init());
 
         // init events (submit address, submit postcode, )
         this.bindEvents();
