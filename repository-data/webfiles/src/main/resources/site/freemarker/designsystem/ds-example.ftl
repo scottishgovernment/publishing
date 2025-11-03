@@ -81,9 +81,7 @@
                             </li>
                         </ul>
                         <div class="ds_site-footer__copyright">
-                            <a class="ds_site-footer__copyright-logo" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">
-                                <img loading="lazy" width="300" height="121" src="/assets/images/logos/ogl.svg" alt="Open Government License" />
-                            </a>
+                            <span class="ds_site-footer__copyright-logo"><img src="/assets/images/logos/ogl.svg" alt="Open Government License" width="41" height="17" loading="lazy"/></span>
                             <p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence v3.0</a>, except for graphic assets and where otherwise stated</p>
                             <p>&copy; Crown Copyright</p>
                         </div>
