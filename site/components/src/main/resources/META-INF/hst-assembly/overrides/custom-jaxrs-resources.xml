@@ -27,6 +27,12 @@
                         <bean class="scot.gov.publishing.hippo.funnelback.component.HealthResource" />
                     </constructor-arg>
                 </bean>
+
+                <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
+                    <constructor-arg>
+                        <bean class="scot.mygov.publishing.components.eventbrite.HealthResource" />
+                    </constructor-arg>
+                </bean>
             </list>
         </property>
     </bean>

@@ -214,6 +214,9 @@ definitions:
           /manual-documentspage:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/manual-documentspage.ftl
+          /eventbrite:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/page-blocks/events.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:
@@ -303,6 +306,12 @@ definitions:
               hst:iconpath: icons/latestnews.svg
               hst:label: Latest publications
               hst:template: latestpublications
+            /eventbriteSummary:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.eventbrite.EventbriteComponent
+              hst:iconpath: icons/eventbrite.svg
+              hst:label: Eventbrite
+              hst:template: eventbrite
       /publishing:
         jcr:primaryType: hst:configuration
         hst:inheritsfrom: [../common]
