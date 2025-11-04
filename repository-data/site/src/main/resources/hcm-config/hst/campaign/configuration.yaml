@@ -93,6 +93,12 @@ definitions:
             hst:iconpath: icons/latestnews.svg
             hst:label: Latest publications
             hst:template: latestpublications
+          /eventbriteSummary:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.eventbrite.EventbriteComponent
+            hst:iconpath: icons/eventbrite.svg
+            hst:label: Eventbrite summary
+            hst:template: eventbrite
       /hst:components:
         jcr:primaryType: hst:components
       /hst:pages:

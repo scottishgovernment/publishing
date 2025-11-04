@@ -158,9 +158,17 @@
       <groupId>org.onehippo.cms7</groupId>
       <artifactId>hippo-addon-crisp-hst</artifactId>
     </dependency>
+
     <dependency>
       <groupId>scot.gov.publishing.hippo</groupId>
       <artifactId>hippo-govscot-sluglookup-cms</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>scot.gov.publishing.hippo</groupId>
+      <artifactId>hippo-govscot-health</artifactId>
       <version>0.0.1-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>

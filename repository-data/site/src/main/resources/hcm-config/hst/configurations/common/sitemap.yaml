@@ -442,3 +442,13 @@ definitions:
                 jcr:primaryType: hst:sitemapitem
                 hst:relativecontentpath: publications/${1}/${2}/${3}/documents
                 hst:componentconfigurationid: hst:pages/manual-documentspage
+      /_health:
+        jcr:primaryType: hst:sitemapitem
+        hst:hiddeninchannelmanager: true
+        hst:sitemapitemhandlerids: [trailing-slash]
+        /eventbrite:
+          jcr:primaryType: hst:sitemapitem
+          hst:cacheable: false
+          hst:excludedforlinkrewriting: true
+          hst:hiddeninchannelmanager: true
+          hst:namedpipeline: JaxrsRestPlainPipeline
