@@ -46,7 +46,7 @@
                         <#list orgsBySector as orgAndSector>
                             <li class="sector">
                                 <h2 class="sector__title">
-                                    <a class="sector__link" href="#${orgAndSector.sector.name}" data-gtm="orgs-sector-${orgAndSector?index+1}">${orgAndSector.sector.displayName}</a>
+                                    <a class="sector__link" href="#${orgAndSector.sector.name}" data-gtm="orgs-sector-${orgAndSector?index+1}">${orgAndSector.sector.title}</a>
                                 </h2>
                                 <p class="sector__summary">
                                     ${orgAndSector.sector.description}
@@ -61,7 +61,7 @@
                     <#list orgsBySector as orgAndSector>
                         <ul class="sector-list">
                             <li class="sector-list__item">
-                                <h2 class="sector-list__title" id="${orgAndSector.sector.name}">${orgAndSector.sector.displayName}</h2>
+                                <h2 class="sector-list__title" id="${orgAndSector.sector.name}">${orgAndSector.sector.title}</h2>
                                 <ol class="sector-list__sublist">
                                     <#list orgAndSector.organisations as org>
                                         <li class="sector-list__sublist-item">
