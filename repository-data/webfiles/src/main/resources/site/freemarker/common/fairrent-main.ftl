@@ -33,39 +33,6 @@
             </div>
 
             <div class="ds_layout__content">
-
-                <style>
-                    @media print {
-                        #staging-notice,
-                        .ds_site-header__search,
-                        #site-footer,
-                        #notifications-wrapper,
-                        .header-bar,
-                        [aria-label="Breadcrumb"],
-                        .ds_layout__feedback
-                        {display: none;}
-
-                        #page-content {
-                            display: block;
-                        }
-
-                        .ds_layout__content {
-                            margin-top: 1em;
-                        }
-
-                        .ds_accordion-item__body {
-                            display: block !important;
-                            padding-bottom: 32px !important;
-                            padding-top: 24px !important;
-                            max-height: unset !important;
-                        }
-
-                        .ds_accordion-item__indicator {
-                            display: none;
-                        }
-                    }
-                </style>
-
                 <section id="fair-rent-introduction" class="js-fair-rent-section  fully-hidden">
                     <#if document.contentBlocks??>
                         <@renderContentBlocks document.contentBlocks />

@@ -7,6 +7,7 @@ const commonItems = {
 
     entry: {
         'datalayer':                    path.resolve(__dirname, './datalayer.js'),
+        'datalayer-search':             path.resolve(__dirname, './datalayer-search.js'),
         'global':                       path.resolve(__dirname, './global.js'),
         'gtm':                          path.resolve(__dirname, './gtm.js'),
         'js-enabled':                   path.resolve(__dirname, './js-enabled.js'),
