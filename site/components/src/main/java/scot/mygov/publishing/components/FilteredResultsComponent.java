@@ -15,6 +15,8 @@ import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.onehippo.cms7.essentials.components.EssentialsListComponent;
 import org.onehippo.cms7.essentials.components.info.EssentialsListComponentInfo;
 import org.onehippo.cms7.essentials.components.paging.Pageable;
+import org.onehippo.forge.selection.hst.contentbean.ValueList;
+import org.onehippo.forge.selection.hst.util.SelectionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import scot.gov.publishing.hippo.funnelback.component.*;
@@ -29,8 +31,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
+import static java.util.Collections.emptyMap;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
+import static scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent.searchSettings;
 import static scot.mygov.publishing.components.ConstraintUtils.fieldConstraints;
 
 @ParametersInfo(type = FilteredResultsComponentInfo.class)
@@ -45,6 +50,9 @@ public class FilteredResultsComponent extends EssentialsListComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+
+        SearchSettings searchSettings = searchSettings();
+        request.setAttribute("showFilters", searchSettings.isShowFilters());
         setContentBeanWith404(request, response);
         Search search = search(request);
         request.setAttribute("search", search);
@@ -67,6 +75,8 @@ public class FilteredResultsComponent extends EssentialsListComponent {
                 .request(request);
         addTopics(request, searchBuilder);
         addPublicationTypes(request, searchBuilder);
+        addLanguages(request, searchBuilder);
+        addAccessibilityFeatures(request, searchBuilder);
         searchBuilder.sort(sort(request));
         return searchBuilder.build();
     }
@@ -93,7 +103,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
             return;
         }
         Map<String, String> topicsMap = new TopicsProvider().get(request.getRequestContext());
-        getTopics(request).stream().forEach(topic -> searchBuilder.topics(topic, topicsMap));
+        getTopics(request).forEach(topic -> searchBuilder.topics(topic, topicsMap));
     }
 
     static List<String> getTopics(HstRequest request) {
@@ -110,7 +120,53 @@ public class FilteredResultsComponent extends EssentialsListComponent {
             return;
         }
         Map<String, String> publicationTypesMap = new PublicationTypesProvider(true).get(request.getRequestContext());
-        getPublicationTypes(request).stream().forEach(type -> searchBuilder.publicationTypes(type, publicationTypesMap));
+        getPublicationTypes(request).forEach(type -> searchBuilder.publicationTypes(type, publicationTypesMap));
+    }
+
+    void addLanguages(HstRequest request, SearchBuilder searchBuilder) {
+        String [] langs = request.getParameterMap().get("lang");
+        if (langs == null) {
+            return;
+        }
+        Map<String, String> langMap = languagesMap(request.getRequestContext());
+        for (String lang : langs) {
+            searchBuilder.language(lang, langMap);
+        }
+    }
+
+    public static Map<String, String> languagesMap(HstRequestContext context) {
+        HippoBean languagesList = languagesValueList(context);
+        if (languagesList == null) {
+            return emptyMap();
+        }
+        return SelectionUtil.valueListAsMap((ValueList) languagesValueList(context));
+    }
+
+    static HippoBean languagesValueList(HstRequestContext context) {
+        return context.getSiteContentBaseBean().getParentBean().getBean("publishing/valuelists/languages");
+    }
+
+    void addAccessibilityFeatures(HstRequest request, SearchBuilder searchBuilder) {
+        String [] accessibilityFeatures = request.getParameterMap().get("assist");
+        if (accessibilityFeatures == null) {
+            return;
+        }
+        Map<String, String> map = accessibilityFeaturesMap(request.getRequestContext());
+        for (String val : accessibilityFeatures) {
+            searchBuilder.accessibilityFeature(val, map);
+        }
+    }
+
+    public static Map<String, String> accessibilityFeaturesMap(HstRequestContext context) {
+        HippoBean list = accessibilityFeaturesValueList(context);
+        if (list == null) {
+            return emptyMap();
+        }
+        return SelectionUtil.valueListAsMap((ValueList) list);
+    }
+
+    static HippoBean accessibilityFeaturesValueList(HstRequestContext context) {
+        return context.getSiteContentBaseBean().getParentBean().getBean("publishing/valuelists/accessibilityFeatures");
     }
 
     static List<String> getPublicationTypes(HstRequest request) {
@@ -141,6 +197,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         int pageSize = getPageSize(request, paramInfo);
         int page = getCurrentPage(request);
         HstQueryResult queryResult = query.execute();
+        LOG.info("q: {}", query);
         populateResponse(request, queryResult);
         return getPageableFactory().createPageable(
                 queryResult.getHippoBeans(),
@@ -236,10 +293,13 @@ public class FilteredResultsComponent extends EssentialsListComponent {
     }
 
     private Constraint constraints(Search search) {
+        LOG.info("constrains search {}", search);
         List<Constraint> constraints = new ArrayList<>();
         addTermConstraints(constraints, search);
         constraints.add(ConstraintUtils.topicsConstraint(search));
         constraints.add(ConstraintUtils.publicationTypesConstraint(search));
+        constraints.add(ConstraintUtils.languagesConstraint(search));
+        constraints.add(ConstraintUtils.accessibilityFeaturesConstraint(search));
         constraints.addAll(ConstraintUtils.dateConstraint(search));
         constraints = constraints.stream().filter(Objects::nonNull).collect(toList());
         return ConstraintBuilder.and(constraints.toArray(new Constraint[] {}));
@@ -250,7 +310,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         if (isBlank(parsedTerm)) {
             return;
         }
-        constraints.add(ConstraintBuilder.or(fieldConstraints(parsedTerm)));
+        constraints.add(or(fieldConstraints(parsedTerm)));
     }
 
 }

@@ -60,6 +60,26 @@
                 </div>
             </#if>
 
+            <#if filterButtons.languages?? && filterButtons.languages?size gt 0>
+                <div class="ds_facet-group">
+                    <dt class="ds_facet__group-title">
+                        Language:
+                    </dt>
+                    <#list filterButtons.languages as item>
+                        <dd class="ds_facet-wrapper">
+                            <span class="ds_facet">
+                                ${item.label}
+
+                                <a href="?${item.url}" role="button" aria-label="Remove '${item.label}' filter" class="ds_facet__button  js-remove-facet" data-slug="${item.id}">
+                                    <svg class="ds_facet__button-icon" aria-hidden="true" role="img" focusable="false"><use href="${iconspath}#cancel"></use></svg>
+                                </a>
+                            </span>
+                        </dd>
+                    </#list>
+                </div>
+            </#if>
+
+
             <#if filterButtons.dates?? && filterButtons.dates?size gt 0>
                 <#if filterButtons.dates.begin?? && filterButtons.dates.end??>
                     <#assign dateLabel = "Updated between"/>

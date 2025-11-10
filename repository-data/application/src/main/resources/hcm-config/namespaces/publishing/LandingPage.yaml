@@ -16,7 +16,7 @@ definitions:
             'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           hipposysedit:validators: [variables-validator]
-          jcr:uuid: 00c5b6a1-5df2-42df-aec9-54141e54620b
+          jcr:uuid: e0c0ce8b-c7c1-493b-9f71-db6e9ef346df
           /title:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -57,6 +57,24 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Boolean
             hipposysedit:validators: [required]
+          /showLanguagesFilter:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:showLanguages
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            hipposysedit:validators: [required]
+          /showAccessibilityFeatures:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:showAccessibilityFeatures
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -72,8 +90,10 @@ definitions:
           hippostdpubwf:lastModificationDate: 2020-09-02T08:59:50.853+01:00
           hippostdpubwf:creationDate: 2020-09-02T08:59:50.853+01:00
           publishing:showFeedback: true
-          jcr:uuid: 2cef2fbc-6a2a-402f-b4cc-321b8c124fc2
+          jcr:uuid: b7d20d8c-6603-4c58-9b66-c979b653cb7d
           publishing:showTopics: true
+          publishing:showLanguages: false
+          publishing:showAccessibilityFeatures: false
           /publishing:noResultsMessageContentBlocks:
             jcr:primaryType: publishing:cb_richtext
             publishing:noindex: false
@@ -146,6 +166,24 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Show topics filter?
             field: showTopics
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showLanguages:
+            jcr:primaryType: frontend:plugin
+            caption: Show languages filter?
+            field: showLanguagesFilter
+            hint: ''
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /showAccessibilityFeatures:
+            jcr:primaryType: frontend:plugin
+            caption: Show accessibility features filter?
+            field: showAccessibilityFeatures
             hint: ''
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field

@@ -19,7 +19,6 @@ import java.util.Optional;
 
 import static java.util.stream.Collectors.*;
 
-
 /**
  * setup sitemap for manual, pages (3 levels deep) , documents
  * make manual component that always makes availabkle
@@ -38,7 +37,6 @@ public class PublicationComponent extends NewsComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-
         Optional<HippoFolderBean> folder = publicationFolder(request, request.getRequestContext().getContentBean());
         if (folder.isPresent()) {
             HippoBean publication = folder.get().getBean(INDEX);

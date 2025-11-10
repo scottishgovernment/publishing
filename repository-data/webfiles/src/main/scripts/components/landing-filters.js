@@ -188,6 +188,7 @@ class LandingFilters {
         // Capture page url
         const pageUrl = window.location.pathname + searchUtils.getNewQueryString(this.gatherParams(url, newSearch));
 
+
         if (!url) {
             url = this.convertUrl(window.location, newSearch);
 
@@ -339,6 +340,26 @@ class LandingFilters {
             delete searchParams.topic;
         }
 
+        // languages
+        searchParams.lang = [];
+        const checkedLanguageCheckboxes = [].slice.call(document.querySelectorAll('input[name="lang"]:checked'));
+        checkedLanguageCheckboxes.forEach(checkbox => {
+            searchParams.lang.push(encodeURIComponent(checkbox.value));
+        });
+        if (searchParams.lang.length === 0) {
+            delete searchParams.lang;
+        }
+
+        // assist
+        searchParams.assist = [];
+        const checkedAssistCheckboxes = [].slice.call(document.querySelectorAll('input[name="assist"]:checked'));
+        checkedAssistCheckboxes.forEach(checkbox => {
+            searchParams.assist.push(encodeURIComponent(checkbox.value));
+        });
+        if (searchParams.assist.length === 0) {
+            delete searchParams.assist;
+        }
+
         return searchParams;
     }
 
@@ -379,6 +400,8 @@ class LandingFilters {
 
         const types = urlSearchParams.getAll('type');
         const topics = urlSearchParams.getAll('topic');
+        const languages = urlSearchParams.getAll('lang');
+        const assist = urlSearchParams.getAll('lang');
         const begin = urlSearchParams.get('begin');
         const end = urlSearchParams.get('end');
         const sort = urlSearchParams.get('sort');
@@ -394,6 +417,14 @@ class LandingFilters {
 
         [].slice.call(document.querySelectorAll('.ds_checkbox__input[name="topic"]')).forEach(checkbox => {
             checkbox.checked = topics.includes(checkbox.id);
+        });
+
+        [].slice.call(document.querySelectorAll('.ds_checkbox__input[name="lang"]')).forEach(checkbox => {
+            checkbox.checked = languages.includes(checkbox.id);
+        });
+
+        [].slice.call(document.querySelectorAll('.ds_checkbox__input[name="assist"]')).forEach(checkbox => {
+            checkbox.checked = assist.includes(checkbox.id);
         });
 
         [].slice.call(document.querySelectorAll('.ds_checkbox__input[name="type"]')).forEach(checkbox => {

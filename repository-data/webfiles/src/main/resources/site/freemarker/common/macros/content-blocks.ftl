@@ -1,4 +1,3 @@
-
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#function slugify string>
@@ -479,3 +478,4 @@
 
     </#list>
 </#macro>
+
