@@ -278,9 +278,11 @@ const searchUtils = {
         if (params.q) {
             newQueryStringParams.push('q=' + params.q);
         }
+
         if (params.topics) {
             newQueryStringParams.push('topics=' + params.topics.join(';'));
         }
+
         if (params.publicationTypes) {
             newQueryStringParams.push('publicationTypes=' + params.publicationTypes.join(';'));
         }
@@ -290,6 +292,19 @@ const searchUtils = {
                 newQueryStringParams.push('topic=' + topic);
             });
         }
+
+        if (params.lang) {
+            params.lang.forEach(lang => {
+                newQueryStringParams.push('lang=' + lang);
+            });
+        }
+
+        if (params.assist) {
+            params.assist.forEach(assist => {
+                newQueryStringParams.push('assist=' + assist);
+            });
+        }
+
         if (params.type) {
             params.type.forEach(type => {
                 newQueryStringParams.push('type=' + type);

@@ -11,7 +11,7 @@ definitions:
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: 41bbb3b3-4a18-4a7f-9545-c56e05ab6516
+          jcr:uuid: b265a4a4-ab45-4966-b7c0-116ce5a4ebfe
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
@@ -57,6 +57,14 @@ definitions:
             hipposysedit:path: publishing:noindex
             hipposysedit:primary: false
             hipposysedit:type: Boolean
+          /language:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:language
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -65,6 +73,7 @@ definitions:
           publishing:highlight: false
           publishing:useGenericIcon: false
           publishing:noindex: false
+          publishing:language: en
           /publishing:document:
             jcr:primaryType: hippo:resource
             hippo:filename: hippo:resource
@@ -107,7 +116,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Highlight
             field: highlight
-            hint: Check this box to apply visual highlighting, if this document is of higher importance and placed above other file downloads on the page.
+            hint: Check this box to apply visual highlighting, if this document is
+              of higher importance and placed above other file downloads on the page.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -116,7 +126,8 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Use generic icon
             field: useGenericIcon
-            hint: Check this box to show a generic file icon for this file type rather than a thumbnail image of the file.
+            hint: Check this box to show a generic file icon for this file type rather
+              than a thumbnail image of the file.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
@@ -125,8 +136,20 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Add noindex tags
             field: noindex
-            hint: Check the box if this content should not be indexed for search. This will apply to the site's internal search only.
+            hint: Check the box if this content should not be indexed for search.
+              This will apply to the site's internal search only.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /language:
+            jcr:primaryType: frontend:plugin
+            caption: Language
+            field: language
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            hint: ''
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              orientation: vertical
+              source: /content/documents/publishing/valuelists/languages

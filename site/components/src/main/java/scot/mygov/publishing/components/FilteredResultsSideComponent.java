@@ -8,7 +8,6 @@ import scot.gov.publishing.hippo.funnelback.component.SearchBuilder;
 
 import java.util.*;
 
-import static scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent.searchSettings;
 import static scot.mygov.publishing.components.FilteredResultsComponent.*;
 
 @ParametersInfo(type = FilteredResultsSideComponentInfo.class)
@@ -33,6 +32,15 @@ public class FilteredResultsSideComponent extends EssentialsContentComponent {
         FilteredResultsComponent.getPublicationTypes(request).stream().forEach(type -> searchBuilder.publicationTypes(type, publicationTypesMap));
         request.setAttribute("publicationTypesMap", publicationTypesMap);
         request.setAttribute("includePublicationTypesFilter", info.getIncludePublicationTypesFilter());
-        request.setAttribute("showFilters", searchSettings().isShowFilters());
+
+        Map<String, String> languagesMap = languagesMap(request.getRequestContext());
+        request.setAttribute("languagesMap", languagesMap);
+        request.setAttribute("includeLanguages", info.getIncludeLanguages());
+
+        Map<String, String> accessibilityFeaturesMap = accessibilityFeaturesMap(request.getRequestContext());
+        request.setAttribute("accessibilityFeaturesMap", accessibilityFeaturesMap);
+        request.setAttribute("includeAccessibilityFeatures", info.getIncludeAccessibilityFeatures());
+
+        request.setAttribute("showFilters", true);
     }
 }

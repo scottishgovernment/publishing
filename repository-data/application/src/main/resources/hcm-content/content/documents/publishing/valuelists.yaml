@@ -1,17 +1,14 @@
 /content/documents/publishing/valuelists:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:versionable']
-  jcr:uuid: a7782b12-6563-43e5-b34d-e06c2b8461a6
   hippostd:foldertype: [new-document, new-folder]
   /navigationtypes:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: d6255b49-edd5-4cdb-a306-47110a0badd8
     hippo:name: navigationTypes
     /navigationtypes:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 46c22dd1-9a5d-4ebf-aadb-56c7a9018adb
       hippo:availability: [live, preview]
       hippotranslation:id: 4df417d4-1af7-4c66-a102-5e9f80c413ae
       hippotranslation:locale: inherited - from query
@@ -34,7 +31,6 @@
   /reportingtags:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: 66416c3e-6854-4557-a3b9-a5a5bb07c530
     hippo:name: reportingTags
     /reportingtags:
       jcr:primaryType: selection:valuelist
@@ -54,7 +50,6 @@
   /audiences:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: 4bceecdc-730b-488d-b235-3347049b50c2
     hippo:name: audiences
     /audiences:
       jcr:primaryType: selection:valuelist
@@ -81,12 +76,10 @@
   /serviceproviders:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: ca2169d2-bbeb-4e30-9e22-beaa19a3e4b4
     hippo:name: serviceproviders
     /serviceproviders:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 5472a687-4709-4533-8535-9c82761fed0b
       hippotranslation:id: db57898a-8d07-43a9-91b4-0ac6c4b7e696
       hippotranslation:locale: inherited - from query
       /selection:listitem[1]:
@@ -870,12 +863,10 @@
   /sectors:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: 7df289c7-c24c-4517-ab38-509f01315911
     hippo:name: sectors
     /sectors:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 8b9bac6c-aec6-4f45-a317-f7467379d756
       hippotranslation:id: da18c3e6-3a2e-41d9-9297-a0e2d2a70778
       hippotranslation:locale: inherited - from query
       /selection:listitem[1]:
@@ -913,12 +904,10 @@
   /geographies:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: ac3bf30d-a38c-47c3-bb02-406a5e1df206
     hippo:name: geographies
     /geographies:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 4ea9848e-e19f-4c0e-91b4-e937d7debfc6
       hippotranslation:id: 1a1cb7d8-53dd-4ad8-a1e7-a2ddd14f7cf1
       hippotranslation:locale: inherited - from query
       /selection:listitem[1]:
@@ -936,12 +925,10 @@
   /bannertypes:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: 1c0d7ddd-ff1d-416c-a586-07561ac25ebb
     hippo:name: bannertypes
     /bannertypes:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 5883feaa-812e-4728-9cba-14cfaab20e1d
       hippotranslation:id: fa713252-0c45-4993-8b31-3e637402d966
       hippotranslation:locale: inherited - from query
       /selection:listitem[1]:
@@ -967,12 +954,10 @@
   /formtypes:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: 02d2884a-74e7-4a76-a1ed-d1d4fe8a2ff1
     hippo:name: formTypes
     /formtypes:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: b2ce317e-5b9d-44d9-8d44-e0cd8a161c65
       hippo:availability: [live, preview]
       hippotranslation:id: 8ba712d1-9880-4065-b893-b40b0e39af83
       hippotranslation:locale: inherited - from query
@@ -1023,12 +1008,10 @@
   /organisationtags:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: 285f39b9-a102-4cf9-a89e-4f8bf5ae35f9
     hippo:name: organisationTags
     /organisationtags:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 4e59efcc-4802-4c20-83f2-3e75b465740b
       hippo:availability: [live, preview]
       hippotranslation:id: 080d1562-fe7c-484a-98ce-9538932ad849
       hippotranslation:locale: en_UK
@@ -1059,11 +1042,9 @@
   /smartanswermultiplechoicestyle:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 8a372e3c-0e46-419e-ad02-76634b5344bb
     /smartanswermultiplechoicestyle:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 3587b57c-7a19-4e4d-aea6-1779396279dd
       hippo:availability: [live, preview]
       hippotranslation:id: 3d3a7c0a-2051-472d-b11f-b4c50bdd85d2
       hippotranslation:locale: inherited - from query
@@ -1086,11 +1067,9 @@
   /smartanswersingleselectstyle:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 48b63050-7d0b-4a7e-b307-57fff76b6d5b
     /smartanswersingleselectstyle:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 394db965-3f42-4d97-88cd-e4ccb3443c54
       hippo:availability: [live, preview]
       hippotranslation:id: 3d3a7c0a-2051-472d-b11f-b4c50bdd85d2
       hippotranslation:locale: inherited - from query
@@ -1105,12 +1084,10 @@
   /localauthorities:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: f94e261a-7098-48ba-b511-a64fe8229c0c
     hippo:name: localAuthorities
     /localauthorities:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 8e8cf273-df52-4662-afe0-f4be400cc9bd
       hippotranslation:id: 807cc640-01ac-4bd2-be4b-a178c63e3e0b
       hippotranslation:locale: inherited - from query
       /selection:listitem[1]:
@@ -1244,12 +1221,10 @@
   /searchtypes:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: 471b5eaf-fca9-4abb-8013-6f95acf09a9a
     hippo:name: searchTypes
     /searchtypes:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: bd5a99c3-db67-485c-b148-7e364cdb40be
       hippo:availability: [live, preview]
       hippotranslation:id: 3bd1fbea-09c6-4d36-abe0-1642169e36a6
       hippotranslation:locale: inherited - from query
@@ -1268,11 +1243,9 @@
   /smartanswerconfirmationstyle:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: cea362b2-ae4e-47aa-819d-f5d6a834ee77
     /smartanswerconfirmationstyle:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: e032b187-f070-4791-8f67-5be07a6e25f4
       hippo:availability: [live, preview]
       hippotranslation:id: f1d8ad85-3b51-4f60-9246-efb977d402a3
       hippotranslation:locale: inherited - from query
@@ -1287,11 +1260,9 @@
   /siteverificationtype:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: 5dc78e0d-72b2-4d25-8109-ed67e89ecf63
     /siteverificationtype:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 4fff3086-a995-4b51-9559-41af26aa6a4a
       hippo:availability: [live, preview]
       hippotranslation:id: d0029b11-30e3-4b74-a575-5e532d7a7b09
       hippotranslation:locale: inherited - from query
@@ -1310,11 +1281,9 @@
   /steplabeltypes:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: daf27e97-d77e-44d5-968f-a3c49b7ba800
     /steplabeltypes:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 9e1f9ce0-38b3-4169-8594-8776ffea2e29
       hippo:availability: [live, preview]
       hippotranslation:id: 18134c5d-01df-4de2-a87c-ebc993983824
       hippotranslation:locale: inherited - from query
@@ -1330,42 +1299,13 @@
         jcr:primaryType: selection:listitem
         selection:key: or
         selection:label: Or
-  /contentitemlanguages:
-    jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['mix:referenceable']
-    jcr:uuid: e6825887-64d7-4425-8840-83d07aaf4e5b
-    /contentitemlanguages:
-      jcr:primaryType: selection:valuelist
-      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: a9ed53b7-aa84-422f-b3aa-c0226ebfbc54
-      hippo:availability: [live, preview]
-      hippotranslation:id: 8fd6a449-cbe2-4420-bf66-f27f430091b6
-      hippotranslation:locale: inherited - from query
-      /selection:listitem[1]:
-        jcr:primaryType: selection:listitem
-        selection:key: en
-        selection:label: English
-      /selection:listitem[2]:
-        jcr:primaryType: selection:listitem
-        selection:key: gd
-        selection:label: Gaelic (Scottish)
-      /selection:listitem[3]:
-        jcr:primaryType: selection:listitem
-        selection:key: ru
-        selection:label: Russian
-      /selection:listitem[4]:
-        jcr:primaryType: selection:listitem
-        selection:key: uk
-        selection:label: Ukrainian
   /publicationtypes:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable', 'mix:versionable']
-    jcr:uuid: de941bf5-9a2f-4cc6-a5ca-415a8f85d9e6
     hippo:name: publicationTypes
     /publicationtypes:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: e4f6f915-50ba-4acf-b3f8-062ccc103955
       /selection:listitem[1]:
         jcr:primaryType: selection:listitem
         selection:key: advice-and-guidance
@@ -1449,12 +1389,10 @@
   /stepbystepnavigationtypes:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: a62becd8-c324-4c7f-b965-ce2b63634c0a
     hippo:name: stepByStepNavigationTypes
     /stepbystepnavigationtypes:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
-      jcr:uuid: 6514dbf4-6cbb-4b15-a7a9-ae438a266cc7
       hippo:availability: [live, preview]
       hippotranslation:id: bd5be43c-f2b2-4217-9199-777732941a83
       hippotranslation:locale: inherited - from query
@@ -1470,3 +1408,91 @@
         jcr:primaryType: selection:listitem
         selection:key: withParam
         selection:label: Only show navigation when linked from step by step guide
+  /languages:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    hippo:name: languages
+    /languages:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      hippo:availability: [live, preview]
+      hippotranslation:id: 8fd6a449-cbe2-4420-bf66-f27f430091b6
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: af
+        selection:label: Afrikaans
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: ar
+        selection:label: Arabic
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: bg
+        selection:label: Bulgarian
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: en
+        selection:label: English
+      /selection:listitem[5]:
+        jcr:primaryType: selection:listitem
+        selection:key: fa
+        selection:label: Farsi
+      /selection:listitem[6]:
+        jcr:primaryType: selection:listitem
+        selection:key: gd
+        selection:label: Gaelic (Scottish)
+      /selection:listitem[7]:
+        jcr:primaryType: selection:listitem
+        selection:key: ckb
+        selection:label: Kurdish Sorani
+      /selection:listitem[8]:
+        jcr:primaryType: selection:listitem
+        selection:key: lt
+        selection:label: Lithuanian
+      /selection:listitem[9]:
+        jcr:primaryType: selection:listitem
+        selection:key: pl
+        selection:label: Polish
+      /selection:listitem[10]:
+        jcr:primaryType: selection:listitem
+        selection:key: ro
+        selection:label: Romanian
+      /selection:listitem[11]:
+        jcr:primaryType: selection:listitem
+        selection:key: ru
+        selection:label: Russian
+      /selection:listitem[12]:
+        jcr:primaryType: selection:listitem
+        selection:key: sk
+        selection:label: Slovak
+      /selection:listitem[13]:
+        jcr:primaryType: selection:listitem
+        selection:key: zh-Hant
+        selection:label: Traditional Chinese
+      /selection:listitem[14]:
+        jcr:primaryType: selection:listitem
+        selection:key: uk
+        selection:label: Ukrainian
+      /selection:listitem[15]:
+        jcr:primaryType: selection:listitem
+        selection:key: ur
+        selection:label: Urdu
+  /accessibilityFeatures:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    hippo:name: Accessibility features
+    /accessibilityFeatures:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable']
+      hippo:availability: [live, preview]
+      hippotranslation:id: 8fd6a449-cbe2-4420-bf66-f27f430091b6
+      hippotranslation:locale: inherited - from query
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: easyread
+        selection:label: Easy read
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: bsl
+        selection:label: British Sign Language

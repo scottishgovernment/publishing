@@ -9,4 +9,10 @@ public interface FilteredResultsSideComponentInfo {
 
     @Parameter(name = "includeNews", defaultValue = "true", required = true)
     Boolean getIncludeNews();
+
+    @Parameter(name = "includeLanguages", defaultValue = "false", required = true)
+    Boolean getIncludeLanguages();
+
+    @Parameter(name = "includeAccessibilityFeatures", defaultValue = "false", required = true)
+    Boolean getIncludeAccessibilityFeatures();
 }

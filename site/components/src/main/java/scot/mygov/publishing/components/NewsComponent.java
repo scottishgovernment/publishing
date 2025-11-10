@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Arrays;
 
 import static java.util.stream.Collectors.toList;
+import static scot.mygov.publishing.components.FilteredResultsComponent.languagesMap;
 
 public class NewsComponent extends EssentialsContentComponent  {
 
@@ -24,6 +25,7 @@ public class NewsComponent extends EssentialsContentComponent  {
         super.doBeforeRender(request, response);
 
         addTopics(request, request.getRequestContext().getContentBean());
+        request.setAttribute("languages", languagesMap(request.getRequestContext()));
 
         // populate the organisation information from WebsiteInfo
         request.setAttribute("image", getImage(request));

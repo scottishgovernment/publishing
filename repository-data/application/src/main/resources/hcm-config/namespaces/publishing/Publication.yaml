@@ -54,6 +54,14 @@ definitions:
             hipposysedit:path: publishing:publicationType
             hipposysedit:primary: false
             hipposysedit:type: OpenUiString
+          /accessibilityfeatures:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: true
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:accessibilityfeatures
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -194,7 +202,7 @@ definitions:
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
               showDefault: 'false'
-              source: /content/documents/publishing/valuelists/contentitemlanguages
+              source: /content/documents/publishing/valuelists/languages
               valuelistProvider: ''
           /showFeedback:
             jcr:primaryType: frontend:plugin
@@ -254,3 +262,17 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
+          /accessibilityfeatures:
+            jcr:primaryType: frontend:plugin
+            caption: Accessibility features
+            field: accessibilityfeatures
+            multiselect.type: checkboxes
+            palette.alloworder: false
+            palette.maxrows: '10'
+            plugin.class: org.onehippo.forge.selection.frontend.plugin.DynamicMultiSelectPlugin
+            selectlist.maxrows: '10'
+            valuelist.provider: service.valuelist.default
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              source: /content/documents/publishing/valuelists/accessibilityFeatures

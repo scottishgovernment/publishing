@@ -42,7 +42,10 @@
 
     <div class="ds_search-controls">
         <#assign filtersCount = filterButtons.types?size +
-            filterButtons.topics?size + filterButtons.dates?size />
+            filterButtons.topics?size +
+            filterButtons.dates?size +
+            filterButtons.languages?size +
+            filterButtons.accessibilityFeatures?size />
 
         <#if filtersCount gt 0>
 
@@ -81,6 +84,42 @@
                             Topic:
                         </dt>
                         <#list filterButtons.topics as item>
+                            <dd class="ds_facet-wrapper">
+                                <span class="ds_facet">
+                                    ${item.label}
+
+                                    <a href="?${item.url}" role="button" aria-label="Remove '${item.label}' filter" class="ds_facet__button  js-remove-facet" data-slug="${item.id}">
+                                        <svg class="ds_facet__button-icon" aria-hidden="true" role="img" focusable="false"><use href="${iconspath}#cancel"></use></svg>
+                                    </a>
+                                </span>
+                            </dd>
+                        </#list>
+                    </div>
+                </#if>
+                <#if filterButtons.languages?? && filterButtons.languages?size gt 0>
+                    <div class="ds_facet-group">
+                        <dt class="ds_facet__group-title">
+                            Language:
+                        </dt>
+                        <#list filterButtons.languages as item>
+                            <dd class="ds_facet-wrapper">
+                                <span class="ds_facet">
+                                    ${item.label}
+
+                                    <a href="?${item.url}" role="button" aria-label="Remove '${item.label}' filter" class="ds_facet__button  js-remove-facet" data-slug="${item.id}">
+                                        <svg class="ds_facet__button-icon" aria-hidden="true" role="img" focusable="false"><use href="${iconspath}#cancel"></use></svg>
+                                    </a>
+                                </span>
+                            </dd>
+                        </#list>
+                    </div>
+                </#if>
+                <#if filterButtons.accessibilityFeatures?? && filterButtons.accessibilityFeatures?size gt 0>
+                    <div class="ds_facet-group">
+                        <dt class="ds_facet__group-title">
+                            Accessibility features:
+                        </dt>
+                        <#list filterButtons.accessibilityFeatures as item>
                             <dd class="ds_facet-wrapper">
                                 <span class="ds_facet">
                                     ${item.label}

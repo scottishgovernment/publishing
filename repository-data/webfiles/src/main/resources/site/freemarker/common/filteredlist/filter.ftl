@@ -198,13 +198,120 @@
                             </div>
                         </fieldset>
                     </div>
-                    </div>
                 </div>
 
+                <#if document.showLanguages?? && document.showLanguages>
+                <div class="ds_accordion-item">
+                    <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-4" aria-labelledby="panel-4-heading" />
+                    <div class="ds_accordion-item__header">
+                        <h3 id="panel-4-heading" class="ds_accordion-item__title">
+                            Languages
+                            <div class="ds_search-filters__filter-count">
+                                <#assign count = 0/>
+                                <#list languagesMap?keys as item>
+                                    <#list search.languages?keys as selectedItem>
+                                        <#if selectedItem == item>
+                                            <#assign count = count + 1 />
+                                        </#if>
+                                    </#list>
+                                </#list>
+
+                                <#if count gt 0>
+                                    (${count} selected)
+                                </#if>
+                            </div>
+                        </h3>
+                        <span class="ds_accordion-item__indicator"></span>
+                        <label class="ds_accordion-item__label" for="panel-4"><span class="visually-hidden">Show this section</span></label>
+                    </div>
+                    <div class="ds_accordion-item__body">
+                        <fieldset>
+                            <legend class="visually-hidden">Select which languages you would like to see</legend>
+
+                            <div class="ds_search-filters__scrollable">
+                                <div class="ds_search-filters__checkboxes">
+                                    <#list languagesMap?keys as item>
+                                        <#assign isSelected = false/>
+
+                                        <#list search.languages?keys as selectedItem>
+                                            <#if selectedItem == item>
+                                                <#assign isSelected = true/>
+                                            </#if>
+                                        </#list>
+
+                                        <div class="ds_checkbox  ds_checkbox--small">
+                                            <input
+                                                <#if isSelected == true>
+                                                    checked=true
+                                                </#if>
+                                                id="${item}" name="lang" value="${item}" class="ds_checkbox__input" type="checkbox">
+                                            <label for="${item}" class="ds_checkbox__label">${(languagesMap[item])?replace("/","/<wbr>")?no_esc}</label>
+                                        </div>
+                                    </#list>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+                </#if>
+                <#if document.showAccessibilityFeatures?? && document.showAccessibilityFeatures>
+                    <div class="ds_accordion-item">
+                        <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-5" aria-labelledby="panel-5-heading" />
+                        <div class="ds_accordion-item__header">
+                            <h3 id="panel-5-heading" class="ds_accordion-item__title">
+                                Accessibility
+                                <div class="ds_search-filters__filter-count">
+                                    <#assign count = 0/>
+                                    <#list accessibilityFeaturesMap?keys as item>
+                                        <#list search.accessibilityFeatures?keys as selectedItem>
+                                            <#if selectedItem == item>
+                                                <#assign count = count + 1 />
+                                            </#if>
+                                        </#list>
+                                    </#list>
+
+                                    <#if count gt 0>
+                                        (${count} selected)
+                                    </#if>
+                                </div>
+                            </h3>
+                            <span class="ds_accordion-item__indicator"></span>
+                            <label class="ds_accordion-item__label" for="panel-5"><span class="visually-hidden">Show this section</span></label>
+                        </div>
+                        <div class="ds_accordion-item__body">
+                            <fieldset>
+                                <legend class="visually-hidden">Select which accessibility features you would like to see</legend>
+
+                                <div class="ds_search-filters__scrollable">
+                                    <div class="ds_search-filters__checkboxes">
+                                        <#list accessibilityFeaturesMap?keys as item>
+                                            <#assign isSelected = false/>
+
+                                            <#list search.accessibilityFeatures?keys as selectedItem>
+                                                <#if selectedItem == item>
+                                                    <#assign isSelected = true/>
+                                                </#if>
+                                            </#list>
+
+                                            <div class="ds_checkbox  ds_checkbox--small">
+                                                <input
+                                                    <#if isSelected == true>
+                                                        checked=true
+                                                    </#if>
+                                                    id="${item}" name="assist" value="${item}" class="ds_checkbox__input" type="checkbox">
+                                                <label for="${item}" class="ds_checkbox__label">${(accessibilityFeaturesMap[item])?replace("/","/<wbr>")?no_esc}</label>
+                                            </div>
+                                        </#list>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </#if>
+                </div>
                 <button class="ds_button  ds_button--primary  ds_button--small  ds_button--max  ds_no-margin  js-apply-filter">
                     Apply filter
                 </button>
-
             </form>
         </div>
     </div>
