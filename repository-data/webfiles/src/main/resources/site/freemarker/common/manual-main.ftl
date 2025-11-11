@@ -22,9 +22,9 @@
                     <span <@revertlang document /> class="ds_page-header__label  ds_content-label">
                         Publication<#if publication.label?has_content> - <span id="sg-meta__publication-type">${publication.label}</span></#if></span>
                     </span>
-                    <div id="parentDocumentTitle" class="ds_page-header__title  ds_h3">
+                    <h2 id="parentDocumentTitle" class="ds_page-header__title  ds_h3">
                         <span class="visually-hidden">Part of</span> <#if publication.title?has_content>${publication.title}</#if>
-                    </div>
+                    </h2>
                     <dl <@revertlang document /> class="ds_page-header__metadata  ds_metadata">
                         <#if publication.publicationDate?has_content>
                             <div class="ds_metadata__item">

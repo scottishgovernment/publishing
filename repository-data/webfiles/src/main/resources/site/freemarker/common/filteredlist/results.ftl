@@ -22,7 +22,7 @@
 <#if response??>
     <#if (response.resultPacket.resultsSummary.totalMatching)!?has_content &&
         response.resultPacket.resultsSummary.totalMatching &gt; 0>
-        <h2 aria-live="polite" class="ds_search-results__title">
+        <h2 aria-live="polite" aria-atomic="true" class="ds_search-results__title">
             <#if response.resultPacket.resultsSummary.fullyMatching <= response.resultPacket.resultsSummary.numRanks ||
             response.resultPacket.resultsSummary.currStart <= response.resultPacket.resultsSummary.numRanks >
 
@@ -36,7 +36,7 @@
 
     <div class="ds_skip-links  ds_skip-links--static">
         <ul class="ds_skip-links__list">
-            <li class="ds_skip-links__item"><a class="ds_skip-links__link" href="#search-results">Skip to results</a></li>
+            <li class="ds_skip-links__item"><a class="ds_skip-links__link" href="#search-results-list">Skip to results</a></li>
         </ul>
     </div>
 
@@ -201,7 +201,7 @@
 <#if pagination??>
     <#if ((response.resultPacket.resultsSummary.totalMatching)!?has_content &&
         response.resultPacket.resultsSummary.totalMatching &gt; 0 ) >
-    <ol start="${response.resultPacket.resultsSummary.currStart?c}" id="search-results" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching?c}">
+    <ol start="${response.resultPacket.resultsSummary.currStart?c}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching?c}">
     <#-- Using same result template as search -->
     <#list pageable.items as item>
        <#include "result.ftl">

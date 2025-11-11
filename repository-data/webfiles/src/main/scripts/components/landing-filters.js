@@ -149,10 +149,12 @@ class LandingFilters {
         });
 
         window.addEventListener('popstate', event => {
-            const resultsUrl = window.location.href;
-            this.isPopstate = true;
-            this.syncFiltersToUrl();
-            this.doSearch(resultsUrl);
+            if (event.state) {
+                const resultsUrl = window.location.href;
+                this.isPopstate = true;
+                this.syncFiltersToUrl();
+                this.doSearch(resultsUrl);
+            }
         });
     }
 
@@ -227,20 +229,28 @@ class LandingFilters {
                 tempContainer.innerHTML = data.response;
 
                 if (!!tempContainer.querySelector('.ds_search-results')) {
-                    this.resultsContainer.innerHTML = tempContainer.querySelector('.ds_search-results').innerHTML;
+                    const resultsTitleElement = this.resultsContainer.querySelector('.ds_search-results__title');
+                    const resultsControlsElement = this.resultsContainer.querySelector('.ds_search-controls');
+                    const resultsListElement = this.resultsContainer.querySelector('.ds_search-results__list');
+                    const resultsPaginationElement = this.resultsContainer.querySelector('.ds_pagination');
+                    if (resultsTitleElement) {
+                        resultsTitleElement.innerHTML = tempContainer.querySelector('.ds_search-results__title').innerHTML;
+                    }
+                    if (resultsControlsElement) {
+                        resultsControlsElement.innerHTML = tempContainer.querySelector('.ds_search-controls').innerHTML;
+                    }
+                    if (resultsListElement) {
+                        resultsListElement.innerHTML = tempContainer.querySelector('.ds_search-results__list').innerHTML;
+                    }
+                    if (resultsPaginationElement) {
+                        resultsPaginationElement.innerHTML = tempContainer.querySelector('.ds_pagination').innerHTML;
+                    }
                 } else {
                     this.resultsContainer.innerHTML = tempContainer.innerHTML;
                 }
 
                 // enable containers
                 containersToDisable.forEach(container => container.classList.remove('js-disabled-search'));
-
-                // focus
-                temporaryFocus(this.resultsContainer);
-
-                // scroll to top of results
-                const rect = this.resultsContainer.getBoundingClientRect();
-                window.scrollTo(window.scrollX, document.documentElement.scrollTop + rect.top);
 
                 // update "selected" count
                 this.updateSelectedFilterCounts();
@@ -313,7 +323,6 @@ class LandingFilters {
                 searchParams.q = encodeURIComponent(qParam);
             }
         } else {
-            console.log('existing search')
             // Use the existing parameter if available - pagination action shouldn't submit new search input
             const qParam = searchUtils.getParameterByName('q');
             if(qParam){
