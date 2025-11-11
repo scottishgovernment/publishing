@@ -69,8 +69,13 @@ const cookieForm = {
                 expires: 365
             });
 
-            document.querySelector('#cookie-success-message').classList.remove('fully-hidden');
-            document.querySelector('#cookie-success-message').style.top = '32px';
+            const cookieSuccessElement = document.querySelector('#cookie-success-message');
+            const cookieSuccessTextElement = cookieSuccessElement.querySelector('.js-cookie-confirmation-content');
+            cookieSuccessTextElement.textContent = '';
+            cookieSuccessElement.classList.remove('fully-hidden');
+            window.setTimeout(() => {
+                cookieSuccessTextElement.textContent = cookieSuccessTextElement.dataset.content;
+            }, 0);
 
             // hide cookie notice
             const cookieNotice = document.querySelector('#cookie-notice');

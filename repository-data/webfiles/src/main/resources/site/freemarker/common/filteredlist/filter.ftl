@@ -14,7 +14,7 @@
 
         <div class="ds_skip-links  ds_skip-links--static">
             <ul class="ds_skip-links__list">
-                <li class="ds_skip-links__item"><a class="ds_skip-links__link" href="#search-results">Skip to results</a></li>
+                <li class="ds_skip-links__item"><a class="ds_skip-links__link" href="#search-results-list">Skip to results</a></li>
             </ul>
         </div>
 
@@ -34,7 +34,7 @@
                         </button>
                     </div>
                 </fieldset>
-                <h3 class="ds_search-filters__title  ds_h4  ds_!_padding-top--0">Filter by</h3>
+                <h2 class="ds_search-filters__title  ds_h4  ds_!_padding-top--0">Filter by</h2>
 
                 <div class="ds_accordion  ds_accordion--small  ds_!_margin-top--0" data-module="ds-accordion">
 
@@ -180,9 +180,9 @@
                             <div class="ds_question">
                                 <div data-module="ds-datepicker" class="ds_datepicker" id="fromDatePicker">
                                     <label class="ds_label  ds_no-margin--bottom" for="date-from">Updated after</label>
-                                    <p class="ds_hint-text  ds_!_margin-bottom--1">For example, 21/01/2024</p>
+                                    <p id="hint-date-from" class="ds_hint-text  ds_!_margin-bottom--1">For example, 21/01/2024</p>
                                     <div class="ds_input__wrapper">
-                                        <input value="<#if search.fromDate??>${search.fromDate}</#if>" name="begin" id="date-from" class="ds_input  ds_input--fixed-10" type="text">
+                                        <input aria-describedby="hint-date-from" value="<#if search.fromDate??>${search.fromDate}</#if>" name="begin" id="date-from" class="ds_input  ds_input--fixed-10" type="text">
                                     </div>
                                 </div>
                             </div>
@@ -190,9 +190,9 @@
                             <div class="ds_question">
                                 <div data-module="ds-datepicker" class="ds_datepicker" id="toDatePicker">
                                     <label class="ds_label  ds_no-margin--bottom" for="date-to">Updated before</label>
-                                    <p class="ds_hint-text  ds_!_margin-bottom--1">For example, 21/01/2024</p>
+                                    <p id="hint-date-to" class="ds_hint-text  ds_!_margin-bottom--1">For example, 21/01/2024</p>
                                     <div class="ds_input__wrapper">
-                                        <input value="<#if search.toDate??>${search.toDate}</#if>" name="end" id="date-to" class="ds_input  ds_input--fixed-10" type="text">
+                                        <input aria-describedby="hint-date-to" value="<#if search.toDate??>${search.toDate}</#if>" name="end" id="date-to" class="ds_input  ds_input--fixed-10" type="text">
                                     </div>
                                 </div>
                             </div>

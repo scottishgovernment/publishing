@@ -2,7 +2,7 @@
 <#if showFilters>
 <div class="ds_skip-links  ds_skip-links--static">
     <ul class="ds_skip-links__list">
-        <li class="ds_skip-links__item"><a class="ds_skip-links__link" href="#search-results">Skip to results</a></li>
+        <li class="ds_skip-links__item"><a class="ds_skip-links__link" href="#search-results-list">Skip to results</a></li>
     </ul>
 </div>
 

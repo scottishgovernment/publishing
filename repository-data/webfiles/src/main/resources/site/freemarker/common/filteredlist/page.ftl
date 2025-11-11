@@ -22,8 +22,16 @@
                 <@hst.include ref="side-filter"/>
             </div>
 
+            <#if document.title == "Search">
+                <#assign ariaLabel = 'Search results'/>
+            <#elseif document.title == "Search results">
+                <#assign ariaLabel = 'Search results'/>
+            <#else>
+                <#assign ariaLabel = document.title + ' search results'/>
+            </#if>
+
             <div class="ds_layout__list">
-                <section class="ds_search-results">
+                <section role="region" aria-label="${ariaLabel}" class="ds_search-results">
                     <@hst.include ref="results"/>
                 </section>
             </div>
