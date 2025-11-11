@@ -451,7 +451,7 @@
                 </div>
 
                 <div class="ds_file-download__content">
-                    <a href="${documentinline}" class="ds_file-download__title" id="file-title-${docCount}" aria-describedby="file-download-{$docCount}">${doc.title}</a>
+                    <a href="${documentinline}" class="ds_file-download__title" id="file-title-${docCount}" aria-describedby="file-download-${docCount}">${doc.title}</a>
                     <div <@revertlang document /> id="file-download-${docCount}" class="ds_file-download__details">
                         <dl class="ds_metadata  ds_metadata--inline">
                             <div class="ds_metadata__item">
