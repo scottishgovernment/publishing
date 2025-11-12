@@ -18,23 +18,23 @@ public class HealthResource {
         EventbriteError error = EventbriteStatusTracker.getLastError();
         Instant lastSuccess = EventbriteStatusTracker.getLastSuccess();
         Health health = new Health();
-        health.setStatus(status(error));
+        health.setStatus(status(error, lastSuccess));
         health.setPerformanceData(performanceData(error, lastSuccess));
         health.setMessage(health.getStatus() == NagiosStatus.OK ? lastSucessString(lastSuccess) : error.lastError());
         return health;
     }
 
-    NagiosStatus status(EventbriteError error) {
-        if (error != null && isRecent(error)) {
+    NagiosStatus status(EventbriteError error, Instant lastSuccess) {
+        if (error == null) {
+            return NagiosStatus.OK;
+        }
+
+        if (lastSuccess == null || error.timestamp().isAfter(lastSuccess)) {
             return NagiosStatus.CRITICAL;
         }
+
         return NagiosStatus.OK;
     }
-
-    boolean isRecent(EventbriteError error) {
-        return !error.timestamp().isBefore(Instant.now().minusSeconds(5 * 60));
-    }
-
 
     String performanceData(EventbriteError error, Instant lastSuccess) {
         return String.format("%s, last error: %s",
