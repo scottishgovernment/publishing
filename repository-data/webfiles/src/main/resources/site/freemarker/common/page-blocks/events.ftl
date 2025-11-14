@@ -5,7 +5,7 @@
     <div class="ds_pb  ds_pb--link-list ds_!_padding-bottom--0">
         <div class="ds_wrapper">
             <div class="ds_pb__inner">
-                <h2>Events</h2>
+                <h2>${title}</h2>
                 <#if errorState>
                     <p>Sorry, events are not loading right now.</p>
                 <#else>
