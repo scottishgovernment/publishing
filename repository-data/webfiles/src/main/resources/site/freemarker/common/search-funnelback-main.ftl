@@ -40,6 +40,7 @@
                 <section role="region" aria-label="${ariaLabel}" class="ds_search-results">
                     <@hst.include ref="results"/>
                 </section>
+                <div id="search-results-status" aria-live="polite" aria-atomic="true" class="visually-hidden  js-search-results-status"></div>
             </div>
 
             <@hst.include ref="feedback"/>

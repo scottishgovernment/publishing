@@ -19,6 +19,8 @@ class LandingFilters {
         this.resultsContainer = document.querySelector('.ds_search-results');
 
         this.timeoutDelay = 500;
+
+        this.tempToggleCharacter = '';
     }
 
     init() {
@@ -230,25 +232,26 @@ class LandingFilters {
                 tempContainer.innerHTML = data.response;
 
                 if (!!tempContainer.querySelector('.ds_search-results')) {
-                    const resultsTitleElement = this.resultsContainer.querySelector('.ds_search-results__title');
-                    const resultsControlsElement = this.resultsContainer.querySelector('.ds_search-controls');
-                    const resultsListElement = this.resultsContainer.querySelector('.ds_search-results__list');
-                    const resultsPaginationElement = this.resultsContainer.querySelector('.ds_pagination');
-                    if (resultsTitleElement) {
-                        resultsTitleElement.innerHTML = tempContainer.querySelector('.ds_search-results__title').innerHTML;
-                    }
-                    if (resultsControlsElement) {
-                        resultsControlsElement.innerHTML = tempContainer.querySelector('.ds_search-controls').innerHTML;
-                    }
-                    if (resultsListElement) {
-                        resultsListElement.innerHTML = tempContainer.querySelector('.ds_search-results__list').innerHTML;
-                    }
-                    if (resultsPaginationElement) {
-                        resultsPaginationElement.innerHTML = tempContainer.querySelector('.ds_pagination').innerHTML;
-                    }
-                } else {
-                    this.resultsContainer.innerHTML = tempContainer.innerHTML;
+                    this.resultsContainer.innerHTML = tempContainer.querySelector('.ds_search-results').innerHTML;
                 }
+
+                const hasSearchResults = !!tempContainer.querySelector('.ds_search-results__list');
+                const searchResultsStatusElement = document.querySelector('.js-search-results-status');
+                let statusText;
+
+                if (hasSearchResults) {
+                    statusText = tempContainer.querySelector('.ds_search-results__title').innerHTML;
+                } else {
+                    statusText = 'There are no matching results';
+                }
+
+                if (this.tempToggleCharacter.length) {
+                    this.tempToggleCharacter = '';
+                } else {
+                    this.tempToggleCharacter = '.';
+                }
+
+                searchResultsStatusElement.textContent = statusText + this.tempToggleCharacter;
 
                 // enable containers
                 containersToDisable.forEach(container => container.classList.remove('js-disabled-search'));
