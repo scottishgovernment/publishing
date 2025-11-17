@@ -4,7 +4,9 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
+import scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent;
 import scot.gov.publishing.hippo.funnelback.component.SearchBuilder;
+import scot.gov.publishing.hippo.funnelback.component.SearchSettings;
 
 import java.util.*;
 
@@ -41,6 +43,7 @@ public class FilteredResultsSideComponent extends EssentialsContentComponent {
         request.setAttribute("accessibilityFeaturesMap", accessibilityFeaturesMap);
         request.setAttribute("includeAccessibilityFeatures", info.getIncludeAccessibilityFeatures());
 
-        request.setAttribute("showFilters", true);
+        SearchSettings searchSettings = ResilientSearchComponent.searchSettings();
+        request.setAttribute("showFilters", searchSettings.isShowFilters());
     }
 }
