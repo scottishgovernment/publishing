@@ -205,7 +205,7 @@
                     <input type="checkbox" class="visually-hidden  ds_accordion-item__control" id="panel-4" aria-labelledby="panel-4-heading" />
                     <div class="ds_accordion-item__header">
                         <h3 id="panel-4-heading" class="ds_accordion-item__title">
-                            Languages
+                            Language
                             <div class="ds_search-filters__filter-count">
                                 <#assign count = 0/>
                                 <#list languagesMap?keys as item>

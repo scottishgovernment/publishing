@@ -117,7 +117,7 @@
                 <#if filterButtons.accessibilityFeatures?? && filterButtons.accessibilityFeatures?size gt 0>
                     <div class="ds_facet-group">
                         <dt class="ds_facet__group-title">
-                            Accessibility features:
+                            Accessibility:
                         </dt>
                         <#list filterButtons.accessibilityFeatures as item>
                             <dd class="ds_facet-wrapper">
