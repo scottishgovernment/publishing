@@ -38,6 +38,7 @@
 
     <@hst.include ref="seo"/>
     <body <#if document?? && document.sensitive?? &&document.sensitive>class="ds_has-hide-page"</#if>>
+    <h1>HERE</h1>
         <input type="hidden" id="br-webfile-path" value="<@hst.webfile path="/"/>" />
         <input type="hidden" id="site-root-path" value="<@hst.link path="/"/>" />
 
@@ -68,7 +69,17 @@
 
             <div class="ds_page__middle">
                 <main id="main-content">
+
                     <@hst.include ref="main"/>
+
+                    <div class="ds_wrapper">
+                        <div class="ds_layout  ds_layout--category-list">
+
+                            <div class="ds_layout  ds_layout--category-list">
+                                <@hst.include ref="feedback"/>
+                            </div>
+                        </div>
+                    </div>
                 </main>
             </div>
 

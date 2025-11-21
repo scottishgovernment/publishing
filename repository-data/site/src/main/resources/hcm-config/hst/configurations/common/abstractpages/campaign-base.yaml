@@ -51,3 +51,6 @@ definitions:
         hst:componentclassname: scot.mygov.publishing.components.SiteVerificationComponent
         hst:suppresswastemessage: true
         hst:template: site-verification
+      /feedback:
+        jcr:primaryType: hst:component
+        hst:referencecomponent: hst:components/feedback
