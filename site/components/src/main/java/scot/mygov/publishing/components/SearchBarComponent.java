@@ -36,7 +36,7 @@ public class SearchBarComponent extends BaseHstComponent {
      * determine if auto complete should be used for search bars
      */
     static void populateAutoCompleteFlag(HstRequest request) {
-        SearchSettings searchSettings = ResilientSearchComponent.searchSettings();
+        SearchSettings searchSettings = SearchSettings.searchSettings();
         request.setAttribute("autoCompleteEnabled", autoCompleteEnabled(searchSettings, request));
     }
 
@@ -49,7 +49,7 @@ public class SearchBarComponent extends BaseHstComponent {
      * determine if the search is enabled
      */
     static void populateSearchEnabledFlag(HstRequest request) {
-        SearchSettings searchSettings = ResilientSearchComponent.searchSettings();
+        SearchSettings searchSettings = SearchSettings.searchSettings();
         request.setAttribute("searchEnabled", searchEnabled(searchSettings, request));
     }
 

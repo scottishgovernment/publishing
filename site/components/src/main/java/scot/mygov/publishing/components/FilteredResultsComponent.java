@@ -35,7 +35,7 @@ import static java.util.Collections.emptyMap;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
-import static scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent.searchSettings;
+import static scot.gov.publishing.hippo.funnelback.component.SearchSettings.searchSettings;
 import static scot.mygov.publishing.components.ConstraintUtils.fieldConstraints;
 
 @ParametersInfo(type = FilteredResultsComponentInfo.class)

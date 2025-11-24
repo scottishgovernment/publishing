@@ -43,7 +43,7 @@ public class FilteredResultsSideComponent extends EssentialsContentComponent {
         request.setAttribute("accessibilityFeaturesMap", accessibilityFeaturesMap);
         request.setAttribute("includeAccessibilityFeatures", info.getIncludeAccessibilityFeatures());
 
-        SearchSettings searchSettings = ResilientSearchComponent.searchSettings();
+        SearchSettings searchSettings = SearchSettings.searchSettings();
         request.setAttribute("showFilters", searchSettings.isShowFilters());
     }
 }
