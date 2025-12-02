@@ -27,7 +27,7 @@
             <bean class="org.onehippo.cms7.crisp.core.resource.SpringResourceDataCache">
                 <constructor-arg>
                     <bean class="org.springframework.cache.caffeine.CaffeineCache" factory-bean="caffeineCacheInstanceFactory" factory-method="createSpringCacheInstance">
-                        <constructor-arg value="demomarketoCache" />
+                        <constructor-arg value="funnelbackCache" />
                         <constructor-arg value="initialCapacity=10,maximumSize=1000,expireAfterWrite=100s,expireAfterAccess=100s" />
                     </bean>
                 </constructor-arg>
@@ -59,7 +59,7 @@
             <bean class="org.onehippo.cms7.crisp.core.resource.SpringResourceDataCache">
                 <constructor-arg>
                     <bean class="org.springframework.cache.caffeine.CaffeineCache" factory-bean="caffeineCacheInstanceFactory" factory-method="createSpringCacheInstance">
-                        <constructor-arg value="demomarketoCache" />
+                        <constructor-arg value="funnelbackDXPCache" />
                         <constructor-arg value="initialCapacity=10,maximumSize=1000,expireAfterWrite=100s,expireAfterAccess=100s" />
                     </bean>
                 </constructor-arg>
