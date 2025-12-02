@@ -4,7 +4,6 @@ import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.configuration.components.HstComponentConfiguration;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent;
 import scot.gov.publishing.hippo.funnelback.component.SearchSettings;
 import scot.mygov.publishing.channels.WebsiteInfo;
 

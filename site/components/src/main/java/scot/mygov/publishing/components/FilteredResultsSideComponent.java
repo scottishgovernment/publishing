@@ -4,7 +4,6 @@ import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
-import scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent;
 import scot.gov.publishing.hippo.funnelback.component.SearchBuilder;
 import scot.gov.publishing.hippo.funnelback.component.SearchSettings;
 
