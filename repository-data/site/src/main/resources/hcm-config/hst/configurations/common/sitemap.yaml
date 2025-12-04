@@ -399,9 +399,13 @@ definitions:
         /_default_:
           jcr:primaryType: hst:sitemapitem
           hst:sitemapitemhandlerids: [trailing-slash]
+          hst:relativecontentpath: site-furniture/status/404
+          hst:componentconfigurationid: hst:pages/pagenotfound
           /_default_:
             jcr:primaryType: hst:sitemapitem
             hst:sitemapitemhandlerids: [trailing-slash]
+            hst:relativecontentpath: site-furniture/status/404
+            hst:componentconfigurationid: hst:pages/pagenotfound
             /_default_:
               jcr:primaryType: hst:sitemapitem
               hst:sitemapitemhandlerids: [trailing-slash]
