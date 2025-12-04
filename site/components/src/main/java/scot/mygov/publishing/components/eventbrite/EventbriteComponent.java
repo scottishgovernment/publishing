@@ -48,7 +48,6 @@ public class EventbriteComponent extends CommonComponent {
         EventsComponentInfo paramInfo = getComponentParametersInfo(request);
         request.setAttribute(SHOW_IMAGES, paramInfo.getShowImages());
         request.setAttribute(TITLE, paramInfo.getTitle());
-        request.setAttribute(ORGANIZATION_ID, paramInfo.getOrganisationId());
         if (isBlank(paramInfo.getOrganisationId())) {
             populateEmptyRequest(request, false);
             return;
@@ -77,13 +76,16 @@ public class EventbriteComponent extends CommonComponent {
 
     void populateEmptyRequest(HstRequest request, boolean error) {
         request.setAttribute(EVENTS, emptyList());
+        request.setAttribute(ORGANIZATION_ID, "");
         request.setAttribute(TOTAL, 0);
         request.setAttribute(ERROR_STATE, error);
     }
 
     void populateRequest(HstRequest request, EventbriteResults eventbriteResults) {
         List<Event> events = eventbriteResults.getEvents().stream().map(this::toEvent).collect(Collectors.toList());
+        String organizerId = events.isEmpty() ? "" : eventbriteResults.getEvents().get(0).getOrganizerId();
         request.setAttribute(EVENTS, events);
+        request.setAttribute(ORGANIZATION_ID, organizerId);
         request.setAttribute(TOTAL, eventbriteResults.getPagination().getObjectCount());
         request.setAttribute(ERROR_STATE, false);
     }
