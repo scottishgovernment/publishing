@@ -8,7 +8,7 @@ import org.hippoecm.hst.core.parameters.Parameter;
 @FieldGroupList({
         @FieldGroup(
                 titleKey = "Eventbrite",
-                value = { "organisationId" }
+                value = { "organisationId", "organizerId" }
         ),
         @FieldGroup(
                 titleKey = "Appearance",
@@ -19,6 +19,9 @@ public interface EventsComponentInfo {
 
     @Parameter(name = "organisationId", displayName = "Organisation ID")
     String getOrganisationId();
+
+    @Parameter(name = "organizerId", displayName = "Organizer ID")
+    String getOrganizerId();
 
     @Parameter(name = "title", displayName = "Title", defaultValue = "Events")
     String getTitle();
