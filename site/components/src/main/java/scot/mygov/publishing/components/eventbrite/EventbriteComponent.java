@@ -1,5 +1,7 @@
 package scot.mygov.publishing.components.eventbrite;
 
+import io.github.resilience4j.circuitbreaker.CircuitBreaker;
+import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -18,6 +20,7 @@ import scot.mygov.publishing.components.eventbrite.model.EventbriteResults;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static java.util.Collections.emptyList;
@@ -42,6 +45,31 @@ public class EventbriteComponent extends CommonComponent {
 
     private static final String URL_TEMPLATE = "/v3/organizations/{org}/events/?order_by=start_asc&page_size={count}&time_filter=current_future&status=live";
 
+    CircuitBreakerConfig config = CircuitBreakerConfig.custom()
+            // % of failures to open circuit
+            .failureRateThreshold(50)
+
+            // use number of requests rather than time
+            .slidingWindowType(CircuitBreakerConfig.SlidingWindowType.COUNT_BASED)
+
+            // last N calls are used to calculate the percentage, since we cache for 25 mins I think this should be fairly low
+            .slidingWindowSize(6)
+
+            // the default for this is 100 ... we will be making low number of requests and so this needs to be low
+            .minimumNumberOfCalls(6)
+
+            // how long to go from open to half open
+            // so if we get a failure it will wait a minute before going to half open
+            .waitDurationInOpenState(java.time.Duration.ofSeconds(60))
+
+            // How many “test” calls in HALF_OPEN
+            .permittedNumberOfCallsInHalfOpenState(1)
+
+            .build();
+
+    CircuitBreaker circuitBreaker =
+            CircuitBreaker.of("eventbriteCircuitBreaker", config);
+
     @Override
     public void doBeforeRender(HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
@@ -54,18 +82,33 @@ public class EventbriteComponent extends CommonComponent {
             return;
         }
 
-        try {
-            ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
-            Resource results = broker.resolve("eventbrite", URL_TEMPLATE, paramMap(paramInfo));
-            ResourceBeanMapper resourceBeanMapper = broker.getResourceBeanMapper("eventbrite");
-            EventbriteResults eventbriteResults = resourceBeanMapper.map(results, EventbriteResults.class);
-            populateRequest(request, eventbriteResults);
+        EventbriteResults results = getEventbriteResults(paramInfo);
+        if (results == null) {
+            populateEmptyRequest(request, true);
+        } else {
+            populateRequest(request, results);
             EventbriteStatusTracker.recordSuccess();
+        }
+    }
+
+
+    public EventbriteResults getEventbriteResults(EventsComponentInfo paramInfo) {
+        Supplier<EventbriteResults> decoratedSupplier =
+                CircuitBreaker.decorateSupplier(circuitBreaker, () -> doGetEventbriteResults(paramInfo));
+        try {
+            return decoratedSupplier.get();     // executes with circuit breaker
         } catch (ResourceException e) {
             LOG.error("Failed to fetch events", e);
             EventbriteStatusTracker.recordError(e);
-            populateEmptyRequest(request, true);
+            return new EventbriteResults();                // simple Java fallback
         }
+    }
+
+    EventbriteResults doGetEventbriteResults(EventsComponentInfo paramInfo) {
+        ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
+        Resource results = broker.resolve("eventbrite", URL_TEMPLATE, paramMap(paramInfo));
+        ResourceBeanMapper resourceBeanMapper = broker.getResourceBeanMapper("eventbrite");
+        return resourceBeanMapper.map(results, EventbriteResults.class);
     }
 
     Map<String, Object> paramMap(EventsComponentInfo paramInfo) {
