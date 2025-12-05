@@ -1,5 +1,8 @@
 package scot.mygov.publishing.components.eventbrite;
 
+import io.github.resilience4j.circuitbreaker.CircuitBreaker;
+import io.github.resilience4j.circuitbreaker.CircuitBreakerConfig;
+import io.vavr.control.Try;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -18,11 +21,20 @@ import scot.mygov.publishing.components.eventbrite.model.EventbriteResults;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import static java.util.Collections.emptyList;
 import static org.apache.commons.lang.StringUtils.isBlank;
 
+/***
+ * is crisp caching errors or not?
+ * change code to ensure all calls use same circuit breaker
+ * make sure the fallback is operative
+ * improve the logging so we can see when the circuit opens and closes
+ * always request 9 amd chop it down?
+ * do some prqctical testing - fake server / block connection to eventbrite
+ */
 @ParametersInfo(type = EventsComponentInfo.class)
 public class EventbriteComponent extends CommonComponent {
 
@@ -44,6 +56,8 @@ public class EventbriteComponent extends CommonComponent {
 
     private static final String URL_TEMPLATE = "/v3/organizations/{org}/events/?order_by=start_asc&page_size={count}&time_filter=current_future&status=live";
 
+
+
     @Override
     public void doBeforeRender(HstRequest request, final HstResponse response) {
         super.doBeforeRender(request, response);
@@ -57,18 +71,34 @@ public class EventbriteComponent extends CommonComponent {
             return;
         }
 
-        try {
-            ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
-            Resource results = broker.resolve("eventbrite", URL_TEMPLATE, paramMap(paramInfo));
-            ResourceBeanMapper resourceBeanMapper = broker.getResourceBeanMapper("eventbrite");
-            EventbriteResults eventbriteResults = resourceBeanMapper.map(results, EventbriteResults.class);
-            populateRequest(request, eventbriteResults);
+        EventbriteResults results = getEventbriteResults(paramInfo);
+        if (results == null) {
+            populateEmptyRequest(request, true);
+        } else {
+            populateRequest(request, results);
             EventbriteStatusTracker.recordSuccess();
+        }
+    }
+
+
+    public EventbriteResults getEventbriteResults(EventsComponentInfo paramInfo) {
+        Supplier<EventbriteResults> decoratedSupplier =
+                CircuitBreaker.decorateSupplier(circuitBreaker, () -> doGetEventbriteResults(paramInfo));
+        try {
+            return Try.ofSupplier(decoratedSupplier)
+                    .recover(throwable -> new EventbriteResults()).get();
         } catch (ResourceException e) {
             LOG.error("Failed to fetch events", e);
             EventbriteStatusTracker.recordError(e);
-            populateEmptyRequest(request, true);
+            return new EventbriteResults();                // simple Java fallback
         }
+    }
+
+    EventbriteResults doGetEventbriteResults(EventsComponentInfo paramInfo) {
+        ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
+        Resource results = broker.resolve("eventbrite", URL_TEMPLATE, paramMap(paramInfo));
+        ResourceBeanMapper resourceBeanMapper = broker.getResourceBeanMapper("eventbrite");
+        return resourceBeanMapper.map(results, EventbriteResults.class);
     }
 
     Map<String, Object> paramMap(EventsComponentInfo paramInfo) {

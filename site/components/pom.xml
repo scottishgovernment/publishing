@@ -87,6 +87,18 @@
       <artifactId>hippo-plugin-selections-hst-client</artifactId>
     </dependency>
 
+    <dependency>
+        <groupId>io.github.resilience4j</groupId>
+        <artifactId>resilience4j-circuitbreaker</artifactId>
+        <version>2.2.0</version>
+    </dependency>
+
+    <dependency>
+        <groupId>io.vavr</groupId>
+        <artifactId>vavr</artifactId>
+        <version>0.10.4</version>
+    </dependency>
+
     <!-- Test dependencies -->
     <dependency>
       <groupId>junit</groupId>
