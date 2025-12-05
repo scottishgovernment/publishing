@@ -21,7 +21,7 @@ definitions:
       jcr:primaryType: hipposched:repositoryjob
       hipposched:attributeNames: [ pollPaths, collections ]
       hipposched:attributeValues: [ '/admin-api/curator/v2/collections/govscot~sp-mygov/profiles/search/curator/,/admin-api/curator/v2/collections/govscot~sp-design-system/profiles/search/curator/,/admin-api/curator/v2/collections/govscot~sp-servicemanual/profiles/search/curator/',
-                                    'mygov,design-system,servicemanual']
+                                    'mygov,designsystem,servicemanual']
       hipposched:enabled: true
       hipposched:repositoryJobClass: scot.gov.publishing.hippo.funnelback.scheduler.PollFunnelbackCurator
       /hipposched:triggers:
