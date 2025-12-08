@@ -150,13 +150,11 @@ class LandingFilters {
             this.doSearch(undefined, true);
         });
 
-        window.addEventListener('popstate', event => {
-            if (event.state) {
-                const resultsUrl = window.location.href;
-                this.isPopstate = true;
-                this.syncFiltersToUrl();
-                this.doSearch(resultsUrl);
-            }
+        window.addEventListener('popstate', () => {
+            const resultsUrl = window.location.href;
+            this.isPopstate = true;
+            this.syncFiltersToUrl();
+            this.doSearch(resultsUrl, false);
         });
     }
 
@@ -182,6 +180,8 @@ class LandingFilters {
         const targetHref = linkElement.href;
 
         this.doSearch(targetHref);
+
+        document.querySelector('.ds_layout__list').scrollIntoView();
     }
 
     convertUrl(url, newSearch) {
