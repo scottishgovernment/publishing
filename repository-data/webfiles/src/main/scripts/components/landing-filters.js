@@ -236,11 +236,12 @@ class LandingFilters {
                 }
 
                 const hasSearchResults = !!tempContainer.querySelector('.ds_search-results__list');
+                const tempSearchResultsTitleElement = tempContainer.querySelector('.ds_search-results__title');
                 const searchResultsStatusElement = document.querySelector('.js-search-results-status');
                 let statusText;
 
-                if (hasSearchResults) {
-                    statusText = tempContainer.querySelector('.ds_search-results__title').innerHTML;
+                if (hasSearchResults && tempSearchResultsTitleElement) {
+                    statusText = tempSearchResultsTitleElement.innerHTML;
                 } else {
                     statusText = 'There are no matching results';
                 }

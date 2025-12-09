@@ -2,6 +2,11 @@
 <#include "include/imports.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
+<#function humanDate date>
+<#assign splitDate = date?split('-')/>
+<#assign formattedDate>${splitDate[2]}/${splitDate[1]}/${splitDate[0]}</#assign>
+<#return formattedDate />
+</#function>
 
 <#if showFilters>
 <div class="ds_layout__sidebar">
@@ -170,7 +175,7 @@
                                         <label class="ds_label  ds_no-margin--bottom" for="date-from">Updated after</label>
                                         <p id="hint-date-form" class="ds_hint-text  ds_!_margin-bottom--1">For example, 21/01/2024</p>
                                         <div class="ds_input__wrapper">
-                                            <input aria-describedby="hint-date-from" value="<#if search.fromDate??>${search.fromDate}</#if>" name="begin" id="date-from" class="ds_input  ds_input--fixed-10" type="text">
+                                            <input aria-describedby="hint-date-from" value="<#if search.fromDate??>${humanDate(search.fromDate)}</#if>" name="begin" id="date-from" class="ds_input  ds_input--fixed-10" type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -180,7 +185,7 @@
                                         <label class="ds_label  ds_no-margin--bottom" for="date-to">Updated before</label>
                                         <p id="hint-date-to" class="ds_hint-text  ds_!_margin-bottom--1">For example, 21/01/2024</p>
                                         <div class="ds_input__wrapper">
-                                            <input aria-describedby="hint-date-to" value="<#if search.toDate??>${search.toDate}</#if>" name="end" id="date-to" class="ds_input  ds_input--fixed-10" type="text">
+                                            <input aria-describedby="hint-date-to" value="<#if search.toDate??>${humanDate(search.toDate)}</#if>" name="end" id="date-to" class="ds_input  ds_input--fixed-10" type="text">
                                         </div>
                                     </div>
                                 </div>
