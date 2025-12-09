@@ -66,7 +66,8 @@
         </#if>
 
         <#if (response.resultPacket.resultsSummary.totalMatching)!?has_content &&
-        response.resultPacket.resultsSummary.totalMatching &gt; 0>
+            (response.resultPacket.resultsSummary.totalMatching &gt; 0 || response.curator.advertExhibits?size &gt; 0)
+        >
             <h2 class="ds_search-results__title">
                 <#if response.resultPacket.resultsSummary.totalMatching <= response.resultPacket.resultsSummary.numRanks ||
                 response.resultPacket.resultsSummary.currStart <= response.resultPacket.resultsSummary.numRanks >
