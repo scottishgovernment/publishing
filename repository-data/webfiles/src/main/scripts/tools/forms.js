@@ -651,8 +651,14 @@ const commonForms = {
             }
         });
 
-        commonForms.toggleFormErrors(container, valid, 'invalid-minimum-one-checkbox', title, message);
-        commonForms.toggleCurrentErrors(container, valid, 'invalid-minimum-one-checkbox', message);
+        let containerToBeUsedByError = container;
+
+        if (container.nodeName !== 'FIELDSET' && container.closest('fieldset')) {
+            containerToBeUsedByError = container.closest('fieldset');
+        }
+
+        commonForms.toggleFormErrors(containerToBeUsedByError, valid, 'invalid-minimum-one-checkbox', title, message);
+        commonForms.toggleCurrentErrors(containerToBeUsedByError, valid, 'invalid-minimum-one-checkbox', message);
 
         return valid;
     },
