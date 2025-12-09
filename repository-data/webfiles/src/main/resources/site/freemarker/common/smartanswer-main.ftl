@@ -75,7 +75,7 @@
                             <#else>
                                 <#assign questionType = 'checkboxes' />
                             </#if>
-                            <section class="mg_smart-answer__question  mg_smart-answer__step" data-type="${questionType}" id="step-${question.name}">
+                            <section data-format="smartanswer-question" class="mg_smart-answer__question  mg_smart-answer__step" data-type="${questionType}" id="step-${question.name}">
 
                                 <#if questionType == 'confirm' || questionType == 'confirmcheckbox'>
                                     <#assign fieldsetElName = 'div'/>
@@ -198,7 +198,7 @@
                         </#list>
 
                         <#list answers as answer>
-                            <section class="mg_smart-answer__answer  mg_smart-answer__step" id="step-${answer.name}" <#if answer.eligible><#else>data-ineligible="true"</#if>>
+                            <section data-format="smartanswer-resolution" class="mg_smart-answer__answer  mg_smart-answer__step" id="step-${answer.name}" <#if answer.eligible><#else>data-ineligible="true"</#if>>
                                 <header class="ds_page-header">
                                     <span aria-hidden="true" class="mg_smart-answer__parent-title"><span class="visually-hidden">Part of:</span> <span class="js-parent-title">${document.title}</span></span>
                                     <h1 class="ds_page-header__title  mg_smart-answer__step-title  js-question-title">

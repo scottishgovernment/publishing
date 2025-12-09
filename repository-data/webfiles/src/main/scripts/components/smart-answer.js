@@ -24,40 +24,14 @@ class SmartAnswer {
         this.trackVirtualPageviews = true;
 
         this.container.addEventListener('click', (event) => {
-
             if (event.target.classList.contains('js-next-button')) {
                 event.preventDefault();
 
                 /// the user has pressed next ... either get the value from a list or a radio button
                 const stepContainer = event.target.closest('.mg_smart-answer__step');
-                const responses = this.getResponsesFromUrl();
-
-                let selectedOption;
-                let newResponse;
 
                 if (this.validateStep(stepContainer)) {
-                    switch (stepContainer.dataset.type) {
-                        case 'radiobuttons':
-                            selectedOption = stepContainer.querySelector("input[type='radio']:checked");
-                            newResponse = selectedOption.value;
-                            break;
-                        case 'checkboxes':
-                            let selectedOptions = [].slice.call(stepContainer.querySelectorAll("input[type='checkbox']:checked"));
-                            newResponse = selectedOptions.map(item => item.value).join(':');
-                            break;
-                        case 'dropdown':
-                            selectedOption = stepContainer.querySelector("select");
-                            newResponse = selectedOption[selectedOption.selectedIndex].value;
-                            break;
-                        case 'confirm':
-                        case 'confirmcheckbox':
-                            newResponse = 'confirm';
-                            break;
-                    }
-
-                    responses.push(newResponse);
-
-                    history.pushState('', '', this.buildUrl(responses));
+                    history.pushState('', '', this.getDestinationUrl());
                     this.goToPageFromUrl();
                 } else {
                     this.showErrorSummary();
@@ -85,6 +59,19 @@ class SmartAnswer {
         this.window.addEventListener('popstate', () => {
             this.goToPageFromUrl();
         });
+
+        // MGS-8196
+        this.addAnalyticsProperties();
+    }
+
+    addAnalyticsProperties() {
+        const inputs = [].slice.call(this.container.querySelectorAll('.ds_radio__input, .ds_checkbox__input, .ds_select'));
+        inputs.forEach(input => {
+            input.addEventListener('change', event => {
+                const nextButton = event.target.closest('.mg_smart-answer__step').querySelector('.js-next-button');
+                nextButton.dataset.href = this.getDestinationUrl();
+            });
+        });
     }
 
     buildUrl(answers) {
@@ -102,6 +89,37 @@ class SmartAnswer {
     clearErrorSummary() {
         const errorSummaryItems = [].slice.call(this.errorSummary.querySelectorAll('.ds_error-summary__list li'));
         errorSummaryItems.forEach(item => item.parentNode.removeChild(item));
+    }
+
+    getDestinationUrl() {
+        const stepContainer = document.querySelector('.mg_smart-answer__step--current');
+        const responses = this.getResponsesFromUrl();
+
+        let selectedOption;
+        let newResponse;
+
+        switch (stepContainer.dataset.type) {
+            case 'radiobuttons':
+                selectedOption = stepContainer.querySelector("input[type='radio']:checked");
+                if (selectedOption) { newResponse = selectedOption.value; }
+                break;
+            case 'checkboxes':
+                let selectedOptions = [].slice.call(stepContainer.querySelectorAll("input[type='checkbox']:checked"));
+                newResponse = selectedOptions.map(item => item.value).join(':');
+                break;
+            case 'dropdown':
+                selectedOption = stepContainer.querySelector("select");
+                newResponse = selectedOption[selectedOption.selectedIndex].value;
+                break;
+            case 'confirm':
+            case 'confirmcheckbox':
+                newResponse = 'confirm';
+                break;
+        }
+
+        responses.push(newResponse);
+
+        return this.buildUrl(responses);
     }
 
     getResponsesFromUrl() {
@@ -312,6 +330,9 @@ class SmartAnswer {
             }
         });
 
+        // MGS-8196
+        dataLayer.push({ format: this.currentStepElement.dataset.format });
+
         window.history.replaceState({}, '', answerpath);
     }
 
@@ -363,6 +384,11 @@ class SmartAnswer {
         window.DS.tracking.init(answerContainer);
 
         this.doPageTransition(oldStep, step, focus);
+
+        const nextButton = step.querySelector('.js-next-button');
+        if (nextButton) {
+            nextButton.dataset.href = this.getDestinationUrl();
+        }
     }
 
     validateStep() {
