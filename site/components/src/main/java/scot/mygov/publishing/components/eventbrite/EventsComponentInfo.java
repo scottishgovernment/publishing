@@ -12,7 +12,7 @@ import org.hippoecm.hst.core.parameters.Parameter;
         ),
         @FieldGroup(
                 titleKey = "Appearance",
-                value = { "title", "count", "showImages" }
+                value = { "title", "showAllText", "count", "showImages" }
         )
 })
 public interface EventsComponentInfo {
@@ -25,6 +25,9 @@ public interface EventsComponentInfo {
 
     @Parameter(name = "title", displayName = "Title", defaultValue = "Events")
     String getTitle();
+
+    @Parameter(name = "showAllText", displayName = "Show all text", defaultValue = "See all events on Eventbrite")
+    String getShowAllText();
 
     @Parameter(name = "count", displayName = "Count", required = true, defaultValue = "3")
     @DropDownList({"3", "6", "9"})

@@ -41,7 +41,7 @@
                 </#if>
                 <#if organizerId??>
                     <div>
-                        <a href="https://www.eventbrite.co.uk/o/${organizerId}" class="ds_cb__link-major">See all events <svg class="ds_icon" aria-hidden="true" role="img">
+                        <a href="https://www.eventbrite.co.uk/o/${organizerId}" class="ds_cb__link-major">${showAllText} <svg class="ds_icon" aria-hidden="true" role="img">
                             <use href="${iconspath}#chevron_right"></use>
                         </svg></a>
                     </div>

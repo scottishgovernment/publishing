@@ -36,6 +36,8 @@ public class EventbriteComponent extends CommonComponent {
 
     private static final String TITLE = "title";
 
+    private static final String SHOW_ALL_TEXT = "showAllText";
+
     private static final String SHOW_IMAGES = "showImages";
 
     private static final String ERROR_STATE = "errorState";
@@ -48,6 +50,7 @@ public class EventbriteComponent extends CommonComponent {
         EventsComponentInfo paramInfo = getComponentParametersInfo(request);
         request.setAttribute(SHOW_IMAGES, paramInfo.getShowImages());
         request.setAttribute(TITLE, paramInfo.getTitle());
+        request.setAttribute(SHOW_ALL_TEXT, paramInfo.getShowAllText());
         request.setAttribute(ORGANIZER_ID, paramInfo.getOrganizerId());
         if (isBlank(paramInfo.getOrganisationId())) {
             populateEmptyRequest(request, false);
