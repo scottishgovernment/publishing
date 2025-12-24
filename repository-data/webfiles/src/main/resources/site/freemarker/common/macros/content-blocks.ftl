@@ -11,7 +11,7 @@
 
         <#if hst.isNodeType(contentBlock.node, 'publishing:cb_accordion')>
             <#-- accordion block -->
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--noindex-->
             </#if>
 
@@ -43,7 +43,7 @@
                 </#list>
             </div>
 
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--endnoindex-->
             </#if>
             <#-- end accordion block -->
@@ -51,7 +51,7 @@
 
         <#if hst.isNodeType(contentBlock.node, 'publishing:cb_button')>
             <!-- button block -->
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--noindex-->
             </#if>
 
@@ -64,7 +64,7 @@
                 </#if>
             </a>
 
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--endnoindex-->
             </#if>
             <!-- end button block -->
@@ -72,7 +72,7 @@
 
         <#if hst.isNodeType(contentBlock.node, 'publishing:cb_fileDownload')>
             <!-- file download block -->
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--noindex-->
             </#if>
 
@@ -165,27 +165,30 @@
                     </div>
                 </div>
             </div>
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--endnoindex-->
             </#if>
             <!-- end file download block -->
         </#if>
 
-        <#if hst.isNodeType(contentBlock.node, 'publishing:cb_fragment')>
-            <#-- fragment block -->
-            <#if contentBlock.noindex>
-            <!--noindex-->
+        <#if hst.isNodeType(contentBlock.node, 'publishing:cb_fragment') && contentBlock.fragment?? && contentBlock.fragment.contentBlocks??>
+            <#if contentBlock.fragment??>
+                <#-- fragment block -->
+                <#if contentBlock.noindex?? && contentBlock.noindex>
+                <!--noindex-->
+                </#if>
+
+                <@renderContentBlocks contentBlock.fragment.contentBlocks />
+                <#if contentBlock.noindex?? && contentBlock.noindex>
+                <!--endnoindex-->
+                </#if>
+                <#-- end fragment block -->
             </#if>
-            <@renderContentBlocks contentBlock.fragment.contentBlocks />
-            <#if contentBlock.noindex>
-            <!--endnoindex-->
-            </#if>
-            <#-- end fragment block -->
         </#if>
 
         <#if hst.isNodeType(contentBlock.node, 'publishing:cb_image')>
             <!-- image block -->
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--noindex-->
             </#if>
 
@@ -221,7 +224,7 @@
             </#if>
             </#if>
 
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--endnoindex-->
             </#if>
             <!-- end image block -->
@@ -229,7 +232,7 @@
 
         <#if hst.isNodeType(contentBlock.node, 'publishing:cb_laFinder')>
             <#-- LA finder block -->
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--noindex-->
             </#if>
 
@@ -254,7 +257,7 @@
                 </#list>
             </div>
 
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--endnoindex-->
             </#if>
             <#-- end LA finder block -->
@@ -264,7 +267,7 @@
             hst.isNodeType(contentBlock.node, 'publishing:cb_externalservicefinder') ||
             hst.isNodeType(contentBlock.node, 'publishing:cb_internalservicefinder')>
             <#-- service finder block -->
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--noindex-->
             </#if>
 
@@ -314,7 +317,7 @@
                 </div>
             </div>
 
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--endnoindex-->
             </#if>
             <#-- end service finder block -->
@@ -322,11 +325,11 @@
 
         <#if hst.isNodeType(contentBlock.node, 'publishing:cb_richtext')>
             <#-- rich text block -->
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--noindex-->
             </#if>
             <@hst.html hippohtml=contentBlock.content/>
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--endnoindex-->
             </#if>
             <#-- end rich text block -->
@@ -334,7 +337,7 @@
 
         <#if hst.isNodeType(contentBlock.node, 'publishing:document')>
             <#-- rich text block -->
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--noindex-->
             </#if>
 
@@ -469,7 +472,7 @@
 
 
 
-            <#if contentBlock.noindex>
+            <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--endnoindex-->
             </#if>
             <#-- end rich text block -->

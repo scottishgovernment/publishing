@@ -133,11 +133,11 @@
                             <#assign fileThumbnailPath = '/assets/images/documents/svg/generic.svg' />
                     </#switch>
 
-                    <#if doc.noindex>
+                    <#if doc.noindex?? && doc.noindex>
                     <!--noindex-->
                     </#if>
 
-                    <div class="ds_file-download  <#if doc.highlight>ds_file-download--highlighted</#if>">
+                    <div class="ds_file-download  <#if doc.highlight?? && doc.highlight>ds_file-download--highlighted</#if>">
                         <div class="ds_file-download__thumbnail">
                             <a data-button="document-cover" class="ds_file-download__thumbnail-link" aria-hidden="true" tabindex="-1" href="${documentinline}">
                                 <#if filenameExtension == "PDF" && !doc.useGenericIcon && doc.thumbnails?has_content>
@@ -177,7 +177,7 @@
                             </div>
                         </div>
                     </div>
-                    <#if doc.noindex>
+                    <#if doc.noindex?? && doc.noindex>
                     <!--endnoindex-->
                     </#if>
                 </#list>

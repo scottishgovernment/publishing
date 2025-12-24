@@ -162,7 +162,7 @@
                                 <#assign link = link2/>
                             </#if>
                             
-                            <#if contentblock.noindex>
+                            <#if contentblock.noindex?? && contentblock.noindex>
                             <!--noindex-->
                             </#if>
 
@@ -250,7 +250,7 @@
                             </div>
 
                             
-                            <#if contentblock.noindex>
+                            <#if contentblock.noindex?? && contentblock.noindex>
                             <!--endnoindex-->
                             </#if>
                             <!-- end attachment block -->
@@ -291,11 +291,11 @@
 
                         <#if hst.isNodeType(contentblock.node, 'publishing:cb_fragment')>
                             <#-- fragment block -->
-                            <#if contentblock.noindex>
+                            <#if contentblock.noindex?? && contentblock.noindex>
                             <!--noindex-->
                             </#if>
                             <@renderContentBlocks contentblock.fragment.contentBlocks />
-                            <#if contentblock.noindex>
+                            <#if contentblock.noindex?? && contentblock.noindex>
                             <!--endnoindex-->
                             </#if>
                             <#-- end fragment block -->
