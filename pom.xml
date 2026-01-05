@@ -82,6 +82,9 @@
     <hystrix-javanica.version>1.5.12</hystrix-javanica.version>
 
     <log4j2.version>2.23.1</log4j2.version>
+          <sonar.analysis.mode></sonar.analysis.mode>
+
+
   </properties>
 
   <dependencyManagement>
@@ -159,6 +162,12 @@
 
     <pluginManagement>
       <plugins>
+
+        <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>4.0.0.4121</version>
+        </plugin>
 
         <plugin>
           <groupId>org.vafer</groupId>
