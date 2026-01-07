@@ -48,9 +48,10 @@
                                 <h2 class="sector__title">
                                     <a class="sector__link" href="#${orgAndSector.sector.name}" data-gtm="orgs-sector-${orgAndSector?index+1}">${orgAndSector.sector.title}</a>
                                 </h2>
-                                <p class="sector__summary">
+                                <div class="sector__summary">
                                     ${orgAndSector.sector.description}
-                                </p>
+                                </div>
+
                                 <p class="sector__count">
                                     ${orgAndSector.organisations?size}<span class="visually-hidden">organisations in this sector</span>
                                 </p>
