@@ -49,7 +49,7 @@
                                     <a class="sector__link" href="#${orgAndSector.sector.name}" data-gtm="orgs-sector-${orgAndSector?index+1}">${orgAndSector.sector.title}</a>
                                 </h2>
                                 <div class="sector__summary">
-                                    ${orgAndSector.sector.description}
+                                    ${orgAndSector.sector.description?no_esc}
                                 </div>
 
                                 <p class="sector__count">
