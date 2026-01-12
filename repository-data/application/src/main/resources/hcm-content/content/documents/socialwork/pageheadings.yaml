@@ -1,0 +1,29 @@
+/content/documents/socialwork/pageheadings:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named']
+  hippo:name: Page headings
+  hippostd:foldertype: [new-pageheading-document, new-pageheading-folder]
+  /home-page:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    hippo:name: Home page
+    /home-page:
+      jcr:primaryType: publishing:pageheading
+      jcr:mixinTypes: ['mix:versionable']
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-01-15T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2026-01-15T09:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: eb17cf7a-c56d-47b3-bfbd-c1a2ee04f345
+      hippotranslation:locale: en_GB
+      publishing:alt: ''
+      publishing:title: National Social Work Agency
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []

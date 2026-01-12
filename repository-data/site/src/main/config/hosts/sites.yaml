@@ -25,6 +25,9 @@ sites:
  - id: socialsecurity
    feedback: true
    reverse_slash_dns: scot/gov/socialsecurity/www
+ - id: socialwork
+   reverse_slash_dns: scot/gov/socialwork/www
+   internal: true
 
 environments:
   - name: lcl
