@@ -1,0 +1,50 @@
+/content/documents/socialwork/site-furniture/search:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  hippo:name: Search
+  hippostd:foldertype: [new-search-document]
+  /search-results:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    hippo:name: Search
+    /search-results:
+      jcr:primaryType: publishing:search
+      jcr:mixinTypes: ['mix:referenceable']
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-01-15T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2026-01-15T09:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2026-01-15T09:00:00Z
+      hippotranslation:id: aef33565-75ba-4c74-9c14-d3c99e8cef3d
+      hippotranslation:locale: document-type-locale
+      publishing:showFeedback: true
+      publishing:title: Search
+      /publishing:noResultsMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+            <p>Improve your search results by:</p>
+            <ul>
+              <li>double-checking your spelling</li>
+              <li>using fewer keywords</li>
+              <li>searching for something less specific</li>
+            </ul>
+      /publishing:blankSearchQueryMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p><strong></strong><strong>0 results</strong>, please
+            fill in the search field.</p>
+      /publishing:contentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
