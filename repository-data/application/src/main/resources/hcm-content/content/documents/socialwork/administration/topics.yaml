@@ -1,0 +1,11 @@
+/content/documents/socialwork/administration/topics:
+  jcr:primaryType: hippo:handle
+  jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  hippo:name: Topics
+  /topics:
+    jcr:primaryType: selection:valuelist
+    jcr:mixinTypes: ['mix:referenceable']
+    /selection:listitem[1]:
+      jcr:primaryType: selection:listitem
+      selection:key: example-topic
+      selection:label: Example Topic
