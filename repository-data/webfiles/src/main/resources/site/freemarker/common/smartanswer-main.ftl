@@ -138,7 +138,9 @@
                                             <#case 'confirm'>
                                                 <@dynamicResultsForItem question />
 
-                                                <input type="hidden" value="confirm" data-nextstep="step-${question.defaultNextPage.name}" />
+                                                <#if question.defaultNextPage??>
+                                                    <input type="hidden" value="confirm" data-nextstep="step-${question.defaultNextPage.name}" />
+                                                </#if>
                                                 <#break>
                                             <#case 'confirmcheckbox'>
                                                 <@dynamicResultsForItem question />
