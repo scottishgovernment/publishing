@@ -1,0 +1,42 @@
+/content/documents/socialwork/publications:
+  .meta:order-before: seo
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named']
+  hippo:name: Publications
+  hippostd:foldertype: [new-publication-year-folder, new-landingpage-document]
+  /index:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    hippo:name: Publications
+    /index:
+      jcr:primaryType: publishing:LandingPage
+      jcr:mixinTypes: ['mix:referenceable']
+      hippo:availability: [live]
+      hippostd:retainable: false
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-01-20T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2026-01-20T09:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2026-01-20T09:00:00Z
+      hippostdpubwf:publishedBy: admin
+      hippotranslation:id: 559cd973-3ef4-4452-a7f6-3672f608a3cf
+      hippotranslation:locale: document-type-locale
+      publishing:showFeedback: true
+      publishing:showTopics: true
+      publishing:title: Publications
+      /publishing:noResultsMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+
+            <p>Improve your search results by:</p>
+
+            <ul>
+             <li>double-checking your spelling</li>
+             <li>using fewer keywords</li>
+             <li>searching for something less specific</li>
+            </ul>
