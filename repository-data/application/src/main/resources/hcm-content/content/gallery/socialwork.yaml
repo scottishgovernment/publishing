@@ -1,0 +1,11 @@
+/content/gallery/socialwork:
+  jcr:primaryType: hippogallery:stdImageGallery
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  hippo:name: Social Work
+  hippostd:foldertype:
+    - new-publishing-ColumnImage-folder
+    - new-publishing-ColumnImageSixteenNine-folder
+    - new-publishing-ColumnImageFourThree-folder
+    - new-publishing-ColumnImageOneOne-folder
+    - new-publishing-ColumnImageTwentyoneNine-folder
+  hippostd:gallerytype: [ 'publishing:ColumnImage' ]
