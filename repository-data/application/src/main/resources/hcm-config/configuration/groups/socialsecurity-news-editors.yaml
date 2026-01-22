@@ -1,0 +1,10 @@
+definitions:
+  config:
+    /hippo:configuration/hippo:groups/socialsecurity-news-editors:
+      jcr:primaryType: hipposys:group
+      hipposys:securityprovider: internal
+      hipposys:userroles:
+        .meta:category: system
+        .meta:add-new-system-values: true
+        type: string
+        value: [xm.cms.user, xm.content.user, xm.channel.viewer, xm.report.user, xm.dashboard.user]
