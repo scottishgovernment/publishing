@@ -1,0 +1,71 @@
+/content/documents/ready/administration/performance:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  hippo:name: Performance
+  hippostd:foldertype: []
+  /analytics:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named']
+    hippo:name: Analytics
+    hippostd:foldertype: []
+    /dev:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      /dev:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2026-01-28T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2026-01-28T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2026-01-28T09:00:00Z
+        hippotranslation:id: 0853975c-19d6-45f6-978e-9fd91399effe
+        hippotranslation:locale: en_GB
+        publishing:auth: ''
+        publishing:containerid: GTM-5S47S9Z
+        publishing:env: '2'
+        publishing:notes: ''
+    /live:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      /live:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2026-01-28T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2026-01-28T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2026-01-28T09:00:00Z
+        hippotranslation:id: 882a7a57-e335-45c6-84ac-81d11d89dd9e
+        hippotranslation:locale: en_GB
+        publishing:auth: ''
+        publishing:containerid: GTM-5S47S9Z
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
+  /robots:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    /robots:
+      jcr:primaryType: robotstxt:robotstxt
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-01-28T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2026-01-28T09:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2026-01-28T09:00:00Z
+      robotstxt:sitemap: ['https://ready.campaign.gov.scot/sitemap.xml']
+      /robotstxt:section:
+        jcr:primaryType: robotstxt:section
+        robotstxt:disallow: []
+        robotstxt:useragent: '*'
+  /siteverification:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: [ 'hippo:named', 'mix:versionable' ]
+    hippo:name: Site verification
+    hippostd:foldertype: [ new-siteverification-document ]
