@@ -50,7 +50,7 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
             .addAttributes(TEXTAREA,DATA_THRESHOLD, "data-validation", "maxlength", "placeholder", "required", VALUE)
             .addAttributes("label","for", "form")
             .addAttributes("ol","data-total", "start")
-            .addAttributes("option","selected", VALUE)
+            .addAttributes("option", "disabled", "selected", VALUE)
             .addAttributes("select","name", "form")
             .addAttributes("svg","aria-hidden")
             .addAttributes("table","data-smallscreen")
