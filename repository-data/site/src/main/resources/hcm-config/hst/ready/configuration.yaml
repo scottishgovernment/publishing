@@ -62,3 +62,7 @@ definitions:
             .meta:residual-child-node-category: content
             jcr:primaryType: hst:sitemenu
             hst:lastmodified: 2026-01-28T09:00:00Z
+            /Publications:
+              jcr:primaryType: hst:sitemenuitem
+              hst:referencesitemapitem: publications
+              hst:repobased: false
