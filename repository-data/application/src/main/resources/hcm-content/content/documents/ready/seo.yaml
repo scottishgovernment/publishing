@@ -1,0 +1,38 @@
+/content/documents/ready/seo:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named']
+  hippo:name: SEO
+  hippostd:foldertype: [new-seo-document, new-seo-folder]
+  /home:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    /home:
+      jcr:primaryType: publishing:seo
+      jcr:mixinTypes: ['mix:versionable']
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-01-28T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2026-01-28T09:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 48f6040a-6d8c-4c8c-8b8f-35ea81efbab1
+      hippotranslation:locale: en_GB
+      publishing:alt: ''
+      publishing:metaDescription: Ready Scotland
+      publishing:reportingtags: []
+      publishing:seoTitle: Ready Scotland
+      publishing:summary: Ready Scotland
+      publishing:title: Ready Scotland
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:cardImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
