@@ -3,10 +3,10 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
-import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
+import org.onehippo.cms7.essentials.components.CommonComponent;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
-public class FeedbackComponent extends EssentialsContentComponent {
+public class FeedbackComponent extends CommonComponent {
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -30,7 +30,16 @@ public class FeedbackComponent extends EssentialsContentComponent {
             return false;
         }
         HippoBean bean = request.getRequestContext().getContentBean();
-        return bean != null && bean.getSingleProperty("publishing:showFeedback", false);
+
+        if (bean == null) {
+            return false;
+        }
+
+        if (bean.isHippoFolderBean()) {
+            return false;
+        }
+
+        return bean.getSingleProperty("publishing:showFeedback", false);
     }
 
     HippoBean feedbackDocument(HstRequest request) {
