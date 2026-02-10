@@ -52,7 +52,7 @@ public class FeedbackComponent extends CommonComponent {
         try {
             return bean.getNode().isNodeType("publishing:seo");
         } catch (RepositoryException e) {
-            LOG.error("unable to get node type");
+            LOG.error("unable to get node type", e);
             return false;
         }
     }
