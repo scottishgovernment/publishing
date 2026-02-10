@@ -4,9 +4,15 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.onehippo.cms7.essentials.components.CommonComponent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
+import javax.jcr.RepositoryException;
+
 public class FeedbackComponent extends CommonComponent {
+
+    private static final Logger LOG = LoggerFactory.getLogger(FeedbackComponent.class);
 
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
@@ -38,8 +44,17 @@ public class FeedbackComponent extends CommonComponent {
         if (bean.isHippoFolderBean()) {
             return false;
         }
-
+        request.setAttribute("isSEODocument", isSEODocument(bean));
         return bean.getSingleProperty("publishing:showFeedback", false);
+    }
+
+    boolean isSEODocument(HippoBean bean) {
+        try {
+            return bean.getNode().isNodeType("publishing:seo");
+        } catch (RepositoryException e) {
+            LOG.error("unable to get node type");
+            return false;
+        }
     }
 
     HippoBean feedbackDocument(HstRequest request) {

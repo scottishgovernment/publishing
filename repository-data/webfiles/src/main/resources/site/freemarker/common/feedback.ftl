@@ -3,7 +3,14 @@
 <#include "macros/content-blocks.ftl">
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <#if isFeedbackEnabled = true>
+
     <!--noindex-->
+    <#if isSEODocument>
+        <div class="category-lower  ds_pre-footer-background">
+            <div class="ds_wrapper">
+                <div class="ds_layout  ds_layout--category-list">
+     </#if>
+
     <div lang="en" class="ds_layout__feedback">
         <div class="mg_feedback">
 
@@ -38,6 +45,12 @@
             </section>
         </div>
     </div>
+    <#if isSEODocument>
+                </div>
+            </div>
+        </div>
+    </#if>
+
     <!--endnoindex-->
 </#if>
 

@@ -69,20 +69,7 @@
             <div class="ds_page__middle">
                 <main id="main-content">
                     <@hst.include ref="main"/>
-
-<div class="category-lower  ds_pre-footer-background">
-            <div class="ds_wrapper">
-
-
-
-                <div class="ds_layout  ds_layout--category-list">
-
-
-
-                        <@hst.include ref="feedback"/>
-                </div>
-            </dov>
-</div>
+                    <@hst.include ref="feedback"/>
                 </main>
             </div>
 

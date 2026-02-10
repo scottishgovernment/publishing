@@ -36,6 +36,11 @@ definitions:
             hst:componentconfigurationid: hst:pages/documentcoverpage
             hst:relativecontentpath: ${parent}/${1}
             hst:sitemapitemhandlerids: [trailing-slash]
+        /root:
+          jcr:primaryType: hst:sitemapitem
+          hst:componentconfigurationid: hst:pages/home
+          hst:refId: root
+          hst:relativecontentpath: index
       /hst:sitemenus:
         jcr:primaryType: hst:sitemenus
       /hst:templates:

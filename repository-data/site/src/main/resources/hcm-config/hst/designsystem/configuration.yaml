@@ -94,7 +94,7 @@ definitions:
           hst:componentconfigurationid: hst:pages/homepage
           hst:pagetitle: Home page
           hst:refId: root
-          hst:relativecontentpath: ''
+          hst:relativecontentpath: seo/home
         /_any_:
           jcr:primaryType: hst:sitemapitem
           hst:componentconfigurationid: hst:pages/pagenotfound
@@ -124,7 +124,7 @@ definitions:
                 hst:componentconfigurationid: hst:pages/ds-article
                 hst:componentconfigurationmappingnames: ['publishing:dsarticle', 'publishing:dsexample']
                 hst:componentconfigurationmappingvalues: ['hst:pages/ds-article',
-                                                          'hst:pages/ds-example']
+                  'hst:pages/ds-example']
                 hst:relativecontentpath: browse/${1}/${2}/${3}
                 hst:sitemapitemhandlerids: [trailing-slash]
       /hst:sitemenus:
