@@ -1,5 +1,5 @@
 <#ftl output_format="HTML">
-<div class="ds_pb  
+<div class="ds_pb  ds_pb--browse
 <#if backgroundcolor?has_content> 
 <#switch backgroundcolor?lower_case> 
   <#case 'secondary'>
@@ -12,9 +12,10 @@
   ds_pb__theme--background-secondary
   <#break>
 </#switch>
-</#if> ">
-    <div class="ds_pb--browse <#if removebottompadding> ds_!_padding-bottom--0</#if>">    
-        <div class="ds_wrapper">
+</#if> 
+<#if removebottompadding> ds_!_padding-bottom--0</#if>">
+    <div class="ds_wrapper">    
+        <div class="ds_pb__inner">
             <#if navigationType == "image-card">
                 <#include '../card-navigation--image.ftl'/>
             </#if>
