@@ -83,7 +83,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              nodetypes: ['publishing:article', 'publishing:category', 'publishing:guide']
+              nodetypes: ['publishing:article', 'publishing:category', 'publishing:guide', 'publishing:Manual', 'publishing:Publication']
           /title:
             jcr:primaryType: frontend:plugin
             caption: Title
