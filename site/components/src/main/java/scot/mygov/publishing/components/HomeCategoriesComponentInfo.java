@@ -22,7 +22,7 @@ public interface HomeCategoriesComponentInfo {
     String getNavigationType();
 
     @Parameter(name = "backgroundcolor", displayName = "Background colour")
-    @DropDownList({"secondary", "tertiary", "theme", "theme reversed"})
+    @DropDownList({"secondary"})
     String getBackgroundColor();
 
     @Parameter(name = "removebottompadding", displayName = "Remove bottom padding", defaultValue = "false")
