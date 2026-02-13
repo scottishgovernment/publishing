@@ -1,7 +1,35 @@
 /content/documents/socialwork/administration:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+  jcr:uuid: 6d8a725c-8a8a-44e0-b5dc-fd005fd73a90
   hippo:name: Administration
-  hippostd:foldertype:
-    - new-valuelist
-    - new-searchsettings-document
+  hippostd:foldertype: [new-valuelist, new-searchsettings-document]
+  /publicationtypes:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
+    jcr:uuid: fca6e9c0-4fe0-4f63-8445-6e9b664f5c4b
+    hippo:name: publicationtypes
+    /publicationtypes:
+      jcr:primaryType: selection:valuelist
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: f7d2e24e-67ae-4ede-9b0f-dc977393e550
+      /selection:listitem[1]:
+        jcr:primaryType: selection:listitem
+        selection:key: equality
+        selection:label: Equality
+      /selection:listitem[2]:
+        jcr:primaryType: selection:listitem
+        selection:key: legislation
+        selection:label: Legislation
+      /selection:listitem[3]:
+        jcr:primaryType: selection:listitem
+        selection:key: policies
+        selection:label: Policies
+      /selection:listitem[4]:
+        jcr:primaryType: selection:listitem
+        selection:key: reports
+        selection:label: Report
+      /selection:listitem[5]:
+        jcr:primaryType: selection:listitem
+        selection:key: strategy-plan
+        selection:label: Strategy/plan
