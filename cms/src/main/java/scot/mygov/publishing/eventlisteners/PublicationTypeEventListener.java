@@ -31,6 +31,8 @@ public class PublicationTypeEventListener {
 
     private static final String PUBLICATION = "publishing:Publication";
 
+    private static final String MANUAL = "publishing:Manual";
+
     Session session;
 
     HippoUtils hippoUtils = new HippoUtils();
@@ -73,7 +75,7 @@ public class PublicationTypeEventListener {
     void handlePublish(HippoWorkflowEvent event) throws RepositoryException {
         Node handle = session.getNodeByIdentifier(event.subjectId());
         Node publishedVariant = hippoUtils.getPublishedOrDraftVariant(handle);
-        if (!publishedVariant.isNodeType(PUBLICATION)) {
+        if (!publishedVariant.isNodeType(PUBLICATION) && !publishedVariant.isNodeType(MANUAL)) {
             return;
         }
         Node versionable = hippoUtils.findFirst(handle.getNodes(handle.getName()), v -> v.isNodeType("mix:versionable") );
@@ -87,9 +89,13 @@ public class PublicationTypeEventListener {
             }
         }
 
-        if (publishedVariant != null && publishedVariant.isNodeType(PUBLICATION)) {
+        if (isPub(publishedVariant)) {
             updatePublicationTypesForPublish(publishedVariant);
         }
+    }
+
+    boolean isPub(Node n) throws RepositoryException {
+        return n != null && (n.isNodeType(PUBLICATION) || n.isNodeType(MANUAL));
     }
 
     void handleDepublish(HippoWorkflowEvent event) throws RepositoryException {
@@ -116,7 +122,7 @@ public class PublicationTypeEventListener {
 
     String publicationsOfTypeQuery(String siteId, String type) {
         // convert to the ancestors style
-        return String.format("//element(*, publishing:Publication)" +
+        return String.format("//*" +
                         "[hippo:paths = '%s']" +
                         "[hippostd:stateSummary = 'live']" +
                         "[hippostd:state = 'published']" +
