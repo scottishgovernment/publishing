@@ -118,7 +118,7 @@
 </@hst.headContribution>
 
 <@hst.headContribution category="schema">
-    <script type="application/ld+json">
+    <script type="application/ld+json" nonce="${nonce}">
 {
     "@context": "https://schema.org",
     "@type": "Article",
