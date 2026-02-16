@@ -8,7 +8,7 @@ import org.hippoecm.hst.core.parameters.*;
 })
 public interface HomeCategoriesComponentInfo {
 
-    @Parameter(name = "category", required = true)
+    @Parameter(name = "category", required = false)
     @JcrPath(
             isRelative = true,
             pickerConfiguration = "cms-pickers/documents-only",
@@ -21,8 +21,8 @@ public interface HomeCategoriesComponentInfo {
     @DropDownList({"card", "grid", "image-card", "list"})
     String getNavigationType();
 
-    @Parameter(name = "backgroundcolor", displayName = "Background colour")
-    @DropDownList({"secondary"})
+    @Parameter(name = "backgroundcolor", displayName = "Background colour", required = true, defaultValue = "secondary")
+    @DropDownList({"none", "secondary"})
     String getBackgroundColor();
 
     @Parameter(name = "removebottompadding", displayName = "Remove bottom padding", defaultValue = "false")
