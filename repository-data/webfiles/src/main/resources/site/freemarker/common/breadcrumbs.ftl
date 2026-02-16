@@ -35,7 +35,7 @@
 <@hst.headContribution category="schema">
 <#if breadcrumbs??>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
-<script type="application/ld+json">
+<script type="application/ld+json" nonce="${nonce}">
     {
         "@context": "http://schema.org",
         "@type": "BreadcrumbList",
