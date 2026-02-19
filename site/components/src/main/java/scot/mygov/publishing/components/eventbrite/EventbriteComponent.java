@@ -31,14 +31,12 @@ import java.util.stream.Collectors;
 import static java.util.Collections.emptyList;
 import static org.apache.commons.lang.StringUtils.isBlank;
 
-/***
- * Eventbrite component,
- *
- */
 @ParametersInfo(type = EventsComponentInfo.class)
 public class EventbriteComponent extends CommonComponent {
 
     private static final Logger LOG = LoggerFactory.getLogger(EventbriteComponent.class);
+
+    private static final String EVENTBRITE = "eventbrite";
 
     private static final String EVENTS = "events";
 
@@ -78,7 +76,7 @@ public class EventbriteComponent extends CommonComponent {
                 .build();
 
         CircuitBreakerRegistry registry = CircuitBreakerRegistry.of(config);
-        circuitBreaker = registry.circuitBreaker("eventbrite");
+        circuitBreaker = registry.circuitBreaker(EVENTBRITE);
         circuitBreaker.getEventPublisher().onStateTransition(event -> LOG.info("STATE CHANGE: {}", event.getStateTransition()));
         circuitBreaker.getEventPublisher()
                 .onSuccess(event -> LOG.info("Call succeeded through breaker."))
@@ -119,14 +117,14 @@ public class EventbriteComponent extends CommonComponent {
         } catch (ResourceException e) {
             LOG.error("Failed to fetch events", e);
             EventbriteStatusTracker.recordError(e);
-            return new EventbriteResults();                // simple Java fallback
+            return new EventbriteResults();
         }
     }
 
     EventbriteResults doGetEventbriteResults(EventsComponentInfo paramInfo) {
         ResourceServiceBroker broker = CrispHstServices.getDefaultResourceServiceBroker(HstServices.getComponentManager());
-        Resource results = broker.resolve("eventbrite", URL_TEMPLATE, paramMap(paramInfo));
-        ResourceBeanMapper resourceBeanMapper = broker.getResourceBeanMapper("eventbrite");
+        Resource results = broker.resolve(EVENTBRITE, URL_TEMPLATE, paramMap(paramInfo));
+        ResourceBeanMapper resourceBeanMapper = broker.getResourceBeanMapper(EVENTBRITE);
         return resourceBeanMapper.map(results, EventbriteResults.class);
     }
 
