@@ -1,6 +1,7 @@
 script-src
   'nonce-<nonce>'
   'self'
+  https://code.jquery.com
   https://www.youtube.com
   https://s.ytimg.com
   https://www.google-analytics.com
@@ -9,8 +10,8 @@ script-src
   https://translate.google.com
   https://translate.googleapis.com
   https://plausible.io
-  https://www.google.com/recaptcha
-  https://www.gstatic.com/recaptcha
+  https://www.google.com/recaptcha/
+  https://www.gstatic.com/recaptcha/
 ;
 img-src
   'self'
@@ -30,6 +31,7 @@ connect-src
     'self'
     https://*.google-analytics.com
     https://*.analytics.google.com
+    https://www.google.com/recaptcha/
     https://plausible.io
 ;
 style-src
@@ -54,7 +56,7 @@ frame-src
   https://www.youtube-nocookie.com
   https://youtube-nocookie.com
   https://www.googletagmanager.com
-  https://www.google.com/recaptcha
+  https://www.google.com/recaptcha/
 ;
 object-src
   'none'

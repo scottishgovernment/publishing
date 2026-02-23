@@ -182,8 +182,11 @@
 				};
 
 				// convert route with parameters to url
-				var combine = new Function('p', items.join(''));
-				var url = function(p) {
+				// JS note: this does not appear to do anything. changing it from `new Function`, which messes with CSP, preserving existing (non) functionality
+				// original: var combine = new Function('p', items.join(''));
+				var q = items.join('')
+				var combine = function (p, q) { };
+				var url = function (p) {
 					return combine(getParams(p));
 				};
 
