@@ -35,6 +35,10 @@
                   <templateFile>${basedir}/src/main/config/site-groups.yaml.mustache</templateFile>
                   <outputPath>${basedir}/src/main/resources/hcm-config/configuration/groups/site-groups.yaml</outputPath>
                 </template>
+                <template>
+                  <templateFile>${basedir}/src/main/config/performance-folders.yaml.mustache</templateFile>
+                  <outputPath>${basedir}/src/main/resources/hcm-config/configuration/domains/performance-content.yaml</outputPath>
+                </template>
               </templates>
             </configuration>
           </execution>
