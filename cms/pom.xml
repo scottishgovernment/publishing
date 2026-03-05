@@ -38,7 +38,7 @@
     <dependency>
       <groupId>scot.mygov.publishing</groupId>
       <artifactId>variable-interpolation</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
 
     <dependency>
@@ -56,13 +56,13 @@
     <dependency>
       <groupId>scot.mygov.publishing</groupId>
       <artifactId>migration-rest</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
 
     <dependency>
       <groupId>scot.mygov.publishing</groupId>
       <artifactId>topics-rest</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
 
     <!-- github slugify -->
@@ -101,7 +101,7 @@
     <dependency>
       <groupId>scot.mygov.publishing</groupId>
       <artifactId>imageprocessing</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
