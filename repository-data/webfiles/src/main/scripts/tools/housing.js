@@ -4,7 +4,7 @@
 
 import commonForms from './forms';
 import $ from 'jquery';
-import { Accordion } from '../../../../node_modules/@scottish-government/design-system/src/all';
+import Accordion from '@scottish-government/design-system/dist/scripts/components/accordion/accordion';
 
 const commonHousing = {
     camelify: function (string) {
@@ -51,8 +51,8 @@ const commonHousing = {
             if (!field.offsetParent) {
                 return false;
             }
-            if (field.closest('.ds_reveal-content')) {
-                return [].slice.call(field.closest('.ds_reveal-content').parentNode.children).filter(item => item.nodeName === 'INPUT' && item.checked).length;
+            if (field.closest('.mg_reveal-content')) {
+                return [].slice.call(field.closest('.mg_reveal-content').parentNode.children).filter(item => item.nodeName === 'INPUT' && item.checked).length;
             } else {
                 return true;
             }

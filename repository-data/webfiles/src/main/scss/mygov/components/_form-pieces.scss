@@ -1,3 +1,5 @@
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
 $multi-page-form-padding: 24px;
 
 .multi-page-form {
@@ -30,7 +32,7 @@ $multi-page-form-padding: 24px;
 
 
 .mg_section-navigation {
-    border-bottom: 4px solid $ds_colour__brand;
+    border-bottom: 4px solid ds_settings.$ds_colour__brand;
     display: flex;
     justify-content: space-between;
 }

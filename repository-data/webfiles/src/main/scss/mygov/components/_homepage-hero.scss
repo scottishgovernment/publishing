@@ -1,9 +1,12 @@
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
 .#{$site-prefix}hero {
     align-items: start;
     margin-top: 48px;
 
     .ds_feature-header {
-        @include ds_responsive-margin(3, bottom);
+        @include ds_helpers.ds_responsive-margin(3, bottom);
 
         &__primary {
             align-content: space-between;
@@ -52,7 +55,7 @@
 
     /* [1] compensate for 1px border */
     &__link {
-        @include ds_blocklink;
+        @include ds_helpers.ds_blocklink;
 
         border-bottom: 1px solid currentColor;
         border-top: 1px solid currentColor;
@@ -66,11 +69,11 @@
         grid-template-columns: auto 40px;
 
         &:focus {
-            border-color: $ds_colour__link--focus__background;
+            border-color: ds_settings.$ds_colour__link--focus__background;
         }
 
         &::after {
-            @include ds_chevron(right, 10px);
+            @include ds_helpers.ds_chevron(right, 10px);
             justify-self: center;
             margin-right: -5px;
         }
@@ -82,14 +85,14 @@
 
 /* A-Z */
 .#{$site-prefix}hero-az {
-    background-color: $ds_colour__blue--dark;
+    background-color: ds_settings.$ds_colour__blue--dark;
     font-size: 1em;
     line-height: px-to-em(24px, 14px);
     padding-top: 12px;
     padding-bottom: 12px;
 
     &:hover:not(:focus):not(:active) {
-        background-color: $ds_colour__blue--darker;
+        background-color: ds_settings.$ds_colour__blue--darker;
     }
 
     &__text {
@@ -107,22 +110,22 @@
     right: 29px;
     top: 50%;
 
-    @include ds_chevron(right, 26px);
+    @include ds_helpers.ds_chevron(right, 26px);
 }
 
-@include ds_media-query(medium) {
+@include ds_helpers.ds_media-query(medium) {
     .mg_hero .ds_feature-header__secondary {
         display: block;
     }
 }
 
-@include ds_media-query(large) {
+@include ds_helpers.ds_media-query(large) {
     .#{$site-prefix}hero {
         .ds_site-search {
-            @include ds_layout();
+            @include ds_helpers.ds_layout();
 
             &__form {
-                @include ds_colwidth(7, 8);
+                @include ds_helpers.ds_colwidth(7, 8);
                 position: relative;
             }
 
@@ -134,7 +137,7 @@
 }
 
 @supports (display: grid) {
-    @include ds_media-query(large) {
+    @include ds_helpers.ds_media-query(large) {
         .#{$site-prefix}hero {
             .ds_site-search {
                 grid-template-columns: 7fr 1fr;
@@ -142,7 +145,7 @@
         }
     }
 
-    @include ds_media-query(xlarge) {
+    @include ds_helpers.ds_media-query(xlarge) {
         .#{$site-prefix}hero-az {
             grid-template-columns: 1fr 70px;
 

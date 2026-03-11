@@ -3,9 +3,12 @@
     can be removed once updated in the DS
 \*------------------------------------*/
 
+@use '../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
 .ds_contents-nav {
     &__section-title {
-        @include ds_h3-size;
+        @include ds_helpers.ds_h3-size;
 
         display: block;
         font-weight: bold;
@@ -22,7 +25,7 @@
         margin-left: 0;
 
         &--indent {
-            @include ds_small-size;
+            @include ds_helpers.ds_small-size;
             padding-left: 2rem;
         }
     }
@@ -49,7 +52,7 @@
 
     &__title + &__list {
         @extend .ds_contents-nav__list--indent;
-        @include ds_responsive-margin(6, bottom);
+        @include ds_helpers.ds_responsive-margin(6, bottom);
     }
 
     .ds_current {
@@ -58,10 +61,10 @@
 }
 
 .ds_contents-nav__item:not(.ds_contents-nav__list--indent .ds_contents-nav__item) {
-    border-bottom: 0.0625rem solid $ds_colour__border;
+    border-bottom: 0.0625rem solid ds_settings.$ds_colour__border;
     margin-bottom: 0;
-    @include ds_responsive-padding(3, top);
-    @include ds_responsive-padding(3, bottom, $tuning: -1px);
+    @include ds_helpers.ds_responsive-padding(3, top);
+    @include ds_helpers.ds_responsive-padding(3, bottom, $tuning: -1px);
 
     &:last-child {
         border-bottom-width: 0;

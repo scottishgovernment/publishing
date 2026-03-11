@@ -1,6 +1,9 @@
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
 .dss_whats-new {
     &__item {
-        @include ds_responsive-margin(2, bottom);
+        @include ds_helpers.ds_responsive-margin(2, bottom);
 
         > p {
             display: inline;
@@ -8,7 +11,7 @@
     }
 
     &__date {
-        color: $ds_colour__text--secondary;
+        color: ds_settings.$ds_colour__text--secondary;
         margin-left: 2px;
         padding-left: 8px;
         position: relative;

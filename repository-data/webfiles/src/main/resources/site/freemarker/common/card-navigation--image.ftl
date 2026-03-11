@@ -3,11 +3,11 @@
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
 
-<ol class="ds_category-list  ds_category-list--grid">
+<ul class="ds_card-grid">
     <#list children as child>
         <@hst.link var="link" hippobean=child.bean/>
         <li class="ds_card  ds_card--hover">
-            <div class="ds_card__media  ds_card__media--small-mobile">
+            <div class="ds_card__media">
                 <div class="ds_aspect-box">
                 <#if child.bean.cardImage?has_content>
                 <#if child.bean.cardImage.xlargeeightcolumnsdoubled?has_content>
@@ -35,12 +35,16 @@
                 </div>
             </div>
             <div class="ds_card__content">
-                <h2 class="ds_card__title">
-                    <a class="ds_card__link--cover" href="${link}">${child.bean.title}</a>
-                </h2>
-                <p>${child.bean.summary}</p>
+                <div class="ds_card__content-header">
+                    <h2 class="ds_card__title">
+                        <a class="ds_card__link--cover" href="${link}">${child.bean.title}</a>
+                    </h2>
+                </div>
+                <div class="ds_card__content-main">
+                    <p>${child.bean.summary}</p>
+                </div>
             </div>
         </li>
     </#list>
-</ol>
+</ul>
 </@hst.messagesReplace>

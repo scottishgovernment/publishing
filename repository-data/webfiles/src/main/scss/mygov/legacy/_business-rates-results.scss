@@ -1,3 +1,6 @@
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
 $legacy-prefix: 'mg_leg_' !default;
 
 .brc-capitalise {
@@ -55,13 +58,13 @@ $legacy-prefix: 'mg_leg_' !default;
     }
 
     .relief {
-        background: $ds_colour__grey--lighter;
+        background: ds_settings.$ds_colour__grey--lighter;
         border: 2px solid black;
         border-width: 2px 0;
 
         &:before,
         &:after {
-        background: $ds_colour__grey--lighter;
+        background: ds_settings.$ds_colour__grey--lighter;
         border: 2px solid black;
         border-width: 2px 0;
         bottom: -2px;
@@ -92,13 +95,13 @@ $legacy-prefix: 'mg_leg_' !default;
     }
 
     .liability {
-        background: $ds_colour__blue;
-        color: $ds_colour__white;
+        background: ds_settings.$ds_colour__blue;
+        color: ds_settings.$ds_colour__white;
         margin-bottom: 24;
 
         &:before,
         &:after {
-        background: $ds_colour__blue;
+        background: ds_settings.$ds_colour__blue;
         }
 
         h4 {
@@ -127,7 +130,7 @@ $legacy-prefix: 'mg_leg_' !default;
     }
 }
 
-@include ds_media-query(medium) {
+@include ds_helpers.ds_media-query(medium) {
     .#{$legacy-prefix}result {
 
         .brc-result__title {

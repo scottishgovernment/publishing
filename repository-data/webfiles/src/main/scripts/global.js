@@ -11,10 +11,10 @@ import NotificationBanner from './components/notification';
 import ServiceFinder from './components/service-finder';
 import ToggleLink from './components/toggle-link';
 import UpdateHistory from './components/update-history';
-import storage from '../../../node_modules/@scottish-government/design-system/src/base/tools/storage/storage';
+import storage from './storage';
 
 import './vendor/polyfills';
-import '../../../node_modules/@scottish-government/design-system/src/all';
+import '@scottish-government/design-system/dist/scripts/all/all';
 
 const global = {
     notes: [],
@@ -87,7 +87,7 @@ const global = {
 
                         let permissions;
 
-                        if (!storage.isJsonString(permissionsString)) {
+                        if (!storage.getIsJsonString(permissionsString)) {
                             permissions = {};
 
 
@@ -119,8 +119,6 @@ const global = {
     },
 
     initDesignSystemComponents: function () {
-        window.DS.base.page.init();
-
         const backToTopEl = document.querySelector('[data-module="ds-back-to-top"]');
         if (backToTopEl) {
             const backToTop = new window.DS.components.BackToTop(backToTopEl);
@@ -223,7 +221,7 @@ const global = {
         }
 
         const mobileMenus = [].slice.call(document.querySelectorAll('[data-module="ds-mobile-navigation-menu"]'));
-        mobileMenus.forEach(mobileMenu =>  new window.DS.components.MobileMenu(mobileMenu).init());
+        mobileMenus.forEach(mobileMenu =>  new window.DS.components.SiteNavigation(mobileMenu).init());
 
         const sideNavigations = [].slice.call(document.querySelectorAll('[data-module="ds-side-navigation"]'));
         sideNavigations.forEach(sideNavigation => new window.DS.components.SideNavigation(sideNavigation).init());
@@ -260,7 +258,7 @@ const global = {
     setInitialCookiePermissions: function () {
         const permissionsString = storage.getCookie('cookiePermissions') || '';
 
-        if (!storage.isJsonString(permissionsString)) {
+        if (!storage.getIsJsonString(permissionsString)) {
             const permissions = {};
             permissions.statistics = false;
             permissions.preferences = true;

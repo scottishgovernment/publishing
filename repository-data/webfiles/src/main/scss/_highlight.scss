@@ -1,10 +1,13 @@
+@use '../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
 code[class*="language-"],
 pre[class*="language-"] {
     color: black;
     background: none;
     text-shadow: 0 1px white;
     font-family: monospace;
-    @include ds_small-size;
+    @include ds_helpers.ds_small-size;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
@@ -34,7 +37,7 @@ pre:has(code[class*="language-"]) {
     padding: 15px;
     margin: 16px 0;
     overflow: auto;
-    border: 1px solid $ds_colour__border;
+    border: 1px solid ds_settings.$ds_colour__border;
 }
 
 .pre--no-border[class*="language-"] {
@@ -66,11 +69,11 @@ pre:has([class*="language-"]) {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-    color: $ds_colour__grey;
+    color: ds_settings.$ds_colour__grey;
 }
 
 .token.punctuation {
-    color: $ds_colour__grey;
+    color: ds_settings.$ds_colour__grey;
 }
 
 .token.namespace {
@@ -84,7 +87,7 @@ pre:has([class*="language-"]) {
 .token.constant,
 .token.symbol,
 .token.deleted {
-    color: $ds_colour__purple;
+    color: ds_settings.$ds_colour__purple;
 }
 
 .token.selector,
@@ -108,12 +111,12 @@ pre:has([class*="language-"]) {
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-    color: $ds_colour__blue
+    color: ds_settings.$ds_colour__blue
 }
 
 .token.function,
 .token.class-name {
-    color: $ds_colour__red;
+    color: ds_settings.$ds_colour__red;
 }
 
 .token.regex,

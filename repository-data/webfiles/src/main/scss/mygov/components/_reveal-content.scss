@@ -1,0 +1,28 @@
+/*------------------------------------*\
+    REVEAL CONTENT
+\*------------------------------------*/
+
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
+.mg_reveal-content {
+    display: none;
+    margin-top: 16px;
+    padding-left: 16px;
+    position: relative;
+    @include ds_helpers.ds_last-child-no-margin;
+
+    &::before {
+        background-color: ds_settings.$ds_colour__border;
+        bottom: 0;
+        content: '';
+        left: -22px;
+        position: absolute;
+        top: 0;
+        width: 4px;
+    }
+}
+
+:checked ~ .mg_reveal-content {
+    display: block;
+}

@@ -4,8 +4,8 @@
 
 'use strict';
 
-import PromiseRequest from '../../../../node_modules/@scottish-government/design-system/src/base/tools/promise-request/promise-request';
-import temporaryFocus from '../../../../node_modules/@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
+import PromiseRequest from '@scottish-government/design-system/dist/scripts/base/tools/promise-request/promise-request';
+import temporaryFocus from '@scottish-government/design-system/dist/scripts/base/tools/temporary-focus/temporary-focus';
 
 const postcodeResultsTemplate = require('../templates/postcode-results');
 

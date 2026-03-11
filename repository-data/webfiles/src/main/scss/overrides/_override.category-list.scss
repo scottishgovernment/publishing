@@ -1,0 +1,7 @@
+@use '../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+
+@include ds_helpers.ds_media-query(large) {
+    .ds_category-list--grid--2cols {
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+    }
+}

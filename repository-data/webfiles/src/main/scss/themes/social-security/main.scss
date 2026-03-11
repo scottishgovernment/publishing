@@ -1,7 +1,12 @@
 /**
  * Social security theme
  */
- $ds_colour__brand: #201751;
+
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings with (
+    $ds_colour__brand: #201751
+);
+
+
 
  // Page block secondary theme background
  $pb_theme__background-secondary: #e9e8ee;

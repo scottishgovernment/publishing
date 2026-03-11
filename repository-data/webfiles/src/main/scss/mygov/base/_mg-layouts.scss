@@ -2,478 +2,333 @@
     SITE PAGE LAYOUTS
 \*------------------------------------*/
 
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+
 $site-prefix: 'mg_';
 
+/**
+ * GRID KEY
+ * c: content
+ * f: feedback
+ * h: header
+ * l: list (e.g. category items, search results)
+ * n: navigation (e.g. subpages of a publication or guide)
+ * p: partner branding
+ * s: sidebar
+
+ * corp org hub key additions
+ * o: organisation
+ * s: services
+ * F: featured
+ * A: contact
+ * B: connect
+ */
+$grid-area-org-organisation:    o;
+$grid-area-org-services:        s;
+$grid-area-org-featured:        F;
+$grid-area-org-contact:         A;
+$grid-area-org-connect:         B;
+
+/**
+    * paged form additions
+    * S: section nav
+    * U: subsection nav
+    * F: form contents
+    */
+$grid-area-form-section:    S;
+$grid-area-form-subsection: U;
+$grid-area-form-content:    F;
+
+.ds_layout {
+    &__organisation {
+        grid-area: $grid-area-org-organisation;
+    }
+
+    &__services {
+        grid-area: $grid-area-org-services;
+    }
+
+    &__featured,
+    &__org-list {
+        grid-area: $grid-area-org-featured;
+    }
+
+    &__contact {
+        grid-area: $grid-area-org-contact;
+    }
+
+    &__connect {
+        grid-area: $grid-area-org-connect;
+    }
+
+    &__section-progress {
+        grid-area: $grid-area-form-section;
+    }
+
+    &__subsection-progress {
+        grid-area: $grid-area-form-subsection;
+    }
+
+    &__form-content {
+        grid-area: $grid-area-form-content;
+    }
+
+    &__separator {
+        grid-area: x;
+    }
+}
+
 .#{$site-prefix}layout {
+    &--paged-form {
+        grid-template-areas:
+            'h h'
+            'S S'
+            'U U'
+            'F F'
+            's s'
+            'f f';
+    }
 
-}
+    &--org-hub {
+        grid-gap: 32px;
+        grid-template-areas:
+            'h h'
+            'p p'
+            'c c'
+            's s'
+            'F F'
+            'o o'
+            'A A'
+            'B B'
+            'f f'
+    }
 
-@include ds_media-query(medium) {
-    .#{$site-prefix}layout {
-        &--org-hub {
-            > .ds_layout {
-                &__header {
-                    float: left;
-                    @include ds_colwidth(8);
-                }
-
-                &__partner {
-                    float: left;
-                    @include ds_colwidth(4);
-                }
-
-                &__content {
-                    clear: left;
-                    @include ds_colwidth(8);
-                }
-            }
-        }
-
-        &--paged-form {
-            > .ds_layout {
-                &__section-progress {
-                    clear: both;
-                    @include ds_colwidth(12);
-                }
-
-                &__subsection-progress {
-                    float: left;
-                    @include ds_colwidth(3);
-                }
-
-                &__form-content {
-                    float: left;
-                    @include ds_colwidth(9);
-                }
-
-                &__feedback {
-                    @include ds_colwidth(9);
-                }
-
-                &__sidebar {
-                    clear: both;
-                    @include ds_colwidth(9);
-                }
-            }
-        }
+    &--org-list {
+        grid-template-areas:
+            'h h'
+            'c c'
+            'F F'
+            'f f';
     }
 }
 
-@include ds_media-query(large) {
-    .#{$site-prefix}layout {
-        &--org-hub {
-            > .ds_layout {
-                &__contact {
-                    float: left;
-                    @include ds_colwidth(8);
-                }
-
-                &__connect {
-                    float: left;
-                    @include ds_colwidth(4);
-                }
-            }
-        }
-
-        &--paged-form {
-            > .ds_layout {
-                &__section-progress {
-                    clear: both;
-                    @include ds_colwidth(10);
-                }
-
-                &__subsection-progress {
-                    float: left;
-                    @include ds_colwidth(3);
-                }
-
-                &__form-content {
-                    float: left;
-                    @include ds_colwidth(7);
-                }
-
-                &__feedback {
-                    @include ds_colwidth(7);
-                }
-
-                &__sidebar {
-                    @include ds_colwidth(7);
-                }
-            }
-        }
-    }
-}
-
-@supports(display: grid) {
-    /**
-     * GRID KEY
-     * c: content
-     * f: feedback
-     * h: header
-     * l: list (e.g. category items, search results)
-     * n: navigation (e.g. subpages of a publication or guide)
-     * p: partner branding
-     * s: sidebar
-
-     * corp org hub key additions
-     * o: organisation
-     * s: services
-     * F: featured
-     * A: contact
-     * B: connect
-     */
-    $grid-area-org-organisation:    o;
-    $grid-area-org-services:        s;
-    $grid-area-org-featured:        F;
-    $grid-area-org-contact:         A;
-    $grid-area-org-connect:         B;
-
-    /**
-     * paged form additions
-     * S: section nav
-     * U: subsection nav
-     * F: form contents
-     */
-    $grid-area-form-section:    S;
-    $grid-area-form-subsection: U;
-    $grid-area-form-content:    F;
-
-    .ds_layout {
-        &__organisation {
-            grid-area: $grid-area-org-organisation;
-        }
-
-        &__services {
-            grid-area: $grid-area-org-services;
-        }
-
-        &__featured,
-        &__org-list {
-            grid-area: $grid-area-org-featured;
-        }
-
-        &__contact {
-            grid-area: $grid-area-org-contact;
-        }
-
-        &__connect {
-            grid-area: $grid-area-org-connect;
-        }
-
-        &__section-progress {
-            grid-area: $grid-area-form-section;
-        }
-
-        &__subsection-progress {
-            grid-area: $grid-area-form-subsection;
-        }
-
-        &__form-content {
-            grid-area: $grid-area-form-content;
-        }
-
-        &__separator {
-            grid-area: x;
-        }
-    }
-
+@include ds_helpers.ds_media-query(small) {
     .#{$site-prefix}layout {
         &--paged-form {
             grid-template-areas:
-                'h h'
-                'S S'
-                'U U'
-                'F F'
-                's s'
-                'f f';
+                'h h h h h h'
+                'S S S S S S'
+                'U U U U U U'
+                'F F F F F F'
+                's s s s s s'
+                'f f f f f f';
         }
 
         &--org-hub {
-            grid-gap: 32px;
             grid-template-areas:
-                'h h'
-                'p p'
-                'c c'
-                's s'
-                'F F'
-                'o o'
-                'A A'
-                'B B'
-                'f f'
+                'h h h h h h'
+                'p p p p p p'
+                'c c c c c c'
+                's s s s s s'
+                'F F F F F F'
+                'o o o o o o'
+                'A A A A A A'
+                'B B B B B B'
+                'f f f f f f';
         }
 
         &--org-list {
             grid-template-areas:
-                'h h'
-                'c c'
-                'F F'
-                'f f';
+                'h h h h h h'
+                'c c c c c c'
+                'F F F F F F'
+                'f f f f f f';
         }
     }
+}
 
-    @include ds_media-query(small) {
-        .#{$site-prefix}layout {
-            &--paged-form {
-                grid-template-areas:
-                    'h h h h h h'
-                    'S S S S S S'
-                    'U U U U U U'
-                    'F F F F F F'
-                    's s s s s s'
-                    'f f f f f f';
-            }
-
-            &--org-hub {
-                grid-template-areas:
-                    'h h h h h h'
-                    'p p p p p p'
-                    'c c c c c c'
-                    's s s s s s'
-                    'F F F F F F'
-                    'o o o o o o'
-                    'A A A A A A'
-                    'B B B B B B'
-                    'f f f f f f';
-            }
-
-            &--org-list {
-                grid-template-areas:
-                    'h h h h h h'
-                    'c c c c c c'
-                    'F F F F F F'
-                    'f f f f f f';
-            }
-        }
-    }
-
-    @include ds_media-query(medium) {
-        .#{$site-prefix}layout {
-            &--paged-form {
-                grid-template-areas:
-                    'h h h h h h h h h h h h'
-                    'S S S S S S S S S S S S'
-                    'F F F F F F F F F U U U'
-                    's s s s s s s s s . . .'
-                    'f f f f f f f f f . . .';
-            }
-
-            &--org-hub {
-                grid-template-areas:
-                    'h h h h h h h h p p p p'
-                    'c c c c c c c c p p p p'
-                    's s s s s s s s s s s s'
-                    'F F F F F F F F F F F F'
-                    'o o o o o o o o o o o o'
-                    'A A A A A A A A B B B B'
-                    'f f f f f f f f . . . .';
-            }
-
-            &--org-list {
-                grid-template-areas:
-                    'h h h h h h h h h h h h'
-                    'c c c c c c c c c c c c'
-                    'F F F F F F F F F F F F'
-                    'f f f f f f f f f f f f';
-            }
-        }
-    }
-
-    @include ds_media-query(large) {
-        .#{$site-prefix}layout {
-            &--paged-form {
-                grid-template-areas:
-                    'h h h h h h h h h h h h'
-                    'S S S S S S S S S S . .'
-                    'F F F F F F F U U U . .'
-                    's s s s s s s . . . . .'
-                    'f f f f f f f . . . . .';
-            }
-
-            &--org-list {
-                grid-template-areas:
-                    'h h h h h h h h . . . .'
-                    'c c c c c c c c . . . .'
-                    'F F F F F F F F F F F F'
-                    'f f f f f f f f . . . .';
-            }
-        }
-    }
-
-    @include ds_media-query(xlarge) {
-        .#{$site-prefix}layout {
-            &--org-hub {
-                grid-template-areas:
-                    'h h h h h h h h p p p p'
-                    'c c c c c c c c p p p p'
-                    's s s s s s s s s s s s'
-                    'F F F F F F F F F F F F'
-                    'o o o o o o o o o o o o'
-                    'A A A A A A A A B B B B'
-                    'f f f f f f f f . . . .'
-            }
-        }
-    }
-
-
-
+@include ds_helpers.ds_media-query(medium) {
     .#{$site-prefix}layout {
-        &--manual {
+        &--paged-form {
             grid-template-areas:
-                'h h'
-                'p p'
-                'x x'
-                's s'
-                'c c'
-                'f f';
+                'h h h h h h h h h h h h'
+                'S S S S S S S S S S S S'
+                'F F F F F F F F F U U U'
+                's s s s s s s s s . . .'
+                'f f f f f f f f f . . .';
+        }
 
-            @include ds_media-query(small) {
-                grid-template-areas:
-                    'h h h h h h'
-                    'p p p p p p'
-                    'x x x x x x'
-                    's s s s s s'
-                    'c c c c c c'
-                    'f f f f f f'
-            }
+        &--org-hub {
+            grid-template-areas:
+                'h h h h h h h h p p p p'
+                'c c c c c c c c p p p p'
+                's s s s s s s s s s s s'
+                'F F F F F F F F F F F F'
+                'o o o o o o o o o o o o'
+                'A A A A A A A A B B B B'
+                'f f f f f f f f . . . .';
+        }
 
-            @include ds_media-query(medium) {
-                grid-template-areas:
-                    'h h h h h h h h p p p p'
-                    'x x x x x x x x x x x x'
-                    's s s s c c c c c c c c'
-                    's s s s f f f f f f f f'
-
-            }
-
-            @include ds_media-query(large) {
-                grid-template-areas:
-                    'h h h h h h h h p p p p'
-                    'x x x x x x x x x x x x'
-                    's s s c c c c c c c . .'
-                    's s s f f f f f f f . .'
-            }
-
-            @include ds_media-query(xlarge) {
-                grid-template-areas:
-                    'h h h h h h h h p p p p'
-                    'x x x x x x x x x x x x'
-                    's s s c c c c c c c . .'
-                    's s s f f f f f f f . .'
-            }
+        &--org-list {
+            grid-template-areas:
+                'h h h h h h h h h h h h'
+                'c c c c c c c c c c c c'
+                'F F F F F F F F F F F F'
+                'f f f f f f f f f f f f';
         }
     }
+}
 
+@include ds_helpers.ds_media-query(large) {
     .#{$site-prefix}layout {
-        &--manual-landing {
+        &--paged-form {
             grid-template-areas:
-                'h h'
-                'p p'
-                'x x'
-                'c c'
-                'f f';
+                'h h h h h h h h h h h h'
+                'S S S S S S S S S S . .'
+                'F F F F F F F U U U . .'
+                's s s s s s s . . . . .'
+                'f f f f f f f . . . . .';
+        }
 
-            @include ds_media-query(small) {
-                grid-template-areas:
-                    'h h h h h h'
-                    'p p p p p p'
-                    'x x x x x x'
-                    'c c c c c c'
-                    'f f f f f f'
-            }
+        &--org-list {
+            grid-template-areas:
+                'h h h h h h h h . . . .'
+                'c c c c c c c c . . . .'
+                'F F F F F F F F F F F F'
+                'f f f f f f f f . . . .';
+        }
+    }
+}
 
-            @include ds_media-query(medium) {
-                grid-template-areas:
-                    'h h h h h h h h p p p p'
-                    'x x x x x x x x x x x x'
-                    'c c c c c c c c . . . .'
-                    'f f f f f f f f . . . .'
-
-            }
-
-            @include ds_media-query(large) {
-                grid-template-areas:
-                    'h h h h h h h h p p p p'
-                    'x x x x x x x x x x x x'
-                    'c c c c c c c c . . . .'
-                    'f f f f f f f c . . . .'
-            }
-
-            @include ds_media-query(xlarge) {
-                grid-template-areas:
-                    'h h h h h h h h p p p p'
-                    'x x x x x x x x x x x x'
-                    'c c c c c c c c . . . .'
-                    'f f f f f f f c . . . .'
-            }
+@include ds_helpers.ds_media-query(xlarge) {
+    .#{$site-prefix}layout {
+        &--org-hub {
+            grid-template-areas:
+                'h h h h h h h h p p p p'
+                'c c c c c c c c p p p p'
+                's s s s s s s s s s s s'
+                'F F F F F F F F F F F F'
+                'o o o o o o o o o o o o'
+                'A A A A A A A A B B B B'
+                'f f f f f f f f . . . .'
         }
     }
 }
 
 
 
+.#{$site-prefix}layout {
+    &--manual {
+        grid-template-areas:
+            'h h'
+            'p p'
+            'x x'
+            's s'
+            'c c'
+            'f f';
+
+        @include ds_helpers.ds_media-query(small) {
+            grid-template-areas:
+                'h h h h h h'
+                'p p p p p p'
+                'x x x x x x'
+                's s s s s s'
+                'c c c c c c'
+                'f f f f f f'
+        }
+
+        @include ds_helpers.ds_media-query(medium) {
+            grid-template-areas:
+                'h h h h h h h h p p p p'
+                'x x x x x x x x x x x x'
+                's s s s c c c c c c c c'
+                's s s s f f f f f f f f'
+
+        }
+
+        @include ds_helpers.ds_media-query(large) {
+            grid-template-areas:
+                'h h h h h h h h p p p p'
+                'x x x x x x x x x x x x'
+                's s s c c c c c c c . .'
+                's s s f f f f f f f . .'
+        }
+
+        @include ds_helpers.ds_media-query(xlarge) {
+            grid-template-areas:
+                'h h h h h h h h p p p p'
+                'x x x x x x x x x x x x'
+                's s s c c c c c c c . .'
+                's s s f f f f f f f . .'
+        }
+    }
+}
+
+.#{$site-prefix}layout {
+    &--manual-landing {
+        grid-template-areas:
+            'h h'
+            'p p'
+            'x x'
+            'c c'
+            'f f';
+
+        @include ds_helpers.ds_media-query(small) {
+            grid-template-areas:
+                'h h h h h h'
+                'p p p p p p'
+                'x x x x x x'
+                'c c c c c c'
+                'f f f f f f'
+        }
+
+        @include ds_helpers.ds_media-query(medium) {
+            grid-template-areas:
+                'h h h h h h h h p p p p'
+                'x x x x x x x x x x x x'
+                'c c c c c c c c . . . .'
+                'f f f f f f f f . . . .'
+
+        }
+
+        @include ds_helpers.ds_media-query(large) {
+            grid-template-areas:
+                'h h h h h h h h p p p p'
+                'x x x x x x x x x x x x'
+                'c c c c c c c c . . . .'
+                'f f f f f f f c . . . .'
+        }
+
+        @include ds_helpers.ds_media-query(xlarge) {
+            grid-template-areas:
+                'h h h h h h h h p p p p'
+                'x x x x x x x x x x x x'
+                'c c c c c c c c . . . .'
+                'f f f f f f f c . . . .'
+        }
+    }
+}
 
 .ds_cols {
-    @include ds_layout();
+    @include ds_helpers.ds_layout();
+}
 
-    &--2 {
-        @include ds_media-query(large) {
-            > * {
-                float: left;
-                @include ds_colwidth(6);
-
-                &:nth-child(2n-1) {
-                    clear: left;
-                }
-            }
-        }
-    }
-
-    &--4 {
-        @include ds_media-query(small) {
-            > * {
-                float: left;
-                @include ds_colwidth(6);
-
-                &:nth-child(2n+1) {
-                    clear: left;
-                }
-            }
-        }
-
-        @include ds_media-query(large) {
-            > * {
-                float: left;
-                @include ds_colwidth(3);
-
-                &:nth-child(2n+1) {
-                    clear: none;
-                }
-
-                &:nth-child(4n+1) {
-                    clear: left;
-                }
-            }
-        }
+.ds_cols--2 {
+    @include ds_helpers.ds_media-query(large) {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@supports(display: grid) {
-    .ds_cols--2 {
-        @include ds_media-query(large) {
-            grid-template-columns: repeat(2, 1fr);
-        }
+.ds_cols--4 {
+    @include ds_helpers.ds_media-query(small) {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .ds_cols--4 {
-        @include ds_media-query(small) {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @include ds_media-query(large) {
-            grid-template-columns: repeat(4, 1fr);
-        }
+    @include ds_helpers.ds_media-query(large) {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
+
 
 /// MGS-7728 Category list: grey-background area does not extend all the way to the footer on short pages
 

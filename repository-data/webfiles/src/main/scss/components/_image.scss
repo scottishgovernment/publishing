@@ -1,7 +1,9 @@
 // Image with caption
 
-.dp_image {
+@use '../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
 
+.dp_image {
     img {
         display: block;
         height: auto;
@@ -9,10 +11,9 @@
     }
 
     &__caption {
-        @include ds_small-size--fixed;
-        border-left: 1px solid $ds_colour__border;
+        @include ds_helpers.ds_small-size--fixed;
+        border-left: 1px solid ds_settings.$ds_colour__border;
         margin-top: 0.5rem;
         padding: 0.5rem 1rem 0.5rem calc(0.75rem - 1px);
     }
-
 }

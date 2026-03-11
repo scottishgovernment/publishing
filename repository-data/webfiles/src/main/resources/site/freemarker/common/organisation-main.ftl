@@ -74,7 +74,7 @@
                     <section id="featured-services" class="page-section  org-services">
                         <h2>${document.featuredservicestitle}</h2>
 
-                        <ul class="ds_category-list  ds_cols  ds_cols--2">
+                        <ul class="ds_category-list  ds_category-list--grid  ds_category-list--grid--2cols">
                             <#list document.featuredservices as child>
                                 <@hst.link var="link" hippobean=child.link/>
                                 <li class="ds_category-item">
@@ -96,7 +96,7 @@
                 <div class="ds_layout__services">
                     <section id="other-services" class="page-section  org-services">
                         <h2>Services</h2>
-                        <ul class="ds_category-list  ds_cols  ds_cols--2">
+                        <ul class="ds_category-list  ds_category-list--grid  ds_category-list--grid--2cols">
                             <#list services as child>
                                 <@hst.link var="link" hippobean=child/>
 

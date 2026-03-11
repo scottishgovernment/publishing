@@ -6,7 +6,7 @@ import $ from 'jquery';
 import '../vendor/jquery.routes';
 import _ from '../vendor/lodash/dist/tinydash.es6';
 import bloomreachWebfile from '../tools/bloomreach-webfile';
-import temporaryFocus from '../../../../node_modules/@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
+import temporaryFocus from '@scottish-government/design-system/dist/scripts/base/tools/temporary-focus/temporary-focus';
 
 const MultiPageForm = function (settings) {
     this.settings = {};
@@ -518,7 +518,7 @@ function updateFormNav (navs) {
     }
 }
 
-function updatePageNav () {
+function updatePageNav() {
     let templateData = {};
     let pageNavTemplate;
 
@@ -554,9 +554,11 @@ function updatePageNav () {
 
     const pageNavElement = document.getElementById('page-nav');
 
-    $(pageNavElement).html(pageNavHtml);
-    $(pageNavElement).trigger('change');
-    window.DS.tracking.init(pageNavElement);
+    if (pageNavElement) {
+        $(pageNavElement).html(pageNavHtml);
+        $(pageNavElement).trigger('change');
+        window.DS.tracking.init(pageNavElement);
+    }
 }
 
 function updatePageLabelWithCurrentStep () {

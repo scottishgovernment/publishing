@@ -10,7 +10,7 @@ $site-prefix: "mg_";
 /**
  * BASE STYLES FROM PATTERN LIBRARY
  */
-@import "../../../../node_modules/@scottish-government/design-system/src/base/all-base";
+@import "../../../../node_modules/@scottish-government/design-system/src/base/";
 @import "../base/code";
 @import "../base/helpers/no-margin";
 @import "base/mg-layouts";
@@ -22,8 +22,7 @@ $site-prefix: "mg_";
 /**
  * COMPONENTS FROM PATTERN LIBRARY
  */
-@import "../../../../node_modules/@scottish-government/design-system/src/forms/all-forms";
-@import "../../../../node_modules/@scottish-government/design-system/src/components/all-components";
+@import "../../../../node_modules/@scottish-government/design-system/src/components/";
 
 
 
@@ -45,12 +44,12 @@ $site-prefix: "mg_";
 /**
  * COMPONENTS FROM MYGOV
  */
+@import "components/address-reveal";
 @import "components/az-nav";
 @import "components/document-info";
 @import "components/editable-table";
 @import "components/fair-rent";
 @import "components/feedback";
-@import "components/file-icon";
 @import "components/form-pieces";
 @import "components/homepage-hero";
 @import "components/homepage-org-az";
@@ -61,14 +60,12 @@ $site-prefix: "mg_";
 @import "components/partner-logo";
 @import "components/popular-panel";
 @import "components/repeating-container";
+@import "components/reveal-content";
 @import "components/section-nav";
 @import "components/smart-answer";
 @import "components/subsection-nav";
 @import "components/summary-table";
 @import "legacy/business-rates-results";
-
-@import "mg_address-reveal";
-
 
 .js-enabled .fully-hidden-if-js {
     display: none;
@@ -86,7 +83,7 @@ $site-prefix: "mg_";
 /**
  * PAGE BLOCKS FROM DESIGN SYSTEM PAGE BLOCKS
  */
-@import "../../../../node_modules/@scottish-government-design-system/page-blocks/src/page-blocks/all-page-blocks";
+@import "../../../../node_modules/@scottish-government-design-system/page-blocks/src/page-blocks";
 
 
 
@@ -104,6 +101,7 @@ $site-prefix: "mg_";
 /**
  * OVERRIDES
  */
+@import "../overrides/override.category-list";
 @import "../overrides/override.contents-nav";
 @import "../overrides/override.page-header";
 

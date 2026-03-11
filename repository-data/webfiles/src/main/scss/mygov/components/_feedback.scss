@@ -1,15 +1,17 @@
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
 
 /* [1] compensate for 1px border */
 .mg_feedback {
-    border-top: 1px solid $ds_colour__border;
+    border-top: 1px solid ds_settings.$ds_colour__border;
     margin-top: 32px;
     padding-top: 31px; /* [1] */
 
     &__success {
-        @include ds_block-margins;
+        @include ds_helpers.ds_block-margins;
 
-        background-color: $ds_colour__state--positive;
-        color: $ds_colour__white;
+        background-color: ds_settings.$ds_colour__state--positive;
+        color: ds_settings.$ds_colour__white;
         padding: 16px 24px;
 
         > :last-child {

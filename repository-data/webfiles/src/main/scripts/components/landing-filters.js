@@ -5,10 +5,9 @@
 
 'use strict';
 
-import breakpointCheck from '../../../../node_modules/@scottish-government/design-system/src/base/utilities/breakpoint-check/breakpoint-check';
-import DatePicker from '../../../../node_modules/@scottish-government/design-system/src/components/date-picker/date-picker';
-import PromiseRequest from '../../../../node_modules/@scottish-government/design-system/src/base/tools/promise-request/promise-request';
-import temporaryFocus from '../../../../node_modules/@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
+import breakpointCheck from '@scottish-government/design-system/dist/scripts/base/utilities/breakpoint-check/breakpoint-check';
+import DatePicker from '@scottish-government/design-system/dist/scripts/components/date-picker/date-picker';
+import PromiseRequest from '@scottish-government/design-system/dist/scripts/base/tools/promise-request/promise-request';
 import searchUtils from '../tools/search-utils';
 
 window.dataLayer = window.dataLayer || [];

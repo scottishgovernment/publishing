@@ -1,11 +1,13 @@
 /*------------------------------------*\
     #DOCUMENT INFO
 \*------------------------------------*/
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
 
-$document-info__border-color: $ds_colour__grey--light !default;
-$document-info__background-color: $ds_colour__grey--lighter !default;
-$document-info__preview__border: $ds_colour__grey--medium !default;
-$document-info__preview__background: $ds_colour__grey--light !default;
+$document-info__border-color: ds_settings.$ds_colour__grey--light !default;
+$document-info__background-color: ds_settings.$ds_colour__grey--lighter !default;
+$document-info__preview__border: ds_settings.$ds_colour__grey--medium !default;
+$document-info__preview__background: ds_settings.$ds_colour__grey--light !default;
 $document-info__text-margin: 16px;
 
 
@@ -13,7 +15,7 @@ $document-info__text-margin: 16px;
     overflow: hidden;
 
     &:not(:last-child) {
-        border-bottom: 1px solid $ds_colour__border;
+        border-bottom: 1px solid ds_settings.$ds_colour__border;
         padding-bottom: 31px; // 32px - border
     }
 }
@@ -146,10 +148,10 @@ $document-info__text-margin: 16px;
     right: 0;
 
     &:focus {
-      color: $ds_colour__button__background;
+      color: ds_settings.$ds_colour__button__background;
     }
     &:hover {
-      color: $ds_colour__button--hover__background;
+      color: ds_settings.$ds_colour__button--hover__background;
     }
   }
 
@@ -188,14 +190,14 @@ $document-info__text-margin: 16px;
     }
 
     dd:not(:first-of-type) {
-      border-left: 1px solid $ds_colour__text;
+      border-left: 1px solid ds_settings.$ds_colour__text;
       margin-left: 8px;
       padding-left: 10px;
     }
   }
 
   &__disclaimer {
-    color: $ds_colour__text--secondary;
+    color: ds_settings.$ds_colour__text--secondary;
     font-size: 14px;
     line-height: 24px;
   }
@@ -220,7 +222,7 @@ $document-info__text-margin: 16px;
     width: 100%;
 }
 
-@include ds_media-query(medium) {
+@include ds_helpers.ds_media-query(medium) {
 
   .document-info {
     margin-bottom: 32px;

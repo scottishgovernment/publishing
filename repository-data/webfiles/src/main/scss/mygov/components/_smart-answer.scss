@@ -2,6 +2,9 @@
     #SMART ANSWER
 \*------------------------------------*/
 
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
 .#{$site-prefix}smart-answer {
     &__step {
         display: none;
@@ -14,14 +17,14 @@
     }
 
     &__parent-title {
-        color: $ds_colour__text--secondary;
+        color: ds_settings.$ds_colour__text--secondary;
         font-weight: $normal;
 
-        @include ds_large-size;
+        @include ds_helpers.ds_large-size;
     }
 }
 
-@include ds_media-query(medium) {
+@include ds_helpers.ds_media-query(medium) {
     .#{$site-prefix}smart-answer {
         &__step {
             margin-top: 32px;
