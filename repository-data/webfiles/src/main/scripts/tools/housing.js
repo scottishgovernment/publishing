@@ -4,7 +4,7 @@
 
 import commonForms from './forms';
 import $ from 'jquery';
-import { Accordion } from '../../../../node_modules/@scottish-government/design-system/src/all';
+import { Accordion } from '@scottish-government/design-system/dist/scripts/all/all';
 
 const commonHousing = {
     camelify: function (string) {

@@ -1,5 +1,5 @@
 
-import { initAll } from '../../../../../node_modules/@scottish-government/design-system/src/all';
+import { initAll } from '@scottish-government/design-system/dist/scripts/all/all';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const dsFullPage = {

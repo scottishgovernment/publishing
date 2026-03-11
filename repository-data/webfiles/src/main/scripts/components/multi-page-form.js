@@ -6,7 +6,7 @@ import $ from 'jquery';
 import '../vendor/jquery.routes';
 import _ from '../vendor/lodash/dist/tinydash.es6';
 import bloomreachWebfile from '../tools/bloomreach-webfile';
-import temporaryFocus from '../../../../node_modules/@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
+import temporaryFocus from '@scottish-government/design-system/dist/scripts/base/tools/temporary-focus/temporary-focus';
 
 const MultiPageForm = function (settings) {
     this.settings = {};

@@ -71,7 +71,7 @@ import ServiceFinder from '../../components/service-finder';
 import commonForms from '../../tools/forms';
 import commonHousing from '../../tools/housing';
 import formSections from '../../components/mygov/housing-forms/notice-to-leave-sections';
-import DSDatePicker from '../../../../../node_modules/@scottish-government/design-system/src/components/date-picker/date-picker';
+import DSDatePicker from '@scottish-government/design-system/dist/scripts/components/date-picker/date-picker';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
 
 const formTemplate = require('../../templates/mygov/notice-to-leave-form');

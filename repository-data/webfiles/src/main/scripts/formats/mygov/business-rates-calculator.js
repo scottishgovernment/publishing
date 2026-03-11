@@ -5,8 +5,8 @@
 import MultiPageForm from '../../components/multi-page-form';
 import ServiceFinder from '../../components/service-finder';
 import bloomreachWebfile from '../../tools/bloomreach-webfile';
-import temporaryFocus from '@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
-import PromiseRequest from '@scottish-government/design-system/src/base/tools/promise-request/promise-request';
+import temporaryFocus from '@scottish-government/design-system/dist/scripts/base/tools/temporary-focus/temporary-focus';
+import PromiseRequest from '@scottish-government/design-system/dist/scripts/base/tools/promise-request/promise-request';
 import commonForms from '../../tools/forms';
 
 const formTemplate = require('../../templates/mygov/business-rates-calculator');

@@ -6,7 +6,7 @@
 'use strict';
 
 import commonFormsOld from '../tools/forms';
-import temporaryFocus from '@scottish-government/design-system/src/base/tools/temporary-focus/temporary-focus';
+import temporaryFocus from '@scottish-government/design-system/dist/scripts/base/tools/temporary-focus/temporary-focus';
 
 const errorSummaryTemplate = require('../templates/error-summary');
 const feedbackTemplate = require('../templates/feedback');
