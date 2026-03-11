@@ -61,7 +61,6 @@
   </distributionManagement>
 
   <properties>
-    <hippo-govscot.version>0.0.1-SNAPSHOT</hippo-govscot.version>
     <essentials.version>16.4.1</essentials.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
@@ -88,6 +87,14 @@
 
   <dependencyManagement>
     <dependencies>
+
+      <dependency>
+        <groupId>scot.gov.publishing.hippo</groupId>
+        <artifactId>hippo-govscot-bom</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
 
       <dependency>
         <groupId>com.amazonaws</groupId>
