@@ -45,6 +45,7 @@ $site-prefix: "mg_";
 /**
  * COMPONENTS FROM MYGOV
  */
+@import "components/address-reveal";
 @import "components/az-nav";
 @import "components/document-info";
 @import "components/editable-table";
@@ -61,14 +62,12 @@ $site-prefix: "mg_";
 @import "components/partner-logo";
 @import "components/popular-panel";
 @import "components/repeating-container";
+@import "components/reveal-content";
 @import "components/section-nav";
 @import "components/smart-answer";
 @import "components/subsection-nav";
 @import "components/summary-table";
 @import "legacy/business-rates-results";
-
-@import "mg_address-reveal";
-
 
 .js-enabled .fully-hidden-if-js {
     display: none;

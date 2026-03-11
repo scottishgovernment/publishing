@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    REVEAL CONTENT
+\*------------------------------------*/
+
+.mg_reveal-content {
+    display: none;
+    margin-top: 16px;
+    padding-left: 16px;
+    position: relative;
+    @include ds_last-child-no-margin;
+
+    &::before {
+        background-color: $ds_colour__border;
+        bottom: 0;
+        content: '';
+        left: -22px;
+        position: absolute;
+        top: 0;
+        width: 4px;
+    }
+}
+
+:checked ~ .mg_reveal-content {
+    display: block;
+}

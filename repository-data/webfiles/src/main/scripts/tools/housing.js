@@ -51,8 +51,8 @@ const commonHousing = {
             if (!field.offsetParent) {
                 return false;
             }
-            if (field.closest('.ds_reveal-content')) {
-                return [].slice.call(field.closest('.ds_reveal-content').parentNode.children).filter(item => item.nodeName === 'INPUT' && item.checked).length;
+            if (field.closest('.mg_reveal-content')) {
+                return [].slice.call(field.closest('.mg_reveal-content').parentNode.children).filter(item => item.nodeName === 'INPUT' && item.checked).length;
             } else {
                 return true;
             }
