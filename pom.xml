@@ -61,6 +61,7 @@
   </distributionManagement>
 
   <properties>
+    <hippo-govscot.version>0.0.1-SNAPSHOT</hippo-govscot.version>
     <essentials.version>16.4.1</essentials.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
@@ -82,13 +83,10 @@
     <hystrix-javanica.version>1.5.12</hystrix-javanica.version>
 
     <log4j2.version>2.23.1</log4j2.version>
-          <sonar.analysis.mode></sonar.analysis.mode>
-
-
+    <sonar.analysis.mode></sonar.analysis.mode>
   </properties>
 
   <dependencyManagement>
-
     <dependencies>
 
       <dependency>
@@ -341,17 +339,17 @@
         <dependency>
           <groupId>jakarta.xml.bind</groupId>
           <artifactId>jakarta.xml.bind-api</artifactId>
-          <scope>compile</scope>
+
         </dependency>
         <dependency>
           <groupId>jakarta.xml.ws</groupId>
           <artifactId>jakarta.xml.ws-api</artifactId>
-          <scope>compile</scope>
+
         </dependency>
         <dependency>
           <groupId>jakarta.annotation</groupId>
           <artifactId>jakarta.annotation-api</artifactId>
-          <scope>compile</scope>
+
         </dependency>
         <dependency>
           <groupId>jakarta.activation</groupId>

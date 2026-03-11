@@ -22,25 +22,25 @@
     <dependency>
       <groupId>scot.gov.publishing.hippo</groupId>
       <artifactId>hippo-govscot-hst</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>${hippo-govscot.version}</version>
     </dependency>
 
     <dependency>
       <groupId>scot.gov.publishing.hippo</groupId>
       <artifactId>hippo-govscot-funnelback-hst</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>${hippo-govscot.version}</version>
     </dependency>
 
     <dependency>
       <groupId>scot.gov.publishing.hippo</groupId>
       <artifactId>hippo-govscot-staging-hst</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>${hippo-govscot.version}</version>
     </dependency>
 
     <dependency>
       <groupId>scot.gov.publishing.hippo</groupId>
       <artifactId>hippo-govscot-sluglookup-hst</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>${hippo-govscot.version}</version>
     </dependency>
 
     <dependency>
@@ -74,7 +74,6 @@
       <groupId>org.onehippo.cms7.hst.components</groupId>
       <artifactId>hst-core</artifactId>
       <version>${essentials.version}</version>
-      <scope>compile</scope>
     </dependency>
 
     <dependency>
@@ -167,15 +166,13 @@
     <dependency>
       <groupId>scot.gov.publishing.hippo</groupId>
       <artifactId>hippo-govscot-sluglookup-cms</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
-      <scope>compile</scope>
+      <version>${hippo-govscot.version}</version>
     </dependency>
 
     <dependency>
       <groupId>scot.gov.publishing.hippo</groupId>
       <artifactId>hippo-govscot-health</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
-      <scope>compile</scope>
+      <version>${hippo-govscot.version}</version>
     </dependency>
 
   </dependencies>

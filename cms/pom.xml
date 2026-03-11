@@ -103,22 +103,22 @@
       <artifactId>imageprocessing</artifactId>
       <version>${project.version}</version>
     </dependency>
+
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
       <artifactId>hippo-cms-richtext-ckeditor-frontend</artifactId>
     </dependency>
+
     <dependency>
         <groupId>scot.gov.publishing.hippo</groupId>
         <artifactId>hippo-govscot-cms</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <scope>compile</scope>
+        <version>${hippo-govscot.version}</version>
     </dependency>
 
     <dependency>
         <groupId>scot.gov.publishing.hippo</groupId>
         <artifactId>hippo-govscot-sluglookup-cms</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <scope>compile</scope>
+        <version>${hippo-govscot.version}</version>
     </dependency>
 
     <dependency>
