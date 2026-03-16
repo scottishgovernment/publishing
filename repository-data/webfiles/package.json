@@ -8,7 +8,7 @@
     "url": "http://www.gov.scot/"
   },
   "scripts": {
-    "sass": "npm run sass_theme_sg-brand; npm run sass_theme_dark-blue; npm run sass_theme_green; npm run sass_theme_purple; npm run sass_theme_teal; npm run sass_theme_neutral; npm run sass_designsystem; npm run sass_theme_socsec",
+    "sass": "npm run sass_theme_sg-brand -- --quiet; npm run sass_theme_dark-blue -- --quiet; npm run sass_theme_green -- --quiet; npm run sass_theme_purple -- --quiet; npm run sass_theme_teal -- --quiet; npm run sass_theme_neutral -- --quiet; npm run sass_designsystem -- --quiet; npm run sass_theme_socsec -- --quiet",
     "sass_designsystem": "sass ./src/main/scss/designsystem/main.scss ./src/main/resources/site/assets/themes/designsystem/css/main.css --style compressed",
     "sass_theme_sg-brand": "sass ./src/main/scss/themes/sg-brand/main.scss ./src/main/resources/site/assets/themes/sg-brand/css/main.css --style compressed",
     "sass_theme_dark-blue": "sass ./src/main/scss/themes/dark-blue/main.scss ./src/main/resources/site/assets/themes/dark-blue/css/main.css --style compressed",
@@ -26,7 +26,7 @@
     "@babel/preset-env": "^7.16.11",
     "@dryfeld/nunjucks-loader": "^4.0.7",
     "@scottish-government-design-system/page-blocks": "^1.1.0",
-    "@scottish-government/design-system": "^3.4.1",
+    "@scottish-government/design-system": "^4.0.0-beta.0",
     "babel-loader": "^8.2.3",
     "karma": "^6.4.1",
     "karma-babel-preprocessor": "^8.0.2",
@@ -40,7 +40,7 @@
     "loader-utils": "^3.2.1",
     "nunjucks": "^3.2.3",
     "prismjs": "^1.29.0",
-    "sass": "^1.71.1",
+    "sass": "^1.94.3",
     "sealant": "^0.1.1",
     "svg-sprite": "^2.0.3",
     "webpack": "^5.90.3",

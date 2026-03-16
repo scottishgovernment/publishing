@@ -1,3 +1,6 @@
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as DSHelpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as DSSettings;
+
 .sectors {
     margin-bottom: 2rem;
 }
@@ -34,7 +37,7 @@
         @include ds_blocklink('.sector__link');
         @include ds_box-shadow;
 
-        background-color: $ds_colour__background--secondary;
+        background-color: DSSettings.$ds_colour__background--secondary;
         grid-template-areas: 'count' 'title' 'summary';
         display: grid;
         margin-bottom: 2rem;
@@ -65,7 +68,7 @@
     }
 
     .sector__summary {
-        color: $ds_colour__text;
+        color: DSSettings.$ds_colour__text;
         grid-area: summary;
         margin-left: 0;
         pointer-events: none;
@@ -73,7 +76,7 @@
     }
 
     .sector__summary::before {
-        background: $ds_colour__border;
+        background: DSSettings.$ds_colour__border;
         content: '';
         height: 1px;
         left: 0;
@@ -83,7 +86,7 @@
     }
 
     .sector__summary::after {
-        color: $ds_colour__link;
+        color: DSSettings.$ds_colour__link;
         left: 50%;
         position: absolute;
         bottom: -56px;
@@ -94,7 +97,7 @@
 
     .sector:hover {
         .sector__summary::after {
-            color: $ds_colour__link--hover;
+            color: DSSettings.$ds_colour__link--hover;
         }
     }
 
@@ -104,7 +107,7 @@
         }
 
         .sector__summary::after {
-            color: $ds_colour__link--focus;
+            color: DSSettings.$ds_colour__link--focus;
         }
     }
 
@@ -113,7 +116,7 @@
 
         display: block;
         font-size: 6rem;
-        font-weight: $bold;
+        font-weight: DSSettings.$bold;
         line-height: 1;
         text-align: center;
     }
@@ -162,7 +165,7 @@
         }
 
         &__sublist-item {
-            border-top: 1px solid $ds_colour__border--light;
+            border-top: 1px solid DSSettings.$ds_colour__border--faint;
             margin-bottom: 0;
             line-height: px-to-em(32px, 16px);
             padding: 8px 0;
