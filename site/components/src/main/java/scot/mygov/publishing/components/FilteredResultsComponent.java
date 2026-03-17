@@ -19,14 +19,11 @@ import org.onehippo.forge.selection.hst.contentbean.ValueList;
 import org.onehippo.forge.selection.hst.util.SelectionUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scot.gov.publishing.hippo.funnelback.component.*;
-import scot.gov.publishing.hippo.funnelback.component.postprocess.PaginationBuilder;
-import scot.gov.publishing.hippo.funnelback.model.Pagination;
-import scot.gov.publishing.hippo.funnelback.model.Question;
-import scot.gov.publishing.hippo.funnelback.model.Response;
-import scot.gov.publishing.hippo.funnelback.model.ResultsSummary;
 
 import jakarta.servlet.http.HttpServletRequest;
+import scot.gov.publishing.hippo.search.SearchBuilder;
+import scot.gov.publishing.hippo.search.model.*;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -35,7 +32,6 @@ import static java.util.Collections.emptyMap;
 import static java.util.stream.Collectors.toList;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 import static org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder.or;
-import static scot.gov.publishing.hippo.funnelback.component.SearchSettings.searchSettings;
 import static scot.mygov.publishing.components.ConstraintUtils.fieldConstraints;
 
 @ParametersInfo(type = FilteredResultsComponentInfo.class)
@@ -47,19 +43,25 @@ public class FilteredResultsComponent extends EssentialsListComponent {
 
     private static final String PUBLICATION_DATE = "publishing:publicationDate";
 
+    BloomreachSearchService bloomreachSearchService = new BloomreachSearchService();
+
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
 
-        SearchSettings searchSettings = searchSettings();
-        request.setAttribute("showFilters", searchSettings.isShowFilters());
         setContentBeanWith404(request, response);
         Search search = search(request);
+        FilteredResultsComponentInfo paramInfo = getComponentParametersInfo(request);
         request.setAttribute("search", search);
+        request.setAttribute("searchType", "bloomreach");
         request.setAttribute("filterButtons", FilterButtonGroups.filterButtonGroups(search));
-        request.setAttribute("showFilters", true);
-        FilteredResultsComponentInfo info = getComponentParametersInfo(request);
-        request.setAttribute("displayTypeLabel", info.getDisplayTypeLabel());
+        request.setAttribute("displayDates", paramInfo.getDisplayDates());
+        request.setAttribute("displayLabels", paramInfo.getDisplayLabels());
+        request.setAttribute("showSort", paramInfo.getShowSort());
+        request.setAttribute("displayFilters", true);
+        request.setAttribute("includeRelevanceSort", false);
+        request.setAttribute("showBlankQueryMessage", false);
+        request.setAttribute("enabled", true);
     }
 
     Search search(HstRequest request) {
@@ -84,7 +86,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
     Sort sort(HstRequest request) {
         String sortParam = getAnyParameter(request, "sort");
         if (isBlank(sortParam)) {
-            /// if there is no sort param then default to the one configured for this page
+            // if there is no sort param then default to the one configured for this page
             FilteredResultsComponentInfo info = getComponentParametersInfo(request);
             sortParam = info.getDefaultSort();
         }
@@ -208,48 +210,12 @@ public class FilteredResultsComponent extends EssentialsListComponent {
 
     void populateResponse(HstRequest request, HstQueryResult queryResult) {
         Search search = search(request);
-        SearchResponse searchResponse = response(queryResult, search);
+        int offset = (search.getPage() - 1) * PAGE_SIZE;
+        SearchResponse searchResponse = bloomreachSearchService.response(queryResult, search, search.getQuery(), offset);
         request.setAttribute("question", searchResponse.getQuestion());
-        request.setAttribute("response", searchResponse.getResponse());
+        request.setAttribute("response", searchResponse);
         request.setAttribute("pagination", searchResponse.getPagination());
         request.setAttribute("filterButtons", FilterButtonGroups.filterButtonGroups(search));
-    }
-
-    public static SearchResponse response(HstQueryResult result, Search search) {
-        SearchResponse searchResponse = new SearchResponse();
-        searchResponse.setType(SearchResponse.Type.BLOOMREACH);
-
-        Question question = getQuestion(search.getQuery());
-        searchResponse.setQuestion(question);
-
-        Response response = new Response();
-        int offset = (search.getPage() - 1) * PAGE_SIZE;
-        ResultsSummary resultsSummary = buildResultsSummary(result, offset);
-        response.getResultPacket().setResultsSummary(resultsSummary);
-        searchResponse.setResponse(response);
-
-        Pagination pagination = new PaginationBuilder().getPagination(resultsSummary, search);
-        searchResponse.setPagination(pagination);
-        searchResponse.setBloomreachResults(result.getHippoBeans());
-
-        return searchResponse;
-    }
-
-    static Question getQuestion(String query) {
-        Question question = new Question();
-        question.setOriginalQuery(query);
-        question.setQuery(query);
-        return question;
-    }
-
-    public static ResultsSummary buildResultsSummary(HstQueryResult result, int offset) {
-        ResultsSummary resultsSummary = new ResultsSummary();
-        resultsSummary.setCurrStart(offset + 1);
-        resultsSummary.setCurrEnd(Math.min(resultsSummary.getCurrStart() + PAGE_SIZE, result.getTotalSize()));
-        resultsSummary.setNumRanks(PAGE_SIZE);
-        resultsSummary.setTotalMatching(result.getTotalSize());
-        resultsSummary.setFullyMatching(result.getTotalSize());
-        return resultsSummary;
     }
 
     @Override
@@ -268,7 +234,9 @@ public class FilteredResultsComponent extends EssentialsListComponent {
                 .limit(pageSize)
                 .offset(offset);
         addOrderBy(queryBuilder, search.getSort());
-        return queryBuilder.build();
+        HstQuery q = queryBuilder.build();
+        LOG.info("----- {}", q);
+        return q;
     }
 
     void addOrderBy(HstQueryBuilder queryBuilder, Sort sort) {

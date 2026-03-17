@@ -43,6 +43,57 @@ definitions:
             hipposysedit:primary: false
             hipposysedit:type: Boolean
             hipposysedit:validators: [required]
+        /hipposysedit:nodetype[2]:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 1394738c-dfb1-4cf6-826f-fe00827a6ba6
+          hipposysedit:node: true
+          hipposysedit:supertype: ['publishing:basedocument', 'hippostd:relaxed',
+            'hippotranslation:translated']
+          /searchtype:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:searchtype
+            hipposysedit:primary: false
+            hipposysedit:type: DynamicDropdown
+            hipposysedit:validators: [required]
+          /timeoutMillis:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:timeoutMillis
+            hipposysedit:primary: false
+            hipposysedit:type: Long
+            hipposysedit:validators: [required]
+          /enabled:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:enabled
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            hipposysedit:validators: [required]
+          /boolean1:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:boolean1
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /displayDates:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:displayDates
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+            hipposysedit:validators: [required]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
@@ -60,6 +111,23 @@ definitions:
           publishing:timeoutMillis: 500
           publishing:searchtype: resilient
           publishing:enabled: true
+        /hipposysedit:prototype[2]:
+          jcr:primaryType: nt:unstructured
+          jcr:mixinTypes: ['hippotranslation:translated', 'mix:referenceable', 'hippostd:relaxed']
+          jcr:uuid: 8d357a3e-2697-4567-8cc4-1473738b1c6e
+          hippostd:holder: holder
+          hippostd:state: draft
+          hippostdpubwf:createdBy: ''
+          hippostdpubwf:creationDate: 2022-07-01T16:13:44.917+01:00
+          hippostdpubwf:lastModificationDate: 2022-07-01T16:13:44.917+01:00
+          hippostdpubwf:lastModifiedBy: ''
+          hippotranslation:id: document-type-locale-id
+          hippotranslation:locale: document-type-locale
+          publishing:enabled: true
+          publishing:searchtype: resilient
+          publishing:timeoutMillis: 500
+          publishing:boolean1: false
+          publishing:displayDates: false
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -98,6 +166,22 @@ definitions:
             field: timeoutMillis
             hint: When the type of search is 'resilient' then Funnelback will be used
               with this timeout before falling back to Bloomreach.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /displayDates:
+            jcr:primaryType: frontend:plugin
+            caption: Boolean
+            field: displayDates
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /boolean1:
+            jcr:primaryType: frontend:plugin
+            caption: Boolean
+            field: boolean1
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

@@ -3,7 +3,7 @@ package scot.mygov.publishing.components;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scot.gov.publishing.hippo.funnelback.component.MapProvider;
+import scot.gov.publishing.hippo.search.MapProvider;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;

@@ -8,7 +8,7 @@ import org.hippoecm.hst.core.request.ResolvedMount;
 import org.hippoecm.hst.core.request.ResolvedSiteMapItem;
 import org.junit.Test;
 import org.mockito.Mockito;
-import scot.gov.publishing.hippo.funnelback.component.SearchSettings;
+import scot.gov.publishing.hippo.search.SearchSettings;
 import scot.mygov.publishing.channels.WebsiteInfo;
 
 import static org.junit.Assert.assertFalse;

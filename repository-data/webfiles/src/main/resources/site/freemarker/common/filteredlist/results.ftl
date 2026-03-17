@@ -20,18 +20,8 @@
 <#-- @ftlvariable name="showSort" type="java.lang.Boolean" -->
 
 <#if response??>
-    <#if (response.resultPacket.resultsSummary.totalMatching)!?has_content &&
-        response.resultPacket.resultsSummary.totalMatching &gt; 0>
-        <h2 aria-live="polite" aria-atomic="true" class="ds_search-results__title">
-            <#if response.resultPacket.resultsSummary.fullyMatching <= response.resultPacket.resultsSummary.numRanks ||
-            response.resultPacket.resultsSummary.currStart <= response.resultPacket.resultsSummary.numRanks >
+    <if !response.hasResults >
 
-            ${response.resultPacket.resultsSummary.totalMatching} <#if response.resultPacket.resultsSummary.totalMatching gt 1>results<#else>result</#if><#if question.originalQuery?has_content> for <span class="ds_search-results__title-query">${question.originalQuery}</span></#if>
-            <#else>
-                Showing ${response.resultPacket.resultsSummary.currStart} to ${response.resultPacket.resultsSummary.currEnd}
-                of ${response.resultPacket.resultsSummary.totalMatching} <#if response.resultPacket.resultsSummary.totalMatching gt 1>results<#else>result</#if><#if question.originalQuery?has_content> for <span class="ds_search-results__title-query">${question.originalQuery}</span></#if>
-            </#if>
-        </h2>
     </#if>
 
     <div class="ds_skip-links  ds_skip-links--static">
@@ -207,8 +197,8 @@
 
         <hr class="ds_search-results__divider">
 
-        <#if (response.resultPacket.resultsSummary.totalMatching)!?has_content &&
-            response.resultPacket.resultsSummary.totalMatching &gt; 0>
+        <#if (response.resultsSummary.totalMatching)!?has_content &&
+            response.resultsSummary.totalMatching &gt; 0>
 
             <div class="ds_sort-options">
                 <label class="ds_label" for="sort-by">Sort by</label>
@@ -225,22 +215,19 @@
         </#if>
     </div>
 
-    <#if (response.resultPacket.resultsSummary.totalMatching)!?has_content &&
-        response.resultPacket.resultsSummary.totalMatching == 0 &&
-        !(response.curator.simpleHtmlExhibits)?has_content &&
-        !(response.curator.advertExhibits)?has_content>
+    <#if !response.hasResults >
         <h2 class="visually-hidden">Search</h2>
         <div id="no-search-results" class="ds_no-search-results">
-                <#if document.noResultsMessageContentBlocks??>
-                    <@renderContentBlocks document.noResultsMessageContentBlocks />
-                </#if>
+            <#if document.noResultsMessageContentBlocks??>
+                <@renderContentBlocks document.noResultsMessageContentBlocks />
+            </#if>
         </div>
     </#if>
 
 <#if pagination??>
-    <#if ((response.resultPacket.resultsSummary.totalMatching)!?has_content &&
-        response.resultPacket.resultsSummary.totalMatching &gt; 0 ) >
-    <ol start="${response.resultPacket.resultsSummary.currStart?c}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultPacket.resultsSummary.totalMatching?c}">
+    <#if ((response.resultsSummary.totalMatching)!?has_content &&
+        response.resultsSummary.totalMatching &gt; 0 ) >
+    <ol start="${response.resultsSummary.currStart?c}" id="search-results-list" class="ds_search-results__list" data-total="${response.resultsSummary.totalMatching?c}">
     <#-- Using same result template as search -->
     <#list pageable.items as item>
        <#include "result.ftl">
@@ -309,7 +296,4 @@
         </ul>
     </nav>
     </#if>
-
-</#if>
-
 </#if>

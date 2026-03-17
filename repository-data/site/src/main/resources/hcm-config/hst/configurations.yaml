@@ -139,12 +139,6 @@ definitions:
           /site-verification:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/site-verification.ftl
-          /search-funnelback-main:
-            jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/search-funnelback-main.ftl
-          /search-funnelback-results:
-            jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/search-funnelback-results.ftl
           /textandcard:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/page-blocks/textandcard.ftl
@@ -181,15 +175,12 @@ definitions:
           /filteredlist.filter:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/filteredlist/filter.ftl
-          /filteredlist.results.ftl:
-            jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/filteredlist/filter.ftl
           /filteredlist.side-filter:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/filteredlist/filter.ftl
           /filteredlist.results:
             jcr:primaryType: hst:template
-            hst:renderpath: webfile:/freemarker/common/filteredlist/results.ftl
+            hst:renderpath: webfile:/freemarker/common/search-results.ftl
           /publication-main:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/publication-main.ftl
@@ -214,6 +205,12 @@ definitions:
           /eventbrite:
             jcr:primaryType: hst:template
             hst:renderpath: webfile:/freemarker/common/page-blocks/events.ftl
+          /search-results:
+            jcr:primaryType: hst:template
+            hst:renderpath: jcr:/webfiles/search/search-results.ftl
+          /search-main:
+            jcr:primaryType: hst:template
+            hst:renderpath: webfile:/freemarker/common/search-main.ftl
         /hst:sitemenus:
           jcr:primaryType: hst:sitemenus
         /hst:sitemapitemhandlers:

@@ -15,10 +15,10 @@ definitions:
           hst:componentclassname: scot.mygov.publishing.components.FilteredResultsComponent
           hst:label: Filtered Results List
           hst:parameternames: [pageSize, documentTypes, includeSubtypes, showPagination,
-            path, defaultSort, displayTypeLabel]
+            path, defaultSort, displayLabels, displayDates]
           hst:parametervalues: ['10', 'publishing:News', 'false', 'true', '', date,
-            'false']
-          hst:template: filteredlist.results
+            'false', 'true']
+          hst:template: search-results
           hst:xtype: hst.item
         /side-filter:
           jcr:primaryType: hst:component

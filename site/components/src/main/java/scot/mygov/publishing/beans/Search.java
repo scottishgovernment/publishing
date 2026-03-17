@@ -16,4 +16,14 @@ public class Search extends BaseDocument {
     public HippoHtml getContent() {
         return getHippoHtml("publishing:content");
     }
+
+    @HippoEssentialsGenerated(internalName = "publishing:displayLabels")
+    public Boolean getDisplayLabels() {
+        return getSingleProperty("publishing:displayLabels");
+    }
+
+    @HippoEssentialsGenerated(internalName = "publishing:displayDates")
+    public Boolean getDisplayDates() {
+        return getSingleProperty("publishing:displayDates");
+    }
 }

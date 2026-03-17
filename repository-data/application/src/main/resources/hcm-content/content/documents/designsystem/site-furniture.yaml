@@ -1009,7 +1009,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 67ad2f1c-9311-404b-8d80-63764518697c
       hippo:name: Search
-      hippo:versionHistory: 506cb650-ca4f-4829-bc70-4ab21b0a3b57
+      hippo:versionHistory: 3ae2bde8-67a3-4b5d-a919-97e7600dbc73
       /search-results[1]:
         jcr:primaryType: publishing:search
         jcr:mixinTypes: ['mix:referenceable']
@@ -1019,10 +1019,13 @@
         hippostd:state: draft
         hippostdpubwf:createdBy: david.sinclair@gov.scot
         hippostdpubwf:creationDate: 2023-08-08T14:21:21.730+01:00
-        hippostdpubwf:lastModificationDate: 2024-01-24T15:59:06.156Z
-        hippostdpubwf:lastModifiedBy: david.kindness@gov.scot
+        hippostdpubwf:lastModificationDate: 2026-02-27T08:30:57.475Z
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 39777f73-1e68-4ece-9003-0d0fe0b4b920
         hippotranslation:locale: document-type-locale
+        publishing:displayDates: true
+        publishing:displayFilters: false
+        publishing:displayLabels: true
         publishing:showFeedback: true
         publishing:title: Search
         /publishing:noResultsMessageContentBlocks:
@@ -1037,6 +1040,9 @@
                 \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
                 \ \n <li>using fewer keywords</li> \n <li>searching for something\
                 \ less specific</li> \n</ul>"
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>no results</p>
         /publishing:blankSearchQueryMessageContentBlocks:
           jcr:primaryType: publishing:cb_richtext
           publishing:noindex: false
@@ -1047,6 +1053,18 @@
               jcr:primaryType: hippostd:html
               hippostd:content: <p><strong></strong><strong>0 results</strong>, please
                 fill in the search field.</p>
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>blank query</p>
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
       /search-results[2]:
         jcr:primaryType: publishing:search
         jcr:mixinTypes: ['mix:versionable']
@@ -1056,10 +1074,13 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: david.sinclair@gov.scot
         hippostdpubwf:creationDate: 2023-08-08T14:21:21.730+01:00
-        hippostdpubwf:lastModificationDate: 2024-01-24T15:59:12.034Z
-        hippostdpubwf:lastModifiedBy: david.kindness@gov.scot
+        hippostdpubwf:lastModificationDate: 2026-02-27T08:27:40.277Z
+        hippostdpubwf:lastModifiedBy: admin
         hippotranslation:id: 39777f73-1e68-4ece-9003-0d0fe0b4b920
         hippotranslation:locale: document-type-locale
+        publishing:displayDates: true
+        publishing:displayFilters: false
+        publishing:displayLabels: true
         publishing:showFeedback: true
         publishing:title: Search
         /publishing:noResultsMessageContentBlocks:
@@ -1074,6 +1095,9 @@
                 \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
                 \ \n <li>using fewer keywords</li> \n <li>searching for something\
                 \ less specific</li> \n</ul>"
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>no results</p>
         /publishing:blankSearchQueryMessageContentBlocks:
           jcr:primaryType: publishing:cb_richtext
           publishing:noindex: false
@@ -1084,6 +1108,18 @@
               jcr:primaryType: hippostd:html
               hippostd:content: <p><strong></strong><strong>0 results</strong>, please
                 fill in the search field.</p>
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>blank query</p>
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
       /search-results[3]:
         jcr:primaryType: publishing:search
         jcr:mixinTypes: ['mix:referenceable']
@@ -1093,23 +1129,17 @@
         hippostd:state: published
         hippostdpubwf:createdBy: david.sinclair@gov.scot
         hippostdpubwf:creationDate: 2023-08-08T14:21:21.730+01:00
-        hippostdpubwf:lastModificationDate: 2024-01-24T15:59:12.034Z
-        hippostdpubwf:lastModifiedBy: david.kindness@gov.scot
-        hippostdpubwf:publicationDate: 2024-01-24T15:59:15.050Z
+        hippostdpubwf:lastModificationDate: 2026-02-27T08:27:40.277Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2026-02-27T08:27:42.891Z
+        hippostdpubwf:publishedBy: admin
         hippotranslation:id: 39777f73-1e68-4ece-9003-0d0fe0b4b920
         hippotranslation:locale: document-type-locale
+        publishing:displayDates: true
+        publishing:displayFilters: false
+        publishing:displayLabels: true
         publishing:showFeedback: true
         publishing:title: Search
-        /publishing:blankSearchQueryMessageContentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: <p><strong></strong><strong>0 results</strong>, please
-                fill in the search field.</p>
         /publishing:noResultsMessageContentBlocks:
           jcr:primaryType: publishing:cb_richtext
           publishing:noindex: false
@@ -1122,6 +1152,31 @@
                 \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
                 \ \n <li>using fewer keywords</li> \n <li>searching for something\
                 \ less specific</li> \n</ul>"
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>no results</p>
+        /publishing:blankSearchQueryMessageContentBlocks:
+          jcr:primaryType: publishing:cb_richtext
+          publishing:noindex: false
+          /publishing:contentBlocks:
+            jcr:primaryType: publishing:cb_richtext
+            publishing:noindex: false
+            /publishing:content:
+              jcr:primaryType: hippostd:html
+              hippostd:content: <p><strong></strong><strong>0 results</strong>, please
+                fill in the search field.</p>
+          /publishing:content:
+            jcr:primaryType: hippostd:html
+            hippostd:content: <p>blank query</p>
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:noResultsMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
+        /publishing:blankSearchQueryMessage:
+          jcr:primaryType: hippostd:html
+          hippostd:content: ''
   /status:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:versionable']

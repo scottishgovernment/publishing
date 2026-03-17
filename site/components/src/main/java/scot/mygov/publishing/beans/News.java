@@ -23,6 +23,6 @@ public class News extends Base {
     }
 
     public String getLabel() {
-        return "news";
+        return "News";
     }
 }

@@ -8,7 +8,6 @@
 <#return formattedDate />
 </#function>
 
-<#if showFilters>
 <div class="ds_layout__sidebar">
     <div class="ds_search-filters">
         <input type="hidden" id="imagePath" value="<@hst.webfile path='/assets/images/icons/' />/">
@@ -201,4 +200,3 @@
         </div>
     </div>
 </div>
-</#if>
