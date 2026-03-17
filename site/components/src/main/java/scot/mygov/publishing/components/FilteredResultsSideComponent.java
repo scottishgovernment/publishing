@@ -5,7 +5,6 @@ import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.onehippo.cms7.essentials.components.EssentialsContentComponent;
 import scot.gov.publishing.hippo.search.SearchBuilder;
-import scot.gov.publishing.hippo.search.SearchSettings;
 
 import java.util.*;
 
