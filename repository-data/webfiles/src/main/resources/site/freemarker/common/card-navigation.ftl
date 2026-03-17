@@ -3,24 +3,27 @@
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
-<ol class="ds_category-list  ds_category-list--grid  ds_category-list--narrow">
+<ul class="ds_card-grid  ds_card-grid--narrow  ds_card-grid--min-height">
     <#list children as child>
         <@hst.link var="link" hippobean=child.bean/>
-        <li class="ds_card  ds_card--has-hover  ds_card--fixed-height">
-            <div class="ds_category-item  ds_category-item--card">
-                <h2 class="ds_category-item__title">
-                    <a href="${link}" class="ds_category-item__link">
-                        ${child.bean.title}
-                    </a>
-                </h2>
-
+        <li class="ds_card  ds_card--has-hover">
+            <div class="ds_card__content">
+                <div class="ds_card__content-header">
+                    <h2 class="ds_card__title">
+                        <a href="${link}" class="ds_card__link  ds_card__link--cover">
+                            ${child.bean.title}
+                        </a>
+                    </h2>
+                </div>
+                <div class="ds_card__content-main">
                 <#--  <#if document.showSummaries>  -->
                     <p class="ds_category-item__summary">
                         ${child.bean.summary}
                     </p>
                 <#--  </#if>  -->
+                </div>
             </div>
         </li>
     </#list>
-</ol>
+</ul>
 </@hst.messagesReplace>
