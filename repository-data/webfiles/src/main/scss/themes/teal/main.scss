@@ -1,13 +1,15 @@
 /**
  * Teal theme
  */
- $ds_colour__brand: #1c5d5d;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings with (
+    $ds_colour__brand: #1c5d5d
+);
 
- // Page block secondary theme background
- $pb_theme__background-secondary: #e6efef;
+// Page block secondary theme background
+$pb_theme__background-secondary: #e6efef;
 
 /**
  * Use mygov styles
  */
- $iconsfile: "../../../images/icons/icons.stack.svg";
- @import "../../mygov/main";
+$iconsfile: "../../../images/icons/icons.stack.svg";
+@import "../../mygov/main";

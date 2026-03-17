@@ -3,6 +3,9 @@
     Vertical nav of multi-page forms
 \*------------------------------------*/
 
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
 @supports (display: grid) {
     .multi-page-form.form-box {
       margin-right: -32px;
@@ -18,7 +21,7 @@
   }
 
   .subsection-nav__content {
-    @include ds_media-query(medium-down) {
+    @include ds_helpers.ds_media-query(medium-down) {
       padding-top: 32px;
     }
   }
@@ -42,7 +45,7 @@
     position: relative;
 
     &:first-child .subsection-nav__text {
-        border-top-color: $ds_colour__white;
+        border-top-color: ds_settings.$ds_colour__white;
     }
 
     &:first-child {
@@ -51,9 +54,9 @@
 
     a:before,
     span:before {
-      background-color: $ds_colour__link;
+      background-color: ds_settings.$ds_colour__link;
       border-radius: 24px;
-      color: $ds_colour__white;
+      color: ds_settings.$ds_colour__white;
       font-size: 14px;
       font-weight: 700;
       height: 24px;
@@ -69,20 +72,20 @@
 
   .subsection-nav__item--disabled,
   .subsection-nav__text--inactive {
-      background-color: $ds_colour__grey--light;
-      color: $ds_colour__grey;
+      background-color: ds_settings.$ds_colour__grey--light;
+      color: ds_settings.$ds_colour__grey;
       pointer-events: none;
   }
 
   .subsection-nav__item--disabled .subsection-nav__text,
   .subsection-nav__text--inactive {
-      color: $ds_colour__grey;
+      color: ds_settings.$ds_colour__grey;
   }
 
   .subsection-nav__item--disabled .subsection-nav__text:before,
   .subsection-nav__text--inactive:before {
-      background-color: $ds_colour__grey;
-      color: $ds_colour__grey--light;
+      background-color: ds_settings.$ds_colour__grey;
+      color: ds_settings.$ds_colour__grey--light;
   }
 
   ol.subsection-nav__list {
@@ -92,7 +95,7 @@
         counter-increment: li;
 
         .subsection-nav__text--inactive:before {
-          background-color: $ds_colour__grey;
+          background-color: ds_settings.$ds_colour__grey;
         }
 
         a:before,
@@ -106,17 +109,17 @@
     display: block;
     padding: 15px 8px 15px 32px;
     text-decoration: none;
-    border-top: 1px solid $ds_colour__grey--light;
-    border-left: 1px solid $ds_colour__grey--light;
-    border-bottom: 1px solid $ds_colour__grey--light;
+    border-top: 1px solid ds_settings.$ds_colour__grey--light;
+    border-left: 1px solid ds_settings.$ds_colour__grey--light;
+    border-bottom: 1px solid ds_settings.$ds_colour__grey--light;
 
     &:active {
         outline: none;
     }
 
     &.ds_current {
-      background-color: $ds_colour__link--current__background;
-      border-color: $ds_colour__link--current__background;
+      background-color: ds_settings.$ds_colour__link--current__background;
+      border-color: ds_settings.$ds_colour__link--current__background;
       margin-left: -16px;
       margin-right: -16px;
       padding-left: 48px;
@@ -126,7 +129,7 @@
       transition: background-color $transition-out-time;
 
       &:hover {
-        background-color: $ds_colour__grey--lighter;
+        background-color: ds_settings.$ds_colour__grey--lighter;
         text-decoration: none;
 
         margin-left: -16px;
@@ -137,7 +140,7 @@
       }
 
       &:active {
-        background-color: $ds_colour__blue--light;
+        background-color: ds_settings.$ds_colour__blue--light;
         outline: 0;
 
         margin-left: -16px;
@@ -161,12 +164,12 @@
     }
   }
 
-  @include ds_media-query(medium) {
+  @include ds_helpers.ds_media-query(medium) {
 
     .subsection-nav {
       &--section-nav {
         a {
-          color: $ds_colour__text;
+          color: ds_settings.$ds_colour__text;
         }
 
         &:after {
@@ -209,7 +212,7 @@
           $subsection-nav-triangle-size: 10px;
 
           border-top: $subsection-nav-triangle-size solid transparent;
-          border-left: $subsection-nav-triangle-size solid $ds_colour__link;
+          border-left: $subsection-nav-triangle-size solid ds_settings.$ds_colour__link;
           border-bottom: $subsection-nav-triangle-size solid transparent;
           content: '';
           height: 0;
@@ -227,7 +230,7 @@
         $subsection-nav-triangle-size: 10px;
 
         border-left: 0;
-        border-right: $subsection-nav-triangle-size solid $ds_colour__link;
+        border-right: $subsection-nav-triangle-size solid ds_settings.$ds_colour__link;
         left: $subsection-nav-triangle-size * -1;
         right: auto;
     }
@@ -248,7 +251,7 @@
       }
   }
 
-  @include ds_media-query(large) {
+  @include ds_helpers.ds_media-query(large) {
       ol.subsection-nav__list
         .subsection-nav__item {
           a:before,

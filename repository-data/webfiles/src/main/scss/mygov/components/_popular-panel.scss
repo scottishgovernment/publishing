@@ -1,8 +1,11 @@
 /*------------------------------------*\
     #POPULAR ITEMS
 \*------------------------------------*/
-$popular-background-colour: $ds_colour__brand !default;
-$popular__items-background-colour: adjustForContrast(darken($popular-background-colour, 12.5%), #ffffff, 4.5) !default;;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
+$popular-background-colour: ds_settings.$ds_colour__brand !default;
+$popular__items-background-colour: adjustForContrast(darken($popular-background-colour, 12.5%), #ffffff, 4.5) !default;
 
 .popular {
     align-items: center;
@@ -15,7 +18,7 @@ $popular__items-background-colour: adjustForContrast(darken($popular-background-
 }
 
 .popular__link {
-    @include ds_link;
+    @include ds_helpers.ds_link;
     color: #fff;
     text-decoration: none;
 
@@ -45,7 +48,7 @@ $popular__items-background-colour: adjustForContrast(darken($popular-background-
 }
 
 .popular__icon {
-    @include ds_chevron(right, 8px);
+    @include ds_helpers.ds_chevron(right, 8px);
 
     left: -20px;
     margin-top: 0;
@@ -64,7 +67,7 @@ $popular__items-background-colour: adjustForContrast(darken($popular-background-
     background: $popular-background-colour;
 }
 
-@include ds_media-query(large) {
+@include ds_helpers.ds_media-query(large) {
     .popular {
         flex-direction: row;
     }

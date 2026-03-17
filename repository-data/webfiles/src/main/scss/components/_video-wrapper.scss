@@ -1,5 +1,7 @@
+@use '../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
 .youtube-embed-wrapper {
-    background: $ds_colour__background--tertiary;
+    background: ds_settings.$ds_colour__background--tertiary;
     aspect-ratio: 16/9;
     width: 100%;
     margin: 2rem 0;

@@ -1,5 +1,5 @@
-@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as DSHelpers;
-@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as DSSettings;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
 
 .sectors {
     margin-bottom: 2rem;
@@ -7,7 +7,7 @@
 
 .sector {
     &__title {
-        @include ds_h3-size;
+        @include ds_helpers.ds_h3-size;
     }
 
     &__count {
@@ -34,10 +34,10 @@
     }
 
     .sector {
-        @include ds_blocklink('.sector__link');
-        @include ds_box-shadow;
+        @include ds_helpers.ds_blocklink('.sector__link');
+        @include ds_helpers.ds_box-shadow;
 
-        background-color: DSSettings.$ds_colour__background--secondary;
+        background-color: ds_settings.$ds_colour__background--secondary;
         grid-template-areas: 'count' 'title' 'summary';
         display: grid;
         margin-bottom: 2rem;
@@ -68,7 +68,7 @@
     }
 
     .sector__summary {
-        color: DSSettings.$ds_colour__text;
+        color: ds_settings.$ds_colour__text;
         grid-area: summary;
         margin-left: 0;
         pointer-events: none;
@@ -76,7 +76,7 @@
     }
 
     .sector__summary::before {
-        background: DSSettings.$ds_colour__border;
+        background: ds_settings.$ds_colour__border;
         content: '';
         height: 1px;
         left: 0;
@@ -86,18 +86,18 @@
     }
 
     .sector__summary::after {
-        color: DSSettings.$ds_colour__link;
+        color: ds_settings.$ds_colour__link;
         left: 50%;
         position: absolute;
         bottom: -56px;
         margin-left: -1em;
 
-        @include ds_chevron(down, 2em);
+        @include ds_helpers.ds_chevron(down, 2em);
     }
 
     .sector:hover {
         .sector__summary::after {
-            color: DSSettings.$ds_colour__link--hover;
+            color: ds_settings.$ds_colour__link--hover;
         }
     }
 
@@ -107,7 +107,7 @@
         }
 
         .sector__summary::after {
-            color: DSSettings.$ds_colour__link--focus;
+            color: ds_settings.$ds_colour__link--focus;
         }
     }
 
@@ -116,12 +116,12 @@
 
         display: block;
         font-size: 6rem;
-        font-weight: DSSettings.$bold;
+        font-weight: ds_settings.$bold;
         line-height: 1;
         text-align: center;
     }
 
-    @include ds_media-query(medium) {
+    @include ds_helpers.ds_media-query(medium) {
         .sectors {
             display: grid;
             grid-gap: 0 2rem;
@@ -156,22 +156,22 @@
     }
 }
 
-@include ds_media-query(medium) {
+@include ds_helpers.ds_media-query(medium) {
     .sector-list {
         &__sublist {
-            @include ds_small-size;
+            @include ds_helpers.ds_small-size;
 
-            @include ds_layout;
+            @include ds_helpers.ds_layout;
         }
 
         &__sublist-item {
-            border-top: 1px solid DSSettings.$ds_colour__border--faint;
+            border-top: 1px solid ds_settings.$ds_colour__border--faint;
             margin-bottom: 0;
             line-height: px-to-em(32px, 16px);
             padding: 8px 0;
 
             float: left;
-            @include ds_colwidth(6);
+            @include ds_helpers.ds_colwidth(6);
 
             &:nth-child(2n+1) {
                 clear: left;
@@ -180,7 +180,7 @@
     }
 }
 
-@include ds_media-query(large) {
+@include ds_helpers.ds_media-query(large) {
     .sector-list__sublist-item {
         &:nth-child(2n+1) {
             clear: none;
@@ -188,11 +188,11 @@
         &:nth-child(3n+1) {
             clear: left;
         }
-        @include ds_colwidth(4);
+        @include ds_helpers.ds_colwidth(4);
     }
 }
 
-@include ds_media-query(xlarge) {
+@include ds_helpers.ds_media-query(xlarge) {
     .sector-list__sublist-item {
         &:nth-child(3n+1) {
             clear: none;
@@ -200,24 +200,24 @@
         &:nth-child(4n+1) {
             clear: left;
         }
-        @include ds_colwidth(3);
+        @include ds_helpers.ds_colwidth(3);
     }
 }
 
 @supports (display: grid) {
-    @include ds_media-query(medium) {
+    @include ds_helpers.ds_media-query(medium) {
         .sector-list__sublist {
             grid-template-columns: repeat(2, 6fr);
         }
     }
 
-    @include ds_media-query(large) {
+    @include ds_helpers.ds_media-query(large) {
         .sector-list__sublist {
             grid-template-columns: repeat(3, 4fr);
         }
     }
 
-    @include ds_media-query(xlarge) {
+    @include ds_helpers.ds_media-query(xlarge) {
         .sector-list__sublist {
             grid-template-columns: repeat(4, 3fr)
         }

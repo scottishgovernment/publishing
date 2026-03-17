@@ -1,11 +1,14 @@
 /*------------------------------------*\
     MAJOR LINK
 \*------------------------------------*/
+
+@use '../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+
 $icon-spacing: 1.5em;
 
 .ds_cb__link-major {
-    @include ds_small-size();
-    @include ds_high-contrast-link;
+    @include ds_helpers.ds_small-size();
+    @include ds_helpers.ds_high-contrast-link;
     border-bottom: 2px solid currentColor;
     display: inline-block;
     font-weight: $bold;
@@ -18,7 +21,7 @@ $icon-spacing: 1.5em;
         border-bottom-width: 3px;
         padding-bottom: calc(0.5rem - 3px);
 
-        @include ds_media-query(medium) {
+        @include ds_helpers.ds_media-query(medium) {
             border-bottom-width: 4px;
             padding-bottom: calc(0.5rem - 4px);
         }

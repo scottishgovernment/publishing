@@ -1,23 +1,25 @@
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+
 .#{$site-prefix}org-person {
-    @include ds_layout();
-    @include ds_block-margins--bottom;
+    @include ds_helpers.ds_layout();
+    @include ds_helpers.ds_block-margins--bottom;
 
     &__name {
         margin-bottom: 0;
     }
 
     &__roles {
-        @include ds_small-size;
+        @include ds_helpers.ds_small-size;
     }
 
     &__image > img {
         max-width: 100%;
     }
 
-    @include ds_media-query(small) {
+    @include ds_helpers.ds_media-query(small) {
         &__image {
             float: left;
-            @include ds_colwidth(4);
+            @include ds_helpers.ds_colwidth(4);
 
             width: 100%;
             max-width: unset;
@@ -25,7 +27,7 @@
 
         &__heading {
             float: left;
-            @include ds_colwidth(8);
+            @include ds_helpers.ds_colwidth(8);
         }
 
         &__summary {
@@ -33,7 +35,7 @@
         }
     }
 
-    @include ds_media-query(medium) {
+    @include ds_helpers.ds_media-query(medium) {
         &__summary {
             clear: none;
         }
@@ -62,19 +64,19 @@
         grid-template-areas: 'i' 'h' 's';
         grid-template-rows: auto 1fr;
 
-        @include ds_media-query(small) {
+        @include ds_helpers.ds_media-query(small) {
             grid-template-areas: 'i h' 's s';
             grid-template-columns: 1fr 2fr;
         }
 
-        @include ds_media-query(medium) {
+        @include ds_helpers.ds_media-query(medium) {
             grid-template-areas:
                 'i i i i h h h h h h h h'
                 'i i i i s s s s s s s s';
             grid-template-columns: repeat(12, 1fr);
         }
 
-        @include ds_media-query(large) {
+        @include ds_helpers.ds_media-query(large) {
             grid-template-areas:
                 'i i i h h h h h h h h h'
                 'i i i s s s s s s s s s';

@@ -1,4 +1,5 @@
-@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as DSSettings;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
 
 .az-nav {
     list-style: none;
@@ -6,11 +7,11 @@
     max-width: 640px;
     text-align: center;
 
-    @include ds_layout(8px);
+    @include ds_helpers.ds_layout(8px);
     margin-right: auto;
 
     &__link {
-        background-color: DSSettings.$ds_colour__grey--lighter;
+        background-color: ds_settings.$ds_colour__grey--lighter;
         display: inline-block;
         font-size: $large-size;
         height: 40px;
@@ -31,11 +32,11 @@
     }
 }
 
-@include ds_media-query(medium) {
+@include ds_helpers.ds_media-query(medium) {
     .az-nav {
         &__item {
             float: left;
-            @include ds_colwidth(1, 13, 8px);
+            @include ds_helpers.ds_colwidth(1, 13, 8px);
         }
     }
 }
@@ -49,10 +50,10 @@
     margin-left: 0;
 
     &__item {
-        @include ds_layout;
+        @include ds_helpers.ds_layout;
 
         &:not(:last-child) {
-            border-bottom: 1px solid DSSettings.$ds_colour__border--faint;
+            border-bottom: 1px solid ds_settings.$ds_colour__border--faint;
             margin-bottom: 64px;
             padding-bottom: 31px;
         }
@@ -69,7 +70,7 @@
 
         clear: left;
         float: left;
-        @include ds_colwidth(2);
+        @include ds_helpers.ds_colwidth(2);
     }
 
     &__sublist {
@@ -77,11 +78,11 @@
 
         float: left;
         margin-left: 0;
-        @include ds_colwidth(10);
+        @include ds_helpers.ds_colwidth(10);
     }
 }
 
-@include media-query(medium) {
+@include ds_helpers.ds_media-query(medium) {
     .az-list {
         &__title {
             line-height: px-to-em(40px, 57px);

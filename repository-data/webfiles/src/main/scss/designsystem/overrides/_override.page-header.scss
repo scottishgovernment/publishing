@@ -1,10 +1,11 @@
 /*
  PAGE HEADER ADDITION
  */
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
 
- .ds_page-header {
+.ds_page-header {
     &__tag.ds_tag {
-        @include ds_small-size;
+        @include ds_helpers.ds_small-size;
         margin-right: 0.25rem;
     }
- }
+}

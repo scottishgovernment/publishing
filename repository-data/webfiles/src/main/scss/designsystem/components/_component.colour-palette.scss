@@ -2,6 +2,8 @@
     #COLOUR PALETTE
 \*------------------------------------*/
 
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
 .dss_palette {
     table-layout: initial;
 
@@ -20,7 +22,7 @@
         width: 2.5rem;
 
         &::before {
-            border: 0.0625rem solid $ds_colour__grey;
+            border: 0.0625rem solid ds_settings.$ds_colour__grey;
             border-radius: 2.5rem;
             content: '';
             height: 2.5rem;
@@ -56,6 +58,6 @@
     }
 
     code {
-        color: $ds_colour__text;
+        color: ds_settings.$ds_colour__text;
     }
 }

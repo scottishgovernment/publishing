@@ -2,6 +2,8 @@
     SITE PAGE LAYOUTS
 \*------------------------------------*/
 
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+
 .ds_layout {
 
     // To be included in PL
@@ -15,7 +17,7 @@
 
     &--pl-component {
         > .ds_layout {
-            @include media-query(medium) {
+            @include ds_helpers.ds_media-query(medium) {
                 &__header {
                     float: left;
                     @include colwidth(8);
@@ -52,7 +54,7 @@
         }
     }
 
-    @include media-query(small) {
+    @include ds_helpers.ds_media-query(small) {
         .ds_layout--pl-component {
             grid-template-areas:
                 'h h h h h h'
@@ -69,7 +71,7 @@
         }
     }
 
-    @include media-query(medium) {
+    @include ds_helpers.ds_media-query(medium) {
         .ds_layout--pl-component {
             grid-template-areas:
                 's s s h h h h h h h h h'
@@ -85,7 +87,7 @@
         }
     }
 
-    @include media-query(large) {
+    @include ds_helpers.ds_media-query(large) {
         .ds_layout--pl-component {
             grid-template-areas:
                 's s s h h h h h h h . .'

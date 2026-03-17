@@ -1,4 +1,5 @@
 @use "sass:math";
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
 
 @function calcOverflow ($overflowColumns, $totalColumns, $containerWidth, $columnGap) {
     $result: math.div((($containerWidth + $columnGap) * $overflowColumns), $totalColumns);
@@ -8,7 +9,7 @@
 $columnGap: 32;
 $columnCount: 12;
 
-@include media-query(medium) {
+@include ds_helpers.ds_media-query(medium) {
     $containerWidth: 768;
 
     .overflow--medium--1 {
@@ -28,7 +29,7 @@ $columnCount: 12;
     }
 }
 
-@include media-query(large) {
+@include ds_helpers.ds_media-query(large) {
     $containerWidth: 928;
 
     .overflow--large--1 {
@@ -48,7 +49,7 @@ $columnCount: 12;
     }
 }
 
-@include media-query(xlarge) {
+@include ds_helpers.ds_media-query(xlarge) {
     $containerWidth: 1120;
 
     .overflow--xlarge--1 {

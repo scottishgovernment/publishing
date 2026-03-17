@@ -1,6 +1,6 @@
 'use strict';
 
-import storage from '@scottish-government/design-system/dist/scripts/base/tools/storage/storage';
+import storage from '../storage';
 
 class Notification {
     constructor (notification) {
@@ -34,7 +34,7 @@ class Notification {
                 }
 
                 storage.setCookie(
-                    storage.categories.preferences,
+                    'preferences',
                     `banner-${this.notification.id}`,
                     true,
                     expiry

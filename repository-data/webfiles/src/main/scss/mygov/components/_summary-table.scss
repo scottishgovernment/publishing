@@ -2,6 +2,7 @@
     #SUMMARY
     Classes for elements used in form summaries
 \*------------------------------------*/
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
 
 #summary-container .ds_accordion-item__body {
     padding: 16px 0;
@@ -83,12 +84,12 @@
 }
 
 .summary__blank, .blank-if-empty:empty {
-    background: $ds_colour__grey--lighter;
-    border-bottom: 2px solid $ds_colour__brand;
+    background: ds_settings.$ds_colour__grey--lighter;
+    border-bottom: 2px solid ds_settings.$ds_colour__brand;
     margin-left: 0;
 
     &:before {
-        background: $ds_colour__grey--lighter;
+        background: ds_settings.$ds_colour__grey--lighter;
         content: 'not specified';
         display: inline-block;
         opacity: 0;
@@ -96,7 +97,7 @@
 }
 
 .summary__user-input {
-    background: $ds_colour__grey--lighter;
+    background: ds_settings.$ds_colour__grey--lighter;
     font-weight: $bold;
 }
 

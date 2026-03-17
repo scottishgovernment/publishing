@@ -2,11 +2,11 @@
     #EXAMPLE
 \*------------------------------------*/
 
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
 
-
-
-$example__border-colour: $ds_colour__border !default;
-$example__highlight-colour: $ds_colour__link--current__background !default;
+$example__border-colour: ds_settings.$ds_colour__border !default;
+$example__highlight-colour: ds_settings.$ds_colour__link--current__background !default;
 
 .example {
     @include block-margins;
@@ -19,19 +19,19 @@ $example__highlight-colour: $ds_colour__link--current__background !default;
 }
 
 .example-frame__note {
-    @include ds_responsive-padding(2);
+    @include ds_helpers.ds_responsive-padding(2);
     background: #ffb644;
     margin: 0;
 }
 
 .example-frame__content {
-    @include ds_responsive-padding(2, top);
-    @include ds_responsive-padding(2, bottom, $tuning: -1px);
-    @include ds_responsive-padding(2, left, $tuning: -1px);
-    @include ds_responsive-padding(2, right, $tuning: -1px);
+    @include ds_helpers.ds_responsive-padding(2, top);
+    @include ds_helpers.ds_responsive-padding(2, bottom, $tuning: -1px);
+    @include ds_helpers.ds_responsive-padding(2, left, $tuning: -1px);
+    @include ds_helpers.ds_responsive-padding(2, right, $tuning: -1px);
 
     &--grey-background {
-        background-color: $ds_colour__grey--lighter;
+        background-color: ds_settings.$ds_colour__grey--lighter;
     }
 
     &--full-width {
@@ -64,15 +64,15 @@ $example__highlight-colour: $ds_colour__link--current__background !default;
 }
 
 .example__header {
-    border-bottom: 1px solid $example__border-colour;   
-    @include ds_responsive-padding(1, top);
-    @include ds_responsive-padding(1, bottom, $tuning: -1px);
-    @include ds_responsive-padding(2, left);
-    @include ds_responsive-padding(2, right); 
+    border-bottom: 1px solid $example__border-colour;
+    @include ds_helpers.ds_responsive-padding(1, top);
+    @include ds_helpers.ds_responsive-padding(1, bottom, $tuning: -1px);
+    @include ds_helpers.ds_responsive-padding(2, left);
+    @include ds_helpers.ds_responsive-padding(2, right);
 }
 
 .example__link {
-    @include ds_small-size--fixed;
+    @include ds_helpers.ds_small-size--fixed;
 }
 
 .example__accordion {

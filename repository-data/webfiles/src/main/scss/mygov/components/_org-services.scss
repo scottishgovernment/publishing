@@ -1,9 +1,11 @@
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+
 .#{$site-prefix}org-services {
     list-style-type: none;
     margin-left: 0;
 
     &__item {
-        @include ds_block-margins;
+        @include ds_helpers.ds_block-margins;
     }
 
     &__title {

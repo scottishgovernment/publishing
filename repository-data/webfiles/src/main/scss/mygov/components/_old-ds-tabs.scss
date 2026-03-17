@@ -2,13 +2,16 @@
     TABS
 \*------------------------------------*/
 
-$tab__background-colour: $ds_colour__link--disabled__background !default;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
+$tab__background-colour: ds_settings.$ds_colour__link--disabled__background !default;
 
 
 
 
 .mg_tab-container {
-    border: 1px solid $ds_colour__border;
+    border: 1px solid ds_settings.$ds_colour__border;
 }
 
 .mg_tab {
@@ -16,16 +19,16 @@ $tab__background-colour: $ds_colour__link--disabled__background !default;
         display: none;
         padding: 32px;
 
-        @include ds_last-child-no-margin;
+        @include ds_helpers.ds_last-child-no-margin;
     }
 
     &__label {
-        @include ds_link;
-        @include ds_small-size;
+        @include ds_helpers.ds_link;
+        @include ds_helpers.ds_small-size;
 
         background: $tab__background-colour;
         border-bottom: 0;
-        border-top: 1px solid $ds_colour__white;
+        border-top: 1px solid ds_settings.$ds_colour__white;
         display: block;
         font-weight: 400;
         line-height: 24px;
@@ -53,7 +56,7 @@ $tab__background-colour: $ds_colour__link--disabled__background !default;
     }
 
     &__radio {
-        @include ds_visually-hidden;
+        @include ds_helpers.ds_visually-hidden;
     }
 
     &__radio:checked + &__header + &__content,
@@ -63,8 +66,8 @@ $tab__background-colour: $ds_colour__link--disabled__background !default;
 
     &__radio:checked + &__header > &__label:not(:focus),
     &__header.ds_current > &__label:not(:focus) {
-        background: $ds_colour__white;
-        color: $ds_colour__text;
+        background: ds_settings.$ds_colour__white;
+        color: ds_settings.$ds_colour__text;
         pointer-events: none;
         position: relative;
         text-decoration: none;
@@ -72,7 +75,7 @@ $tab__background-colour: $ds_colour__link--disabled__background !default;
 
     &__radio + &__header > &__label::before,
     &__header > &__label::before {
-        background: $ds_colour__border--highlight;
+        background: ds_settings.$ds_colour__border--highlight;
         bottom: 0;
         left: 0;
         position: absolute;
@@ -91,13 +94,13 @@ $tab__background-colour: $ds_colour__link--disabled__background !default;
 
         &::before {
             content: '';
-            background-color: $ds_colour__text;
+            background-color: ds_settings.$ds_colour__text;
         }
     }
 }
 
 @supports (display: grid) {
-    @include ds_media-query(medium) {
+    @include ds_helpers.ds_media-query(medium) {
         .mg_tab-container {
             border: 0;
             display: grid;
@@ -168,7 +171,7 @@ $tab__background-colour: $ds_colour__link--disabled__background !default;
             }
 
             &__content {
-                border-top: 1px solid $ds_colour__border;
+                border-top: 1px solid ds_settings.$ds_colour__border;
                 grid-area: tc;
             }
 
@@ -182,20 +185,20 @@ $tab__background-colour: $ds_colour__link--disabled__background !default;
                 padding-top: 16px;
 
                 &:focus {
-                    border-left-color: $ds_colour__link--focus__background;
-                    border-right-color: $ds_colour__link--focus__background;
+                    border-left-color: ds_settings.$ds_colour__link--focus__background;
+                    border-right-color: ds_settings.$ds_colour__link--focus__background;
                 }
             }
 
             &__radio:checked + &__header > &__label:not(:focus),
             &__header.ds_current > &__label:not(:focus) {
-                border-left-color: $ds_colour__border;
-                border-right-color: $ds_colour__border;
+                border-left-color: ds_settings.$ds_colour__border;
+                border-right-color: ds_settings.$ds_colour__border;
             }
 
             &__radio + &__header > &__label::before,
             &__header> &__label::before {
-                background-color: $ds_colour__border--highlight;
+                background-color: ds_settings.$ds_colour__border--highlight;
                 bottom: 100%;
                 left: -1px;
                 right: -1px;
@@ -206,7 +209,7 @@ $tab__background-colour: $ds_colour__link--disabled__background !default;
             &__radio:checked + &__header > &__label,
             &__header.ds_current > &__label {
                 &::after {
-                    background: $ds_colour__white;
+                    background: ds_settings.$ds_colour__white;
                     bottom: -1px;
                     content: '';
                     left: 0;
@@ -216,7 +219,7 @@ $tab__background-colour: $ds_colour__link--disabled__background !default;
                 }
 
                 &:focus::after {
-                    background-color: $ds_colour__link--focus__background;
+                    background-color: ds_settings.$ds_colour__link--focus__background;
                 }
             }
         }
