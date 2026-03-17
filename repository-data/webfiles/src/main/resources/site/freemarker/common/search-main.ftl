@@ -4,7 +4,7 @@
 
 <div class="cms-editable">
     <div class="ds_wrapper">
-        <main id="main-content" class="ds_layout  <#if showFilters>ds_layout--search-results--filters<#else>ds_layout--search-results</#if>">
+        <main id="main-content" class="ds_layout  <#if displayFilters>ds_layout--search-results--filters<#else>ds_layout--search-results</#if>">
 
             <div class="ds_layout__header">
                 <header class="ds_page-header">
@@ -26,8 +26,9 @@
                 <#include 'include/search.ftl'/>
             </div>
 
-            <@hst.include ref="side-filter"/>
-
+            <#if displayFilters>
+                <@hst.include ref="side-filter"/>
+            </#if>
             <#if document.title == "Search">
                 <#assign ariaLabel = 'Search results'/>
             <#elseif document.title == "Search results">
@@ -48,7 +49,7 @@
     </div>
 </div>
 
-<#if showFilters>
+<#if displayFilters>
     <#assign scriptName="filtered-list">
 <#else>
     <#assign scriptName="search">

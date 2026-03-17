@@ -1,25 +1,33 @@
 /content/documents/socialwork/site-furniture/search:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  jcr:uuid: c01ab3e4-ac54-4fbf-865f-ae22a7790660
   hippo:name: Search
   hippostd:foldertype: [new-search-document]
   /search-results:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
+    jcr:uuid: 69837d50-c704-46b6-b882-0f4b3829dfb6
     hippo:name: Search
-    /search-results:
+    hippo:versionHistory: 941e1687-3500-4e29-a7a3-fce1f01c0188
+    /search-results[1]:
       jcr:primaryType: publishing:search
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: f6116a35-150f-4158-a1b6-3b51a5764ada
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2026-01-20T09:00:00Z
-      hippostdpubwf:lastModificationDate: 2026-01-20T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2026-02-27T08:32:13.786Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-01-20T09:00:00Z
+      hippostdpubwf:publicationDate: 2026-02-27T08:32:17.561Z
+      hippostdpubwf:publishedBy: admin
       hippotranslation:id: aef33565-75ba-4c74-9c14-d3c99e8cef3d
       hippotranslation:locale: document-type-locale
+      publishing:displayDates: true
+      publishing:displayFilters: false
+      publishing:displayLabels: true
       publishing:showFeedback: true
       publishing:title: Search
       /publishing:noResultsMessageContentBlocks:
@@ -42,9 +50,106 @@
           jcr:primaryType: hippostd:html
           hippostd:content: <p><strong></strong><strong>0 results</strong>, please
             fill in the search field.</p>
-      /publishing:contentBlocks:
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /publishing:noResultsMessage:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /publishing:blankSearchQueryMessage:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+    /search-results[2]:
+      jcr:primaryType: publishing:search
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 9cad7882-9a8b-4f4b-8eae-6ab30ffe4c60
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-01-20T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2026-02-27T08:32:13.786Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: aef33565-75ba-4c74-9c14-d3c99e8cef3d
+      hippotranslation:locale: document-type-locale
+      publishing:displayDates: true
+      publishing:displayFilters: false
+      publishing:displayLabels: true
+      publishing:showFeedback: true
+      publishing:title: Search
+      /publishing:noResultsMessageContentBlocks:
         jcr:primaryType: publishing:cb_richtext
         publishing:noindex: false
         /publishing:content:
           jcr:primaryType: hippostd:html
-          hippostd:content: ''
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+            <p>Improve your search results by:</p>
+            <ul>
+              <li>double-checking your spelling</li>
+              <li>using fewer keywords</li>
+              <li>searching for something less specific</li>
+            </ul>
+      /publishing:blankSearchQueryMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p><strong></strong><strong>0 results</strong>, please
+            fill in the search field.</p>
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /publishing:noResultsMessage:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /publishing:blankSearchQueryMessage:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+    /search-results[3]:
+      jcr:primaryType: publishing:search
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 7e17d009-cd84-4f1a-86f7-780f82cc547c
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-01-20T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2026-02-27T08:31:53.030Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: aef33565-75ba-4c74-9c14-d3c99e8cef3d
+      hippotranslation:locale: document-type-locale
+      publishing:displayDates: true
+      publishing:displayFilters: false
+      publishing:displayLabels: true
+      publishing:showFeedback: true
+      publishing:title: Search
+      /publishing:noResultsMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: |-
+            <p><strong>There are no matching results.</strong></p>
+            <p>Improve your search results by:</p>
+            <ul>
+              <li>double-checking your spelling</li>
+              <li>using fewer keywords</li>
+              <li>searching for something less specific</li>
+            </ul>
+      /publishing:blankSearchQueryMessageContentBlocks:
+        jcr:primaryType: publishing:cb_richtext
+        publishing:noindex: false
+        /publishing:content:
+          jcr:primaryType: hippostd:html
+          hippostd:content: <p><strong></strong><strong>0 results</strong>, please
+            fill in the search field.</p>
+      /publishing:content:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /publishing:noResultsMessage:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''
+      /publishing:blankSearchQueryMessage:
+        jcr:primaryType: hippostd:html
+        hippostd:content: ''

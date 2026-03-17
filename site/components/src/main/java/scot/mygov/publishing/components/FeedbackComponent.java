@@ -41,8 +41,8 @@ public class FeedbackComponent extends CommonComponent {
             return false;
         }
 
-        if (bean.isHippoFolderBean()) {
-            return false;
+        if (bean.isSelf(request.getRequestContext().getSiteContentBaseBean())) {
+            return true;
         }
         request.setAttribute("isSEODocument", isSEODocument(bean));
         return bean.getSingleProperty("publishing:showFeedback", false);

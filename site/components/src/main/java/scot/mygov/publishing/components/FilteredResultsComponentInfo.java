@@ -8,7 +8,12 @@ public interface FilteredResultsComponentInfo extends EssentialsListComponentInf
     @Parameter(name = "defaultSort")
     String getDefaultSort();
 
-    @Parameter(name = "displayTypeLabel")
-    Boolean getDisplayTypeLabel();
+    @Parameter(name = "showSort", defaultValue = "true")
+    Boolean getShowSort();
 
+    @Parameter(name = "displayDates", defaultValue = "true")
+    Boolean getDisplayDates();
+
+    @Parameter(name = "displayLabels", defaultValue = "true")
+    Boolean getDisplayLabels();
 }

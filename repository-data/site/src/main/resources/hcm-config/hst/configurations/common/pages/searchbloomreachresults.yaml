@@ -2,8 +2,8 @@ definitions:
   config:
     /hst:hst/hst:configurations/common/hst:pages/searchbloomreachresults:
       jcr:primaryType: hst:component
-      hst:componentclassname: scot.gov.publishing.hippo.funnelback.component.ResilientSearchComponent
-      hst:template: search-funnelback-results
+      hst:componentclassname: scot.gov.publishing.hippo.search.ResilientSearchComponent
+      hst:template: search-results
       hst:parameternames: [searchtype, supportedparams, topicsProvider, publicationTypesProvider]
       hst:parametervalues: [bloomreach, 'q,qsup,page,topics,publicationTypes,begin,end,sort',
         scot.mygov.publishing.components.TopicsProvider, scot.mygov.publishing.components.PublicationTypesProvider]

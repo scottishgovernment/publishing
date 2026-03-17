@@ -4,7 +4,7 @@ import org.apache.commons.lang.StringUtils;
 import org.hippoecm.hst.content.beans.query.builder.Constraint;
 import org.hippoecm.hst.content.beans.query.builder.ConstraintBuilder;
 import org.hippoecm.repository.util.DateTools;
-import scot.gov.publishing.hippo.funnelback.component.Search;
+import scot.gov.publishing.hippo.search.model.Search;
 
 import java.time.LocalDate;
 import java.time.ZoneId;

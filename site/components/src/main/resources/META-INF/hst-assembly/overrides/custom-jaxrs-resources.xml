@@ -18,13 +18,13 @@
             <list>
                 <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
                     <constructor-arg>
-                        <bean class="scot.gov.publishing.hippo.funnelback.component.SuggestionsResource" />
+                        <bean class="scot.gov.publishing.hippo.search.SuggestionsResource" />
                     </constructor-arg>
                 </bean>
 
                 <bean class="org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider">
                     <constructor-arg>
-                        <bean class="scot.gov.publishing.hippo.funnelback.component.HealthResource" />
+                        <bean class="scot.gov.publishing.hippo.search.HealthResource" />
                     </constructor-arg>
                 </bean>
 

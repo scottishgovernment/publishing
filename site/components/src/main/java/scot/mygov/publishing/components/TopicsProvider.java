@@ -4,7 +4,7 @@ import org.hippoecm.hst.content.beans.standard.HippoFolder;
 import org.hippoecm.hst.core.request.HstRequestContext;
 import org.onehippo.forge.selection.hst.contentbean.ValueList;
 import org.onehippo.forge.selection.hst.util.SelectionUtil;
-import scot.gov.publishing.hippo.funnelback.component.MapProvider;
+import scot.gov.publishing.hippo.search.MapProvider;
 
 import java.util.Map;
 

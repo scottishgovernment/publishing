@@ -89,23 +89,52 @@
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
     jcr:uuid: d8340cba-9e03-4630-bd73-0f9e0ed9035f
     hippo:name: Search settings
-    hippo:versionHistory: d2f53e79-3425-4c0a-ab42-fd1a8ed712e5
-    /search-settings:
+    hippo:versionHistory: e44eb5e4-59df-4da2-9b62-261a0d34552b
+    /search-settings[1]:
       jcr:primaryType: search:searchsettings
       jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: d65cdf24-5305-4f52-8158-d690cf2064a3
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
-      hippostdpubwf:lastModificationDate: 2025-08-19T16:15:03.096+01:00
+      hippostdpubwf:lastModificationDate: 2026-03-13T13:43:42.302Z
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2025-08-19T16:15:05.992+01:00
+      hippostdpubwf:publicationDate: 2026-03-13T13:43:45.403Z
       hippostdpubwf:publishedBy: admin
       search:showFilters: false
+      search:showMetadata: false
+    /search-settings[2]:
+      jcr:primaryType: search:searchsettings
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      jcr:uuid: 075d6db7-9d81-4214-8800-29d86e4f2b06
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
+      hippostdpubwf:lastModificationDate: 2026-03-13T13:43:42.302Z
+      hippostdpubwf:lastModifiedBy: admin
+      search:showFilters: false
+      search:showMetadata: false
+    /search-settings[3]:
+      jcr:primaryType: search:searchsettings
+      jcr:mixinTypes: ['mix:referenceable']
+      jcr:uuid: 8497b92f-f1fb-4a83-ad2c-7cbc192a05cb
+      hippo:availability: []
+      hippostd:retainable: false
+      hippostd:state: draft
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2022-09-28T10:42:50.483+01:00
+      hippostdpubwf:lastModificationDate: 2026-03-13T13:43:33.685Z
+      hippostdpubwf:lastModifiedBy: admin
+      search:showFilters: false
+      search:showMetadata: false
   /recaptcha:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['mix:referenceable']
+    jcr:uuid: d316b0f3-6144-4079-888c-02ca4e483976
     hippostd:foldertype: []
     /dev:
       jcr:primaryType: hippo:handle
