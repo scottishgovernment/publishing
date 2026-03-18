@@ -8,7 +8,7 @@
     hippostd:foldertype: []
     /siteverification:
       jcr:primaryType: hippostd:folder
-      jcr:mixinTypes: ['mix:versionable']
+      jcr:mixinTypes: [ 'mix:versionable' ]
       hippostd:foldertype: [new-siteverification-document]
     /analytics:
       jcr:primaryType: hippostd:folder
@@ -91,44 +91,17 @@
   /search-settings:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: f71bc5e3-9713-4265-81e6-13eb5eb0ad68
     hippo:name: Search settings
-    hippo:versionHistory: d5ebf275-2b57-48af-9ea9-667b1bd722f3
-    /search-settings[1]:
+    hippo:versionHistory: aacfbe28-6b82-4bb1-adc0-3ebcc875941f
+    /search-settings:
       jcr:primaryType: search:searchsettings
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 5dc81512-ced9-459c-b35d-48d26da5e8de
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
-      hippostdpubwf:lastModificationDate: 2026-02-17T08:32:30.292Z
+      hippostdpubwf:lastModificationDate: 2025-08-28T08:59:55.415+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-02-17T08:32:32.884Z
+      hippostdpubwf:publicationDate: 2025-08-28T08:59:58.689+01:00
       hippostdpubwf:publishedBy: admin
-      search:showMetadata: true
-    /search-settings[2]:
-      jcr:primaryType: search:searchsettings
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: 1bd9001e-d0ed-4f9f-b621-af66e3abc4af
-      hippo:availability: [preview]
-      hippostd:retainable: false
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
-      hippostdpubwf:lastModificationDate: 2026-02-17T08:32:30.292Z
-      hippostdpubwf:lastModifiedBy: admin
-      search:showMetadata: true
-    /search-settings[3]:
-      jcr:primaryType: search:searchsettings
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 4ccd3963-9a58-48c3-bb51-7903881e1ee4
-      hippo:availability: []
-      hippostd:retainable: false
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
-      hippostdpubwf:lastModificationDate: 2026-02-17T08:32:23.745Z
-      hippostdpubwf:lastModifiedBy: admin
-      search:showMetadata: true

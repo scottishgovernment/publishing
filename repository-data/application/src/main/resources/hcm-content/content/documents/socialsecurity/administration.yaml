@@ -1,13 +1,12 @@
 /content/documents/socialsecurity/administration:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-  jcr:uuid: 1c94001b-70bc-4fc1-bb80-78cec899211d
   hippo:name: Administration
-  hippostd:foldertype: [new-valuelist]
+  hippostd:foldertype:
+    - new-valuelist
   /performance:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-    jcr:uuid: c6961db6-1393-4b72-969c-ed161e221178
     hippo:name: Performance
     hippostd:foldertype: []
     /analytics:
@@ -18,11 +17,9 @@
       /dev:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: b368f353-0e4c-416e-948f-0736e2c55eba
         /dev:
           jcr:primaryType: publishing:analytics
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: f1018601-ac71-467d-8072-9e38e65b0c7a
           hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
@@ -39,11 +36,9 @@
       /live:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
-        jcr:uuid: 738ee864-17c2-4872-8aa2-425ae9424b0c
         /live:
           jcr:primaryType: publishing:analytics
           jcr:mixinTypes: ['mix:referenceable']
-          jcr:uuid: 03ae4db4-96ba-4e9e-b072-7f9de1e6adca
           hippo:availability: [live]
           hippostd:state: published
           hippostdpubwf:createdBy: admin
@@ -60,11 +55,9 @@
     /robots:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: d79dac4e-6d03-456f-b10d-1bbf45bacd9f
       /robots:
         jcr:primaryType: robotstxt:robotstxt
         jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-        jcr:uuid: 07bb3c88-e55b-4ac2-ae47-5483bef6495c
         hippo:availability: [live]
         hippostd:state: published
         hippostdpubwf:createdBy: admin
@@ -79,19 +72,16 @@
           robotstxt:useragent: '*'
     /siteverification:
       jcr:primaryType: hippostd:folder
-      jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-      jcr:uuid: d801809d-bca8-46d4-a080-cce2affb00f9
+      jcr:mixinTypes: [ 'hippo:named', 'mix:versionable' ]
       hippo:name: Site verification
-      hippostd:foldertype: [new-siteverification-document]
+      hippostd:foldertype: [ new-siteverification-document ]
   /publicationtypes:
     jcr:primaryType: hippo:handle
-    jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: 907f6201-2ed1-4352-8ebc-16d4a9f5046e
+    jcr:mixinTypes: [ 'hippo:named', 'mix:referenceable' ]
     hippo:name: Publication types
     /publicationtypes:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: cb9a1518-7876-4463-835c-2360919efda5
       /selection:listitem[1]:
         jcr:primaryType: selection:listitem
         selection:key: factsheet
@@ -143,12 +133,10 @@
   /topics:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-    jcr:uuid: 1522f473-4c3e-40bf-83c0-b02c90bfea95
     hippo:name: Topics
     /topics:
       jcr:primaryType: selection:valuelist
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: 9c8e599d-1a48-4d4a-8494-310d8abc7a35
       /selection:listitem[1]:
         jcr:primaryType: selection:listitem
         selection:key: adult-disability-payment
@@ -252,50 +240,19 @@
   /search-settings:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-    jcr:uuid: e1e54045-4355-46d7-855f-6db19111bdb9
     hippo:name: Search settings
-    hippo:versionHistory: 92f43ee6-c9e4-405e-8e5e-3ee0cf0ef758
-    /search-settings[1]:
+    hippo:versionHistory: 24cc14a5-1114-40e2-8c5a-099b3be2c202
+    /search-settings:
       jcr:primaryType: search:searchsettings
       jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: e8aa5ded-21a1-4f11-b0f5-0326fd8e90e1
       hippo:availability: [live]
       hippostd:retainable: false
       hippostd:state: published
       hippostdpubwf:createdBy: admin
       hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
-      hippostdpubwf:lastModificationDate: 2026-02-18T11:30:12.643Z
+      hippostdpubwf:lastModificationDate: 2025-08-26T15:16:39.705+01:00
       hippostdpubwf:lastModifiedBy: admin
-      hippostdpubwf:publicationDate: 2026-02-18T11:30:15.546Z
+      hippostdpubwf:publicationDate: 2025-08-26T15:16:42.914+01:00
       hippostdpubwf:publishedBy: admin
       search:searchtype: resilient
       search:showFilters: true
-      search:showMetadata: true
-    /search-settings[2]:
-      jcr:primaryType: search:searchsettings
-      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
-      jcr:uuid: c4334aee-6cd5-426f-9d47-7fb3fd2cdf31
-      hippo:availability: [preview]
-      hippostd:retainable: false
-      hippostd:state: unpublished
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
-      hippostdpubwf:lastModificationDate: 2026-02-18T11:30:12.643Z
-      hippostdpubwf:lastModifiedBy: admin
-      search:searchtype: resilient
-      search:showFilters: true
-      search:showMetadata: true
-    /search-settings[3]:
-      jcr:primaryType: search:searchsettings
-      jcr:mixinTypes: ['mix:referenceable']
-      jcr:uuid: c0f854f0-073d-40b7-a240-b6f2029e102a
-      hippo:availability: []
-      hippostd:retainable: false
-      hippostd:state: draft
-      hippostdpubwf:createdBy: admin
-      hippostdpubwf:creationDate: 2024-03-20T21:23:53.019Z
-      hippostdpubwf:lastModificationDate: 2026-02-18T11:30:04.776Z
-      hippostdpubwf:lastModifiedBy: admin
-      search:searchtype: resilient
-      search:showFilters: true
-      search:showMetadata: true

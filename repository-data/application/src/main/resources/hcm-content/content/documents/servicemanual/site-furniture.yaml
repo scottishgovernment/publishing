@@ -1565,7 +1565,7 @@
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
       jcr:uuid: 5831e0ab-5dfe-4ca4-8bcf-e27e9b691766
       hippo:name: Search
-      hippo:versionHistory: 0c9a17e5-83b4-4364-aa37-5373ed9c5bd6
+      hippo:versionHistory: 250b9195-1870-47a1-ac94-a15ef8c1522a
       /search-results[1]:
         jcr:primaryType: publishing:search
         jcr:mixinTypes: ['mix:versionable']
@@ -1575,13 +1575,10 @@
         hippostd:state: unpublished
         hippostdpubwf:createdBy: david.sinclair@gov.scot
         hippostdpubwf:creationDate: 2023-08-08T14:21:21.730+01:00
-        hippostdpubwf:lastModificationDate: 2026-02-27T08:31:41.633Z
-        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:lastModificationDate: 2024-01-24T15:59:12.034Z
+        hippostdpubwf:lastModifiedBy: david.kindness@gov.scot
         hippotranslation:id: 4d2f2479-b392-477a-ac91-59bcd08b8a7a
         hippotranslation:locale: document-type-locale
-        publishing:displayDates: true
-        publishing:displayFilters: false
-        publishing:displayLabels: true
         publishing:showFeedback: true
         publishing:title: Search
         /publishing:blankSearchQueryMessageContentBlocks:
@@ -1594,9 +1591,6 @@
               jcr:primaryType: hippostd:html
               hippostd:content: <p><strong></strong><strong>0 results</strong>, please
                 fill in the search field.</p>
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>blank query</p>
         /publishing:noResultsMessageContentBlocks:
           jcr:primaryType: publishing:cb_richtext
           publishing:noindex: false
@@ -1609,18 +1603,6 @@
                 \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
                 \ \n <li>using fewer keywords</li> \n <li>searching for something\
                 \ less specific</li> \n</ul>"
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>no results</p>
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:noResultsMessage:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:blankSearchQueryMessage:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
       /search-results[2]:
         jcr:primaryType: publishing:search
         jcr:mixinTypes: ['mix:referenceable']
@@ -1630,30 +1612,13 @@
         hippostd:state: published
         hippostdpubwf:createdBy: david.sinclair@gov.scot
         hippostdpubwf:creationDate: 2023-08-08T14:21:21.730+01:00
-        hippostdpubwf:lastModificationDate: 2026-02-27T08:31:41.633Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippostdpubwf:publicationDate: 2026-02-27T08:31:44.466Z
-        hippostdpubwf:publishedBy: admin
+        hippostdpubwf:lastModificationDate: 2024-01-24T15:59:12.034Z
+        hippostdpubwf:lastModifiedBy: david.kindness@gov.scot
+        hippostdpubwf:publicationDate: 2024-04-03T13:36:52.032+01:00
         hippotranslation:id: 4d2f2479-b392-477a-ac91-59bcd08b8a7a
         hippotranslation:locale: document-type-locale
-        publishing:displayDates: true
-        publishing:displayFilters: false
-        publishing:displayLabels: true
         publishing:showFeedback: true
         publishing:title: Search
-        /publishing:blankSearchQueryMessageContentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: <p><strong></strong><strong>0 results</strong>, please
-                fill in the search field.</p>
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>blank query</p>
         /publishing:noResultsMessageContentBlocks:
           jcr:primaryType: publishing:cb_richtext
           publishing:noindex: false
@@ -1666,36 +1631,6 @@
                 \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
                 \ \n <li>using fewer keywords</li> \n <li>searching for something\
                 \ less specific</li> \n</ul>"
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>no results</p>
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:noResultsMessage:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:blankSearchQueryMessage:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-      /search-results[3]:
-        jcr:primaryType: publishing:search
-        jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: e81b0c9c-e68b-4f36-af7f-acc8e5e6529c
-        hippo:availability: []
-        hippostd:retainable: false
-        hippostd:state: draft
-        hippostdpubwf:createdBy: david.sinclair@gov.scot
-        hippostdpubwf:creationDate: 2023-08-08T14:21:21.730+01:00
-        hippostdpubwf:lastModificationDate: 2026-02-27T08:31:18.390Z
-        hippostdpubwf:lastModifiedBy: admin
-        hippotranslation:id: 4d2f2479-b392-477a-ac91-59bcd08b8a7a
-        hippotranslation:locale: document-type-locale
-        publishing:displayDates: true
-        publishing:displayFilters: false
-        publishing:displayLabels: true
-        publishing:showFeedback: true
-        publishing:title: Search
         /publishing:blankSearchQueryMessageContentBlocks:
           jcr:primaryType: publishing:cb_richtext
           publishing:noindex: false
@@ -1706,33 +1641,6 @@
               jcr:primaryType: hippostd:html
               hippostd:content: <p><strong></strong><strong>0 results</strong>, please
                 fill in the search field.</p>
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>blank query</p>
-        /publishing:noResultsMessageContentBlocks:
-          jcr:primaryType: publishing:cb_richtext
-          publishing:noindex: false
-          /publishing:contentBlocks:
-            jcr:primaryType: publishing:cb_richtext
-            publishing:noindex: false
-            /publishing:content:
-              jcr:primaryType: hippostd:html
-              hippostd:content: "<p><strong>There are no matching results.</strong></p><p>Improve\
-                \ your search results by:</p><ul> \n <li>double-checking your spelling</li>\
-                \ \n <li>using fewer keywords</li> \n <li>searching for something\
-                \ less specific</li> \n</ul>"
-          /publishing:content:
-            jcr:primaryType: hippostd:html
-            hippostd:content: <p>no results</p>
-        /publishing:content:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:noResultsMessage:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
-        /publishing:blankSearchQueryMessage:
-          jcr:primaryType: hippostd:html
-          hippostd:content: ''
   /privacy---user-research-survey:
     jcr:primaryType: hippo:handle
     jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
@@ -2001,19 +1909,16 @@
   /status:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-    jcr:uuid: 582a4ff2-e888-4be0-8e5e-4623ab9220ac
     hippo:name: Status
     hippostd:foldertype: [new-document, new-folder]
     /404:
       jcr:primaryType: hippo:handle
       jcr:mixinTypes: ['hippo:named', 'hippo:versionInfo', 'mix:referenceable']
-      jcr:uuid: 6a3f36c2-3e20-4b08-b70e-f2aa7dc39bc0
       hippo:name: '404'
       hippo:versionHistory: e21719e6-1ec0-4693-8696-165959df8693
       /404[1]:
         jcr:primaryType: publishing:status
         jcr:mixinTypes: ['hippo:named', 'mix:versionable']
-        jcr:uuid: e4ef0669-9d55-4ec5-927b-609cccf2ba72
         hippo:availability: [preview]
         hippo:name: '404'
         hippostd:retainable: false
@@ -2039,7 +1944,6 @@
       /404[2]:
         jcr:primaryType: publishing:status
         jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
-        jcr:uuid: 3b0fdb2c-4bf9-493d-a73f-29fd137d9fa7
         hippo:availability: [live]
         hippo:name: '404'
         hippostd:retainable: false
