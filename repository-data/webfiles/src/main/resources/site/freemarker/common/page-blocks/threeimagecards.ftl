@@ -44,9 +44,9 @@
 
         <#list cards as card>
             <#if card != ''>
-                <div class="ds_card  ds_card--hover  <#if !backgroundcolor?has_content>ds_card--grey</#if>">
+                <div class="ds_card  ds_card--hover  <#if !backgroundcolor?has_content>ds_card--background-secondary</#if>">
                     <#if showimages>
-                        <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
+                        <div class="ds_card__media">
                             <div class="ds_aspect-box">
                             <#if card.image??>
                                 <#if card.image.xlargefourcolumns??>
@@ -74,18 +74,22 @@
                     </#if>
                     <div class="ds_card__content">
                         <#if card.title?has_content>
-                        <h2 class="ds_card__title">
-                            <#if card.link?has_content>
-                                <a class="ds_card__link--cover" href="<@hst.link hippobean=card.link/>">${card.title}</a>
-                            <#elseif card.externalLink?has_content>
-                                <a class="ds_card__link--cover" href="${card.externalLink}">${card.title}</a>
-                            <#else>
-                                ${card.title}
-                            </#if>
-                        </h2>
+                        <div class="ds_card__content-header">
+                            <h2 class="ds_card__title">
+                                <#if card.link?has_content>
+                                    <a class="ds_card__link  ds_card__link--cover" href="<@hst.link hippobean=card.link/>">${card.title}</a>
+                                <#elseif card.externalLink?has_content>
+                                    <a class="ds_card__link  ds_card__link--cover" href="${card.externalLink}">${card.title}</a>
+                                <#else>
+                                    ${card.title}
+                                </#if>
+                            </h2>
+                        </div>
                         </#if>
                         <#if card.text?has_content>
-                        <p>${card.text}</p>
+                        <div class="ds_card__content-main">
+                            <p>${card.text}</p>
+                        </div>
                         </#if>
                     </div>
 
@@ -94,16 +98,17 @@
             <#elseif editMode>
                 <div class="ds_card  cms-blank">
                     <#if showimages>
-                        <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
+                        <div class="ds_card__media">
                             <@placeholderimage/>
                         </div>
                     </#if>
-                    <div class="ds_card__content  ds_category-item">
-                        <h2 class="ds_category-item__title">
-                            <a><@placeholdertext lines=2/></a>
-                        </h2>
-
-                        <div class="ds_category-item__summary">
+                    <div class="ds_card__content">
+                        <div class="ds_card__content-header">
+                            <h2 class="ds_card__title">
+                                <a><@placeholdertext lines=2/></a>
+                            </h2>
+                        </div>
+                        <div class="ds_card__content-main">
                             <@placeholdertext lines=4/>
                         </div>
                     </div>

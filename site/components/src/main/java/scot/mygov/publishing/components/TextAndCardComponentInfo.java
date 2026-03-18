@@ -7,7 +7,7 @@ import org.hippoecm.hst.core.parameters.FieldGroupList;
 import org.hippoecm.hst.core.parameters.Parameter;
 
 @FieldGroupList({
-    @FieldGroup(titleKey = "Appearance", value = { "backgroundcolor", "showimages", "small", "removebottompadding" }),
+    @FieldGroup(titleKey = "Appearance", value = { "backgroundcolor", "showimages", "removebottompadding" }),
     @FieldGroup(titleKey = "Content", value = { "document1", "document2" })
 })
 
@@ -36,9 +36,6 @@ public interface TextAndCardComponentInfo {
 
     @Parameter(name = "showimages", displayName = "Show images", defaultValue = "true")
     Boolean getShowImages();
-
-    @Parameter(name = "small", displayName = "Use small variant on mobile", defaultValue = "true")
-    Boolean getSmallVariant();
 
     @Parameter(name = "removebottompadding", displayName = "Remove bottom padding", defaultValue = "false")
     Boolean getRemoveBottomPadding();

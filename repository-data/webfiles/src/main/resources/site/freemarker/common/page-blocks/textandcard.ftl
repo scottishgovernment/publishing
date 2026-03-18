@@ -37,9 +37,9 @@
             </#if>
             <#if document2?has_content>
             <div class="ds_pb__card">
-                <div class="ds_card  <#if document2.link?? || document2.externalLink?has_content>ds_card--hover  </#if><#if !backgroundcolor?has_content>  ds_card--grey</#if>">
+                <div class="ds_card  <#if document2.link?? || document2.externalLink?has_content>ds_card--hover  </#if><#if !backgroundcolor?has_content>  ds_card--background-secondary</#if>">
                     <#if showimages>
-                        <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
+                        <div class="ds_card__media">
                             <div class="ds_aspect-box">
                             <#if document2.image?has_content>
                                 <#if document2.image.xlargefourcolumns?has_content>
@@ -67,18 +67,22 @@
                     </#if>
                     <div class="ds_card__content">
                         <#if document2.title?has_content>
-                        <h2 class="ds_card__title">
-                            <#if document2.link?has_content>
-                                <a class="ds_card__link--cover" href="<@hst.link hippobean=document2.link/>">${document2.title}</a>
-                            <#elseif document2.externalLink?has_content>
-                                <a class="ds_card__link--cover" href="${document2.externalLink}">${document2.title}</a>
-                            <#else>
-                                ${document2.title}
-                            </#if>
-                        </h2>
+                        <div class="ds_card__content-header">
+                            <h2 class="ds_card__title">
+                                <#if document2.link?has_content>
+                                    <a class="ds_card__link--cover" href="<@hst.link hippobean=document2.link/>">${document2.title}</a>
+                                <#elseif document2.externalLink?has_content>
+                                    <a class="ds_card__link--cover" href="${document2.externalLink}">${document2.title}</a>
+                                <#else>
+                                    ${document2.title}
+                                </#if>
+                            </h2>
+                        </div>
                         </#if>
                         <#if document2.text?has_content>
-                        <p>${document2.text}</p>
+                        <div class="ds_card__content-main">
+                            <p>${document2.text}</p>
+                        </div>
                         </#if>
                     </div>
 
@@ -87,17 +91,21 @@
             </div>
             <#elseif editMode>
             <div class="ds_pb__card">
-                <div class="ds_card  cms-blank  ds_card--grey">
+                <div class="ds_card  cms-blank  ds_card--background-secondary">
                     <#if showimages>
                         <div class="ds_card__media  <#if smallvariant>ds_card__media--small-mobile</#if>">
                             <@placeholderimage/>
                         </div>
                     </#if>
                     <div class="ds_card__content">
-                        <h2 class="ds_card__title">
-                            <a><@placeholdertext lines=2/></a>
-                        </h2>
-                        <p><@placeholdertext lines=4/></p>
+                        <div class="ds_card__content-header">
+                            <h2 class="ds_card__title">
+                                <a><@placeholdertext lines=2/></a>
+                            </h2>
+                        </div>
+                        <div class="ds_card__content-main">
+                            <p><@placeholdertext lines=4/></p>
+                        </div>
                     </div>
 
                     <@hst.manageContent documentTemplateQuery="new-navigationcard-document" parameterName="document2" rootPath="navigationcards"/>
