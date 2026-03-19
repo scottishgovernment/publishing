@@ -36,13 +36,12 @@ public class FeedbackComponent extends CommonComponent {
             return false;
         }
         HippoBean bean = request.getRequestContext().getContentBean();
-
         if (bean == null) {
             return false;
         }
-
-        if (bean.isSelf(request.getRequestContext().getSiteContentBaseBean())) {
-            return true;
+        HippoBean baseBean = request.getRequestContext().getSiteContentBaseBean();
+        if (baseBean.isSelf(bean)) {
+            bean = baseBean.getBean("seo/home");
         }
         request.setAttribute("isSEODocument", isSEODocument(bean));
         return bean.getSingleProperty("publishing:showFeedback", false);
@@ -50,7 +49,7 @@ public class FeedbackComponent extends CommonComponent {
 
     boolean isSEODocument(HippoBean bean) {
         try {
-            return bean.getNode().isNodeType("publishing:seo");
+            return bean != null && bean.getNode().isNodeType("publishing:seo");
         } catch (RepositoryException e) {
             LOG.error("unable to get node type", e);
             return false;
