@@ -518,7 +518,7 @@ function updateFormNav (navs) {
     }
 }
 
-function updatePageNav () {
+function updatePageNav() {
     let templateData = {};
     let pageNavTemplate;
 
@@ -554,9 +554,11 @@ function updatePageNav () {
 
     const pageNavElement = document.getElementById('page-nav');
 
-    $(pageNavElement).html(pageNavHtml);
-    $(pageNavElement).trigger('change');
-    window.DS.tracking.init(pageNavElement);
+    if (pageNavElement) {
+        $(pageNavElement).html(pageNavHtml);
+        $(pageNavElement).trigger('change');
+        window.DS.tracking.init(pageNavElement);
+    }
 }
 
 function updatePageLabelWithCurrentStep () {

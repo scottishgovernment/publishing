@@ -221,7 +221,7 @@ const global = {
         }
 
         const mobileMenus = [].slice.call(document.querySelectorAll('[data-module="ds-mobile-navigation-menu"]'));
-        mobileMenus.forEach(mobileMenu =>  new window.DS.components.MobileMenu(mobileMenu).init());
+        mobileMenus.forEach(mobileMenu =>  new window.DS.components.SiteNavigation(mobileMenu).init());
 
         const sideNavigations = [].slice.call(document.querySelectorAll('[data-module="ds-side-navigation"]'));
         sideNavigations.forEach(sideNavigation => new window.DS.components.SideNavigation(sideNavigation).init());
