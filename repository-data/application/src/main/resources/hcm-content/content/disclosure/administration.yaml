@@ -1,7 +1,10 @@
 /content/documents/disclosure/administration:
   jcr:primaryType: hippostd:folder
   jcr:mixinTypes: ['mix:referenceable']
-  hippostd:foldertype: []
+  hippo:name: Administration
+  hippostd:foldertype:
+    - new-valuelist
+    - new-searchsettings-document
   /performance:
     jcr:primaryType: hippostd:folder
     jcr:mixinTypes: ['hippo:named', 'mix:versionable']
