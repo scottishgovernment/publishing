@@ -86,6 +86,9 @@ public class UrlValidationUtils {
         if (!clash.isNodeType("hippostd:folder")) {
             return false;
         }
+        if (!clash.hasNode("index")) {
+            return false;
+        }
 
         Node handle = clash.getNode("index");
         NodeIterator variants = handle.getNodes(handle.getName());

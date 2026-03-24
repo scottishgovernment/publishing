@@ -239,6 +239,7 @@ public class UrlValidationUtilsTest {
         Node clashNode = mock(Node.class);
         when(clashFolder.getPath()).thenReturn("clashPath");
         when(clashFolder.isNodeType("hippostd:folder")).thenReturn(true);
+        when(clashFolder.hasNode("index")).thenReturn(true);
         when(clashFolder.getNode("index")).thenReturn(clashHandle);
         when(clashHandle.getName()).thenReturn("clash");
         when(clashHandle.getNodes("clash")).thenReturn(TestUtil.iterator(singletonList(clashNode)));
@@ -273,6 +274,7 @@ public class UrlValidationUtilsTest {
         when(parent.getPath()).thenReturn(parentId + "-path");
         when(parent.getIdentifier()).thenReturn(parentId);
         when(node.getParent()).thenReturn(parent);
+
         return node;
     }
 
