@@ -213,7 +213,7 @@ const global = {
         // this one is handled differently because it applies an event to the whole body and we only want that event once
         const hidePageButtons = [].slice.call(document.querySelectorAll('.ds_hide-page'));
         if (hidePageButtons.length) {
-            const hidePage = new window.DS.components.HidePage();
+            const hidePage = new window.DS.components.HideThisPage();
             hidePage.init();
         }
 
