@@ -199,7 +199,6 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         int pageSize = getPageSize(request, paramInfo);
         int page = getCurrentPage(request);
         HstQueryResult queryResult = query.execute();
-        LOG.info("q: {}", query);
         populateResponse(request, queryResult);
         return getPageableFactory().createPageable(
                 queryResult.getHippoBeans(),
@@ -234,9 +233,7 @@ public class FilteredResultsComponent extends EssentialsListComponent {
                 .limit(pageSize)
                 .offset(offset);
         addOrderBy(queryBuilder, search.getSort());
-        HstQuery q = queryBuilder.build();
-        LOG.info("----- {}", q);
-        return q;
+        return queryBuilder.build();
     }
 
     void addOrderBy(HstQueryBuilder queryBuilder, Sort sort) {
@@ -261,7 +258,6 @@ public class FilteredResultsComponent extends EssentialsListComponent {
     }
 
     private Constraint constraints(Search search) {
-        LOG.info("constrains search {}", search);
         List<Constraint> constraints = new ArrayList<>();
         addTermConstraints(constraints, search);
         constraints.add(ConstraintUtils.topicsConstraint(search));
