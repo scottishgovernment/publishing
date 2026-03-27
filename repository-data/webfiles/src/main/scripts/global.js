@@ -210,12 +210,8 @@ const global = {
             cookieNotification.init();
         }
 
-        // this one is handled differently because it applies an event to the whole body and we only want that event once
-        const hidePageButtons = [].slice.call(document.querySelectorAll('.ds_hide-page'));
-        if (hidePageButtons.length) {
-            const hidePage = new window.DS.components.HideThisPage();
-            hidePage.init();
-        }
+        const hidePageElements = [].slice.call(document.querySelectorAll('.ds_hide-page'));
+        hidePageElements.forEach(hidePage => new window.DS.components.HideThisPage(hidePage).init());
 
         const mobileMenus = [].slice.call(document.querySelectorAll('[data-module="ds-mobile-navigation-menu"]'));
         mobileMenus.forEach(mobileMenu =>  new window.DS.components.SiteNavigation(mobileMenu).init());
