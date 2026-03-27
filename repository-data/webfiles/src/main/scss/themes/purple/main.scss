@@ -6,7 +6,9 @@
 );
 
 // Page block secondary theme background
-$pb_theme__background-secondary: #f1e8f0;
+@use '../../../../../node_modules/@scottish-government-design-system/page-blocks/src/blocks/settings' with (
+    $pb_theme__background-secondary: #f1e8f0
+);
 
 /**
  * Use mygov styles
