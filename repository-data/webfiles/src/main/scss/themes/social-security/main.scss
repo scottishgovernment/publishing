@@ -6,10 +6,10 @@
     $ds_colour__brand: #201751
 );
 
-
-
  // Page block secondary theme background
- $pb_theme__background-secondary: #e9e8ee;
+@use '../../../../../node_modules/@scottish-government-design-system/page-blocks/src/blocks/settings' as pb_settings with (
+    $pb_theme__background-secondary: #e9e8ee
+);
 
  // Change logo size in site header
 $site-logo__height: 56px;
@@ -19,4 +19,5 @@ $site-logo__height--medium: 88px;
  * Use mygov styles
  */
  $iconsfile: "../../../images/icons/icons.stack.svg";
+ $pb_theme__background-secondary: pb_settings.$pb_theme__background-secondary;
  @import "../../mygov/main";

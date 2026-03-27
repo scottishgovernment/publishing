@@ -2,14 +2,17 @@
  * Dark blue theme
  */
 @use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings with (
-    $ds_colour__brand: #002d54 //$ds_colour__blue--darker;
+    $ds_colour__brand: #002d54 //$ds_colour__blue--darker
 );
 
 // Page block secondary theme background
-$pb_theme__background-secondary: #e5eaee;
+@use '../../../../../node_modules/@scottish-government-design-system/page-blocks/src/blocks/settings' as pb_settings with (
+    $pb_theme__background-secondary: #e5eaee
+);
 
 /**
  * Use mygov styles
  */
 $iconsfile: "../../../images/icons/icons.stack.svg";
+$pb_theme__background-secondary: pb_settings.$pb_theme__background-secondary;
 @import "../../mygov/main";

@@ -1,7 +1,12 @@
 @charset "utf-8";
 
 
+ // Page block secondary theme background
+@use '../../../../node_modules/@scottish-government-design-system/page-blocks/src/blocks/settings' as pb_settings with (
+    $pb_theme__background-secondary: #e5f0f8
+);
 
+$pb_theme__background-secondary: pb_settings.$pb_theme__background-secondary;
 
 $iconsfile: "../../../images/icons/icons.stack.svg";
 $site-prefix: 'dss_';

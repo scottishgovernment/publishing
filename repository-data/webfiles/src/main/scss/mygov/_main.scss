@@ -1,7 +1,7 @@
 /**
  * PATTERN LIBRARY VALUES
  */
-$iconsfile: "../../images/icons/icons.stack.svg" !default;
+ $iconsfile: "../../images/icons/icons.stack.svg" !default;
 $site-prefix: "mg_";
 
 
@@ -25,6 +25,11 @@ $site-prefix: "mg_";
 @import "../../../../node_modules/@scottish-government/design-system/src/components/";
 
 
+
+/**
+ * PAGE BLOCKS FROM DESIGN SYSTEM PAGE BLOCKS
+ */
+@import "../../../../node_modules/@scottish-government-design-system/page-blocks/src/page-blocks";
 
 
 /**
@@ -79,12 +84,6 @@ $site-prefix: "mg_";
 .ds_step-navigation-top .ds_h3 {
     display: block;
 }
-
-/**
- * PAGE BLOCKS FROM DESIGN SYSTEM PAGE BLOCKS
- */
-@import "../../../../node_modules/@scottish-government-design-system/page-blocks/src/page-blocks";
-
 
 
 
