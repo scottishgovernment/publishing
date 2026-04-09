@@ -131,7 +131,7 @@
 </@hst.headContribution>
 <#if publication.publicationDate?has_content>
     <@hst.headContribution category="meta">
-    <meta name="dc.date.modified" content="<@fmt.formatDate value=publication.publicationDate.time type="both" pattern="YYYY-MM-dd HH:mm"/>"/>
+    <meta name="dc.date.modified" content="<@fmt.formatDate value=publication.publicationDate.time type="both" pattern="yyyy-MM-dd HH:mm"/>"/>
     </@hst.headContribution>
 </#if>
 

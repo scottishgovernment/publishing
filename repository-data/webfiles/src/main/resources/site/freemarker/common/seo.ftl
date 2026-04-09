@@ -34,11 +34,11 @@
     </#if>
     <#if contentBean.lastUpdatedDate??>
         <@hst.headContribution category="meta">
-            <meta name="dc.date.modified" content="<@fmt.formatDate value=contentBean.lastUpdatedDate.time type="both" pattern="YYYY-MM-dd HH:mm"/>"/>
+            <meta name="dc.date.modified" content="<@fmt.formatDate value=contentBean.lastUpdatedDate.time type="both" pattern="yyyy-MM-dd HH:mm"/>"/>
         </@hst.headContribution>
     <#elseif date??>
         <@hst.headContribution category="meta">
-            <meta name="dc.date.modified" content="<@fmt.formatDate value=date.time type="both" pattern="YYYY-MM-dd HH:mm"/>"/>
+            <meta name="dc.date.modified" content="<@fmt.formatDate value=date.time type="both" pattern="yyyy-MM-dd HH:mm"/>"/>
         </@hst.headContribution>
     </#if>
     <#if contentBean?? && contentBean.metaDescription??>
