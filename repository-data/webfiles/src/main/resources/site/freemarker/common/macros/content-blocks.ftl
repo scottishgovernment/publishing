@@ -1,3 +1,5 @@
+<#ftl output_format="HTML">
+
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <#function slugify string>
@@ -336,7 +338,7 @@
         </#if>
 
         <#if hst.isNodeType(contentBlock.node, 'publishing:document')>
-            <#-- rich text block -->
+            <#-- document (file) block -->
             <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--noindex-->
             </#if>
@@ -470,15 +472,82 @@
                 </div>
             </div>
 
+            <#if contentBlock.noindex?? && contentBlock.noindex>
+            <!--endnoindex-->
+            </#if>
+            <#-- end document (file) block -->
+        </#if>
 
+        <#if hst.isNodeType(contentBlock.node, 'publishing:cb_codetabs')>
+            <!-- code tabs block -->
+            <#if contentBlock.noindex?? && contentBlock.noindex>
+            <!--noindex-->
+            </#if>
+
+            <#assign idModifier = contentBlock.identifier[0..7] />
+
+            <div class="mg_example">
+                <div class="mg_example__code  mg_code" <#if contentBlock.tabs?size gt 1>data-module="mg-code-tabs"</#if> data-prismjs-copy="Copy code" data-prismjs-copy-success="Copied to clipboard" data-prismjs-copy-error="Unable to copy">
+
+                    <#if contentBlock.tabs?size == 1>
+                        <#assign tab = contentBlock.tabs[0] />
+                        <#assign languageSlug = tab.language?lower_case />
+                        <details class="mg_code__details" open>
+                            <summary class="mg_code__summary  ds_link">
+                                ${tab.language}
+                            </summary>
+                            <div class="mg_code__details-content">
+                                <pre class="mg_code__pre"><code class="language-${languageSlug}" tabindex="-1">${tab.code}</code></pre>
+                            </div>
+                        </details>
+                    <#else>
+                        <ul role="tablist" class="mg_code__tablist">
+                            <#list contentBlock.tabs as tab>
+                                <#assign isSelected = contentBlock.tabs?first == tab/>
+                                <#assign languageSlug = tab.language?lower_case />
+                                <li role="presentation" class="mg_code__tab">
+                                    <a
+                                        aria-controls="${languageSlug}-${idModifier}"
+                                        <#if isSelected>
+                                            aria-expanded="true"
+                                        </#if>
+                                        class="mg_code__tab-link  js-tab-link"
+                                        role="tab"
+                                        href="#${languageSlug}-${idModifier}-${tab?counter}"
+                                    >${tab.language}</a>
+                                </li>
+                            </#list>
+                        </ul>
+
+                        <#list contentBlock.tabs as tab>
+                            <#assign isSelected = contentBlock.tabs?first == tab/>
+                            <#assign languageSlug = tab.language?lower_case />
+                            <div class="mg_code__tabpanel  <#if isSelected>mg_code__tabpanel--open</#if>">
+                                <${contentBlock.headingLevel} class="mg_code__tabpanel-heading">
+                                    <a
+                                        aria-controls="${languageSlug}-${idModifier}"
+                                        <#if isSelected>
+                                            aria-expanded="true"
+                                        </#if>
+                                        class="mg_code__tabpanel-link  js-tab-button"
+                                        href="${languageSlug}-${idModifier}"
+                                    >${tab.language}</a>
+                                </${contentBlock.headingLevel}>
+                                <div class="mg_code__tabpanel-content" id="${languageSlug}-${idModifier}" aria-role="tabpanel">
+                                    <pre class="mg_code__pre"><code class="language-${languageSlug}" tabindex="-1">${tab.code}</code></pre>
+                                </div>
+                            </div>
+                        </#list>
+                    </#if>
+                </div>
+            </div>
 
             <#if contentBlock.noindex?? && contentBlock.noindex>
             <!--endnoindex-->
             </#if>
-            <#-- end rich text block -->
+            <!-- end code tabs block -->
         </#if>
 
 
     </#list>
 </#macro>
-

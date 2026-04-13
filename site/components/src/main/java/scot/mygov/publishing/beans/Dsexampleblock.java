@@ -33,11 +33,6 @@ public class Dsexampleblock extends HippoCompound {
         return getSingleProperty("publishing:note");
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:minheight")
-    public Long getMinheight() {
-        return getSingleProperty("publishing:minheight");
-    }
-
     @HippoEssentialsGenerated(internalName = "publishing:example")
     public HippoBean getExample() {
         return getLinkedBean("publishing:example", HippoBean.class);

@@ -1,82 +1,119 @@
 definitions:
   config:
-    /hippo:namespaces/publishing/dsexampleblock:
+    /hippo:namespaces/publishing/codepreview:
       jcr:primaryType: hipposysedit:templatetype
       jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
-      jcr:uuid: 5364d613-f679-4074-a992-318dc63f2493
+      jcr:uuid: 6a7f91a6-e559-4235-a96b-8b31a71d6400
       /hipposysedit:nodetype:
         jcr:primaryType: hippo:handle
         jcr:mixinTypes: ['mix:referenceable']
-        jcr:uuid: e08f18a9-152a-4362-b9a7-7d77fdad5d6f
+        jcr:uuid: f690d19e-6871-4293-9a06-54dd4542882a
         /hipposysedit:nodetype:
           jcr:primaryType: hipposysedit:nodetype
           jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
-          jcr:uuid: b4be2545-aa45-4bf6-a1b3-12580da14044
+          jcr:uuid: d3e99a39-2177-461f-96ea-843c16b54d5c
           hipposysedit:node: true
           hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
-          hipposysedit:validators: [variables-validator]
-          /example:
+          /document:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:example
+            hipposysedit:path: publishing:document
             hipposysedit:primary: false
             hipposysedit:type: hippo:mirror
-            hipposysedit:validators: [required]
+          /illustration:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:illustration
+            hipposysedit:primary: false
+            hipposysedit:type: hippogallerypicker:imagelink
+          /alt:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:alt
+            hipposysedit:primary: false
+            hipposysedit:type: Text
           /string:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:type
+            hipposysedit:path: publishing:string
             hipposysedit:primary: false
             hipposysedit:type: String
-          /showcode:
+        /hipposysedit:nodetype[2]:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable']
+          jcr:uuid: 89c24d2a-7e3b-4f47-a297-e1f00540bdc8
+          hipposysedit:node: true
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          /document:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:showcode
+            hipposysedit:path: publishing:document
             hipposysedit:primary: false
-            hipposysedit:type: Boolean
-          /showdemo:
+            hipposysedit:type: hippo:mirror
+          /illustration:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:showdemo
+            hipposysedit:path: publishing:illustration
             hipposysedit:primary: false
-            hipposysedit:type: Boolean
-          /htmlexpanded:
+            hipposysedit:type: hippogallerypicker:imagelink
+          /alt:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:htmlexpanded
-            hipposysedit:primary: false
-            hipposysedit:type: Boolean
-          /note:
-            jcr:primaryType: hipposysedit:field
-            hipposysedit:mandatory: false
-            hipposysedit:multiple: false
-            hipposysedit:ordered: false
-            hipposysedit:path: publishing:note
+            hipposysedit:path: publishing:alt
             hipposysedit:primary: false
             hipposysedit:type: Text
+          /string:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:string
+            hipposysedit:primary: false
+            hipposysedit:type: String
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:
-          jcr:primaryType: publishing:dsexampleblock
-          publishing:showdemo: true
-          publishing:showcode: true
-          publishing:htmlexpanded: false
-          publishing:type: HTML
-          publishing:note: ''
-          /publishing:example:
+          jcr:primaryType: publishing:codepreview
+          publishing:alt: bananpalaver
+          publishing:string: poop
+          /publishing:document:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:illustration:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
+        /hipposysedit:prototype[2]:
+          jcr:primaryType: nt:unstructured
+          jcr:mixinTypes: ['hippostd:relaxed']
+          publishing:alt: bananpalaver
+          publishing:string: poop
+          /publishing:document:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+          /publishing:illustration:
+            jcr:primaryType: hippogallerypicker:imagelink
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+            hippo:facets: []
+            hippo:modes: []
+            hippo:values: []
       /editor:templates:
         jcr:primaryType: editor:templateset
         /_default_:
@@ -88,56 +125,36 @@ definitions:
             jcr:primaryType: frontend:plugin
             item: ${cluster.id}.field
             plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
-          /example:
+          /document:
             jcr:primaryType: frontend:plugin
-            caption: Example
-            field: example
-            hint: ''
+            caption: Document
+            field: document
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /type:
+          /illustration:
             jcr:primaryType: frontend:plugin
-            caption: Type
+            caption: Illustration
+            field: illustration
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /alt:
+            jcr:primaryType: frontend:plugin
+            caption: Alt
+            field: alt
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /string:
+            jcr:primaryType: frontend:plugin
+            caption: String
             field: string
-            hint: e.g. "HTML" or "JSON-LD". This is used for the accordion panel's
-              title, for example "Sample JSON-LD"
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /showdemo:
-            jcr:primaryType: frontend:plugin
-            caption: Show live demo
-            field: showdemo
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /showcode:
-            jcr:primaryType: frontend:plugin
-            caption: Show code snippet
-            field: showcode
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /htmlexpanded:
-            jcr:primaryType: frontend:plugin
-            caption: Code snippet is open on page load
-            field: htmlexpanded
             hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
-          /note:
-            jcr:primaryType: frontend:plugin
-            caption: Note
-            field: note
-            hint: ''
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
-            wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig

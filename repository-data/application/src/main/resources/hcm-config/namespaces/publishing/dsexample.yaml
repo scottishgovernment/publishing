@@ -199,7 +199,7 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              selectable.options: HTML,JavaScript,CSS,SCSS,JSON,Markdown,XML,SVG,TypeScript,TSconfig
+              selectable.options: HTML,JavaScript,CSS,SCSS,JSON,JSX,Markdown,XML,SVG,TypeScript,TSconfig
           /illustration:
             jcr:primaryType: frontend:plugin
             caption: Illustration
@@ -268,7 +268,7 @@ definitions:
             jcr:primaryType: frontend:plugin
             caption: Custom CSS class
             field: cssclass
-            hint: 'e.g.: example-frame__content--full-width, example-frame__content--grey-background'
+            hint: 'e.g.: mg_preview__iframe__content--full-width, mg_preview__iframe__content--grey-background'
             plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

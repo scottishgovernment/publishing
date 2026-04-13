@@ -1,1 +1,1 @@
-import '../../../node_modules/prismjs/prism';
+import './vendor/prism';

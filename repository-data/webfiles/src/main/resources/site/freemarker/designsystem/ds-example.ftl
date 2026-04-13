@@ -52,7 +52,7 @@
             ${document.title}
         </h1>
     </div>
-    <div class="example-frame__content  <#if document.cssclass??>${document.cssclass}</#if>">
+    <div class="mg_preview__iframe__content  <#if document.cssclass??>${document.cssclass}</#if>">
     </#if>
 
         ${document.code?no_esc}

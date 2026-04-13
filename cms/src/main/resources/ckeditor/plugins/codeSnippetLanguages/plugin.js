@@ -10,7 +10,8 @@ CKEDITOR.plugins.add( 'codeSnippetLanguages', {
             xml: 'XML',
             svg: 'SVG',
             typescript: 'TypeScript',
-            tsconfig: 'TSconfig'
+            tsconfig: 'TSconfig',
+            jsx: 'React JSX'
         };
     }
 });
