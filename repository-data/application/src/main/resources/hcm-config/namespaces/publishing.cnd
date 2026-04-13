@@ -37,9 +37,6 @@
 [publishing:LandingPage] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
-[publishing:Publication] > hippostd:relaxed, hippotranslation:translated, publishing:base
-  orderable
-
 [publishing:Manual] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
@@ -47,6 +44,9 @@
   orderable
 
 [publishing:News] > hippostd:relaxed, hippotranslation:translated, publishing:base
+  orderable
+
+[publishing:Publication] > hippostd:relaxed, hippotranslation:translated, publishing:base
   orderable
 
 [publishing:PublicationPage] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
@@ -82,6 +82,9 @@
 [publishing:cb_button] > hippo:compound, hippostd:relaxed
   orderable
 
+[publishing:cb_codetabs] > hippo:compound, hippostd:relaxed
+  orderable
+
 [publishing:cb_councilservicefinder] > hippo:compound, hippostd:relaxed
   orderable
 
@@ -104,6 +107,12 @@
   orderable
 
 [publishing:cb_richtext] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:codepreview] > hippo:compound, hippostd:relaxed
+  orderable
+
+[publishing:codetab] > hippo:compound, hippostd:relaxed
   orderable
 
 [publishing:contentblock] > hippo:compound, hippostd:relaxed
@@ -271,6 +280,9 @@
   orderable
 
 [publishing:status] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument
+  orderable
+
+[publishing:technicalarticle] > hippostd:relaxed, hippotranslation:translated, publishing:article
   orderable
 
 [publishing:text] > hippostd:relaxed, hippotranslation:translated, publishing:basedocument

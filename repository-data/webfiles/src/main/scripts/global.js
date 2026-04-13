@@ -6,6 +6,7 @@
 'use strict';
 
 import BloomreachWebfile from './tools/bloomreach-webfile';
+import CodeTabs from './components/code-tabs';
 import feedback from './components/feedback';
 import NotificationBanner from './components/notification';
 import ServiceFinder from './components/service-finder';
@@ -27,6 +28,7 @@ const global = {
         this.initPublishingComponents();
         this.addTracking();
         this.checkVideoConsent();
+        this.initCodeTabs();
 
         feedback.init();
 
@@ -283,6 +285,11 @@ const global = {
                 window.initGTM();
             }
         });
+    },
+
+    initCodeTabs: function () {
+        const tabSets = [].slice.call(document.querySelectorAll('[data-module="mg-code-tabs"]'));
+        tabSets.forEach(tabSet => new CodeTabs(tabSet));
     }
 };
 

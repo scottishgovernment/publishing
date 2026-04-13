@@ -52,7 +52,7 @@
                 </div>
             </#if>
 
-            <div class="ds_layout__content">
+            <div class="ds_layout__content" data-prismjs-copy="Copy code" data-prismjs-copy-success="Copied to clipboard" data-prismjs-copy-error="Unable to copy">
                 <#if document.deprecated>
                     <div class="ds_warning-text">
                         <strong class="ds_warning-text__icon" aria-hidden="true"></strong>
@@ -83,98 +83,86 @@
 
                 <#if document.contentblocks??>
 
-                    <#list document.contentblocks as contentblock>
+                    <#list document.contentblocks as contentBlock>
 
-                        <#if hst.isNodeType(contentblock.node, 'publishing:dsexampleblock')>
-                            <#assign headingLevel = "h3" />
-                            <#if contentblock.headingLevel??>
-                                <#assign headingLevel = contentblock.headingLevel />
-                            </#if>
+                        <#if hst.isNodeType(contentBlock.node, 'publishing:dsexampleblock')>
                             <!-- example block -->
-                            <@hst.link var="example" hippobean=contentblock.example/>
-                            <figure class="example  overflow--large--2 overflow--xlarge--2">
-                                <div class="example__content">
 
-                                    <#if contentblock.example.illustration??>
-                                        <img class="example__illustration" alt="<#if contentblock.example.alt?has_content>${contentblock.example.alt}</#if>" src="<@hst.link hippobean=contentblock.example.illustration.original/>">
-                                    <#elseif contentblock.showdemo>
-                                        <div class="example__header">
-                                            <a class="example__link" href="${example}" target="_blank">Open this example in a new window</a>
+                            <@hst.link var="example" hippobean=contentBlock.example/>
+                            <div class="mg_example  overflow--large--2 overflow--xlarge--2">
+                                <div class="mg_example__preview  mg_preview">
+                                    <@hst.link var="example" hippobean=contentBlock.codepreview.document/>
+
+                                    <#if contentBlock.example.illustration??>
+                                        <img class="mg_preview__illustration" alt="<#if contentBlock.example.alt?has_content>${contentBlock.example.alt}</#if>" src="<@hst.link hippobean=contentBlock.example.illustration.original/>">
+                                    <#elseif contentBlock.showdemo>
+                                        <div class="mg_preview__link">
+                                            <a href="${example}" target="_blank">Open this example in a new window</a>
                                         </div>
-                                        <div class="example__demo">
-                                            <iframe title="${contentblock.example.title}" <#if contentblock.minheight??>style="min-height: ${contentblock.minheight}px;"</#if> src="${example}" class="example__iframe">
+
+                                        <div class="mg_preview__frame">
+                                            <iframe title="${contentBlock.codepreview.document.title}" <#if contentBlock.minheight??>style="min-height: ${contentBlock.minheight}px;"</#if> src="${example}" class="mg_preview__iframe">
                                             </iframe>
                                         </div>
                                     </#if>
-
-                                    <#if contentblock.note?has_content>
-                                        <p class="example-frame__note">Note: ${contentblock.note}</p>
-                                    </#if>
-
-                                    <div class="example__accordion  ds_accordion" data-module="ds-accordion">
-                                        <#if contentblock.showcode>
-                                            <div class="ds_accordion-item  <#if contentblock.htmlexpanded>ds_accordion-item--open</#if>">
-                                                <input type="checkbox" <#if contentblock.htmlexpanded>checked</#if> class="visually-hidden  ds_accordion-item__control" id="panel-main-${accordionCount}" aria-labelledby="panel-main-${accordionCount}-heading">
-                                                <div class="ds_accordion-item__header">
-                                                    <${headingLevel} id="panel-main-${accordionCount}-heading" class="ds_accordion-item__title">
-                                                        Sample ${contentblock.type} <span class="visually-hidden">for ${contentblock.example.title}</span>
-                                                    </${headingLevel}>
-                                                    <span class="ds_accordion-item__indicator"></span>
-                                                    <label class="ds_accordion-item__label" for="panel-main-${accordionCount}"><span class="visually-hidden">Show this section</span></label>
-                                                </div>
-                                                <div class="ds_accordion-item__body  example__accordion-body--code">
-                                                    <pre class="ds_no-margin  pre--no-border" tabindex="-1"><code class="language-${contentblock.example.language?lower_case}">${contentblock.example.code}</code></pre>
-                                                </div>
-                                            </div>
-
-                                            <#assign accordionCount = accordionCount + 1 />
-                                        </#if>
-                                    </div>
                                 </div>
-                            </figure>
+
+                                <#if contentBlock.showcode>
+                                    <div class="mg_example__code  mg_code">
+                                        <details class="mg_code__details" <#if contentBlock.htmlexpanded>open</#if>>
+                                            <summary class="mg_code__summary  ds_link">
+                                                ${contentBlock.type}
+                                            </summary>
+                                            <div class="mg_code__details-content">
+                                                <pre class="mg_code__pre" tabindex="0"><code class="language-${contentBlock.example.language?lower_case}" tabindex="-1">${contentBlock.example.code}</code></pre>
+                                            </div>
+                                        </details>
+                                    </div>
+                                </#if>
+                            </div>
                             <!-- end example block -->
                         </#if>
 
-                        <#if hst.isNodeType(contentblock.node, 'publishing:dscontentblock')>
+                        <#if hst.isNodeType(contentBlock.node, 'publishing:dscontentblock')>
                             <!-- content block -->
-                            <@hst.html hippohtml=contentblock.content/>
+                            <@hst.html hippohtml=contentBlock.content/>
                             <!-- end content block -->
                         </#if>
 
-                        <#if hst.isNodeType(contentblock.node, 'publishing:dsfigureblock')>
+                        <#if hst.isNodeType(contentBlock.node, 'publishing:dsfigureblock')>
                             <!-- figure block -->
-                            <figure class="<#if contentblock.overflow>overflow--large--2  overflow--xlarge--2</#if>">
-                                <img alt="${contentblock.alt}" src="<@hst.link hippobean=contentblock.image/>" loading="lazy">
-                                <#if contentblock.caption?has_content>
-                                    <figcaption>${contentblock.caption}</figcaption>
+                            <figure class="<#if contentBlock.overflow>overflow--large--2  overflow--xlarge--2</#if>">
+                                <img alt="${contentBlock.alt}" src="<@hst.link hippobean=contentBlock.image/>" loading="lazy">
+                                <#if contentBlock.caption?has_content>
+                                    <figcaption>${contentBlock.caption}</figcaption>
                                 </#if>
                             </figure>
                             <!-- end figure block -->
                         </#if>
 
-                        <#if hst.isNodeType(contentblock.node, 'publishing:dsattachmentblock') || hst.isNodeType(contentblock.node, 'publishing:cb_fileDownload')>
+                        <#if hst.isNodeType(contentBlock.node, 'publishing:dsattachmentblock') || hst.isNodeType(contentBlock.node, 'publishing:cb_fileDownload')>
                             <!-- attachment block -->
 
-                            <#if contentblock.external?has_content>
-                                <#assign link = contentblock.external>
+                            <#if contentBlock.external?has_content>
+                                <#assign link = contentBlock.external>
                             <#else>
-                                <@hst.link var="link2" hippobean=contentblock.internal />
+                                <@hst.link var="link2" hippobean=contentBlock.internal />
                                 <#assign link = link2/>
                             </#if>
-                            
-                            <#if contentblock.noindex?? && contentblock.noindex>
+
+                            <#if contentBlock.noindex?? && contentBlock.noindex>
                             <!--noindex-->
                             </#if>
 
-                            <div class="ds_file-download <#if contentblock.highlight> ds_file-download--highlighted</#if>">
+                            <div class="ds_file-download <#if contentBlock.highlight> ds_file-download--highlighted</#if>">
                                 <div class="ds_file-download__thumbnail">
                                     <a data-button="document-cover" class="ds_file-download__thumbnail-link" aria-hidden="true" tabindex="-1" href="${link}">
-                                        <#if contentblock.image??>
-                                            <@hst.link var="icon" hippobean=contentblock.image.original />
+                                        <#if contentBlock.image??>
+                                            <@hst.link var="icon" hippobean=contentBlock.image.original />
                                             <img class="ds_file-download__thumbnail-image" src="${icon}" alt="">
                                         <#else>
-                                            <#assign fileThumbnailPath = '/assets/images/documents/svg/' + contentblock.type + '.svg' />
-                                            <#switch contentblock.icon?trim?lower_case>
+                                            <#assign fileThumbnailPath = '/assets/images/documents/svg/' + contentBlock.type + '.svg' />
+                                            <#switch contentBlock.icon?trim?lower_case>
                                             <#case "csv">
                                                 <#assign fileThumbnailPath = '/assets/images/documents/svg/csv.svg' />
                                                 <#break>
@@ -229,19 +217,19 @@
                                 </div>
 
                                 <div class="ds_file-download__content">
-                                    <a href="${link}" aria-describedby="file-download-${contentblock?keep_after("@")}" class="ds_file-download__title">${contentblock.title}</a>
+                                    <a href="${link}" aria-describedby="file-download-${contentBlock?keep_after("@")}" class="ds_file-download__title">${contentBlock.title}</a>
 
-                                    <div id="file-download-${contentblock?keep_after("@")}" class="ds_file-download__details">
+                                    <div id="file-download-${contentBlock?keep_after("@")}" class="ds_file-download__details">
                                         <dl class="ds_metadata  ds_metadata--inline">
                                             <div class="ds_metadata__item">
                                                 <dt class="ds_metadata__key">File type</dt>
-                                                <dd class="ds_metadata__value">${contentblock.type}<span class="visually-hidden">,</span></dd>
+                                                <dd class="ds_metadata__value">${contentBlock.type}<span class="visually-hidden">,</span></dd>
                                             </div>
 
 
                                             <div class="ds_metadata__item">
                                                 <dt class="ds_metadata__key">File size</dt>
-                                                <dd class="ds_metadata__value">${contentblock.size}</dd>
+                                                <dd class="ds_metadata__value">${contentBlock.size}</dd>
                                             </div>
 
                                         </dl>
@@ -249,16 +237,16 @@
                                 </div>
                             </div>
 
-                            
-                            <#if contentblock.noindex?? && contentblock.noindex>
+
+                            <#if contentBlock.noindex?? && contentBlock.noindex>
                             <!--endnoindex-->
                             </#if>
                             <!-- end attachment block -->
                         </#if>
 
-                        <#if hst.isNodeType(contentblock.node, 'publishing:dspaletteblock')>
+                        <#if hst.isNodeType(contentBlock.node, 'publishing:dspaletteblock')>
                             <!-- palette block -->
-                            <${contentblock.headinglevel}>${contentblock.title}</${contentblock.headinglevel}>
+                            <${contentBlock.headinglevel}>${contentBlock.title}</${contentBlock.headinglevel}>
 
                             <table class="dss_palette">
                                 <thead class="visually-hidden">
@@ -269,7 +257,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <#list contentblock.paletteitems as item>
+                                    <#list contentBlock.paletteitems as item>
                                         <tr>
                                             <td class="dss_palette__colour">
                                                 <svg class="dss_palette__swatch" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
@@ -289,18 +277,17 @@
                             <!-- end palette block -->
                         </#if>
 
-                        <#if hst.isNodeType(contentblock.node, 'publishing:cb_fragment')>
+                        <#if hst.isNodeType(contentBlock.node, 'publishing:cb_fragment')>
                             <#-- fragment block -->
-                            <#if contentblock.noindex?? && contentblock.noindex>
+                            <#if contentBlock.noindex?? && contentBlock.noindex>
                             <!--noindex-->
                             </#if>
-                            <@renderContentBlocks contentblock.fragment.contentBlocks />
-                            <#if contentblock.noindex?? && contentblock.noindex>
+                            <@renderContentBlocks contentBlock.fragment.contentBlocks />
+                            <#if contentBlock.noindex?? && contentBlock.noindex>
                             <!--endnoindex-->
                             </#if>
                             <#-- end fragment block -->
                         </#if>
-
                     </#list>
                 </#if>
 

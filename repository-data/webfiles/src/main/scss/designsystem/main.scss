@@ -57,14 +57,13 @@ $use-legacy-site-navigation: false;
  * ADDITIONAL STYLES
  */
 @import "components/component.colour-palette";
-@import "components/component.example";
 @import "components/component.font-table";
 @import "components/component.history-list";
 @import "components/component.toggle-link";
 @import "components/component.whats-new";
 
+@import "../components/code-tabs";
 @import "../components/link-major";
-
 @import "../mygov/components/feedback";
 
 @import "../highlight";

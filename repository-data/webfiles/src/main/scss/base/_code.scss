@@ -1,31 +1,82 @@
 @use '../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
 @use '../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
 
-pre {
-    overflow: visible;
-}
-
 code {
     @include ds_helpers.ds_small-size;
-
-    line-height: line-height-on-grid($small-size);
-
-    @include ds_helpers.ds_media-query(medium) {
-        line-height: line-height-on-grid($small-size--medium, 2);
-    }
 
     &:not([class*="language-"]) {
         color: ds_settings.$ds_colour__red;
     }
 }
 
+pre {
+    overflow: auto;
+
+    &:focus-visible {
+        @include ds_helpers.ds_input-focus;
+    }
+}
+
 pre > code {
     display: block;
-    line-height: 2;
-    overflow-wrap: break-word;
-    padding: 4px 8px;
+    padding: 1rem;
 }
 
 figure > pre {
     margin-bottom: 0;
+}
+
+:not(pre) > code[class*="language-"],
+pre:has([class*="language-"]) {
+    background-color: ds_settings.$ds_colour__background--secondary;
+}
+
+/* Toolbar */
+
+.code-toolbar {
+    background-color: ds_settings.$ds_colour__background--secondary;
+    display: grid;
+    margin-bottom: 1rem;
+}
+
+.code-toolbar .toolbar {
+    grid-area: 1 / 1 / 1 / 1;
+    padding: 1rem;
+    padding-bottom: 0;
+}
+
+.code-toolbar pre {
+    grid-area: 1 / 1 / 1 / 1;
+    margin-bottom: 0;
+    padding-top: 3.5rem;
+}
+
+.copy-to-clipboard-button {
+    @include ds_helpers.ds_small-size;
+    background-color: ds_settings.$ds_colour__background--secondary;
+    border: 0;
+    border-radius: 0;
+    color: ds_settings.$ds_colour__button--secondary;
+    cursor: pointer;
+    font-weight: 700;
+    min-height: 2.5rem;
+    padding: 0 .75rem;
+    outline: .125rem solid currentColor;
+    outline-offset: -0.125rem;
+    transition-duration: ds_settings.$transition-in-time;
+
+    &:hover:not(:focus) {
+        background-color: ds_settings.$ds_colour__button--secondary--hover__background;
+        color: ds_settings.$ds_colour__button--secondary--hover;
+    }
+
+    &:focus {
+        background-color: ds_settings.$ds_colour__button--focus__background;
+        color: ds_settings.$ds_colour__button--focus;
+        transition-duration: 0s;
+        outline-color: transparent;
+        box-shadow:
+            0 0 0 0 ds_settings.$ds_colour__link--focus__outline,
+            0 round(ds_settings.$ds_focus__shadow-width, 1px) 0 0 ds_settings.$ds_colour__link--focus__shadow;
+    }
 }

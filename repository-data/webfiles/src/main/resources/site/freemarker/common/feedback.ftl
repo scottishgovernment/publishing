@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <input id="page-category" type="hidden" value="${layoutName}" form=feedbackForm">
+                <input id="page-category" type="hidden" value="${layoutName}" form="feedbackForm">
 
                 <form id="feedbackForm">
 
@@ -53,4 +53,3 @@
 
     <!--endnoindex-->
 </#if>
-

@@ -1,0 +1,159 @@
+@use '../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
+$mg-example-border-width: 0.0625rem;
+
+.mg_preview__link {
+    @include ds_helpers.ds_small-size--fixed;
+    border: $mg-example-border-width solid ds_settings.$ds_colour__border;
+    border-bottom-width: 0;
+    padding: calc(0.5rem - $mg-example-border-width) 1rem 0.5rem;
+}
+
+.mg_preview__illustration {
+    display: block;
+}
+
+.mg_preview__frame {
+    border: $mg-example-border-width solid ds_settings.$ds_colour__border;
+    border-bottom: 0;
+    background: repeating-conic-gradient(ds_settings.$ds_colour__background--tertiary 0 25%, ds_settings.$ds_colour__background--primary 0 50%) 50% / 1rem 1rem;
+    background-position: 0 0;
+}
+
+.mg_preview__iframe {
+    background-color: ds_settings.$ds_colour__background--primary;
+    border: 0;
+    border-right: $mg-example-border-width solid ds_settings.$ds_colour__border;
+    display: block;
+    max-width: calc(100% + $mg-example-border-width);
+    min-height: 2rem;
+    min-width: 20rem;
+    resize: auto;
+    width: calc(100% + $mg-example-border-width);
+}
+
+.mg_preview__iframe__content {
+    @include ds_helpers.ds_responsive-padding(2, top);
+    @include ds_helpers.ds_responsive-padding(2, bottom, $tuning: -1px);
+    @include ds_helpers.ds_responsive-padding(2, left, $tuning: -1px);
+    @include ds_helpers.ds_responsive-padding(2, right, $tuning: -1px);
+
+    &--grey-background {
+        background-color: ds_settings.$ds_colour__grey--lighter;
+    }
+
+    &--full-width {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.mg_code {
+    border: $mg-example-border-width solid ds_settings.$ds_colour__border;
+    border-top: 0;
+    margin-bottom: 2rem;
+
+    &__tablist {
+        display: none;
+        border-top: $mg-example-border-width solid ds_settings.$ds_colour__border;
+        list-style-type: none;
+        margin: 0 0 0 -0.0625rem;
+    }
+
+    &__tab {
+        margin: 0;
+        position: relative;
+    }
+
+    &__tab-link {
+        left: $mg-example-border-width;
+        position: relative;
+
+        &[aria-expanded="true"] {
+            border: $mg-example-border-width solid ds_settings.$ds_colour__border;
+            border-bottom: $mg-example-border-width solid white;
+            margin: #{$mg-example-border-width * -1};
+            z-index: 1;
+        }
+    }
+
+    &__tabpanel-heading {
+        border-top: $mg-example-border-width solid ds_settings.$ds_colour__border;
+        margin: 0;
+        // padding: 0 $mg-example-border-width $mg-example-border-width;
+        position: relative;
+    }
+
+    &__details {
+        border-top: $mg-example-border-width solid ds_settings.$ds_colour__border;
+    }
+
+    &__summary {
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    &__tabpanel-link,
+    &__tabpanel-button {
+        @include ds_helpers.ds_root-size;
+        font-weight: normal;
+        text-decoration: underline;
+        width: 100%;
+    }
+
+    &__tabpanel-content,
+    &__details-content {
+        padding: 0.5rem;
+        border-top: $mg-example-border-width solid ds_settings.$ds_colour__border;
+
+        pre {
+            margin-bottom: 0;
+        }
+    }
+
+    &__tab-link,
+    &__tabpanel-link,
+    &__tabpanel-button,
+    &__summary {
+        align-items: center;
+        display: flex;
+        min-height: calc(3.5rem - $mg-example-border-width*2);
+        padding: calc(0.75rem - $mg-example-border-width) calc(1rem - $mg-example-border-width) 0.75rem;
+
+        @include ds_helpers.ds_media-query(medium) {
+            min-height: calc(4rem - $mg-example-border-width*2);
+            padding: calc(1rem - $mg-example-border-width);
+        }
+
+        &:focus {
+            box-shadow: inset 0 round(-0.16em, 1px) 0 ds_settings.$ds_colour__button--focus;
+            filter: none;
+            outline-width: 0;
+        }
+
+        &:hover:not(:focus) {
+            background-color: ds_settings.$ds_colour__link--hover__background;
+        }
+    }
+
+    .code-toolbar {
+        margin-bottom: 0;
+    }
+}
+
+.js-enabled {
+    .mg_code__tabpanel:not(.mg_code__tabpanel--open) .mg_code__tabpanel-content {
+        display: none;
+    }
+
+    @include ds_helpers.ds_media-query(medium) {
+        .mg_code__tablist {
+            display: flex;
+        }
+
+        .mg_code__tabpanel-heading {
+            display: none;
+        }
+    }
+}

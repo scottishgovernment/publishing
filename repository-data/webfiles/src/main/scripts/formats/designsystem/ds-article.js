@@ -14,7 +14,7 @@ const article = {
             obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
         }
 
-        const iframes = [].slice.call(document.querySelectorAll('iframe.example__iframe'));
+        const iframes = [].slice.call(document.querySelectorAll('iframe.mg_preview__iframe'));
 
         iframes.forEach(iframe => {
             iframe.addEventListener('load', () => resizeIframe(iframe));
