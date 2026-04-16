@@ -6,7 +6,7 @@
 <ul class="ds_card-grid  ds_card-grid--narrow  ds_card-grid--min-height  ds_card-grid--medium-2">
     <#list children as child>
         <@hst.link var="link" hippobean=child.bean/>
-        <li class="ds_card  ds_card--has-hover">
+        <li class="ds_card  ds_card--navigation">
             <div class="ds_card__content">
                 <div class="ds_card__content-header">
                     <h2 class="ds_card__title">
