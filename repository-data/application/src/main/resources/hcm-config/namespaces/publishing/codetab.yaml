@@ -23,6 +23,7 @@ definitions:
             hipposysedit:path: publishing:language
             hipposysedit:primary: false
             hipposysedit:type: StaticDropdown
+            hipposysedit:validators: [required]
           /code:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
