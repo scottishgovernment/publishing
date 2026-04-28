@@ -3,6 +3,14 @@
 
 $mg-example-border-width: 0.0625rem;
 
+.mg_example {
+    margin-bottom: 2rem;
+}
+
+.mg_example:not(:has(.mg_code)) {
+    border-bottom: 1px solid ds_settings.$ds_colour__border;
+}
+
 .mg_preview__link {
     @include ds_helpers.ds_small-size--fixed;
     border: $mg-example-border-width solid ds_settings.$ds_colour__border;
@@ -14,9 +22,13 @@ $mg-example-border-width: 0.0625rem;
     display: block;
 }
 
-.mg_preview__frame {
+.mg_preview__frame,
+.mg_preview__illustration {
     border: $mg-example-border-width solid ds_settings.$ds_colour__border;
     border-bottom: 0;
+}
+
+.mg_preview__frame {
     background: repeating-conic-gradient(ds_settings.$ds_colour__background--tertiary 0 25%, ds_settings.$ds_colour__background--primary 0 50%) 50% / 1rem 1rem;
     background-position: 0 0;
 }
@@ -52,7 +64,10 @@ $mg-example-border-width: 0.0625rem;
 .mg_code {
     border: $mg-example-border-width solid ds_settings.$ds_colour__border;
     border-top: 0;
-    margin-bottom: 2rem;
+
+    pre:has([class*="language-"]) {
+        border: 0;
+    }
 
     &__tablist {
         display: none;
