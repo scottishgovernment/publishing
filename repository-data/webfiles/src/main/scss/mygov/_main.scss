@@ -1,11 +1,12 @@
 /**
  * PATTERN LIBRARY VALUES
  */
- $iconsfile: "../../images/icons/icons.stack.svg" !default;
+$iconsfile: "../../images/icons/icons.stack.svg" !default;
 $site-prefix: "mg_";
 
-
-
+@use '../roboto' with (
+    $robotoFontPath: '../../../fonts/roboto/'
+);
 
 /**
  * BASE STYLES FROM PATTERN LIBRARY
