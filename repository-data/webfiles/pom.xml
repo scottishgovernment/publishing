@@ -13,28 +13,61 @@
   <artifactId>publishing-repository-data-webfiles</artifactId>
 
   <dependencies>
+
     <dependency>
       <groupId>scot.mygov.publishing</groupId>
       <artifactId>publishing-components</artifactId>
       <version>${project.version}</version>
-      <type>jar</type>
       <scope>provided</scope>
     </dependency>
+
     <!-- support ftl auto completion -->
     <dependency>
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
       <scope>provided</scope>
     </dependency>
+
   </dependencies>
 
   <build>
+
+    <resources>
+      <resource>
+        <directory>node_modules/@fontsource/roboto/files</directory>
+        <targetPath>${project.basedir}/src/main/resources/site/assets/fonts/roboto</targetPath>
+        <includes>
+          <include>roboto-*-300-normal.woff2</include>
+          <include>roboto-*-400-normal.woff2</include>
+          <include>roboto-*-400-italic.woff2</include>
+          <include>roboto-*-700-normal.woff2</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-resources-plugin</artifactId>
         <configuration>
           <includeEmptyDirs>true</includeEmptyDirs>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>src/main/resources/site/assets/fonts/roboto</directory>
+            </fileset>
+          </filesets>
         </configuration>
       </plugin>
 
@@ -95,6 +128,5 @@
 
     </plugins>
   </build>
-
 
 </project>
