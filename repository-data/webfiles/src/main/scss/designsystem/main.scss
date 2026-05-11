@@ -76,6 +76,10 @@ $use-legacy-site-navigation: false;
 @import "overrides/override.file-download";
 @import "overrides/override.page-header";
 
+/* specific height for autocomplete example. todo: extend this? */
+.ds-example--23 {
+    min-height: 23rem;
+}
 
 
 
