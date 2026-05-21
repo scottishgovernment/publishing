@@ -18,8 +18,7 @@ xdescribe('business-rates-calculator', function () {
 
         $('body').addClass('business-rates-calculator');
 
-        // need a non-https api URL to test against
-        brc.apiUrl = '/address/?search=';
+        brc.apiUrl = '/service/address/?search=';
 
         this.properties = [
             {
