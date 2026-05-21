@@ -2,12 +2,12 @@
  * Green theme
  */
 @use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings with (
-    $ds_colour__brand: #2e5d2e
+    $ds_colour__brand: #1a7032
 );
 
 // Page block secondary theme background
 @use '../../../../../node_modules/@scottish-government-design-system/page-blocks/src/blocks/settings' as pb_settings with (
-    $pb_theme__background-secondary: #eaefea
+    $pb_theme__background-secondary: #e8f1ea
 );
 
 /**
