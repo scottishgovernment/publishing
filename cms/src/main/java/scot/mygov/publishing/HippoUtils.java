@@ -8,7 +8,6 @@ import org.hippoecm.repository.util.JcrUtils;
 import org.onehippo.forge.selection.hst.contentbean.ValueList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import scot.mygov.publishing.eventlisteners.SlugMaintenanceListener;
 
 import javax.jcr.*;
 import javax.jcr.query.Query;

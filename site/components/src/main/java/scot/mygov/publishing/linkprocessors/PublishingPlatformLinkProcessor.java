@@ -109,8 +109,14 @@ public class PublishingPlatformLinkProcessor implements HstLinkProcessor {
     void setPathForGuidePage(HstLink link, Node guidepage) throws RepositoryException {
         Node handle = guidepage.getParent();
         Node guideFolder = handle.getParent();
+        if (!guideFolder.hasNode(INDEX)) {
+            return;
+        }
         Node guide = guideFolder.getNode(INDEX).getNode(INDEX);
 
+        if (!guide.hasProperty(SLUG)) {
+            return;
+        }
         String guideSlug = guide.getProperty(SLUG).getString();
         if (isFirstGuidePage(guideFolder, handle)) {
             link.setPath(new StringBuffer("/").append(guideSlug).toString());

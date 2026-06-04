@@ -187,13 +187,29 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
         List<String> values = new ArrayList<>();
         for (CsvField field : fields) {
             try {
-                values.add(field.extractor.extract(variant, stateSummary));
+                values.add(sanitizeCsvValue(field.extractor.extract(variant, stateSummary)));
             } catch (RepositoryException e) {
                 LOG.error("Error extracting field '{}' for CSV export", field.header, e);
                 values.add("");
             }
         }
         return values;
+    }
+
+    /**
+     * Prevent CSV/formula injection attacks (Excel DDE). Spreadsheet applications treat cell values
+     * that begin with '=', '+', '-', '@', tab, or carriage-return as formulas. Prefixing with a
+     * single quote forces Excel to treat the value as plain text.
+     */
+    static String sanitizeCsvValue(String value) {
+        if (value == null || value.isEmpty()) {
+            return "";
+        }
+        char first = value.charAt(0);
+        if (first == '=' || first == '+' || first == '-' || first == '@' || first == '\t' || first == '\r') {
+            return "'" + value;
+        }
+        return value;
     }
 
     private Node getVariant(Node handle, String stateSummary) {
