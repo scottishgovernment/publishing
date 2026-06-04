@@ -6,6 +6,9 @@ import org.hippoecm.hst.site.HstServices;
 import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.util.JcrUtils;
 import org.onehippo.forge.selection.hst.contentbean.ValueList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import scot.mygov.publishing.eventlisteners.SlugMaintenanceListener;
 
 import javax.jcr.*;
 import javax.jcr.query.Query;
@@ -13,6 +16,7 @@ import javax.jcr.query.QueryResult;
 import java.util.*;
 
 public class HippoUtils {
+    private static final Logger LOG = LoggerFactory.getLogger(HippoUtils.class);
 
     public Node getPublishedVariant(Node handle) throws RepositoryException {
         return getVariantWithState(handle, HippoStdNodeType.PUBLISHED);
@@ -83,6 +87,16 @@ public class HippoUtils {
             }
         }
         return null;
+    }
+
+    @SuppressWarnings("java:S2139")
+    public static Node getNodeByIdentifierIfExists(Session session, String uuid) throws RepositoryException {
+        try {
+            return session.getNodeByIdentifier(uuid);
+        } catch (ItemNotFoundException e) {
+            LOG.debug("getNodeByIdentifierIfExists item not found", e);
+            return null;
+        }
     }
 
     public ValueList getValueList(Session session, String name) throws RepositoryException {

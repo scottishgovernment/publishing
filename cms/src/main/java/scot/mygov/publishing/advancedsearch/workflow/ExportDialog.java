@@ -1,7 +1,8 @@
 package scot.mygov.publishing.advancedsearch.workflow;
 
-import com.google.common.base.Charsets;
 import com.onehippo.cms7.search.frontend.ISearchContext;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.wicket.markup.head.CssHeaderItem;
@@ -28,8 +29,12 @@ import org.onehippo.cms7.channelmanager.HstUtil;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import scot.mygov.publishing.HippoUtils;
 
 import javax.jcr.*;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 import java.text.MessageFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -44,22 +49,26 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
 
     private static final Logger LOG = LoggerFactory.getLogger(ExportDialog.class);
     private static final CssResourceReference CSS = new CssResourceReference(ExportDialog.class, "ExportDialog.css");
-
     private static final byte[] BOM = new byte[]{(byte) 0xEF, (byte) 0xBB, (byte) 0xBF};
-    private static final String DEFAULT_LINE_TERMINATOR = "\r\n";
-    private static final String QUOTE = "\"";
-    private static final String DEFAULT_SEPARATOR = ",";
-    private static final String SEPARATOR_WITH_QUOTES = QUOTE + DEFAULT_SEPARATOR + QUOTE;
-
     private static final String REVIEW_DATE_PROP = "publishing:reviewDate";
+    private static final String INDEX = "index";
+    private static final String PUBLISHING_DOCUMENT = "publishing:document";
 
-    //When required to add a new property in the CSV export add displayed label and corresponding property in the two lists below.
-    //You might have to change #constructPropertiesList method below to add your property if it requires special handling.
+    @FunctionalInterface
+    interface FieldExtractor {
+        String extract(Node variant, String stateSummary) throws RepositoryException;
+    }
 
-    private static final String[] headers = new String[]{"title", "url", "content_owner", "fact_checkers", "review_date", "official_last_modified", "created_by", "date_modified", "modified_by", "id", "state", "life_events", "organisation_tags", "format", "mirrorTargetPublished", "mirrorTarget" };
-    private static final String[] documentProperties = new String[]{"title", "url", "publishing:contentOwner", "publishing:factCheckers", REVIEW_DATE_PROP, "publishing:lastUpdatedDate", HIPPOSTDPUBWF_CREATED_BY, HIPPOSTDPUBWF_LAST_MODIFIED_DATE, HIPPOSTDPUBWF_LAST_MODIFIED_BY, "id", HIPPOSTD_STATE, "publishing:lifeEvents", "publishing:organisationtags", "format", "mirrorTargetPublished", "mirrorTarget" };
+    static class CsvField {
+        final String header;
+        final FieldExtractor extractor;
 
-    private final ResourceLink<String> exportCSVLink;
+        CsvField(String header, FieldExtractor extractor) {
+            this.header = header;
+            this.extractor = extractor;
+        }
+    }
+
     private final ISearchContext searcher;
 
     public ExportDialog(final ISearchContext searcher) {
@@ -73,13 +82,11 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
         ));
         add(countText);
 
-        exportCSVLink = new ResourceLink<String>("exportCSV", getResource()) {
-
+        ResourceLink<String> exportCSVLink = new ResourceLink<String>("exportCSV", getResource()) {
             @Override
-            public boolean isEnabled(){
+            public boolean isEnabled() {
                 return documentsCount > 0;
             }
-
         };
         exportCSVLink.setOutputMarkupId(true);
         add(exportCSVLink);
@@ -89,9 +96,33 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
         setFocusOnCancel();
     }
 
+    /**
+     * Defines the fields included in the CSV export. Override this method to add, remove, or reorder fields.
+     * Each field has a header label and an extractor that receives the document variant node and its state summary.
+     */
+    protected List<CsvField> buildFields() {
+        return Arrays.asList(
+            new CsvField("title",                  (v, s) -> title(v)),
+            new CsvField("url",                    (v, s) -> firstUrl(v)),
+            new CsvField("content_owner",          (v, s) -> contactEmails(v, "publishing:contentOwner")),
+            new CsvField("fact_checkers",          (v, s) -> contactEmails(v, "publishing:factCheckers")),
+            new CsvField("review_date",            (v, s) -> reviewDateValue(v, REVIEW_DATE_PROP)),
+            new CsvField("official_last_modified", (v, s) -> reviewDateValue(v, "publishing:lastUpdatedDate")),
+            new CsvField("created_by",             (v, s) -> stringProperty(v, HIPPOSTDPUBWF_CREATED_BY)),
+            new CsvField("date_modified", this::lastModifiedDate),
+            new CsvField("modified_by", this::lastModifiedBy),
+            new CsvField("id",                     (v, s) -> v.getIdentifier()),
+            new CsvField("state",                  (v, s) -> stringProperty(v, HIPPOSTD_STATE)),
+            new CsvField("life_events",            (v, s) -> multiValueProperty(v, "publishing:lifeEvents")),
+            new CsvField("organisation_tags",      (v, s) -> multiValueProperty(v, "publishing:organisationtags")),
+            new CsvField("format",                 (v, s) -> v.getPrimaryNodeType().getName()),
+            new CsvField("mirrorTargetPublished",  (v, s) -> getMirrorTargetPublishedState(v.getPrimaryNodeType().getName(), v)),
+            new CsvField("mirrorTarget",           (v, s) -> getMirrorTarget(v.getPrimaryNodeType().getName(), v))
+        );
+    }
+
     private ByteArrayResource getResource() {
         return new ByteArrayResource("text/csv") {
-
             @Override
             public byte[] getData(final Attributes attributes) {
                 return createCsvData();
@@ -102,18 +133,16 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                 super.configureResponse(response, attributes);
                 configureExportResponse(response);
             }
-
         };
     }
 
     @Override
-
     public void renderHead(final IHeaderResponse response) {
         super.renderHead(response);
         response.render(CssHeaderItem.forReference(CSS));
     }
 
-    private int getCountSelectedDocuments(){
+    private int getCountSelectedDocuments() {
         if (searcher != null) {
             int count = 0;
             Iterator<Node> documents = searcher.getSelectedDocuments();
@@ -127,49 +156,44 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
     }
 
     protected byte[] createCsvData() {
-        /// ugh, we should use a csv library for this...
-        final StringBuilder stringBuilder = new StringBuilder();
+        List<CsvField> fields = buildFields();
+        String[] headers = fields.stream().map(f -> f.header).toArray(String[]::new);
+        StringWriter writer = new StringWriter();
 
-        stringBuilder.append(QUOTE);
-        stringBuilder.append(StringUtils.join(headers, SEPARATOR_WITH_QUOTES));
-        stringBuilder.append(QUOTE);
-        stringBuilder.append(DEFAULT_LINE_TERMINATOR);
-
-        Iterator<Node> nodeIterator = searcher.getSelectedDocuments();
-        while (nodeIterator.hasNext()) {
-            Node currentNode = nodeIterator.next();
-            List<String> propertiesList = constructPropertiesList(currentNode);
-            for (int i = 0; i < propertiesList.size(); i++) {
-                appendValue(stringBuilder, i, propertiesList.get(i));
+        try (CSVPrinter printer = new CSVPrinter(writer, CSVFormat.DEFAULT.builder().setHeader(headers).build())) {
+            Iterator<Node> nodeIterator = searcher.getSelectedDocuments();
+            while (nodeIterator.hasNext()) {
+                Node handle = nodeIterator.next();
+                List<String> values = extractValues(handle, fields);
+                if (!values.isEmpty()) {
+                    printer.printRecord(values);
+                }
             }
-            if(!propertiesList.isEmpty()){
-                stringBuilder.append(DEFAULT_LINE_TERMINATOR);
-            }
+        } catch (IOException e) {
+            LOG.error("Error generating CSV export", e);
         }
 
-        final byte[] bytes = stringBuilder.toString().getBytes(Charsets.UTF_8);
+        byte[] bytes = writer.toString().getBytes(StandardCharsets.UTF_8);
         return ArrayUtils.addAll(BOM, bytes);
     }
 
-    private List<String> constructPropertiesList(final Node handle) {
-        List<String> props = new ArrayList<>();
+    private List<String> extractValues(Node handle, List<CsvField> fields) {
         String stateSummary = getNodeStateSummary(handle);
         Node variant = getVariant(handle, stateSummary);
         if (variant == null) {
             return Collections.emptyList();
         }
 
-        for (String property : documentProperties) {
+        List<String> values = new ArrayList<>();
+        for (CsvField field : fields) {
             try {
-                addProperty(variant, property, stateSummary, props);
-            } catch (RepositoryException e){
-                LOG.error("An exception occurred while exporting CSV for the property {} ", property, e);
-                props.add("---Exception occurred---" + e.getMessage());
+                values.add(field.extractor.extract(variant, stateSummary));
+            } catch (RepositoryException e) {
+                LOG.error("Error extracting field '{}' for CSV export", field.header, e);
+                values.add("");
             }
         }
-
-
-        return props;
+        return values;
     }
 
     private Node getVariant(Node handle, String stateSummary) {
@@ -178,180 +202,131 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                 : getDocumentVariantByHippoStdState(handle, UNPUBLISHED);
     }
 
-    private void addProperty(Node variant, String property, String stateSummary, List<String> props) throws RepositoryException {
-        String format = variant.getPrimaryNodeType().getName();
-        switch (property) {
-            case "title":
-                props.add(title(variant));
-                break;
-            case "url":
-                List<String> urls = getDocumentSiteURL(variant);
-                if (!urls.isEmpty()) {
-                    props.add(urls.get(0));
-                } else {
-                    props.add("");
-                }
-                break;
-            case "id":
-                props.add(variant.getIdentifier());
-                break;
-            case "format":
-                props.add(format);
-                break;
-            case HIPPOSTDPUBWF_LAST_MODIFIED_BY:
-                if ("changed".equals(stateSummary)) {
-                    variant = getDocumentVariantByHippoStdState(variant.getParent(), UNPUBLISHED);
-                }
-                if (variant != null && variant.hasProperty(HIPPOSTDPUBWF_LAST_MODIFIED_BY)) {
-                    props.add(variant.getProperty(HIPPOSTDPUBWF_LAST_MODIFIED_BY).getString());
-                } else {
-                    props.add("");
-                }
-                break;
-            case HIPPOSTDPUBWF_LAST_MODIFIED_DATE:
-                if ("".equals(stateSummary)) {
-                    variant = getDocumentVariantByHippoStdState(variant.getParent(), UNPUBLISHED);
-                }
-                if (variant != null && variant.hasProperty(HIPPOSTDPUBWF_LAST_MODIFIED_DATE)) {
-                    props.add(DateTimePrinter.of(variant.getProperty(HIPPOSTDPUBWF_LAST_MODIFIED_DATE).getDate()).print());
-                } else {
-                    props.add("");
-                }
-                break;
-            case "publishing:contentOwner":
-            case "publishing:factCheckers":
-                if (variant.hasNode(property)) {
-                    props.add(extractContactEmails(variant.getNodes(property)));
-                } else {
-                    props.add("");
-                }
-                break;
-            case "publishing:lifeEvents":
-                props.add(multiValueProperty(variant, property));
-                break;
-            case "publishing:organisationtags":
-                props.add(multiValueProperty(variant, property));
-                break;
-            case REVIEW_DATE_PROP :
-            case "publishing:lastUpdatedDate":
-                reviewDate(variant, property, props);
-                break;
+    private String firstUrl(Node variant) {
+        List<String> urls = getDocumentSiteURL(variant);
+        return urls.isEmpty() ? "" : urls.get(0);
+    }
 
-            case "mirrorTargetPublished":
-                props.add(getMirrorTargetPublishedState(format, variant));
-                break;
-
-            case "mirrorTarget":
-                props.add(getMirrorTarget(format, variant));
-                break;
-
-
-            default:
-                if (variant.hasProperty(property)) {
-                    props.add(variant.getProperty(property).getString());
-                } else {
-                    props.add("");
-                }
-                break;
+    private String contactEmails(Node variant, String property) throws RepositoryException {
+        if (!variant.hasNode(property)) {
+            return "";
         }
+        return extractContactEmails(variant.getNodes(property));
+    }
+
+    private String lastModifiedBy(Node variant, String stateSummary) throws RepositoryException {
+        if ("changed".equals(stateSummary)) {
+            variant = getDocumentVariantByHippoStdState(variant.getParent(), UNPUBLISHED);
+        }
+        return variant != null && variant.hasProperty(HIPPOSTDPUBWF_LAST_MODIFIED_BY)
+                ? variant.getProperty(HIPPOSTDPUBWF_LAST_MODIFIED_BY).getString()
+                : "";
+    }
+
+    private String lastModifiedDate(Node variant, String stateSummary) throws RepositoryException {
+        if ("".equals(stateSummary)) {
+            variant = getDocumentVariantByHippoStdState(variant.getParent(), UNPUBLISHED);
+        }
+        return variant != null && variant.hasProperty(HIPPOSTDPUBWF_LAST_MODIFIED_DATE)
+                ? DateTimePrinter.of(variant.getProperty(HIPPOSTDPUBWF_LAST_MODIFIED_DATE).getDate()).print()
+                : "";
+    }
+
+    private String stringProperty(Node variant, String property) throws RepositoryException {
+        return variant.hasProperty(property) ? variant.getProperty(property).getString() : "";
     }
 
     String getMirrorTarget(String format, Node variant) throws RepositoryException {
-
-        if (!"publishing:mirror".equals(format) ) {
+        if (!"publishing:mirror".equals(format) || !variant.hasNode(PUBLISHING_DOCUMENT)) {
             return "";
         }
-        String targetUuid = variant.getNode("publishing:document").getProperty("hippo:docbase").getString();
-        Session session = variant.getSession();
+        String targetUuid = variant.getNode(PUBLISHING_DOCUMENT).getProperty(HIPPO_DOCBASE).getString();
         try {
-            Node mirrorTarget = session.getNodeByIdentifier(targetUuid);
+            Node mirrorTarget = variant.getSession().getNodeByIdentifier(targetUuid);
             return mirrorTarget.getPath();
         } catch (ItemNotFoundException e) {
-            LOG.warn("Error generating csv export for mirror", e);
+            LOG.warn("Mirror target not found in CSV export", e);
             return "";
         }
     }
 
     String getMirrorTargetPublishedState(String format, Node variant) throws RepositoryException {
-        if (!"publishing:mirror".equals(format) ) {
+        if (!"publishing:mirror".equals(format) || !variant.hasNode(PUBLISHING_DOCUMENT)) {
             return "";
         }
-
-        String targetUuid = variant.getNode("publishing:document").getProperty("hippo:docbase").getString();
-        Session session = variant.getSession();
+        String targetUuid = variant.getNode(PUBLISHING_DOCUMENT).getProperty(HIPPO_DOCBASE).getString();
         try {
-            Node mirrorTarget = session.getNodeByIdentifier(targetUuid);
+            Node mirrorTarget = variant.getSession().getNodeByIdentifier(targetUuid);
             String stateSummary = getNodeStateSummary(mirrorTarget);
             Node mirrorTargetVariant = getVariant(mirrorTarget, stateSummary);
             if (mirrorTargetVariant == null) {
                 return "false";
             }
-            String mirrorState = mirrorTargetVariant.getProperty(HIPPOSTD_STATE).getString();
-            boolean isPublished = "published".equals(mirrorState);
-            return Boolean.toString(isPublished);
+            return Boolean.toString("published".equals(mirrorTargetVariant.getProperty(HIPPOSTD_STATE).getString()));
         } catch (ItemNotFoundException e) {
-            LOG.warn("Error generating csv export for mirror", e);
+            LOG.warn("Mirror target not found in CSV export", e);
             return "";
         }
     }
-    private String title(Node node) throws RepositoryException {
 
-        if (node.hasNode("publishing:title")) {
+    private String title(Node node) throws RepositoryException {
+        if (node.hasProperty("publishing:title")) {
             return node.getProperty("publishing:title").getString();
         }
-
         Node handle = node.getParent();
         if (handle.hasProperty("hippo:name")) {
             return handle.getProperty("hippo:name").getString();
         }
-
         return handle.getName();
     }
 
     /**
-     * the content team have asked that guiod pages get the same rview date as their parent guid in the csv export
+     * The content team have asked that guide pages get the same review date as their parent guide in the CSV export.
      */
-    private void reviewDate(Node variant, String property, List<String> props) throws RepositoryException {
-
+    private String reviewDateValue(Node variant, String property) throws RepositoryException {
         if (variant.isNodeType("publishing:guidepage")) {
-            guideReviewDate(variant, property, props);
-            return;
+            return guideReviewDateValue(variant, property);
         }
-        Calendar reviewDate = variant.hasProperty(property)
-                ? variant.getProperty(property).getDate()
-                : null;
-
-        if (reviewDate != null) {
-            props.add(DateTimePrinter.of(reviewDate).print());
-        } else {
-            props.add("");
+        if (!variant.hasProperty(property)) {
+            return "";
         }
+        return DateTimePrinter.of(variant.getProperty(property).getDate()).print();
     }
 
-    void guideReviewDate(Node variant, String property, List<String> props) throws RepositoryException {
+    private String guideReviewDateValue(Node variant, String property) throws RepositoryException {
         Node folder = variant.getParent().getParent();
-        Node indexHandle = folder.getNode("index");
+        if (!folder.hasNode(INDEX)) {
+            return "";
+        }
+        Node indexHandle = folder.getNode(INDEX);
         Node publishedVariant = getDocumentVariantByHippoStdState(indexHandle, PUBLISHED);
         Node unpublishedVariant = getDocumentVariantByHippoStdState(indexHandle, UNPUBLISHED);
-        Node guideVariant = publishedVariant != null
-                ? publishedVariant : unpublishedVariant;
-        reviewDate(guideVariant, property, props);
+        Node guideVariant = publishedVariant != null ? publishedVariant : unpublishedVariant;
+        if (guideVariant != null) {
+            return reviewDateValue(guideVariant, property);
+        } else {
+            return "";
+        }
     }
 
-    private String extractContactEmails(final NodeIterator nodeIterator){
-        ArrayList<String> contactEmails = new ArrayList<>();
-        while (nodeIterator.hasNext()){
+    private String extractContactEmails(final NodeIterator nodeIterator) {
+        List<String> contactEmails = new ArrayList<>();
+        while (nodeIterator.hasNext()) {
             Node currentNode = nodeIterator.nextNode();
             try {
                 if (currentNode.hasProperty(HIPPO_DOCBASE)) {
-                    Node contactHandle = UserSession.get().getJcrSession().getNodeByIdentifier(currentNode.getProperty(HIPPO_DOCBASE).getString());
-                    Node publishedVariant = getDocumentVariantByHippoStdState(contactHandle, PUBLISHED);
-                    if (publishedVariant != null && publishedVariant.hasProperty("publishing:email")) {
-                        contactEmails.add(publishedVariant.getProperty("publishing:email").getString());
+                    Session session = UserSession.get().getJcrSession();
+                    String uuid = currentNode.getProperty(HIPPO_DOCBASE).getString();
+                    Node contactHandle = HippoUtils.getNodeByIdentifierIfExists(session, uuid);
+                    if (contactHandle != null) {
+                        Node publishedVariant = getDocumentVariantByHippoStdState(contactHandle, PUBLISHED);
+                        if (publishedVariant != null && publishedVariant.hasProperty("publishing:email")) {
+                            contactEmails.add(publishedVariant.getProperty("publishing:email").getString());
+                        }
                     }
                 }
-            } catch (RepositoryException e){
-                LOG.error("An exception occurred while trying to extract contact emails for one of the selected documents.", e);
+            } catch (RepositoryException e) {
+                LOG.error("Error extracting contact email for CSV export", e);
             }
         }
         return String.join(", ", contactEmails);
@@ -359,32 +334,21 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
 
     private String multiValueProperty(Node variant, String property) throws RepositoryException {
         if (variant.isNodeType("publishing:guidepage")) {
-            Node guideHandle = variant.getParent().getParent().getNode("index");
-            variant = getVariant(guideHandle, getNodeStateSummary(guideHandle));
+            Node folder = variant.getParent().getParent();
+            if (!folder.hasNode(INDEX)) {
+                return "";
+            }
+            variant = getVariant(folder.getNode(INDEX), getNodeStateSummary(folder.getNode(INDEX)));
         }
-
-        if (!variant.hasProperty(property)) {
+        if (variant == null || !variant.hasProperty(property)) {
             return "";
         }
-
-        return extractMultiValueProperty(variant.getProperty(property));
-    }
-
-    private String extractMultiValueProperty(final Property property){
-        String valueString = null;
-
-        try {
-            Value[] values = property.getValues();
-            String[] results = new String[values.length];
-            for (int i = 0; i < values.length; i++) {
-                results[i] = values[i].getString();
-            }
-            valueString = String.join(", ", results);
-        } catch (RepositoryException e) {
-            LOG.error("An exception occurred while trying to extract multi valued property {}", e);
+        Value[] values = variant.getProperty(property).getValues();
+        String[] results = new String[values.length];
+        for (int i = 0; i < values.length; i++) {
+            results[i] = values[i].getString();
         }
-
-        return valueString;
+        return String.join(", ", results);
     }
 
     private String getNodeStateSummary(final Node handle) {
@@ -393,31 +357,26 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
             if (randomVariant.hasProperty(HIPPOSTD_STATESUMMARY)) {
                 return randomVariant.getProperty(HIPPOSTD_STATESUMMARY).getString();
             }
-        } catch (RepositoryException e){
-            LOG.error("An exception occurred while trying to retrieve variant state summary.", e);
+        } catch (RepositoryException e) {
+            LOG.error("Error retrieving variant state summary", e);
         }
         return null;
     }
 
     private Node getDocumentVariantByHippoStdState(final Node handle, final String hippoStdState) {
-        Node variantNode = null;
-        String state;
-
         try {
             for (NodeIterator nodeIt = handle.getNodes(handle.getName()); nodeIt.hasNext(); ) {
-                variantNode = nodeIt.nextNode();
-
+                Node variantNode = nodeIt.nextNode();
                 if (variantNode.hasProperty(HippoStdNodeType.HIPPOSTD_STATE)) {
-                    state = variantNode.getProperty(HippoStdNodeType.HIPPOSTD_STATE).getString();
+                    String state = variantNode.getProperty(HippoStdNodeType.HIPPOSTD_STATE).getString();
                     if (StringUtils.equals(hippoStdState, state)) {
                         return variantNode;
                     }
                 }
             }
-        } catch (RepositoryException e){
-            LOG.error("An exception occurred while trying to retrieve the {} variant of a node.", hippoStdState, e);
+        } catch (RepositoryException e) {
+            LOG.error("Error retrieving {} variant of a node", hippoStdState, e);
         }
-
         return null;
     }
 
@@ -432,7 +391,7 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                     try {
                         return !"preview".equals(mount.getType()) && node.getPath().contains(mount.getContentPath());
                     } catch (RepositoryException e) {
-                        LOG.error("An exception occurred during preview link creation.", e);
+                        LOG.error("Error during URL generation in CSV export", e);
                     }
                     return false;
                 })
@@ -440,25 +399,11 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
                 .collect(Collectors.toList());
     }
 
-    private void appendValue(final StringBuilder stringBuilder, final int position, final String value){
-        if (position == 0) {
-            stringBuilder.append(QUOTE);
-            stringBuilder.append(value);
-            stringBuilder.append(QUOTE);
-        } else {
-            stringBuilder.append(DEFAULT_SEPARATOR);
-            stringBuilder.append(QUOTE);
-            stringBuilder.append(value);
-            stringBuilder.append(QUOTE);
-        }
-    }
-
     protected void configureExportResponse(final AbstractResource.ResourceResponse response) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String filename = "export-"+LocalDate.now().format(dtf)+".csv";
+        String filename = "export-" + LocalDate.now().format(dtf) + ".csv";
         response.setFileName(filename);
         response.setContentDisposition(ContentDisposition.ATTACHMENT);
         response.disableCaching();
     }
-
 }
