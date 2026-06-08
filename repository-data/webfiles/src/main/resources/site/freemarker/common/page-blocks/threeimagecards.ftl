@@ -44,7 +44,7 @@
 
         <#list cards as card>
             <#if card != ''>
-                <div class="ds_card  ds_card--hover  <#if !backgroundcolor?has_content>ds_card--background-secondary</#if>">
+                <div class="ds_card  ds_card--navigation  <#if !backgroundcolor?has_content>ds_card--background-secondary</#if>">
                     <#if showimages>
                         <div class="ds_card__media">
                             <div class="ds_aspect-box">

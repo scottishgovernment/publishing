@@ -37,7 +37,7 @@
             </#if>
             <#if document2?has_content>
             <div class="ds_pb__card">
-                <div class="ds_card  <#if document2.link?? || document2.externalLink?has_content>ds_card--hover  </#if><#if !backgroundcolor?has_content>  ds_card--background-secondary</#if>">
+                <div class="ds_card  <#if document2.link?? || document2.externalLink?has_content>ds_card--navigation  </#if><#if !backgroundcolor?has_content>  ds_card--background-secondary</#if>">
                     <#if showimages>
                         <div class="ds_card__media">
                             <div class="ds_aspect-box">

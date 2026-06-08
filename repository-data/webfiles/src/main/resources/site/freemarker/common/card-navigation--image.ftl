@@ -6,7 +6,7 @@
 <ul class="ds_card-grid">
     <#list children as child>
         <@hst.link var="link" hippobean=child.bean/>
-        <li class="ds_card  ds_card--hover">
+        <li class="ds_card  ds_card--navigation">
             <div class="ds_card__media">
                 <div class="ds_aspect-box">
                 <#if child.bean.cardImage?has_content>
