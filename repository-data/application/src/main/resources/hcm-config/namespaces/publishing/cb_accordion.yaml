@@ -23,6 +23,7 @@ definitions:
             hipposysedit:path: publishing:items
             hipposysedit:primary: false
             hipposysedit:type: publishing:cb_accordionpanel
+            hipposysedit:validators: [required]
           /noindex:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
