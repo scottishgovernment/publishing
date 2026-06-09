@@ -4,8 +4,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.util.Text;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.core.request.HstRequestContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import scot.gov.publishing.sluglookup.PathForSlugSource;
 
 import javax.jcr.Node;
@@ -17,12 +15,9 @@ import javax.jcr.query.QueryResult;
 
 public class QueryPathSource implements PathForSlugSource {
 
-    private static final Logger LOG = LoggerFactory.getLogger(QueryPathSource.class);
-
     @Override
     public String get(String slug, String site, String type, String mount) throws RepositoryException {
 
-        LOG.warn("falling back to QueryPathSource, {} {} {} {}", slug, site, type, mount);
         HstRequestContext req = RequestContextProvider.get();
         Session session = req.getSession();
         String escapedSlug = Text.escapeIllegalJcr10Chars(slug);
