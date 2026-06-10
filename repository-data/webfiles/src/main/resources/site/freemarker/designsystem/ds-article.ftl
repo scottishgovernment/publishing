@@ -94,22 +94,24 @@
 
                             <@hst.link var="example" hippobean=contentBlock.example/>
                             <div class="mg_example  overflow--large--2 overflow--xlarge--2">
-                                <div class="mg_example__preview  mg_preview">
-                                    <@hst.link var="example" hippobean=contentBlock.codepreview.document/>
+                                <#if contentBlock.codepreview??>
+                                    <div class="mg_example__preview  mg_preview">
+                                        <@hst.link var="example" hippobean=contentBlock.codepreview.document/>
 
-                                    <#if contentBlock.example.illustration??>
-                                        <img class="mg_preview__illustration" alt="<#if contentBlock.example.alt?has_content>${contentBlock.example.alt}</#if>" src="<@hst.link hippobean=contentBlock.example.illustration.original/>">
-                                    <#elseif contentBlock.showdemo>
-                                        <div class="mg_preview__link">
-                                            <a href="${example}" target="_blank">Open this example in a new window</a>
-                                        </div>
+                                        <#if contentBlock.example.illustration??>
+                                            <img class="mg_preview__illustration" alt="<#if contentBlock.example.alt?has_content>${contentBlock.example.alt}</#if>" src="<@hst.link hippobean=contentBlock.example.illustration.original/>">
+                                        <#elseif contentBlock.showdemo>
+                                            <div class="mg_preview__link">
+                                                <a href="${example}" target="_blank">Open this example in a new window</a>
+                                            </div>
 
-                                        <div class="mg_preview__frame">
-                                            <iframe title="${contentBlock.codepreview.document.title}" <#if contentBlock.minheight??>style="min-height: ${contentBlock.minheight}px;"</#if> src="${example}" class="mg_preview__iframe">
-                                            </iframe>
-                                        </div>
-                                    </#if>
-                                </div>
+                                            <div class="mg_preview__frame">
+                                                <iframe title="${contentBlock.codepreview.document.title}" <#if contentBlock.minheight??>style="min-height: ${contentBlock.minheight}px;"</#if> src="${example}" class="mg_preview__iframe">
+                                                </iframe>
+                                            </div>
+                                        </#if>
+                                    </div>
+                                </#if>
 
                                 <#if contentBlock.showcode>
                                     <div class="mg_example__code  mg_code">
