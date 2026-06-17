@@ -31,8 +31,8 @@ CKEDITOR.plugins.add('ds_warning-text', {
             parts: {
                 content: 'div.ds_warning-text__text'
             },
-            
-            allowedContent: 'div(!ds_warning-text__icon)[!aria-hidden]; svg(!ds_icon, !ds_icon--fill)[!aria-hidden, !role]; use[!href]; strong(!visually-hidden); div(!ds_warning-text__text)',
+
+            allowedContent: 'div strong(!ds_warning-text__icon)[!aria-hidden]; svg(!ds_icon, !ds_icon--fill)[!aria-hidden, !role]; use[!href]; strong(!visually-hidden); div(!ds_warning-text__text)',
 
             upcast: function( element ) {
                 return element.name == 'div' && element.hasClass( 'ds_warning-text' );
