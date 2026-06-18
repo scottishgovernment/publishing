@@ -14,33 +14,42 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<!DOCTYPE configuration SYSTEM "http://jackrabbit.apache.org/dtd/indexing-configuration-1.0.dtd">
-<configuration xmlns:hippostd="http://www.onehippo.org/jcr/hippostd/nt/2.0" xmlns:hippostdpubwf="http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0">
-    <!-- hippo aggregates -->
-    <aggregates>
-        <nodetype>hippostd:html</nodetype>
-        <childtype>hippostd:date</childtype>
-    </aggregates>
+<!DOCTYPE configuration SYSTEM "http://jackrabbit.apache.org/dtd/indexing-configuration-1.2.dtd">
+<configuration
+    xmlns:hippostd="http://www.onehippo.org/jcr/hippostd/nt/2.0"
+    xmlns:hippostdpubwf="http://www.onehippo.org/jcr/hippostdpubwf/nt/1.0"
+    xmlns:sluglookup="http://www.gov.scot/sluglookup/nt/1.0">
 
-    <excludefromnodescope>
-        <nodetype>hippo:paths</nodetype>
-        <nodetype>hippo:docbase</nodetype>
-        <nodetype>hippostd:state</nodetype>
-        <nodetype>hippostd:stateSummary</nodetype>
-        <nodetype>hippostd:holder</nodetype>
-        <nodetype>hippostdpubwf:createdBy</nodetype>
-        <nodetype>hippostdpubwf:lastModifiedBy</nodetype>
-        <nodetype>hipposys:active</nodetype>
-        <nodetype>hipposys:password</nodetype>
-        <nodetype>hipposys:system</nodetype>
-    </excludefromnodescope>
+  <!-- Slug lookup -->
+  <index-rule nodeType="sluglookup:lookup">
+    <property nodeScopeIndex="false">sluglookup:path</property>
+  </index-rule>
 
-    <nosingleindexterm>
-        <property>hippostd:content</property>
-    </nosingleindexterm>
+  <!-- hippo aggregates -->
+  <aggregates>
+    <nodetype>hippostd:html</nodetype>
+    <childtype>hippostd:date</childtype>
+  </aggregates>
 
-    <facets>
-        <excludeproperty>hippostd:content</excludeproperty>
-    </facets>
+  <excludefromnodescope>
+    <nodetype>hippo:paths</nodetype>
+    <nodetype>hippo:docbase</nodetype>
+    <nodetype>hippostd:state</nodetype>
+    <nodetype>hippostd:stateSummary</nodetype>
+    <nodetype>hippostd:holder</nodetype>
+    <nodetype>hippostdpubwf:createdBy</nodetype>
+    <nodetype>hippostdpubwf:lastModifiedBy</nodetype>
+    <nodetype>hipposys:active</nodetype>
+    <nodetype>hipposys:password</nodetype>
+    <nodetype>hipposys:system</nodetype>
+  </excludefromnodescope>
+
+  <nosingleindexterm>
+    <property>hippostd:content</property>
+  </nosingleindexterm>
+
+  <facets>
+    <excludeproperty>hippostd:content</excludeproperty>
+  </facets>
 
 </configuration>
