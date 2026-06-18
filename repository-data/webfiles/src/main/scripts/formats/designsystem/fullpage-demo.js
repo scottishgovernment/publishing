@@ -30,7 +30,7 @@ const dsFullPage = {
             if (window.DS) {
                 const datePickers = [].slice.call(document.querySelectorAll('[data-module="ds-datepicker"]'));
                 datePickers.forEach(datePickerItem => {
-                const datepicker = new window.DS.components.DSDatePicker(datePickerItem, {
+                const datepicker = new window.DS.components.DatePicker(datePickerItem, {
                     imagePath: bloomreachWebfile('/assets/images/icons/')
                 });
                 datepicker.init();
