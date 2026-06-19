@@ -47,7 +47,7 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
             .addAttributes("input","aria-autocomplete", "aria-expanded", "aria-haspopup", "aria-owns", "autocomplete",
                     "checked", "data-behaviour", DATA_THRESHOLD, "form", "maxlength", "name", "placeholder", "required", "spellcheck",
                     "type", VALUE, "hidden")
-            .addAttributes(TEXTAREA,DATA_THRESHOLD, "data-validation", "maxlength", "placeholder", "required", VALUE)
+            .addAttributes(TEXTAREA,DATA_THRESHOLD, "data-validation", "maxlength", "placeholder", "required", VALUE, "autocomplete","form", "name", "rows")
             .addAttributes("label","for", "form")
             .addAttributes("ol","data-total", "start")
             .addAttributes("option", "disabled", "selected", VALUE)
@@ -56,7 +56,6 @@ public class DesignSystemExampleHtmlValidator implements Validator<String> {
             .addAttributes("table","data-smallscreen")
             .addAttributes("td","align")
             .addAttributes("th","align")
-            .addAttributes(TEXTAREA,"form", "name", "rows")
             .addAttributes("use","href")
             .addAttributes("svg","xmlns", "viewbox", "width", "height", "fill")
             .addAttributes("path","d")
