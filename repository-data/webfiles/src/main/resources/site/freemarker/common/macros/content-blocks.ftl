@@ -311,7 +311,9 @@
                                 </#compress></#assign>
                                 <a id="dd-${slugify(link.label)}-${idModifier}-link" href="${url}">${link.label}</a>
                                 <div id="dd-${slugify(link.label)}-${idModifier}-description">
-                                    <#if link.description??>${link.description}</#if>
+                                    <#if link.description?has_content>
+                                        ${link.description?no_esc}
+                                    </#if>
                                 </div>
                             </li>
                         </#list>
