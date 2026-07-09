@@ -2,8 +2,10 @@ package scot.gov.topics;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.jakarta.rs.json.JacksonJsonProvider;
-import org.apache.cxf.jaxrs.JAXRSInvoker;
-import org.onehippo.repository.jaxrs.*;
+import org.onehippo.repository.jaxrs.CXFRepositoryJaxrsEndpoint;
+import org.onehippo.repository.jaxrs.RepositoryJaxrsEndpoint;
+import org.onehippo.repository.jaxrs.RepositoryJaxrsService;
+import org.onehippo.repository.jaxrs.api.ManagedUserSessionInvoker;
 import org.onehippo.repository.modules.AbstractReconfigurableDaemonModule;
 
 import javax.jcr.Node;
@@ -31,10 +33,13 @@ public class Module extends AbstractReconfigurableDaemonModule {
     }
 
     RepositoryJaxrsEndpoint endpoint(Object resource, String path) {
-        JAXRSInvoker invoker = new JAXRSInvoker();
         JacksonJsonProvider jacksonJsonProvider = new JacksonJsonProvider(new ObjectMapper());
+        // ManagedUserSessionInvoker authenticates via the caller's existing CMS HTTP session
+        // (set as a request attribute by the CMS session filter) rather than HTTP Basic Auth.
+        // Unauthenticated requests are rejected with 403. This lets the browser-based UI
+        // extension call this endpoint without needing to supply credentials explicitly.
         return new CXFRepositoryJaxrsEndpoint(path)
-                .invoker(invoker)
+                .invoker(new ManagedUserSessionInvoker(session))
                 .singleton(resource)
                 .singleton(jacksonJsonProvider);
     }

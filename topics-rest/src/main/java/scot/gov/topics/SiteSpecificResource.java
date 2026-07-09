@@ -49,6 +49,12 @@ public class SiteSpecificResource {
 
     List<SiteSpecificResource.ListItem> getListItemsForUuid(String uuid) throws RepositoryException {
         Node node = session.getNodeByIdentifier(uuid);
+        // Reject UUIDs that don't resolve to a content document node. This prevents the system
+        // session being used to probe arbitrary nodes across the repository.
+        if (!node.getPath().startsWith("/content/documents/") || node.getDepth() < 4) {
+            LOG.warn("UUID {} does not refer to a content document node, ignoring", uuid);
+            return Collections.emptyList();
+        }
         Node site = (Node) node.getAncestor(3);
         Node adminFolder = site.getNode("administration");
         if (!adminFolder.hasNode(name)) {
