@@ -42,6 +42,7 @@ definitions:
         a Next Page then you must specify a default.
       optional-url: Enter a valid URL
       ds-example-html-validator: HTML contains non white listed content
+      preview-token-validator: Links must not contain a preview_token parameter
       variables-validator: Unrecognised variable(s), '${keys}'.
       variable-name-prefix: 'Variable names in this bundle must begin with ''${prefix}''.
         Invalid keys: ${invalid-keys}'

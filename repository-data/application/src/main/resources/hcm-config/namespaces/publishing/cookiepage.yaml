@@ -23,6 +23,7 @@ definitions:
             hipposysedit:path: publishing:additionalContent
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [preview-token-validator]
           /contentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true

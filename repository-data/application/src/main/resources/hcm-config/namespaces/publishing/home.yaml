@@ -41,6 +41,7 @@ definitions:
             hipposysedit:path: publishing:prologue
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [preview-token-validator]
           /epilogue:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -49,6 +50,7 @@ definitions:
             hipposysedit:path: publishing:epilogue
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [preview-token-validator]
           /prologueContentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true

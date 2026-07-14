@@ -57,6 +57,7 @@ definitions:
             hipposysedit:path: publishing:deprecatednote
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [preview-token-validator]
           /UpdateHistory:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false

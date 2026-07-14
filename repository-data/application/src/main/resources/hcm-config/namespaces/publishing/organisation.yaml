@@ -25,6 +25,7 @@ definitions:
             hipposysedit:path: publishing:content
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [preview-token-validator]
           /serviceprovider:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -74,6 +75,7 @@ definitions:
             hipposysedit:path: publishing:notices
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [preview-token-validator]
           /noticesContentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -113,6 +115,7 @@ definitions:
             hipposysedit:path: publishing:organisationstructure
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [preview-token-validator]
           /organisationstructureContentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true

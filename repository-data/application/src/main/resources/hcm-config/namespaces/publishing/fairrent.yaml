@@ -25,6 +25,7 @@ definitions:
             hipposysedit:path: publishing:content
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [preview-token-validator]
           /contentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
@@ -49,6 +50,7 @@ definitions:
             hipposysedit:path: publishing:additionalContent
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [preview-token-validator]
           /additionalContentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true

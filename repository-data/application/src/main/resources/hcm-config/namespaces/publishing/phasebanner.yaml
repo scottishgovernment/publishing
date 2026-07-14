@@ -25,7 +25,7 @@ definitions:
             hipposysedit:path: publishing:content
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
-            hipposysedit:validators: [required]
+            hipposysedit:validators: [required, preview-token-validator]
           /tag:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false

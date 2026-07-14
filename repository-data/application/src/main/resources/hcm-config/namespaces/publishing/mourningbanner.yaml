@@ -25,6 +25,7 @@ definitions:
             hipposysedit:path: publishing:authorNotes
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [preview-token-validator]
           /html:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -33,6 +34,7 @@ definitions:
             hipposysedit:path: publishing:content
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [preview-token-validator]
       /hipposysedit:prototypes:
         jcr:primaryType: hipposysedit:prototypeset
         /hipposysedit:prototype:

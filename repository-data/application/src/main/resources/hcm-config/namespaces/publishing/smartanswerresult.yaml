@@ -25,6 +25,7 @@ definitions:
             hipposysedit:path: publishing:answer
             hipposysedit:primary: false
             hipposysedit:type: hippostd:html
+            hipposysedit:validators: [preview-token-validator]
           /answerContentBlocks:
             jcr:primaryType: hipposysedit:field
             hipposysedit:multiple: true
