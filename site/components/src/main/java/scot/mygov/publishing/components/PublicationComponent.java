@@ -49,6 +49,9 @@ public class PublicationComponent extends NewsComponent {
     }
 
     public static Optional<HippoFolderBean> publicationFolder(HstRequest request, HippoBean bean) {
+        if (bean == null) {
+            return Optional.empty();
+        }
         try {
             // this assumes that publications are in the publicaitons folde with year and month folders
             Item ancestorNode = bean.getNode().getAncestor(7);

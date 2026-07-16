@@ -1,5 +1,6 @@
 package scot.mygov.publishing.components;
 
+import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.parameters.ParametersInfo;
@@ -16,6 +17,13 @@ public class FilteredResultsSideComponent extends EssentialsContentComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
+
+        HippoBean contentBean = request.getRequestContext().getContentBean();
+        if (contentBean != null && !contentBean.getSingleProperty("publishing:displayFilters", true)) {
+            // the page this component renders on has filters switched off, so nothing we
+            // build here will be included in the response - skip the work to avoid waste.
+            return;
+        }
 
         FilteredResultsSideComponentInfo info = getComponentParametersInfo(request);
         SearchBuilder searchBuilder = new SearchBuilder()
