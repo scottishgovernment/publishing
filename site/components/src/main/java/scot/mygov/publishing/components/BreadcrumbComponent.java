@@ -66,23 +66,32 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
 
         HstRequestContext context = request.getRequestContext();
         HippoBean baseBean = context.getSiteContentBaseBean();
-        HippoBean startBean = startBean(contentBean);
-        if (startBean == null || baseBean == null) {
+        if (baseBean == null) {
+            return emptyList();
+        }
+        HippoBean startBean = startBean(contentBean, baseBean);
+        if (startBean == null) {
             return emptyList();
         }
         return breadcrumbs(startBean, baseBean, context);
     }
 
-    static HippoBean startBean(HippoBean contentBean) {
+    static HippoBean startBean(HippoBean contentBean, HippoBean baseBean) {
         if (contentBean.isHippoFolderBean() && contentBean.getBean(INDEX) != null) {
             contentBean = contentBean.getBean(INDEX);
         }
 
+        if (isBaseBean(contentBean, baseBean)) {
+            return contentBean;
+        }
 
         // determine the bean to start with - different for category index files than for articles etc.
-        return INDEX.equals(contentBean.getName())
-                ? contentBean.getParentBean().getParentBean()
-                : contentBean.getParentBean();
+        if (!INDEX.equals(contentBean.getName())) {
+            return contentBean.getParentBean();
+        }
+        HippoBean parent = contentBean.getParentBean();
+        // the home page's "index" sits directly in the site base folder, so do not ascend past it
+        return isBaseBean(parent, baseBean) ? parent : parent.getParentBean();
     }
 
     static List<BreadcrumbItem> breadcrumbs(HippoBean bean, HippoBean baseBean, HstRequestContext context) {
