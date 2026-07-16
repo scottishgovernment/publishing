@@ -19,6 +19,7 @@ import javax.jcr.RepositoryException;
 import java.util.*;
 
 import static org.apache.commons.lang3.StringUtils.equalsAny;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 import static scot.mygov.publishing.components.CategoryComponent.INDEX;
 import static scot.mygov.publishing.components.PublicationComponent.publicationFolder;
 import static scot.mygov.publishing.components.SiteHeaderComponent.setCanonical;
@@ -102,9 +103,13 @@ public class SEOComponent extends EssentialsDocumentComponent {
     }
 
     static ColumnImage getDefaultImageCardForSite(HstRequestContext requestContext, WebsiteInfo websiteInfo) {
+        String defaultCardImage = websiteInfo.getDefaultCardImage();
+        if (isBlank(defaultCardImage)) {
+            return null;
+        }
         try {
             Object e = requestContext.getObjectConverter().getObject(
-                    requestContext.getSession(), websiteInfo.getDefaultCardImage());
+                    requestContext.getSession(), defaultCardImage);
             if (e != null && ColumnImage.class.isAssignableFrom(e.getClass())) {
                 return (ColumnImage) e;
             }
