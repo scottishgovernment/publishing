@@ -11,6 +11,7 @@ import org.hippoecm.hst.content.beans.standard.HippoBean;
 @HippoEssentialsGenerated(internalName = "publishing:base")
 @Node(jcrType = "publishing:base")
 public class Base extends BaseDocument {
+
     public String getUuid() {
         return getSingleProperty("jcr:uuid");
     }
@@ -82,7 +83,7 @@ public class Base extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "publishing:lifeEvents")
     public String[] getLifeEvents() {
-        return getMultipleProperty("publishing:lifeEvents");
+        return getMultipleProperty("publishing:lifeEvents", new String[0]);
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:userneed")

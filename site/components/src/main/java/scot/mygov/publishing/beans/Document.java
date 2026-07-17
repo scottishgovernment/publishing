@@ -16,12 +16,12 @@ public class Document extends BaseDocument {
 
     @HippoEssentialsGenerated(internalName = "publishing:size")
     public long getSize() {
-        return getSingleProperty("publishing:size");
+        return getSingleProperty("publishing:size", 0L);
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:pageCount")
     public long getPageCount() {
-        return getSingleProperty("publishing:pageCount");
+        return getSingleProperty("publishing:pageCount", 0L);
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:document")
