@@ -13,6 +13,8 @@ import scot.mygov.publishing.channels.WebsiteInfo;
 
 import java.util.List;
 
+import static org.apache.commons.lang3.StringUtils.removeEnd;
+
 /**
  * Set fields required to suppress the header search on some formats.
  *
@@ -24,7 +26,6 @@ public class SiteHeaderComponent extends BaseHstComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-
         setWebsiteInfo(request);
         setPhaseBanner(request);
         setCanonical(request);
@@ -52,20 +53,38 @@ public class SiteHeaderComponent extends BaseHstComponent {
 
     static void setCanonical(HstRequest request) {
         HstRequestContext context = request.getRequestContext();
-        HstLinkCreator linkCreator = context.getHstLinkCreator();
         HippoBean contentBean = context.getContentBean();
 
-        if (contentBean == null) {
-            contentBean = context.getSiteContentBaseBean();
+        String canonical = contentBean == null ? null : canonicalForBean(contentBean, context);
+        if (canonical == null) {
+            // no content document is available for this page (e.g. an xp page with no
+            // primary document set) - fall back to the site's canonical url with the
+            // current request path appended, so a canonical link is always present.
+            canonical = removeEnd(siteCanonicalUrl(context), "/") + request.getPathInfo();
         }
+        request.setAttribute("canonical", canonical);
+    }
+
+    private static String canonicalForBean(HippoBean contentBean, HstRequestContext context) {
+        HstLinkCreator linkCreator = context.getHstLinkCreator();
         List<HstLink>  links = linkCreator.createAllAvailableCanonicals(
                 contentBean.getNode(), context, "live", "production");
-        if (!links.isEmpty()) {
-            HstLink link = links.get(0);
-            String canonical = link.toUrlForm(context, true);
-            request.setAttribute("canonical", canonical);
+        if (links.isEmpty()) {
+            return null;
         }
+        return links.get(0).toUrlForm(context, true);
+    }
 
+    private static String siteCanonicalUrl(HstRequestContext context) {
+        HippoBean siteBean = context.getSiteContentBaseBean();
+        HstLinkCreator linkCreator = context.getHstLinkCreator();
+        List<HstLink>  links = linkCreator.createAllAvailableCanonicals(
+                siteBean.getNode(), context, "live", "production");
+        if (!links.isEmpty()) {
+            return links.get(0).toUrlForm(context, true);
+        }
+        HstLink link = linkCreator.create(siteBean, context);
+        return link.toUrlForm(context, true);
     }
 
 }

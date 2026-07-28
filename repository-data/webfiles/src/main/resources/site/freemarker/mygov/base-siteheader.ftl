@@ -3,6 +3,18 @@
 <@hst.webfile var="iconspath" path="/assets/images/icons/icons.stack.svg"/>
 
 <@hst.link var="home" siteMapItemRefId="root" />
+
+<#-- rendered here (rather than in the seo component) so that every page always has a
+     canonical link, even when no seo component has been added to it -->
+<#if canonical?has_content>
+    <@hst.headContribution category="canonical">
+        <link rel="canonical" href="${canonical}" />
+    </@hst.headContribution>
+    <@hst.headContribution category="openGraph">
+        <meta property="og:url" content="${canonical}" />
+    </@hst.headContribution>
+</#if>
+
 <header class="ds_site-header" role="banner">
     <div class="ds_wrapper">
         <div class="ds_site-header__content">

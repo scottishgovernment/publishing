@@ -62,14 +62,6 @@
     </#if>
 
     <@hst.link var="sitelink" hippobean=baseBean canonical=true fullyQualified=true/>
-    <#if canonical?has_content>
-        <@hst.headContribution category="canonical">
-            <link rel="canonical"  href="${canonical}" />
-        </@hst.headContribution>
-        <@hst.headContribution category="openGraph">
-            <meta property="og:url" content="${canonical}" />
-        </@hst.headContribution>
-    </#if>
     <@hst.headContribution category="openGraph">
         <meta property="og:type" content="website" />
     </@hst.headContribution>
