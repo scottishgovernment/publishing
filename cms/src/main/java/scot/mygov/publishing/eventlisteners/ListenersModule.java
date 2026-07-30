@@ -28,6 +28,8 @@ public class ListenersModule implements DaemonModule {
 
     ServiceFinderOrderListener serviceFinderOrderListener;
 
+    HasFoldersImprovementListener hasFoldersImprovementListener;
+
     @Override
     public void initialize(Session session) throws RepositoryException {
         slugMaintainenceListener = new SlugMaintenanceListener(session);
@@ -38,6 +40,7 @@ public class ListenersModule implements DaemonModule {
         contentBlocksOldVersionListener = new ContentBlocksOldVersionListener(session);
         publicationTypeEventListener = new PublicationTypeEventListener(session);
         serviceFinderOrderListener = new ServiceFinderOrderListener(session);
+        hasFoldersImprovementListener = new HasFoldersImprovementListener(session);
 
         HippoEventListenerRegistry.get().register(slugMaintainenceListener);
         HippoEventListenerRegistry.get().register(folderTypesEventListener);
@@ -47,6 +50,7 @@ public class ListenersModule implements DaemonModule {
         HippoEventListenerRegistry.get().register(contentBlocksOldVersionListener);
         HippoEventListenerRegistry.get().register(publicationTypeEventListener);
         HippoEventListenerRegistry.get().register(serviceFinderOrderListener);
+        HippoEventListenerRegistry.get().register(hasFoldersImprovementListener);
     }
 
     @Override
@@ -58,5 +62,6 @@ public class ListenersModule implements DaemonModule {
         HippoEventListenerRegistry.get().unregister(guidePageLifeEventsListener);
         HippoEventListenerRegistry.get().unregister(contentBlocksOldVersionListener);
         HippoEventListenerRegistry.get().unregister(publicationTypeEventListener);
+        HippoEventListenerRegistry.get().unregister(hasFoldersImprovementListener);
     }
 }
