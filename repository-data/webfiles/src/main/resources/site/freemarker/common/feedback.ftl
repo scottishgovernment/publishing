@@ -6,9 +6,8 @@
 
     <!--noindex-->
     <#if isSEODocument>
-        <div class="category-lower  ds_pre-footer-background">
-            <div class="ds_wrapper">
-                <div class="ds_layout  ds_layout--category-list">
+    <div class="ds_wrapper">
+        <div class="ds_layout  ds_layout--category-list">
      </#if>
 
     <div lang="en" class="ds_layout__feedback">
@@ -46,9 +45,8 @@
         </div>
     </div>
     <#if isSEODocument>
-                </div>
-            </div>
         </div>
+    </div>
     </#if>
 
     <!--endnoindex-->
