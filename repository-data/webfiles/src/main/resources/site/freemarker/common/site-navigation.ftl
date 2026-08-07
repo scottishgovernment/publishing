@@ -11,7 +11,7 @@
                                 <#if item.externalLink??>
                                     <a href="${item.externalLink}" class="ds_site-navigation__link  <#if item.selected || item.expanded>ds_current" aria-current="true</#if>"><span class="label-nav">${item.name}</span> </a>
                                 <#elseif item.hstLink??>
-                                    <a href="<@hst.link link=item.hstLink/>" class="ds_site-navigation__link  <#if item.selected || item.expanded || hstRequest.requestContext.baseURL.requestPath?ends_with("/"+item.hstLink.path)>ds_current" aria-current="true</#if>"><span class="label-nav">${item.name}</span> </a>
+                                    <a href="<@hst.link link=item.hstLink/>" class="ds_site-navigation__link  <#if item.selected || item.expanded || hstRequest.requestContext.baseURL.requestPath == "/"+item.hstLink.path>ds_current" aria-current="true</#if>"><span class="label-nav">${item.name}</span> </a>
                                 <#else>
                                     <span class="ds_site-navigation__link  <#if item.selected || item.expanded>ds_current" aria-current="true</#if>"><span class="label-nav">${item.name}</span> </span>
                                 </#if>
