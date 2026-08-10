@@ -81,6 +81,12 @@ definitions:
             hst:iconpath: icons/updates.svg
             hst:label: Updates
             hst:template: ds-updates
+          /pagenavigation:
+            jcr:primaryType: hst:containeritemcomponent
+            hst:componentclassname: scot.mygov.publishing.components.PageNavigationComponent
+            hst:iconpath: icons/seo.svg
+            hst:label: Page navigation
+            hst:template: pagenavigation
       /hst:components:
         jcr:primaryType: hst:components
       /hst:pages:

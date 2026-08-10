@@ -306,6 +306,12 @@ definitions:
               hst:iconpath: icons/eventbrite.svg
               hst:label: Eventbrite
               hst:template: eventbrite
+            /pagenavigation:
+              jcr:primaryType: hst:containeritemcomponent
+              hst:componentclassname: scot.mygov.publishing.components.PageNavigationComponent
+              hst:iconpath: icons/seo.svg
+              hst:label: Page navigation
+              hst:template: pagenavigation
       /publishing:
         jcr:primaryType: hst:configuration
         hst:inheritsfrom: [../common]

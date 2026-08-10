@@ -29,16 +29,11 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
     @Override
     public void doBeforeRender(HstRequest request, HstResponse response) {
         super.doBeforeRender(request, response);
-        if (!hasContentBean(request)) {
+        HippoBean contentBean = currentPageBean(request);
+        if (contentBean == null) {
             return;
         }
-        HippoBean contentBean = CategoryComponent.getDocumentBean(request);
         HstRequestContext context = request.getRequestContext();
-
-        // special case for guide pages: we do not want the page to be a part of the breadcrumb
-        if (contentBean instanceof GuidePage) {
-            contentBean = contentBean.getParentBean().getBean(INDEX);
-        }
 
         List<BreadcrumbItem> breadcrumbs = constructBreadcrumb(request, contentBean);
 
@@ -49,6 +44,21 @@ public class BreadcrumbComponent extends EssentialsContentComponent {
         // make sure the
         request.setAttribute("breadcrumbs", breadcrumbs);
         request.setAttribute("documentBreadcrumbItem", breadcrumbItem(contentBean, context));
+    }
+
+    // the bean representing the page currently being rendered, adjusted for special cases
+    // (e.g. guide pages) in the same way as it is when constructing the breadcrumb
+    static HippoBean currentPageBean(HstRequest request) {
+        if (!hasContentBean(request)) {
+            return null;
+        }
+        HippoBean contentBean = CategoryComponent.getDocumentBean(request);
+
+        // special case for guide pages: we do not want the page to be a part of the breadcrumb
+        if (contentBean instanceof GuidePage) {
+            contentBean = contentBean.getParentBean().getBean(INDEX);
+        }
+        return contentBean;
     }
 
     static List<BreadcrumbItem> constructBreadcrumb(HstRequest request, HippoBean contentBean) {
