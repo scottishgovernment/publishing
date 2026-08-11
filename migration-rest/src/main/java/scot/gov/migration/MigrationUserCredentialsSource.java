@@ -1,5 +1,7 @@
 package scot.gov.migration;
 
+import org.hippoecm.repository.api.HippoSession;
+
 import javax.jcr.Credentials;
 import javax.jcr.SimpleCredentials;
 import java.nio.charset.StandardCharsets;
@@ -18,6 +20,7 @@ public class MigrationUserCredentialsSource {
         byte[] credDecoded = Base64.getDecoder().decode(base64Credentials);
         String credentials = new String(credDecoded, StandardCharsets.UTF_8);
         String[] values = credentials.split(":", 2);
-        return new SimpleCredentials(values[0], values[1].toCharArray());
-    }
+        SimpleCredentials simpleCredentials = new SimpleCredentials(values[0], values[1].toCharArray());
+        simpleCredentials.setAttribute(HippoSession.NO_SYSTEM_IMPERSONATION, Boolean.TRUE);
+        return simpleCredentials;    }
 }
