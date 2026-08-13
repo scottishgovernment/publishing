@@ -2155,6 +2155,8 @@ definitions:
       cropping: true
       compression: 0.6
       optimize: quality
+    /hippo:configuration/hippo:frontend/cms/cms-admin/users:
+      plugin.class: scot.gov.publishing.hippo.sso.useradmin.SsoListUsersPlugin
     /hippo:configuration/hippo:frontend/cms/cms-admin/groups:
       hipposys:userrole: xm.security.application-admin
     /hippo:configuration/hippo:frontend/cms/cms-admin/permissions:
