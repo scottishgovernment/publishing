@@ -1,0 +1,32 @@
+/*------------------------------------*\
+    CALLOUT
+    Deprecated. Consider 'Inset text' or 'Notification message' instead.
+\*------------------------------------*/
+
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/helpers/' as ds_helpers;
+@use '../../../../../node_modules/@scottish-government/design-system/src/base/settings/' as ds_settings;
+
+.mg_callout {
+    @include ds_helpers.ds_block-margins;
+    @include ds_helpers.ds_responsive-padding(2, top);
+    @include ds_helpers.ds_responsive-padding(2, bottom);
+    @include ds_helpers.ds_responsive-padding(3, left);
+    @include ds_helpers.ds_responsive-padding(3, right);
+    @include ds_helpers.ds_last-child-no-margin;
+
+    background: ds_settings.$ds_colour__background--secondary;
+    border-left: 4px solid ds_settings.$ds_colour__brand;
+
+    &--no-border {
+        border: none;
+    }
+
+    &__label.ds_content-label {
+        color: ds_settings.$ds_colour__brand;
+        font-size: ds_settings.$small-size--fixed;
+    }
+
+    &__label +  &__title {
+        margin-top: 0;
+    }
+}
