@@ -5,6 +5,8 @@ import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 
+import java.util.Calendar;
+
 @HippoEssentialsGenerated(internalName = "publishing:PublicationPage")
 @Node(jcrType = "publishing:PublicationPage")
 public class PublicationPage extends BaseDocument {
@@ -31,6 +33,11 @@ public class PublicationPage extends BaseDocument {
     public HippoBean getPartOfBean() {
         HippoFolderBean pagesFolder = getPagesFolder(this);
         return pagesFolder == null ? null : pagesFolder.getParentBean().getBean("index");
+    }
+
+    public Calendar getLastUpdatedDate() {
+        HippoBean partOf = getPartOfBean();
+        return partOf instanceof Publication ? ((Publication) partOf).getPublicationDate() : null;
     }
 
     static HippoFolderBean getPagesFolder(HippoBean current) {

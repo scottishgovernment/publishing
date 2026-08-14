@@ -56,11 +56,6 @@ public class SEOComponent extends EssentialsDocumentComponent {
         request.setAttribute("isSearchEnabled", websiteInfo.isSearchEnabled());
         request.setAttribute("contentBean", contentBean);
         request.setAttribute("baseBean", request.getRequestContext().getSiteContentBaseBean());
-
-        Calendar publicationDate = contentBean != null ? contentBean.getSingleProperty("publishing:publicationDate") : null;
-        if (publicationDate != null) {
-            request.setAttribute("date", publicationDate);
-        }
         request.setAttribute("subjects", getSubjects(request, contentBean));
         setCanonical(request);
     }

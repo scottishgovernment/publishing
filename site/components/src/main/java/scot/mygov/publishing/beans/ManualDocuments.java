@@ -5,6 +5,8 @@ import org.hippoecm.hst.content.beans.standard.HippoFolderBean;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 
+import java.util.Calendar;
+
 import static scot.mygov.publishing.beans.PublicationPage.getPagesFolder;
 
 @HippoEssentialsGenerated(internalName = "publishing:ManualDocuments")
@@ -37,6 +39,11 @@ public class ManualDocuments extends BaseDocument {
     public HippoBean getPartOfBean() {
         HippoFolderBean pagesFolder = getPagesFolder(this);
         return pagesFolder == null ? null : pagesFolder.getParentBean().getBean("index");
+    }
+
+    public Calendar getLastUpdatedDate() {
+        HippoBean partOf = getPartOfBean();
+        return partOf instanceof Publication ? ((Publication) partOf).getPublicationDate() : null;
     }
 
 }

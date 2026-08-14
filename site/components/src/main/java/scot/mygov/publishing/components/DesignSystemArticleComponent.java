@@ -23,7 +23,6 @@ public class DesignSystemArticleComponent extends ArticleComponent {
         HippoBean contentBean = request.getRequestContext().getContentBean();
         request.setAttribute("isNew", isNew(contentBean));
         request.setAttribute("type", type(request, contentBean));
-        request.setAttribute("date", date(contentBean));
         request.setAttribute("format", "Article");
         HippoBean topLevelAncestor = topLevelAncestor(contentBean, request.getRequestContext().getSiteContentBaseBean());
         String topLevelTitle = title(topLevelAncestor);
@@ -38,17 +37,6 @@ public class DesignSystemArticleComponent extends ArticleComponent {
                 request.setAttribute("seriesLink", seriesLink);
             }
         }
-    }
-
-    Date date(HippoBean bean) {
-        Dsarticle dsarticle = (Dsarticle) bean;
-        List<UpdateHistory> updateHistory = dsarticle.getUpdateHistory();
-        if (updateHistory.isEmpty()) {
-            Calendar publishedDate = dsarticle.getSingleProperty("hippostdpubwf:publicationDate");
-            return publishedDate.getTime();
-        }
-        Collections.sort(updateHistory, Comparator.comparing(UpdateHistory::getLastUpdated));
-        return updateHistory.get(0).getLastUpdated().getTime();
     }
 
     String title(HippoBean bean) {

@@ -145,11 +145,6 @@
     </@hst.messagesReplace>
 </@hst.headContribution>
 </#if>
-<#if guide.lastUpdatedDate??>
-    <@hst.headContribution category="meta">
-    <meta name="dc.date.modified" content="<@fmt.formatDate value=guide.lastUpdatedDate.time type="both" pattern="yyyy-MM-dd HH:mm"/>"/>
-    </@hst.headContribution>
-</#if>
 </#if>
 
 <@hst.headContribution category="resourcehints">

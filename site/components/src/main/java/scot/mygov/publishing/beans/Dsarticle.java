@@ -3,6 +3,8 @@ package scot.mygov.publishing.beans;
 import org.onehippo.cms7.essentials.dashboard.annotations.HippoEssentialsGenerated;
 import org.hippoecm.hst.content.beans.Node;
 import org.hippoecm.hst.content.beans.standard.HippoHtml;
+import java.util.Calendar;
+import java.util.Comparator;
 import java.util.List;
 
 @HippoEssentialsGenerated(internalName = "publishing:dsarticle")
@@ -37,5 +39,13 @@ public class Dsarticle extends Base {
     public List<UpdateHistory> getUpdateHistory() {
         return getChildBeansByName("publishing:UpdateHistory",
                 UpdateHistory.class);
+    }
+
+    @Override
+    public Calendar getLastUpdatedDate() {
+        return getUpdateHistory().stream()
+                .map(UpdateHistory::getLastUpdated)
+                .max(Comparator.naturalOrder())
+                .orElseGet(() -> getSingleProperty("hippostdpubwf:publicationDate"));
     }
 }

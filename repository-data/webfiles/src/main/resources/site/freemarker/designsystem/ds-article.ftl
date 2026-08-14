@@ -323,9 +323,6 @@
     </@hst.headContribution>
 </#if>
 
-<@hst.headContribution category="meta">
-    <meta name="dc.date.modified" content="<@fmt.formatDate value=date type="both" pattern="yyyy-MM-dd HH:mm"/>"/>
-</@hst.headContribution>
 </#if>
 
 

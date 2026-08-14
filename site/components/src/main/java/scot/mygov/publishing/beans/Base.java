@@ -97,8 +97,10 @@ public class Base extends BaseDocument {
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:lastUpdatedDate")
+    @Override
     public Calendar getLastUpdatedDate() {
-        return getSingleProperty("publishing:lastUpdatedDate");
+        Calendar lastUpdatedDate = getSingleProperty("publishing:lastUpdatedDate");
+        return lastUpdatedDate != null ? lastUpdatedDate : super.getLastUpdatedDate();
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:relateditems")

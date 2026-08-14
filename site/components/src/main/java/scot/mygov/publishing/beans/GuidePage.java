@@ -46,9 +46,10 @@ public class GuidePage extends Base {
         return getSingleProperty("publishing:reviewDate");
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:lastUpdatedDate")
+    @Override
     public Calendar getLastUpdatedDate() {
-        return getSingleProperty("publishing:lastUpdatedDate");
+        HippoBean partOf = getPartOfBean();
+        return partOf instanceof Guide ? ((Guide) partOf).getLastUpdatedDate() : null;
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:content")
