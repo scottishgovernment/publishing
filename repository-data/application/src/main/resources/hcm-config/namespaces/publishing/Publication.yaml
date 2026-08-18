@@ -201,7 +201,6 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              showDefault: 'false'
               source: /content/documents/publishing/valuelists/languages
               valuelistProvider: ''
           /showFeedback:

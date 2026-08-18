@@ -233,8 +233,7 @@ definitions:
             hint: ''
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              source: /content/documents/publishing/valuelists/contentitemlanguages
-              showDefault: 'false'
+              source: /content/documents/publishing/valuelists/languages
           /tags:
             jcr:primaryType: frontend:plugin
             engine: ${engine}

@@ -51,6 +51,5 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              ckeditor.config.overlayed.json: '{language_list: [''en:English'',''gd:Gaelic
-                (Scottish)'',''ru:Russian'',''uk:Ukrainian''], disallowedContent:
+              ckeditor.config.overlayed.json: '{language_list: [''af:Afrikaans'',''ar:Arabic'',''bg:Bulgarian'',''en:English'',''fa:Farsi'',''gd:Gaelic (Scottish)'',''ckb:Kurdish Sorani'',''lt:Lithuanian'',''pl:Polish'',''ro:Romanian'',''ru:Russian'',''sk:Slovak'',''zh-Hant:Traditional Chinese'',''uk:Ukrainian'',''ur:Urdu''], disallowedContent:
                 ''*[style]{*}'',extraPlugins: ''language,dialogadvtab2,youtube_enablejsapi,ds_fragment,ds_warning-text,ds_inset-text,ds_accordion,ds_button,ds_styles,codesnippet,codeSnippetLanguages'',extraAllowedContent:''embed;table[data-smallscreen];div[data-module,data-uuid,href,contenteditable];address[translate];span[lang];iframe{*}[!width,!height,!src,!frameborder,!allowfullscreen]'',format_tags:''h1;h2;h3;h4;p;pre;address'',youtube_responsive:true,youtube_privacy:true,youtube_disabled_fields:[''chkResponsive'',''chkPrivacy'',''txtEmbed'',''chkOlderCode'']}'

@@ -200,8 +200,7 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-              showDefault: 'false'
-              source: /content/documents/publishing/valuelists/contentitemlanguages
+              source: /content/documents/publishing/valuelists/languages
           /seoTitle:
             jcr:primaryType: frontend:plugin
             caption: SEO title
