@@ -3,7 +3,7 @@ definitions:
     /hippo:configuration/hippo:queries/hippo:templates/new-manual-folder:
       jcr:primaryType: hippostd:templatequery
       hippostd:modify: [./_name, $name, './hippotranslation:id', $uuid, './hippotranslation:locale',
-        $inherited]
+        $inherited, './index/hippo:name', $localName]
       jcr:language: xpath
       jcr:statement: /jcr:root/hippo:configuration/hippo:queries/hippo:templates/new-manual-folder/hippostd:templates/node()
       /hippostd:templates:
@@ -16,8 +16,9 @@ definitions:
             hippostd:foldertype: [new-publicationpage, new-publicationpage-folder]
           /index:
             jcr:primaryType: hippo:handle
-            jcr:mixinTypes: ['mix:referenceable']
+            jcr:mixinTypes: ['hippo:named', 'mix:referenceable']
             jcr:uuid: 83004f62-a57e-4b23-99f3-bbfa1ecb02e0
+            hippo:name: index
             /index[1]:
               jcr:primaryType: publishing:Manual
               jcr:mixinTypes: ['hippotaxonomy:classifiable', 'mix:referenceable',
