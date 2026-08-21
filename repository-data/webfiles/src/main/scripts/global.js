@@ -212,11 +212,17 @@ const global = {
             cookieNotification.init();
         }
 
+        const detailsElements = [].slice.call(document.querySelectorAll('[data-module="ds-details"]:not(.js-instantiated)'));
+        detailsElements.forEach(details => new window.DS.components.Details(details).init());
+
         const hidePageElements = [].slice.call(document.querySelectorAll('.ds_hide-page'));
         hidePageElements.forEach(hidePage => new window.DS.components.HideThisPage(hidePage).init());
 
         const mobileMenus = [].slice.call(document.querySelectorAll('[data-module="ds-mobile-navigation-menu"]'));
         mobileMenus.forEach(mobileMenu =>  new window.DS.components.SiteNavigation(mobileMenu).init());
+
+        const notificationMessageElements = [].slice.call(document.querySelectorAll('[data-module="ds-notification-message"]:not(.js-instantiated)'));
+        notificationMessageElements.forEach(notificationMessage => new window.DS.components.NotificationMessage(notificationMessage).init());
 
         const sideNavigations = [].slice.call(document.querySelectorAll('[data-module="ds-side-navigation"]'));
         sideNavigations.forEach(sideNavigation => new window.DS.components.SideNavigation(sideNavigation).init());
