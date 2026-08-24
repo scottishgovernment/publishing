@@ -22,7 +22,7 @@
         <div class="ds_site-header__content">
             <div class="ds_site-branding">
                 <a class="ds_site-branding__logo  ds_site-branding__link" href="<@hst.link path="/"/>">
-                    <img width="300" height="58" class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/${logo}.svg" />" alt="${logoAltText}">
+                    <img width="210" height="40" class="ds_site-branding__logo-image" src="<@hst.webfile path="/assets/images/logos/${logo}.svg" />" alt="${logoAltText}">
                 </a>
 
                 <#if siteTitle?? && displaySiteTitleInHeader>

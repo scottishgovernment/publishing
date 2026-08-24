@@ -25,7 +25,7 @@
                             <a class="ds_site-branding__logo ds_site-branding__link" href="#">
                                 <#if document.headerlogo?has_content>
                                     <#if document.headerlogo == "Mygov">
-                                <img class="ds_site-branding__logo-image" src="/assets/images/logos/mygov.svg" alt="Mygov.scot" width="300" height="58" />
+                                <img class="ds_site-branding__logo-image" src="/assets/images/logos/mygov.svg" alt="Mygov.scot" width="210" height="40" />
                                     <#else>
                                 <img class="ds_site-branding__logo-image" src="/assets/images/logos/scottish-government.svg" alt="The Scottish Government" width="300" height="45" />
                                     </#if>
