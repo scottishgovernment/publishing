@@ -19,7 +19,7 @@
       <main id="main-content" class="ds_layout  ds_layout--article">
         <div class="ds_layout__header">
           <header class="ds_page-header">
-            <h1 class="ds_page-header__title">Forbidden (403)</h1>
+            <h1 class="ds_page-header__title">Internal server error (500)</h1>
           </header>
         </div>
 
