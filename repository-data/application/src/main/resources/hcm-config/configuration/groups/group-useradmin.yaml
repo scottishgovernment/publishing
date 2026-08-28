@@ -3,10 +3,5 @@ definitions:
     /hippo:configuration/hippo:groups/user-admin:
       jcr:primaryType: hipposys:group
       hipposys:securityprovider: internal
-      hipposys:userroles: [xm.dashboard.user, xm.cms.user,
-         xm.security.user-admin]
-      hipposys:members:
-        .meta:category: system
-        .meta:add-new-system-values: true
-        type: string
-        value: [useradmin]
+      hipposys:userroles: [xm.dashboard.user, xm.cms.user, xm.security.user-admin]
+      hipposys:members: []

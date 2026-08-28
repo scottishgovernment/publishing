@@ -3,22 +3,7 @@ definitions:
     /hippo:configuration/hippo:groups/cmsadmin:
       jcr:primaryType: hipposys:group
       hipposys:securityprovider: internal
-      hipposys:userroles:
-        .meta:category: system
-        type: string
-        value:
-          - xm.dashboard.user
-          - xm.cms.user
-          - xm.urlrewriter.admin
-          - xm.report.user
-          - xm.channel.admin
-          - xm.content.admin
-          - xm.content.editor
-          - xm.security.user-admin
-          - xm.repository.reader
-          - scotgov.feedback.viewer
-      hipposys:members:
-        .meta:category: system
-        .meta:add-new-system-values: true
-        type: string
-        value: []
+      hipposys:userroles: [xm.dashboard.user, xm.cms.user, xm.urlrewriter.admin, xm.report.user,
+        xm.channel.admin, xm.content.admin, xm.content.editor, xm.security.user-admin,
+        scotgov.feedback.viewer]
+      hipposys:members: []

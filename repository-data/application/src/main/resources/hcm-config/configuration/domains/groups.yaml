@@ -21,13 +21,11 @@ definitions:
       /readwrite:
         jcr:primaryType: hipposys:authrole
         hipposys:role: readwrite
-        hipposys:groups:
-          type: string
-          value: []
+        hipposys:groups: []
       /readwrite-no-delete:
         jcr:primaryType: hipposys:authrole
         hipposys:role: readwrite-no-delete
-        hipposys:groups: [cmsadmin, user-admin]
+        hipposys:groups: [cmsadmin]
       /groups:
         jcr:primaryType: hipposys:domainrule
         /groups-and-descendants:
