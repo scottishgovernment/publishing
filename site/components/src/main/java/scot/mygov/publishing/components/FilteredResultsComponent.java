@@ -26,6 +26,7 @@ import scot.gov.publishing.hippo.search.model.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.*;
 
 import static java.util.Collections.emptyMap;
@@ -190,7 +191,12 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         if (isBlank(dateValue)) {
             return null;
         }
-        return LocalDate.parse(dateValue, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        try {
+            return LocalDate.parse(dateValue, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        } catch (DateTimeParseException e) {
+            LOG.warn("Could not parse {} value '{}', ignoring", dateParam, dateValue);
+            return null;
+        }
     }
 
     @Override
