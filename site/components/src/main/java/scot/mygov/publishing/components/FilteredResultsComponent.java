@@ -194,7 +194,8 @@ public class FilteredResultsComponent extends EssentialsListComponent {
         try {
             return LocalDate.parse(dateValue, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         } catch (DateTimeParseException e) {
-            LOG.warn("Could not parse {} value '{}', ignoring", dateParam, dateValue, e);
+            LOG.warn("Could not parse {} value '{}', ignoring", dateParam, dateValue);
+            LOG.trace("Exception parsing date", e);
             return null;
         }
     }
