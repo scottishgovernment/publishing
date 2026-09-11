@@ -3,16 +3,22 @@ definitions:
     /collections/hippocollection:domains/collection:
       /readonly:
         hipposys:groups:
+          .meta:category: config
+          value:
 {{#sites}}
-          - {{id}}-authors
+            - {{id}}-authors
 {{/sites}}
       /editor:
         hipposys:groups:
+          .meta:category: config
+          value:
 {{#sites}}
-          - {{id}}-editors
+            - {{id}}-editors
 {{/sites}}
       /readwrite:
         hipposys:groups:
+          .meta:category: config
+          value:
 {{#sites}}
-          - {{id}}-editors
+            - {{id}}-editors
 {{/sites}}
