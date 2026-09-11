@@ -47,6 +47,10 @@
                   <templateFile>${basedir}/src/main/config/performance-folders.yaml.mustache</templateFile>
                   <outputPath>${basedir}/src/main/resources/hcm-config/configuration/domains/performance-content.yaml</outputPath>
                 </template>
+                <template>
+                  <templateFile>${basedir}/src/main/config/tags-plugin.yaml.mustache</templateFile>
+                  <outputPath>${basedir}/src/main/resources/hcm-config/configuration/domains/tags-plugin.yaml</outputPath>
+                </template>
               </templates>
             </configuration>
           </execution>
