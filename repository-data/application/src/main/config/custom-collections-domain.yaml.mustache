@@ -1,0 +1,18 @@
+definitions:
+  config:
+    /collections/hippocollection:domains/collection:
+      /readonly:
+        hipposys:groups:
+{{#sites}}
+          - {{id}}-authors
+{{/sites}}
+      /editor:
+        hipposys:groups:
+{{#sites}}
+          - {{id}}-editors
+{{/sites}}
+      /readwrite:
+        hipposys:groups:
+{{#sites}}
+          - {{id}}-editors
+{{/sites}}

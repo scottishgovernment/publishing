@@ -32,6 +32,10 @@
               <context>file:${project.basedir}/../site/src/main/config/hosts/sites.yaml</context>
               <templates>
                 <template>
+                  <templateFile>${basedir}/src/main/config/custom-collections-domain.yaml.mustache</templateFile>
+                  <outputPath>${basedir}/src/main/resources/hcm-config/collections/custom-collections-domain.yaml</outputPath>
+                </template>
+                <template>
                   <templateFile>${basedir}/src/main/config/site-groups.yaml.mustache</templateFile>
                   <outputPath>${basedir}/src/main/resources/hcm-config/configuration/groups/site-groups.yaml</outputPath>
                 </template>
