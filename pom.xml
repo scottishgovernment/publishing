@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-enterprise-release</artifactId>
-    <version>16.7.1</version>
+    <version>16.9.4</version>
   </parent>
 
   <name>Digital Publishing</name>
@@ -61,7 +61,7 @@
   </distributionManagement>
 
   <properties>
-    <essentials.version>16.7.1</essentials.version>
+    <essentials.version>16.9.4</essentials.version>
 
     <development-module-deploy-dir>shared/lib</development-module-deploy-dir>
 
@@ -69,7 +69,7 @@
     <buildNumber>${maven.build.timestamp}</buildNumber>
 
     <index.configuration>cms/src/main/resources/org/hippoecm/repository/query/lucene/indexing_configuration.xml</index.configuration>
-    <forge.breadcrumb.version>6.0.0</forge.breadcrumb.version>
+    <forge.breadcrumb.version>6.0.1</forge.breadcrumb.version>
     <forge.resetpassword.version>7.0.0</forge.resetpassword.version>
     <forge.folderctxmenus.version>7.1.2</forge.folderctxmenus.version>
 
@@ -90,7 +90,7 @@
       <dependency>
         <groupId>scot.gov.publishing.hippo</groupId>
         <artifactId>hippo-govscot-bom</artifactId>
-        <version>1.0.228</version>
+        <version>0.0.1-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
