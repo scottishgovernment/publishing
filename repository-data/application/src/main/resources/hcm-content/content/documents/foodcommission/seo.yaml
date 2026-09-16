@@ -1,0 +1,38 @@
+/content/documents/foodcommission/seo:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named']
+  hippo:name: SEO
+  hippostd:foldertype: [new-seo-document, new-seo-folder]
+  /home:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    /home:
+      jcr:primaryType: publishing:seo
+      jcr:mixinTypes: ['mix:versionable']
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-09-15T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2026-09-15T09:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: b757aaa7-b4d8-451b-9c4e-3b5439b2947b
+      hippotranslation:locale: en_GB
+      publishing:alt: ''
+      publishing:metaDescription: Scottish Food Commission
+      publishing:reportingtags: []
+      publishing:seoTitle: Scottish Food Commission
+      publishing:summary: Scottish Food Commission
+      publishing:title: Scottish Food Commission
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:cardImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
