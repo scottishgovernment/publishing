@@ -64,7 +64,9 @@
       robotstxt:sitemap: ['https://www.foodcommission.gov.scot/sitemap.xml']
       /robotstxt:section:
         jcr:primaryType: robotstxt:section
-        robotstxt:disallow: []
+        robotstxt:disallow:
+          - /search$
+          - /search?
         robotstxt:useragent: '*'
   /siteverification:
     jcr:primaryType: hippostd:folder
