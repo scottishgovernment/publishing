@@ -1,0 +1,38 @@
+/content/documents/cyber/seo:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named']
+  hippo:name: SEO
+  hippostd:foldertype: [new-seo-document, new-seo-folder]
+  /home:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    /home:
+      jcr:primaryType: publishing:seo
+      jcr:mixinTypes: ['mix:versionable']
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-10-07T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2026-10-07T09:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: de15e63a-cd01-4315-8623-58c234b3e519
+      hippotranslation:locale: en_GB
+      publishing:alt: ''
+      publishing:metaDescription: Scottish Cyber Coordination Centre (SC3)
+      publishing:reportingtags: []
+      publishing:seoTitle: Scottish Cyber Coordination Centre (SC3)
+      publishing:summary: Scottish Cyber Coordination Centre (SC3)
+      publishing:title: Scottish Cyber Coordination Centre (SC3)
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:cardImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
