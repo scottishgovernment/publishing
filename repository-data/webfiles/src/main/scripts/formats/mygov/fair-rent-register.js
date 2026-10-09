@@ -12,7 +12,7 @@ const fairRentRegister = {
 
     settings: {
         name: 'fair-rent',
-        endpoint: '/service/housing/fairrent'
+        endpoint: 'https://bfvgur9nhi.execute-api.eu-west-2.amazonaws.com/v1/fair-rent'
     },
 
     searchParams: {
