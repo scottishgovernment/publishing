@@ -26,11 +26,12 @@
     <div class="ds_wrapper">
         <div class="ds_pb__inner">
             <#if document?has_content>
+                
                 <div class="ds_pb__poster">
                     <#if document.image?has_content>
-                    <a target="_blank" class="ds_pb__poster-link" href="${document.url}">
+                    <a target="_blank" class="ds_pb__poster__link" href="${document.url}">
                         <#if document.image.xlargesixcolumns?has_content>
-                            <img class="ds_pb__poster-video" alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
+                            <img class="ds_cb__poster-video" alt="${document.alt}" src="<@hst.link hippobean=document.image.xlargesixcolumns />"
                                     width="${document.image.xlargesixcolumns.width?c}"
                                     height="${document.image.xlargesixcolumns.height?c}"
                                     loading="lazy"
@@ -46,8 +47,13 @@
                                     sizes="(min-width:1200px) 544px, (min-width:992px) 448px, (min-width: 768px) 352px, 100vw"
                                     >
                         <#else>
-                            <img loading="lazy" src="<@hst.link hippobean=document.image />" alt="${document.alt}"/>
+                            <img class="ds_pb__poster-video" loading="lazy" src="<@hst.link hippobean=document.image />" alt="${document.alt}" width="${document.image.original.width?c}" height="${document.image.original.height?c}"/>
                         </#if>
+
+                        <svg class="ds_pb__poster__overlay" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 160 90">
+                            <circle class="background" cx="82" cy="45.5" r="16" fill="#0065db"/>
+                            <path class="foreground" fill="#fff" d="M76 45.3v-9.2l8 4.6 8 4.6-8 4.7-8 4.6z"/>
+                        </svg>
                     </a>
                     </#if>
                 </div>
