@@ -1,0 +1,210 @@
+definitions:
+  config:
+    /hippo:namespaces/publishing/featureheader:
+      jcr:primaryType: hipposysedit:templatetype
+      jcr:mixinTypes: ['editor:editable', 'mix:referenceable']
+      jcr:uuid: a9c05785-8e17-4b5a-ac03-75cf308b1f72
+      /hipposysedit:nodetype:
+        jcr:primaryType: hippo:handle
+        jcr:mixinTypes: ['mix:referenceable']
+        jcr:uuid: d3f058f9-3d68-4502-b789-758fc083333d
+        /hipposysedit:nodetype:
+          jcr:primaryType: hipposysedit:nodetype
+          jcr:mixinTypes: ['mix:referenceable', 'hipposysedit:remodel']
+          jcr:uuid: ce17ae0f-3b72-40ce-a08f-c44f7aff580b
+          hipposysedit:node: true
+          hipposysedit:supertype: ['hippo:compound', 'hippostd:relaxed']
+          hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
+          /cta:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:cta
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /link:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:link
+            hipposysedit:primary: false
+            hipposysedit:type: hippo:mirror
+          /externalLink:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:externalLink
+            hipposysedit:primary: false
+            hipposysedit:type: String
+          /backgroundColor:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:backgroundColor
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+          /fullWidth:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:fullWidth
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /wideText:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:wideText
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /verticalAlign:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:verticalAlign
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+          /imageNoMargin:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:imageNoMargin
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /imageCover:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:imageCover
+            hipposysedit:primary: false
+            hipposysedit:type: Boolean
+          /imageAlignMobile:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:imageAlignMobile
+            hipposysedit:primary: false
+            hipposysedit:type: StaticDropdown
+      /hipposysedit:prototypes:
+        jcr:primaryType: hipposysedit:prototypeset
+        /hipposysedit:prototype:
+          jcr:primaryType: publishing:featureheader
+          publishing:cta: ''
+          publishing:externalLink: ''
+          publishing:fullWidth: true
+          publishing:wideText: false
+          publishing:verticalAlign: top
+          publishing:imageNoMargin: false
+          publishing:imageCover: false
+          publishing:imageAlignMobile: left
+          jcr:uuid: dc9b1ca4-1dda-4586-8e93-435e4a92c107
+          /publishing:link:
+            jcr:primaryType: hippo:mirror
+            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+      /editor:templates:
+        jcr:primaryType: editor:templateset
+        /_default_:
+          jcr:primaryType: frontend:plugincluster
+          frontend:properties: [mode]
+          frontend:references: [wicket.model, model.compareTo, engine, validator.id]
+          frontend:services: [wicket.id, validator.id]
+          /root:
+            jcr:primaryType: frontend:plugin
+            item: ${cluster.id}.field
+            plugin.class: org.hippoecm.frontend.service.render.ListViewPlugin
+          /cta:
+            jcr:primaryType: frontend:plugin
+            caption: Call to action label
+            field: cta
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /link:
+            jcr:primaryType: frontend:plugin
+            caption: Call to action link
+            field: link
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /externalLink:
+            jcr:primaryType: frontend:plugin
+            caption: Call to action external link
+            field: externalLink
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /backgroundColor:
+            jcr:primaryType: frontend:plugin
+            caption: Background colour
+            field: backgroundColor
+            hint: The background colour behind the heading.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: Secondary,Tertiary,Theme,Theme reversed
+          /fullWidth:
+            jcr:primaryType: frontend:plugin
+            caption: Full-width background
+            field: fullWidth
+            hint: Should the background colour stretch the full width of the screen?
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /wideText:
+            jcr:primaryType: frontend:plugin
+            caption: Increase width of text
+            field: wideText
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /verticalAlign:
+            jcr:primaryType: frontend:plugin
+            caption: Vertical align
+            field: verticalAlign
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: top,middle
+          /imageNoMargin:
+            jcr:primaryType: frontend:plugin
+            caption: Remove padding around image
+            field: imageNoMargin
+            hint: Only applicable if the background is full-width.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /imageCover:
+            jcr:primaryType: frontend:plugin
+            caption: Set image to cover available space (desktop)
+            field: imageCover
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /imageAlignMobile:
+            jcr:primaryType: frontend:plugin
+            caption: Image horizontal alignment (mobile)
+            field: imageAlignMobile
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.PropertyFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+              selectable.options: left,right,center,hidden

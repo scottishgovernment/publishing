@@ -51,6 +51,11 @@ public class Base extends BaseDocument {
         return getLinkedBean("publishing:cardImage", HippoGalleryImageSet.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "publishing:heroImage")
+    public HippoGalleryImageSet getHeroImage() {
+        return getLinkedBean("publishing:heroImage", HippoGalleryImageSet.class);
+    }
+
     @HippoEssentialsGenerated(internalName = "publishing:urlAliases")
     public String[] getUrlAliases() {
         return getMultipleProperty("publishing:urlAliases");

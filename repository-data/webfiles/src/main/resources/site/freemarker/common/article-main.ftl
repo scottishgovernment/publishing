@@ -2,6 +2,7 @@
 <#include "include/imports.ftl">
 <#include "macros/content-blocks.ftl">
 <#include "macros/lang-attributes.ftl">
+<#include "macros/featureheader.ftl">
 
 <#assign variables = hstRequestContext.getAttribute("variables")/>
 <@hst.messagesReplace escapeMessageXml=false bundle=variables variablePrefix="[[" variableSuffix="]]">
@@ -21,21 +22,28 @@
                 <!--endnoindex-->
             </#if>
 
-            <div class="ds_layout__header">
-                <header class="ds_page-header">
-                    <h1 class="ds_page-header__title"><#if document.title??>${document.title}</#if></h1>
-                    <dl <@revertlang document /> class="ds_page-header__metadata  ds_metadata">
-                        <#if document.lastUpdatedDate??>
-                            <div class="ds_metadata__item">
-                                <dt class="ds_metadata__key">Last updated</dt>
-                                <dd class="ds_metadata__value"><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></dd>
-                            </div>
-                        </#if>
-                    </dl>
-
+            <#if document.featureheader??>
+                <div class="ds_layout__header"<#if document.featureheader.fullWidth?? && document.featureheader.fullWidth> style="grid-column: 1 / -1;"</#if>>
+                    <@renderFeatureHeader document false />
                     <@hst.include ref="stepbysteptopbar"/>
-                </header>
-            </div>
+                </div>
+            <#else>
+                <div class="ds_layout__header">
+                    <header class="ds_page-header">
+                        <h1 class="ds_page-header__title"><#if document.title??>${document.title}</#if></h1>
+                        <dl <@revertlang document /> class="ds_page-header__metadata  ds_metadata">
+                            <#if document.lastUpdatedDate??>
+                                <div class="ds_metadata__item">
+                                    <dt class="ds_metadata__key">Last updated</dt>
+                                    <dd class="ds_metadata__value"><@fmt.formatDate value=document.lastUpdatedDate.time type="both" pattern="d MMM yyyy"/></dd>
+                                </div>
+                            </#if>
+                        </dl>
+
+                        <@hst.include ref="stepbysteptopbar"/>
+                    </header>
+                </div>
+            </#if>
 
             <#if document.logo??>
                 <div <@revertlang document />  class="ds_layout__partner  mg_partner-logo">

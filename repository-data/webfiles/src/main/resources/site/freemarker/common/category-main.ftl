@@ -1,6 +1,7 @@
 <#ftl output_format="HTML">
 <#include "include/imports.ftl">
 <#include "macros/content-blocks.ftl">
+<#include "macros/featureheader.ftl">
 
 <#if document??>
 <#assign variables = hstRequestContext.getAttribute("variables")/>
@@ -15,32 +16,36 @@
 
         <div class="category-upper">
 
-            <div class="ds_wrapper">
-                <header class="ds_feature-header  ds_feature-header--wide">
-                    <div class="ds_feature-header__primary">
-                        <h1 class="ds_feature-header__title">${document.title}</h1>
-                        <p>${document.summary}</p>
-                    </div>
-
-                    <#if document.heroImage??>
-                        <div class="ds_feature-header__secondary">
-                            <img class="ds_feature-header__image" alt="" src="<@hst.link hippobean=document.heroImage />"
-                                width="${document.heroImage.xlargefourcolumns.width?c}"
-                                height="${document.heroImage.xlargefourcolumns.height?c}"
-                                loading="lazy"
-                                srcset="
-                                <@hst.link hippobean=document.heroImage.mediumfourcolumns/> 224w,
-                                <@hst.link hippobean=document.heroImage.mediumfourcolumnsdoubled/> 448w,
-                                <@hst.link hippobean=document.heroImage.largefourcolumns/> 288w,
-                                <@hst.link hippobean=document.heroImage.largefourcolumnsdoubled/> 576w,
-                                <@hst.link hippobean=document.heroImage.xlargefourcolumns/> 352w,
-                                <@hst.link hippobean=document.heroImage.xlargefourcolumnsdoubled/> 704w"
-                                sizes="(min-width:1200px) 352px, (min-width:992px) 288px, 224px"
-                            >
+            <#if document.featureheader??>
+                <@renderFeatureHeader document true />
+            <#else>
+                <div class="ds_wrapper">
+                    <header class="ds_feature-header  ds_feature-header--wide">
+                        <div class="ds_feature-header__primary">
+                            <h1 class="ds_feature-header__title">${document.title}</h1>
+                            <p>${document.summary}</p>
                         </div>
-                    </#if>
-                </header>
-            </div>
+
+                        <#if document.heroImage??>
+                            <div class="ds_feature-header__secondary">
+                                <img class="ds_feature-header__image" alt="" src="<@hst.link hippobean=document.heroImage />"
+                                    width="${document.heroImage.xlargefourcolumns.width?c}"
+                                    height="${document.heroImage.xlargefourcolumns.height?c}"
+                                    loading="lazy"
+                                    srcset="
+                                    <@hst.link hippobean=document.heroImage.mediumfourcolumns/> 224w,
+                                    <@hst.link hippobean=document.heroImage.mediumfourcolumnsdoubled/> 448w,
+                                    <@hst.link hippobean=document.heroImage.largefourcolumns/> 288w,
+                                    <@hst.link hippobean=document.heroImage.largefourcolumnsdoubled/> 576w,
+                                    <@hst.link hippobean=document.heroImage.xlargefourcolumns/> 352w,
+                                    <@hst.link hippobean=document.heroImage.xlargefourcolumnsdoubled/> 704w"
+                                    sizes="(min-width:1200px) 352px, (min-width:992px) 288px, 224px"
+                                >
+                            </div>
+                        </#if>
+                    </header>
+                </div>
+            </#if>
         </div>
 
         <div class="category-lower  ds_pre-footer-background">

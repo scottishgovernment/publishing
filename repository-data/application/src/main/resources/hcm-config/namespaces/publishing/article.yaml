@@ -65,6 +65,15 @@ definitions:
             hipposysedit:path: publishing:logo
             hipposysedit:primary: false
             hipposysedit:type: hippogallerypicker:imagelink
+          /featureheader:
+            jcr:primaryType: hipposysedit:field
+            hipposysedit:mandatory: false
+            hipposysedit:multiple: false
+            hipposysedit:ordered: false
+            hipposysedit:path: publishing:featureheader
+            hipposysedit:primary: false
+            hipposysedit:type: publishing:featureheader
+            hipposysedit:validators: [optional]
           /organisationtags:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -196,6 +205,26 @@ definitions:
             caption: Card image
             field: cardimage
             hint: Image used for displaying this item within a Card layout
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /heroImage:
+            jcr:primaryType: frontend:plugin
+            caption: Hero image
+            field: heroimage
+            hint: Add an optional hero image which will appear within the page.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /featureheader:
+            jcr:primaryType: frontend:plugin
+            caption: Feature header
+            field: featureheader
+            hint: Add this section to show a decorative heading block with a call
+              to action in place of the standard page title. Leave it unadded to
+              use the standard heading.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

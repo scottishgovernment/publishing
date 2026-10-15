@@ -31,9 +31,9 @@ public class Category extends Base {
         return getHippoHtml("publishing:epilogue");
     }
 
-    @HippoEssentialsGenerated(internalName = "publishing:heroImage")
-    public HippoGalleryImageSet getHeroImage() {
-        return getLinkedBean("publishing:heroImage", HippoGalleryImageSet.class);
+    @HippoEssentialsGenerated(internalName = "publishing:featureheader")
+    public Featureheader getFeatureheader() {
+        return getBean("publishing:featureheader", Featureheader.class);
     }
 
     @HippoEssentialsGenerated(internalName = "publishing:showSummaries")

@@ -16,14 +16,15 @@ definitions:
           hipposysedit:supertype: ['publishing:base', 'hippostd:relaxed', 'hippotranslation:translated']
           hipposysedit:uri: http://www.publishing.com/publishing/nt/1.0
           hipposysedit:validators: [variables-validator]
-          /heroimage:
+          /featureheader:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
             hipposysedit:multiple: false
             hipposysedit:ordered: false
-            hipposysedit:path: publishing:heroImage
+            hipposysedit:path: publishing:featureheader
             hipposysedit:primary: false
-            hipposysedit:type: hippogallerypicker:imagelink
+            hipposysedit:type: publishing:featureheader
+            hipposysedit:validators: [optional]
           /dynamicdropdown:
             jcr:primaryType: hipposysedit:field
             hipposysedit:mandatory: false
@@ -133,12 +134,6 @@ definitions:
           /publishing:epilogue:
             jcr:primaryType: hippostd:html
             hippostd:content: ''
-          /publishing:heroImage:
-            jcr:primaryType: hippogallerypicker:imagelink
-            hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
-            hippo:facets: []
-            hippo:modes: []
-            hippo:values: []
           /publishing:breadcrumbProxy:
             jcr:primaryType: hippo:mirror
             hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
@@ -165,15 +160,6 @@ definitions:
             wicket.id: ${cluster.id}.field
             /cluster.options:
               jcr:primaryType: frontend:pluginconfig
-          /heroImage:
-            jcr:primaryType: frontend:plugin
-            caption: Hero image
-            field: heroimage
-            hint: Add an optional hero image which will appear within the page.
-            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
-            wicket.id: ${cluster.id}.field
-            /cluster.options:
-              jcr:primaryType: frontend:pluginconfig
           /navigationType:
             jcr:primaryType: frontend:plugin
             caption: Navigation type
@@ -192,6 +178,26 @@ definitions:
             caption: Card image
             field: cardimage
             hint: Image used for displaying this item within a Card layout
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /heroImage:
+            jcr:primaryType: frontend:plugin
+            caption: Hero image
+            field: heroimage
+            hint: Add an optional hero image which will appear within the page.
+            plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
+            wicket.id: ${cluster.id}.field
+            /cluster.options:
+              jcr:primaryType: frontend:pluginconfig
+          /featureheader:
+            jcr:primaryType: frontend:plugin
+            caption: Feature header
+            field: featureheader
+            hint: Add this section to show a decorative heading block with a call
+              to action in place of the standard page title and hero image. Leave
+              it unadded to use the standard heading.
             plugin.class: org.hippoecm.frontend.editor.plugins.field.NodeFieldPlugin
             wicket.id: ${cluster.id}.field
             /cluster.options:

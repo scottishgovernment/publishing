@@ -82,6 +82,11 @@ public class Article extends Base {
         return getLinkedBean("publishing:logo", HippoGalleryImageSet.class);
     }
 
+    @HippoEssentialsGenerated(internalName = "publishing:featureheader")
+    public Featureheader getFeatureheader() {
+        return getBean("publishing:featureheader", Featureheader.class);
+    }
+
     @HippoEssentialsGenerated(internalName = "publishing:contentOwner")
     public HippoBean getContentOwner() {
         return getLinkedBean("publishing:contentOwner", HippoBean.class);
