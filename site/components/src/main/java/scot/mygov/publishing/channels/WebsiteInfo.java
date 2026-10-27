@@ -8,7 +8,15 @@ import org.hippoecm.hst.core.parameters.Parameter;
 public interface WebsiteInfo extends ChannelInfo {
 
     @Parameter(name = "logo", displayName = "Logo", required = true, defaultValue = "scottish-government")
-    @DropDownList({"mygov", "scottish-government", "digital-scotland", "disclosure-scotland", "social-security-scotland", "socialwork-scotland"})
+    @DropDownList({
+        "scottish-government",
+        "digital-scotland",
+        "disclosure-scotland",
+        "scottish-food-commission",
+        "mygov",
+        "social-security-scotland",
+        "socialwork-scotland"
+    })
     String getLogo();
 
     @Parameter(name = "logoAltText", required = true, displayName = "Logo alt text", defaultValue = "The Scottish Government")
