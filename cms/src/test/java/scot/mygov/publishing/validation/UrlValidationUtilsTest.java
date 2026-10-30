@@ -257,6 +257,58 @@ public class UrlValidationUtilsTest {
         assertEquals("clashPath", actual);
     }
 
+    @Test
+    public void slugClashesWithXPageReturnsNullWhenNoSitemapItem() throws RepositoryException {
+
+        // ARRANGE
+        Session session = mock(Session.class);
+        when(session.nodeExists(any())).thenReturn(false);
+        sut.sessionSupplier = () -> session;
+        Node documentNode = documentNode();
+
+        // ACT
+        String actual = sut.slugClashesWithXPage("slug", documentNode);
+
+        // ASSERT
+        assertEquals(null, actual);
+    }
+
+    @Test
+    public void slugClashesWithXPageReturnsPathWhenLiveSitemapItemExists() throws RepositoryException {
+
+        // ARRANGE
+        Session session = mock(Session.class);
+        when(session.nodeExists(any())).thenReturn(false);
+        when(session.nodeExists("/hst:publishing/hst:configurations/trading-nation/hst:workspace/hst:sitemap/slug"))
+                .thenReturn(true);
+        sut.sessionSupplier = () -> session;
+        Node documentNode = documentNode();
+
+        // ACT
+        String actual = sut.slugClashesWithXPage("slug", documentNode);
+
+        // ASSERT
+        assertEquals("/hst:publishing/hst:configurations/trading-nation/hst:workspace/hst:sitemap/slug", actual);
+    }
+
+    @Test
+    public void slugClashesWithXPageReturnsPathWhenPreviewSitemapItemExists() throws RepositoryException {
+
+        // ARRANGE
+        Session session = mock(Session.class);
+        when(session.nodeExists(any())).thenReturn(false);
+        when(session.nodeExists("/hst:publishing/hst:configurations/trading-nation-preview/hst:workspace/hst:sitemap/slug"))
+                .thenReturn(true);
+        sut.sessionSupplier = () -> session;
+        Node documentNode = documentNode();
+
+        // ACT
+        String actual = sut.slugClashesWithXPage("slug", documentNode);
+
+        // ASSERT
+        assertEquals("/hst:publishing/hst:configurations/trading-nation-preview/hst:workspace/hst:sitemap/slug", actual);
+    }
+
     Node documentNode() throws RepositoryException {
         Node node = mock(Node.class);
         Node parent = mock(Node.class);
@@ -264,6 +316,7 @@ public class UrlValidationUtilsTest {
         when(node.getParent()).thenReturn(parent);
         when(parent.getIdentifier()).thenReturn("parentIdentifier");
         when(siteAncestor.getPath()).thenReturn("/content/documents/trading-nation");
+        when(siteAncestor.getName()).thenReturn("trading-nation");
         when(node.getAncestor(3)).thenReturn(siteAncestor);
         return node;
     }

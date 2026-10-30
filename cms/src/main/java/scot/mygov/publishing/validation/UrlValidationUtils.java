@@ -2,6 +2,8 @@ package scot.mygov.publishing.validation;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hippoecm.frontend.session.UserSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.jcr.*;
 import javax.jcr.query.Query;
@@ -14,6 +16,8 @@ import static org.apache.commons.lang3.StringUtils.isAlphanumeric;
  * Shared code for validating slugs and urls.
  */
 public class UrlValidationUtils {
+
+    private static final Logger LOG = LoggerFactory.getLogger(UrlValidationUtils.class);
 
     Supplier<Session> sessionSupplier = () -> UserSession.get().getJcrSession();
 
@@ -71,6 +75,31 @@ public class UrlValidationUtils {
 
     public String slugClashesWithCategory(String alias, Node documentNode) throws RepositoryException {
         return aliasClashesWithCategory("/" + alias, documentNode);
+    }
+
+    /**
+     * Check whether the slug clashes with an existing HST sitemap item, e.g. one created for an Experience Page.
+     * Those are not content documents so cannot be found by the other slugClashes* checks. Unpublished xpages
+     * live under the "-preview" variant configuration rather than the live one, so both must be checked.
+     */
+    public String slugClashesWithXPage(String slug, Node documentNode) throws RepositoryException {
+        Session session = sessionSupplier.get();
+        String site = documentNode.getAncestor(3).getName();
+
+        for (String configuration : new String[] {site, site + "-preview"}) {
+            String sitemapItemPath = xpageSitemapItemPath(slug, configuration);
+            boolean exists = session.nodeExists(sitemapItemPath);
+            LOG.info("slugClashesWithXPage: slug={}, checked path={}, exists={}", slug, sitemapItemPath, exists);
+            if (exists) {
+                return sitemapItemPath;
+            }
+        }
+
+        return null;
+    }
+
+    private static String xpageSitemapItemPath(String slug, String configuration) {
+        return String.format("/hst:publishing/hst:configurations/%s/hst:workspace/hst:sitemap/%s", configuration, slug);
     }
 
     boolean isSingleElementUrl(String alias) {

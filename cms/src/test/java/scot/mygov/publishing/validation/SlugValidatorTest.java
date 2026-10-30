@@ -116,12 +116,31 @@ public class SlugValidatorTest {
         assertEquals(singletonMap("clash", "clash"), violation.getParameters());
     }
 
+    @Test
+    public void correctViolationForClashWithXPage() throws RepositoryException {
+        // ARRANGE
+        SlugValidator sut = new SlugValidator();
+        sut.urlValidationUtils = validationUtils();
+        ValidationContext context = validationContext();
+        when(sut.urlValidationUtils.slugClashesWithXPage(eq("slug"), any())).thenReturn("clash");
+
+        // ACT
+        Optional<Violation> violationOptional = sut.validate(context, "slug");
+
+        // ASSERT
+        assertTrue(violationOptional.isPresent());
+        ViolationImpl violation = ((ViolationImpl) violationOptional.get());
+        assertEquals("slug-xpage-clash", violation.getSubkey());
+        assertEquals(singletonMap("clash", "clash"), violation.getParameters());
+    }
+
     UrlValidationUtils validationUtils() throws RepositoryException {
         UrlValidationUtils urlValidationUtils = mock(UrlValidationUtils.class);
         when(urlValidationUtils.containsInvalidCharacters(any())).thenReturn(false);
         when(urlValidationUtils.slugClashes(any(), any())).thenReturn(null);
         when(urlValidationUtils.slugClashesWithAlias(any(), any())).thenReturn(null);
         when(urlValidationUtils.slugClashesWithCategory(any(), any())).thenReturn(null);
+        when(urlValidationUtils.slugClashesWithXPage(any(), any())).thenReturn(null);
         return urlValidationUtils;
     }
 

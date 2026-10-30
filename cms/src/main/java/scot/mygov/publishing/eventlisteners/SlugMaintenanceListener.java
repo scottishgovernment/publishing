@@ -69,12 +69,29 @@ public class SlugMaintenanceListener {
             return;
         }
 
+        if (isDelete(event)) {
+            // by the time this event is handled the document has already been removed, so there is no
+            // node left to look up its slug/path from; derive the path from the event itself instead.
+            removeLookupForDeletedSubject(event);
+            return;
+        }
+
         Node subject = subject(event);
         if (subject == null || !requiresSlug(subject)) {
             return;
         }
 
         handleEventByAction(event, subject);
+    }
+
+    boolean isDelete(HippoWorkflowEvent event) {
+        return "delete".equals(event.action());
+    }
+
+    void removeLookupForDeletedSubject(HippoWorkflowEvent event) throws RepositoryException {
+        String site = getSitenameFromSubjectPath(event.subjectPath());
+        String path = substringAfter(event.subjectPath(), site);
+        slugLookups.removeLookup(path, site, "global", PREVIEW);
     }
 
     Node subject(HippoWorkflowEvent event) throws RepositoryException {
@@ -102,10 +119,6 @@ public class SlugMaintenanceListener {
 
             case "depublish":
                 removeLookup(subject, LIVE);
-                break;
-
-            case "delete":
-                removeLookup(subject, PREVIEW);
                 break;
 
             case "move":

@@ -57,6 +57,12 @@ public class SlugValidator implements Validator<String> {
             return violationForClash(context, "slug-category-clash", clash);
         }
 
+        clash = urlValidationUtils.slugClashesWithXPage(slug, context.getDocumentNode());
+        LOG.info("slug-xpage-clash check for slug={} node={}: clash={}", slug, context.getJcrName(), clash);
+        if (clash != null) {
+            return violationForClash(context, "slug-xpage-clash", clash);
+        }
+
         return null;
     }
 

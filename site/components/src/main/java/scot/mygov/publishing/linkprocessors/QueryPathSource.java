@@ -40,15 +40,13 @@ public class QueryPathSource implements PathForSlugSource {
 
     protected Node findPublishedNode(NodeIterator nodeIterator) throws RepositoryException {
         Node publishedNode = null;
-        Node lastNode = null;
         while (nodeIterator.hasNext()) {
             Node node = nodeIterator.nextNode();
-            lastNode = node;
             if (isPublished(node)) {
                 publishedNode = node;
             }
         }
-        return publishedNode != null ? publishedNode : lastNode;
+        return publishedNode;
     }
 
     boolean isPublished(Node node) throws RepositoryException {
