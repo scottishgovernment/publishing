@@ -25,6 +25,8 @@ public class SlugMaintenanceListener {
 
     static final String SLUG = "publishing:slug";
 
+    private static final String TYPE_GLOBAL = "global";
+
     private static final String PREVIEW = "preview";
 
     private static final String LIVE = "live";
@@ -91,7 +93,7 @@ public class SlugMaintenanceListener {
     void removeLookupForDeletedSubject(HippoWorkflowEvent event) throws RepositoryException {
         String site = getSitenameFromSubjectPath(event.subjectPath());
         String path = substringAfter(event.subjectPath(), site);
-        slugLookups.removeLookup(path, site, "global", PREVIEW);
+        slugLookups.removeLookup(path, site, TYPE_GLOBAL, PREVIEW);
     }
 
     Node subject(HippoWorkflowEvent event) throws RepositoryException {
@@ -136,13 +138,13 @@ public class SlugMaintenanceListener {
         String slug = slug(subject);
         String site = sitename(subject);
         String path = substringAfter(subject.getPath(), site);
-        slugLookups.updateLookup(slug, path, site, "global", mount, clearLookout);
+        slugLookups.updateLookup(slug, path, site, TYPE_GLOBAL, mount, clearLookout);
     }
 
     void removeLookup(Node subject, String mount) throws RepositoryException {
         String site = sitename(subject);
         String path = substringAfter(subject.getPath(), site);
-        slugLookups.removeLookup(path, site, "global", mount);
+        slugLookups.removeLookup(path, site, TYPE_GLOBAL, mount);
     }
 
     private String slug(Node subject) throws RepositoryException {

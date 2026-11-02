@@ -29,7 +29,7 @@ public class NewPageSlugValidationListenerTest {
     NewPageSlugValidationListener sut = new NewPageSlugValidationListener();
 
     @Test
-    public void onPageCreateEventDoesNothingIfEventAlreadyHasException() throws Exception {
+    public void onPageCreateEventDoesNothingIfEventAlreadyHasException() {
         // ARRANGE
         PageCreateEvent event = mock(PageCreateEvent.class);
         when(event.getException()).thenReturn(new RuntimeException("already failed"));
