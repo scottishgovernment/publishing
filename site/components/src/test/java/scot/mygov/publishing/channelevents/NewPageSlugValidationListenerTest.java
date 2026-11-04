@@ -6,16 +6,17 @@ import org.hippoecm.hst.pagecomposer.jaxrs.api.PageCreateContext;
 import org.hippoecm.hst.pagecomposer.jaxrs.api.PageCreateEvent;
 import org.hippoecm.hst.pagecomposer.jaxrs.services.exceptions.ClientException;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import scot.gov.publishing.sluglookup.SlugLookupPaths;
 
-import javax.jcr.Node;
-import javax.jcr.Property;
+import javax.jcr.NodeIterator;
 import javax.jcr.Session;
+import javax.jcr.Workspace;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryManager;
+import javax.jcr.query.QueryResult;
+import javax.jcr.Node;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -56,15 +57,14 @@ public class NewPageSlugValidationListenerTest {
     }
 
     @Test
-    public void onPageCreateEventMessageIncludesClashingContentPath() throws Exception {
+    public void onPageCreateEventSetsExceptionWhenSlugClashes() throws Exception {
         // ARRANGE
         PageCreateEvent event = mock(PageCreateEvent.class);
         PageCreateContext context = mock(PageCreateContext.class);
         Node newSiteMapItemNode = mock(Node.class);
         Mount mount = mock(Mount.class);
         HstRequestContext requestContext = mock(HstRequestContext.class);
-        String lookupPath = SlugLookupPaths.slugLookupPath("who-we-are", "foodcommission", "global", "live");
-        Session session = sessionWithLookupNodeAt(lookupPath, "/content/documents/foodcommission/browse/who-we-are");
+        Session session = sessionWithClashAt("/content/documents/foodcommission/browse/who-we-are");
 
         when(event.getPageActionContext()).thenReturn(context);
         when(context.getNewSiteMapItemNode()).thenReturn(newSiteMapItemNode);
@@ -78,37 +78,7 @@ public class NewPageSlugValidationListenerTest {
         sut.onPageCreateEvent(event);
 
         // ASSERT
-        ArgumentCaptor<ClientException> captor = ArgumentCaptor.forClass(ClientException.class);
-        verify(event).setException(captor.capture());
-        assertTrue(captor.getValue().getMessage().contains("/content/documents/foodcommission/browse/who-we-are"));
-    }
-
-    @Test
-    public void onPageCreateEventMessageFallsBackWhenLookupNodeHasNoPathProperty() throws Exception {
-        // ARRANGE - a stale lookup node that exists but has no sluglookup:path property
-        PageCreateEvent event = mock(PageCreateEvent.class);
-        PageCreateContext context = mock(PageCreateContext.class);
-        Node newSiteMapItemNode = mock(Node.class);
-        Mount mount = mock(Mount.class);
-        HstRequestContext requestContext = mock(HstRequestContext.class);
-        String lookupPath = SlugLookupPaths.slugLookupPath("who-we-are", "foodcommission", "global", "live");
-        Session session = sessionWithLookupNodeAt(lookupPath, null);
-
-        when(event.getPageActionContext()).thenReturn(context);
-        when(context.getNewSiteMapItemNode()).thenReturn(newSiteMapItemNode);
-        when(newSiteMapItemNode.getName()).thenReturn("who-we-are");
-        when(context.getEditingMount()).thenReturn(mount);
-        when(mount.getContentPath()).thenReturn("/content/documents/foodcommission");
-        when(context.getRequestContext()).thenReturn(requestContext);
-        when(requestContext.getSession()).thenReturn(session);
-
-        // ACT
-        sut.onPageCreateEvent(event);
-
-        // ASSERT
-        ArgumentCaptor<ClientException> captor = ArgumentCaptor.forClass(ClientException.class);
-        verify(event).setException(captor.capture());
-        assertEquals("Slug 'who-we-are' clashes with the slug of an existing page", captor.getValue().getMessage());
+        verify(event).setException(any(ClientException.class));
     }
 
     @Test
@@ -119,7 +89,7 @@ public class NewPageSlugValidationListenerTest {
         Node newSiteMapItemNode = mock(Node.class);
         Mount mount = mock(Mount.class);
         HstRequestContext requestContext = mock(HstRequestContext.class);
-        Session session = sessionWithNoLookupNodes();
+        Session session = sessionWithNoClash();
 
         when(event.getPageActionContext()).thenReturn(context);
         when(context.getNewSiteMapItemNode()).thenReturn(newSiteMapItemNode);
@@ -137,96 +107,56 @@ public class NewPageSlugValidationListenerTest {
     }
 
     @Test
-    public void slugLookupClashReturnsNullWhenNeitherMountHasALookupNode() throws Exception {
+    public void documentWithSlugReturnsNullWhenNoResults() throws Exception {
         // ARRANGE
-        Session session = sessionWithNoLookupNodes();
+        Session session = sessionWithNoClash();
 
         // ACT
-        String actual = sut.slugLookupClash(session, "foodcommission", "new-page");
+        String actual = sut.documentWithSlug(session, "/content/documents/foodcommission", "new-page");
 
         // ASSERT
         assertNull(actual);
     }
 
     @Test
-    public void slugLookupClashReturnsLiveLookupPathWhenItExists() throws Exception {
+    public void documentWithSlugReturnsPathOfClashingDocument() throws Exception {
         // ARRANGE
-        String livePath = SlugLookupPaths.slugLookupPath("who-we-are", "foodcommission", "global", "live");
-        Session session = sessionWithLookupNodeAt(livePath, "/content/documents/foodcommission/browse/who-we-are");
+        Session session = sessionWithClashAt("/content/documents/foodcommission/browse/who-we-are");
 
         // ACT
-        String actual = sut.slugLookupClash(session, "foodcommission", "who-we-are");
-
-        // ASSERT
-        assertEquals(livePath, actual);
-    }
-
-    @Test
-    public void slugLookupClashReturnsPreviewLookupPathWhenOnlyThatExists() throws Exception {
-        // ARRANGE
-        String previewPath = SlugLookupPaths.slugLookupPath("who-we-are", "foodcommission", "global", "preview");
-        Session session = sessionWithLookupNodeAt(previewPath, "/content/documents/foodcommission/browse/who-we-are");
-
-        // ACT
-        String actual = sut.slugLookupClash(session, "foodcommission", "who-we-are");
-
-        // ASSERT
-        assertEquals(previewPath, actual);
-    }
-
-    @Test
-    public void clashingContentPathReturnsPropertyValueWhenPresent() throws Exception {
-        // ARRANGE
-        Session session = mock(Session.class);
-        Node lookupNode = mock(Node.class);
-        Property property = mock(Property.class);
-        when(session.getNode("/lookup/path")).thenReturn(lookupNode);
-        when(lookupNode.hasProperty("sluglookup:path")).thenReturn(true);
-        when(lookupNode.getProperty("sluglookup:path")).thenReturn(property);
-        when(property.getString()).thenReturn("/content/documents/foodcommission/browse/who-we-are");
-
-        // ACT
-        String actual = sut.clashingContentPath(session, "/lookup/path");
+        String actual = sut.documentWithSlug(session, "/content/documents/foodcommission", "who-we-are");
 
         // ASSERT
         assertEquals("/content/documents/foodcommission/browse/who-we-are", actual);
     }
 
-    @Test
-    public void clashingContentPathReturnsNullWhenPropertyMissing() throws Exception {
-        // ARRANGE
-        Session session = mock(Session.class);
-        Node lookupNode = mock(Node.class);
-        when(session.getNode("/lookup/path")).thenReturn(lookupNode);
-        when(lookupNode.hasProperty("sluglookup:path")).thenReturn(false);
-
-        // ACT
-        String actual = sut.clashingContentPath(session, "/lookup/path");
-
-        // ASSERT
-        assertNull(actual);
+    Session sessionWithNoClash() throws Exception {
+        return sessionWithQueryResult(false, null);
     }
 
-    Session sessionWithNoLookupNodes() throws Exception {
-        Session session = mock(Session.class);
-        when(session.nodeExists(any())).thenReturn(false);
-        return session;
+    Session sessionWithClashAt(String path) throws Exception {
+        return sessionWithQueryResult(true, path);
     }
 
-    Session sessionWithLookupNodeAt(String path, String contentPath) throws Exception {
+    Session sessionWithQueryResult(boolean hasResult, String resultPath) throws Exception {
         Session session = mock(Session.class);
-        when(session.nodeExists(any())).thenReturn(false);
-        when(session.nodeExists(eq(path))).thenReturn(true);
+        Workspace workspace = mock(Workspace.class);
+        QueryManager queryManager = mock(QueryManager.class);
+        Query query = mock(Query.class);
+        QueryResult queryResult = mock(QueryResult.class);
+        NodeIterator nodeIterator = mock(NodeIterator.class);
 
-        Node lookupNode = mock(Node.class);
-        when(session.getNode(eq(path))).thenReturn(lookupNode);
-        if (contentPath != null) {
-            Property property = mock(Property.class);
-            when(lookupNode.hasProperty("sluglookup:path")).thenReturn(true);
-            when(lookupNode.getProperty("sluglookup:path")).thenReturn(property);
-            when(property.getString()).thenReturn(contentPath);
-        } else {
-            when(lookupNode.hasProperty("sluglookup:path")).thenReturn(false);
+        when(session.getWorkspace()).thenReturn(workspace);
+        when(workspace.getQueryManager()).thenReturn(queryManager);
+        when(queryManager.createQuery(any(), eq(Query.XPATH))).thenReturn(query);
+        when(query.execute()).thenReturn(queryResult);
+        when(queryResult.getNodes()).thenReturn(nodeIterator);
+        when(nodeIterator.hasNext()).thenReturn(hasResult);
+
+        if (hasResult) {
+            Node resultNode = mock(Node.class);
+            when(resultNode.getPath()).thenReturn(resultPath);
+            when(nodeIterator.nextNode()).thenReturn(resultNode);
         }
 
         return session;
