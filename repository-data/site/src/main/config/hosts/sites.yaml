@@ -16,6 +16,7 @@ sites:
    reverse_slash_dns: scot/gov/disclosure/www
    feedback: true
  - id: foodcommission
+   corporate: true
    reverse_slash_dns: scot/gov/foodcommission/www
  - id: fostercare
    reverse_slash_dns: scot/gov/campaign/fostercare
@@ -39,7 +40,6 @@ sites:
    corporate: true
    reverse_slash_dns: scot/gov/socialwork/www
    feedback: true
-   internal: true
 
 environments:
   - name: lcl
