@@ -1,0 +1,38 @@
+/content/documents/justicesupport/seo:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named']
+  hippo:name: SEO
+  hippostd:foldertype: [new-seo-document, new-seo-folder]
+  /home:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+    /home:
+      jcr:primaryType: publishing:seo
+      jcr:mixinTypes: ['mix:versionable']
+      hippo:availability: [preview]
+      hippostd:retainable: false
+      hippostd:state: unpublished
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-11-11T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2026-11-11T09:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippotranslation:id: 4fead697-a5b6-4f3c-9c9f-d4970ff6ccfe
+      hippotranslation:locale: en_GB
+      publishing:alt: ''
+      publishing:metaDescription: Justice Support
+      publishing:reportingtags: []
+      publishing:seoTitle: Justice Support
+      publishing:summary: Justice Support
+      publishing:title: Justice Support
+      /publishing:image:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []
+      /publishing:cardImage:
+        jcr:primaryType: hippogallerypicker:imagelink
+        hippo:docbase: cafebabe-cafe-babe-cafe-babecafebabe
+        hippo:facets: []
+        hippo:modes: []
+        hippo:values: []

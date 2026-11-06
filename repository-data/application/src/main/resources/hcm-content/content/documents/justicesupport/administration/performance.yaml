@@ -1,0 +1,73 @@
+/content/documents/justicesupport/administration/performance:
+  jcr:primaryType: hippostd:folder
+  jcr:mixinTypes: ['hippo:named', 'mix:versionable']
+  hippo:name: Performance
+  hippostd:foldertype: []
+  /analytics:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: ['hippo:named']
+    hippo:name: Analytics
+    hippostd:foldertype: []
+    /dev:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      /dev:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2026-11-11T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2026-11-11T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2026-11-11T09:00:00Z
+        hippotranslation:id: 811dcf6d-af3a-409c-871a-5f0a5372ffc2
+        hippotranslation:locale: en_GB
+        publishing:auth: ''
+        publishing:containerid: GTM-5S47S9Z
+        publishing:env: '2'
+        publishing:notes: ''
+        publishing:plausibleAnalyticsDomains: [justicesupport.service.gov.scot]
+    /live:
+      jcr:primaryType: hippo:handle
+      jcr:mixinTypes: ['hippo:versionInfo', 'mix:referenceable']
+      /live:
+        jcr:primaryType: publishing:analytics
+        jcr:mixinTypes: ['mix:referenceable']
+        hippo:availability: [live]
+        hippostd:state: published
+        hippostdpubwf:createdBy: admin
+        hippostdpubwf:creationDate: 2026-11-11T09:00:00Z
+        hippostdpubwf:lastModificationDate: 2026-11-11T09:00:00Z
+        hippostdpubwf:lastModifiedBy: admin
+        hippostdpubwf:publicationDate: 2026-11-11T09:00:00Z
+        hippotranslation:id: d98988b5-ca39-415e-a748-c1195fb10375
+        hippotranslation:locale: en_GB
+        publishing:auth: ''
+        publishing:containerid: GTM-5S47S9Z
+        publishing:env: ''
+        publishing:notes: For live we do not include the env or auth in the url.
+        publishing:plausibleAnalyticsDomains: [justicesupport.service.gov.scot]
+  /robots:
+    jcr:primaryType: hippo:handle
+    jcr:mixinTypes: ['mix:referenceable']
+    /robots:
+      jcr:primaryType: robotstxt:robotstxt
+      jcr:mixinTypes: ['mix:referenceable', 'mix:versionable']
+      hippo:availability: [live]
+      hippostd:state: published
+      hippostdpubwf:createdBy: admin
+      hippostdpubwf:creationDate: 2026-11-11T09:00:00Z
+      hippostdpubwf:lastModificationDate: 2026-11-11T09:00:00Z
+      hippostdpubwf:lastModifiedBy: admin
+      hippostdpubwf:publicationDate: 2026-11-11T09:00:00Z
+      robotstxt:sitemap: ['https://justicesupport.service.gov.scot/sitemap.xml']
+      /robotstxt:section:
+        jcr:primaryType: robotstxt:section
+        robotstxt:disallow: []
+        robotstxt:useragent: '*'
+  /siteverification:
+    jcr:primaryType: hippostd:folder
+    jcr:mixinTypes: [ 'hippo:named', 'mix:versionable' ]
+    hippo:name: Site verification
+    hippostd:foldertype: [ new-siteverification-document ]
