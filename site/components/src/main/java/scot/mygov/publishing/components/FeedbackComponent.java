@@ -43,6 +43,7 @@ public class FeedbackComponent extends CommonComponent {
         if (baseBean.isSelf(bean)) {
             bean = baseBean.getBean("seo/home");
         }
+        request.setAttribute("document", bean);
         request.setAttribute("isSEODocument", isSEODocument(bean));
         return bean.getSingleProperty("publishing:showFeedback", false);
     }
