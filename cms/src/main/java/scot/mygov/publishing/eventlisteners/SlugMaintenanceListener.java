@@ -25,6 +25,8 @@ public class SlugMaintenanceListener {
 
     static final String SLUG = "publishing:slug";
 
+    private static final String AVAILABILITY = "hippo:availability";
+
     private static final String TYPE_GLOBAL = "global";
 
     private static final String PREVIEW = "preview";
@@ -116,11 +118,18 @@ public class SlugMaintenanceListener {
                 break;
 
             case "publish" :
-                updateLookup(subject, LIVE);
+                // publish(Date) fires a "publish" event when the publication is scheduled, not when it happens
+                if (isLive(subject)) {
+                    updateLookup(subject, LIVE);
+                }
                 break;
 
             case "depublish":
-                removeLookup(subject, LIVE);
+                // depublish(Date) fires a "depublish" event when the depublication is scheduled, while the
+                // document is still live. Only remove the lookup once the document has actually been taken offline.
+                if (!isLive(subject)) {
+                    removeLookup(subject, LIVE);
+                }
                 break;
 
             case "move":
@@ -240,6 +249,26 @@ public class SlugMaintenanceListener {
 
     String getSitenameFromSubjectPath(String path) {
         return path.split("/")[3];
+    }
+
+    boolean isLive(Node subject) throws RepositoryException {
+        NodeIterator variants = subject.getNodes(subject.getName());
+        while (variants.hasNext()) {
+            Node variant = variants.nextNode();
+            if (variant.hasProperty(AVAILABILITY) && hasValue(variant.getProperty(AVAILABILITY).getValues(), LIVE)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean hasValue(Value[] values, String value) throws RepositoryException {
+        for (Value v : values) {
+            if (value.equals(v.getString())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     boolean requiresSlug(Node subject) throws RepositoryException {
