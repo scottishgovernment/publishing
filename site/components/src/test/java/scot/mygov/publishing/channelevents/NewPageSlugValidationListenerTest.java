@@ -7,16 +7,17 @@ import org.hippoecm.hst.pagecomposer.jaxrs.api.PageCreateEvent;
 import org.hippoecm.hst.pagecomposer.jaxrs.services.exceptions.ClientException;
 import org.junit.Test;
 
+import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Session;
 import javax.jcr.Workspace;
 import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
-import javax.jcr.Node;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
@@ -116,6 +117,51 @@ public class NewPageSlugValidationListenerTest {
 
         // ASSERT
         assertNull(actual);
+    }
+
+    @Test
+    public void documentWithSlugQueriesForSlugUnderContentPath() throws Exception {
+        // ARRANGE
+        Session session = sessionWithNoClash();
+
+        // ACT
+        sut.documentWithSlug(session, "/content/documents/foodcommission", "new-page");
+
+        // ASSERT
+        verify(session.getWorkspace().getQueryManager()).createQuery(
+                "/jcr:root/content/documents/foodcommission//element(*, publishing:base)[@publishing:slug = 'new-page']",
+                Query.XPATH);
+    }
+
+    @Test
+    public void documentWithSlugDoesNotQueryForInvalidSlug() throws Exception {
+        // ARRANGE - a slug that would change the query if it went into the query string
+        Session session = sessionWithNoClash();
+
+        // ACT
+        String actual = sut.documentWithSlug(session, "/content/documents/foodcommission",
+                "x' or @jcr:primaryType = 'nt:base");
+
+        // ASSERT
+        assertNull(actual);
+        verify(session.getWorkspace().getQueryManager(), never()).createQuery(any(), any());
+    }
+
+    @Test
+    public void documentWithSlugRejectsUnexpectedContentPath() throws Exception {
+        // ARRANGE - a content path that would change the query if it went into the query string
+        Session session = sessionWithNoClash();
+
+        // ACT
+        try {
+            sut.documentWithSlug(session, "/content/documents/x]) OR ISDESCENDANTNODE(doc, [/content", "new-page");
+        } catch (IllegalArgumentException e) {
+            // ASSERT
+            assertTrue(e.getMessage().startsWith("Unexpected content path"));
+            verify(session.getWorkspace().getQueryManager(), never()).createQuery(any(), any());
+            return;
+        }
+        throw new AssertionError("expected IllegalArgumentException");
     }
 
     @Test

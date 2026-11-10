@@ -15,6 +15,7 @@ import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import javax.jcr.query.Query;
+import java.util.regex.Pattern;
 
 /**
  * Listens for new Experience Pages being created in Channel Manager and rejects the action if the page's
@@ -26,6 +27,10 @@ import javax.jcr.query.Query;
 public class NewPageSlugValidationListener {
 
     private static final Logger LOG = LoggerFactory.getLogger(NewPageSlugValidationListener.class);
+
+    private static final Pattern SAFE_CONTENT_PATH = Pattern.compile("/content/documents/[a-zA-Z0-9_-]+");
+
+    private static final Pattern SAFE_SLUG = Pattern.compile("[a-z0-9-]+");
 
     @Subscribe
     public void onPageCreateEvent(PageCreateEvent event) {
@@ -59,9 +64,26 @@ public class NewPageSlugValidationListener {
         }
     }
 
+    /**
+     * Find a document under the content path whose slug is the same as the new page's.
+     *
+     * Hippo does not support bind variables (getQOMFactory throws, and a $name in a query string is replaced by
+     * plain text substitution), so the query has to be a string. To keep that safe, both values are checked
+     * against strict patterns before they go into it: a slug can only contain lower case letters, numbers and
+     * hyphens (the same rule SlugValidator applies to publishing:slug, so a name outside it cannot clash with any
+     * document), and the content path has to be a site folder under /content/documents.
+     */
     String documentWithSlug(Session session, String contentPath, String slug) throws RepositoryException {
+        if (!SAFE_CONTENT_PATH.matcher(contentPath).matches()) {
+            throw new IllegalArgumentException("Unexpected content path: " + contentPath);
+        }
+
+        if (!SAFE_SLUG.matcher(slug).matches()) {
+            return null;
+        }
+
         String xpath = String.format(
-                "/jcr:root%s//element(*, publishing:base)[publishing:slug = '%s']", contentPath, slug);
+                "/jcr:root%s//element(*, publishing:base)[@publishing:slug = '%s']", contentPath, slug);
         NodeIterator nodes = session.getWorkspace().getQueryManager()
                 .createQuery(xpath, Query.XPATH)
                 .execute()
