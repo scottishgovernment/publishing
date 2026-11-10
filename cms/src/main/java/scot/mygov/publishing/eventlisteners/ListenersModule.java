@@ -62,6 +62,7 @@ public class ListenersModule implements DaemonModule {
         HippoEventListenerRegistry.get().unregister(guidePageLifeEventsListener);
         HippoEventListenerRegistry.get().unregister(contentBlocksOldVersionListener);
         HippoEventListenerRegistry.get().unregister(publicationTypeEventListener);
+        HippoEventListenerRegistry.get().unregister(serviceFinderOrderListener);
         HippoEventListenerRegistry.get().unregister(hasFoldersImprovementListener);
     }
 }
