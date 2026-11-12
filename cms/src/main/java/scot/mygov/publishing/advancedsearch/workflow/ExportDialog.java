@@ -18,6 +18,7 @@ import org.hippoecm.frontend.dialog.Dialog;
 import org.hippoecm.frontend.dialog.DialogConstants;
 import org.hippoecm.frontend.plugins.standards.datetime.DateTimePrinter;
 import org.hippoecm.frontend.session.UserSession;
+import org.hippoecm.hst.configuration.hosting.VirtualHost;
 import org.hippoecm.hst.container.RequestContextProvider;
 import org.hippoecm.hst.core.linking.HstLinkCreator;
 import org.hippoecm.hst.core.request.HstRequestContext;
@@ -25,7 +26,6 @@ import org.hippoecm.hst.platform.model.HstModel;
 import org.hippoecm.hst.platform.model.HstModelRegistry;
 import org.hippoecm.repository.HippoStdNodeType;
 import org.hippoecm.repository.api.WorkflowDescriptor;
-import org.onehippo.cms7.channelmanager.HstUtil;
 import org.onehippo.cms7.services.HippoServiceRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -401,7 +401,9 @@ public class ExportDialog extends Dialog<WorkflowDescriptor> {
         HstModelRegistry hstModelRegistry = HippoServiceRegistry.getService(HstModelRegistry.class);
         final HstModel siteModel = hstModelRegistry.getHstModel("/site");
         final HstLinkCreator hstLinkCreator = siteModel.getHstLinkCreator();
-        return siteModel.getVirtualHosts().getMountsByHostGroup(HstUtil.getHostGroup())
+        VirtualHost host = hstRequestContext.getVirtualHost();
+        String hostGroupName = host.getHostGroupName();
+        return siteModel.getVirtualHosts().getMountsByHostGroup(hostGroupName)
                 .stream()
                 .filter(mount -> {
                     try {

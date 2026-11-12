@@ -262,7 +262,18 @@ public class ImageMigrationResource {
         if (strategy == null) {
             strategy = SCALING_STRATEGY_MAP.get(DEFAULT_OPTIMIZE);
         }
-        return new ScalingParameters(width, height, upscaling, cropping, strategy, (float) compression);
+
+        ScalingParameters.Builder builder = new ScalingParameters.Builder(width, height)
+                .strategy(strategy)
+                .lossyCompressionQuality((float) compression);
+
+        if (upscaling) {
+            builder.upscaling();
+        }
+        if (cropping) {
+            builder.cropping();
+        }
+        return builder.build();
     }
 
     Session session(String authHeader) throws RepositoryException {
