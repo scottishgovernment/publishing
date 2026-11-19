@@ -224,7 +224,7 @@ public class SlugMaintenanceListener {
         hippoUtils.executeXpathQuery(session, xpath, node -> {
             String oldPath = node.getProperty("sluglookup:path").getString();
             String newPath = oldPath.replace(fromPath, toPath);
-            LOG.error("setting {} -> {}", oldPath, newPath);
+            LOG.info("setting {} -> {}", oldPath, newPath);
             node.setProperty("sluglookup:path", newPath);
         });
     }
