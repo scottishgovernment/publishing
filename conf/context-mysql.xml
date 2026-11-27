@@ -8,12 +8,6 @@
     <Parameter name="repository-directory" value="/data/storage" override="false"/>
     -->
 
-    <!-- Start the repository as a remote server and bind it on the specified address -->
-    <!--
-    <Parameter name="start-remote-server" value="true" override="false"/>
-    <Parameter name="repository-address" value="rmi://127.0.0.1:1099/hipporepository" override="false"/>
-    -->
-
     <!-- Enable this to let wicket output a wicketpath attribute for elements,
          see: https://xmdocumentation.bloomreach.com/library/development/create-a-selenium-test-case.html -->
     <!--
